@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T06:50:55.085491+00:00",
+  "generated_at": "2026-11-20T08:02:26.755781+00:00",
   "categories": [
     {
       "id": "interface",
@@ -44,7 +44,7 @@
         "url": "https://github.com/LIghtJUNction/zgpui",
         "default_branch": "main",
         "visibility": "public",
-        "verified_at": "2026-11-20T06:42:24.377194+00:00",
+        "verified_at": "2026-11-20T07:58:16.695119+00:00",
         "source": "https://api.github.com/repos/LIghtJUNction/zgpui"
       },
       "documentation": {
@@ -53,23 +53,23 @@
         "sha256": "3ba0b54fc04361a4ba1916e09ed8574151c6bd0bf579e4bd31456b1e2087038d"
       },
       "source_version": {
-        "version": "0.1.1",
+        "version": "0.1.2",
         "source": "https://raw.githubusercontent.com/LIghtJUNction/zgpui/main/Cargo.toml"
       },
       "crate": {
         "name": "zgpui",
-        "version": "0.1.1",
-        "url": "https://crates.io/crates/zgpui/0.1.1",
-        "source": "https://crates.io/api/v1/crates/zgpui/0.1.1",
-        "checksum": "75d0c780f8139a6d8db1b7c9d0de64c51c55b2feb4a6973f743380799df7fcea",
+        "version": "0.1.2",
+        "url": "https://crates.io/crates/zgpui/0.1.2",
+        "source": "https://crates.io/api/v1/crates/zgpui/0.1.2",
+        "checksum": "0c5cddf5d0ed86ccb9cf21e035585146cf5aff0e316301bc037684b3c51b1046",
         "repository": "https://github.com/LIghtJUNction/zgpui",
-        "verified_at": "2026-11-20T06:42:24.377194+00:00"
+        "verified_at": "2026-11-20T07:58:16.695119+00:00"
       },
       "crate_lookup": {
         "name": "zgpui",
         "source": "https://crates.io/api/v1/crates/zgpui",
         "status": "published",
-        "checked_at": "2026-11-20T06:42:24.377194+00:00"
+        "checked_at": "2026-11-20T07:58:16.695119+00:00"
       }
     },
     {
@@ -120,7 +120,7 @@
         "url": "https://github.com/LIghtJUNction/zrc",
         "default_branch": "main",
         "visibility": "public",
-        "verified_at": "2026-11-20T06:42:34.519431+00:00",
+        "verified_at": "2026-11-20T07:58:16.394139+00:00",
         "source": "https://api.github.com/repos/LIghtJUNction/zrc"
       },
       "documentation": {
@@ -139,13 +139,13 @@
         "source": "https://crates.io/api/v1/crates/zrc/0.1.2",
         "checksum": "dfadf16f7aa320d718f1f00a48f110de1a5bfa9d7b9abd939b7cb612d8483abb",
         "repository": "https://github.com/LIghtJUNction/zrc",
-        "verified_at": "2026-11-20T06:42:34.519431+00:00"
+        "verified_at": "2026-11-20T07:58:16.394139+00:00"
       },
       "crate_lookup": {
         "name": "zrc",
         "source": "https://crates.io/api/v1/crates/zrc",
         "status": "published",
-        "checked_at": "2026-11-20T06:42:34.519431+00:00"
+        "checked_at": "2026-11-20T07:58:16.394139+00:00"
       }
     },
     {
@@ -158,7 +158,7 @@
         "url": "https://github.com/LIghtJUNction/zterm",
         "default_branch": "main",
         "visibility": "public",
-        "verified_at": "2026-11-20T06:42:37.983323+00:00",
+        "verified_at": "2026-11-20T07:58:16.300470+00:00",
         "source": "https://api.github.com/repos/LIghtJUNction/zterm"
       },
       "documentation": {
@@ -167,23 +167,23 @@
         "sha256": "d0b705929671d807d7867b3755049a6420cf2199d6140033fc88aab56191eb45"
       },
       "source_version": {
-        "version": "0.5.1",
+        "version": "0.5.2",
         "source": "https://raw.githubusercontent.com/LIghtJUNction/zterm/main/Cargo.toml"
       },
       "crate": {
         "name": "zterm",
-        "version": "0.5.1",
-        "url": "https://crates.io/crates/zterm/0.5.1",
-        "source": "https://crates.io/api/v1/crates/zterm/0.5.1",
-        "checksum": "fc48bcaf9892a77d17ab235316448c3e235b0dccd00e5963b542586585c26c91",
+        "version": "0.5.2",
+        "url": "https://crates.io/crates/zterm/0.5.2",
+        "source": "https://crates.io/api/v1/crates/zterm/0.5.2",
+        "checksum": "50845a461c4a11de2eceee265183e3e9e2a0d2ad8063266d234d22a25551e4bb",
         "repository": "https://github.com/LIghtJUNction/zterm",
-        "verified_at": "2026-11-20T06:42:37.983323+00:00"
+        "verified_at": "2026-11-20T07:58:16.300470+00:00"
       },
       "crate_lookup": {
         "name": "zterm",
         "source": "https://crates.io/api/v1/crates/zterm",
         "status": "published",
-        "checked_at": "2026-11-20T06:42:37.983323+00:00"
+        "checked_at": "2026-11-20T07:58:16.300470+00:00"
       }
     },
     {
@@ -728,7 +728,7 @@
         "url": "https://github.com/LIghtJUNction/zpty",
         "default_branch": "main",
         "visibility": "public",
-        "verified_at": "2026-11-20T06:42:33.421778+00:00",
+        "verified_at": "2026-11-20T07:58:16.655155+00:00",
         "source": "https://api.github.com/repos/LIghtJUNction/zpty"
       },
       "documentation": {
@@ -737,23 +737,23 @@
         "sha256": "70c204398a406cba700d69e8e17da8f0e691bc04eeb4d9bc8077ff85072beaa3"
       },
       "source_version": {
-        "version": "0.2.2",
+        "version": "0.2.3",
         "source": "https://raw.githubusercontent.com/LIghtJUNction/zpty/main/Cargo.toml"
       },
       "crate": {
         "name": "zpty",
-        "version": "0.2.2",
-        "url": "https://crates.io/crates/zpty/0.2.2",
-        "source": "https://crates.io/api/v1/crates/zpty/0.2.2",
-        "checksum": "1d46215c9aaad115aa3637217dcd3d7752d4f511f05ca29729c83ae58c0dd955",
+        "version": "0.2.3",
+        "url": "https://crates.io/crates/zpty/0.2.3",
+        "source": "https://crates.io/api/v1/crates/zpty/0.2.3",
+        "checksum": "a08f84625627fc124c4971e728d370a06b6c03fd1098c623a124aad80472aa17",
         "repository": "https://github.com/LIghtJUNction/zpty",
-        "verified_at": "2026-11-20T06:42:33.421778+00:00"
+        "verified_at": "2026-11-20T07:58:16.655155+00:00"
       },
       "crate_lookup": {
         "name": "zpty",
         "source": "https://crates.io/api/v1/crates/zpty",
         "status": "published",
-        "checked_at": "2026-11-20T06:42:33.421778+00:00"
+        "checked_at": "2026-11-20T07:58:16.655155+00:00"
       }
     },
     {
@@ -1089,24 +1089,32 @@
         "url": "https://github.com/LIghtJUNction/zfetch",
         "default_branch": "main",
         "visibility": "public",
-        "verified_at": "2026-11-20T06:42:24.201569+00:00",
+        "verified_at": "2026-11-20T07:58:18.811465+00:00",
         "source": "https://api.github.com/repos/LIghtJUNction/zfetch"
       },
       "documentation": {
         "url": "https://github.com/LIghtJUNction/zfetch/blob/main/README.md",
         "source": "https://raw.githubusercontent.com/LIghtJUNction/zfetch/main/README.md",
-        "sha256": "551192922744038257cdc6182eaa1be1a7167cd2cddd15563d2aee138d6aa5b0"
+        "sha256": "529f9925a030b70fcc2a0012acc8ef51b9d2e99f03156471c3276dd22572ef29"
       },
       "source_version": {
-        "version": "0.1.0",
+        "version": "0.1.1",
         "source": "https://raw.githubusercontent.com/LIghtJUNction/zfetch/main/Cargo.toml"
       },
-      "crate": null,
+      "crate": {
+        "name": "zfetch",
+        "version": "0.1.1",
+        "url": "https://crates.io/crates/zfetch/0.1.1",
+        "source": "https://crates.io/api/v1/crates/zfetch/0.1.1",
+        "checksum": "80c5c50101f8e3f08c7ed15005c26b005839863f2a45670ccb92e245534e8d2c",
+        "repository": "https://github.com/LIghtJUNction/zfetch",
+        "verified_at": "2026-11-20T07:58:18.811465+00:00"
+      },
       "crate_lookup": {
         "name": "zfetch",
         "source": "https://crates.io/api/v1/crates/zfetch",
-        "status": "not_found",
-        "checked_at": "2026-11-20T06:42:24.201569+00:00"
+        "status": "published",
+        "checked_at": "2026-11-20T07:58:18.811465+00:00"
       }
     },
     {
@@ -1176,7 +1184,7 @@
         "url": "https://github.com/LIghtJUNction/oh-my-ztty",
         "default_branch": "main",
         "visibility": "public",
-        "verified_at": "2026-11-20T06:42:16.896164+00:00",
+        "verified_at": "2026-11-20T08:02:26.753040+00:00",
         "source": "https://api.github.com/repos/LIghtJUNction/oh-my-ztty"
       },
       "documentation": {
@@ -1185,7 +1193,7 @@
         "sha256": "4784d5595f8eb0c9c87aa779203a6a86a04c8278871bf1a56356f18d05049e06"
       },
       "source_version": {
-        "version": "0.2.3",
+        "version": "0.2.4",
         "source": "https://raw.githubusercontent.com/LIghtJUNction/oh-my-ztty/main/VERSION"
       },
       "crate": null,
@@ -1193,7 +1201,7 @@
         "name": "oh-my-ztty",
         "source": "https://crates.io/api/v1/crates/oh-my-ztty",
         "status": "not_found",
-        "checked_at": "2026-11-20T06:42:16.896164+00:00"
+        "checked_at": "2026-11-20T08:02:26.753040+00:00"
       }
     },
     {
