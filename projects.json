@@ -1,0 +1,1350 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-20T06:50:55.085491+00:00",
+  "categories": [
+    {
+      "id": "interface",
+      "label": "终端与界面",
+      "english": "TERMINAL & UI"
+    },
+    {
+      "id": "protocol",
+      "label": "协议与调用",
+      "english": "PROTOCOLS"
+    },
+    {
+      "id": "data",
+      "label": "编码与数据",
+      "english": "DATA"
+    },
+    {
+      "id": "system",
+      "label": "系统与扩展",
+      "english": "SYSTEMS"
+    },
+    {
+      "id": "tools",
+      "label": "命令与配置",
+      "english": "TOOLS"
+    },
+    {
+      "id": "applications",
+      "label": "应用与集成",
+      "english": "APPLICATIONS"
+    }
+  ],
+  "projects": [
+    {
+      "id": "zgpui",
+      "summary": "场景与布局核心，可选原生 GPU 与 CPU 窗口后端。",
+      "category": "interface",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zgpui",
+        "url": "https://github.com/LIghtJUNction/zgpui",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:24.377194+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zgpui"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zgpui/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zgpui/main/README.md",
+        "sha256": "3ba0b54fc04361a4ba1916e09ed8574151c6bd0bf579e4bd31456b1e2087038d"
+      },
+      "source_version": {
+        "version": "0.1.1",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zgpui/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zgpui",
+        "version": "0.1.1",
+        "url": "https://crates.io/crates/zgpui/0.1.1",
+        "source": "https://crates.io/api/v1/crates/zgpui/0.1.1",
+        "checksum": "75d0c780f8139a6d8db1b7c9d0de64c51c55b2feb4a6973f743380799df7fcea",
+        "repository": "https://github.com/LIghtJUNction/zgpui",
+        "verified_at": "2026-11-20T06:42:24.377194+00:00"
+      },
+      "crate_lookup": {
+        "name": "zgpui",
+        "source": "https://crates.io/api/v1/crates/zgpui",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:24.377194+00:00"
+      }
+    },
+    {
+      "id": "zconv",
+      "summary": "转换模型请求、响应与流式事件，让宿主连接不同协议。",
+      "category": "protocol",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zconv",
+        "url": "https://github.com/LIghtJUNction/zconv",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:20.994235+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zconv"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zconv/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zconv/main/README.md",
+        "sha256": "abc970e77e516ae1229f6f7d16f7bad449572112a8e104a6eaed03a39c350e3c"
+      },
+      "source_version": {
+        "version": "0.4.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zconv/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zconv",
+        "version": "0.4.0",
+        "url": "https://crates.io/crates/zconv/0.4.0",
+        "source": "https://crates.io/api/v1/crates/zconv/0.4.0",
+        "checksum": "fb4c2c557b09be10a449b44d4034059837ab1980e8f89b830aedefcc9d0bbc15",
+        "repository": "https://github.com/LIghtJUNction/zconv",
+        "verified_at": "2026-11-20T06:42:20.994235+00:00"
+      },
+      "crate_lookup": {
+        "name": "zconv",
+        "source": "https://crates.io/api/v1/crates/zconv",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:20.994235+00:00"
+      }
+    },
+    {
+      "id": "zrc",
+      "summary": "将十个原生应用配置模块组合为可由 zdot 部署的目录。",
+      "category": "tools",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/zrc",
+        "url": "https://github.com/LIghtJUNction/zrc",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:34.519431+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zrc"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zrc/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zrc/main/README.md",
+        "sha256": "b50297ad3faf9845559d709884dfa291cad2dc8d2bcfdce74c3be86be6030fbe"
+      },
+      "source_version": {
+        "version": "0.1.2",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zrc/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zrc",
+        "version": "0.1.2",
+        "url": "https://crates.io/crates/zrc/0.1.2",
+        "source": "https://crates.io/api/v1/crates/zrc/0.1.2",
+        "checksum": "dfadf16f7aa320d718f1f00a48f110de1a5bfa9d7b9abd939b7cb612d8483abb",
+        "repository": "https://github.com/LIghtJUNction/zrc",
+        "verified_at": "2026-11-20T06:42:34.519431+00:00"
+      },
+      "crate_lookup": {
+        "name": "zrc",
+        "source": "https://crates.io/api/v1/crates/zrc",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:34.519431+00:00"
+      }
+    },
+    {
+      "id": "zterm",
+      "summary": "维护终端屏幕、光标、滚动历史与 VT 协议状态。",
+      "category": "interface",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zterm",
+        "url": "https://github.com/LIghtJUNction/zterm",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:37.983323+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zterm"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zterm/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zterm/main/README.md",
+        "sha256": "d0b705929671d807d7867b3755049a6420cf2199d6140033fc88aab56191eb45"
+      },
+      "source_version": {
+        "version": "0.5.1",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zterm/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zterm",
+        "version": "0.5.1",
+        "url": "https://crates.io/crates/zterm/0.5.1",
+        "source": "https://crates.io/api/v1/crates/zterm/0.5.1",
+        "checksum": "fc48bcaf9892a77d17ab235316448c3e235b0dccd00e5963b542586585c26c91",
+        "repository": "https://github.com/LIghtJUNction/zterm",
+        "verified_at": "2026-11-20T06:42:37.983323+00:00"
+      },
+      "crate_lookup": {
+        "name": "zterm",
+        "source": "https://crates.io/api/v1/crates/zterm",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:37.983323+00:00"
+      }
+    },
+    {
+      "id": "zsys",
+      "summary": "复用系统信息、平台能力与共享的原生接口。",
+      "category": "system",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zsys",
+        "url": "https://github.com/LIghtJUNction/zsys",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:37.886678+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zsys"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zsys/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zsys/main/README.md",
+        "sha256": "be1271066758312a3ccfc9526195dafcb5aa05338927047a57448c4b8e21afe6"
+      },
+      "source_version": {
+        "version": "0.1.1",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zsys/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zsys",
+        "version": "0.1.1",
+        "url": "https://crates.io/crates/zsys/0.1.1",
+        "source": "https://crates.io/api/v1/crates/zsys/0.1.1",
+        "checksum": "929d282f08df7fbe2456414924e126a29dfde04e93eb2515721b596404610548",
+        "repository": "https://github.com/LIghtJUNction/zsys",
+        "verified_at": "2026-11-20T06:42:37.886678+00:00"
+      },
+      "crate_lookup": {
+        "name": "zsys",
+        "source": "https://crates.io/api/v1/crates/zsys",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:37.886678+00:00"
+      }
+    },
+    {
+      "id": "zuse",
+      "summary": "原生桌面控制、MCP 服务与人工接管的工具和库。",
+      "category": "applications",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/zuse",
+        "url": "https://github.com/LIghtJUNction/zuse",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:42.237537+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zuse"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zuse/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zuse/main/README.md",
+        "sha256": "2110d8eb78ea5ac97c79075541b6174ea16aac4f5658605a0241892a6e814a5f"
+      },
+      "source_version": {
+        "version": "0.2.2",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zuse/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zuse-computer",
+        "version": "0.2.2",
+        "url": "https://crates.io/crates/zuse-computer/0.2.2",
+        "source": "https://crates.io/api/v1/crates/zuse-computer/0.2.2",
+        "checksum": "16d3bf8c73bf64721672bf0483899b796967c8d3b53fa0ea934b3e705d6e2fde",
+        "repository": "https://github.com/LIghtJUNction/zuse",
+        "verified_at": "2026-11-20T06:42:42.237537+00:00"
+      },
+      "crate_lookup": {
+        "name": "zuse-computer",
+        "source": "https://crates.io/api/v1/crates/zuse-computer",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:42.237537+00:00"
+      }
+    },
+    {
+      "id": "z58",
+      "summary": "Base58 编码与解码，使用调用方提供的缓冲区。",
+      "category": "data",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/z58",
+        "url": "https://github.com/LIghtJUNction/z58",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:44:44.967546+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/z58"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/z58/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/z58/main/README.md",
+        "sha256": "ea053c79ac8f8bcc70def1d3aedff707549b13383081f96c2ee805565e6e12d5"
+      },
+      "source_version": {
+        "version": "0.1.6",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/z58/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "z58",
+        "version": "0.1.6",
+        "url": "https://crates.io/crates/z58/0.1.6",
+        "source": "https://crates.io/api/v1/crates/z58/0.1.6",
+        "checksum": "01748b594253e6f327c774f93a76dc251a0d599722a6f0889737c0b9fc544e53",
+        "repository": "https://github.com/LIghtJUNction/z58",
+        "verified_at": "2026-11-20T06:44:44.967546+00:00"
+      },
+      "crate_lookup": {
+        "name": "z58",
+        "source": "https://crates.io/api/v1/crates/z58",
+        "status": "published",
+        "checked_at": "2026-11-20T06:44:44.967546+00:00"
+      }
+    },
+    {
+      "id": "z64",
+      "summary": "处理 Base64 与 Base64URL 的编码、解码与校验。",
+      "category": "data",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/z64",
+        "url": "https://github.com/LIghtJUNction/z64",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:17.277954+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/z64"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/z64/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/z64/main/README.md",
+        "sha256": "f40975ba84318e8416fe61b3290cd9cb35142cf770c9041040e60fb6ef4330e1"
+      },
+      "source_version": {
+        "version": "0.1.2",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/z64/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "z64",
+        "version": "0.1.2",
+        "url": "https://crates.io/crates/z64/0.1.2",
+        "source": "https://crates.io/api/v1/crates/z64/0.1.2",
+        "checksum": "0ccc3887095be912cf1f99f655f49a5c9be993fa8873f4478c1784e4f7f15193",
+        "repository": "https://github.com/LIghtJUNction/z64",
+        "verified_at": "2026-11-20T06:42:17.277954+00:00"
+      },
+      "crate_lookup": {
+        "name": "z64",
+        "source": "https://crates.io/api/v1/crates/z64",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:17.277954+00:00"
+      }
+    },
+    {
+      "id": "zhex",
+      "summary": "在字节数据与十六进制文本之间转换。",
+      "category": "data",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zhex",
+        "url": "https://github.com/LIghtJUNction/zhex",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:27.488060+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zhex"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zhex/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zhex/main/README.md",
+        "sha256": "f04126b81277180d3d66b2433f72c9c2a8046f5b12cde92b4fba42b80f40e3f0"
+      },
+      "source_version": {
+        "version": "0.1.3",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zhex/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zhex",
+        "version": "0.1.3",
+        "url": "https://crates.io/crates/zhex/0.1.3",
+        "source": "https://crates.io/api/v1/crates/zhex/0.1.3",
+        "checksum": "d14ad9f2b67116dddbb199885e512dba8ad5e6c4d1da75b3a9f333811adb99ee",
+        "repository": "https://github.com/LIghtJUNction/zhex",
+        "verified_at": "2026-11-20T06:42:27.488060+00:00"
+      },
+      "crate_lookup": {
+        "name": "zhex",
+        "source": "https://crates.io/api/v1/crates/zhex",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:27.488060+00:00"
+      }
+    },
+    {
+      "id": "zmime",
+      "summary": "解析 MIME 消息、头部与正文，并按需解码内容。",
+      "category": "data",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zmime",
+        "url": "https://github.com/LIghtJUNction/zmime",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:31.728498+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zmime"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zmime/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zmime/main/README.md",
+        "sha256": "c194e7103b097256957b34524a8d1554da3c8e7f84c315b773f2c546b7c6b240"
+      },
+      "source_version": {
+        "version": "0.1.2",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zmime/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zmime",
+        "version": "0.1.2",
+        "url": "https://crates.io/crates/zmime/0.1.2",
+        "source": "https://crates.io/api/v1/crates/zmime/0.1.2",
+        "checksum": "943c1d190c83eca7c11b28b02090a9903f6c6121779a554bed555c5c2bacf023",
+        "repository": "https://github.com/LIghtJUNction/zmime",
+        "verified_at": "2026-11-20T06:42:31.728498+00:00"
+      },
+      "crate_lookup": {
+        "name": "zmime",
+        "source": "https://crates.io/api/v1/crates/zmime",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:31.728498+00:00"
+      }
+    },
+    {
+      "id": "zscan",
+      "summary": "面向字节与子串的搜索原语。",
+      "category": "data",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zscan",
+        "url": "https://github.com/LIghtJUNction/zscan",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:35.117826+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zscan"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zscan/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zscan/main/README.md",
+        "sha256": "a48c29c58c4381817732cd21281abe370ee305cd7e74d8612f30620b3fe3121c"
+      },
+      "source_version": {
+        "version": "0.1.3",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zscan/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zscan",
+        "version": "0.1.3",
+        "url": "https://crates.io/crates/zscan/0.1.3",
+        "source": "https://crates.io/api/v1/crates/zscan/0.1.3",
+        "checksum": "ee10279e20033c4cd9b8d08d96da1af395e8d57bc0723d2d81919937ab91969c",
+        "repository": "https://github.com/LIghtJUNction/zscan",
+        "verified_at": "2026-11-20T06:42:35.117826+00:00"
+      },
+      "crate_lookup": {
+        "name": "zscan",
+        "source": "https://crates.io/api/v1/crates/zscan",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:35.117826+00:00"
+      }
+    },
+    {
+      "id": "zsyn",
+      "summary": "为 Typst 标记、代码和数学内容构建语法树。",
+      "category": "data",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zsyn",
+        "url": "https://github.com/LIghtJUNction/zsyn",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:36.120049+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zsyn"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zsyn/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zsyn/main/README.md",
+        "sha256": "2bb2870dbc293f2e43c2a661f2d7affa667e6b1727f66f2e9654a5729bca17b0"
+      },
+      "source_version": {
+        "version": "0.1.3",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zsyn/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zsyn",
+        "version": "0.1.3",
+        "url": "https://crates.io/crates/zsyn/0.1.3",
+        "source": "https://crates.io/api/v1/crates/zsyn/0.1.3",
+        "checksum": "50319657415635b5b2d35db95d06856cd56461854ebca72c6e2d2b5d1899420c",
+        "repository": "https://github.com/LIghtJUNction/zsyn",
+        "verified_at": "2026-11-20T06:42:36.120049+00:00"
+      },
+      "crate_lookup": {
+        "name": "zsyn",
+        "source": "https://crates.io/api/v1/crates/zsyn",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:36.120049+00:00"
+      }
+    },
+    {
+      "id": "zcall",
+      "summary": "协议无关的模型调用内核，由宿主提供传输与缓冲区。",
+      "category": "protocol",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zcall",
+        "url": "https://github.com/LIghtJUNction/zcall",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:18.007668+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zcall"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zcall/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcall/main/README.md",
+        "sha256": "5e909c9924ce2cfefe0454be9cc294d897718ef1ac1d95c078623ff0a15b3e13"
+      },
+      "source_version": {
+        "version": "0.3.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcall/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zcall",
+        "version": "0.3.0",
+        "url": "https://crates.io/crates/zcall/0.3.0",
+        "source": "https://crates.io/api/v1/crates/zcall/0.3.0",
+        "checksum": "82a8650e8302ae5e0ebd861e9062809c9d9162d0a839c7e8f9b6e54afbd2d20d",
+        "repository": "https://github.com/LIghtJUNction/zcall",
+        "verified_at": "2026-11-20T06:42:18.007668+00:00"
+      },
+      "crate_lookup": {
+        "name": "zcall",
+        "source": "https://crates.io/api/v1/crates/zcall",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:18.007668+00:00"
+      }
+    },
+    {
+      "id": "zmcpio",
+      "summary": "MCP 客户端与服务端原语，连接工具调用和宿主传输。",
+      "category": "protocol",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zmcpio",
+        "url": "https://github.com/LIghtJUNction/zmcpio",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:32.334986+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zmcpio"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zmcpio/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zmcpio/main/README.md",
+        "sha256": "6551a0a330f7e349dd47aa49a91cf4455a4f3b97c3ae1a0e3249fdc011d695d3"
+      },
+      "source_version": {
+        "version": "0.4.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zmcpio/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zmcpio",
+        "version": "0.4.0",
+        "url": "https://crates.io/crates/zmcpio/0.4.0",
+        "source": "https://crates.io/api/v1/crates/zmcpio/0.4.0",
+        "checksum": "1530747e76256c89865b521c407c520766fc93badae9c8b573e5a4e0c4e820ad",
+        "repository": "https://github.com/LIghtJUNction/zmcpio",
+        "verified_at": "2026-11-20T06:42:32.334986+00:00"
+      },
+      "crate_lookup": {
+        "name": "zmcpio",
+        "source": "https://crates.io/api/v1/crates/zmcpio",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:32.334986+00:00"
+      }
+    },
+    {
+      "id": "zdwire",
+      "summary": "解析与编码 DNS 消息的线格式。",
+      "category": "protocol",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zdwire",
+        "url": "https://github.com/LIghtJUNction/zdwire",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:23.710984+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zdwire"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zdwire/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zdwire/main/README.md",
+        "sha256": "565de90bf1b7c98254dee2d063da0b4f4d3d4a8803b9012861ab9b5cca163316"
+      },
+      "source_version": {
+        "version": "0.1.4",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zdwire/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zdwire",
+        "version": "0.1.4",
+        "url": "https://crates.io/crates/zdwire/0.1.4",
+        "source": "https://crates.io/api/v1/crates/zdwire/0.1.4",
+        "checksum": "6cc0874cbf15db851c11738630b3927ebfe13b9c263ef0911332e99e8d3fccda",
+        "repository": "https://github.com/LIghtJUNction/zdwire",
+        "verified_at": "2026-11-20T06:42:23.710984+00:00"
+      },
+      "crate_lookup": {
+        "name": "zdwire",
+        "source": "https://crates.io/api/v1/crates/zdwire",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:23.710984+00:00"
+      }
+    },
+    {
+      "id": "zldap",
+      "summary": "处理 LDAP 与 BER 消息的有界解析和编解码。",
+      "category": "protocol",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zldap",
+        "url": "https://github.com/LIghtJUNction/zldap",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:29.635998+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zldap"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zldap/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zldap/main/README.md",
+        "sha256": "39549c37e8c164bfa6528152e1520c39376a6d6abed43146543e89d2102376fb"
+      },
+      "source_version": {
+        "version": "0.1.3",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zldap/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zldap",
+        "version": "0.1.3",
+        "url": "https://crates.io/crates/zldap/0.1.3",
+        "source": "https://crates.io/api/v1/crates/zldap/0.1.3",
+        "checksum": "184f089f0d2dadc04dfc1d4d30eeee8a5885be29a672dc1c1dd8301477658eca",
+        "repository": "https://github.com/LIghtJUNction/zldap",
+        "verified_at": "2026-11-20T06:42:29.635998+00:00"
+      },
+      "crate_lookup": {
+        "name": "zldap",
+        "source": "https://crates.io/api/v1/crates/zldap",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:29.635998+00:00"
+      }
+    },
+    {
+      "id": "zharness",
+      "summary": "复用上下文、工具循环、hook 与协作执行原语。",
+      "category": "system",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zharness",
+        "url": "https://github.com/LIghtJUNction/zharness",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:26.675107+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zharness"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zharness/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zharness/main/README.md",
+        "sha256": "bb7adbcca3fc52fe57de4984ce545cd236f535c5f119a7fedb8f52ae7928a001"
+      },
+      "source_version": {
+        "version": "0.5.1",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zharness/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zharness",
+        "version": "0.5.1",
+        "url": "https://crates.io/crates/zharness/0.5.1",
+        "source": "https://crates.io/api/v1/crates/zharness/0.5.1",
+        "checksum": "0d68598de76bf21e9b0c37558cc850685eafc83e69b5d6d8bdf24b0c6f8b785b",
+        "repository": "https://github.com/LIghtJUNction/zharness",
+        "verified_at": "2026-11-20T06:42:26.675107+00:00"
+      },
+      "crate_lookup": {
+        "name": "zharness",
+        "source": "https://crates.io/api/v1/crates/zharness",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:26.675107+00:00"
+      }
+    },
+    {
+      "id": "zplugin",
+      "summary": "原生插件 ABI、动态库加载与可选 Wasm 沙箱。",
+      "category": "system",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zplugin",
+        "url": "https://github.com/LIghtJUNction/zplugin",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:32.792060+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zplugin"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zplugin/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zplugin/main/README.md",
+        "sha256": "892c6e55827a67aeea4cafea2a45b6305cddfa88c055f671c5e0ad683c1c16b0"
+      },
+      "source_version": {
+        "version": "0.3.1",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zplugin/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zplugin",
+        "version": "0.3.1",
+        "url": "https://crates.io/crates/zplugin/0.3.1",
+        "source": "https://crates.io/api/v1/crates/zplugin/0.3.1",
+        "checksum": "094cd57c6b7759cbbf7834e96aed75c9d025558a7d2cc4b742e78b33f8e7a448",
+        "repository": "https://github.com/LIghtJUNction/zplugin",
+        "verified_at": "2026-11-20T06:42:32.792060+00:00"
+      },
+      "crate_lookup": {
+        "name": "zplugin",
+        "source": "https://crates.io/api/v1/crates/zplugin",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:32.792060+00:00"
+      }
+    },
+    {
+      "id": "zpty",
+      "summary": "管理原生 PTY、ConPTY 与所属子进程。",
+      "category": "interface",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zpty",
+        "url": "https://github.com/LIghtJUNction/zpty",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:33.421778+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zpty"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zpty/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zpty/main/README.md",
+        "sha256": "70c204398a406cba700d69e8e17da8f0e691bc04eeb4d9bc8077ff85072beaa3"
+      },
+      "source_version": {
+        "version": "0.2.2",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zpty/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zpty",
+        "version": "0.2.2",
+        "url": "https://crates.io/crates/zpty/0.2.2",
+        "source": "https://crates.io/api/v1/crates/zpty/0.2.2",
+        "checksum": "1d46215c9aaad115aa3637217dcd3d7752d4f511f05ca29729c83ae58c0dd955",
+        "repository": "https://github.com/LIghtJUNction/zpty",
+        "verified_at": "2026-11-20T06:42:33.421778+00:00"
+      },
+      "crate_lookup": {
+        "name": "zpty",
+        "source": "https://crates.io/api/v1/crates/zpty",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:33.421778+00:00"
+      }
+    },
+    {
+      "id": "zvte",
+      "summary": "将 ANSI / VT 字节流增量解析为终端事件。",
+      "category": "interface",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zvte",
+        "url": "https://github.com/LIghtJUNction/zvte",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:42.230734+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zvte"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zvte/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zvte/main/README.md",
+        "sha256": "d66b1e8650d30145af458f77e7ab1ab95aab0fa4e6121608a9bf8aa788f6890c"
+      },
+      "source_version": {
+        "version": "0.1.3",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zvte/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zvte",
+        "version": "0.1.3",
+        "url": "https://crates.io/crates/zvte/0.1.3",
+        "source": "https://crates.io/api/v1/crates/zvte/0.1.3",
+        "checksum": "da3b5c86b41814fe9361fe1a6af454c909933ce8aa8e7fdba3a3aa9e364e2602",
+        "repository": "https://github.com/LIghtJUNction/zvte",
+        "verified_at": "2026-11-20T06:42:42.230734+00:00"
+      },
+      "crate_lookup": {
+        "name": "zvte",
+        "source": "https://crates.io/api/v1/crates/zvte",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:42.230734+00:00"
+      }
+    },
+    {
+      "id": "ztuio",
+      "summary": "文本行布局、终端几何与 ANSI 帧差分原语。",
+      "category": "interface",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/ztuio",
+        "url": "https://github.com/LIghtJUNction/ztuio",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:39.294478+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/ztuio"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/ztuio/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/ztuio/main/README.md",
+        "sha256": "8e69b98cd1fb584cb965befd7948e39f100f9a56d2d5b69aadd4567a6d1d6c58"
+      },
+      "source_version": {
+        "version": "0.1.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/ztuio/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "ztuio",
+        "version": "0.1.0",
+        "url": "https://crates.io/crates/ztuio/0.1.0",
+        "source": "https://crates.io/api/v1/crates/ztuio/0.1.0",
+        "checksum": "1349d024486abe9aa5d7e6ff4f62b118401a1da5627c63c57942617169e475ca",
+        "repository": "https://github.com/LIghtJUNction/ztuio",
+        "verified_at": "2026-11-20T06:42:39.294478+00:00"
+      },
+      "crate_lookup": {
+        "name": "ztuio",
+        "source": "https://crates.io/api/v1/crates/ztuio",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:39.294478+00:00"
+      }
+    },
+    {
+      "id": "zgraphics",
+      "summary": "处理 Kitty / Sixel 图像协议，向宿主提供图像与放置数据。",
+      "category": "interface",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zgraphics",
+        "url": "https://github.com/LIghtJUNction/zgraphics",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:26.464749+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zgraphics"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zgraphics/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zgraphics/main/README.md",
+        "sha256": "d20f36f7f08aed9bc597c29a96cbd519c0b00963deee966bd859b13458c957a5"
+      },
+      "source_version": {
+        "version": "0.2.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zgraphics/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zgraphics",
+        "version": "0.2.0",
+        "url": "https://crates.io/crates/zgraphics/0.2.0",
+        "source": "https://crates.io/api/v1/crates/zgraphics/0.2.0",
+        "checksum": "cc775cfedeae7a0563bb11e51e25b32e9d4a72757fb2935221ab7bc6f2c88e54",
+        "repository": "https://github.com/LIghtJUNction/zgraphics",
+        "verified_at": "2026-11-20T06:42:26.464749+00:00"
+      },
+      "crate_lookup": {
+        "name": "zgraphics",
+        "source": "https://crates.io/api/v1/crates/zgraphics",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:26.464749+00:00"
+      }
+    },
+    {
+      "id": "zinput",
+      "summary": "输入法组合、候选状态与原生输入事件编解码。",
+      "category": "interface",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zinput",
+        "url": "https://github.com/LIghtJUNction/zinput",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:27.456720+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zinput"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zinput/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zinput/main/README.md",
+        "sha256": "e03c846b50003a8940c99d731b691454e799cf2cec3dbb6a4c27dcb9c0c40134"
+      },
+      "source_version": {
+        "version": "0.1.3",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zinput/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zinput",
+        "version": "0.1.3",
+        "url": "https://crates.io/crates/zinput/0.1.3",
+        "source": "https://crates.io/api/v1/crates/zinput/0.1.3",
+        "checksum": "d854f1abbf3a1b2fe2ce8ac2e9ac9ccf05452e6561cf8e8fc70f9f252c0914bd",
+        "repository": "https://github.com/LIghtJUNction/zinput",
+        "verified_at": "2026-11-20T06:42:27.456720+00:00"
+      },
+      "crate_lookup": {
+        "name": "zinput",
+        "source": "https://crates.io/api/v1/crates/zinput",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:27.456720+00:00"
+      }
+    },
+    {
+      "id": "ztty",
+      "summary": "组合终端状态、进程与原生渲染的 Linux 终端应用。",
+      "category": "interface",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/ztty",
+        "url": "https://github.com/LIghtJUNction/ztty",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:38.959501+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/ztty"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/ztty/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/ztty/main/README.md",
+        "sha256": "5bbf27d2483d1751237fd744fa2b4f5c5692181e44b3ba44d31c19093b5de4b0"
+      },
+      "source_version": {
+        "version": "0.5.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/ztty/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "ztty",
+        "version": "0.4.1",
+        "url": "https://crates.io/crates/ztty/0.4.1",
+        "source": "https://crates.io/api/v1/crates/ztty/0.4.1",
+        "checksum": "c3298386a6a77518db93fa783081153a7b67c2bd400e6ae9c98cf5806fa475a8",
+        "repository": "https://github.com/LIghtJUNction/ztty",
+        "verified_at": "2026-11-20T06:42:38.959501+00:00"
+      },
+      "crate_lookup": {
+        "name": "ztty",
+        "source": "https://crates.io/api/v1/crates/ztty",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:38.959501+00:00"
+      }
+    },
+    {
+      "id": "ztype",
+      "summary": "面向多语言组合输入的原生应用，支持候选与插件。",
+      "category": "interface",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/ztype",
+        "url": "https://github.com/LIghtJUNction/ztype",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:41.676179+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/ztype"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/ztype/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/ztype/main/README.md",
+        "sha256": "c77c3066302df81af74ac03699c1b441e4352a5f9f6617af47fb4ee172686af9"
+      },
+      "source_version": {
+        "version": "0.1.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/ztype/main/Cargo.toml"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "ztype",
+        "source": "https://crates.io/api/v1/crates/ztype",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:42:41.676179+00:00"
+      }
+    },
+    {
+      "id": "zclap",
+      "summary": "命令行参数解析核心，保留调用方的数据所有权。",
+      "category": "tools",
+      "kind": "library",
+      "repository": {
+        "name": "LIghtJUNction/zclap",
+        "url": "https://github.com/LIghtJUNction/zclap",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:44:52.494568+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zclap"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zclap/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zclap/main/README.md",
+        "sha256": "b58f54dfe2ea2422c69387c55e0a6c23ebd6c44e083d986833f2c9f5bcc3ea28"
+      },
+      "source_version": {
+        "version": "0.1.4",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zclap/main/Cargo.toml"
+      },
+      "crate": {
+        "name": "zclap",
+        "version": "0.1.4",
+        "url": "https://crates.io/crates/zclap/0.1.4",
+        "source": "https://crates.io/api/v1/crates/zclap/0.1.4",
+        "checksum": "5efb5b25a7eb925fe9943888238d1e261224fa629456f4abe203b1deb34ac102",
+        "repository": "https://github.com/LIghtJUNction/zclap",
+        "verified_at": "2026-11-20T06:44:52.494568+00:00"
+      },
+      "crate_lookup": {
+        "name": "zclap",
+        "source": "https://crates.io/api/v1/crates/zclap",
+        "status": "published",
+        "checked_at": "2026-11-20T06:44:52.494568+00:00"
+      }
+    },
+    {
+      "id": "zclick",
+      "summary": "基于 zclap 的 Click 参数语义与 Python 预览绑定。",
+      "category": "tools",
+      "kind": "bindings",
+      "repository": {
+        "name": "LIghtJUNction/zclick",
+        "url": "https://github.com/LIghtJUNction/zclick",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:21.217640+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zclick"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zclick/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zclick/main/README.md",
+        "sha256": "3f55f9f318d09be0495d8351d3440495ddc8dfda7079693d6f4fe54e8308012f"
+      },
+      "source_version": null,
+      "crate": {
+        "name": "zclick-core",
+        "version": "0.1.1-alpha.3",
+        "url": "https://crates.io/crates/zclick-core/0.1.1-alpha.3",
+        "source": "https://crates.io/api/v1/crates/zclick-core/0.1.1-alpha.3",
+        "checksum": "ca6ce0cb0dd822fc4e2f79a2da70d98189273716dc2b3f2d3178e6fabc24edd7",
+        "repository": "https://github.com/LIghtJUNction/zclick",
+        "verified_at": "2026-11-20T06:42:21.217640+00:00"
+      },
+      "crate_lookup": {
+        "name": "zclick-core",
+        "source": "https://crates.io/api/v1/crates/zclick-core",
+        "status": "published",
+        "checked_at": "2026-11-20T06:42:21.217640+00:00"
+      }
+    },
+    {
+      "id": "zdot",
+      "summary": "预览、应用、备份与恢复 dotfiles 部署。",
+      "category": "tools",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/zdot",
+        "url": "https://github.com/LIghtJUNction/zdot",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:22.936382+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zdot"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zdot/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zdot/main/README.md",
+        "sha256": "2271117a753c63027c1f74394b0f9e4faa8fa3ed1df0b0b72b3c189e805ea1f3"
+      },
+      "source_version": {
+        "version": "0.2.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zdot/main/Cargo.toml"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "zdot",
+        "source": "https://crates.io/api/v1/crates/zdot",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:42:22.936382+00:00"
+      }
+    },
+    {
+      "id": "zfetch",
+      "summary": "以终端摘要查看 Linux 系统信息。",
+      "category": "tools",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/zfetch",
+        "url": "https://github.com/LIghtJUNction/zfetch",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:24.201569+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zfetch"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zfetch/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zfetch/main/README.md",
+        "sha256": "551192922744038257cdc6182eaa1be1a7167cd2cddd15563d2aee138d6aa5b0"
+      },
+      "source_version": {
+        "version": "0.1.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zfetch/main/Cargo.toml"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "zfetch",
+        "source": "https://crates.io/api/v1/crates/zfetch",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:42:24.201569+00:00"
+      }
+    },
+    {
+      "id": "zshard",
+      "summary": "原生 zsh 配置框架，按需加载插件并显式提供上下文。",
+      "category": "tools",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/zshard",
+        "url": "https://github.com/LIghtJUNction/zshard",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:35.782820+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zshard"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zshard/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zshard/main/README.md",
+        "sha256": "4912c146995793f91b7c25e6cdbd2d84a6b3daf803b2cbcb2341420d2bfd4624"
+      },
+      "source_version": {
+        "version": "0.2.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zshard/main/VERSION"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "zshard",
+        "source": "https://crates.io/api/v1/crates/zshard",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:42:35.782820+00:00"
+      }
+    },
+    {
+      "id": "zdistro",
+      "summary": "统一语言构建与发行格式生成，检查输出制品。",
+      "category": "tools",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/zdistro",
+        "url": "https://github.com/LIghtJUNction/zdistro",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:20.909740+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zdistro"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zdistro/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zdistro/main/README.md",
+        "sha256": "6e4a111247d3135bece12f466a27f273969eb6e005fbdbfee75ca3e03e8a7b04"
+      },
+      "source_version": null,
+      "crate": null,
+      "crate_lookup": {
+        "name": "zdistro",
+        "source": "https://crates.io/api/v1/crates/zdistro",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:42:20.909740+00:00"
+      }
+    },
+    {
+      "id": "oh-my-ztty",
+      "summary": "把终端、shell 与配置工具组合成 Linux 使用入口。",
+      "category": "tools",
+      "kind": "integration",
+      "repository": {
+        "name": "LIghtJUNction/oh-my-ztty",
+        "url": "https://github.com/LIghtJUNction/oh-my-ztty",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:16.896164+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/oh-my-ztty"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/oh-my-ztty/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/oh-my-ztty/main/README.md",
+        "sha256": "4784d5595f8eb0c9c87aa779203a6a86a04c8278871bf1a56356f18d05049e06"
+      },
+      "source_version": {
+        "version": "0.2.3",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/oh-my-ztty/main/VERSION"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "oh-my-ztty",
+        "source": "https://crates.io/api/v1/crates/oh-my-ztty",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:42:16.896164+00:00"
+      }
+    },
+    {
+      "id": "zcalld",
+      "summary": "本地模型网关，管理提供方、路由与调用。",
+      "category": "applications",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/zcalld",
+        "url": "https://github.com/LIghtJUNction/zcalld",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:44:49.194808+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zcalld"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zcalld/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcalld/main/README.md",
+        "sha256": "f4cd4cac53d2a7078acde7007ab1368de66612c6d026fa4fed77cc0d32ecd11e"
+      },
+      "source_version": {
+        "version": "0.2.4",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcalld/main/Cargo.toml"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "zcalld",
+        "source": "https://crates.io/api/v1/crates/zcalld",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:44:49.194808+00:00"
+      }
+    },
+    {
+      "id": "zcall-gui",
+      "summary": "用于管理 zcalld 本地模型网关的原生控制面板。",
+      "category": "applications",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/zcall-gui",
+        "url": "https://github.com/LIghtJUNction/zcall-gui",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:18.005013+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zcall-gui"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zcall-gui/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcall-gui/main/README.md",
+        "sha256": "fd06eb80ff58480678e21127a3c3ed8ecaa3970f6242b5fadf25e0c1f269650e"
+      },
+      "source_version": {
+        "version": "0.1.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcall-gui/main/Cargo.toml"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "zcall-gui",
+        "source": "https://crates.io/api/v1/crates/zcall-gui",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:42:18.005013+00:00"
+      }
+    },
+    {
+      "id": "zcall-omarchy",
+      "summary": "面向 Omarchy 的 zcalld 桌面入口与命令集成。",
+      "category": "applications",
+      "kind": "integration",
+      "repository": {
+        "name": "LIghtJUNction/zcall-omarchy",
+        "url": "https://github.com/LIghtJUNction/zcall-omarchy",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:44:46.804475+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zcall-omarchy"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zcall-omarchy/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcall-omarchy/main/README.md",
+        "sha256": "cff62f1019dd7c87b2ab7541b1e8f3ee81eb95a34261b04549e202b20dfc7771"
+      },
+      "source_version": {
+        "version": "0.2.1",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcall-omarchy/main/VERSION"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "zcall-omarchy",
+        "source": "https://crates.io/api/v1/crates/zcall-omarchy",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:44:46.804475+00:00"
+      }
+    },
+    {
+      "id": "zcalld-compat",
+      "summary": "为 zcalld 提供独立的兼容与扩展适配。",
+      "category": "applications",
+      "kind": "integration",
+      "repository": {
+        "name": "LIghtJUNction/zcalld-compat",
+        "url": "https://github.com/LIghtJUNction/zcalld-compat",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:20.059363+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zcalld-compat"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zcalld-compat/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcalld-compat/main/README.md",
+        "sha256": "61342e462edd373fa69c9d996d070af1558edfe36ffcf826a7f3fccb29cc979b"
+      },
+      "source_version": {
+        "version": "0.1.6",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zcalld-compat/main/VERSION"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "zcalld-compat",
+        "source": "https://crates.io/api/v1/crates/zcalld-compat",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:42:20.059363+00:00"
+      }
+    },
+    {
+      "id": "zmcl",
+      "summary": "基于 Project Z 的原生 Minecraft 启动器。",
+      "category": "applications",
+      "kind": "tool",
+      "repository": {
+        "name": "LIghtJUNction/zmcl",
+        "url": "https://github.com/LIghtJUNction/zmcl",
+        "default_branch": "main",
+        "visibility": "public",
+        "verified_at": "2026-11-20T06:42:29.767298+00:00",
+        "source": "https://api.github.com/repos/LIghtJUNction/zmcl"
+      },
+      "documentation": {
+        "url": "https://github.com/LIghtJUNction/zmcl/blob/main/README.md",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zmcl/main/README.md",
+        "sha256": "82932e37c2fcdd6ace755ee538bbd6651359bc5e81438acc1bb8ff410f707cba"
+      },
+      "source_version": {
+        "version": "0.1.0",
+        "source": "https://raw.githubusercontent.com/LIghtJUNction/zmcl/main/Cargo.toml"
+      },
+      "crate": null,
+      "crate_lookup": {
+        "name": "zmcl",
+        "source": "https://crates.io/api/v1/crates/zmcl",
+        "status": "not_found",
+        "checked_at": "2026-11-20T06:42:29.767298+00:00"
+      }
+    }
+  ]
+}
