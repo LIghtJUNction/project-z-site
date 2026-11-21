@@ -273,6 +273,7 @@
     debounce = setTimeout(search, 100);
   });
   input.addEventListener('keydown', (event) => {
+    if (event.isComposing || event.keyCode === 229) return;
     const first = results.querySelector('a');
     if (event.key === 'ArrowDown' && first) { event.preventDefault(); first.focus(); }
     if (event.key === 'Enter' && first) { event.preventDefault(); first.click(); }
