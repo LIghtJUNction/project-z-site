@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 Project Z 的原生 Minecraft 启动器。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zmcl · 安装 zmcl · Project Z">
+  <meta property="og:description" content="基于 Project Z 的原生 Minecraft 启动器。">
+  <meta property="og:type" content="website">
+  <title>zmcl · 安装 zmcl · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zmcl/install/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zmcl">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zmcl" aria-label="zmcl 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zmcl</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zmcl</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/" aria-current="page">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zmcl 文档"><div class="nav-group"><p class="nav-label">zmcl</p><ul><li><a class="nav-link" href="../../zmcl/">概览</a></li><li><a class="nav-link" href="../../zmcl/install/" aria-current="page">安装 zmcl</a></li><li><a class="nav-link" href="../../zmcl/architecture/">Architecture and resource ownership</a></li><li><a class="nav-link" href="../../zmcl/distribution/">用 zdistro 分发 zmcl</a></li><li><a class="nav-link" href="../../zmcl/features/">XMCL compatibility record</a></li><li><a class="nav-link" href="../../zmcl/performance/">性能测量与可复核记录</a></li><li><a class="nav-link" href="../../zmcl/site-readme/">zmcl project site</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zmcl</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/" aria-current="page">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zmcl 文档"><div class="nav-group"><p class="nav-label">zmcl</p><ul><li><a class="nav-link" href="../../zmcl/">概览</a></li><li><a class="nav-link" href="../../zmcl/install/" aria-current="page">安装 zmcl</a></li><li><a class="nav-link" href="../../zmcl/architecture/">Architecture and resource ownership</a></li><li><a class="nav-link" href="../../zmcl/distribution/">用 zdistro 分发 zmcl</a></li><li><a class="nav-link" href="../../zmcl/features/">XMCL compatibility record</a></li><li><a class="nav-link" href="../../zmcl/performance/">性能测量与可复核记录</a></li><li><a class="nav-link" href="../../zmcl/site-readme/">zmcl project site</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zmcl/">zmcl 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zmcl/">zmcl</a><span aria-hidden="true">/</span><span>安装 zmcl</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#选择下载">选择下载</a></li><li class="toc-level-2"><a href="#先检查运行条件">先检查运行条件</a></li><li class="toc-level-2"><a href="#linux安装到自己的目录">Linux：安装到自己的目录</a></li><li class="toc-level-2"><a href="#debian使用-apt-管理">Debian：使用 apt 管理</a></li><li class="toc-level-2"><a href="#windows安装到自己的目录">Windows：安装到自己的目录</a></li><li class="toc-level-2"><a href="#命令打开了旧版本时">命令打开了旧版本时</a></li><li class="toc-level-2"><a href="#手动检查和安装更新">手动检查和安装更新</a></li><li class="toc-level-2"><a href="#用户安装的卸载与信息文件">用户安装的卸载与信息文件</a></li><li class="toc-level-2"><a href="#014-验收范围">0.1.4 验收范围</a></li><li class="toc-level-2"><a href="#历史发行与验收记录">历史发行与验收记录</a></li><li class="toc-level-2"><a href="#arch-linux--aur">Arch Linux / AUR</a></li><li class="toc-level-2"><a href="#当前预览版的运行条件">当前预览版的运行条件</a></li><li class="toc-level-2"><a href="#其他-linux-系统">其他 Linux 系统</a></li><li class="toc-level-2"><a href="#本次-013-发行验收">本次 0.1.3 发行验收</a></li><li class="toc-level-2"><a href="#历史-012-发行验收">历史 0.1.2 发行验收</a></li><li class="toc-level-2"><a href="#历史-011-发行验收">历史 0.1.1 发行验收</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="安装-zmcl">安装 zmcl</h1>
+<p><strong>0.1.4 开发预览提供 Linux x86_64 的 tar.gz、DEB，以及 Windows amd64 的 ZIP。</strong> 按下表选择一种安装方式。macOS 暂无发行包；Java 和 Minecraft 内容由启动器另行安装。</p>
+<h2 id="选择下载">选择下载<a class="heading-anchor" href="#选择下载" aria-label="链接到 选择下载">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>系统与用途</th>
+<th>官方下载</th>
+<th style="text-align:right">文件大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x86_64，安装到自己的目录</td>
+<td><a href="https://github.com/LIghtJUNction/zmcl/releases/download/v0.1.4/zmcl-0.1.4-linux-x86_64.tar.gz">tar.gz 用户安装包</a></td>
+<td style="text-align:right">700,244 字节</td>
+</tr>
+<tr>
+<td>满足运行库要求的 Debian 系统，交给 apt 管理</td>
+<td><a href="https://github.com/LIghtJUNction/zmcl/releases/download/v0.1.4/zmcl-0.1.4-linux-x86_64.deb">DEB 软件包</a></td>
+<td style="text-align:right">571,108 字节</td>
+</tr>
+<tr>
+<td>Windows amd64，安装到自己的目录</td>
+<td><a href="https://github.com/LIghtJUNction/zmcl/releases/download/v0.1.4/zmcl-0.1.4-windows-amd64.zip">ZIP 用户安装包</a></td>
+<td style="text-align:right">670,411 字节</td>
+</tr>
+</tbody>
+</table></div>
+<p>发行页为 <a href="https://github.com/LIghtJUNction/zmcl/releases/tag/v0.1.4">GitHub v0.1.4</a>，本次发行的源码固定为 <a href="https://github.com/LIghtJUNction/zmcl/commit/25c243a593b187b0f0835e740665e1fce96d3621">25c243a</a>。三个下载包的 SHA-256 如下；校验通过后再解包或安装。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>8265e672ef7914362c1038b71ed382d18efafe49668d7791005713faa5f580f1  zmcl-0.1.4-linux-x86_64.tar.gz
+c19afcdd4e567ffcb580f60fbe5812d6915c12b484e9751518c3f0b790c5b7b8  zmcl-0.1.4-linux-x86_64.deb
+48bd7dc7ce0eb799fed225678b6a6d9c4ed518f7ee96482b2c5c1f0f516271cf  zmcl-0.1.4-windows-amd64.zip
+</code></pre></div>
+<p>AUR <a href="https://aur.archlinux.org/packages/zmcl-bin">zmcl-bin</a> 已公开 <strong>0.1.4-1</strong> 配方，源码为 <code>a769068256b4aa0803ab08b7f0691a8a4024a464</code>。Arch 用户可用 <code>paru -S zmcl-bin</code> 或 <code>yay -S zmcl-bin</code> 安装，再用 <code>zmcl --version</code> 核对实际程序。此处已确认公开配方；公开新克隆构建、本机升级与已安装界面验收已通过，真实官方更新查询返回当前 0.1.4。0.1.3 及更早版本的安装与验证记录保留在文末历史区。</p>
+<h2 id="先检查运行条件">先检查运行条件<a class="heading-anchor" href="#先检查运行条件" aria-label="链接到 先检查运行条件">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>Linux x86_64 预编译包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>libc</td>
+<td>glibc 2.39 或更新</td>
+</tr>
+<tr>
+<td>字体库与字体</td>
+<td>Fontconfig 2.17.0 或更新、FreeType、系统 TrueType/OpenType 字体</td>
+</tr>
+<tr>
+<td>窗口系统</td>
+<td>X11；Wayland 桌面需要 XWayland</td>
+</tr>
+<tr>
+<td>下载与文件任务</td>
+<td>curl、CA 证书、Python 3.8 或更新</td>
+</tr>
+<tr>
+<td>Microsoft 凭据</td>
+<td>可选的 <code>libsecret-tools</code>／<code>secret-tool</code> 与桌面 Secret Service</td>
+</tr>
+<tr>
+<td>Horizon 验签</td>
+<td>可选 OpenSSL，需支持 Ed25519</td>
+</tr>
+</tbody>
+</table></div>
+<p>Linux 默认使用 CPU 绘制，预编译程序没有直接 OpenGL 依赖。glibc 与 Fontconfig 下限来自实际 ELF 符号引用；它们同样适用于 DEB。<strong>DEB 已在 Debian forky/sid 容器验收，不能据此视为兼容任意 Debian 稳定版或 Ubuntu 版本。</strong> 不满足依赖时，请使用适合目标系统的源码构建，不要强制忽略包依赖。</p>
+<p>Windows ZIP 需要 amd64 系统和 Python 3.8 或更新；下面使用 Python launcher 的 <code>py -3</code>。若该命令不可用，先检查已安装 Python 的版本，再用相应的 <code>python</code> 命令替代。Windows 原生构建、安装和窗口验收在 build 26100 的 runner 上通过，尚未覆盖所有 Windows 版本，也未在本轮验证 Windows 的真实游戏或账号流程。</p>
+<h2 id="linux安装到自己的目录">Linux：安装到自己的目录<a class="heading-anchor" href="#linux安装到自己的目录" aria-label="链接到 Linux：安装到自己的目录">#</a></h2>
+<p>下载 tar.gz 后，在其所在目录核对摘要并解包：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>printf &#x27;%s  %s\n&#x27; \
+  &#x27;8265e672ef7914362c1038b71ed382d18efafe49668d7791005713faa5f580f1&#x27; \
+  &#x27;zmcl-0.1.4-linux-x86_64.tar.gz&#x27; | sha256sum -c -
+tar -xzf zmcl-0.1.4-linux-x86_64.tar.gz
+cd zmcl-0.1.4-linux-x86_64
+python3 scripts/install.py install --prefix &quot;$HOME/.local&quot;
+&quot;$HOME/.local/bin/zmcl&quot; --version
+&quot;$HOME/.local/bin/zmcl&quot; gui
+</code></pre></div>
+<p>默认前缀也是 <code>~/.local</code>。想使用另一目录时，将安装、启动、更新和卸载命令中的前缀保持一致；有空格的目录应始终加引号：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>python3 scripts/install.py install --prefix &quot;$HOME/Applications/zmcl portable&quot;
+&quot;$HOME/Applications/zmcl portable/bin/zmcl&quot; gui
+</code></pre></div>
+<p>安装器完成后会显示版本、安装位置、直接启动命令和更新方式。它不会改写 PATH 或 shell 配置。直接使用安装器给出的完整路径，即可打开本次安装的程序。</p>
+<h2 id="debian使用-apt-管理">Debian：使用 apt 管理<a class="heading-anchor" href="#debian使用-apt-管理" aria-label="链接到 Debian：使用 apt 管理">#</a></h2>
+<p>下载 DEB 后先校验，再让 apt 检查并安装实际依赖：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>printf &#x27;%s  %s\n&#x27; \
+  &#x27;c19afcdd4e567ffcb580f60fbe5812d6915c12b484e9751518c3f0b790c5b7b8&#x27; \
+  &#x27;zmcl-0.1.4-linux-x86_64.deb&#x27; | sha256sum -c -
+dpkg-deb -f ./zmcl-0.1.4-linux-x86_64.deb Package Version Architecture Depends
+sudo apt install --no-install-recommends ./zmcl-0.1.4-linux-x86_64.deb
+/usr/bin/zmcl --version
+/usr/bin/zmcl gui
+</code></pre></div>
+<p><code>ca-certificates</code> 是显式依赖。验收使用原本没有 CA 证书的最小 Debian 镜像，以上不安装推荐包的方式仍会自动安装必需证书；随后严格验证 GitHub HTTPS 和真实手动更新查询均通过。实际安装结果与边界见<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/reports/2026-11-20-zdistro.md">0.1.4 发行报告</a>。</p>
+<p>今后下载新版 DEB，校验后用相同的 <code>apt install ./文件名.deb</code> 升级。卸载使用：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>sudo apt remove zmcl
+</code></pre></div>
+<p>apt 管理系统程序和附带文件，用户的实例、存档、下载缓存和账号资料不属于该软件包的文件清单。</p>
+<h2 id="windows安装到自己的目录">Windows：安装到自己的目录<a class="heading-anchor" href="#windows安装到自己的目录" aria-label="链接到 Windows：安装到自己的目录">#</a></h2>
+<p>在 PowerShell 中进入 ZIP 所在目录。先将结果与上面的 Windows SHA-256 核对，再解包和安装：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">powershell</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 powershell 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>Get-FileHash .\zmcl-0.1.4-windows-amd64.zip -Algorithm SHA256
+Expand-Archive .\zmcl-0.1.4-windows-amd64.zip -DestinationPath .
+Set-Location .\zmcl-0.1.4-windows-amd64
+py -3 scripts/install.py install --prefix &quot;$env:LOCALAPPDATA\Programs\zmcl&quot;
+&amp; &quot;$env:LOCALAPPDATA\Programs\zmcl\bin\zmcl.exe&quot; --version
+&amp; &quot;$env:LOCALAPPDATA\Programs\zmcl\bin\zmcl.exe&quot; gui
+</code></pre></div>
+<p>安装器会保留 <code>bin\zmcl.exe</code> 的扩展名，完整路径可直接运行。自定义目录同样需要加引号。ZIP 安装器不修改系统 PATH；不要依靠另一份同名程序来判断本次安装是否成功。</p>
+<h2 id="命令打开了旧版本时">命令打开了旧版本时<a class="heading-anchor" href="#命令打开了旧版本时" aria-label="链接到 命令打开了旧版本时">#</a></h2>
+<p>安装器会检查当前 PATH。如果 PATH 先找到另一份 <code>zmcl</code>，完成提示会同时列出那份程序和本次安装程序的位置，并给出本次程序的直接启动命令。它不会删除另一份安装。</p>
+<p>Linux 可用 <code>command -v zmcl</code>，PowerShell 可用 <code>Get-Command zmcl -All</code> 查看命令选择。之后用完整路径运行 <code>--version</code>，并在 GUI 的 <strong>Settings 页顶部版本信息卡片</strong>核对当前版本、可执行文件位置和安装来源。若选择了不同前缀，更新时也应指向那个前缀。</p>
+<h2 id="手动检查和安装更新">手动检查和安装更新<a class="heading-anchor" href="#手动检查和安装更新" aria-label="链接到 手动检查和安装更新">#</a></h2>
+<p>打开 <strong>Settings → Check for updates</strong>，启动器才会查询官方 GitHub 发行信息。页面会区分有新版本、已经最新，以及本机版本比线上版本新；网络失败可以重试。找到更新后可打开官方发行页；打开失败时保留结果与链接提示。</p>
+<p>检查更新不会替换正在运行的程序。关闭 zmcl 后，按安装来源完成更新：</p>
+<ul>
+<li>tar.gz 或 ZIP：下载并校验新版，在新版解包目录运行安装器，使用与原来相同的 <code>--prefix</code>。</li>
+<li>DEB：用 apt 安装新版 DEB。</li>
+<li>AUR：确认公开配方版本后，按包管理器流程更新。</li>
+</ul>
+<p>安装器依据受管文件清单和摘要检查旧文件。如果程序、图标、桌面文件或安装信息文件已被修改，会拒绝覆盖并说明冲突；先备份和处理该文件，再重试。不要通过删除安装清单来绕过保护。正常升级不清除已有实例、存档、Java、下载缓存或账号资料。</p>
+<h2 id="用户安装的卸载与信息文件">用户安装的卸载与信息文件<a class="heading-anchor" href="#用户安装的卸载与信息文件" aria-label="链接到 用户安装的卸载与信息文件">#</a></h2>
+<p>保留解包目录中的安装器，使用安装时的同一前缀卸载：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>python3 scripts/install.py uninstall --prefix &quot;$HOME/.local&quot;
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">powershell</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 powershell 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>py -3 scripts/install.py uninstall --prefix &quot;$env:LOCALAPPDATA\Programs\zmcl&quot;
+</code></pre></div>
+<p>卸载只删除这次安装清单中摘要仍匹配的受管文件。修改过的受管文件、非受管文件以及游戏数据会保留；目录内有其他文件时不会整目录删除。</p>
+<p><code>&lt;prefix&gt;/share/zmcl/installation.json</code> 记录版本、便携安装渠道、前缀、可执行文件位置和官方发行页；<code>distribution.json</code> 说明 zdistro 的打包格式与身份。<code>install.json</code> 继续使用旧版兼容的严格列表格式，记录每个受管文件的路径和摘要，新安装信息文件也纳入保护。GUI 会校验来源信息；无法验证来源时显示未知／源码构建，不凭目录名猜测安装来源。旧合法格式仍可安装，无法验证版本的旧包会明确显示未知。</p>
+<h2 id="014-验收范围">0.1.4 验收范围<a class="heading-anchor" href="#014-验收范围" aria-label="链接到 0.1.4 验收范围">#</a></h2>
+<p><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/reports/2026-11-20-zdistro.md">发行报告</a>与<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/zdistro-release-0.1.4.json">结构化回执</a>记录三个资产的身份、安装和更新流程。Linux 在 Debian forky/sid 容器中通过实际 0.1.3 → 0.1.4 升级、重装、卸载；用户安装通过带空格前缀、PATH 被旧程序遮蔽、九组原生 GUI 夹具和数据保留检查。正式发布前的一次真实更新查询正确识别本机 0.1.4 高于线上 0.1.3，查询前后二进制未改变。</p>
+<p><a href="https://github.com/LIghtJUNction/zmcl/actions/runs/44739704182">Windows 原生 workflow 44739704182</a>在 build 26100 runner 上通过 MSVC 构建、ZIP 包、私有目录安装、<code>--version</code>、Win32 窗口、五项受管文件与卸载数据保留检查。两平台的窗口及文件夹具不等同于真实账号登录、游戏下载或实际游戏游玩。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>主程序</th>
+<th style="text-align:right">文件大小</th>
+<th>SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux ELF</td>
+<td style="text-align:right">1,504,616 字节</td>
+<td><code>586968d15c5187c0223d5223294ddcba585789d93934e6a37a3c7e1c516a3615</code></td>
+</tr>
+<tr>
+<td>Windows PE</td>
+<td style="text-align:right">1,382,912 字节</td>
+<td><code>33164565b43bf2f9db63da8e61db2a211318ca2fa682fd29ef988e910612910f</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>文件大小不含系统库、Java、游戏和缓存，也不是运行内存。完整 GUI 低于 10 MiB 的目标仍未完成；既有测量保留原版本与场景，见<a href="../../zmcl/performance/">性能记录</a>。</p>
+<h2 id="历史发行与验收记录">历史发行与验收记录<a class="heading-anchor" href="#历史发行与验收记录" aria-label="链接到 历史发行与验收记录">#</a></h2>
+<details>
+<summary>0.1.3 及更早版本：原始下载、AUR 安装与验收记录</summary>
+<p>以下保留当时的说明与原始版本；其中“当前”“本次”均指该历史发行。</p>
+<h2 id="arch-linux--aur">Arch Linux / AUR<a class="heading-anchor" href="#arch-linux--aur" aria-label="链接到 Arch Linux / AUR">#</a></h2>
+<p><a href="https://aur.archlinux.org/packages/zmcl-bin">zmcl-bin</a> 当前为 <strong>0.1.3-1 开发预览</strong>，安装官方 Linux x86_64 预编译程序、桌面入口和图标。公开 AUR master 为 <code>60c9ad8e1be8204c6a4e0024c83a4a5851ada0f5</code>。</p>
+<p><strong>公共 HTTPS 新克隆构建、正常系统升级和安装后六组原生 GUI 流程均已通过。</strong> 本机已从 0.1.2-1 升级到 0.1.3-1，19 个受管文件、0 个改动，已安装程序版本、大小和摘要与官方包一致。首次 RPC、yay、paru 查询曾命中 0.1.2-1 缓存；2026-11-20 **19:46:59（Asia/Taipei）**复验均为 0.1.3-1。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/aur-install-0.1.3-2026-11-20.json">完整回执</a></p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>yay -S zmcl-bin
+# 或
+paru -S zmcl-bin
+</code></pre></div>
+<p>按已核验的公开 Git 配方安装：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>git clone https://aur.archlinux.org/zmcl-bin.git
+cd zmcl-bin
+makepkg -si
+</code></pre></div>
+<p>安装后在应用菜单打开 <strong>zmcl</strong>，或运行 <code>zmcl gui</code>。用 <code>zmcl --version</code> 核对版本，<code>zmcl doctor --json</code> 检查运行条件。更新与卸载由包管理器管理：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>yay -Syu
+sudo pacman -R zmcl-bin
+</code></pre></div>
+<p>包管理器管理程序、桌面入口、图标、许可证和说明文件，不管理用户的 Minecraft 实例、存档和账号资料。0.1.0 的隔离安装、重装、卸载及合成存档保护检查保留在<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/aur-install-2026-11-20.json">历史记录</a>；0.1.1 的升级及已安装窗口验收见文末历史记录。</p>
+<p>0.1.3 保留了 0.1.2 的创建界面：筛选官方发行版、自动建议不重复的实例名，以及“创建并安装”或“仅创建”。本版使用 zgpui 0.1.5；功能、固定源码和平台验收边界见<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/reports/2026-11-20-helper-memory.md">0.1.3 报告</a>和<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/reports/2026-11-20-gui-iteration.md">0.1.2 创建流程记录</a>。</p>
+<h2 id="当前预览版的运行条件">当前预览版的运行条件<a class="heading-anchor" href="#当前预览版的运行条件" aria-label="链接到 当前预览版的运行条件">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>当前范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平台</td>
+<td>Linux x86_64</td>
+</tr>
+<tr>
+<td>libc</td>
+<td>glibc 2.39 或更新</td>
+</tr>
+<tr>
+<td>字体库</td>
+<td>Fontconfig 2.17.0 或更新、FreeType</td>
+</tr>
+<tr>
+<td>原生窗口</td>
+<td>X11；Wayland 桌面需要 XWayland</td>
+</tr>
+<tr>
+<td>文件与下载任务</td>
+<td>系统 curl、Python 3.8 或更新；按需启动，成本仍计入应用进程树</td>
+</tr>
+<tr>
+<td>Microsoft 凭据</td>
+<td>libsecret 提供的 secret-tool，以及桌面 Secret Service</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>系统 Java，或通过 zmcl 下载受管理的运行时</td>
+</tr>
+<tr>
+<td>Horizon 验签</td>
+<td>可选 OpenSSL，需支持 Ed25519</td>
+</tr>
+<tr>
+<td>字体</td>
+<td>系统 TrueType/OpenType 字体</td>
+</tr>
+</tbody>
+</table></div>
+<p>这些 ABI 下限来自已发布 ELF 的实际符号引用。AUR 配方声明相应依赖，附加功能组件列于 <code>optdepends</code>。完整版本、直接动态库、源码和文件身份保存在 <code>/usr/share/doc/zmcl/release.json</code>；本版直接 ELF 不依赖 OpenGL。源码在其他版本字体库上的兼容回退，不代表这个预编译包可忽略 Fontconfig 下限。</p>
+<p><strong>完整 GUI 低于 10 MiB 的目标仍未完成。</strong> 最终 0.1.3 管理流程的主进程 RSS 中位数为默认环境 11,316 KiB、明确指定系统 Python 时 11,020 KiB；完整相关树观测峰值 RSS/PSS 分别为 59,884/48,651 与 37,948/19,306 KiB。两种环境不能当成代码优化对照。大备份列表查询的局部下降、缺读、显示服务与观察成本见<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/reports/2026-11-20-helper-memory.md">本轮报告</a>和<a href="../../zmcl/performance/">性能记录</a>。原 0.1.2 与 0.1.1 测量保留历史身份。</p>
+<h2 id="其他-linux-系统">其他 Linux 系统<a class="heading-anchor" href="#其他-linux-系统" aria-label="链接到 其他 Linux 系统">#</a></h2>
+<p>从 <a href="https://github.com/LIghtJUNction/zmcl/releases/tag/v0.1.3">GitHub v0.1.3</a> 下载 <a href="https://github.com/LIghtJUNction/zmcl/releases/download/v0.1.3/zmcl-0.1.3-linux-x86_64.tar.gz">Linux x86_64 归档</a>与 <a href="https://github.com/LIghtJUNction/zmcl/releases/download/v0.1.3/zmcl-0.1.3-linux-x86_64.tar.gz.sha256">SHA-256 校验文件</a>。归档为 <strong>679,517 字节</strong>，SHA-256：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-12" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-12" tabindex="0"><code>b15024e99dd1275db15020ef26669f24aaad9026d948dd6683cacac5c7647e0e
+</code></pre></div>
+<p>主程序为 <strong>1,473,752 字节</strong>，SHA-256：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-13" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-13" tabindex="0"><code>02620a8ec4fac34e63fcbe483268149b2ed4032ac2d7bf42975ff6b19b72a1aa
+</code></pre></div>
+<p>应用源码固定为 <a href="https://github.com/LIghtJUNction/zmcl/commit/9ef89bb92d46d324172d6ea8b13054c81434e178">9ef89bb</a>。发行包支持 Linux x86_64。0.1.2 的 Windows GNU 跨编译和 zgpui 原生平台探针保留其原身份；本轮没有新增 0.1.3 Windows/macOS 应用的构建、安装或窗口/游戏运行验收。</p>
+<p>校验并解包后，可使用其中的用户级安装器：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-14" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-14" tabindex="0"><code>python3 scripts/install.py install
+# 卸载这一用户级安装
+python3 scripts/install.py uninstall
+</code></pre></div>
+<p>用户级安装默认写入 <code>~/.local</code>，AUR 安装使用 <code>/usr</code>，分别由各自的安装记录管理。已有用户级版本时，用 <code>command -v zmcl</code> 核对 shell 实际选择的程序。不满足预编译包条件时，可按 <a href="../../zmcl/#%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%BF%90%E8%A1%8C">README 的源码构建步骤</a> 构建并在目标系统验证。</p>
+<h2 id="本次-013-发行验收">本次 0.1.3 发行验收<a class="heading-anchor" href="#本次-013-发行验收" aria-label="链接到 本次 0.1.3 发行验收">#</a></h2>
+<p><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/release-0.1.3-2026-11-20.json">官方发行回执</a>记录草稿回下载、匿名公开下载、标签和 manifest 核验，以及用户级安装/卸载和修改文件保护。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/aur-install-0.1.3-2026-11-20.json">AUR 回执</a>记录作者包与公开新克隆包的各自身份。实际升级所用的新克隆包为 674,509 字节，SHA-256 <code>6c323e69cd82d51ebbb9b1524ba195f640ab0f04cf6c39aa88559a48f501cce2</code>。</p>
+<p><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/installed-gui-0.1.3-2026-11-20.json">安装后窗口验收</a>使用 /usr/bin/zmcl 完成六组真实窗口与文件效果检查，包括确认恢复时保留快照及服务器 EULA 拒绝。没有新增真实账号、在线游戏下载或开服验收。namcap 提示的 curl/Python 依赖由外部命令实际使用，继续保留；这些本机检查不是所有 Arch 环境的干净 chroot 证明。</p>
+<h2 id="历史-012-发行验收">历史 0.1.2 发行验收<a class="heading-anchor" href="#历史-012-发行验收" aria-label="链接到 历史 0.1.2 发行验收">#</a></h2>
+<p><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/aur-install-0.1.2-2026-11-20.json">AUR 与安装回执</a>记录公开配方 <code>16b6882</code>、独立来源校验、准备包和公共新克隆包的各自身份。公共新克隆重试包为674,238字节，SHA-256 <code>17f8b87cd028fe1204088de52474054f4c0f5d47f3d07e999ea9ee4b44821867</code>。首轮因宿主磁盘空间不足解包失败，清理后使用已验证的同一公开归档重试通过，失败日志保留。</p>
+<p>通过 pacman 正常升级0.1.1-1→0.1.2-1，安装后19个受管文件、0个改动，实际 <code>/usr/bin/zmcl</code> 摘要与上文一致。已安装程序通过版本选择、失败安装保留、仅创建、重名保护和账号页引导的四组<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/installed-gui-0.1.2-2026-11-20.json">原生窗口夹具</a>。没有新增真实账号登录、在线游戏下载或游戏启动验收，也不据此宣称所有 Arch 环境或 Windows/macOS 应用已通过。</p>
+<h2 id="历史-011-发行验收">历史 0.1.1 发行验收<a class="heading-anchor" href="#历史-011-发行验收" aria-label="链接到 历史 0.1.1 发行验收">#</a></h2>
+<p>AUR 源码为 <code>15bdd71d63db740fadf13edbe9d876f2fb0f1bc1</code>；GitHub 对应配方提交为 <a href="https://github.com/LIghtJUNction/zmcl/commit/d7485defab8e8fa398a6fd272bad3ffcc183a7d7">d7485de</a>。公开 HTTPS 新克隆后，源码校验、makepkg、namcap、桌面入口和文件布局检查通过。随后正常执行 pacman 升级0.1.0-1→0.1.1-1；升级前后均为19个受管文件、0个被改动。没有进行全系统升级。</p>
+<p>发布后的首次 RPC/helper 查询仍命中旧版本缓存；2026-11-20 16:30:32（Asia/Taipei）复验，current/legacy/search RPC、<code>yay -Si</code> 和 <code>paru -Si</code> 均返回0.1.1-1。两轮记录均保留。namcap 提示的 curl/Python 依赖通过外部命令实际使用，因此保留声明。这些检查不是所有 Arch 环境的干净 chroot 兼容性证明。</p>
+<p>0.1.1 当时安装的 <code>/usr/bin/zmcl</code> 为1,439,712字节，SHA-256 <code>a28998952b42d09f652ac95da47ddb15930cd556b6fa4e9b7e7ebbd23a4ac2e9</code>，与官方发行包完全一致。通过已安装的原生窗口创建1.21.1 Vanilla实例，CLI读回一致，管理页入口正常，退出后窗口清空；使用独立数据目录，未下载游戏、登录账号或启动服务器。见<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/installed-gui-0.1.1-2026-11-20.json">窗口验收</a>。</p>
+</details>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/INSTALL.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmcl">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zmcl/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../zmcl/architecture/"><span class="pagination-label">下一页</span><span class="pagination-title">Architecture and resource ownership</span></a></nav>
+      <footer class="page-footer">
+        <span>zmcl <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#选择下载">选择下载</a></li><li class="toc-level-2"><a href="#先检查运行条件">先检查运行条件</a></li><li class="toc-level-2"><a href="#linux安装到自己的目录">Linux：安装到自己的目录</a></li><li class="toc-level-2"><a href="#debian使用-apt-管理">Debian：使用 apt 管理</a></li><li class="toc-level-2"><a href="#windows安装到自己的目录">Windows：安装到自己的目录</a></li><li class="toc-level-2"><a href="#命令打开了旧版本时">命令打开了旧版本时</a></li><li class="toc-level-2"><a href="#手动检查和安装更新">手动检查和安装更新</a></li><li class="toc-level-2"><a href="#用户安装的卸载与信息文件">用户安装的卸载与信息文件</a></li><li class="toc-level-2"><a href="#014-验收范围">0.1.4 验收范围</a></li><li class="toc-level-2"><a href="#历史发行与验收记录">历史发行与验收记录</a></li><li class="toc-level-2"><a href="#arch-linux--aur">Arch Linux / AUR</a></li><li class="toc-level-2"><a href="#当前预览版的运行条件">当前预览版的运行条件</a></li><li class="toc-level-2"><a href="#其他-linux-系统">其他 Linux 系统</a></li><li class="toc-level-2"><a href="#本次-013-发行验收">本次 0.1.3 发行验收</a></li><li class="toc-level-2"><a href="#历史-012-发行验收">历史 0.1.2 发行验收</a></li><li class="toc-level-2"><a href="#历史-011-发行验收">历史 0.1.1 发行验收</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

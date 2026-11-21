@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linux 原生输入法，在应用中组合拼音、显示候选并提交文字。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ztype · ztype · Project Z">
+  <meta property="og:description" content="Linux 原生输入法，在应用中组合拼音、显示候选并提交文字。">
+  <meta property="og:type" content="website">
+  <title>ztype · ztype · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ztype/readme-en/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ztype">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ztype" aria-label="ztype 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ztype</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ztype</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/" aria-current="page">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ztype 文档"><div class="nav-group"><p class="nav-label">ztype</p><ul><li><a class="nav-link" href="../../ztype/">概览</a></li><li><a class="nav-link" href="../../ztype/readme-en/" aria-current="page">ztype</a></li><li><a class="nav-link" href="../../ztype/service-installation/">Native service installation</a></li><li><a class="nav-link" href="../../ztype/interactive-trial-zh-cn/">Ztype 0.2.1 安装与实测记录</a></li><li><a class="nav-link" href="../../ztype/ztty-ui-0-4-2-zh-cn/">ztype 0.4.2：候选界面与 ztty 输入验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ztype</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/" aria-current="page">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ztype 文档"><div class="nav-group"><p class="nav-label">ztype</p><ul><li><a class="nav-link" href="../../ztype/">概览</a></li><li><a class="nav-link" href="../../ztype/readme-en/" aria-current="page">ztype</a></li><li><a class="nav-link" href="../../ztype/service-installation/">Native service installation</a></li><li><a class="nav-link" href="../../ztype/interactive-trial-zh-cn/">Ztype 0.2.1 安装与实测记录</a></li><li><a class="nav-link" href="../../ztype/ztty-ui-0-4-2-zh-cn/">ztype 0.4.2：候选界面与 ztty 输入验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ztype/">ztype 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ztype/">ztype</a><span aria-hidden="true">/</span><span>ztype</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#build-and-install">Build and install</a></li><li class="toc-level-2"><a href="#native-input-controls">Native input controls</a></li><li class="toc-level-2"><a href="#configuration-and-dictionaries">Configuration and dictionaries</a></li><li class="toc-level-2"><a href="#engines-and-framework">Engines and framework</a></li><li class="toc-level-2"><a href="#verification">Verification</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="ztype">ztype</h1>
+<p><a href="../../ztype/">简体中文</a> · <a href="../../ztype/service-installation/">Installation and services</a> · <a href="../../ztype/ztty-ui-0-4-2-zh-cn/">Current acceptance record</a> · <a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/verification.md">Historical verification</a></p>
+<p><strong>A Linux native input method built on zinput.</strong> Version 0.4.2 provides X11/XWayland XIM and Wayland input-method-v2 frontends, a separate candidate window, editable composition, paging, external weighted dictionaries and persistent configuration. It composes and commits text in the focused application; opening the standalone panel is optional.</p>
+<p>Version 0.4.2 gives the native candidate window clearer typography, 20 px horizontal spacing and light Material 3 color roles. Real ztty input is verified through both XIM and native Wayland; the latter uses the cursor-update compatibility fix in <a href="https://github.com/LIghtJUNction/ztty/pull/23">ztty PR #23</a>. The <a href="../../ztype/ztty-ui-0-4-2-zh-cn/">acceptance record</a> identifies the exact sources, executable hashes and tested scope.</p>
+<p><a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/evidence-archive-20261120.md">Native Wayland candidate window with the installed vocabulary</a></p>
+<h2 id="build-and-install">Build and install<a class="heading-anchor" href="#build-and-install" aria-label="链接到 Build and install">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>git clone --recurse-submodules https://github.com/LIghtJUNction/ztype.git
+cd ztype
+cargo build --release --locked
+python3 scripts/install_dictionary.py --source rime-ice
+python3 scripts/install.py --binary target/release/ztype
+~/.local/bin/ztype config
+~/.local/bin/ztype convert --text shurufa
+# 输入法
+</code></pre></div>
+<p>Use the Rust version specified by <code>Cargo.toml</code>. Native Linux builds require a C compiler, pkg-config and the relevant X11/XCB, XKB, Wayland, FreeType, fontconfig and graphics development libraries. The portable CLI can be built with <code>--no-default-features</code>.</p>
+<p>The vocabulary installer verifies pinned public <a href="https://github.com/iDvel/rime-ice/tree/927e1cf1d3eeb9bf4be85e3f684dba4dd485b6f6">Rime Ice sources</a>, retains their GPL-3.0 license and provenance, and writes 573,194 code/text records to the user data directory. This includes 21,014 apostrophe aliases; it is not a count of distinct words. The small bundled table supports basic conversion and tests. Install an external vocabulary for ordinary pinyin use. Downloaded language data and this program retain their separate licenses. The input service does not depend on Rime or Fcitx5 libraries or daemons.</p>
+<p>Installation writes the binary, configuration example and services supported by the binary. It does not switch the active input method unless <code>--activate</code> is explicitly supplied. After the previous input method releases the native endpoint:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>ztype wayland-doctor
+ztype start
+ztype status
+ztype restart
+ztype stop
+</code></pre></div>
+<p>Service readiness is reported after dictionary and native connection initialization. Upgrades with <code>--activate</code> restart the services so the old executable cannot remain silently active. See <a href="../../ztype/service-installation/">service installation</a> for XDG locations and lifecycle details.</p>
+<p>X11/XWayland applications select <code>XMODIFIERS=@im=ztype</code> at launch. <code>ZTYPE_XIM_NAME</code> configures the service endpoint. Existing applications retain their original environment; a compatible endpoint name can be used after its previous owner exits. Native Wayland applications need text-input support in addition to the compositor protocols. Starting a browser with a Wayland rendering backend alone does not establish input-method support.</p>
+<h2 id="native-input-controls">Native input controls<a class="heading-anchor" href="#native-input-controls" aria-label="链接到 Native input controls">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Space</td>
+<td>Commit the selected candidate</td>
+</tr>
+<tr>
+<td>1–9</td>
+<td>Select an item on the current page; table engines retain numeric codes</td>
+</tr>
+<tr>
+<td>PageUp / PageDown, pinyin <code>-</code> / <code>=</code></td>
+<td>Change candidate page</td>
+</tr>
+<tr>
+<td>Tab / Shift+Tab, Up / Down</td>
+<td>Change candidate</td>
+</tr>
+<tr>
+<td>Left / Right, Home / End</td>
+<td>Move within the composition</td>
+</tr>
+<tr>
+<td>Backspace / Delete</td>
+<td>Delete before / after the composition cursor</td>
+</tr>
+<tr>
+<td>Enter</td>
+<td>Commit raw pinyin; configurable to commit the candidate</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Cancel composition</td>
+</tr>
+<tr>
+<td>Ctrl+Space</td>
+<td>Toggle Chinese and direct input</td>
+</tr>
+</tbody>
+</table></div>
+<p>The default page size is five, configurable from one to nine. The candidate set holds up to 128 items. Page labels match number-key selection. Chinese punctuation is configurable. Sensitive Wayland fields pass through original keys, and focus changes invalidate composition.</p>
+<p>The candidate surface does not take input focus. Wayland positions it using the text-input rectangle. XIM uses the client's spot location when supplied and a window-edge fallback otherwise. Current Ztty XIM clients use the fallback; terminal character-caret following is not claimed for that path.</p>
+<h2 id="configuration-and-dictionaries">Configuration and dictionaries<a class="heading-anchor" href="#configuration-and-dictionaries" aria-label="链接到 Configuration and dictionaries">#</a></h2>
+<p><code>ztype config</code> prints resolved settings and dictionary paths. The default file is <code>$XDG_CONFIG_HOME/ztype/config</code>, or <code>~/.config/ztype/config</code>. Invalid settings report the file and line.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">ini</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 ini 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>engine=pinyin
+page_size=5
+initial_mode=chinese
+chinese_punctuation=true
+enter_behavior=raw
+learning=false
+# dictionary=/absolute/path/common.tsv
+# dictionary=/absolute/path/domain.tsv
+# user_dictionary=~/.local/share/ztype/user.tsv
+</code></pre></div>
+<p>Without explicit dictionaries, Ztype discovers <code>ztype/dictionaries/*.tsv</code> in system and user XDG data directories. Repeat <code>dictionary</code> to merge sources. Relative paths are relative to the configuration file. <code>--dict PATH</code> overrides automatic/configured dictionaries; <code>--config PATH</code> selects a configuration; <code>--no-config</code> disables user settings and automatic discovery for reproducible tests.</p>
+<p>TSV records contain <code>code&lt;TAB&gt;text&lt;TAB&gt;frequency</code>, with an optional frequency. Larger frequencies rank first. Pinyin lookup merges duplicate entries, handles apostrophe boundaries and can combine known words into an unstored sentence. It uses word-frequency segmentation, not a neural language model, so sentence disambiguation is limited. Limits are 64 MiB and 2,000,000 records per file, with at most 32 source files.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>ztype candidates --text ni
+ztype convert --text wozaitushuguanxuexi
+# 我在图书馆学习
+ztype convert --text &quot;xi&#x27;an&quot;
+# 西安
+ztype convert --engine table --dict phrases.tsv --text hello --candidate 10
+</code></pre></div>
+<p>Learning is disabled by default. When enabled with an explicit user dictionary, it stores selected code/text/count records using a private file, process locking and atomic replacement. It does not import personal data from another input method. Existing user dictionaries can also be loaded without enabling writes. Only the separately invoked vocabulary installer downloads public data.</p>
+<h2 id="engines-and-framework">Engines and framework<a class="heading-anchor" href="#engines-and-framework" aria-label="链接到 Engines and framework">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>zinput</code></td>
+<td>Composition buffer, focused context, candidates, commit lifecycle and engine interface</td>
+</tr>
+<tr>
+<td><code>zinput-x11</code></td>
+<td>XIM transport, key repeat, XKB map changes and native candidate positioning</td>
+</tr>
+<tr>
+<td><code>zinput-wayland</code></td>
+<td>input-method-v2, virtual-keyboard-v1, preedit/commit, state and popup surface</td>
+</tr>
+<tr>
+<td><code>ztype</code></td>
+<td>Vocabulary, ranking, user preferences, editing, candidate content and service installation</td>
+</tr>
+<tr>
+<td><code>zgpui</code></td>
+<td>Native graphics and candidate text rendering</td>
+</tr>
+</tbody>
+</table></div>
+<p>Native services support pinyin, kana and table engines. Kana is romaji transliteration without kanji conversion. Unicode-scalar conversion, literal UTF-8 and explicitly trusted native plugins are available through the CLI or optional panel. The standalone panel has its own controls and is not required for normal input.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux X11 / XWayland</td>
+<td>XIM implemented; real Ztty versions are covered by current acceptance tests</td>
+</tr>
+<tr>
+<td>Hyprland / input-method-v2 compositors</td>
+<td>Protocol path implemented; actual tested applications and settings are listed in the acceptance record</td>
+</tr>
+<tr>
+<td>KDE Plasma native Wayland</td>
+<td>Its input-method-v1 frontend is not implemented</td>
+</tr>
+<tr>
+<td>GNOME native Wayland</td>
+<td>GNOME/IBus integration is not implemented</td>
+</tr>
+<tr>
+<td>Windows / macOS</td>
+<td>Portable components and historical build checks exist; TSF and InputMethodKit IME frontends are not implemented</td>
+</tr>
+</tbody>
+</table></div>
+<p>Distribution portability depends on the listed build/runtime libraries. Desktop compatibility depends on compositor and client input protocols. These are separate requirements. Protocol references: <a href="https://github.com/KDE/plasma-keyboard">KDE Plasma Keyboard</a> and <a href="https://github.com/ibus/ibus/wiki/WaylandDesktop">IBus Wayland desktop documentation</a>.</p>
+<h2 id="verification">Verification<a class="heading-anchor" href="#verification" aria-label="链接到 Verification">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>cargo test --all-targets --locked
+cargo clippy --all-targets --locked -- -D warnings
+python3 scripts/test_install.py
+python3 scripts/test_daily_input.py --binary target/release/ztype
+</code></pre></div>
+<p>Native tests verify actual UTF-8 received by applications, candidate pixels, focus transitions and process cleanup. The tests run their own display sessions and do not need to replace the user's active input method. The <a href="../../ztype/ztty-ui-0-4-2-zh-cn/">current record</a> documents commands, tested versions, evidence and remaining limitations. Earlier panel, plugin and platform results remain in <a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/verification.md">historical verification</a>; they are not presented as fresh native-IME acceptance.</p>
+<p>The <a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/daily-input-2026-11-20.zh-CN.md">0.4.0 daily-input record</a> remains available for the previous dependency and application baseline.</p>
+<p>The <a href="../../ztype/interactive-trial-zh-cn/">0.2.1 interactive trial record</a> remains available as historical evidence.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztype">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztype/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../ztype/service-installation/"><span class="pagination-label">下一页</span><span class="pagination-title">Native service installation</span></a></nav>
+      <footer class="page-footer">
+        <span>ztype <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#build-and-install">Build and install</a></li><li class="toc-level-2"><a href="#native-input-controls">Native input controls</a></li><li class="toc-level-2"><a href="#configuration-and-dictionaries">Configuration and dictionaries</a></li><li class="toc-level-2"><a href="#engines-and-framework">Engines and framework</a></li><li class="toc-level-2"><a href="#verification">Verification</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

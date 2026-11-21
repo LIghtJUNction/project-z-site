@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="查询模型服务商预设、本地软件状态、账号模型目录与余额。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="lmm · Usage guide · Project Z">
+  <meta property="og:description" content="查询模型服务商预设、本地软件状态、账号模型目录与余额。">
+  <meta property="og:type" content="website">
+  <title>lmm · Usage guide · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/lmm/usage/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="lmm">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/TokenNotIncluded/lmm" aria-label="lmm 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">lmm</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>lmm</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/" aria-current="page">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="lmm 文档"><div class="nav-group"><p class="nav-label">lmm</p><ul><li><a class="nav-link" href="../../lmm/">概览</a></li><li><a class="nav-link" href="../../lmm/readme-en/">LMM CLI</a></li><li><a class="nav-link" href="../../lmm/usage/" aria-current="page">Usage guide</a></li><li><a class="nav-link" href="../../lmm/usage-zh-cn/">使用指南</a></li><li><a class="nav-link" href="../../lmm/i18n/">Translations</a></li><li><a class="nav-link" href="../../lmm/magpie-parity/">Magpie 功能对照</a></li><li><a class="nav-link" href="../../lmm/managed-distributions/">CC Switch 受管发行包</a></li><li><a class="nav-link" href="../../lmm/requirements-zh-cn/">LMM CLI Setup</a></li><li><a class="nav-link" href="../../lmm/third-party-magpie-notice/">Magpie provider presets</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>lmm</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/" aria-current="page">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="lmm 文档"><div class="nav-group"><p class="nav-label">lmm</p><ul><li><a class="nav-link" href="../../lmm/">概览</a></li><li><a class="nav-link" href="../../lmm/readme-en/">LMM CLI</a></li><li><a class="nav-link" href="../../lmm/usage/" aria-current="page">Usage guide</a></li><li><a class="nav-link" href="../../lmm/usage-zh-cn/">使用指南</a></li><li><a class="nav-link" href="../../lmm/i18n/">Translations</a></li><li><a class="nav-link" href="../../lmm/magpie-parity/">Magpie 功能对照</a></li><li><a class="nav-link" href="../../lmm/managed-distributions/">CC Switch 受管发行包</a></li><li><a class="nav-link" href="../../lmm/requirements-zh-cn/">LMM CLI Setup</a></li><li><a class="nav-link" href="../../lmm/third-party-magpie-notice/">Magpie provider presets</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../lmm/">lmm 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../lmm/">lmm</a><span aria-hidden="true">/</span><span>Usage guide</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#build-and-language-selection">Build and language selection</a></li><li class="toc-level-2"><a href="#presets-software-and-account-data">Presets, software and account data</a></li><li class="toc-level-2"><a href="#local-inspection">Local inspection</a></li><li class="toc-level-3"><a href="#pi-settings-inspection">Pi settings inspection</a></li><li class="toc-level-2"><a href="#plans-and-explicit-consent">Plans and explicit consent</a></li><li class="toc-level-3"><a href="#managed-cc-switch-distributions">Managed CC Switch distributions</a></li><li class="toc-level-3"><a href="#native-cc-switch-application-configuration">Native CC Switch application configuration</a></li><li class="toc-level-3"><a href="#pi-provider-adapter">Pi Provider adapter</a></li><li class="toc-level-2"><a href="#browser-login-and-credential-stores">Browser login and credential stores</a></li><li class="toc-level-2"><a href="#development-outcomes-and-remaining-limits">Development, outcomes and remaining limits</a></li><li class="toc-level-2"><a href="#attribution">Attribution</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="usage-guide">Usage guide</h1>
+<p><a href="../../lmm/readme-en/">English README</a> · <a href="../../lmm/usage-zh-cn/">简体中文</a></p>
+<p>This guide describes the current Rust source tree, its implemented commands and their limits. <code>lmm-cli</code> is the Cargo package and <code>lmm</code> is the executable. The CLI builds independently of the parent service. The full <a href="../../lmm/requirements-zh-cn/">product requirements</a> remain the target; the <a href="../../lmm/magpie-parity/">Magpie comparison</a> distinguishes implemented behavior from remaining work.</p>
+<h2 id="build-and-language-selection">Build and language selection<a class="heading-anchor" href="#build-and-language-selection" aria-label="链接到 Build and language selection">#</a></h2>
+<p>From the repository root:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>mise install
+mise exec -- cargo install --path . --locked
+lmm --lang en --help
+</code></pre></div>
+<p>The development toolchain is pinned to Rust 1.100.0 in <code>mise.toml</code>; <code>Cargo.toml</code> declares Rust 1.99.1 as the minimum. Native compilation tools are required. Published packages can lag this source tree. Source validation does not certify the capabilities of a separately published binary.</p>
+<p><code>--lang en</code> and <code>--lang zh-CN</code> work before or after a subcommand, including help. The flag overrides the first nonempty value in <code>LMM_LANG</code>, <code>LC_ALL</code>, <code>LC_MESSAGES</code> and <code>LANG</code>. Unknown environment locales fall back to English; unsupported explicit flags are rejected. Terminal presentation is translated, while CLI-generated JSON prose stays English and protocol values remain unchanged. Original vendor metadata is preserved. See <a href="../../lmm/i18n/">Translations</a>.</p>
+<h2 id="presets-software-and-account-data">Presets, software and account data<a class="heading-anchor" href="#presets-software-and-account-data" aria-label="链接到 Presets, software and account data">#</a></h2>
+<p><code>lmm presets [query] --json</code> searches the offline snapshot of 56 provider presets. It does not configure a provider, read a key, discover live models or test connectivity. Source attribution and the fixed Magpie revision are preserved under <a href="../../lmm/third-party-magpie-notice/">third_party/magpie</a>. Static endpoints and models may become outdated.</p>
+<p><code>lmm catalog [query]</code> searches software identities and translated descriptions. The catalog separately records installation, integration and maintenance capabilities. It is not an installed-software list or a complete compatibility declaration. <code>lmm models</code> instead reads the model catalog authorized for the current LMM account; <code>lmm balance</code> reads the account's balance.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>lmm presets deepseek --json
+lmm catalog
+lmm models --json
+lmm balance --json
+</code></pre></div>
+<p>Model results preserve server context/capability metadata, cache prices and group/trust multipliers. Unknown fields remain <code>null</code>, and returned prices are not multiplied again. Balance V2 preserves exact integer credits, USD balance and the server conversion unit; unknown units or a failed request are not rendered as zero. These commands do not select a model or make a paid model call.</p>
+<h2 id="local-inspection">Local inspection<a class="heading-anchor" href="#local-inspection" aria-label="链接到 Local inspection">#</a></h2>
+<p>Local inspection uses explicit paths in the operating system running the CLI. It does not scan other users, remote systems, networks or container instances. PATH matches are only evidence; discovered executables are not run, even for <code>--version</code>. Symlinks and inaccessible paths remain unknown, and a missing file describes only the location inspected.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>lmm status astrbot --instance /absolute/path/to/AstrBot --json
+lmm status cc-switch --instance /absolute/path/to/.cc-switch --json
+lmm doctor astrbot --instance /absolute/path/to/AstrBot --report --json
+lmm setup astrbot --dry-run --json
+</code></pre></div>
+<p>AstrBot inspection checks the selected root's <code>data/cmd_config.json</code> path. CC Switch opens an explicitly selected database in a read-only SQLite transaction, checks schema 24 and reads non-credential provider metadata. Managed installation state and database selection are reported separately. Neither establishes application authorization, the actual model route or a successful call.</p>
+<p><code>--report</code> removes instance and evidence paths from diagnostic output; ordinary <code>status</code> can expose local paths. Configuration values and credential contents are not included. <code>doctor</code> remains incomplete, returning <code>3</code> even if a supported configuration check passes; <code>--fix</code> still refuses writes. Status exit code <code>0</code> means the applicable query completed, not that the application is ready for use.</p>
+<h3 id="pi-settings-inspection">Pi settings inspection<a class="heading-anchor" href="#pi-settings-inspection" aria-label="链接到 Pi settings inspection">#</a></h3>
+<p>The read-only Pi inspector supports Linux and the manifest format of the official Pi 1.2.0 npm package. Supply three explicit directories:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>lmm status pi --instance /absolute/project \
+  --pi-package /absolute/node_modules/@earendil-works/pi-coding-agent \
+  --agent-dir /absolute/pi-agent --json
+lmm doctor pi --instance /absolute/project \
+  --pi-package /absolute/node_modules/@earendil-works/pi-coding-agent \
+  --agent-dir /absolute/pi-agent --report --json
+</code></pre></div>
+<p>This path reads the package manifest, the selected agent's <code>settings.json</code> and the project's <code>.pi/settings.json</code>. It does not need Node, run the SDK, read <code>auth.json</code>, or create a state directory or configuration lock. Linux directory and file opens reject symlink traversal at each component.</p>
+<p><code>pi_settings.provider_reference</code> distinguishes the pinned source, other recognized LMM sources and multiple references. Common Pi 1.2.0 npm/Git forms are recognized; local extension paths, npm aliases and unknown forms are unresolved. A known source mixed with unresolved entries reports <code>known_with_unresolved_sources</code>. Even <code>no_known_source</code> cannot exclude an extension loading LMM by another mechanism. A package reference does not prove code is installed or loaded.</p>
+<p><code>lmm_added=referenced_in_settings</code> and <code>lmm_enabled=selected_in_settings</code> describe a reference and a default provider field, not runtime activation. Project provider/model defaults override the corresponding global fields independently; <code>provider_scope</code> and <code>model_scope</code> report those sources. Model values are reduced to set/unset and other providers to <code>other</code>. Multiple known sources are reported without automatic deduplication.</p>
+<p>Unknown versions, inaccessible files, symlinks including directory ancestors, files over 1 MiB and incompatible known field shapes remain unknown and make <code>status</code> return <code>3</code>. Missing settings are treated as unset and are not created. The files are separate snapshots, not an atomic cross-file view. Hard links, bind mounts and changes after opening are outside the symlink checks. Project trust, launch arguments, session selections and model caches can change actual behavior; this check verifies none of them or the SDK's authenticity. A project path without Pi format arguments retains ordinary path inspection.</p>
+<h2 id="plans-and-explicit-consent">Plans and explicit consent<a class="heading-anchor" href="#plans-and-explicit-consent" aria-label="链接到 Plans and explicit consent">#</a></h2>
+<p><code>--json</code> disables CLI prompts, and <code>--non-interactive</code> does not wait for missing input. <code>--yes</code> cannot bypass missing capability, required application consent or server-enforced cost limits. <code>--all</code> does not turn the software catalog into a list of installed targets: <code>update --all</code> considers only LMM-managed CC Switch, while <code>setup --all</code> still has no executable application targets.</p>
+<p>Supported adapters use their own native transactions, journals and exact scope checks. Unsupported software continues to return a blocked plan instead of an empty success. Installation alone does not need CLI login. Status, diagnostics and dry-run planning do not make paid model calls or create their own state directories.</p>
+<h3 id="managed-cc-switch-distributions">Managed CC Switch distributions<a class="heading-anchor" href="#managed-cc-switch-distributions" aria-label="链接到 Managed CC Switch distributions">#</a></h3>
+<p>The Linux x86_64/aarch64 adapter manages a pinned official CC Switch AppImage inside an LMM-owned private directory. Its version, source commit, byte length and SHA-256 are recorded in the <a href="../../lmm/managed-distributions/">managed distribution contract</a> and <a href="https://github.com/TokenNotIncluded/lmm/blob/b97b5c26b0304d4ffe5a668027149b42347999b1/src/managed/releases.rs">release manifest</a>. It does not execute an arbitrary network <code>latest</code> release or claim upstream signature verification.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>lmm install cc-switch --dry-run --json
+lmm update cc-switch --dry-run --json
+lmm restore cc-switch --change &lt;change_id&gt; --dry-run --json
+lmm uninstall cc-switch --dry-run --json
+</code></pre></div>
+<p>After reviewing a plan, repeat the same arguments without <code>--dry-run</code> and with <code>--yes --plan-id &lt;plan_id&gt;</code>. The plan becomes invalid if managed state changes. <code>--yes</code> alone does not skip the plan. <code>--managed-root</code> selects the private program directory; <code>--instance</code> selects application data for database compatibility checks. <code>run --instance</code> is refused because it cannot rewrite CC Switch's native launch settings.</p>
+<p><code>lmm run cc-switch</code> starts only the verified managed program. A <code>process_started</code> result establishes only that a child process was created. Graphical-session/FUSE requirements, application health, live routing and model calls need separate acceptance. Installation does not edit PATH, system packages, desktop entries or application configuration.</p>
+<p>The journal records pending work before download or removal, then commits state and a receipt. Resume an interrupted operation with its original plan ID. A previously committed plan returns its receipt rather than overwriting later changes. <code>--cancel-pending</code> requires the original plan and refuses cancellation after original files have been removed. Restoration needs an explicit <code>change_id</code> and preserves later user changes; a native database newer than the old program's supported schema blocks a downgrade. App data is not rolled back or removed.</p>
+<h3 id="native-cc-switch-application-configuration">Native CC Switch application configuration<a class="heading-anchor" href="#native-cc-switch-application-configuration" aria-label="链接到 Native CC Switch application configuration">#</a></h3>
+<p>Independent application grants do not reuse the CLI read-only login. <code>authorize</code> obtains browser consent for the selected instance, group and spending scope. The server must provide the matching independent authorization and recoverable renewal contract. Credentials remain in the system vault; native Codex command authentication obtains a model bearer without copying a CLI token or another application's credentials.</p>
+<p><code>setup cc-switch --add-only</code> adds an LMM provider to an explicit schema 24 instance. <code>sync</code> refreshes metadata from that application's authorized catalog while retaining the original model choice. Preview and apply require exact target/plan identifiers. If a database commit outcome is unknown, query the original <code>change_id</code> with <code>receipt</code> before retrying. <code>restore --configuration --change</code> uses native receipts and refuses conflicting later edits.</p>
+<p>A provider row is not evidence that Codex is active on the route. <code>--activate</code> and complete removal need a CC Switch native operation that checks live configuration, proxy and Stack references; an <code>is_current</code> field or inactive SQLite pointer is insufficient. The hidden <code>credential</code> command serves the native raw-token pipe and rejects JSON and terminal token display. See <a href="https://github.com/TokenNotIncluded/lmm/blob/b97b5c26b0304d4ffe5a668027149b42347999b1/docs/native-credential-evidence.md">native credential evidence</a> for the pinned upstream contract and unexecuted compatibility boundaries.</p>
+<h3 id="pi-provider-adapter">Pi Provider adapter<a class="heading-anchor" href="#pi-provider-adapter" aria-label="链接到 Pi Provider adapter">#</a></h3>
+<p>The Linux adapter uses an already installed official Pi 1.2.0 SDK and manages only the pinned LMM Provider in an explicitly selected project. It does not install/uninstall Pi itself or copy CLI credentials. The current source is <code>git:github.com/TokenNotIncluded/pi-lmm-provider@f0c54764eb3d73e50790346f0dbab834587fe27b</code>.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>lmm setup pi --add-only --instance /absolute/project --node /absolute/node \
+  --pi-package /absolute/node_modules/@earendil-works/pi-coding-agent \
+  --agent-dir /absolute/pi-agent --dry-run --json
+</code></pre></div>
+<p>After reviewing the preview, repeat the same paths without <code>--dry-run</code> and add <code>--yes</code>. <code>setup</code>/<code>install</code> adds only the pinned Provider. <code>provider_added_authorization_pending</code> is not a usable-model claim. Choose LMM using <code>/login</code> inside Pi and explicitly choose a model with <code>/model</code>; <code>--activate</code> cannot substitute for those steps. Existing alternate LMM sources block duplicate installation, while current default provider/model selections are preserved.</p>
+<p><code>update</code> accepts only the still-present owned source and does not chase latest versions. <code>sync</code> verifies presence and reports <code>catalog_refresh_pending</code>; <code>/lmm-prices</code> in Pi performs the actual refresh. <code>run pi</code> uses the same four explicit paths and requires an interactive terminal. Setup, sync and disconnect can return <code>3</code> after their limited phase because authorization, refresh or revocation remains pending in Pi.</p>
+<p>Restore/disconnect removes only the exact source that LMM added through Pi's native settings transaction. It preserves later plugins and defaults and refuses restoration if the user changed the owned source object. Downloaded code may be shared by another instance and is retained. Use <code>/lmm-revoke</code> inside Pi to revoke Pi authorization; removing a settings reference does not revoke it. Uninstall does not delete Pi or unknown resources.</p>
+<p>The secret-free journal is <code>.pi/lmm-owned.json</code> and the adapter lock is <code>.pi/lmm-adapter.lock</code> in the selected project. Pending state is persisted before a write and completed only after readback. Pi's <code>FileSettingsStorage.withLock</code> reads the latest settings before editing, avoiding replacement of a concurrent user's plugin array. The adapter never reads Pi's credential file.</p>
+<h2 id="browser-login-and-credential-stores">Browser login and credential stores<a class="heading-anchor" href="#browser-login-and-credential-stores" aria-label="链接到 Browser login and credential stores">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>lmm login
+lmm models --json
+lmm balance --json
+lmm logout
+
+# Use the same explicitly trusted issuer for related account commands.
+lmm login --issuer https://lmm.example.com --no-browser
+</code></pre></div>
+<p>The server must register the <code>lmm</code> client and implement its OAuth contract. CLI login requests <code>catalog:read balance:read</code> and the group snapshot displayed on the consent page; it does not request <code>models:invoke</code>, MCP access or account administration. A CLI session does not authorize AstrBot, CC Switch or Pi.</p>
+<p>The callback listens only on a random <code>127.0.0.1</code> port. The default wait is 180 seconds; <code>--timeout</code> accepts 10–600 seconds. <code>--no-browser</code> disables automatic browser opening but still requires that browser to reach this machine's loopback port. It is not device-code login or cross-device headless authorization. Login requires an interactive terminal. An existing session is not silently replaced; log out before switching accounts. A callback receipt alone does not prove token exchange and storage completed.</p>
+<p>Windows uses Credential Manager, macOS uses Keychain, and Linux uses Secret Service through zbus rather than a statically linked libdbus. A system unlock prompt may appear. There is no ordinary-file credential fallback. Authentication and applicable application commands reject <code>--non-interactive</code> before opening the store; <code>models --json</code> and <code>balance --json</code> disable CLI prompts but cannot suppress an operating-system unlock prompt.</p>
+<p>OAuth operations share a secret-free <code>oauth.lock</code> in the current user's state directory:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>System</th>
+<th>State directory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td><code>$XDG_STATE_HOME/lmm</code> or <code>~/.local/state/lmm</code></td>
+</tr>
+<tr>
+<td>macOS</td>
+<td><code>~/Library/Application Support/lmm</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>%LOCALAPPDATA%/lmm</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>New Unix directories and lock files use <code>0700</code> and <code>0600</code>; unsafe existing directories or locks are rejected. Before refreshing, the CLI saves a non-retryable state in the vault. A lost response or failed save does not cause replay of an old refresh token; log out and obtain consent again. If logout revocation fails, the local record remains for a retry and success is not reported. Logout affects only this issuer's CLI token family, not independent application grants.</p>
+<h2 id="development-outcomes-and-remaining-limits">Development, outcomes and remaining limits<a class="heading-anchor" href="#development-outcomes-and-remaining-limits" aria-label="链接到 Development, outcomes and remaining limits">#</a></h2>
+<p>Run checks from the repository root using <code>mise</code>:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>python3 scripts/check-i18n.py
+python3 scripts/test_i18n_checks.py
+mise exec -- cargo fmt --all -- --check
+mise exec -- cargo test --locked
+mise exec -- cargo clippy --locked --all-targets --all-features -- -D warnings
+</code></pre></div>
+<p>Fixture tests use temporary directories, synthetic inputs and SQLite. They do not start an official AppImage, authorize a real account or make a paid model call. Two opt-in Linux credential migration tests require a deliberately isolated Secret Service and remain ignored in an ordinary test run. Local success does not certify live credential stores on all platforms or publish a release.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Exit code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>A query or executable preview was produced, or a managed operation committed; inspect individual verification fields</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Invalid/incomplete arguments, unknown target, selection failure or output error</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Blocked operation, unsupported capability or incomplete verification</td>
+</tr>
+</tbody>
+</table></div>
+<p>The in-memory <code>restore_fields</code> helper restores only scalar fields still equal to LMM's previous write and rejects conflicts across the target. It is not a file transaction or authorization mechanism. Managed distribution restoration and <code>restore --configuration</code> instead use their own persistent journals, native version gates and state comparisons. A bounded fingerprint is not an atomic write lock, and client-side cost checks do not replace server-enforced spending limits.</p>
+<p>The CLI does not copy third-party credentials or upload telemetry. Confirmed managed operations create their private state and secret-free journals; OAuth uses its separate lock and system vault. Normal status can include local paths, so review output or use <code>doctor --report --json</code> before sharing it.</p>
+<h2 id="attribution">Attribution<a class="heading-anchor" href="#attribution" aria-label="链接到 Attribution">#</a></h2>
+<p>The project uses <a href="https://github.com/TokenNotIncluded/lmm/blob/b97b5c26b0304d4ffe5a668027149b42347999b1/LICENSE">AGPL-3.0-only</a>. Provider preset data retains attribution and licensing for the pinned MIT-licensed Magpie source in <a href="https://github.com/TokenNotIncluded/lmm/blob/b97b5c26b0304d4ffe5a668027149b42347999b1/NOTICE">NOTICE</a>. Referencing this data does not imply feature parity with Magpie or a Go runtime dependency.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm/blob/b97b5c26b0304d4ffe5a668027149b42347999b1/docs/usage.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm/readme-en/"><span class="pagination-label">上一页</span><span class="pagination-title">LMM CLI</span></a><a class="pagination-link next" href="../../lmm/usage-zh-cn/"><span class="pagination-label">下一页</span><span class="pagination-title">使用指南</span></a></nav>
+      <footer class="page-footer">
+        <span>lmm <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#build-and-language-selection">Build and language selection</a></li><li class="toc-level-2"><a href="#presets-software-and-account-data">Presets, software and account data</a></li><li class="toc-level-2"><a href="#local-inspection">Local inspection</a></li><li class="toc-level-3"><a href="#pi-settings-inspection">Pi settings inspection</a></li><li class="toc-level-2"><a href="#plans-and-explicit-consent">Plans and explicit consent</a></li><li class="toc-level-3"><a href="#managed-cc-switch-distributions">Managed CC Switch distributions</a></li><li class="toc-level-3"><a href="#native-cc-switch-application-configuration">Native CC Switch application configuration</a></li><li class="toc-level-3"><a href="#pi-provider-adapter">Pi Provider adapter</a></li><li class="toc-level-2"><a href="#browser-login-and-credential-stores">Browser login and credential stores</a></li><li class="toc-level-2"><a href="#development-outcomes-and-remaining-limits">Development, outcomes and remaining limits</a></li><li class="toc-level-2"><a href="#attribution">Attribution</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

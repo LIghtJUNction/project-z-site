@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="模型网关与业务扩展平台，管理身份、权限、账本和调用路由。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="lmm-api-source · Extore 商品集成 · Project Z">
+  <meta property="og:description" content="模型网关与业务扩展平台，管理身份、权限、账本和调用路由。">
+  <meta property="og:type" content="website">
+  <title>lmm-api-source · Extore 商品集成 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/lmm-api-source/extore/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="lmm-api-source">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/TokenNotIncluded/lmm-api-source" aria-label="lmm-api-source 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">lmm-api-source</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>lmm-api-source</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/" aria-current="page">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="lmm-api-source 文档"><div class="nav-group"><p class="nav-label">lmm-api-source</p><ul><li><a class="nav-link" href="../../lmm-api-source/">概览</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-docker-readme/">全新微内核 Docker 开发栈（WIP）</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-postgres-readme/">Explicit offline core roles</a></li><li><a class="nav-link" href="../../lmm-api-source/agent-workflows/">Agent 工作指南</a></li><li><a class="nav-link" href="../../lmm-api-source/archive/">历史资料索引</a></li><li><a class="nav-link" href="../../lmm-api-source/core-migration/">Core 与 Extensions 架构</a></li><li><a class="nav-link" href="../../lmm-api-source/development/">开发与测试</a></li><li><a class="nav-link" href="../../lmm-api-source/extore/" aria-current="page">Extore 商品集成</a></li><li><a class="nav-link" href="../../lmm-api-source/filesystem-layout/">配置与文件路径</a></li><li><a class="nav-link" href="../../lmm-api-source/legal-readme/">可配置的协议模板</a></li><li><a class="nav-link" href="../../lmm-api-source/progress/">新架构进度</a></li><li><a class="nav-link" href="../../lmm-api-source/quality/">本地质量检查与独立验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>lmm-api-source</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/" aria-current="page">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="lmm-api-source 文档"><div class="nav-group"><p class="nav-label">lmm-api-source</p><ul><li><a class="nav-link" href="../../lmm-api-source/">概览</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-docker-readme/">全新微内核 Docker 开发栈（WIP）</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-postgres-readme/">Explicit offline core roles</a></li><li><a class="nav-link" href="../../lmm-api-source/agent-workflows/">Agent 工作指南</a></li><li><a class="nav-link" href="../../lmm-api-source/archive/">历史资料索引</a></li><li><a class="nav-link" href="../../lmm-api-source/core-migration/">Core 与 Extensions 架构</a></li><li><a class="nav-link" href="../../lmm-api-source/development/">开发与测试</a></li><li><a class="nav-link" href="../../lmm-api-source/extore/" aria-current="page">Extore 商品集成</a></li><li><a class="nav-link" href="../../lmm-api-source/filesystem-layout/">配置与文件路径</a></li><li><a class="nav-link" href="../../lmm-api-source/legal-readme/">可配置的协议模板</a></li><li><a class="nav-link" href="../../lmm-api-source/progress/">新架构进度</a></li><li><a class="nav-link" href="../../lmm-api-source/quality/">本地质量检查与独立验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../lmm-api-source/">lmm-api-source 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../lmm-api-source/">lmm-api-source</a><span aria-hidden="true">/</span><span>Extore 商品集成</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#用户流程">用户流程</a></li><li class="toc-level-2"><a href="#配置与接口">配置与接口</a></li><li class="toc-level-2"><a href="#可选原生目录插件">可选原生目录插件</a></li><li class="toc-level-2"><a href="#发行文件">发行文件</a></li><li class="toc-level-2"><a href="#验收合同">验收合同</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="extore-商品集成">Extore 商品集成</h1>
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/README.md">文档目录</a> · <a href="../../lmm-api-source/progress/">新架构进度</a> · <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/extensions/internal/modules/store/README.md">商店模块</a></p>
+<p>本页定义 Extore 授权、目录传输与商品同步合同。两端真实验收及生产配置状态统一记录在 <code>progress.md</code> 的 CHECK-06。<strong>不得部署，也不得合并或推送会自动部署的 Extore <code>main</code>。</strong> 继续跨仓库工作前核对实际分支和固定提交，插件依赖只引用已审查的固定版本。</p>
+<h2 id="用户流程">用户流程<a class="heading-anchor" href="#用户流程" aria-label="链接到 用户流程">#</a></h2>
+<p>商城选择导入，跳转 Extore 登录并批准商品授权，返回后自动同步商品与全部规格。列表显示来源、同步按钮和上次同步时间；连接管理支持查看、按源同步与断开连接。</p>
+<p>断开连接需要当前店铺的管理权限。服务端先向 Extore 撤销该连接的上游授权，成功后才在本地停用连接；上游不可达或撤销失败时保留本地连接，以便重试。断开不会删除已导入商品或来源历史；该连接不再列为可用，后续目录读取和同步需要重新授权。</p>
+<p>Extore 是导入商品配置的权威来源。商城不能绕过上游修改受控字段；同一来源重复同步更新原商品和规格，同 revision 只刷新卡密统计。同步不自动发行或补货卡密。</p>
+<h2 id="配置与接口">配置与接口<a class="heading-anchor" href="#配置与接口" aria-label="链接到 配置与接口">#</a></h2>
+<p>Go 商店配置需要 <code>store.extore_key_file</code> 和 <code>store.extore_redirect_uri</code>，以及原有的 Store PostgreSQL 与 Core 权限配置。密封密钥是独立的原始 32 字节私密文件，不能复用库存密钥；保持既有密钥才能继续解密已保存连接。文件由实际服务账户读取，权限遵守<a href="../../lmm-api-source/filesystem-layout/#%E6%9D%83%E9%99%90%E4%B8%8E%E6%9C%8D%E5%8A%A1%E8%B4%A6%E6%88%B7">私密文件合同</a>。</p>
+<p>回调地址必须是规范的 <code>https://&lt;站点域名&gt;/store/manage</code>，没有查询或片段，并与浏览器当前 origin、<code>host.public_origin</code> 和授权端注册值一致。现有 Web 入口默认使用 <code>https://extore.lmm.best</code> 和公开客户端 <code>lmm-best-store</code>；PKCE 流程不要求客户端秘密。Extore 的既有内置客户端注册允许 <code>https://api.lmm.best/store/manage</code> 和 <code>https://native.api.lmm.best/store/manage</code>。其他站点须先完成相应客户端注册，不能只修改回调字符串。</p>
+<p>授权开始与回调都由 Core 验证当前 Session。Core 的 <code>AuthorizeResponse.session_binding</code> 是带版本的、不含凭据的摘要，由同一只读认证快照中的用户、权限代际和浏览器会话族生成；Go 只接受 Core 返回的绑定，不解析 access token，也不读取 Core 数据库。同一浏览器会话正常刷新 access token 后仍可完成原授权；同一用户另一次登录、权限代际变化、撤销和失效不能接用原流程。原生 Session 没有浏览器会话族时按已验证的凭据绑定，不能退化成只按用户绑定。</p>
+<p>此合同需要配套的 Core 和 Go Extensions。旧 Core 未返回绑定时，Go 对 Extore 授权返回服务不可用（503）；其他使用原 <code>Authority.Check</code> 的商店操作不受这个新增字段影响。已开始的流程仍受一次性消费、十分钟有效期、加密凭据和版本冲突检查约束；升级前按旧 access token 创建的未完成流程需要重新授权。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>方法与路径</th>
+<th>请求与用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST /api/store/extore/authorize</code></td>
+<td><code>{base_url, client_id}</code>；创建授权跳转，空值使用默认服务和客户端</td>
+</tr>
+<tr>
+<td><code>POST /api/store/extore/catalog</code></td>
+<td><code>{callback_url}</code>；消费一次回调、保存连接并同步批准的商品</td>
+</tr>
+<tr>
+<td><code>GET /api/store/extore/connections</code></td>
+<td>当前用户有权管理的连接及商品来源</td>
+</tr>
+<tr>
+<td><code>GET /api/store/extore/connections/{id}/catalog</code></td>
+<td>指定连接的授权目录</td>
+</tr>
+<tr>
+<td><code>POST /api/store/extore/connections/{id}/sync</code></td>
+<td><code>{source_id}</code>；同步一个批准的商品</td>
+</tr>
+<tr>
+<td><code>POST /api/store/extore/connections/{id}/sync-all</code></td>
+<td>按连接同步批准的目录</td>
+</tr>
+<tr>
+<td><code>POST /api/store/extore/connections/{id}/disconnect</code></td>
+<td>撤销上游授权并停用本地连接，保留来源历史</td>
+</tr>
+</tbody>
+</table></div>
+<p>实现入口：<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/extensions/internal/modules/store/extore.go">授权与连接</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/extensions/internal/modules/store/extore_sync.go">目录与同步</a>。连接记录的 <code>shop_id</code> 来自上游 Extore 目录，不是 LMM 本地店铺 ID。读取目录时同时核对 issuer、grant、商品归属及已保存的上游店铺 ID；浏览器声明不能覆盖这些服务器状态。凭据以连接 ID 绑定的密文保存，不返回浏览器。刷新和撤销继续使用既有持久化 fence。</p>
+<h2 id="可选原生目录插件">可选原生目录插件<a class="heading-anchor" href="#可选原生目录插件" aria-label="链接到 可选原生目录插件">#</a></h2>
+<p>未配置 <code>store.extore_plugin</code> 时，目录继续使用 Go HTTPS 客户端。配置后，Go 在一个专用操作系统线程上通过 purego 调用 Rust 宿主桥；宿主使用 zplugin 的实际加载器和 <code>extore.commerce</code> v1 类型接口。Rust 插件通过 HTTPS 读取真实 Extore 授权目录，Go 再执行相同的目录和 Store 权限校验。发现服务、OAuth、刷新和撤销仍使用现有 Go HTTPS 路径。</p>
+<p>在已经启用 Extore 授权的 <code>extensions.toml</code> 中增加：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>[store.extore_plugin]
+host_library = &quot;/usr/lib/lmm/extensions/extore/libextore_plugin_host.so&quot;
+plugin_library = &quot;/usr/lib/lmm/extensions/extore/libextore_commerce_plugin.so&quot;
+host_sha256 = &quot;&lt;该平台宿主库的 64 位小写 SHA-256&gt;&quot;
+plugin_sha256 = &quot;&lt;该平台插件库的 64 位小写 SHA-256&gt;&quot;
+# 可选：额外信任的 CA PEM，证书与主机名验证仍保持开启
+# ca_file = &quot;/etc/lmm.conf.d/extore-ca.pem&quot;
+</code></pre></div>
+<p>两个摘要取自同一可信发行归档的 <code>MANIFEST.json</code>；原生包安装的 <code>/usr/share/doc/lmm-extensions/BUILDINFO.json</code> 也记录安装路径及摘要。库必须是有界的普通文件，不允许组或其他用户写入。程序先校验摘要，再通过保留的文件描述符加载对应文件。GNU 与 musl 库各有自己的摘要，不能互用。</p>
+<p>开启插件后，路径、摘要、ABI、CA 或初始化错误会阻止启动；运行中的插件调用错误返回到调用者，不会静默改用 Go 目录传输。每次请求的创建、调用、输出释放和实例关闭均在同一个固定线程上完成；调用者取消等待后，工作线程仍完成资源清理。排队和等待结果共享 20 秒预算，原生 HTTPS 另有 5 秒连接和 20 秒请求上限，目录上限为 16 MiB，额外 CA 上限为 256 KiB。允许的上游是规范 HTTPS DNS origin 和标准 443 端口，不接受 IP、用户名密码、非根路径、查询或片段；不跟随重定向。</p>
+<p>可在实际服务账户、组、工作目录和加载器环境中运行只加载检查：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>/usr/bin/lmm-extensions --check-extore-plugin --config /etc/lmm.conf.d/extensions.toml
+</code></pre></div>
+<p>该模式严格解析同一 TOML，只校验并加载两个原生库、创建和关闭一个实例，然后退出；不读取业务凭据、不初始化运行时、不连接数据库，也不请求上游。成功返回退出码 0 和明确的加载结果。它只证明当前进程环境能加载已配置插件，不代表 OAuth、数据库或用户授权已经可用。</p>
+<p>服务关闭会等待当前原生调用结束并退出专用线程。两个原生映像及其校验后的文件描述符保留到进程退出；更新库路径、内容摘要或包版本后必须重启进程，不能把 <code>Close</code> 描述为卸载共享库。原生目录传输不会新增产品程序或守护进程。</p>
+<h2 id="发行文件">发行文件<a class="heading-anchor" href="#发行文件" aria-label="链接到 发行文件">#</a></h2>
+<p>Extore 源码以 <code>packages/extore</code> 的固定 gitlink 引入，版本记录在 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/packaging/extore-plugin.json">extore-plugin.json</a>；构建前运行 <code>scripts/check-extore-plugin-pin.py</code> 核对。正式 Extensions 包包含两份独立共享库、Extore 许可证、锁定依赖的许可证原文与清单，以及 purego 和 Go 衍生代码的许可证。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>归档平台</th>
+<th>原生包</th>
+<th>动态库与解释器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>linux-amd64</code>、<code>linux-arm64</code></td>
+<td>DEB、RPM、Arch</td>
+<td>GNU 构建的两份共享库，检查实际 glibc 最低版本</td>
+</tr>
+<tr>
+<td><code>linux-musl-amd64</code>、<code>linux-musl-arm64</code></td>
+<td>APK</td>
+<td>musl 构建的两份共享库及对应 musl 解释器，声明 musl 和 libgcc 依赖</td>
+</tr>
+</tbody>
+</table></div>
+<p>Go 两种产物均保持 <code>CGO_ENABLED=0</code>。purego 需要动态加载器，因此该设置不表示程序静态链接。APK 使用单独构建和标记的 musl 归档，完整安装矩阵及验证命令见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/packaging/linux/README.md">Linux 预览包</a>。</p>
+<h2 id="验收合同">验收合同<a class="heading-anchor" href="#验收合同" aria-label="链接到 验收合同">#</a></h2>
+<p>在同一冻结候选上验证授权、回调自动导入、多规格、重复同步、同 revision 更新、撤销、到期、刷新竞争和跨店铺隔离。核对实际数据库映射及 Web 请求；凭据不得返回浏览器或进入日志。</p>
+<p>原生开发消费者使用真实 Rust Extore、HTTPS、SQLite 和共享库，并检查默认 Go HTTPS 路径、错误摘要、路径与 ABI、授权范围、Store 连接归属和关闭顺序。该消费者的 Store 仓库为事务内存测试仓库，Core 权限为现有测试替身；不能代替真实 CoreSession、Store PostgreSQL 和浏览器的独立验收。Alpine 包检查还必须实际安装 APK、以服务账户启动未配置插件的已安装程序，并用已安装的两份共享库调用真实授权目录。</p>
+<p>模块测试、两端联调、安装验收、生产配置和部署分别留证。2026-11-07 的分支、执行命令与原始限制保存在<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/0eae39f10ce8a1d80744ad44e88807e01facfda5/docs/extore-shop-binding-followup.md">固定交接记录</a>。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/extore.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/development/"><span class="pagination-label">上一页</span><span class="pagination-title">开发与测试</span></a><a class="pagination-link next" href="../../lmm-api-source/filesystem-layout/"><span class="pagination-label">下一页</span><span class="pagination-title">配置与文件路径</span></a></nav>
+      <footer class="page-footer">
+        <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#用户流程">用户流程</a></li><li class="toc-level-2"><a href="#配置与接口">配置与接口</a></li><li class="toc-level-2"><a href="#可选原生目录插件">可选原生目录插件</a></li><li class="toc-level-2"><a href="#发行文件">发行文件</a></li><li class="toc-level-2"><a href="#验收合同">验收合同</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生插件 ABI、动态库加载与可选 Wasm 沙箱。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zplugin · 概览 · Project Z">
+  <meta property="og:description" content="原生插件 ABI、动态库加载与可选 Wasm 沙箱。">
+  <meta property="og:type" content="website">
+  <title>zplugin · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zplugin/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zplugin">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zplugin" aria-label="zplugin 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zplugin</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zplugin</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/" aria-current="page">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zplugin 文档"><div class="nav-group"><p class="nav-label">zplugin</p><ul><li><a class="nav-link" href="../zplugin/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zplugin/zplugin-0-3-0-delivery/">zplugin 0.3.0：不可信 Wasm 插件交付报告</a></li><li><a class="nav-link" href="../zplugin/examples-foreign-readme/">C, C++, and Zig plugins</a></li><li><a class="nav-link" href="../zplugin/examples-readme/">Run the independent native plugin example</a></li><li><a class="nav-link" href="../zplugin/abi/">ABI v1 and ownership</a></li><li><a class="nav-link" href="../zplugin/extensions/">Stable values, tasks, resources and callbacks</a></li><li><a class="nav-link" href="../zplugin/performance-0-2-0/">Performance evidence: 0.2.0 extensions</a></li><li><a class="nav-link" href="../zplugin/performance-0-3-0/">zplugin 0.3.0 Wasm measurements</a></li><li><a class="nav-link" href="../zplugin/wasm/">Untrusted Wasm plugins</a></li><li><a class="nav-link" href="../zplugin/zplugin-0-2-0-delivery/">zplugin 0.2.0 交付报告</a></li><li><a class="nav-link" href="../zplugin/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zplugin</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/" aria-current="page">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zplugin 文档"><div class="nav-group"><p class="nav-label">zplugin</p><ul><li><a class="nav-link" href="../zplugin/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zplugin/zplugin-0-3-0-delivery/">zplugin 0.3.0：不可信 Wasm 插件交付报告</a></li><li><a class="nav-link" href="../zplugin/examples-foreign-readme/">C, C++, and Zig plugins</a></li><li><a class="nav-link" href="../zplugin/examples-readme/">Run the independent native plugin example</a></li><li><a class="nav-link" href="../zplugin/abi/">ABI v1 and ownership</a></li><li><a class="nav-link" href="../zplugin/extensions/">Stable values, tasks, resources and callbacks</a></li><li><a class="nav-link" href="../zplugin/performance-0-2-0/">Performance evidence: 0.2.0 extensions</a></li><li><a class="nav-link" href="../zplugin/performance-0-3-0/">zplugin 0.3.0 Wasm measurements</a></li><li><a class="nav-link" href="../zplugin/wasm/">Untrusted Wasm plugins</a></li><li><a class="nav-link" href="../zplugin/zplugin-0-2-0-delivery/">zplugin 0.2.0 交付报告</a></li><li><a class="nav-link" href="../zplugin/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zplugin/">zplugin 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zplugin/">zplugin</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install">Install</a></li><li class="toc-level-2"><a href="#define-an-interface">Define an interface</a></li><li class="toc-level-2"><a href="#implement-a-plugin">Implement a plugin</a></li><li class="toc-level-2"><a href="#load-and-call">Load and call</a></li><li class="toc-level-2"><a href="#run-the-complete-example">Run the complete example</a></li><li class="toc-level-2"><a href="#supported-boundaries">Supported boundaries</a></li><li class="toc-level-2"><a href="#asynchronous-and-cross-language-plugins">Asynchronous and cross-language plugins</a></li><li class="toc-level-2"><a href="#features">Features</a></li><li class="toc-level-2"><a href="#untrusted-wasm-plugins">Untrusted Wasm plugins</a></li><li class="toc-level-2"><a href="#multiple-interfaces-and-hot-switching">Multiple interfaces and hot switching</a></li><li class="toc-level-2"><a href="#safety-and-performance">Safety and performance</a></li><li class="toc-level-2"><a href="#validation-and-release">Validation and release</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zplugin">zplugin</h1><p class="project-intro">原生插件 ABI、动态库加载与可选 Wasm 沙箱。</p>
+<p>Define a Rust trait, implement it in a <code>cdylib</code>, and call it through a typed host
+proxy. zplugin uses a frozen target-platform C ABI, cached function tables, and
+explicit library lifetimes. The default runtime is <code>no_std</code>, needs no allocator,
+and has <strong>zero third-party runtime dependencies</strong>. Its native system loader is
+shared with the Project Z <code>zsys</code> crate through the allocation-free <code>dylib</code> feature.</p>
+<p>The same interface also generates C/C++ headers; Zig imports a module translated
+from those headers. Additive
+extension records support checked structs/enums, owned resources, callbacks,
+and cross-library tasks that the Rust host can <code>.await</code>.</p>
+<p>For <strong>untrusted plugins</strong>, enable the separate <code>wasm</code> backend: validated Wasm32
+bytecode, no host imports, finite execution fuel, and bounded guest memory.
+Native <code>.so</code>/<code>.dylib</code>/<code>.dll</code> loading still requires trusted code.</p>
+<p>Rust 1.95 or newer; edition 2024. Development toolchain: 1.100.0, the stable
+release published on 2026-11-12. Native loading targets Linux,
+macOS, and Windows; see <a href="../zplugin/zplugin-0-3-0-delivery/">the 0.3.0 delivery record</a> for tested machines
+and compiler combinations. This is a library of primitives, with no background
+watcher, executor, transport, or plugin discovery service.
+Native loading, the optional Wasm host and the allocator-free Wasm guest SDK
+share the Rust 1.95 baseline required by zsys. Older release evidence remains
+linked above; new platform verification belongs to this version's CI run.</p>
+<h2 id="install">Install<a class="heading-anchor" href="#install" aria-label="链接到 Install">#</a></h2>
+<p>Shared interface crate:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>[dependencies]
+zplugin = { version = &quot;0.3.1&quot;, features = [&quot;macros&quot;] }
+</code></pre></div>
+<p>Plugin and host crates can enable <code>std</code> independently. The interface itself may
+remain <code>no_std</code>. The optional procedural macro depends on <code>syn</code>, <code>quote</code>, and
+<code>proc-macro2</code> at <strong>compile time</strong>; these are not linked into the runtime.</p>
+<h2 id="define-an-interface">Define an interface<a class="heading-anchor" href="#define-an-interface" aria-label="链接到 Define an interface">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>#[zplugin::interface(id = &quot;example.calculator&quot;, version = 1)]
+pub trait Calculator {
+    fn add(&amp;mut self, a: u64, b: u64) -&gt; Result&lt;u64, zplugin::Error&gt;;
+    fn copy(&amp;self, input: &amp;[u8], output: &amp;mut [u8]) -&gt; Result&lt;u64, zplugin::Error&gt;;
+}
+</code></pre></div>
+<p>The macro generates <code>CalculatorApi</code>, <code>CalculatorBinding</code>, <code>CalculatorProxy</code>, and
+<code>CalculatorExport&lt;T&gt;</code>. Argument names may change; method order, names, receiver
+kind, types, and results define the frozen interface. Change its version when
+changing that contract.</p>
+<h2 id="implement-a-plugin">Implement a plugin<a class="heading-anchor" href="#implement-a-plugin" aria-label="链接到 Implement a plugin">#</a></h2>
+<p>Use the shared interface crate as a dependency and configure the plugin:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>[lib]
+crate-type = [&quot;cdylib&quot;]
+
+[dependencies]
+zplugin = { version = &quot;0.3.1&quot;, features = [&quot;std&quot;, &quot;macros&quot;] }
+calculator-api = { path = &quot;../calculator-api&quot; }
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,ignore</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 rust,ignore 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>use calculator_api::{Calculator, CalculatorExport};
+use zplugin::{Error, Result};
+
+struct Implementation;
+impl Calculator for Implementation {
+    fn add(&amp;mut self, a: u64, b: u64) -&gt; Result&lt;u64&gt; {
+        Ok(a.wrapping_add(b))
+    }
+    fn copy(&amp;self, input: &amp;[u8], output: &amp;mut [u8]) -&gt; Result&lt;u64&gt; {
+        if output.len() &lt; input.len() { return Err(Error::BufferTooSmall); }
+        output[..input.len()].copy_from_slice(input);
+        Ok(input.len() as u64)
+    }
+}
+fn create() -&gt; Result&lt;Implementation&gt; { Ok(Implementation) }
+
+zplugin::export!(CalculatorExport&lt;Implementation&gt;,
+    constructor = create, version = (1, 0, 0), unload = pinned);
+</code></pre></div>
+<p>The <code>pinned</code> policy keeps the image resident until process exit. To opt into
+cooperative unloading, implement the unsafe <code>zplugin::export::UnloadSafe</code> contract
+for the implementation, use <code>unload = cooperative</code>, and select the same policy
+when loading. The complete runnable example contains that implementation.</p>
+<h2 id="load-and-call">Load and call<a class="heading-anchor" href="#load-and-call" aria-label="链接到 Load and call">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,ignore</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 rust,ignore 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>use calculator_api::CalculatorApi;
+use zplugin::{Plugin, UnloadPolicy};
+
+// SAFETY: this file and its dependencies are trusted, and obey the v1 ABI.
+let library = unsafe { Plugin::load_path(&quot;./libcalculator.so&quot;, UnloadPolicy::Pinned)? };
+let mut calculator = CalculatorApi::create(&amp;library)?;
+assert_eq!(calculator.add(20, 22)?, 42);
+let mut output = [0; 64];
+let count = calculator.copy(b&quot;hello&quot;, &amp;mut output)?;
+assert_eq!(&amp;output[..count as usize], b&quot;hello&quot;);
+# Ok::&lt;(), zplugin::Error&gt;(())
+</code></pre></div>
+<p>Use <code>.dylib</code> on macOS and <code>.dll</code> on Windows. <code>load_path</code> preserves native Unicode
+paths. Without <code>std</code>, <code>Plugin::load(&amp;CStr)</code> is available; on Windows its narrow
+path uses the ANSI code page, and <code>Plugin::load_wide</code> accepts UTF-16 without alloc.</p>
+<p>The proxy borrows its library, so Rust rejects dropping that library first. For an
+independent owning proxy, enable <code>alloc</code>, put the plugin in <code>Rc&lt;Plugin&gt;</code>, and call
+<code>CalculatorApi::wrap(Plugin::create_owned(&amp;library, CalculatorApi::SPEC)?)</code>.
+Cloning occurs when acquiring resources; ordinary calls do not clone a lease.</p>
+<h2 id="run-the-complete-example">Run the complete example<a class="heading-anchor" href="#run-the-complete-example" aria-label="链接到 Run the complete example">#</a></h2>
+<p>The repository includes separate <a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/examples/interface">interface</a>,
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/examples/plugin">plugin</a>, and <a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/examples/host">host</a> crates:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>cargo build --release -p demo-plugin
+cargo run --release -p demo-host -- target/release/libdemo_plugin.so --self-test
+</code></pre></div>
+<p>On macOS substitute <code>libdemo_plugin.dylib</code>; on Windows use <code>demo_plugin.dll</code>.
+See <a href="../zplugin/examples-readme/">examples/README.md</a> for the directory structure, full
+Cargo configuration, explicit snapshot/restore, and owned outputs.</p>
+<h2 id="supported-boundaries">Supported boundaries<a class="heading-anchor" href="#supported-boundaries" aria-label="链接到 Supported boundaries">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Rust interface type</th>
+<th>Boundary representation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>u8/u16/u32/u64</code>, <code>i8/i16/i32/i64</code>, <code>f32/f64</code></td>
+<td>Fixed-width C ABI scalar</td>
+</tr>
+<tr>
+<td><code>&amp;[u8]</code>, <code>&amp;mut [u8]</code></td>
+<td>Pointer and native <code>size_t</code> length; one call only</td>
+</tr>
+<tr>
+<td><code>&amp;str</code></td>
+<td>Validated UTF-8 view; one call only</td>
+</tr>
+<tr>
+<td><code>Result&lt;T, zplugin::Error&gt;</code> / <code>zplugin::Result&lt;T&gt;</code></td>
+<td>Signed status plus initialized success output</td>
+</tr>
+<tr>
+<td><code>()</code> or scalar success</td>
+<td>No output or fixed-width result record</td>
+</tr>
+<tr>
+<td><code>zplugin::OwnedBytes</code> success</td>
+<td>Buffer, origin release callback, independent library lease</td>
+</tr>
+<tr>
+<td>Plugin object</td>
+<td>Opaque plugin allocation and matching destroy function</td>
+</tr>
+<tr>
+<td><code>#[zplugin::abi_type]</code> struct or enum</td>
+<td>Recursive C-layout record or checked tag/payload; independent of Rust layout</td>
+</tr>
+<tr>
+<td><code>zplugin::OwnedResource</code> success</td>
+<td>Versioned opaque resource with call/release table and independent library lease</td>
+</tr>
+<tr>
+<td><code>zplugin::CallbackRef&lt;'_&gt;</code> input</td>
+<td>Borrowed callback with explicit retain/invoke/release protocol</td>
+</tr>
+<tr>
+<td><code>zplugin::OwnedTask&lt;T&gt;</code> success</td>
+<td>Task handle with poll/cancel/release; host receives <code>Task&lt;T&gt;: Future</code> with <code>alloc</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Unsupported signatures produce compile errors: generics, direct <code>async fn</code>, default methods,
+associated types, conditional methods, <code>usize/isize</code>, <code>bool/char</code>, 128-bit
+integers, unannotated structs, native <code>String/Vec/Box/Arc</code>, and native Future layouts.
+Stable values require <code>Copy + Clone</code>; reference, owned, generic and array fields
+are excluded. Task outputs use <code>AbiValue</code>, including nested structs/enums and unit.
+Plugin internals may use ordinary Rust facilities and dependencies.</p>
+<h2 id="asynchronous-and-cross-language-plugins">Asynchronous and cross-language plugins<a class="heading-anchor" href="#asynchronous-and-cross-language-plugins" aria-label="链接到 Asynchronous and cross-language plugins">#</a></h2>
+<p>The interface declares a task factory, so borrowed input ends at the factory call:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>#[zplugin::interface(id = &quot;example.jobs&quot;, version = 1)]
+pub trait Jobs {
+    fn start(&amp;mut self, input: u64) -&gt; zplugin::Result&lt;zplugin::OwnedTask&lt;u64&gt;&gt;;
+}
+
+# #[cfg(feature = &quot;alloc&quot;)]
+struct Worker;
+# #[cfg(feature = &quot;alloc&quot;)]
+impl Jobs for Worker {
+    fn start(&amp;mut self, input: u64) -&gt; zplugin::Result&lt;zplugin::OwnedTask&lt;u64&gt;&gt; {
+        Ok(zplugin::OwnedTask::new(async move { Ok(input.wrapping_add(1)) }))
+    }
+}
+</code></pre></div>
+<p>The generated host proxy returns a lease-owning <code>Task&lt;u64&gt;</code>: use
+<code>jobs.start(41)?.await?</code>, or <code>cancel()</code> for cooperative cancellation. Polling,
+cancelling and destruction stay on the creating thread; retained wakers support
+concurrent notification. No native <code>Future</code> or <code>Waker</code> layout crosses the boundary.
+The plugin manages any runtime it needs. Dropping a future does not implicitly
+shut down an external executor; cooperative unloading requires workers and
+callback return paths to be fully joined/drained.</p>
+<p><code>JobsApi::write_c_header(&amp;mut writer)</code> emits the exact argument layouts, method
+signatures and descriptor helpers. C11 and C++17 include the header; Zig
+uses its automatically translated module. The generator itself writes through
+<code>core::fmt::Write</code> without needing an allocator.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>python3 scripts/async.py
+python3 scripts/foreign.py --install-zig
+</code></pre></div>
+<p>See the <a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/examples/async">async three-crate example</a>, the complete
+<a href="../zplugin/examples-foreign-readme/">C/C++/Zig example</a>, and the
+<a href="../zplugin/extensions/">extension protocol and ownership rules</a>.</p>
+<h2 id="features">Features<a class="heading-anchor" href="#features" aria-label="链接到 Features">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Additional capability</th>
+<th>Runtime dependency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default: none</td>
+<td>ABI, native loader, borrowed instances, manual resource/factory contracts</td>
+<td><code>core</code> and Project Z <code>zsys/dylib</code></td>
+</tr>
+<tr>
+<td><code>alloc</code></td>
+<td>Factories, <code>Rc</code> leases, owned bytes/resources, closure callbacks, Future/Waker adapters</td>
+<td>Rust allocator</td>
+</tr>
+<tr>
+<td><code>std</code></td>
+<td>Native paths, error integration, panic containment</td>
+<td><code>std</code>, implies <code>alloc</code></td>
+</tr>
+<tr>
+<td><code>macros</code></td>
+<td>Trait-to-ABI generation</td>
+<td>Compilation-only macro crate</td>
+</tr>
+<tr>
+<td><code>hot-reload</code></td>
+<td>Bounded generations and request leases</td>
+<td><code>alloc</code></td>
+</tr>
+<tr>
+<td><code>wasm</code></td>
+<td>Import-free, fuel-metered Wasm32 sandbox; separate byte-buffer protocol</td>
+<td><code>alloc</code> + Wasmi 2.0 and its dependencies; Rust 1.95+</td>
+</tr>
+</tbody>
+</table></div>
+<p>For allocator-free plugins, implement the public ABI with application-owned
+object storage. <code>export::Object&lt;T&gt;</code> and the entrypoint guards also work without
+an allocator. Convenience <code>export!</code> factories deliberately require <code>alloc</code>.</p>
+<h2 id="untrusted-wasm-plugins">Untrusted Wasm plugins<a class="heading-anchor" href="#untrusted-wasm-plugins" aria-label="链接到 Untrusted Wasm plugins">#</a></h2>
+<p>The host opts in explicitly; the default native runtime depends only on Project Z zsys:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>[dependencies]
+zplugin = { version = &quot;0.3.1&quot;, features = [&quot;wasm&quot;] }
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,ignore</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 rust,ignore 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>use zplugin::wasm::{Interface, Limits, Plugin};
+
+let interface = Interface { id: 0x7a70_6c75_6769_6e01, version: 1 };
+// bytes is an untrusted binary Wasm module; this API is safe to call.
+let mut plugin = Plugin::new(&amp;bytes, interface, Limits::default())?;
+let mut output = [0; 64];
+let written = plugin.call(1, b&quot;hello&quot;, &amp;mut output)?;
+assert_eq!(&amp;output[..written], b&quot;HELLO&quot;);
+# Ok::&lt;(), zplugin::wasm::Error&gt;(())
+</code></pre></div>
+<p>Implement <code>wasm_guest::Guest</code>, export it with <code>export_wasm!</code>, and compile for
+<code>wasm32-unknown-unknown</code>. The <a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/examples/wasm/guest.rs">complete guest</a> and
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/examples/wasm_host.rs">host</a> run with:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>rustup target add wasm32-unknown-unknown
+python3 scripts/wasm.py
+</code></pre></div>
+<p>Wasm calls use numeric operations and bounded byte buffers. Input/output are
+copied across the memory boundary; native trait proxies, handles, callbacks,
+and async tasks are not forwarded into the sandbox. No WASI, filesystem,
+network, environment, clock or process capabilities are granted. Module imports
+and start sections are rejected. A trap exhausts/invalidates that instance, not
+the native host's call stack; subsequent use returns <code>Poisoned</code>.</p>
+<p>This is an in-process Wasm sandbox whose isolation depends on the engine.
+Guest-memory limits do not cap process RSS, and fuel is not a compilation-time
+deadline. Use additional OS process isolation for strict total-memory/time bounds
+or protection against engine vulnerabilities. See <a href="../zplugin/wasm/">protocol, policy and evidence</a>.
+Reproducible sandbox timings and allocation measurements are in the
+<a href="../zplugin/performance-0-3-0/">0.3.0 Wasm performance report</a>.</p>
+<h2 id="multiple-interfaces-and-hot-switching">Multiple interfaces and hot switching<a class="heading-anchor" href="#multiple-interfaces-and-hot-switching" aria-label="链接到 Multiple interfaces and hot switching">#</a></h2>
+<p><code>export_interfaces!</code> exports independently versioned interfaces through one entry:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,ignore</span><button class="copy-button" type="button" data-copy="code-12" aria-label="复制 rust,ignore 代码" hidden>复制</button></div><pre id="code-12" tabindex="0"><code>zplugin::export_interfaces!(version = (1, 0, 0), unload = cooperative;
+    CalculatorExport&lt;Implementation&gt; =&gt; create,
+    SnapshotExport&lt;State&gt; =&gt; create_state,
+);
+</code></pre></div>
+<p>With <code>hot-reload</code>, <code>hot::Generations::new(plugin, maximum_retired)</code> tracks the
+current image and old generations. <code>current()</code> acquires a request/session lease.
+<code>reload</code> or <code>reload_path</code> loads an independent image, runs your creation/restore
+closure, and switches only on success. Old objects continue using their old code.
+Use an explicitly versioned byte snapshot for state migration. <code>collect()</code> asks
+unreferenced cooperative generations to retire; <code>Busy</code> generations remain and
+count toward the limit. No timeout forces an unload.</p>
+<h2 id="safety-and-performance">Safety and performance<a class="heading-anchor" href="#safety-and-performance" aria-label="链接到 Safety and performance">#</a></h2>
+<p>Loading trusted native code remains <code>unsafe</code>: initializers and methods execute
+with the host's privileges. ABI checks detect incompatible metadata; native code
+must still honor memory validity, ownership, and unwind contracts. Proxies are
+neither <code>Send</code> nor <code>Sync</code>; all calls, including shared trait methods, require a
+mutable proxy. Same-object raw reentry returns <code>Busy</code> before a second borrow.</p>
+<p>Under <code>std</code> and an unwind-enabled plugin build, adapters catch Rust panics on the
+plugin side and poison that instance. <code>panic=abort</code>, foreign exceptions, and
+native crashes retain their process-level behavior. C++ plugins contain their
+own exceptions before returning; the C++ example includes that boundary.
+Task/callback extensions use independent size/version-prefixed tables. Failed
+resource cleanup prevents cooperative unloading, including a future or callback
+capture destructor that panics.</p>
+<p>Steady native borrowed calls use cached function pointers without forced allocation,
+serialization, symbol lookup, or per-call reference counting. Actual comparisons
+against inline/noinline calls, cached C pointers and cached <code>libloading</code> symbols
+are in <a href="../zplugin/performance-0-2-0/">the 0.2.0 performance report</a>, including
+three raw runs, task initialization, reused/changed wakers, and worker shutdown.
+An inline static call remains a distinct, cheaper baseline for tiny functions.</p>
+<h2 id="validation-and-release">Validation and release<a class="heading-anchor" href="#validation-and-release" aria-label="链接到 Validation and release">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-13" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-13" tabindex="0"><code>python3 scripts/check.py
+python3 scripts/check.py --cross-version
+python3 scripts/legacy.py
+python3 scripts/foreign.py --install-zig
+python3 scripts/wasm.py
+python3 tools/bench/run.py docs/benchmarks/v0.2.0
+python3 tools/bench/extensions.py
+</code></pre></div>
+<p>CI runs actual hosts and dynamic libraries on Linux, macOS, and Windows, plus
+Rust 1.95.0/stable, core-only embedded/WASM compilation, negative macro fixtures,
+and release transaction tests. Wasm also runs on all three native host platforms,
+with Rust 1.95 MSRV/no_std checks and independently built guest/host pairs.
+The manual release workflow supports
+<code>patch/minor/major/custom</code>, <code>dry_run</code>, exact-commit validation, dependency-ordered
+publication, and recovery after a partial upload. It uses the step-scoped
+<code>CARGO_REGISTRY_TOKEN</code> secret. See <a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/releases.md">release operations</a>.</p>
+<p>Further detail: <a href="../zplugin/abi/">ABI and ownership</a>, <a href="../zplugin/zplugin-0-3-0-delivery/">validation evidence</a>,
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/CHANGELOG.md">changelog</a>. Licensed MIT OR Apache-2.0.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zplugin">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../zplugin/zplugin-0-3-0-delivery/"><span class="pagination-label">下一页</span><span class="pagination-title">zplugin 0.3.0：不可信 Wasm 插件交付报告</span></a></nav>
+      <footer class="page-footer">
+        <span>zplugin <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install">Install</a></li><li class="toc-level-2"><a href="#define-an-interface">Define an interface</a></li><li class="toc-level-2"><a href="#implement-a-plugin">Implement a plugin</a></li><li class="toc-level-2"><a href="#load-and-call">Load and call</a></li><li class="toc-level-2"><a href="#run-the-complete-example">Run the complete example</a></li><li class="toc-level-2"><a href="#supported-boundaries">Supported boundaries</a></li><li class="toc-level-2"><a href="#asynchronous-and-cross-language-plugins">Asynchronous and cross-language plugins</a></li><li class="toc-level-2"><a href="#features">Features</a></li><li class="toc-level-2"><a href="#untrusted-wasm-plugins">Untrusted Wasm plugins</a></li><li class="toc-level-2"><a href="#multiple-interfaces-and-hot-switching">Multiple interfaces and hot switching</a></li><li class="toc-level-2"><a href="#safety-and-performance">Safety and performance</a></li><li class="toc-level-2"><a href="#validation-and-release">Validation and release</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

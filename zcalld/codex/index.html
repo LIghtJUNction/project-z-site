@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zcalld · Native Codex metadata · Project Z">
+  <meta property="og:description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta property="og:type" content="website">
+  <title>zcalld · Native Codex metadata · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zcalld/codex/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zcalld">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zcalld" aria-label="zcalld 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zcalld</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/" aria-current="page">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/" aria-current="page">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zcalld/">zcalld 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zcalld/">zcalld</a><span aria-hidden="true">/</span><span>Native Codex metadata</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#supported-requests">Supported requests</a></li><li class="toc-level-2"><a href="#bind-an-existing-provider-and-its-routes">Bind an existing provider and its routes</a></li><li class="toc-level-2"><a href="#identity-and-model-boundaries">Identity and model boundaries</a></li><li class="toc-level-2"><a href="#bounds-and-failures">Bounds and failures</a></li><li class="toc-level-2"><a href="#compaction-uses-the-responses-pipeline">Compaction uses the Responses pipeline</a></li><li class="toc-level-2"><a href="#subscription-credit-policy">Subscription-credit policy</a></li><li class="toc-level-2"><a href="#verification-and-limits">Verification and limits</a></li><li class="toc-level-3"><a href="#installed-client-acceptance">Installed-client acceptance</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="native-codex-metadata">Native Codex metadata</h1>
+<p>The optional community extension can serve the read-only metadata requests used by Codex 0.170 alongside the existing Responses gateway. Model instructions, account information and quota windows come from the explicitly bound Codex account. The extension does not manufacture a catalog, select the first available account or refresh native Codex credentials.</p>
+<p>This feature requires <strong>zcalld 0.4.0 and zcalld-compat 0.2.0 or newer</strong>. It is disabled by default. It reuses the community extension's lazy Bun host, with no additional listener, polling task or daemon.</p>
+<h2 id="supported-requests">Supported requests<a class="heading-anchor" href="#supported-requests" aria-label="链接到 Supported requests">#</a></h2>
+<p>All entries accept GET with an empty body and retain the gateway's normal authentication and Origin checks.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Gateway path</th>
+<th>Fixed upstream path on <code>https://chatgpt.com</code></th>
+<th>Query</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/backend-api/codex/models</code></td>
+<td><code>/backend-api/codex/models</code></td>
+<td>Exactly one <code>client_version</code></td>
+</tr>
+<tr>
+<td><code>/backend-api/wham/usage</code>, <code>/api/codex/usage</code></td>
+<td><code>/backend-api/wham/usage</code></td>
+<td>None</td>
+</tr>
+<tr>
+<td><code>/backend-api/wham/accounts/check</code>, <code>/api/codex/accounts/check</code></td>
+<td><code>/backend-api/wham/accounts/check</code></td>
+<td>None</td>
+</tr>
+<tr>
+<td><code>/backend-api/wham/config/bundle</code>, <code>/api/codex/config/bundle</code>, <code>/codex/config/bundle</code></td>
+<td><code>/backend-api/wham/config/bundle</code></td>
+<td>None</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>client_version</code> is limited to 64 ASCII letters, digits, dots, plus signs, hyphens or underscores. Missing, duplicate, escaped or extra query parameters are rejected. Requests cannot supply an upstream URL. Redirects are rejected.</p>
+<p>These contracts follow the official <a href="https://github.com/openai/codex/blob/rust-v0.170.0/codex-rs/codex-api/src/endpoint/models.rs">Codex 0.170 model endpoint</a>, <a href="https://github.com/openai/codex/blob/rust-v0.170.0/codex-rs/protocol/src/openai_models.rs">model schema</a> and <a href="https://github.com/openai/codex/tree/rust-v0.170.0/codex-rs/backend-client">backend client</a>. Other account, task and mutation endpoints are not claimed by this extension. Changing where a client sends requests remains a separate, explicit client configuration decision.</p>
+<h2 id="bind-an-existing-provider-and-its-routes">Bind an existing provider and its routes<a class="heading-anchor" href="#bind-an-existing-provider-and-its-routes" aria-label="链接到 Bind an existing provider and its routes">#</a></h2>
+<p>The account must already be configured for an enabled <code>builtin:codex</code> provider. For example:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">ini</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 ini 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>[provider codex-local]
+base_url = https://chatgpt.com/backend-api/codex
+protocol = responses
+plugin = builtin:codex
+plugin_account = builtin:codex#work
+plugin_npm = @ai-sdk/openai
+
+[route my-codex-model]
+provider = codex-local
+model = upstream-model-slug
+</code></pre></div>
+<p>These identifiers are examples. Use the actual local provider, account key and upstream model slug. A missing <code>plugin_account</code> is accepted only when the registry has an explicit <code>account_defaults[&quot;builtin:codex&quot;]</code>. Another enabled account is never an implicit substitute.</p>
+<p>Create a binding file containing the routes that this account may describe:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>{
+  &quot;enabled&quot;: true,
+  &quot;loopback&quot;: {
+    &quot;provider&quot;: &quot;codex-local&quot;,
+    &quot;routes&quot;: [&quot;my-codex-model&quot;]
+  },
+  &quot;callers&quot;: {
+    &quot;office-client-key-id&quot;: {
+      &quot;provider&quot;: &quot;codex-local&quot;,
+      &quot;routes&quot;: [&quot;my-codex-model&quot;]
+    }
+  }
+}
+</code></pre></div>
+<p>Omit <code>callers</code> when remote access is unnecessary. Each entry names a caller-key <strong>ID</strong>, not its secret. A remote caller must authenticate with that key and have its own binding. The global gateway token alone does not choose an account for remote metadata. The <code>loopback</code> entry applies only to an actual loopback or Unix peer.</p>
+<p>Apply the binding and materialize the installed helper's embedded runtime:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>zcalld plugins codex configure --file /absolute/codex-binding.json
+zcalld plugins runtime configure
+zcalld plugins codex show
+zcalld check
+</code></pre></div>
+<p>For a nondefault configuration, add <code>--config /absolute/config.conf</code> to each command. Configuration commands do not start a host, contact providers, refresh credentials or restart the gateway. Review the result, then restart through the normal service manager. For a Linux user service, use <code>systemctl --user restart zcalld.service</code>.</p>
+<p>Upgrading the helper alone does not replace script paths held by an existing private registry or running host. <code>runtime configure</code> materializes the new embedded runtime while preserving accounts, selections, options and enabled state. A normal restart loads it. Install compatible core and helper packages before enabling this feature.</p>
+<p><code>zcalld plugins codex disable</code> disables these metadata routes while retaining their bindings. Ordinary Responses generation and community MCP remain independently configured.</p>
+<h2 id="identity-and-model-boundaries">Identity and model boundaries<a class="heading-anchor" href="#identity-and-model-boundaries" aria-label="链接到 Identity and model boundaries">#</a></h2>
+<p>The core supplies actual peer classification, the verified caller-key ID and loaded provider/route relationships. Host, X-Loopback and X-Caller-Key-Id headers cannot create those relationships. The optional HTTP interface requests this context with flags 3; existing flags 1 handlers, including MCP, retain their previous context. Configured provider credentials, base URLs and headers are excluded.</p>
+<p>An incoming <code>ChatGPT-Account-Id</code> is an untrusted consistency hint. If present, it must match the account selected by the explicit binding. Duplicate, empty, malformed or mismatched values are rejected. The hint never selects an account or grants access. Incoming Authorization is never used as upstream authentication.</p>
+<p>A model is returned only when a configured static route maps to a slug in that account's official response. The exposed slug becomes the public route ID; the upstream entry's instructions and capabilities are retained. An upgrade target uses its advertised canonical slug or its unique local alias. The upgrade is omitted when the target is absent from the filtered catalog or has multiple aliases without a canonical route. Missing instructions are rejected, and unbound upstream models are omitted. Dynamic groups and routes belonging to another provider cannot borrow a member's metadata. The filtered catalog gets its own content-derived ETag.</p>
+<p>Usage, account-bootstrap and config-bundle responses preserve validated upstream JSON bytes. No quota percentage, account or instruction text is synthesized. These are request-time upstream reads; the local quota-cache CLI is a separate interface.</p>
+<p>Externally owned native credentials are reread from their bound source without writing them. Expiry or an account change fails explicitly. The native owner remains responsible for refresh; metadata does not call loaders, refresh hooks or generation APIs.</p>
+<h2 id="bounds-and-failures">Bounds and failures<a class="heading-anchor" href="#bounds-and-failures" aria-label="链接到 Bounds and failures">#</a></h2>
+<p>Each metadata request uses the smaller of the gateway's overall timeout and 30 seconds, including waiting for cold shared-host initialization. Response data is limited to the smaller of the configured response limit and 4 MiB. Streaming retains the existing byte-credit and cancellation protocol.</p>
+<p>Timeout, a TCP reset or a full Unix-socket disconnection releases the request's own calls and cancels its pending stream. The worker and shared host remain available for later requests, and another request's initialization wait is preserved. A client that closes only its write direction can continue reading its response. Ordinary TCP FIN alone is treated as a possible write half-close; its request retains the normal response and deadline. An enabled community plugin that fails initialization makes that native host fail closed for subsequent calls. The management CLI retains partial-load diagnostics.</p>
+<p>Redirects, invalid JSON, incompatible content types, missing model instructions and oversized bodies fail explicitly. Returned errors use static categories; arbitrary upstream error text, credentials and response headers are not reflected. Successful metadata responses expose only JSON content type, cache policy and an applicable ETag.</p>
+<h2 id="compaction-uses-the-responses-pipeline">Compaction uses the Responses pipeline<a class="heading-anchor" href="#compaction-uses-the-responses-pipeline" aria-label="链接到 Compaction uses the Responses pipeline">#</a></h2>
+<p>Codex 0.170 requests remote compaction through an ordinary Responses stream containing a <code>compaction_trigger</code> input item. Existing decompression, authentication, privacy, group routing and protocol handling apply. This feature does not alias an old <code>/responses/compact</code> path to generation.</p>
+<p>The builtin adapter preserves opaque IDs and <code>encrypted_content</code> in <code>compaction</code>, <code>compaction_summary</code> and <code>context_compaction</code> items. Ordinary message normalization remains unchanged, and plaintext still passes through privacy masking and restoration. See the official <a href="https://github.com/openai/codex/blob/rust-v0.170.0/codex-rs/core/src/compact_remote_v2.rs">remote compaction implementation</a> and <a href="https://github.com/openai/codex/blob/rust-v0.170.0/codex-rs/protocol/src/models.rs">wire item types</a>.</p>
+<h2 id="subscription-credit-policy">Subscription-credit policy<a class="heading-anchor" href="#subscription-credit-policy" aria-label="链接到 Subscription-credit policy">#</a></h2>
+<p>The optional Codex adapter can refuse generation when a subscription window is
+exhausted. The policy belongs to the selected account, independently of access
+tokens, refresh ownership, and migration rollback fingerprints.</p>
+<p>For a previously imported Magpie account, inspect the current source policy:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>zcalld plugins codex policy plan --source /absolute/path/to/magpie --json
+</code></pre></div>
+<p>The result contains aggregate counts and a <code>plan_hash</code>. After reviewing them,
+synchronize exactly that plan:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>zcalld plugins codex policy sync --source /absolute/path/to/magpie \
+  --expect-plan PLAN_HASH --json
+</code></pre></div>
+<p>The source account must match the existing private migration map by login ID
+and its recorded user fingerprint. The policy's user comparison follows
+Magpie's lowercase, trimmed identity rule. An unknown or changed identity blocks
+the synchronization. This command does not import, open, replace, or refresh
+target credentials; a native client's intervening token rotation does not make
+the policy operation overwrite its credentials. Source settings can change
+after a migration, so policy synchronization is explicit.</p>
+<p>The stored shape is
+<code>account_policies[OPAQUE_ACCOUNT_KEY] = {&quot;codex_no_credits&quot;: true}</code> in the private
+extension registry. Absence means unrestricted; a malformed present value is an
+error. A running compatible host reads policy for its final account selection
+on every request. It rechecks the policy, account enablement, and identity
+immediately before generation, including when it reuses a cached loader.
+Requests and client headers cannot supply policy. After the upgrade has materialized and started this runtime, ordinary policy
+changes need no further host restart.</p>
+<p>For restricted accounts, the adapter reads the fixed official usage endpoint
+with existing credentials before generation, using an eight-second ceiling,
+a 64 KiB response bound, the request's cancellation, and no redirects.
+It checks the account-wide primary and secondary subscription windows from
+that response. A known exhausted window returns HTTP 429 before generation;
+missing, malformed, or expired availability returns HTTP 503. Existing group
+fallback may then select another member. Neither outcome starts a paid retry
+on the blocked account. Unlimited credits or a positive credit balance do not
+establish subscription availability.</p>
+<p>A one-second cache and shared concurrent lookup reduce duplicate usage reads.
+Cancelling one caller does not cancel another caller's shared lookup; cancelling
+the last waiter aborts that lookup. The cache is bounded to 64 credential
+identities. Its in-process key is a digest of the selected workspace and the
+resolved access token, so different members of one workspace cannot share quota
+state. Cache entries, pending lookups and observed response holds use that same key.</p>
+<p>Usage checking and generation use one resolved credential snapshot. Immediately
+before generation, the adapter rereads the current authentication and verifies
+that its workspace and token still match. A change during the check stops the
+request before generation; the next request checks the new credentials. Token
+renewal therefore invalidates the short quota cache without changing the stored
+account policy. No automatic retry or background token refresh is added.</p>
+<p>Fixed account-wide full-window response headers can tighten a cached hold; named
+header families do not establish a model mapping. Unrestricted accounts add no
+usage request. Metadata reads remain available independently of the generation
+guard. See the <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/validation/codex-quota-identity-20261120.md">credential-isolation validation</a>
+for the shared-workspace and credential-switch regressions.</p>
+<p>This is a client-side spending rule, not a server billing guarantee. Another
+client, or a single request that crosses the remaining window, can change
+availability after the check. No official server switch preventing all credit
+charges is claimed. The behavior follows the account-window hold in Magpie's
+<a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/provider/codex_credits.go">pinned credit policy</a>.</p>
+<p>The local acceptance suite uses generated embedded modules, a native gateway,
+fake credentials and a network guard. It covers live policy changes on a
+cached loader, malformed policies, final account selection, concurrent changes,
+cancellation, metadata reads while generation is held, and a group fallback
+that retains request redaction. It makes no real provider request.</p>
+<h2 id="verification-and-limits">Verification and limits<a class="heading-anchor" href="#verification-and-limits" aria-label="链接到 Verification and limits">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Evidence</th>
+<th>Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-codex-metadata.py">Native metadata fixture</a></td>
+<td>Generated bundle and native HTTP plugin; explicit binding; actual peer classification; forged headers; query/method rejection; bounds; cold-init cancellation; shared failures; no host when disabled</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-codex-client-metadata.py">Installed Codex client fixture</a></td>
+<td>Codex 0.170.0 app-server parses account windows and bound model aliases; malformed usage produces a client error; no model turn is started</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-http-cancellation.py">HTTP cancellation fixture</a></td>
+<td>TCP reset and full Unix disconnect release pending calls; the same worker and shared host remain usable; TCP and Unix write half-closes retain responses</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-codex-compaction.py">Native compaction fixture</a></td>
+<td>Plain, gzip and zstd through the actual privacy worker and routing plugin; opaque IDs and ciphertext in JSON/SSE; plaintext masked upstream and restored downstream</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-codex-policy.py">Native policy fixture</a></td>
+<td>Per-account policy updates, final-account selection, fail-closed quota checks, cancellation and privacy-preserving group fallback</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-mcp.py">MCP fixture</a></td>
+<td>Existing tools, sessions and cancellation</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zcalld-compat/tree/main/community/builtin/tests">Builtin hook tests</a></td>
+<td>Fixed origin, redirects, malformed metadata, external ownership, bounded reads and compaction preparation</td>
+</tr>
+</tbody>
+</table></div>
+<p>These fixtures use synthetic credentials and local network substitutes. They do not exercise a real subscription, spend credits, refresh an account or change a user's Codex configuration. Passing these contracts does not establish that every Codex feature or every provider account has been tested.</p>
+<h3 id="installed-client-acceptance">Installed-client acceptance<a class="heading-anchor" href="#installed-client-acceptance" aria-label="链接到 Installed-client acceptance">#</a></h3>
+<p>With Codex 0.170.0 installed and the native build artifacts available, run on Linux:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>python3 scripts/test-codex-client-metadata.py \
+  --binary target/release/zcalld \
+  --community-plugin target/release/libzcalld_community.so \
+  --pluginctl _release/native-compat/zcalld-pluginctl \
+  --redact-plugin target/release/libzcalld_redact.so \
+  --privacy-worker _release/native-compat/zcalld-privacy \
+  --routing-plugin target/release/libzcalld_plugin_routing.so
+</code></pre></div>
+<p>This separate acceptance target requires the installed client. It sends only initialization,
+account-rate-limit and model-list RPCs through an isolated gateway. The fixture uses disposable
+credentials and local metadata, verifies the parsed client values, and rejects attempted
+external HTTP connections through a local proxy. The portable native suite includes HTTP
+cancellation checks without requiring Codex.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/CODEX.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zcalld">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zcalld/plugins/"><span class="pagination-label">上一页</span><span class="pagination-title">Native plugins</span></a><a class="pagination-link next" href="../../zcalld/codex-transport/"><span class="pagination-label">下一页</span><span class="pagination-title">Codex transport negotiation</span></a></nav>
+      <footer class="page-footer">
+        <span>zcalld <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#supported-requests">Supported requests</a></li><li class="toc-level-2"><a href="#bind-an-existing-provider-and-its-routes">Bind an existing provider and its routes</a></li><li class="toc-level-2"><a href="#identity-and-model-boundaries">Identity and model boundaries</a></li><li class="toc-level-2"><a href="#bounds-and-failures">Bounds and failures</a></li><li class="toc-level-2"><a href="#compaction-uses-the-responses-pipeline">Compaction uses the Responses pipeline</a></li><li class="toc-level-2"><a href="#subscription-credit-policy">Subscription-credit policy</a></li><li class="toc-level-2"><a href="#verification-and-limits">Verification and limits</a></li><li class="toc-level-3"><a href="#installed-client-acceptance">Installed-client acceptance</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

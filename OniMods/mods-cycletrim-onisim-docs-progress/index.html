@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="整合《缺氧》模组开发、构建发布与 MCP 游戏观察和操作。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="OniMods · OniSim engineering log · Project Z">
+  <meta property="og:description" content="整合《缺氧》模组开发、构建发布与 MCP 游戏观察和操作。">
+  <meta property="og:type" content="website">
+  <title>OniMods · OniSim engineering log · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/OniMods/mods-cycletrim-onisim-docs-progress/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="OniMods">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/OniMods" aria-label="OniMods 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">OniMods</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>OniMods</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/" aria-current="page">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="OniMods 文档"><div class="nav-group"><p class="nav-label">OniMods</p><ul><li><a class="nav-link" href="../../OniMods/">概览</a></li><li><a class="nav-link" href="../../OniMods/readme-en/">See it working</a></li><li><a class="nav-link" href="../../OniMods/oni-mcp-cli/">oni-mcp CLI</a></li><li><a class="nav-link" href="../../OniMods/mcp-tools-reference/">ONI MCP 工具参考</a></li><li><a class="nav-link" href="../../OniMods/architecture-and-principles/">OniMods 架构与核心实现原理</a></li><li><a class="nav-link" href="../../OniMods/oniharness/">OniHarness: independent headless testing project</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-en/">A Letter to Everyone Who Finds This Project Interesting</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-zh/">写给所有对这个项目感兴趣的人</a></li><li><a class="nav-link" href="../../OniMods/licensing/">Licensing and provenance</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-docs-progress/" aria-current="page">OniSim engineering log</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-gpu-readme/">OniSim Vulkan compute operators</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-readme/">CycleTrim</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>OniMods</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/" aria-current="page">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="OniMods 文档"><div class="nav-group"><p class="nav-label">OniMods</p><ul><li><a class="nav-link" href="../../OniMods/">概览</a></li><li><a class="nav-link" href="../../OniMods/readme-en/">See it working</a></li><li><a class="nav-link" href="../../OniMods/oni-mcp-cli/">oni-mcp CLI</a></li><li><a class="nav-link" href="../../OniMods/mcp-tools-reference/">ONI MCP 工具参考</a></li><li><a class="nav-link" href="../../OniMods/architecture-and-principles/">OniMods 架构与核心实现原理</a></li><li><a class="nav-link" href="../../OniMods/oniharness/">OniHarness: independent headless testing project</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-en/">A Letter to Everyone Who Finds This Project Interesting</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-zh/">写给所有对这个项目感兴趣的人</a></li><li><a class="nav-link" href="../../OniMods/licensing/">Licensing and provenance</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-docs-progress/" aria-current="page">OniSim engineering log</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-gpu-readme/">OniSim Vulkan compute operators</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-readme/">CycleTrim</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../OniMods/">OniMods 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../OniMods/">OniMods</a><span aria-hidden="true">/</span><span>OniSim engineering log</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#current-checkpoint-2026-11-20">Current checkpoint (2026-11-20)</a></li><li class="toc-level-2"><a href="#status-snapshot-2026-11-16">Status snapshot (2026-11-16)</a></li><li class="toc-level-2"><a href="#status-snapshot-2026-11-08">Status snapshot (2026-11-08)</a></li><li class="toc-level-3"><a href="#runtime-policy">Runtime policy</a></li><li class="toc-level-3"><a href="#gpu-pipeline">GPU pipeline</a></li><li class="toc-level-3"><a href="#open-gates">Open gates</a></li><li class="toc-level-2"><a href="#status-snapshot-2026-11-07">Status snapshot (2026-11-07)</a></li><li class="toc-level-3"><a href="#message-routing-audit">Message routing audit</a></li><li class="toc-level-3"><a href="#confirmed-remaining-gaps">Confirmed remaining gaps</a></li><li class="toc-level-3"><a href="#physical-pipeline-status">Physical pipeline status</a></li><li class="toc-level-3"><a href="#safety-and-ci">Safety and CI</a></li><li class="toc-level-2"><a href="#source-checkpoint-inline-thermal-command-queue">Source checkpoint: inline thermal command queue</a></li><li class="toc-level-2"><a href="#previous-source-recheck-at-adc4b2e">Previous source recheck at adc4b2e</a></li><li class="toc-level-2"><a href="#previous-pressure-sweep-development-source">Previous pressure-sweep development source</a></li><li class="toc-level-2"><a href="#previous-8bd-development-source">Previous 8bd development source</a></li><li class="toc-level-2"><a href="#earlier-accepted-fixture-binaries">Earlier accepted fixture binaries</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="onisim-engineering-log">OniSim engineering log</h1>
+<h2 id="current-checkpoint-2026-11-20">Current checkpoint (2026-11-20)<a class="heading-anchor" href="#current-checkpoint-2026-11-20" aria-label="链接到 Current checkpoint (2026-11-20)">#</a></h2>
+<p>The exact Linux x64 U60/763796 tuple is admitted after strict assembly, Mono,
+official Sim and ABI checks. Development source <code>8db2654</code> has actual-game
+evidence for six naturally formed oxygen/carbon-dioxide cells: complete
+inventories, mass, temperature and total mass match as binary32 bits after a
+unique checkpoint and same-process reload, followed by bounded advancement.
+See <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/runtime-validation.md">runtime validation</a> for method, identities and the
+linked profile, actual-Mono and live receipts. These changes are not yet on
+Steam Workshop; Windows/macOS profiles remain limited to 744825.</p>
+<p>Mixed saves now use version <code>0x4f4d0001</code> and a mandatory <code>ONIMIX</code> extension;
+ordinary single-inventory v15 images remain unchanged. The tested older OniSim
+rejects mixed images. The <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/save-format.md">save contract</a> records exact
+22-species host/FFI round trips; live extra-species slots remain unverified.
+Whole-game performance A/B and long-duration/DLC acceptance remain open.
+The tested pressure values are placeholders; later fill, pressure-availability
+and background-run changes need their own actual-game validation.</p>
+<p>The dated snapshots below retain their original evidence and limitations.</p>
+<h2 id="status-snapshot-2026-11-16">Status snapshot (2026-11-16)<a class="heading-anchor" href="#status-snapshot-2026-11-16" aria-label="链接到 Status snapshot (2026-11-16)">#</a></h2>
+<p>CycleTrim 0.4.24 corrects multicomponent region coverage at the final public row
+and column. Public coordinates are shifted by one into padded storage, so the
+interior occupies <code>[1, width + 1) x [1, height + 1)</code>. Gas and liquid staging,
+species discovery, batch/idle keys, diffusion ownership masks and the thermal
+region map now share those exclusive upper bounds. The surrounding halo remains
+outside the regional operators.</p>
+<p>Validation on the development machine:</p>
+<ul>
+<li>Eight new boundary regressions pass, covering edge/corner gas expansion,
+per-species liquid conservation, exact mask dimensions, sleeping-region
+invalidation, batch wake-up and thermal ownership.</li>
+<li>Gas direct/batch tests explicitly require the GPU path; Vulkan logs identify
+the NVIDIA GeForce RTX 4060 Laptop GPU. Sparse liquid and reference liquid
+diffusion both execute on that device.</li>
+<li>The complete native Release suite passes: <strong>229 passed, 0 failed, 19 ignored</strong>.
+The ignored cases retain their existing manual benchmark annotations.</li>
+<li>The conservation fixture for a 4x4 public world now sums all sixteen cells;
+its original <code>1e-4</code> tolerance is unchanged.</li>
+</ul>
+<p>This is native CPU/GPU correctness validation. No ONI process was launched in
+this iteration under the previously retained no-launch instruction. Whole-game
+FPS, save/load and long-duration acceptance are outside these results.</p>
+<h2 id="status-snapshot-2026-11-08">Status snapshot (2026-11-08)<a class="heading-anchor" href="#status-snapshot-2026-11-08" aria-label="链接到 Status snapshot (2026-11-08)">#</a></h2>
+<h3 id="runtime-policy">Runtime policy<a class="heading-anchor" href="#runtime-policy" aria-label="链接到 Runtime policy">#</a></h3>
+<ul>
+<li>Since CycleTrim 0.4.5 OniSim is always mapped at startup; the PLib
+<code>EnableOniSimExperimental</code> toggle and the official-SimDLL fallback were
+removed. <code>CYCLETRIM_ONISIM_ENABLE=0</code> is an emergency kill switch only.</li>
+<li><code>CYCLETRIM_ONISIM_WORKERS</code> defaults to 8 when unset (0.4.6).</li>
+<li>0.4.7/0.4.8: <code>FLAG_MULTICOMPONENT_COEXISTENCE</code> lets a second gas species share
+a cell when classic <code>displace_gas</code> fails; the multicomponent CPU upwind flux
+runs in the native tick. Saves still store the dominant element plus a
+runtime mixture overlay.</li>
+</ul>
+<h3 id="gpu-pipeline">GPU pipeline<a class="heading-anchor" href="#gpu-pipeline" aria-label="链接到 GPU pipeline">#</a></h3>
+<ul>
+<li><code>GpuSimulation</code> (wgpu 30, Vulkan) is created at engine construction unless
+<code>CYCLETRIM_ONISIM_GPU=0</code>; failure falls back to CPU with a log line.</li>
+<li>Committed and in the tick: whole-grid thermal diffusion with resident
+temperatures and compressed mixture-presence uploads; regional gas
+multicomponent diffusion / pressure projection / transport / thermal chained
+between GPU buffers; sparse liquid multicomponent diffusion overlapped with
+the CPU gas-pressure pass; diffusion snapshots limited to the active region.</li>
+<li>CPU-side tick changes: bubble simulation skips empty spans, liquid droplets
+settle, bubbles and droplets share one sparse scan, and idle zero-time frames
+reuse the previous publication.</li>
+<li>Working tree (uncommitted): GPU bubble/droplet movement, phase-transition
+selection, gas pressure faces and liquid head/flow, disease diffusion and
+growth, radiation regions and inactive-cell decay are wired into
+<code>simulation_step.rs</code> behind <code>systems.gpu</code>, with the CPU functions kept as the
+no-GPU path. <code>cargo check --release</code> passes for the native crate. No unit
+test run, differential fixture or in-game log has been recorded for these
+passes yet.</li>
+<li>Last game evidence: <code>Player.log</code> from 2026-11-08 00:26 reports
+<code>GPU acceleration active on Vulkan device: NVIDIA GeForce RTX 4060 Laptop GPU (grid 738x306)</code>. It predates all 2026-11-08 commits listed above.</li>
+</ul>
+<h3 id="open-gates">Open gates<a class="heading-anchor" href="#open-gates" aria-label="链接到 Open gates">#</a></h3>
+<ul>
+<li>Per-step upload / device wait / readback remains; not a device-resident loop.</li>
+<li>Pressure, partial-pressure and liquid-volume-fraction publication, three or
+more species per cell and full save/load of all components are incomplete.</li>
+<li>No whole-game FPS, long-duration, DLC or other-Mod acceptance for the current
+source.</li>
+</ul>
+<h2 id="status-snapshot-2026-11-07">Status snapshot (2026-11-07)<a class="heading-anchor" href="#status-snapshot-2026-11-07" aria-label="链接到 Status snapshot (2026-11-07)">#</a></h2>
+<h3 id="message-routing-audit">Message routing audit<a class="heading-anchor" href="#message-routing-audit" aria-label="链接到 Message routing audit">#</a></h3>
+<p>A static audit against <code>OFFICIAL-MESSAGES.md</code> found all <strong>62 official message IDs</strong>
+referenced by the current native source. Fifty-nine route into lifecycle, world,
+cell-material, cell-command, thermal-component, mass-component, interaction or
+radiation handlers. <code>SetVisibleCells</code>, <code>ToggleProfiler</code> and
+<code>RadiationSickness</code> are explicit no-ops because they are absent from both
+dispatch registries in the pinned official 744825 library. This is identifier
+and dispatch accounting only; it is not proof that every message's complete
+gameplay semantics are equivalent.</p>
+<h3 id="confirmed-remaining-gaps">Confirmed remaining gaps<a class="heading-anchor" href="#confirmed-remaining-gaps" aria-label="链接到 Confirmed remaining gaps">#</a></h3>
+<ul>
+<li><code>Elements_CreateInteractions</code> is parsed and its rule records are retained in
+state, but <code>do_gas_interaction</code> and <code>do_gas_interaction_pair</code> have no caller
+in the Rust fixed-step pipeline. Static inspection of the pinned official
+control flow also found no incoming call to the legacy three-argument helper.
+Whether these helpers belong in the active simulation path is unresolved;
+do not add a guessed phase call without a positive official call-site or a
+differential behavior fixture.</li>
+<li>The current source has no passing overall four-worker scaling gate. Worker
+creation and differential correctness do not prove a performance win.</li>
+<li>The current source snapshot has no corresponding full-game graphical,
+long-duration or whole-colony acceptance. Historical receipts apply only to
+their exact source and binary identities.</li>
+<li>The 29 ordered <code>GameDataUpdate</code> event queues are declared and published by
+<code>events.rs</code>; each individual callback still requires end-to-end behavior
+coverage, not merely a non-null span.</li>
+<li>SIMSAVE v15 parsing/serialization and world-offset/topology handling exist;
+full multi-world DLC and long-running game compatibility remain separate
+acceptance gates.</li>
+</ul>
+<h3 id="physical-pipeline-status">Physical pipeline status<a class="heading-anchor" href="#physical-pipeline-status" aria-label="链接到 Physical pipeline status">#</a></h3>
+<p>The fixed-step path currently runs temperature exchange and state transitions,
+gas/liquid pressure traversal, disease diffusion, radiation-region updates,
+component updates and cell post-processing. Post-processing calls partial-melt,
+sublimation/off-gas and unstable-cell paths. The helper remains unconnected in Rust; its required role in the pinned
+official simulation is unresolved and must not be guessed or marked complete.</p>
+<h3 id="safety-and-ci">Safety and CI<a class="heading-anchor" href="#safety-and-ci" aria-label="链接到 Safety and CI">#</a></h3>
+<ul>
+<li>PR <a href="https://github.com/LIghtJUNction/OniMods/pull/568">#568</a> changed the CycleTrim
+option to a new <code>EnableOniSimExperimental</code> key, default off. <em>(Superseded by
+0.4.5: the toggle was removed and OniSim is always mapped.)</em></li>
+<li>The standalone loader was also default-off, requiring an explicit
+<code>CYCLETRIM_ONISIM_ENABLE=1/true/on</code> opt-in. <em>(Superseded by 0.4.5 for the
+CycleTrim package; <code>=0</code> remains the kill switch.)</em></li>
+<li>The original <code>tools/OniHarness</code> gitlink pointed at an unreachable commit
+(<code>107fee3c…</code>). The PR pins reachable OniHarness main
+(<code>c149819e…</code>) so checkout can proceed. Checkout success alone is not test acceptance.</li>
+<li>The Jlib submodule now pins <code>68e4935…</code>. Its net48
+<code>FrameworkPathOverride</code> is applied only when the supplied ONI Managed
+directory actually contains <code>mscorlib.dll</code>; a references-only directory
+therefore falls back to the installed .NET targeting pack.</li>
+<li>The embedded SteamPublisher build smoke test still checks extracted files
+on every host. It compiles only when the game-shipped
+<code>com.rlabrecque.steamworks.net.dll</code> is available; otherwise it reports
+an explicit skip instead of treating a missing ONI installation as a Rust
+core regression. This is not a substitute for a game-installed publisher
+integration build.</li>
+</ul>
+<p>The existing source checkpoint below records 47 passing Release Rust tests.
+It explicitly does not claim whole-game FPS/RSS, overall worker speedup or a
+current-source game launch. Older results below remain historical evidence.</p>
+<h2 id="source-checkpoint-inline-thermal-command-queue">Source checkpoint: inline thermal command queue<a class="heading-anchor" href="#source-checkpoint-inline-thermal-command-queue" aria-label="链接到 Source checkpoint: inline thermal command queue">#</a></h2>
+<p>The production thermal command queue now stores each validated fixed-size ABI
+payload inline in a 48-byte queue entry. Its 14 supported message types need at
+most 44 payload bytes. Individual commands no longer allocate a separate payload
+<code>Vec</code>, and energy batches reserve once and append directly without a temporary
+batch vector. The queue still owns copied bytes; caller buffer reuse cannot alter
+pending commands. Processing preserves type rank, arrival order within a type,
+the backwall boundary and the exact original message bytes, including float bit
+patterns.</p>
+<p>All <strong>47 Release Rust tests pass</strong>, including four new checks for owned payloads,
+ordering, batch ingestion and bounded rejection. This is a source-level allocation
+reduction. No whole-game FPS, RSS or one/four-worker speedup is claimed; short
+payloads can use more inline storage than their previous bare queue record. The
+four-worker overall performance gate remains open. No game was launched for this
+iteration, and the older binary hashes and runtime receipts below do not validate
+this changed native source.</p>
+<h2 id="previous-source-recheck-at-adc4b2e">Previous source recheck at adc4b2e<a class="heading-anchor" href="#previous-source-recheck-at-adc4b2e" aria-label="链接到 Previous source recheck at adc4b2e">#</a></h2>
+<p>The then-current production native source tree
+<code>78a3a96032d063b196a52226fcdd9dcb0ab76564</code> rebuilds with Rust 1.99.1 as
+<code>55d5a236ccf6ac311d05a63898e34faceff686495ac372d1f6c9ccd785a62fd9</code>.
+All 43 Release Rust tests and 57 game-free Python tests pass. Fresh runs against
+the fingerprint-pinned official 744825 library pass all 287 cases / 9,739
+publications with one worker and again with four workers. The parallel emitter
+case observes all four <code>OniSim-cell-*</code> threads. The receipt is
+<code>conformance/results/linux-744825-native-recheck-20261021.json</code>.</p>
+<p>This correctness recheck does not turn the earlier failed one/four-worker
+scaling gates into a pass. No Steam/Unity client was launched; full game thread
+sampling, Unity memory, graphical and whole-colony performance acceptance remain
+open for this exact library. Earlier successful runtime receipts below belong
+to their stated binaries and cannot approve this one.</p>
+<p>A new equal-row disease-cleanup scheduling experiment is rejected. All 96
+96x96 complete-frame final states match the official library, with four working
+cell threads and no timed major faults. However, mixed-germ CPU rises 4.30% and
+wall time rises 5.69%, exceeding the unchanged 3% regression limits. No production
+kernel or dispatch policy changed. The proposal and all samples are retained in
+<code>conformance/results/linux-744825-balanced-disease-rows-20261021.json</code>.</p>
+<p>The first timing attempt exposed a harness error: this container has no
+<code>/proc/pressure</code> files. The benchmark now records these optional counters as
+unknown with the OS error, allowing timing to proceed without inventing zero
+load. Required process memory and worker observations remain strict. New tests
+cover missing, denied and available pressure readings.</p>
+<h2 id="previous-pressure-sweep-development-source">Previous pressure-sweep development source<a class="heading-anchor" href="#previous-pressure-sweep-development-source" aria-label="链接到 Previous pressure-sweep development source">#</a></h2>
+<p>The pressure-sweep native at that stage was
+<code>2772e52680f74a953a8fd18be396e2718ea1ccba1b7dad4fa738bc9cb98dc76f</code>.
+The pressure sweep borrows fixed-length storage once, retaining checked indices,
+original floating expressions, serial transfer/notification order and padded-edge
+projection. It adds no heap storage or world copies. The former transfer caller
+has been migrated and removed; shared projection logic serves both notification
+paths. Transfer/cell source bodies match the baseline after adapter-name changes.</p>
+<p>All 43 release Rust tests and 50 game-free Python tests pass. Twenty-four new
+raw-flow-word fixtures include signed zero, subnormals, infinities and quiet/
+signaling NaNs. Both the baseline and new core pass the expanded 287 cases /
+9739 publications at one and four workers. An independent build from committed
+base e0e0fe7 plus the archived proposal reproduces the exact measured native.</p>
+<p>Incremental complete-frame tests against 8bd415ce on CPU0/2/4/6 with four workers
+pass the unchanged CPU/wall/RSS gates at both sizes: 96x96 has 96 samples and
+192x192 has 60. CPU medians fall 2.56-16.31% in the five nonthermal 96x96 scenes
+and 5.15-13.48% at 192x192. Thermal increases 0.70% / 2.50%, below the 3% limit.
+All final states match official and no timed major faults occur. A separate
+24-sample PMU diagnostic observes whole-process instructions -13.38% fluid /
+-12.36% mixed-germs, cycles -8.19% / -8.20%; physics instructions fall about
+13.7-13.8%. Host load/frequency dispersion and fixture scope still apply.</p>
+<p>The new file now also passes a direct one-worker CPU16 comparison against
+official: 96 exact 96x96 samples, zero timed major faults, CPU medians -9.52%
+fluid, -22.19% thermal, -22.46% sealed, -8.65% germ-flow, -8.91% mixed-germs and
+-51.99% vacuum. The original fixed native CPU/RSS gates pass. This is not
+whole-game FPS or Unity memory evidence; the exact receipt is
+<code>conformance/results/linux-744825-pressure-sweep-official.json</code>.</p>
+<p>Fresh same-file one/four-worker scaling still fails at both sizes. All 156 final
+states match official, four worker names and positive scheduler runtime are
+observed, but CPU/elapsed regressions remain. A separate 36-sample hardware run
+observes only 0.80-2.14% extra retired instructions, with cycles +6.52-11.10%.
+Scheduling, frequency and cache effects are not separately attributed. The
+thread policy stays unchanged. See
+<code>conformance/results/linux-744825-pressure-sweep-scaling.json</code>.</p>
+<p>The isolated 5eb76a3 package has ZIP bd0b2823, managed d0437d55 and native
+2772e526. A genuine Steam headless process loaded those exact bytes, the approved
+disposable save, Null graphics and zero camera callbacks. Normal bounded progress,
+save/load, clock rollback and post-reload progress passed; the original save is
+unchanged. All four owned game/runtime processes, the supervisor and controller
+exited normally. Actual worker-thread names were not captured, so complete
+headless acceptance is still not claimed. Graphical, whole-game CPU/RAM and
+four simultaneous-game acceptance remain pending. See
+<code>conformance/results/linux-744825-pressure-sweep-{delivery,headless}.json</code>.</p>
+<p>The first armed memory probe correctly refused at its freshness guard, but
+investigation found a tooling defect: automatic JSON date parsing followed by
+string conversion lost the UTC suffix and reparsed it in local time. The helper
+now retains raw ISO strings. Forty-three production-helper checks in UTC,
+Asia/Taipei and America/Los_Angeles plus 12 Python collector/mapping tests pass;
+the fixed probe compiles against the pinned installed game. Its next launch was
+refused by the unchanged 6 GiB single-game capacity gate. No Unity/Mono counter
+capture has passed. The failure and new build remain separate, with no lowered
+identity, freshness or capacity limits. See
+<code>conformance/results/linux-744825-memory-probe-timezone.json</code>.</p>
+<h2 id="previous-8bd-development-source">Previous 8bd development source<a class="heading-anchor" href="#previous-8bd-development-source" aria-label="链接到 Previous 8bd development source">#</a></h2>
+<p>The preceding development native was
+<code>8bd415cea1129c5b7a1e94b08dc269e829f00c815d8c38d06b733437f8c2e0e0</code>.
+Twelve native source files and the expanded thermal case registration were
+integrated after checking the C301 source-archive ancestor and preserving
+unrelated source bytes. An independent canonical build produces the exact
+tested binary. All 41 release Rust tests and 49 game-free harness tests pass.
+The canonical harness matches the frozen expanded run byte-for-byte: both one
+and four workers pass 263 cases / 9571 publications, including 32 new thermal
+wire-word cases. The 12 memory-collector protocol/mapping tests are separate.</p>
+<p>The new cases exposed existing cell/backwall MINSS operand-order errors and a
+backwall MINSD cap/clamp order error. C301 and intermediate candidates failed;
+the corrected binary passes. A fresh one-worker direct official comparison passes all
+predeclared native CPU/RSS gates. CPU median reductions are 3.452% fluid,
+20.683% thermal, 9.286% sealed, 1.356% germ-flow, 1.788% mixed-germs and 35.463%
+vacuum. These are authored 96x96 native fixtures, not whole-game FPS. Retained
+host-load/frequency dispersion limits conclusions about exact gain magnitude.</p>
+<p>Fresh full-frame scaling tests on four distinct physical cores do not pass the
+predeclared performance gates at either 96x96 (96 samples) or 192x192 (60 samples).
+All final states still match the official library. Four workers reduce some
+fluid/germ wall times, but increase CPU work and regress other scenes; see
+PARALLEL-VALIDATION.md. Parallel correctness and thread creation do not establish
+an overall performance win.</p>
+<p>The private active-disease dispatch experiment <code>7762e676…</code> passes all 41 release
+tests and 263 cases / 9571 publications at both worker counts. It is not adopted:
+the 96x96 comparison reduces CPU use but regresses thermal wall time by about
+18.8%, failing the original gate. The 192x192 run also fails: thermal wall time
+increases 9.2% and sealed wall time 12.5%. All 156 timed final states still match
+official; no timed major faults occurred. The experiment and rejection are in
+<code>conformance/results/linux-744825-disease-active-dispatch.json</code>. The canonical
+native remains <code>8bd415ce…</code>.</p>
+<p>The follow-up checked-cleanup-slice experiment <code>6ad189b3…</code> also remains rejected.
+It passes 42 release tests and both complete 263-case / 9571-publication runs,
+but its 156 full-frame timing samples still fail the original elapsed-time gates.
+See <code>conformance/results/linux-744825-disease-cleanup-slices.json</code>.
+The common dispatch-removal premise was then tested directly on production
+disease post-processing. Parallel clean-cell cleanup is faster than serial at
+both sizes, so uninfected regions cannot be treated as having no useful parallel
+work. The next optimization should reduce cleanup work while retaining useful
+parallelism. The rerunnable test and limitations are documented in
+<code>conformance/DISEASE-DISPATCH-DIAGNOSTIC.md</code>.</p>
+<p>Two further SSE2 cleanup proposals preserve the pool and exclusive row ownership.
+<code>368df124…</code> and the exact all-clear/all-retained branch variant <code>9dbb9536…</code> each
+pass 45 release tests and both 263-case / 9571-publication suites. Bounds, tails,
+all lane masks and float words are checked; the branch variant also checks three
+input classes in each of 512 MXCSR environments. Neither is adopted: the first
+fails both full-frame size gates; the branch variant passes 192x192 but fails the
+original 96x96 mixed-germ limits (CPU +4.37%, wall +3.83%). All 156 timed samples
+per variant are retained. Public proposals are archived; the branch proposal
+independently rebuilds to the exact tested native hash.</p>
+<p>A 24-sample CPU-core PMU diagnostic then counts actual warmed physics, pool and
+orchestration threads. In sealed fixtures, pool instructions fall 39.85%, but
+whole-process instructions fall only 1.11%; mixed-germ whole-process instructions
+fall 0.15%. The serial physics thread accounts for about 90-97% of retired
+instructions in these two scenes. Prioritize its hotspots for larger gains.
+Counters do not override failed elapsed-time gates or establish whole-game FPS.
+Receipts are <code>conformance/results/linux-744825-disease-cleanup-{sse2,sse2-fastpaths,counters}.json</code>.</p>
+<p>A fresh canonical 8bd415ce profile covers all six 96x96 scenes, five repeats
+per scene with four workers on CPU0/2/4/6. All 30 final states match official;
+13,135 CPU-clock samples contain 12,402 native IPs with no loss/corruption.
+Pressure transfer takes 27.90-39.21% of native samples in the five nonthermal
+scenes. This supports examining repeated pressure-storage setup, not a claim
+of precise stall or actual-game attribution. Instrumented timings are excluded
+from performance acceptance. See
+<code>conformance/results/linux-744825-canonical-frame-profile.json</code>.</p>
+<p>A compact immutable element-property proposal <code>2390ab48…</code> targets serial phase
+and pressure lookups. It keeps raw flow words, checked indices and the original
+records; a shared-only record wrapper prevents stale derived properties. Four
+new tests include the full u16 index domain, state/float words, cloning,
+replacement and invalid indices. All 45 release tests and both complete
+263-case / 9571-publication comparisons pass. It is not adopted: 96x96 thermal
+CPU increases 7.45% and 192x192 vacuum increases 13.14%, failing the unchanged
+full-frame gates. All 156 exact samples and live-host dispersion are retained.
+The benchmark has six authored elements, not the full actual-game table. See
+<code>conformance/results/linux-744825-element-fluid-properties.json</code> and its public
+proposal. A separate 24-sample hardware diagnostic finds only 0.96% fluid and
+1.05% mixed-germ whole-process instruction reductions (physics reductions
+1.00% / 1.16%). The lookup removes little total work and is not the next large
+performance target. Counters do not override the failed timing gates. The
+canonical source remains unchanged.</p>
+<p>The dedicated OniSim CI now also runs the complete production native crate's
+Release unit tests without game files, alongside the emitter differential suite.
+This closes a coverage gap; official-library and actual-game runs remain local,
+separate acceptance levels.</p>
+<p>The source includes checked common-length pressure slices, integer SIMD index
+validation, phase-local contact reuse, conservative identity-copy elimination,
+and the consumed PreparedStep token. The contact-cache and PreparedStep Lean
+model sources are now under lean-lab with their source-identical prior checker
+receipts; neither model proves compiled Rust/libm or game compatibility.</p>
+<p>This identity has not yet passed actual-game headless or graphical acceptance;
+older runtime receipts below do not approve it. The distribution ZIP has not
+been promoted. Whole-game performance and four simultaneous complete games
+remain unverified. See <code>conformance/results/linux-744825-thermal-minss.json</code>
+and <code>conformance/results/linux-744825-thermal-minss-official.json</code>.</p>
+<h2 id="earlier-accepted-fixture-binaries">Earlier accepted fixture binaries<a class="heading-anchor" href="#earlier-accepted-fixture-binaries" aria-label="链接到 Earlier accepted fixture binaries">#</a></h2>
+<p>The Rust core builds and is integrated into CycleTrim's Linux package. The old
+36-compiler-error snapshot is obsolete. The notification-dedup V2 source is now
+landed, with 31 passing release host tests. Its original isolated binary
+<code>4e677de1…</code> passed ordered headless then graphical small-colony save/load,
+positive progression, full CPU/GPU texture comparisons and actual screenshot
+inspection. Both owned processes exited normally; the original save is unchanged.
+See <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/conformance/results/linux-744825-notification-dedup-v2-runtime.json">the V2 runtime receipt</a>.</p>
+<p>Release builds now explicitly disable host compiler wrappers. Fresh builds in
+two different source roots produce the same native SHA-256:
+<code>c301cc3ead6bfe0edebf928b901f767c144a6dc143eb75cdf260ebff4288ba42</code>.
+This identity has separate Steam headless and graphical acceptance for the
+small fixture: four actual cell workers, normal save/load with clock rollback,
+positive progression and full CPU/GPU texture comparisons before/after graphical
+reload. The actual screenshot was inspected and its dimensions matched the
+scaled physical window. All owned games exited normally. Exact package/source identities require their
+separate delivery-validation.json receipt. Whole-game performance remains
+unmeasured; historical results below retain their original binary scope.</p>
+<p>The earlier C301 <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/conformance/README.md">official-versus-Rust suite</a> passed 227 cases
+with one and four workers, comparing 9103 publications per run, including empty batches. This includes
+224 positive contracts and three explicitly negative diagnostic cases. Data
+comparisons retain exact float bits, every public grid/flow/CPU texture field,
+all 29 ordered event lists, conduit outputs and current native save bytes.
+The candidate hash and harness hashes are recorded in the compact receipts.</p>
+<p>Coverage now includes building/chunk and mass/disease-component lifecycles,
+conduit heat exchange, radiation emitter modes, sunlight, active regions,
+authored native save versions 0 through 15, legacy thermal boundaries,
+overlapping loads, rectangular world initialization/freeing, sublimation,
+liquid offgas, partial melting and boiling, and session-reset/save roundtrips.
+Repeated EndSave calls match the original idempotent release.</p>
+<p>These comparisons exposed and fixed gas-swap direction timing, cooling-cell
+equilibrium, backwall transfer/sentinels, retained emitted-mass output,
+sublimation's flow field and capacity limit, partial-melt mass/heat/germ branches,
+and restoration of the cooled neighbour when a partial transition cannot displace
+its source. Conduit failures now reach the actual managed fatal callback rather
+than only the extension status. Invalid temperatures fail before mutation;
+continued execution after the original's fatal report is not claimed equivalent.</p>
+<p>The three formerly missing enum messages are absent from both dispatch registries
+in the pinned official library and are explicit compatible no-ops. Batched Load
+prevalidates all records and commits in order. Prepare retains a publication
+barrier per record and returns the final descriptor.</p>
+<p>Earlier Steam-launched headless runs loaded a disposable colony, created four
+Rust cell workers, advanced, saved, reloaded and advanced again. They apply only
+to the binary identities in <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/RUNTIME-VALIDATION.md">RUNTIME-VALIDATION.md</a>.
+The earlier component/phase fixes passed a Steam-launched headless smoke run: four workers, positive native progress before/after save and reload,
+equal reload clock/dupe count, zero cameras/crashes, and restored original files,
+mod settings and continue-save preference. The source save hash was unchanged.
+An earlier launch was refused while another OniOnline test was running; its
+process was untouched, and the successful run began only after the game was free.
+The previous export/readiness binary (b5b0bd4d860b9451399771e9a3b6ddf527b53b22119172b1ed15cb9e3457000f) has a Steam-launched headless receipt:
+an ordinary non-sandbox early colony (only OniMcp in its saved mod footprint)
+loaded with three duplicants, created four cell workers, advanced 4.484130859375
+native seconds, saved/reloaded at the same clock, and advanced 2.71728515625
+seconds after reload. The sampled cell matched at displayed precision; this is
+not whole-grid runtime equivalence. Original files/settings and the source hash
+were restored. Earlier larger normal-colony trials did not pass: one had severe paging/control timeout, another
+reported a missing construction-material element during restore. The same-save, same-managed-DLL Rust-off comparison reproduced the construction
+material assertion with the official library mapped and no Rust mapping. The
+save records 22 mods, while the isolated set has three; custom elements/prefabs
+are missing. Its content dependencies must be matched before it is a usable
+compatibility fixture. Original files/settings were restored; source saves were unchanged.
+The current 1f56c9b2 candidate now has separate Steam headless and graphical
+small-colony acceptance: four workers, save/reload clock equality, positive
+progress before/after reload, and five full native/Unity/GPU texture comparisons
+both before and after graphical reload. Both owned processes stopped and
+recorded files/settings restored. See
+<a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/conformance/results/linux-744825-rust2024-runtime.json">the current runtime receipt</a>.
+This does not extend acceptance to larger colonies or other mod combinations.</p>
+<p>The source archive keeps the canonical repository-relative project layout and
+original license/provenance files. Its separate clean-build receipt binds the
+exact archive hash to compilation of both the native core and managed mod.
+Compilation does not substitute for runtime acceptance.</p>
+<p>This remains experimental, not 100% compatibility. Uncovered interaction and
+payload variants, realistic multi-world/DLC saves, concurrent save/lifecycle
+stress, broader texture scenarios and long colony runs remain open. SIM_DebugCrash now matches the explicit SIGINT/assertion-report contract in isolated children; Linux SYSINFO returns null like the pinned original. No incoming call to the legacy
+three-argument gas-interaction helper was found in the pinned control flow;
+that does not establish every interaction's behavior. Keep gameReady=false and
+runtimeValidated=false. No whole-game FPS gain is established.</p>
+<p>The Lean-proved disease traversal and bounded persistent cell-worker pool are
+implemented; their separate evidence is in <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/PARALLEL-VALIDATION.md">PARALLEL-VALIDATION.md</a>
+and <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/lean-lab/README.md">lean-lab/README.md</a>.</p>
+<p>The conformance driver now fixes the actual empty/nonempty batch sequence before
+comparing data and verifies equal message counts. This exposed a polling race in
+the earlier driver around the fifteen-Step flow reset; failed traces remain.
+Readiness observation has a host test proving that it neither consumes a result
+nor releases a batch. All 62 catalogue message IDs are now exercised, with entry
+coverage kept separate from full behavior coverage.</p>
+<p>Previous accepted native SHA-256: <code>1f56c9b2f0dc47f0db3e24015e6d927492d61cf9c9ade4f17c6bcf3e6c897c33</code>. The Linux system-info export now returns
+null as the original does. The intentional DebugCrash export reproduces SIGINT
+followed by the pinned fatal assertion if a handler returns. Both failed against
+the previous binary and passed after the change. These are not colony success
+claims. The prior null-backwall binary (d45cb10e) has generated-world graphical and
+headless save/reload receipts; these do not approve later binaries; the current 1f56c9b2
+small-colony acceptance is recorded separately. See the top of RUNTIME-VALIDATION.md
+before interpreting its historical runs.</p>
+<p>Worker lifecycle tests additionally cover full-queue rejection before command
+capture, retained frame ordering, shutdown with an outstanding publication,
+runner failure wakeup, abandoned leases and capture panic containment. Sixteen
+fresh worker lifecycles process 30,720 queued frames in exact submission order.
+These host tests do not replace concurrent actual-game save/lifecycle stress.</p>
+<p>The allocation-only differential fixture additionally controls its realtime
+seed. Both original <code>time()</code> and Rust <code>SystemTime</code> consume the same fixed
+instant in isolated fixture children; monotonic deadlines keep running. Without
+this control, even the same official binary differed between separate runs.
+The driver rejects missing libraries before starting children or writing cases.
+Nine game-free driver tests cover these controls, probe build identity,
+full-buffer observation validation, field presence and input identity changes.
+The clock shim is never
+loaded into the actual game or included as a production native library.</p>
+<p>A native survival-world generation trial exposed rejection of the legitimate
+0xffff absent-backwall marker. The original setter retains it, the managed
+BackwallIndexer returns null, and native serialization writes Vacuum/zero for
+it. The port now retains this marker through commands/publication, accepts it
+in backwall preflight, and avoids material lookup for an absent wall. Three new
+reference fixtures cover clear/restore, repeated null writes and save/reload
+(including stale mass/temperature at zero elapsed time). All failed against the
+previous Rust binary and pass after the fix. The d45cb10e candidate generated a native
+survival world with three duplicants and passed one full-buffer CPU/Unity/GPU
+comparison for all five property textures. A separate headless run loaded a copy,
+advanced 4.849925994873047 native seconds, saved/reloaded at identical clock
+55.466583251953125 with three duplicants, and advanced another 2.883289337158203
+seconds. An initial invalid sample was retained as a failed check; a second
+intentional reload verified a valid observed cell at displayed precision. The owned
+game was stopped to release memory and all recorded test settings were restored.</p>
+<p>Eight asymmetric thermal fixtures cover insulation bytes 0, 127, 254 and 255,
+opposite temperature gradients, unequal heat capacities and surface areas, and
+save/reload. All pass with one and four workers. The comparison driver now rejects
+extra as well as missing array/event fields, distinguishes absent fields from
+explicit nulls, and refuses to issue a summary if a harness or native library
+changes during the run. A replacement run removes its previous summary before
+starting children, so a failed run cannot retain an earlier green receipt.</p>
+<p>Nine topology/lifecycle fixtures cover overlapping regions on odd-sized grids,
+reversed region order, two-world rectangle release/reinitialization and eight
+successive native save/reload cycles. The last fixture exposed a liquid
+convection rounding bug: a weighted f32 temperature can round below the cold
+endpoint, where the port incorrectly selected the hot endpoint. The corrected
+clamp retains the cold endpoint, matching ELF 0x6fe48..0x6fe51. A two-water-cell
+fixture fails against d45cb10e and passes against 82460a88, as does the repeated
+save/reload fixture; exact comparisons and failed traces are retained. That intermediate hash has no game acceptance. The later 1f56c9b2 build
+retains the fix and has separate headless/graphical small-colony acceptance.</p>
+<p>Complete native frame bottlenecks and rejected performance candidates are now
+recorded in <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/PERFORMANCE.md">PERFORMANCE.md</a>. The reusable frame benchmark
+compares three scenes with alternating samples and exact official publications;
+the SSE numeric helper is now adopted in source after 25 release tests and
+one/four-worker differential runs. Fixed-performance-core frame timing improved
+by roughly 2.6–7.8% across the three fixtures. No whole-game FPS gain is claimed.</p>
+<p>The native crate and Lean validation harness now use Rust 1.99.1 / Edition 2024,
+resolver 3 and explicit unsafe operations. Both dependency resolutions are at
+the latest Rust-1.99-compatible releases (zero packages changed). Native release
+tests pass 28 cases; serial/four-worker component checks each pass 65042 cases.
+See <code>conformance/results/linux-744825-rust2024.json</code> for source/toolchain
+identities, feature checks, warning scope and upstream Clippy feedback.
+The compact Load plan uses 32 rather than 56 bytes per cell; six alternating
+Load-memory pairs reduce sampled extra RSS by roughly 10.3 MiB in the specified
+two-record fixture. No actual-game memory or current-build FPS gain is claimed.
+Current differential coverage additionally includes zero-capacity thermal
+endpoints, pressure boundaries and seeded mixed-pressure fixtures; all 224 cases
+were rerun after the final thermal source change and native rebuild.</p>
+<p>Nine mixed-state soak fixtures add 96 batches followed by four save/reload
+cycles per seed/material combination. Current one/four-worker full suites each
+pass 224 cases and 8440 publications. A prior serial child timeout is retained
+separately, with a passing isolated full-suite recheck; its cause is unproven.</p>
+<p>Three interleaved gas/liquid/solid/vacuum soak fixtures exposed a thermal f32
+multiplication-order error: the original rounds the squared-insulation scale
+before multiplying conductivity. All three failed before correction and match
+exactly after correction, including four native save/reload cycles per scene.
+The fixed source passes 31 release tests and 227 cases / 9103 publications with
+one and four workers. See <code>conformance/results/linux-744825-mixed-thermal-order.json</code>.
+The new native identity is c301cc3e. Both two- and four-worker Steam headless
+instances passed normal save/load with positive progress before/after reload,
+clock rollback equality and final pause. Four actual cell threads were observed
+in the four-worker process. Both processes stopped normally. Graphical four-worker
+acceptance subsequently passed, with five complete CPU/GPU texture comparisons
+before and after reload and actual screenshot inspection. These runtime results alone do not approve
+a ZIP or source archive; check their separate delivery validation receipt.</p>
+<p>A private equal-temperature pressure proposal (<code>f1736fbb</code>, not adopted) passes
+33 release tests, including 3,651,072 result-word/exception-flag comparisons in
+32 MXCSR environments, and both one/four-worker suites (227 cases / 9103
+publications each). It retains original arithmetic when strict bounds or the
+preexisting masked/sticky-inexact environment do not permit skipping it.
+Eight alternating native pairs per scene against c301cc3e measured germ-flow
+CPU median -4.81%, below the predeclared 5% target. Other scene CPU changes
+range from -2.21% to +2.79%; peak RSS changes are within 0.20%. All 96 sample
+finals match official output. CPU frequency endpoints vary 1.40–2.33 GHz and
+memory-pressure some/avg10 varies 0.19–9.46%; no stable whole-game speedup is
+established. The gate remains failed and canonical native sources/packages are
+unchanged. See <code>conformance/results/linux-744825-equal-temperature.json</code>.</p>
+<p>A pressure-helper inline proposal (<code>9a04afbd</code>, not adopted) removes both disease
+helper calls from the compiled pressure kernel while retaining safe indexing and
+all arithmetic. It passes 31 release tests and the one/four-worker differential
+suites (227 cases / 9103 publications each). Its six-scene timing preflight was
+refused because another task started a real ONI instance; zero timing rows were
+accepted. The foreign process was left untouched. See
+<code>conformance/results/linux-744825-pressure-inline.json</code>.
+Own-process userspace CPU sampling is now available without installing perf or
+changing host permissions. Six native germ-flow profiles collected 4250 samples,
+4025 in the native libraries, with no lost/corrupt records and exact official
+finals. Corrected ELF load-bias normalization was checked against actual exported
+Rust function pointers. Baseline update_pressure accounts for about 23% of native
+samples and its outer disease helper about 10%; inlining moves helper samples
+into its caller, so symbol percentages are not a speedup comparison. This is
+fixture diagnostics with sampling bias, not whole-game performance evidence.
+See <code>conformance/results/linux-744825-pressure-sampling.json</code>.</p>
+<p>Four new mixed-phase active-region soak fixtures pass 308 publications per
+selected run for both c301cc3e and the private 9a04afbd proposal with one/four
+workers. They exercise separated/overlapping active regions, forward/reversed
+region order across the 32-cell boundary and four save/reload rounds following
+24 batches. This is a four-case supplement to the recorded 227-case suites;
+it does not claim a fresh complete 231-case suite or actual DLC-colony coverage.
+See <code>conformance/results/linux-744825-multi-region-soak.json</code>.</p>
+<p>The pressure-inline 9a04afbd native benchmark subsequently completed after the
+foreign game exited: 96 alternating samples, exact official finals. Relative to
+c301cc3e, CPU medians changed germ-flow -6.147%, mixed-germs -11.119%, fluid
+-7.089%, sealed -5.774%, vacuum -10.018%, thermal +3.155%. The thermal result
+exceeds the unchanged 3% other-scene limit, so the proposal remains unadopted.
+The separate private phase-barrier proposal skips only identity cell copies
+when gas/liquid phases reached no CellSOA-mutating path, retaining all flow/event
+work. Its abstract state-equivalence premise and eight Lean theorems are separate
+from actual Rust guard and runtime validation; acceptance is still pending.</p>
+<p>Phase-barrier V1 (098d360d) passes 31 release tests and fresh full expanded suites
+with one/four workers: 231 cases / 9411 publications per run. Its 96 native timing
+samples match official finals; all six CPU medians decrease, but germ-flow
+-4.9319% misses the fixed 5% target. Thermal is -6.4305%, fluid -3.7189%, sealed
+-3.9364%, mixed-germs -7.8161%, vacuum -10.1085%. Thus V1 remains unadopted.
+See <code>conformance/results/linux-744825-phase-barriers-v1.json</code>. V2 refines the
+conservative pressure marker to reduce bookkeeping and retains identical gates;
+its validation is separate and pending.</p>
+<p>Phase-barrier V2 (9cddf664) passes 31 release tests and complete 231-case /
+9411-publication suites with one/four workers. Its 96 paired native samples vs
+c301cc3e show germ-flow CPU -6.6547%, mixed-germs -8.0404%, vacuum -10.3347%,
+fluid -3.1659%, sealed -3.3749%, thermal +1.0757%. The explicit thermal -5%
+target fails; source remains unadopted. A separate 96-sample direct official
+comparison is more relevant to replacement cost: vacuum CPU -37.6986%, sealed
+-1.8453%, mixed-germs +1.3204%, germ-flow +3.3282%, fluid +5.5145%, thermal
++13.4461%. The unchanged maximum-3%-regression official gate fails. All sampled
+finals match official output, but there is no whole-game FPS/CPU/RAM claim.
+See <code>conformance/results/linux-744825-phase-barriers-v2-official.json</code>.
+Three additional thermal CPU profiles collect 641 samples without lost/corrupt
+records and retain exact official finals. Native code contains 484 samples;
+update_temperature accounts for 34.09% of native samples. libm contains 19.50%
+of total samples. Sampled instruction locations also cluster after packed f64
+division; software sampling cannot precisely attribute stall cycles to an opcode.
+Investigate heat exchange and repeated conductivity math before more copying
+micro-optimizations; actual-game CPU/RAM profiling remains required. See
+<code>conformance/results/linux-744825-phase-barriers-v2-thermal-profile.json</code>.</p>
+<p>A new phase-local single-contact cache (0631b3dd), separate from the two older
+rejected 32-entry caches, passes 34 release tests and complete 231-case /
+9411-publication one/four-worker suites. Actual-helper tests compare 955776
+result/flag/errno observations in 32 floating environments, including 387072
+cache hits. The cache is &lt;=32 stack bytes with no extra heap or World field.
+Five Lean bit/effect replay theorems pass under explicit libm/guard assumptions;
+they are not a compiled floating-point proof. The first NaN code-generation
+failure and unavailable-SAT proof attempt are retained separately.
+Native timing versus 9cddf664 reduces thermal CPU median 22.168%, but mixed-germs
++3.526% and vacuum +3.882% fail the fixed 3% other-scene gate. Keep unadopted.
+A separate three-pair CPU16 hardware-counter diagnostic, with exact official
+finals and &gt;=98% counter running/enabled, finds cold-scene retired-instruction
+changes within 0.07%; cycle changes are -0.94%..+2.48%. This does not replace or
+relax CPU-time acceptance, but contradicts substantial added cold-loop work.
+The initial generic PMU returned zero on this hybrid CPU's atom core and was
+correctly rejected; valid events are selected from the pinned CPU's sysfs PMU.
+See <code>conformance/results/linux-744825-thermal-contact-one-entry.json</code>.
+The frame engine already runs preflight before its fixed-tick loop, while each
+simulation_step::step repeats it. Investigate that duplicate work and its
+invariants before another cache/cold-loop tweak. Whole-game CPU/RAM, broader
+colony compatibility and four real overlapping instances remain outstanding.</p>
+<p>PreparedStep (7811921b) removes only the duplicate frame/first-substep preflight.
+Its private borrowed, consumed token prevents mutation between validation and
+execution; every subsequent mutated substep still validates anew. 37 release
+tests pass, including one-check count, later invalid-state rejection and invalid
+time rejection without advance. Reintroducing the duplicate fails the exact
+count test (observed2 expected1); correct sources were restored and all tests
+rerun. Three Lean theorems establish pure duplicate-check/time-guard/later-check
+preservation without any step-preserves-valid-state assumption. Both full
+231-case /9411-publication one/four-worker suites pass.
+A separate short-frame workload uses 50 individually published0.2s frames per
+block, two warmup and six timed blocks. Bulk pilots were rejected because native
+async grouping returned30 of50 submitted frames; the corrected strict barrier
+protocol matches official finals. Eight alternating pairs per scene give thermal
+CPU -4.9443%, below the unchanged5% target; other scene medians remain within3%
+regression. The retained original long-frame workload also completes96 exact
+samples with no scene CPU median regression above3%. The proposal remains
+unadopted; those native results do not establish whole-game performance. See
+<code>conformance/results/linux-744825-prepared-first-step.json</code>.</p>
+<p>PreparedStep (7811921b) subsequently passed one actual Steam-launched headless
+three-duplicant save/load roundtrip. The actual managed DLL and mapped native
+library hashes matched the staged inputs. Three bounded steps advanced the
+native clock; reload restored the exact checkpoint clock and final pause.
+Five guarded speed-1 measurements completed after one warmup, with median
+0.660 CPU seconds per native second, but 1,705–5,806 major faults per sample.
+There is no matched baseline or maximum-throughput/FPS result. The first
+measurement attempt failed because companion telemetry had not yet published
+MCP's paused state; its failure remains retained. The corrected collector waits
+for the same process, save, exact native clock and paused state.
+The observed owned-tree PSS plus SwapPSS peaked at 4,325,855 KiB across 123
+valid samples. Swapping pages out does not reduce this footprint. The private
+capacity forecast was raised from 3 to 5 GiB per complete game, plus a 1 GiB
+host reserve. After a normal quit all five owned processes and the idle
+controller were reclaimed; the original save hash was unchanged. Graphical
+admission was refused before launch as available memory fell to about 2 GiB.
+Four simultaneous complete games and graphical acceptance remain unverified.
+See <code>conformance/results/linux-744825-prepared-first-step-runtime.json</code>.</p>
+<p>An isolated SIMD validation experiment retains every per-step check and error
+order, replacing only the element/backwall/disease slice predicates with
+integer SIMD and scalar tails. It uses no extra heap allocation. Rust 1.99.1
+release builds pass 40 host tests, including exhaustive word/count boundaries
+and vector tails/unaligned slices, plus all 231 official-comparison cases with
+one and four workers. The first invocation accidentally selected the host's
+default Rust 1.99.0 from the repository root; its passing results remain separate.
+The explicit 1.99.1 rebuild has native SHA-256
+<code>268977a5b35f167a77c29ab5fca27b0356feaecacf00c4e167e64603de4374ba</code>.
+The six-scene CPU16 eight-pair benchmark against 7811921b completed with all
+96 final snapshots matching the official library and no timed major faults.
+CPU medians fell 5.518% fluid, 2.489% thermal, 7.091% sealed, 0.374% germ-flow,
+3.041% mixed-germs and 1.021% vacuum. The predeclared incremental gates pass:
+one scene improves at least 5%, no scene regresses above 3%, and peak RSS does
+not increase above 3%. All rows, including a late host slowdown, are retained.
+This is relative to another experimental Rust variant; no source adoption,
+whole-game speedup or runtime acceptance is claimed for this new variant. See
+<code>conformance/results/linux-744825-simd-validation.json</code>.</p>
+<p>The separate direct official-library comparison also completed 96 exact final
+snapshots. CPU medians changed +3.235% fluid, -13.010% thermal, -7.404% sealed,
++0.373% germ-flow, +1.217% mixed-germs and -36.861% vacuum. Fluid still exceeds
+the fixed 3% regression limit, so the combined proposal remains experimental.
+Improvement over another Rust variant must not be presented as superiority to
+the official implementation. See
+<code>conformance/results/linux-744825-simd-validation-official.json</code>.</p>
+<p>Direct userspace hardware-counter diagnostics for 268977a5 show fluid retired
+instructions +8.072% and cycles +3.273% versus the official library. Five
+candidate fluid profiles collect 2,871 total / 2,754 native samples without
+loss/corruption; gas::update_pressure accounts for 41.939% of native samples.
+The hottest sampled IP follows the weighted-temperature DIVSS. This is not
+precise stall attribution or whole-game evidence. See
+<code>conformance/results/linux-744825-fluid-pressure-diagnostic.json</code>.</p>
+<p>A masked-environment paired-division experiment retains the original scalar
+function body for unmasked callers. Its first intrinsic implementation produces
+equal result words but an extra invalid MXCSR flag in a boundary test; that
+failure and source are retained. Opaque DIVPS with neutral upper lanes passes
+3,030,272 word/control-flag observations in 32 environments, all 41 release host
+tests, and both 231-case official comparison suites. Nevertheless, eight-pair
+CPU16 measurements regress fluid +1.817%, germ-flow +9.563% and mixed-germs
++9.752%. The proposal is rejected, not adopted. All 96 exact snapshots and noisy
+host intervals are retained. See
+<code>conformance/results/linux-744825-pressure-packed-divisions.json</code>.</p>
+<p>The separate, opt-in MemoryProbe now compiles against the pinned installed game.
+It reads Unity allocation/reservation, Mono heap/used bytes, managed-reported
+bytes, runtime-specific GC generation counts and Linux PSS/swap counters without
+requesting GC or asset unloading. Its collector binds the loaded DLL, request,
+native process incarnation, run nonce, paused save and actual native clock.
+Five collector protocol tests and 13 existing instance-helper tests pass;
+these do not exercise Unity/Mono. A four-profile group with probe 6517b5f5 and
+native 268977a5 is prepared at /tmp/ct-mem-268v2, with zero games started. The
+preparation helper defaults to a 5 GiB per-game forecast plus 1 GiB reserve.
+The last host snapshot remains below the resulting 6 GiB single-game budget.
+Repeated-load and official-library memory attribution, graphical acceptance and
+four simultaneous complete games remain open. See
+<code>conformance/memory_probe/README.md</code> and
+<code>conformance/results/linux-744825-memory-probe-preparation.json</code>.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/OniSim/docs/progress.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/OniMods">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../OniMods/licensing/"><span class="pagination-label">上一页</span><span class="pagination-title">Licensing and provenance</span></a><a class="pagination-link next" href="../../OniMods/mods-cycletrim-onisim-gpu-readme/"><span class="pagination-label">下一页</span><span class="pagination-title">OniSim Vulkan compute operators</span></a></nav>
+      <footer class="page-footer">
+        <span>OniMods <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#current-checkpoint-2026-11-20">Current checkpoint (2026-11-20)</a></li><li class="toc-level-2"><a href="#status-snapshot-2026-11-16">Status snapshot (2026-11-16)</a></li><li class="toc-level-2"><a href="#status-snapshot-2026-11-08">Status snapshot (2026-11-08)</a></li><li class="toc-level-3"><a href="#runtime-policy">Runtime policy</a></li><li class="toc-level-3"><a href="#gpu-pipeline">GPU pipeline</a></li><li class="toc-level-3"><a href="#open-gates">Open gates</a></li><li class="toc-level-2"><a href="#status-snapshot-2026-11-07">Status snapshot (2026-11-07)</a></li><li class="toc-level-3"><a href="#message-routing-audit">Message routing audit</a></li><li class="toc-level-3"><a href="#confirmed-remaining-gaps">Confirmed remaining gaps</a></li><li class="toc-level-3"><a href="#physical-pipeline-status">Physical pipeline status</a></li><li class="toc-level-3"><a href="#safety-and-ci">Safety and CI</a></li><li class="toc-level-2"><a href="#source-checkpoint-inline-thermal-command-queue">Source checkpoint: inline thermal command queue</a></li><li class="toc-level-2"><a href="#previous-source-recheck-at-adc4b2e">Previous source recheck at adc4b2e</a></li><li class="toc-level-2"><a href="#previous-pressure-sweep-development-source">Previous pressure-sweep development source</a></li><li class="toc-level-2"><a href="#previous-8bd-development-source">Previous 8bd development source</a></li><li class="toc-level-2"><a href="#earlier-accepted-fixture-binaries">Earlier accepted fixture binaries</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

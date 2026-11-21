@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MCP 客户端与服务端原语，连接工具调用和宿主传输。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zmcpio · 概览 · Project Z">
+  <meta property="og:description" content="MCP 客户端与服务端原语，连接工具调用和宿主传输。">
+  <meta property="og:type" content="website">
+  <title>zmcpio · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zmcpio/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zmcpio">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zmcpio" aria-label="zmcpio 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zmcpio</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zmcpio</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/" aria-current="page">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zmcpio 文档"><div class="nav-group"><p class="nav-label">zmcpio</p><ul><li><a class="nav-link" href="../zmcpio/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zmcpio/client/">MCP client and zcall integration</a></li><li><a class="nav-link" href="../zmcpio/architecture/">Architecture</a></li><li><a class="nav-link" href="../zmcpio/extensions/">Explicit MCP extension boundaries</a></li><li><a class="nav-link" href="../zmcpio/http/">HTTP and SSE integration</a></li><li><a class="nav-link" href="../zmcpio/mcp/">MCP protocol boundaries</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zmcpio</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/" aria-current="page">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zmcpio 文档"><div class="nav-group"><p class="nav-label">zmcpio</p><ul><li><a class="nav-link" href="../zmcpio/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zmcpio/client/">MCP client and zcall integration</a></li><li><a class="nav-link" href="../zmcpio/architecture/">Architecture</a></li><li><a class="nav-link" href="../zmcpio/extensions/">Explicit MCP extension boundaries</a></li><li><a class="nav-link" href="../zmcpio/http/">HTTP and SSE integration</a></li><li><a class="nav-link" href="../zmcpio/mcp/">MCP protocol boundaries</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zmcpio/">zmcpio 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zmcpio/">zmcpio</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install">Install</a></li><li class="toc-level-2"><a href="#boundary">Boundary</a></li><li class="toc-level-2"><a href="#use-from-the-source-checkout">Use from the source checkout</a></li><li class="toc-level-2"><a href="#implemented-boundaries">Implemented boundaries</a></li><li class="toc-level-2"><a href="#memory-contract">Memory contract</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zmcpio">zmcpio</h1><p class="project-intro">MCP 客户端与服务端原语，连接工具调用和宿主传输。</p>
+<p>Bounded MCP client/server primitives for applications that own authorization and
+scheduling. The protocol core is <code>no_std</code>, allocation-free and forbids unsafe
+Rust. <code>zcall</code> is its only direct third-party dependency; <code>zconv</code> is transitive.
+The optional <code>std</code> feature adds blocking stdio process I/O and bounded HTTP/1.1
+I/O over caller-supplied TCP or verified TLS streams.</p>
+<p>The crate is named <code>zmcpio</code> on crates.io and the Rust API is imported as
+<code>zmcpio</code>. The former project name, <code>zmcp</code>, belongs to a different crates.io
+publisher and <strong>must not</strong> be used as a dependency for this implementation.</p>
+<h2 id="install">Install<a class="heading-anchor" href="#install" aria-label="链接到 Install">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>[dependencies]
+zmcpio = { version = &quot;0.5.1&quot;, default-features = false }
+</code></pre></div>
+<p>To use the stdio and HTTP/1.1 I/O adapters, enable the optional <code>std</code> feature:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>[dependencies]
+zmcpio = { version = &quot;0.5.1&quot;, default-features = false, features = [&quot;std&quot;] }
+</code></pre></div>
+<p>The protocol core and <code>zcall</code> bridge do not require an allocator. Process/socket
+setup may allocate. HTTPS requires a caller-supplied verified TLS stream.
+Development follows the internal Git default branches; Cargo.lock records the exact
+zcall and zconv commits and package versions. Registry releases use the separate
+<a href="https://github.com/LIghtJUNction/zmcpio/blob/89a247ac274bcd96b760dd9e7dcb0d4d924a901e/docs/RELEASE.md">release staging workflow</a>. The shared model
+contract and resource codecs are available through <code>zmcpio::zcall</code>. The zcall
+standard-library server remains opt-in; zmcpio keeps its dependency defaults
+disabled. The MCP bridge still accepts only complete JSON object tool arguments and
+preserves the full MCP result envelope; resource codecs do not execute MCP or HTTP
+operations.</p>
+<h2 id="boundary">Boundary<a class="heading-anchor" href="#boundary" aria-label="链接到 Boundary">#</a></h2>
+<p><code>zmcpio</code> parses complete JSON-RPC messages and returns borrowed actions.
+<code>Action::CallTool</code> does not execute anything. An application checks policy,
+runs its tool, then calls <code>Server::tool_result</code>. No agent loop, TLS engine,
+OAuth login flow, database, model runtime or automatic network requests are included. Shared model
+types and provider-format conversion come from <code>zcall</code>.</p>
+<p><code>zharness</code> and <code>zmcpio</code> remain independent components, sharing the <code>zcall</code> contract:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>application
+  +-- zmcpio           MCP client/server, stdio, zcall tool bridge
+  |     +-- zcall      shared model/tool types (re-exported as zmcpio::zcall)
+  +-- zharness         tool registry, execution boundary, model bridge
+        +-- zcall      model lifecycle
+              +-- zconv
+</code></pre></div>
+<p><code>Client</code> encodes requests and correlates replies using bounded caller-owned
+pending slots. <code>bridge</code> converts discovered MCP tools into <code>zcall::v1::ToolDefinition</code>,
+accepts complete <code>Content::ToolCall</code> or streaming <code>ReadyTool</code>, and appends results
+through <code>Request::append_tool_result</code>. MCP IDs and model call IDs remain distinct.</p>
+<h2 id="use-from-the-source-checkout">Use from the source checkout<a class="heading-anchor" href="#use-from-the-source-checkout" aria-label="链接到 Use from the source checkout">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>cargo test --locked --all-targets
+cargo run --locked --example basic
+cargo run --locked --example mcp_stdio
+cargo run --locked --example zcall_tools
+cargo build --locked --features std --example mcp_stdio --example mcp_client
+target/debug/examples/mcp_client target/debug/examples/mcp_stdio echo &#x27;{&quot;text&quot;:&quot;hello&quot;}&#x27;
+</code></pre></div>
+<p>The stdio example implements only an explicitly allowlisted <code>echo</code> tool. It uses
+bounded LF framing and keeps diagnostics off stdout. See <a href="../zmcpio/mcp/">MCP</a>,
+<a href="../zmcpio/architecture/">architecture</a>, and <a href="https://github.com/LIghtJUNction/zmcpio/blob/89a247ac274bcd96b760dd9e7dcb0d4d924a901e/docs/SECURITY.md">security</a>.
+See the <a href="../zmcpio/client/">client and zcall guide</a> for lifetimes, cancellation,
+pagination, error policies and custom transports. On Windows use <code>.exe</code> paths.</p>
+<h2 id="implemented-boundaries">Implemented boundaries<a class="heading-anchor" href="#implemented-boundaries" aria-label="链接到 Implemented boundaries">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Boundary</th>
+<th>Provided primitives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tool client/server</td>
+<td>Discovery, list/call, pagination, multimodal results, progress, cancellation, ID correlation</td>
+</tr>
+<tr>
+<td>Streamable HTTP</td>
+<td>Modern POST-only and legacy POST/GET/DELETE envelopes; JSON/SSE; sessions and resume metadata for legacy only</td>
+</tr>
+<tr>
+<td>SSE</td>
+<td>Incremental caller-buffered decoder, encoder, comments, BOM/UTF-8 handling, backpressure and exact capacity errors</td>
+</tr>
+<tr>
+<td>Legacy batches</td>
+<td>Caller-bounded 2025-03-26 request/response arrays, per-item errors and no response for notification-only batches</td>
+</tr>
+<tr>
+<td>Legacy HTTP+SSE</td>
+<td>Same-origin endpoint negotiation and separate message stream; no implicit credential forwarding or tool replay</td>
+</tr>
+<tr>
+<td>Other MCP methods</td>
+<td>Explicitly enabled resource/prompt/completion/logging routes, callback and MRTR envelopes, subscription validation, version-specific task messages</td>
+</tr>
+<tr>
+<td>Optional I/O</td>
+<td>Real stdio process adapter and bounded HTTP/1.1 framing over supplied streams</td>
+</tr>
+</tbody>
+</table></div>
+<p>Streamable HTTP, legacy SSE and the opt-in extension APIs ship in 0.3.0.
+See <a href="../zmcpio/http/">HTTP</a> and <a href="../zmcpio/extensions/">extensions</a> for their
+contracts and executable examples.
+See <a href="https://github.com/LIghtJUNction/zmcpio/blob/89a247ac274bcd96b760dd9e7dcb0d4d924a901e/docs/VALIDATION.md">validation</a> for reproducible tests and benchmark limits.
+A local modern HTTP server and client can be run in separate terminals:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>cargo run --locked --features std --example mcp_http -- server 8080 sse
+cargo run --locked --features std --example mcp_http -- client 127.0.0.1:8080
+</code></pre></div>
+<p>Use <code>json</code> instead of <code>sse</code> to exercise a single-JSON HTTP response. The example
+binds only to loopback and exposes only echo. For remote HTTPS, inject a verified
+TLS stream or connect the no-std protocol adapter to an existing HTTP stack.</p>
+<p>Legacy single-message negotiation covers 2024-11-05, 2025-03-26, 2025-06-18 and
+2025-11-25. Modern requests use 2026-07-28. This is a set of protocol and transport
+primitives, not an automatic agent, OAuth client, task worker or storage service.
+It is not a certification that every optional extension or third-party server
+conforms. Bounded JSON-RPC batches are supported only for 2025-03-26, through an
+explicit batch API; other revisions reject arrays. Application-owned callbacks, task
+execution, policy, replay storage and timers remain explicit.</p>
+<h2 id="memory-contract">Memory contract<a class="heading-anchor" href="#memory-contract" aria-label="链接到 Memory contract">#</a></h2>
+<p>Input, token tape, output, framing and request slots are caller-owned. Parsing
+borrows input and token storage. Retain both while an action or tracker ID uses
+them. No hidden growth occurs. <code>Error</code> reports a category, byte offset and required
+capacity when known. On serialization failure discard partial output and retry
+serialization only; never repeat a side-effecting tool just to grow output.</p>
+<p>JSON accepts valid UTF-8 and paired Unicode escapes, rejects duplicate decoded
+object keys, enforces byte/member/string/token/depth bounds, and preserves number
+lexemes. Request IDs use signed 64-bit integers or strings; out-of-range integer
+IDs are rejected rather than rounded. Nesting has a hard ceiling of 64 containers.
+Full JSON Schema validation is an application responsibility.</p>
+<p>License: MIT OR Apache-2.0.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmcpio/blob/89a247ac274bcd96b760dd9e7dcb0d4d924a901e/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmcpio">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../zmcpio/client/"><span class="pagination-label">下一页</span><span class="pagination-title">MCP client and zcall integration</span></a></nav>
+      <footer class="page-footer">
+        <span>zmcpio <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install">Install</a></li><li class="toc-level-2"><a href="#boundary">Boundary</a></li><li class="toc-level-2"><a href="#use-from-the-source-checkout">Use from the source checkout</a></li><li class="toc-level-2"><a href="#implemented-boundaries">Implemented boundaries</a></li><li class="toc-level-2"><a href="#memory-contract">Memory contract</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ztty · ssmcp observation on Linux · Project Z">
+  <meta property="og:description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta property="og:type" content="website">
+  <title>ztty · ssmcp observation on Linux · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ztty/ssmcp-observer/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ztty">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ztty" aria-label="ztty 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ztty</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/" aria-current="page">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/" aria-current="page">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ztty/">ztty 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ztty/">ztty</a><span aria-hidden="true">/</span><span>ssmcp observation on Linux</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#start-an-observing-connection">Start an observing connection</a></li><li class="toc-level-2"><a href="#input-and-lifetime-rules">Input and lifetime rules</a></li><li class="toc-level-2"><a href="#recorded-acceptance">Recorded acceptance</a></li><li class="toc-level-2"><a href="#reproduce-the-real-connection-test">Reproduce the real connection test</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="ssmcp-observation-on-linux">ssmcp observation on Linux</h1>
+<p><code>tools/ztty-observer</code> opens ssmcp command output in a read-only ztty window without requesting keyboard focus. Sequential commands reuse the live ssmcp viewer and window. Closing a window created for that viewer retires the viewer child; the next ssmcp command can open another observation window.</p>
+<p>This integration currently uses Linux X11 or XWayland. The recorded acceptance run used a separately owned Xvfb server, not the user's desktop. It does not establish native Wayland, macOS, Windows, physical input-device or compositor latency acceptance.</p>
+<h2 id="start-an-observing-connection">Start an observing connection<a class="heading-anchor" href="#start-an-observing-connection" aria-label="链接到 Start an observing connection">#</a></h2>
+<p>Use an already authorized ssmcp account and an executable ztty build:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>ZTTY_BIN=&quot;$PWD/target/release/ztty&quot; \
+  ssmcp --tty &quot;$PWD/tools/ztty-observer&quot; --name ztty-observed
+</code></pre></div>
+<p>The adapter is a small executable shell script. It selects <code>${ZTTY_BIN:-ztty}</code> and passes <code>--observe</code> before the terminal arguments supplied by ssmcp. The Rust implementation contains no ssmcp-specific process names or command parsing. See the <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/tools/ztty-observer">adapter</a>, <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/src/main.rs">CLI parsing</a> and <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/src/session.rs">Linux session implementation</a>.</p>
+<p>ssmcp starts the terminal with <code>-e ssmcp __tty-view DIRECTORY SLOT</code>. That helper reads the output retained by ssmcp for the real command. There are two PTYs with different jobs: the command's PTY produces stdout/stderr; the viewer's PTY carries the resulting bytes into ztty. Opening the observation window does not execute the command a second time.</p>
+<h2 id="input-and-lifetime-rules">Input and lifetime rules<a class="heading-anchor" href="#input-and-lifetime-rules" aria-label="链接到 Input and lifetime rules">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Input and focus</th>
+<th>Closing the observing window</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ztty --observe -e COMMAND ...</code></td>
+<td>Starts a fresh read-only window; does not request focus. Typing, paste and mouse reporting do not write to its child. Resizing does not resize the observed PTY.</td>
+<td>Retires the child created for this window while its input still belongs to the local actor.</td>
+</tr>
+<tr>
+<td><code>ztty attach --observe NAME</code></td>
+<td>Observes the existing session; attaching to an existing view also cancels queued local input and asynchronous paste.</td>
+<td>Detaches the view and preserves the existing PTY, including sessions whose input still belongs to the local actor.</td>
+</tr>
+<tr>
+<td>Input has been acquired by another actor</td>
+<td>The local view cannot operate that actor's PTY.</td>
+<td>Preserves the other actor's PTY even if this view originally created it.</td>
+</tr>
+<tr>
+<td><code>ztty close NAME</code></td>
+<td>Checks the current input owner.</td>
+<td>Explicitly retires the named session when the caller owns it.</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>--observe</code> is a standalone-window option; combining it with <code>--tab</code>, <code>--split-right</code> or <code>--split-down</code> is rejected. A PTY still has one GUI view. This adapter does not add concurrent independent GUI observers for the same PTY.</p>
+<p>The difference between creation and attachment is necessary for reusable command viewers. If closing a freshly created observation window only detaches it, the ssmcp viewer keeps sending its heartbeat while its window is hidden. ssmcp can then reuse that invisible viewer for a later command. The first real integration run reproduced this failure; the session code now remembers whether a view created its child, and clears that ownership when the view becomes an attachment.</p>
+<h2 id="recorded-acceptance">Recorded acceptance<a class="heading-anchor" href="#recorded-acceptance" aria-label="链接到 Recorded acceptance">#</a></h2>
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/ssmcp-observer-before-fix-2026-11-18.json">pre-fix report</a> preserves the failure. The first two real native exec commands executed once each and reused the same viewer/window. After <code>WM_DELETE_WINDOW</code>, the third command completed with exit 0, but the session remained detached and no window became visible during the 12-second observation interval. The run cleaned up all its processes.</p>
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/ssmcp-observer-x11-2026-11-18.json">final corrected run, run-03</a>, executes three actual native exec commands and records ten passing checks. It uses the candidate containing both the observation-window lifetime fix and the configuration-watch fix. Its hashes are:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ztty candidate</td>
+<td><code>a339a7d258ad313379b5cfea40d8b125aa8c810ecaebd40005b489413a1b6d4d</code></td>
+</tr>
+<tr>
+<td>Installed ssmcp executable</td>
+<td><code>e7e3d84b6afc869c5e340fbf9cf0c8c4092e60f6ce68c85379b4b64e8cc0c048</code></td>
+</tr>
+<tr>
+<td>Executed <code>tests/ssmcp_observer.py</code></td>
+<td><code>370abf802ea5edddaf93106f2b45f6b7291787b775d0e3d42587a1722a764d0d</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>The executed test hash matches the source-controlled script, including the new-session incarnation assertions and the second screenshot capture. The passing checks are:</p>
+<ol>
+<li>Reused existing account authorization without provisioning an account or reading credentials.</li>
+<li>Displayed the actual command's PTY output in a fresh read-only window without taking X11 focus.</li>
+<li>Verified that ztty ran the installed <code>ssmcp __tty-view</code> process for the exact native exec slot.</li>
+<li>Injected keyboard, paste-shortcut and mouse events with XTEST; the viewer PTY input queue stayed empty and ztty did not request clipboard contents.</li>
+<li>Resized the observation window and checked that the viewer PTY dimensions stayed unchanged.</li>
+<li>Ran a second command in the same ssmcp slot, viewer process and ztty window without taking focus.</li>
+<li>Recorded exactly one execution per command and confirmed that both stdout and stderr were actual PTYs.</li>
+<li>Verified both commands' exit codes and their exact combined PTY output.</li>
+<li>Closed the window and verified that a third real command obtained a visible read-only observer without taking focus or rerunning the command.</li>
+<li>Closed the private observation session explicitly and verified that no test-owned processes remained.</li>
+</ol>
+<p>X11 resource numbers may be reused after a display connection closes. Compare the broker PID, session creation time and viewer PID when distinguishing the reopened window from the previous one; the numeric <code>window_id</code> alone is insufficient.</p>
+<p>The <a href="https://drive.google.com/file/d/10Lf0VuCzh5I2y54kYfwgHCcyFO7KXvpb/view">first screenshot（历史附件）</a> captures actual pixels from the first two commands. The <a href="https://drive.google.com/file/d/10Lf0VuCzh5I2y54kYfwgHCcyFO7KXvpb/view">reopened-window screenshot（历史附件）</a> captures the third command after closing and recreating its observer. Both were inspected for readable text, natural wrapping and the intended black background with padding. The JSON separately records <code>new_session_incarnation=true</code>, the three actual executions and an empty remaining-process list.</p>
+<p>The independent <code>tests/daily_workflow.py</code> suite also exercises both lifetime branches without requiring an ssmcp account: closing an observer attached to an already visible, locally owned session preserves the same functioning PTY; closing a fresh <code>--observe</code> window removes its own session and reaps its child. Existing checks continue to cover an agent-owned PTY and explicit local takeover. The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/daily-workflow-observer-config-watch-2026-11-18.json">final daily-workflow report</a> records fourteen passing checks against the same ztty candidate hash, including actual configuration-directory rename and recreation.</p>
+<p>An <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/config-watch-before-fix-2026-11-18.json">earlier daily-workflow failure</a> is retained separately: the lifecycle-fixed candidate timed out while waiting for the new background after configuration-directory recreation. It had completed seven checks and had not reached the new observer lifecycle assertions. The final report uses the subsequent configuration-watch fix; no timeout or pre-existing assertion was relaxed to obtain its result.</p>
+<p>The reports retain binary hashes and source-file hashes. An acceptance report made from uncommitted source records that state explicitly; it is not a substitute for the clean-source native release gate or cross-platform acceptance.</p>
+<h2 id="reproduce-the-real-connection-test">Reproduce the real connection test<a class="heading-anchor" href="#reproduce-the-real-connection-test" aria-label="链接到 Reproduce the real connection test">#</a></h2>
+<p>Requirements are Linux, an installed and already authorized ssmcp client with <code>--tty</code>, Xvfb, Python with <code>python-xlib</code> and Pillow, and the candidate ztty binary. The test refuses to provision authorization. It creates an ephemeral connection with <code>--no-browser --no-setup --no-watchdog</code>, uses an owned random display through <code>tools/isolated_xvfb.py</code>, and creates a private broker socket. It never invokes an ssmcp model or agent tool.</p>
+<p>Start the coordinator from the source tree. Use a new control directory for every run:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>python3 tests/ssmcp_observer.py \
+  --binary target/release/ztty \
+  --source-root . \
+  --ssmcp /absolute/path/to/ssmcp \
+  --control-dir artifacts/ssmcp-observer-run \
+  --output artifacts/ssmcp-observer.json \
+  --screenshot artifacts/ssmcp-observer.png
+</code></pre></div>
+<p>Use ssmcp's authorized client listing to find the unique <code>client_name</code> written to <code>ready.json</code>. Call only that new client's native <code>ssmcp.exec.start</code>, <code>ssmcp.exec.wait</code> and <code>ssmcp.exec.read</code> tools. Run each command array exactly as supplied; the command appends a single execution record, prints harmless markers and waits for the coordinator's completion signal.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Coordinator file</th>
+<th>Controller action</th>
+<th>Receipt written into the control directory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ready.json</code></td>
+<td>Start <code>first_command</code> on the matching ephemeral client.</td>
+<td><code>first-start.json</code>: <code>job_id</code>, <code>output_mode</code>, <code>tty_slot</code> from the start result.</td>
+</tr>
+<tr>
+<td><code>await-second.json</code></td>
+<td>Wait/read the first job, then start <code>second_command</code>.</td>
+<td><code>first-done.json</code>: <code>job_id</code>, <code>exit_code</code>, <code>running</code>, <code>stdout</code>, <code>stderr</code>; then <code>second-start.json</code> with the three start fields.</td>
+</tr>
+<tr>
+<td><code>await-finish.json</code></td>
+<td>Wait/read the second job.</td>
+<td><code>second-done.json</code> with the five completion fields.</td>
+</tr>
+<tr>
+<td><code>await-third.json</code></td>
+<td>Start <code>third_command</code> after the coordinator has closed the original window.</td>
+<td><code>third-start.json</code> with the three start fields.</td>
+</tr>
+<tr>
+<td><code>await-third-finish.json</code></td>
+<td>Wait/read the third job.</td>
+<td><code>third-done.json</code> with the five completion fields.</td>
+</tr>
+<tr>
+<td><code>finished.json</code></td>
+<td>Read the completed report and inspect its screenshot.</td>
+<td>No further calls on the ephemeral client; the coordinator disconnects it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Write receipts through the original authorized development connection or directly on the test machine. Do not run extra receipt-writing commands on the observed client: those commands would themselves create observations and invalidate the exact command count. Receipts contain only the fields listed above; no account configuration, authorization URL or credential is copied into evidence.</p>
+<p>The coordinator has a bounded overall deadline. On success, failure or interruption it stops only its own processes, checks process birth tokens before sending signals, releases its owned Xvfb and deletes private account connection logs. A failure remains a failing report; a screenshot of an earlier passing stage does not override it.</p>
+<p>The account-independent GUI regressions run with:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>python3 tests/daily_workflow.py \
+  --binary target/release/ztty \
+  --output artifacts/daily-workflow.json \
+  --screenshots artifacts/daily-workflow
+</code></pre></div>
+<p>These acceptance tools are source-controlled. Real account integration stays separate from the unattended release gate because it requires an existing external account session; the corresponding local observer lifecycle checks run in the native Linux GUI gate.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/ssmcp-observer.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztty">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztty/readme/"><span class="pagination-label">上一页</span><span class="pagination-title">Documentation</span></a></nav>
+      <footer class="page-footer">
+        <span>ztty <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#start-an-observing-connection">Start an observing connection</a></li><li class="toc-level-2"><a href="#input-and-lifetime-rules">Input and lifetime rules</a></li><li class="toc-level-2"><a href="#recorded-acceptance">Recorded acceptance</a></li><li class="toc-level-2"><a href="#reproduce-the-real-connection-test">Reproduce the real connection test</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Base58 编码与解码，使用调用方提供的缓冲区。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="z58 · Reproducing z58 measurements · Project Z">
+  <meta property="og:description" content="Base58 编码与解码，使用调用方提供的缓冲区。">
+  <meta property="og:type" content="website">
+  <title>z58 · Reproducing z58 measurements · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/z58/comparison-readme/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="z58">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/z58" aria-label="z58 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">z58</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>z58</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/" aria-current="page">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="z58 文档"><div class="nav-group"><p class="nav-label">z58</p><ul><li><a class="nav-link" href="../../z58/">概览</a></li><li><a class="nav-link" href="../../z58/comparison-readme/" aria-current="page">Reproducing z58 measurements</a></li><li><a class="nav-link" href="../../z58/comparison-results/">Measured results — 2026-11-09</a></li><li><a class="nav-link" href="../../z58/algorithm/">Generic conversion and bounds</a></li><li><a class="nav-link" href="../../z58/fixed-kernel/">Fixed-size conversion</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>z58</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/" aria-current="page">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="z58 文档"><div class="nav-group"><p class="nav-label">z58</p><ul><li><a class="nav-link" href="../../z58/">概览</a></li><li><a class="nav-link" href="../../z58/comparison-readme/" aria-current="page">Reproducing z58 measurements</a></li><li><a class="nav-link" href="../../z58/comparison-results/">Measured results — 2026-11-09</a></li><li><a class="nav-link" href="../../z58/algorithm/">Generic conversion and bounds</a></li><li><a class="nav-link" href="../../z58/fixed-kernel/">Fixed-size conversion</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../z58/">z58 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../z58/">z58</a><span aria-hidden="true">/</span><span>Reproducing z58 measurements</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#commands">Commands</a></li><li class="toc-level-2"><a href="#workload-fixed-before-optimization">Workload fixed before optimization</a></li><li class="toc-level-2"><a href="#algorithms-and-semantics">Algorithms and semantics</a></li><li class="toc-level-2"><a href="#interpreting-ablations">Interpreting ablations</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="reproducing-z58-measurements">Reproducing z58 measurements</h1>
+<p>This independent workspace contains competitors, an elementary reference, differential tests, and a <code>std</code> benchmark runner. None of its dependencies or files are part of the published <code>z58</code> crate. The current stable <code>bs58</code> version was checked against its registry index on 2026-11-09; all versions are exact pins in <code>Cargo.toml</code>, package checksums are in <code>Cargo.lock</code>, and source commits are in <code>baselines.json</code>.</p>
+<h2 id="commands">Commands<a class="heading-anchor" href="#commands" aria-label="链接到 Commands">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo test --locked --manifest-path comparison/Cargo.toml
+cargo run --release --locked --manifest-path comparison/Cargo.toml -- \
+  --smoke --output comparison/results/smoke
+cargo run --release --locked --manifest-path comparison/Cargo.toml -- \
+  --output comparison/results/portable
+RUSTFLAGS=&#x27;-C target-cpu=native&#x27; cargo run --release --locked \
+  --manifest-path comparison/Cargo.toml -- \
+  --output comparison/results/native
+python3 scripts/performance_gate.py comparison/results/native/raw.csv
+</code></pre></div>
+<p>Use distinct output directories for each run. Run on an idle machine, pin the process to a physical core if possible, and retain <code>raw.csv</code>, <code>metadata.txt</code>, <code>Cargo.lock</code>, and <code>baselines.json</code> together. The native executable requires the build machine's CPU features. The runner records compiler, OS, CPU, affinity, environment flags and repository state. Shared-runner samples are exploratory. The dedicated fixed-hardware workflow owns strict performance acceptance.</p>
+<h2 id="workload-fixed-before-optimization">Workload fixed before optimization<a class="heading-anchor" href="#workload-fixed-before-optimization" aria-label="链接到 Workload fixed before optimization">#</a></h2>
+<ul>
+<li>Lengths: 0, 1, 2, 8, 16, 32, 64, 128, 256, 1024, 4096 bytes.</li>
+<li>Patterns: deterministic random, all zero, all <code>0xff</code>, a 75% zero prefix, and rotating <code>00 11 aa ff</code> repetitions.</li>
+<li>Sixteen values per length/pattern; xorshift64 seed <code>0x6a09e667f3bcc909</code>. Every case has an independent deterministic stream.</li>
+<li>Nine raw samples after warm-up and calibration, with an approximately 2 ms target per sample. Smoke uses two approximately 50 μs samples and a shorter length list.</li>
+<li>Input generation, allocation and correctness checks occur outside timing. Every algorithm receives the same inputs, preallocated output and applicable scratch buffers. The runner validates all outputs against the independent reference before and after timing. <code>black_box</code> covers inputs, output buffers and returned lengths.</li>
+<li>The four primary target rows are random encode/decode at 32/64 bytes. The target is at least 2× against the fastest compatible dedicated baseline for <strong>each</strong> row. The rest of the matrix remains in the report, including regressions.</li>
+</ul>
+<p>The Rust release profile is identical for z58 and Rust competitors: optimization level 3, thin LTO, one codegen unit. Portable and native results are separate. Braid58's unmodified build script compiles its C kernels at the Cargo optimization level and selects scalar, AVX2 or AVX-512 from the same target feature set. This is a comparison of released implementations, including their implementation languages, not an isolated compiler comparison.</p>
+<h2 id="algorithms-and-semantics">Algorithms and semantics<a class="heading-anchor" href="#algorithms-and-semantics" aria-label="链接到 Algorithms and semantics">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Scope</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>z58-generic</code></td>
+<td>Any length</td>
+<td>Production generic API, including capacity checks</td>
+</tr>
+<tr>
+<td><code>z58-fixed</code></td>
+<td>32/64 bytes</td>
+<td>Production fixed API, exact decoded length</td>
+</tr>
+<tr>
+<td><code>bs58</code> 0.5.1</td>
+<td>Any length</td>
+<td>Stable generic baseline, Bitcoin alphabet, preallocated <code>onto</code></td>
+</tr>
+<tr>
+<td><code>five8</code> 1.0.0</td>
+<td>32/64 bytes</td>
+<td>Dedicated Rust baseline, strongest backend enabled by compilation target</td>
+</tr>
+<tr>
+<td><code>braid58</code> 0.1.0</td>
+<td>32/64 bytes</td>
+<td>Dedicated scalar/AVX2/AVX-512 baseline</td>
+</tr>
+<tr>
+<td><code>fd-bs58</code> 0.1.0</td>
+<td>32/64 decode</td>
+<td>Additional dedicated decoder; returned inline array copied to output</td>
+</tr>
+<tr>
+<td><code>reference-byte</code></td>
+<td>Any length</td>
+<td>Independent byte-by-byte positional conversion</td>
+</tr>
+<tr>
+<td><code>radix32-single</code></td>
+<td>Any length</td>
+<td>One binary byte / one Base58 digit per pass, radix-58⁵ / u32 limbs</td>
+</tr>
+<tr>
+<td><code>radix32</code></td>
+<td>Any length</td>
+<td>Four binary bytes / five Base58 digits per group, <code>u64</code> arithmetic</td>
+</tr>
+<tr>
+<td><code>radix32-u128</code></td>
+<td>Any length</td>
+<td>Same groups with <code>u128</code> arithmetic, isolating wider arithmetic overhead</td>
+</tr>
+<tr>
+<td><code>radix64</code></td>
+<td>Any length</td>
+<td>Eight binary bytes / ten Base58 digits per group, <code>u128</code> arithmetic</td>
+</tr>
+<tr>
+<td><code>fixed-radix5-serial</code></td>
+<td>32/64 bytes</td>
+<td>Fixed dot products with serial character expansion/parsing</td>
+</tr>
+<tr>
+<td><code>fixed-radix5-parallel</code></td>
+<td>32/64 bytes</td>
+<td>Same radix and tables, independent constant quotients and full-group parsing</td>
+</tr>
+<tr>
+<td><code>fixed-radix4-parallel</code></td>
+<td>32/64 bytes</td>
+<td>Alternative radix-58⁴ fixed matrix</td>
+</tr>
+</tbody>
+</table></div>
+<p>All timed decoders enforce the Bitcoin alphabet without correcting invalid characters. Fixed decoders require exactly 32 or 64 output bytes and reject overflow; adversarial differential tests check agreement with the generic bs58 decoder. The independent ablations are measured on valid inputs and deliberately retain character validation. They are research routines with prevalidated buffer capacities, so their timings do not include production capacity/error wrappers; they are not production API speed claims.</p>
+<p>Braid58's public C encoder is called through a small audited wrapper solely to use caller-provided output directly. It needs one extra byte for its NUL terminator; the reported output excludes that byte. Its Rust decoder already exposes an <code>into</code> API. <code>fd_bs58</code> encoding returns an allocating <code>String</code>, so it is excluded from allocation-free timing rather than compared under different memory semantics. Its decoder remains in the comparison.</p>
+<h2 id="interpreting-ablations">Interpreting ablations<a class="heading-anchor" href="#interpreting-ablations" aria-label="链接到 Interpreting ablations">#</a></h2>
+<p>Compare <code>reference-byte</code> with <code>radix32-single</code> for larger limbs; compare <code>radix32-single</code> with <code>radix32</code> for multiple input units per pass; compare <code>radix32</code> with <code>radix32-u128</code> for arithmetic width at unchanged group size; compare <code>radix32-u128</code> with <code>radix64</code> for larger radix at unchanged intermediate width. Compare production <code>z58-generic</code> and <code>z58-fixed</code> only on the 32/64 rows to evaluate specialization. Compare <code>fixed-radix5-serial</code> and <code>fixed-radix5-parallel</code> separately by operation: encoding isolates constant-power quotient expansion, while decoding isolates full-group parsing. Compare the parallel radix-58⁵ and radix-58⁴ variants for a different fixed conversion radix. Production <code>z58-fixed</code> additionally uses word-sized leading-zero counts and a short numeric path for values that fit in u64. These comparisons retain the complete data patterns and length matrix. A fixed-width win says nothing about unrelated lengths.</p>
+<p>The published Braid58 package marks its source tree <code>dirty: true</code> in <code>.cargo_vcs_info.json</code>; its immutable crates.io package checksum is therefore the exact reproduction identifier. No competitor source is copied into z58. The benchmark links bs58 (MIT/Apache-2.0), five8 (MIT), Braid58 (MIT) and fd_bs58 (Apache-2.0) only as independent comparison dependencies.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/z58/blob/c70d50eafb3f50eb9a709861f9e1ed2c2fa48dc3/comparison/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/z58">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../z58/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../z58/comparison-results/"><span class="pagination-label">下一页</span><span class="pagination-title">Measured results — 2026-11-09</span></a></nav>
+      <footer class="page-footer">
+        <span>z58 <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#commands">Commands</a></li><li class="toc-level-2"><a href="#workload-fixed-before-optimization">Workload fixed before optimization</a></li><li class="toc-level-2"><a href="#algorithms-and-semantics">Algorithms and semantics</a></li><li class="toc-level-2"><a href="#interpreting-ablations">Interpreting ablations</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

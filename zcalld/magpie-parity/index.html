@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zcalld · Magpie alignment and remaining acceptance · Project Z">
+  <meta property="og:description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta property="og:type" content="website">
+  <title>zcalld · Magpie alignment and remaining acceptance · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zcalld/magpie-parity/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zcalld">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zcalld" aria-label="zcalld 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zcalld</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/" aria-current="page">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/" aria-current="page">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zcalld/">zcalld 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zcalld/">zcalld</a><span aria-hidden="true">/</span><span>Magpie alignment and remaining acceptance</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#reference-and-evidence-boundaries">Reference and evidence boundaries</a></li><li class="toc-level-2"><a href="#configuration-agents-and-access">Configuration, agents and access</a></li><li class="toc-level-2"><a href="#generation-transport-and-usage">Generation transport and usage</a></li><li class="toc-level-2"><a href="#accounts-plugins-and-reusable-agent-configuration">Accounts, plugins and reusable agent configuration</a></li><li class="toc-level-2"><a href="#desktop-and-operations">Desktop and operations</a></li><li class="toc-level-2"><a href="#this-iterations-concrete-progress">This iteration&#x27;s concrete progress</a></li><li class="toc-level-2"><a href="#next-priorities-and-completion-criteria">Next priorities and completion criteria</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="magpie-alignment-and-remaining-acceptance">Magpie alignment and remaining acceptance</h1>
+<p>Reviewed: 2026-11-22 (Asia/Taipei). This matrix describes the current implementation candidate.
+It is a review map, not a declaration of complete Magpie parity or a release gate result.</p>
+<h2 id="reference-and-evidence-boundaries">Reference and evidence boundaries<a class="heading-anchor" href="#reference-and-evidence-boundaries" aria-label="链接到 Reference and evidence boundaries">#</a></h2>
+<ul>
+<li>Product reference: the official <a href="https://github.com/yetone/magpie/blob/main/README.md">Magpie README</a>
+and <a href="https://github.com/yetone/magpie/blob/main/docs/reference.md">reference manual</a>.</li>
+<li>Frozen source reference: <a href="https://github.com/yetone/magpie/tree/1e174f8f9f613a920203a4658d259456fcab5d0d"><code>1e174f8f9f613a920203a4658d259456fcab5d0d</code></a>.
+Existing integration contracts link specific files at that revision.
+The moving manual can describe newer behavior; it is not evidence that every feature existed at the frozen revision.</li>
+<li>The measured installation for this iteration is <strong>Magpie 0.1.2512</strong>.
+Its version and the frozen source reference are separate identifiers; no identical-build claim is made.</li>
+<li>Source paths establish implemented behavior. Named scripts establish relevant test coverage;
+their presence does not mean every platform, live provider, or configuration passed this iteration.
+Actual commands, revisions and outcomes are recorded in the <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/validation/2026-11-22-magpie-iteration.md">iteration validation report</a>.</li>
+<li><strong>Native</strong> means implemented in this repository. <strong>Bridge</strong> means an optional compatibility component is required.
+<strong>Partial</strong> and <strong>remaining</strong> identify a specific boundary, not a count of missing product features.
+Rows differ in scope and must not be summed into a feature score or a claim of more/fewer total features.</li>
+</ul>
+<h2 id="configuration-agents-and-access">Configuration, agents and access<a class="heading-anchor" href="#configuration-agents-and-access" aria-label="链接到 Configuration, agents and access">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Capability family</th>
+<th>zcalld implementation and evidence</th>
+<th>Remaining acceptance / GUI boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent discovery and model configuration</td>
+<td>Native registry, atomic apply/revert and custom adapters in <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/adapters.rs">adapters.rs</a>; <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-control.py">test-control.py</a>. The built-in model registry has 16 entries, 10 writable and 6 detect-only.</td>
+<td>Detection is not model configuration support. Verify each writable adapter against current native applications and add supported writers for the six detect-only entries. GUI Agents consumes these capabilities.</td>
+</tr>
+<tr>
+<td>Providers and model catalog</td>
+<td>Native provider CRUD/test/discovery and retained model metadata: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/config.rs">config.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/control.rs">control.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-control.py">test-control.py</a>. GUI has provider management and search.</td>
+<td>One native key or key-environment binding per provider; no native per-provider multi-key pool is demonstrated. Separate provider entries are not equivalent to key rotation, cooldown and quota aggregation.</td>
+</tr>
+<tr>
+<td>Routes, groups and rules</td>
+<td>Native aliases and seven group modes: smart, order, rotate, usage, pace, weight and drain. Advanced RE2/time-zone conditions use a bridge: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/plugins/routing/src/lib.rs">routing</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/plugins/routing/src/advanced.rs">advanced.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-routing.py">test-routing.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-routing-advanced.py">test-routing-advanced.py</a>.</td>
+<td>Group editing rejects nested group members. Nested selection, cycle detection and recursive fallback remain a gap. No dedicated GUI route/group editor is present.</td>
+</tr>
+<tr>
+<td>Profiles</td>
+<td>CLI snapshots gateway configuration, credentials and privacy settings: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/control.rs">control.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-control.py">test-control.py</a>.</td>
+<td>This is not Magpie's complete per-agent model/profile snapshot behavior. Agent-specific visible-model lists and complete group/library profile semantics need separate work; no dedicated GUI profile page.</td>
+</tr>
+<tr>
+<td>Caller API keys</td>
+<td>Native list/add/rotate/revoke, LAN permission and trusted workspace metadata: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/keys.rs">keys.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/config/caller_keys.rs">caller_keys.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-keys.py">test-keys.py</a>.</td>
+<td>Generation-specific model scopes, token/currency budgets and issuer policy enforcement are not established by these key-management tests. MCP tool permissions are a separate path. No dedicated GUI key editor.</td>
+</tr>
+<tr>
+<td>Management interface</td>
+<td>JSON CLI and service control: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/main.rs">main.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/control.rs">control.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-control.py">test-control.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-service-install.py">test-service-install.py</a>.</td>
+<td>The GUI invokes the CLI. A complete authenticated HTTP management API, Web management surface and interactive TUI are not supplied by the native CLI contract.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The ten writable model adapters are Claude Code, Codex, Gemini CLI, OpenCode, Pi,
+Qwen Code, Aider, Goose, Zed and VS Code. Cursor, Amp, Continue, Cline, Roo and Kilo
+are detect-only in this registry. The Library has a separate target matrix;
+support for writing an agent's MCP file does not imply support for changing its model.</p>
+<h2 id="generation-transport-and-usage">Generation transport and usage<a class="heading-anchor" href="#generation-transport-and-usage" aria-label="链接到 Generation transport and usage">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Capability family</th>
+<th>zcalld implementation and evidence</th>
+<th>Remaining acceptance / GUI boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protocol translation and streaming</td>
+<td>zcall-backed Chat, Responses, Anthropic Messages, Gemini GenerateContent, Completions and Interactions; strict conversion through <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/protocol.rs">protocol.rs</a> and <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/server.rs">server.rs</a>. Fixtures: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/integration.py">integration.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-transport.py">test-transport.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-native-runtime.py">test-native-runtime.py</a>.</td>
+<td>Six protocol names are not proof of every source/target feature combination. Keep tool calls, reasoning and unsupported-loss behavior tied to exact fixtures. See <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/ARCHITECTURE.md">ARCHITECTURE.md</a>.</td>
+</tr>
+<tr>
+<td>WebSocket generation</td>
+<td>Documented HTTP/SSE fallback behavior and native compressed ingress: <a href="../../zcalld/codex-transport/">CODEX_TRANSPORT.md</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-codex-transport.py">test-codex-transport.py</a>.</td>
+<td>Accepting a client's fallback does not implement native Responses WebSocket sessions. Session reuse, cancellation and event semantics need their own implementation and acceptance.</td>
+</tr>
+<tr>
+<td>Audio, token counting and Ollama API</td>
+<td>Generic provider configuration can address an OpenAI-compatible upstream; see <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/config.rs">config.rs</a> and <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/examples/config.conf">example configuration</a>.</td>
+<td>No dedicated native audio/transcription, Anthropic <code>count_tokens</code>, or Ollama <code>/api/*</code> ingress contract was found in the reviewed routes. Ollama's <code>/v1</code> compatibility is not native Ollama API parity.</td>
+</tr>
+<tr>
+<td>Retry, cancellation and recovery</td>
+<td>Bounded explicit-refusal retry and recovery hooks: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/server.rs">server.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/recovery.rs">recovery.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-recovery.py">test-recovery.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-generation-cancellation.py">test-generation-cancellation.py</a>.</td>
+<td>Preserve the no-replay boundary for started streams and uncertain network failures. Expand acceptance only for newly introduced retry/account selection behavior.</td>
+</tr>
+<tr>
+<td>Request and token records</td>
+<td>Bounded JSON/SSE collector, five token counters, legacy history, model/time filters and export: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/plugins/routing/src/usage.rs">usage.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/maintenance.rs">maintenance.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-usage.py">test-usage.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-control.py">test-control.py</a>. Native enable/disable works without groups and avoids duplicate explicit/automatic bindings.</td>
+<td>The endpoint records upstream attempts, including retries. Detailed end-to-end usage fixtures cover same-protocol paths; preservation of all details through cross-protocol conversion remains unverified.</td>
+</tr>
+<tr>
+<td>Cost and usage attribution</td>
+<td>Counts retain provider-reported input/output/cache/reasoning semantics; see <a href="../../zcalld/usage/">USAGE.md</a>. GUI displays aggregate request/token history and recording settings.</td>
+<td>No native price catalog, currency ledger, invoice reconciliation or complete provider/account/session cost attribution is established. Mixed providers' five counters must not simply be summed. GUI time/model filtering and cost drill-down are not implemented by the aggregate page.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The Usage observer sees the response-plugin stream, which can follow protocol conversion.
+A parser that recognizes an upstream usage shape cannot recover a field already removed by a converter.
+Cross-protocol accounting therefore needs fixtures that compare the original upstream counters,
+the delivered response and the persisted record, including cache creation and reasoning.</p>
+<h2 id="accounts-plugins-and-reusable-agent-configuration">Accounts, plugins and reusable agent configuration<a class="heading-anchor" href="#accounts-plugins-and-reusable-agent-configuration" aria-label="链接到 Accounts, plugins and reusable agent configuration">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Capability family</th>
+<th>zcalld implementation and evidence</th>
+<th>Remaining acceptance / GUI boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subscription accounts and provider authentication</td>
+<td>Account import/selection and optional provider runtime: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/maintenance.rs">maintenance.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/plugins/community/src/lib.rs">community plugin</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-account-runtime.py">test-account-runtime.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-native-compat.py">test-native-compat.py</a>.</td>
+<td>These bridge paths are not a universal native OAuth implementation or complete GUI sign-in flow. Live login/refresh/revocation requires provider-specific acceptance; fixtures do not demonstrate every subscription provider.</td>
+</tr>
+<tr>
+<td>Codex quota and policy</td>
+<td>Account-bound quota/credit policy and explicit maintenance/recovery bridge: <a href="../../zcalld/codex/">CODEX.md</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-codex-policy.py">test-codex-policy.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-weekly-maintenance.py">test-weekly-maintenance.py</a>.</td>
+<td>A specific Codex policy must not be generalized to all providers, all account quotas or general-purpose automation.</td>
+</tr>
+<tr>
+<td>Plugin lifecycle and middleware</td>
+<td>Native ABI plus optional managed/community host: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/extensions.rs">extensions.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/plugins.rs">plugins.rs</a>, <a href="../../zcalld/plugins/">PLUGINS.md</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-native-compat.py">test-native-compat.py</a>.</td>
+<td>Community behavior requires the helper/runtime. Native ABI support does not establish arbitrary Magpie plugin UI, marketplace, hot reload or every middleware hook's compatibility.</td>
+</tr>
+<tr>
+<td>Privacy masking/restoration</td>
+<td>Optional native redaction adapter with worker preflight: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/plugins/redact/src/lib.rs">redact plugin</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/extensions.rs">extensions.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-privacy-init.py">test-privacy-init.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-builtin-fetch.py">test-builtin-fetch.py</a>. GUI exposes privacy settings.</td>
+<td>Local model availability, detection quality and complete masking-history UI require their own acceptance. A settings toggle alone is not evidence of redaction quality.</td>
+</tr>
+<tr>
+<td>Library MCP/instructions/skills</td>
+<td>Native CRUD, assignment, owned-file apply/revert, backups and conflict handling: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/library.rs">library.rs</a>, <a href="../../zcalld/library/">LIBRARY.md</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-library.py">test-library.py</a>.</td>
+<td>File-format support follows <code>library targets</code>, not the model-adapter list. There is no dedicated GUI Library editor; WSL mappings and unsupported target formats remain explicit boundaries.</td>
+</tr>
+<tr>
+<td>Git Skills</td>
+<td>This iteration adds fetch/update from HTTPS or a local Git repository, selected subdirectory/ref, resolved commit provenance and local-edit conflict checks: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/library_git.rs">library_git.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/library.rs">library.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-library.py">test-library.py</a>.</td>
+<td>Repository files are read as objects; skill code is not executed by fetching. Marketplace discovery, scheduled updates, shared skill routing and GUI source management remain separate capabilities.</td>
+</tr>
+<tr>
+<td>MCP tools and hub</td>
+<td>Optional community-tool endpoint with permission filtering: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/plugins/community/src/mcp.rs">community MCP adapter</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/plugin_http.rs">plugin_http.rs</a>, <a href="../../zcalld/mcp/">MCP.md</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-mcp.py">test-mcp.py</a>.</td>
+<td>This endpoint is not an arbitrary Library MCP-server hub. Aggregating stdio/remote servers, per-server lifecycle and remote MCP OAuth sign-in are not implemented by Library metadata import or tool exposure.</td>
+</tr>
+<tr>
+<td>Library market and automation</td>
+<td>Metadata is retained and unsupported execution paths are identified in <a href="../../zcalld/library/">LIBRARY.md</a> and <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/library.rs">library.rs</a>.</td>
+<td>Market discovery, hooks, commands, subagents, rule automation, automatic skill updates and skill routing are not completed merely by importing their flags. No executable parity claim is made.</td>
+</tr>
+<tr>
+<td>Synchronization</td>
+<td>Explicit migration, import/export and selected policy/desktop sync exist: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/migration.rs">migration.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/library.rs">library.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/desktop.rs">desktop.rs</a>.</td>
+<td>These operations do not supply general cloud/peer synchronization, conflict reconciliation or a remote-device management UI.</td>
+</tr>
+</tbody>
+</table></div>
+<p>MCP OAuth and provider OAuth are distinct acceptance targets. Archived credentials are data preservation,
+not proof that a sign-in/refresh flow executes. Similarly, MCP-specific caller permissions do not prove
+generation model scopes or token/currency budget enforcement.</p>
+<h2 id="desktop-and-operations">Desktop and operations<a class="heading-anchor" href="#desktop-and-operations" aria-label="链接到 Desktop and operations">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Capability family</th>
+<th>zcalld implementation and evidence</th>
+<th>Remaining acceptance / GUI boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desktop activity and notifications</td>
+<td>Optional native desktop plugin, activity leases and completion/quota events: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/desktop.rs">desktop.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/plugins/desktop/src/lib.rs">desktop plugin</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-desktop-host.py">test-desktop-host.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-desktop.py">test-desktop.py</a>.</td>
+<td>Native OS notification/inhibitor behavior needs platform-specific evidence. This is not a general automation scheduler or a replacement for all Magpie tray interactions.</td>
+</tr>
+<tr>
+<td>Migration and recovery</td>
+<td>Private staging, verification and explicit cutover: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/migration.rs">migration.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/cutover.py">cutover.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-cutover.py">test-cutover.py</a>.</td>
+<td>A successful import preserves supported state; it does not prove execution of every imported Magpie feature or authorize a live service switch.</td>
+</tr>
+<tr>
+<td>Installation and updates</td>
+<td>Native installer, package-aware updates and service installation: <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/installer.rs">installer.rs</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-installer.py">test-installer.py</a>, <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/test-service-install.py">test-service-install.py</a>.</td>
+<td>Release/package/platform results must name exact artifacts. Dependency updates alone do not demonstrate faster execution or less memory.</td>
+</tr>
+<tr>
+<td>GUI workflow and appearance</td>
+<td>The companion <a href="../../zcall-gui/">zcall-gui repository</a> contains <code>src/main.rs</code>, <code>src/pages.rs</code> and <code>src/usage.rs</code>; Usage adds explicit loading/error/empty states, refresh and enable/disable with a separate restart action.</td>
+<td>Current navigation is Overview, Providers, Agents, Plugins, Privacy, Usage and Updates. Routing, Library, caller keys and profiles remain CLI workflows. GUI unit tests and <code>scripts/ui_state_smoke.py</code>/<code>scripts/ui_smoke.py</code> cover their stated scenarios, not every native desktop.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="this-iterations-concrete-progress">This iteration's concrete progress<a class="heading-anchor" href="#this-iterations-concrete-progress" aria-label="链接到 This iteration's concrete progress">#</a></h2>
+<ol>
+<li><strong>Git Skills:</strong> native source fetch/update, recorded revision, resource handling and conflict refusal;
+the focused Git cases in <code>scripts/test-library.py</code> cover pinned revisions, failed fetches and links.</li>
+<li><strong>Usage correctness:</strong> bounded scanning survives long JSON, compact SSE <code>data:</code> fields and Anthropic
+<code>message_start</code>; cache reads, cache writes and reasoning are persisted without retaining response text.</li>
+<li><strong>Usage lifecycle:</strong> native enable/disable preflights the plugin and saved configuration, preserves
+groups/history/permissions, and deduplicates an explicit binding with managed loading.</li>
+<li><strong>GUI:</strong> Usage presents saved recording state and keeps service restart an explicit action;
+older CLI output without that field is treated as unknown. Provider search and refreshed layouts
+belong to the companion GUI changes, with native visual evidence recorded separately.</li>
+<li><strong>Hook buffers:</strong> request-hook buffer ownership and reuse are implemented in <code>src/plugins.rs</code>, with focused
+unit cases and <code>scripts/benchmark_rewrites.py</code>. Performance conclusions require the run report.</li>
+</ol>
+<p><code>recording_configured</code> reports saved settings, not an inspected running daemon.
+An idempotent command returning <code>restart_required:false</code> only says that invocation changed no settings.
+No performance figures or overall feature-completeness percentage are inferred from this matrix.</p>
+<h2 id="next-priorities-and-completion-criteria">Next priorities and completion criteria<a class="heading-anchor" href="#next-priorities-and-completion-criteria" aria-label="链接到 Next priorities and completion criteria">#</a></h2>
+<ol>
+<li>Close the everyday management loop: route/group, Library and caller-key GUI workflows;
+acceptance must perform real CLI-backed mutations, reload their state and exercise failure recovery.</li>
+<li>Add provider multi-key pools and generation access/budget policies with identity-specific fixtures;
+define cost attribution and provider token semantics before adding currency totals.</li>
+<li>Verify detailed cross-protocol usage, then prioritize native WebSocket and additional endpoints
+from real client requirements; require streaming, tools, cancellation and accounting evidence together.</li>
+<li>Extend Library execution deliberately: MCP hub/OAuth, market, synchronization and automation each
+need their own contract, lifecycle and conflict tests. Retained metadata is not completion evidence.</li>
+<li>Reconcile the remaining agent writers, nested groups and profile semantics against the frozen
+source and installed version. Use requirement-specific acceptance instead of counting table rows.</li>
+</ol>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/MAGPIE_PARITY.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zcalld">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zcalld/library/"><span class="pagination-label">上一页</span><span class="pagination-title">Agent library</span></a><a class="pagination-link next" href="../../zcalld/mcp/"><span class="pagination-label">下一页</span><span class="pagination-title">Community plugin tools over MCP</span></a></nav>
+      <footer class="page-footer">
+        <span>zcalld <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#reference-and-evidence-boundaries">Reference and evidence boundaries</a></li><li class="toc-level-2"><a href="#configuration-agents-and-access">Configuration, agents and access</a></li><li class="toc-level-2"><a href="#generation-transport-and-usage">Generation transport and usage</a></li><li class="toc-level-2"><a href="#accounts-plugins-and-reusable-agent-configuration">Accounts, plugins and reusable agent configuration</a></li><li class="toc-level-2"><a href="#desktop-and-operations">Desktop and operations</a></li><li class="toc-level-2"><a href="#this-iterations-concrete-progress">This iteration&#x27;s concrete progress</a></li><li class="toc-level-2"><a href="#next-priorities-and-completion-criteria">Next priorities and completion criteria</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

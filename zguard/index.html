@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="工具执行前的策略、能力与审批检查，提供有界审计接口。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zguard · 概览 · Project Z">
+  <meta property="og:description" content="工具执行前的策略、能力与审批检查，提供有界审计接口。">
+  <meta property="og:type" content="website">
+  <title>zguard · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zguard/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zguard">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zguard" aria-label="zguard 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zguard</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zguard</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/" aria-current="page">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zguard 文档"><div class="nav-group"><p class="nav-label">zguard</p><ul><li><a class="nav-link" href="../zguard/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zguard</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/" aria-current="page">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zguard 文档"><div class="nav-group"><p class="nav-label">zguard</p><ul><li><a class="nav-link" href="../zguard/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zguard/">zguard 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zguard/">zguard</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#use">Use</a></li><li class="toc-level-2"><a href="#decisions-and-limits">Decisions and limits</a></li><li class="toc-level-2"><a href="#audit-and-execution-boundary">Audit and execution boundary</a></li><li class="toc-level-2"><a href="#scope">Scope</a></li><li class="toc-level-2"><a href="#validate">Validate</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zguard">zguard</h1><p class="project-intro">工具执行前的策略、能力与审批检查，提供有界审计接口。</p>
+<p><strong>Lightweight Security Guardrails for AI Agents.</strong></p>
+<p>zguard makes an explicit decision before an AI tool or command is executed. It
+matches host-owned policies, checks capability and input limits, consumes exact
+request approvals, and records a bounded audit event before reserving a call.
+The library is <code>no_std</code>, uses no allocator, has no Cargo dependencies, and forbids
+unsafe Rust.</p>
+<h2 id="use">Use<a class="heading-anchor" href="#use" aria-label="链接到 Use">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>[dependencies]
+zguard = &quot;=0.1.0&quot;
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>use zguard::{ActionKind, Context, Decision, Guard, Limits, NoAudit, Policy, Request, Rule};
+
+let rules = [
+    Rule::new(1, ActionKind::Tool, &quot;files.read&quot;, Decision::Allow).requiring(1),
+    Rule::new(2, ActionKind::Tool, &quot;files.write&quot;, Decision::RequireApproval).requiring(2),
+    Rule::new(3, ActionKind::Tool, &quot;shell.run&quot;, Decision::Deny),
+];
+let policy = Policy::new(7, &amp;rules)?;
+let mut guard = Guard::new(
+    policy,
+    Context { session: 42, capabilities: 3 },
+    Limits { max_calls: 20, max_payload_bytes: 4096 },
+);
+let request = Request::tool(&quot;call-1&quot;, &quot;files.read&quot;, br#&quot;{&quot;path&quot;:&quot;notes.txt&quot;}&quot;#);
+let verdict = guard.authorize(request, 100, None, &amp;mut NoAudit);
+assert!(verdict.is_allowed());
+// Invoke the trusted executor now, with this exact request.
+// For production audit, replace NoAudit with your Audit implementation.
+# Ok::&lt;(), zguard::PolicyError&gt;(())
+</code></pre></div>
+<p>The host owns the executor, identity, session epoch, policy, monotonic clock and
+approval channel. Construct capability masks from authenticated host state.
+Model arguments and remote tool annotations are request data and grant no rights.
+<a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCP documents this trust boundary for tool annotations</a>.</p>
+<h2 id="decisions-and-limits">Decisions and limits<a class="heading-anchor" href="#decisions-and-limits" aria-label="链接到 Decisions and limits">#</a></h2>
+<p>Names match exactly and case-sensitively. Tool and command namespaces are
+separate. Unknown names and an empty policy are denied. When several rules match,
+explicit deny wins, then approval, then allow; the smallest relevant rule ID
+makes audit results deterministic. All matching capability requirements combine.</p>
+<p><code>RequireApproval</code> stops execution. After its external approval process, the host
+calls <code>Guard::approve(request, expires_at)</code> and passes the returned object to
+<code>authorize</code>. Approval binds the complete immutable policy and context, call ID,
+kind, name and raw tool bytes or structured command argv/cwd. A mismatched,
+expired or consumed object grants nothing. Expiry is exclusive: <code>now &gt;= expires_at</code>
+is expired. Clock values may stay equal and must never decrease.</p>
+<p>The approval object is not cloneable and is consumed on every authorization
+attempt, including rejected attempts. The trusted host can issue a new object.
+Use a fresh session epoch when recreating a guard; equal policy/context values
+deliberately describe the same authorization domain. Tokens are process-local
+Rust values, not signed credentials or persistent replay protection.</p>
+<p>Limits cap authorized attempts and each request's payload bytes. Tool bytes are
+counted verbatim. Command bytes sum argv and cwd UTF-8 lengths; argv boundaries
+remain separate for approval matching. An allowed call reserves one quota unit
+after audit succeeds and before execution. Failed executors do not refund it.
+The host must count any retry as another authorization attempt.</p>
+<h2 id="audit-and-execution-boundary">Audit and execution boundary<a class="heading-anchor" href="#audit-and-execution-boundary" aria-label="链接到 Audit and execution boundary">#</a></h2>
+<p><code>Audit::record</code> receives numeric session/policy/sequence IDs, action kind, payload
+length and a verdict. It receives no arguments, command lines, names, call IDs or
+outputs. A sink error changes the returned verdict to <code>Deny / AuditFailed</code> and
+does not reserve a call. The sequence still advances, identifying the attempted
+decision. The sink controls durability, transport and access to records.</p>
+<p>Only <code>authorize(...).is_allowed()</code> permits an effect. <code>evaluate</code> is a pure preview.
+Place authorization immediately before the executor and use the same request
+without mutation or substitution. zharness integrates this boundary through its
+native guarded execution APIs. Direct application executors remain trusted code.</p>
+<h2 id="scope">Scope<a class="heading-anchor" href="#scope" aria-label="链接到 Scope">#</a></h2>
+<p>zguard evaluates deterministic host policy. The host provides JSON validation,
+argument/resource policy, OS isolation, canonical paths, network controls and
+execution timeouts. Authorizing a general shell or plugin grants the capabilities
+that its adapter exposes. Use narrow tools and OS isolation where required.
+Natural-language prompt-injection detection is outside this core.</p>
+<h2 id="validate">Validate<a class="heading-anchor" href="#validate" aria-label="链接到 Validate">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>python3 scripts/check.py
+cargo bench --locked --bench policy
+cargo check --locked --lib --target x86_64-unknown-none
+</code></pre></div>
+<p>The final command requires that Rust target to be installed. See
+<a href="https://github.com/LIghtJUNction/zguard/blob/6772b932a65e18f64e13591dee6edb2f6b099406/SECURITY.md">SECURITY.md</a> for trust and approval contracts and
+<a href="https://github.com/LIghtJUNction/zguard/blob/6772b932a65e18f64e13591dee6edb2f6b099406/docs/VALIDATION.md">docs/VALIDATION.md</a> for claim-to-evidence mapping.</p>
+<p>The first local validation and optimized measurements are recorded in
+<a href="https://github.com/LIghtJUNction/zguard/blob/6772b932a65e18f64e13591dee6edb2f6b099406/docs/VALIDATION-2026-11-20.md">docs/VALIDATION-2026-11-20.md</a>.</p>
+<p><a href="https://github.com/LIghtJUNction/zguard/blob/6772b932a65e18f64e13591dee6edb2f6b099406/docs/RELEASING.md">Release instructions</a> describe immutable tags and verified
+registry/GitHub recovery.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zguard/blob/6772b932a65e18f64e13591dee6edb2f6b099406/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zguard">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"></nav>
+      <footer class="page-footer">
+        <span>zguard <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#use">Use</a></li><li class="toc-level-2"><a href="#decisions-and-limits">Decisions and limits</a></li><li class="toc-level-2"><a href="#audit-and-execution-boundary">Audit and execution boundary</a></li><li class="toc-level-2"><a href="#scope">Scope</a></li><li class="toc-level-2"><a href="#validate">Validate</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

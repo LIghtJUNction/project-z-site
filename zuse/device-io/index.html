@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zuse · Native serial and USB I/O · Project Z">
+  <meta property="og:description" content="用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。">
+  <meta property="og:type" content="website">
+  <title>zuse · Native serial and USB I/O · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zuse/device-io/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zuse">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zuse" aria-label="zuse 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zuse</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zuse</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/" aria-current="page">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zuse 文档"><div class="nav-group"><p class="nav-label">zuse</p><ul><li><a class="nav-link" href="../../zuse/">概览</a></li><li><a class="nav-link" href="../../zuse/readme-en/">zuse</a></li><li><a class="nav-link" href="../../zuse/language/">Flat execution language</a></li><li><a class="nav-link" href="../../zuse/session-protocol/">Zuse 会话协议 v1</a></li><li><a class="nav-link" href="../../zuse/sessions/">持久会话：观察、执行与取消</a></li><li><a class="nav-link" href="../../zuse/platforms/">Platform support and verification</a></li><li><a class="nav-link" href="../../zuse/chatgpt-desktop/">ChatGPT desktop module</a></li><li><a class="nav-link" href="../../zuse/development/">Development and release</a></li><li><a class="nav-link" href="../../zuse/device-io/" aria-current="page">Native serial and USB I/O</a></li><li><a class="nav-link" href="../../zuse/drawing/">绘图原语与窗口锚点</a></li><li><a class="nav-link" href="../../zuse/ios/">iOS through WebDriverAgent</a></li><li><a class="nav-link" href="../../zuse/key-holds/">Bounded key holds</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zuse</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/" aria-current="page">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zuse 文档"><div class="nav-group"><p class="nav-label">zuse</p><ul><li><a class="nav-link" href="../../zuse/">概览</a></li><li><a class="nav-link" href="../../zuse/readme-en/">zuse</a></li><li><a class="nav-link" href="../../zuse/language/">Flat execution language</a></li><li><a class="nav-link" href="../../zuse/session-protocol/">Zuse 会话协议 v1</a></li><li><a class="nav-link" href="../../zuse/sessions/">持久会话：观察、执行与取消</a></li><li><a class="nav-link" href="../../zuse/platforms/">Platform support and verification</a></li><li><a class="nav-link" href="../../zuse/chatgpt-desktop/">ChatGPT desktop module</a></li><li><a class="nav-link" href="../../zuse/development/">Development and release</a></li><li><a class="nav-link" href="../../zuse/device-io/" aria-current="page">Native serial and USB I/O</a></li><li><a class="nav-link" href="../../zuse/drawing/">绘图原语与窗口锚点</a></li><li><a class="nav-link" href="../../zuse/ios/">iOS through WebDriverAgent</a></li><li><a class="nav-link" href="../../zuse/key-holds/">Bounded key holds</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zuse/">zuse 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zuse/">zuse</a><span aria-hidden="true">/</span><span>Native serial and USB I/O</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#implementation-and-verification-scope">Implementation and verification scope</a></li><li class="toc-level-2"><a href="#serial-api">Serial API</a></li><li class="toc-level-2"><a href="#usb-api">USB API</a></li><li class="toc-level-2"><a href="#bytes-limits-and-time-budgets">Bytes, limits and time budgets</a></li><li class="toc-level-2"><a href="#acceptance-evidence">Acceptance evidence</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="native-serial-and-usb-io">Native serial and USB I/O</h1>
+<p>zuse exposes serial streams and USB interfaces through its Rust library and the shared CLI/MCP executor. Device selection is explicit. Serial uses platform APIs directly; USB loads the installed libusb 1.0 library through Project Z's zsys loader. Neither adapter launches a serial or USB command-line helper.</p>
+<h2 id="implementation-and-verification-scope">Implementation and verification scope<a class="heading-anchor" href="#implementation-and-verification-scope" aria-label="链接到 Implementation and verification scope">#</a></h2>
+<p>The transfer acceptance below exercised Linux PTYs and a synthetic C implementation of the libusb ABI. It did not open a physical serial port or perform a physical USB claim or transfer. A separate real-system check enumerated serial candidate names and USB descriptors without opening handles. The <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/evidence/device-io-2026-11-20.json">evidence record</a> distinguishes these scopes.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Adapter</th>
+<th>Implemented path</th>
+<th>Evidence from this acceptance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux serial</td>
+<td>termios, nonblocking file I/O and poll</td>
+<td>Real kernel PTY: binary transfers, raw/8N1 settings, baud, timeout, backpressure and restoration</td>
+</tr>
+<tr>
+<td>macOS serial</td>
+<td>Darwin termios and poll</td>
+<td>Source implementation; no macOS execution in this acceptance</td>
+</tr>
+<tr>
+<td>Windows serial</td>
+<td>Win32 COM handle, DCB and COMMTIMEOUTS</td>
+<td>Source and ABI review; no Windows execution in this acceptance</td>
+</tr>
+<tr>
+<td>Linux USB</td>
+<td>System libusb 1.0 loaded through zsys</td>
+<td>Real Rust-to-C calls into a synthetic shared library, plus separate real-system descriptor enumeration</td>
+</tr>
+<tr>
+<td>macOS / Windows USB</td>
+<td>System libusb 1.0 through the corresponding zsys loader</td>
+<td>Source implementation; no live platform or device verification in this acceptance</td>
+</tr>
+</tbody>
+</table></div>
+<p>The USB fixture checks argument layout, buffer contents, result handling and native resource lifetime. It does not establish transfer compatibility with firmware, a kernel driver, cable, hub or operating-system USB backend. Serial candidate paths are operating-system names, not a count of attached physical serial devices.</p>
+<h2 id="serial-api">Serial API<a class="heading-anchor" href="#serial-api" aria-label="链接到 Serial API">#</a></h2>
+<p>Opening configures the selected port as 8N1 with software and hardware flow control disabled. The adapter captures the previous configuration first. Linux and macOS save termios; Windows saves the DCB and communication timeouts. See the <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/src/serial.rs">implementation</a>, Microsoft's <a href="https://learn.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-dcb">DCB definition</a> and <a href="https://learn.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-commtimeouts">COMMTIMEOUTS definition</a>.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Parameters and behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>serial.ports()</code></td>
+<td>Lists candidate names without opening or configuring them</td>
+</tr>
+<tr>
+<td><code>serial.open(path, baud=115200)</code></td>
+<td>Selects one device path and configures 8N1</td>
+</tr>
+<tr>
+<td><code>serial.status()</code></td>
+<td>Reports the current connection's path, baud and format</td>
+</tr>
+<tr>
+<td><code>serial.read(length=4096, timeout=1000)</code></td>
+<td>Returns an available chunk up to the requested length; timeout is in milliseconds</td>
+</tr>
+<tr>
+<td><code>serial.write(text=..., timeout=1000)</code></td>
+<td>Writes the text's UTF-8 bytes</td>
+</tr>
+<tr>
+<td><code>serial.write(base64=..., timeout=1000)</code></td>
+<td>Writes decoded binary bytes; exactly one payload field is required</td>
+</tr>
+<tr>
+<td><code>serial.close()</code></td>
+<td>Attempts configuration restoration, then closes the handle</td>
+</tr>
+</tbody>
+</table></div>
+<p>Unix paths must explicitly name a device below <code>/dev</code>. Windows accepts <code>COM1</code> through <code>COM4096</code>, with the optional Win32 device prefix. Supported baud values are 50, 75, 110, 134, 150, 200, 300, 600, 1200, 1800, 2400, 4800, 9600, 19200, 38400, 57600, 115200 and 230400. A driver can still reject a rate accepted by argument validation.</p>
+<p>The following example uses a placeholder device path. Replace it with the port selected for the task:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">zuse</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 zuse 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>serial.ports()
+serial.open(path=&quot;/dev/serial/by-id/your-device&quot;, baud=115200)
+serial.status()
+serial.write(text=&quot;ping\n&quot;, timeout=1000)
+serial.read(length=256, timeout=1000)
+serial.close()
+</code></pre></div>
+<p>A serial read returns when data becomes available; it does not promise to fill the requested buffer. The agent supplies application framing, such as a length prefix or line terminator. An empty timeout result carries <code>timed_out=true</code>.</p>
+<p>Serial writes advance through the remaining buffer after a short system write. Already written bytes are not sent again. A deadline or I/O failure reports the cumulative <code>bytes_written</code> count and stops subsequent program steps.</p>
+<p>Normal close and Rust drop attempt to restore the captured configuration. Explicit close reports restoration failure; drop cannot return that error to its caller. Forced process termination cannot run Rust cleanup. The PTY acceptance verifies restoration after explicit close, normal session completion and a runtime write failure.</p>
+<h2 id="usb-api">USB API<a class="heading-anchor" href="#usb-api" aria-label="链接到 USB API">#</a></h2>
+<p>USB selection requires bus number, device address, vendor ID and product ID together. The adapter rechecks the descriptor at the selected bus/address before opening the handle. Changed identity or ambiguous selection produces an error.</p>
+<p>Opening claims one interface without requesting automatic kernel-driver detachment or changing the active configuration. A driver or application already owning the interface produces an explicit busy error. Libusb documents the relevant <a href="https://libusb.sourceforge.io/api-1.0/group__libusb__dev.html">device and interface operations</a>.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Parameters and defaults</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>usb.devices()</code></td>
+<td>Enumerates numeric descriptors without opening handles</td>
+</tr>
+<tr>
+<td><code>usb.open(...)</code></td>
+<td>Required: <code>bus</code>, <code>address</code>, <code>vendor_id</code>, <code>product_id</code>; optional: <code>interface=0</code></td>
+</tr>
+<tr>
+<td><code>usb.status()</code></td>
+<td>Reports selected identity/interface and <code>kernel_driver_detached=false</code></td>
+</tr>
+<tr>
+<td><code>usb.bulk_read(...)</code> / <code>usb.interrupt_read(...)</code></td>
+<td>Required: <code>endpoint</code>; defaults: <code>length=4096</code>, <code>timeout=1000</code></td>
+</tr>
+<tr>
+<td><code>usb.bulk_write(...)</code> / <code>usb.interrupt_write(...)</code></td>
+<td>Required: <code>endpoint</code>, <code>base64</code>; default: <code>timeout=1000</code></td>
+</tr>
+<tr>
+<td><code>usb.control_read(...)</code></td>
+<td>Required: <code>request_type</code>, <code>request</code>; defaults: <code>value=0</code>, <code>index=0</code>, <code>length=64</code>, <code>timeout=1000</code></td>
+</tr>
+<tr>
+<td><code>usb.control_write(...)</code></td>
+<td>Required: <code>request_type</code>, <code>request</code>, <code>base64</code>; defaults: <code>value=0</code>, <code>index=0</code>, <code>timeout=1000</code></td>
+</tr>
+<tr>
+<td><code>usb.close()</code></td>
+<td>Releases the interface and closes the handle and context</td>
+</tr>
+</tbody>
+</table></div>
+<p>Bulk and interrupt endpoint numbers are 1 through 15, with the direction bit set for reads. Decimal 1 is OUT endpoint 1; decimal 129 is IN endpoint 1. Control reads require the IN bit in <code>request_type</code>; control writes require OUT. The executor validates direction and integer widths before executing any step.</p>
+<p>This program uses the synthetic identifiers from the acceptance fixture. Its identifiers and transfer requests are examples for that fixture:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">zuse</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 zuse 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>usb.devices()
+usb.open(bus=7, address=9, vendor_id=4660, product_id=43981, interface=2)
+usb.status()
+usb.bulk_write(endpoint=1, base64=&quot;AAECAw==&quot;, timeout=1000)
+usb.bulk_read(endpoint=129, length=256, timeout=1000)
+usb.interrupt_write(endpoint=2, base64=&quot;BAUGBw==&quot;, timeout=1000)
+usb.interrupt_read(endpoint=130, length=256, timeout=1000)
+usb.control_write(request_type=64, request=90, value=4660, index=513, base64=&quot;AQID&quot;, timeout=1000)
+usb.control_read(request_type=192, request=91, value=4661, index=514, length=32, timeout=1000)
+usb.close()
+</code></pre></div>
+<p>Each bulk, interrupt or control write makes one transfer call. A short write or transfer error fails the operation; zuse does not replay the request or continue to later steps. Errors include a transferred-byte count when the API supplies one. Control-transfer failures report that completion is unknown because that API has no separate partial byte count.</p>
+<p>Bulk and interrupt reads can return data together with <code>timed_out=true</code>, preserving bytes received before timeout. A failed control read reports unknown completion instead of inventing a partial count. See <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/src/usb.rs">usb.rs</a> and libusb's <a href="https://libusb.sourceforge.io/api-1.0/group__libusb__syncio.html">synchronous transfer API</a>.</p>
+<p>USB cleanup releases the interface before closing the handle, exiting the context and unloading the library. Handle/context cleanup continues even when release fails. Libusb documents that release resets the interface to its first alternate setting, normally alternate setting 0. This does not restore every original device setting. The adapter does not explicitly call set-configuration, set-alternate-setting or reset-device during open/close.</p>
+<h2 id="bytes-limits-and-time-budgets">Bytes, limits and time budgets<a class="heading-anchor" href="#bytes-limits-and-time-budgets" aria-label="链接到 Bytes, limits and time budgets">#</a></h2>
+<p>Read values share this JSON shape. <code>bytes</code> is the actual count, <code>base64</code> always contains the data, and <code>text</code> contains UTF-8 or null when decoding fails. This is an operation's value; CLI execution also wraps values in its program result:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>{
+  &quot;bytes&quot;: 5,
+  &quot;base64&quot;: &quot;aGVsbG8=&quot;,
+  &quot;text&quot;: &quot;hello&quot;,
+  &quot;timed_out&quot;: false
+}
+</code></pre></div>
+<p>Native serial, bulk and interrupt buffers are limited to 65,536 bytes. Their read lengths must be at least one byte. Control data is limited to 65,535 bytes by the 16-bit length field; zero-length control data is permitted. Successful writes return <code>bytes_written</code> and <code>complete=true</code>.</p>
+<p>The DSL separately limits each string to 65,536 bytes. Base64 expansion makes the practical binary payload in one DSL string about 48 KiB, while the native library accepts 64 KiB buffers. Prefer chunks of at most 32 KiB before encoding when the device's protocol permits chunking. USB transfer boundaries can be meaningful, so zuse does not split a transfer automatically. These limits are defined in <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/src/language.rs">language.rs</a> and <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/src/device_io.rs">device_io.rs</a>.</p>
+<p>Each read/write timeout must be 1 through 30,000 milliseconds. The executor adds configured device timeouts to the program's existing wait budget, whose default limit is 60,000 milliseconds. This is a conservative sum of requested budgets, not measured elapsed time. Embedded callers can configure <code>runtime::Options.max_wait_ms</code>. <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/src/runtime.rs">runtime.rs</a> validates the entire program before execution.</p>
+<p>Transfer timeouts do not impose a hard wall-clock deadline on every USB operation. Enumeration, open, claim, release and close have no independently enforced timeout in this adapter. Interface release is a blocking libusb call with no timeout argument; setting a transfer timeout does not bound later cleanup.</p>
+<p>Whole-program validation rejects invalid types, directions, sizes, baud rates, payload combinations and base64 before earlier steps execute. Runtime failures, including busy interfaces and disconnection, stop subsequent steps but retain earlier effects. Bytes already delivered to a device cannot be undone by the executor.</p>
+<h2 id="acceptance-evidence">Acceptance evidence<a class="heading-anchor" href="#acceptance-evidence" aria-label="链接到 Acceptance evidence">#</a></h2>
+<p>The <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/evidence/device-io-2026-11-20.json">sanitized evidence</a> identifies the PTY/C ABI executable by SHA-256:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>ef1394bc6947eb6085dc057a1a084ee9509c6af5ba0ed8e67d6bced8c88eaa44
+</code></pre></div>
+<p>The final transfer reports were written on 2026-11-19 at approximately 22:33 UTC. The evidence filename follows the release reporting date, 2026-11-20. Initial and corrected transfer harness runs used the same executable. The separate real-system enumeration used a later executable and has its own SHA-256 in the record.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Observed result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux serial PTY</td>
+<td>5/5 groups: all 256 byte values in both directions; raw 8N1 at 115200; 80 ms empty-read timeout; saved termios restoration</td>
+</tr>
+<tr>
+<td>Serial backpressure</td>
+<td>15,360 of 32,768 bytes written before timeout; error count matched peer data; later write stopped; configuration restored</td>
+</tr>
+<tr>
+<td>Serial preflight</td>
+<td>7 invalid programs rejected by both check and eval; no earlier write reached the PTY</td>
+</tr>
+<tr>
+<td>Synthetic libusb C ABI</td>
+<td>11/11 groups: exact identity selection, busy interface, 256-byte bulk/interrupt transfers, 32-byte control transfers, argument widths and buffers</td>
+</tr>
+<tr>
+<td>USB partial/error cases</td>
+<td>Four partial-write scenarios made one transfer each; 17 bytes survived read timeout; invalid counts and unknown control completion rejected</td>
+</tr>
+<tr>
+<td>USB cleanup/preflight</td>
+<td>Release/close/exit/unload ordering, cleanup after release failure, and 11 invalid programs rejected before loading the fake library</td>
+</tr>
+<tr>
+<td>Real-system enumeration</td>
+<td>32 serial candidate paths and 9 USB descriptors observed in read-only mode; no port open, USB claim or transfer</td>
+</tr>
+</tbody>
+</table></div>
+<p>The first transfer run exposed two harness assumptions. It expected all JSON on stdout, while CLI validation failures use a nonzero exit with structured JSON on stderr. It also put 65,536 raw bytes into one base64 string, exceeding the DSL string limit before the intended backpressure case could begin. The scripts now accept structured stderr only on failure and use a 32 KiB backpressure payload. Initial failure messages remain in the evidence.</p>
+<p>The USB harness proves fake-library selection through enumeration before attempting any open or transfer test. Only its CLI child processes receive a private <code>LD_LIBRARY_PATH</code>. The C image uses system libusb declarations but contains no physical USB backend. The serial harness accepts no device-path argument and creates its own PTYs.</p>
+<p>To reproduce the transfer checks, point the scripts at the executable being evaluated. Serial uses Python's standard library; USB additionally requires a C compiler and the libusb development header:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">bash</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 bash 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>python3 tests/native_serial.py --binary target/debug/zuse --output target/native-serial
+python3 tests/native_usb.py --binary target/debug/zuse --output target/native-usb
+</code></pre></div>
+<p>Each script writes a JSON report, and USB also records synthetic native-call traces. Physical hardware transfers and live Windows/macOS behavior remain separate verification work.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/device-io.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zuse/development/"><span class="pagination-label">上一页</span><span class="pagination-title">Development and release</span></a><a class="pagination-link next" href="../../zuse/drawing/"><span class="pagination-label">下一页</span><span class="pagination-title">绘图原语与窗口锚点</span></a></nav>
+      <footer class="page-footer">
+        <span>zuse <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#implementation-and-verification-scope">Implementation and verification scope</a></li><li class="toc-level-2"><a href="#serial-api">Serial API</a></li><li class="toc-level-2"><a href="#usb-api">USB API</a></li><li class="toc-level-2"><a href="#bytes-limits-and-time-budgets">Bytes, limits and time budgets</a></li><li class="toc-level-2"><a href="#acceptance-evidence">Acceptance evidence</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="通过授权 MCP 会话调用开发机的命令、文件和原生工具。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ssmcp · 会话内 Agent 协作 · Project Z">
+  <meta property="og:description" content="通过授权 MCP 会话调用开发机的命令、文件和原生工具。">
+  <meta property="og:type" content="website">
+  <title>ssmcp · 会话内 Agent 协作 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ssmcp/agent-collaboration/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ssmcp">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ssmcp" aria-label="ssmcp 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ssmcp</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ssmcp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/" aria-current="page">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ssmcp 文档"><div class="nav-group"><p class="nav-label">ssmcp</p><ul><li><a class="nav-link" href="../../ssmcp/">概览</a></li><li><a class="nav-link" href="../../ssmcp/windows-browser-setup/">Windows 客户端与 Zuse CLI</a></li><li><a class="nav-link" href="../../ssmcp/configuration/">客户端连接、账号与授权</a></li><li><a class="nav-link" href="../../ssmcp/client-accounts/">客户端账号、授权与被控设备</a></li><li><a class="nav-link" href="../../ssmcp/client-extension/">可定制客户端、上下文工程与工具 hook</a></li><li><a class="nav-link" href="../../ssmcp/client-input/">客户端输入、引用与本地沟通</a></li><li><a class="nav-link" href="../../ssmcp/client-server/">选择中转服务器与固定服务器公钥</a></li><li><a class="nav-link" href="../../ssmcp/client-ui/">客户端 UI</a></li><li><a class="nav-link" href="../../ssmcp/commands/">客户端命令与独立任务</a></li><li><a class="nav-link" href="../../ssmcp/browser-existing-session/">用 Zuse 连接已有浏览器</a></li><li><a class="nav-link" href="../../ssmcp/session-control/">客户端会话、重连与输出管理</a></li><li><a class="nav-link" href="../../ssmcp/agent-collaboration/" aria-current="page">会话内 Agent 协作</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ssmcp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/" aria-current="page">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ssmcp 文档"><div class="nav-group"><p class="nav-label">ssmcp</p><ul><li><a class="nav-link" href="../../ssmcp/">概览</a></li><li><a class="nav-link" href="../../ssmcp/windows-browser-setup/">Windows 客户端与 Zuse CLI</a></li><li><a class="nav-link" href="../../ssmcp/configuration/">客户端连接、账号与授权</a></li><li><a class="nav-link" href="../../ssmcp/client-accounts/">客户端账号、授权与被控设备</a></li><li><a class="nav-link" href="../../ssmcp/client-extension/">可定制客户端、上下文工程与工具 hook</a></li><li><a class="nav-link" href="../../ssmcp/client-input/">客户端输入、引用与本地沟通</a></li><li><a class="nav-link" href="../../ssmcp/client-server/">选择中转服务器与固定服务器公钥</a></li><li><a class="nav-link" href="../../ssmcp/client-ui/">客户端 UI</a></li><li><a class="nav-link" href="../../ssmcp/commands/">客户端命令与独立任务</a></li><li><a class="nav-link" href="../../ssmcp/browser-existing-session/">用 Zuse 连接已有浏览器</a></li><li><a class="nav-link" href="../../ssmcp/session-control/">客户端会话、重连与输出管理</a></li><li><a class="nav-link" href="../../ssmcp/agent-collaboration/" aria-current="page">会话内 Agent 协作</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ssmcp/">ssmcp 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ssmcp/">ssmcp</a><span aria-hidden="true">/</span><span>会话内 Agent 协作</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#接口与职责">接口与职责</a></li><li class="toc-level-2"><a href="#加入并发现成员">加入并发现成员</a></li><li class="toc-level-2"><a href="#绑定本次编排并接收用户要求">绑定本次编排并接收用户要求</a></li><li class="toc-level-2"><a href="#发送私信与广播">发送私信与广播</a></li><li class="toc-level-2"><a href="#收取处理确认">收取、处理、确认</a></li><li class="toc-level-2"><a href="#在线状态与生命周期">在线状态与生命周期</a></li><li class="toc-level-2"><a href="#容量与背压">容量与背压</a></li><li class="toc-level-2"><a href="#调度边界与实现入口">调度边界与实现入口</a></li><li class="toc-level-2"><a href="#结束决定与原生消息">结束决定与原生消息</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="会话内-agent-协作">会话内 Agent 协作</h1>
+<p>同一条在线客户端连接可以容纳多个独立 agent。每个 agent 显式加入后，获得自己的身份和收件箱，可以发现其他成员、发送私信、广播进展、读取并确认消息。协作状态由服务器维护；agent 可以来自不同应用，也可以共用同一 GitHub 账号。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/broker.rs">会话实现</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/collab.rs">协作实现</a></p>
+<p>这里的“会话”指 <code>list</code> 返回的一个在线 <code>client_id</code>。每条连接有独立的成员表和邮箱；即使两条连接的名字、目录相同，成员和消息也各自独立。</p>
+<h2 id="接口与职责">接口与职责<a class="heading-anchor" href="#接口与职责" aria-label="链接到 接口与职责">#</a></h2>
+<p>公开 MCP 工具 <code>collab</code> 接收 <code>action</code>、<code>client_id</code> 和该操作的参数。所有操作都检查当前 OAuth 授权与目标连接的访问权限；已加入成员还需提供自己的 <code>agent_id</code> 和 <code>token</code>。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>action</th>
+<th>额外参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>join</code></td>
+<td><code>name</code>；可选 <code>role</code>、<code>capabilities</code></td>
+<td>加入会话，返回私密凭证、成员快照和限额</td>
+</tr>
+<tr>
+<td><code>list</code></td>
+<td>无</td>
+<td>查看当前有效成员的公开资料</td>
+</tr>
+<tr>
+<td><code>update</code></td>
+<td>成员凭证；可选 <code>name</code>、<code>role</code>、<code>status</code>、<code>capabilities</code></td>
+<td>更新自己的资料并续租；不传资料字段时仅续租</td>
+</tr>
+<tr>
+<td><code>send</code></td>
+<td>成员凭证、<code>to</code>、<code>payload</code>；可选 <code>topic</code>、<code>reply_to</code>、<code>idempotency_key</code></td>
+<td>发送 JSON 私信或向当前成员广播</td>
+</tr>
+<tr>
+<td><code>receive</code></td>
+<td>成员凭证；可选 <code>after</code>、<code>limit</code>、<code>wait_ms</code></td>
+<td>非破坏读取自己的邮箱，可等待新消息</td>
+</tr>
+<tr>
+<td><code>ack</code></td>
+<td>成员凭证、<code>through</code></td>
+<td>确认已处理的消息，释放邮箱容量</td>
+</tr>
+<tr>
+<td><code>leave</code></td>
+<td>成员凭证</td>
+<td>退出会话，清理自己的邮箱并结束正在等待的收件请求</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>code_mode</code> 也提供 <code>collab.join/list/update/send/receive/ack/leave(clientId, options)</code>。这些 helper 返回解包后的业务结果，错误会抛出异常。<code>agents.*</code> 继续用于读取 AGENTS 指令文件。</p>
+<p>另有 <code>collab.bind(clientId, {agent_id, token})</code> 用于把本次 <code>code_mode</code> 编排绑定到已登记成员，以接收客户端输入框中的定向用户要求。它是代码模式 helper，不是直接 <code>collab</code> 工具新增的 action。<a href="#%E7%BB%91%E5%AE%9A%E6%9C%AC%E6%AC%A1%E7%BC%96%E6%8E%92%E5%B9%B6%E6%8E%A5%E6%94%B6%E7%94%A8%E6%88%B7%E8%A6%81%E6%B1%82">绑定与用户要求</a></p>
+<p><strong>持续等待消息时，直接调用公开 <code>collab</code> 工具。</strong> 直接 <code>receive</code> 最长等待 30 秒，由 Rust 服务端处理，不占用 <code>code_mode</code> 的四个 JavaScript 执行槽。JavaScript 中的 <code>collab.receive</code> 最长等待 1 秒，适合在一次编排中收取消息。</p>
+<h2 id="加入并发现成员">加入并发现成员<a class="heading-anchor" href="#加入并发现成员" aria-label="链接到 加入并发现成员">#</a></h2>
+<p>先调用 <code>list({})</code>，选择要共同操作的客户端 ID，再让每个 agent 分别加入。下面的 JSON 是 MCP <code>tools/call</code> 的 <code>params</code>；将大写占位符换成实际返回值。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>{
+  &quot;name&quot;: &quot;collab&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;join&quot;,
+    &quot;client_id&quot;: &quot;CLIENT_ID_FROM_LIST&quot;,
+    &quot;name&quot;: &quot;implementation&quot;,
+    &quot;role&quot;: &quot;developer&quot;,
+    &quot;capabilities&quot;: [&quot;rust&quot;, &quot;tests&quot;]
+  }
+}
+</code></pre></div>
+<p>成功响应的 <code>structuredContent</code> 包含以下字段。使用 JavaScript helper 时直接得到这份对象。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>agent_id</code></td>
+<td>服务端生成的公开成员 ID，用于定向发送</td>
+</tr>
+<tr>
+<td><code>token</code></td>
+<td>只属于当前成员的私密凭证</td>
+</tr>
+<tr>
+<td><code>lease_ms</code>、<code>expires_at_ms</code></td>
+<td>租约时长与当前到期时间</td>
+</tr>
+<tr>
+<td><code>cursor</code></td>
+<td>加入时的会话序号，作为该成员的初始收件游标</td>
+</tr>
+<tr>
+<td><code>agents</code></td>
+<td>当前有效成员的公开资料，包含自己</td>
+</tr>
+<tr>
+<td><code>limits</code></td>
+<td>当前服务器的成员、消息、邮箱和等待限额</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>调用方需要保存 <code>client_id</code>、<code>agent_id</code> 和 <code>token</code>。</strong> 每次 <code>code_mode</code> 都是独立执行，JavaScript 变量不会跨请求保留。保存凭证后在后续请求中显式传入，避免每次工具调用都重新 <code>join</code>。<code>token</code> 不应发给其他成员，也不应进入广播、共享文档或公开日志。</p>
+<p>同样的加入操作可写成：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>const clientId = &quot;CLIENT_ID_FROM_LIST&quot;;
+const joined = await collab.join(clientId, {
+  name: &quot;implementation&quot;,
+  role: &quot;developer&quot;,
+  capabilities: [&quot;rust&quot;, &quot;tests&quot;]
+});
+return { client_id: clientId, ...joined };
+</code></pre></div>
+<p>其他 agent 使用同一个 <code>client_id</code> 加入后，可通过 <code>list</code> 互相发现：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>return await collab.list(&quot;CLIENT_ID_FROM_LIST&quot;);
+</code></pre></div>
+<p>公开资料包含 <code>agent_id</code>、<code>name</code>、<code>role</code>、<code>status</code>、<code>capabilities</code>、加入时间、最近活动时间和租约到期时间。<code>status</code> 初始为 <code>available</code>；角色、能力与状态都是成员自行填写的工作信息。名称允许重复，消息目标始终使用 <code>agent_id</code>。</p>
+<h2 id="绑定本次编排并接收用户要求">绑定本次编排并接收用户要求<a class="heading-anchor" href="#绑定本次编排并接收用户要求" aria-label="链接到 绑定本次编排并接收用户要求">#</a></h2>
+<p>客户端输入框可以把用户要求定向给一个已登记成员。该成员在每次 <code>code_mode</code> 开始时，使用自己保存的凭证声明本次身份：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>const clientId = &quot;CLIENT_ID_FROM_LIST&quot;;
+await collab.bind(clientId, {
+  agent_id: &quot;AGENT_ID_FROM_JOIN&quot;,
+  token: &quot;PRIVATE_TOKEN_FROM_JOIN&quot;
+});
+return await exec.list(clientId);
+</code></pre></div>
+<p>绑定只覆盖本次编排，同一客户端不能在一次运行中切换到另一成员。服务端校验当前授权、目标连接和成员凭证，在响应交付前再次核对成员仍然有效。名称、角色和 <code>controller</code> 展示字段不参与接收身份判断；不要把同名成员视为同一身份。</p>
+<p>客户端与服务器支持协议 v7 时，本地要求可附加到下一次符合目标的 <code>code_mode</code> 响应，位于 <code>structuredContent.user_messages</code> 和独立的用户要求文本块。模型或前端应同时检查这部分内容。<code>Next caller</code> 面向下一位实际访问本客户端的合格调用方；指定成员 ID 的要求只交付给绑定该身份的编排。</p>
+<p>这条通道与成员邮箱分别管理：<code>collab.send/receive/ack</code> 用于 agent 之间的 JSON 消息；<code>ssmcp.ui.queue</code> 用于设备操作者提交、取回和修改用户要求。输入框要求不通过 <code>collab.ack</code> 确认，<code>delivered</code> 只表示附加到了响应，不代表模型已经阅读或执行。编辑竞争、队列容量和重载恢复见<a href="../../ssmcp/client-ui/#%E8%BE%93%E5%85%A5%E8%A6%81%E6%B1%82%E4%B8%8E%E9%98%9F%E5%88%97">客户端 UI</a>。</p>
+<h2 id="发送私信与广播">发送私信与广播<a class="heading-anchor" href="#发送私信与广播" aria-label="链接到 发送私信与广播">#</a></h2>
+<p>定向消息只进入目标成员的邮箱。下一次 <code>code_mode</code> 请求可以用已保存凭证寻找一个负责评审的成员，并发出请求：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>const clientId = &quot;CLIENT_ID_FROM_LIST&quot;;
+const self = {
+  agent_id: &quot;AGENT_ID_FROM_JOIN&quot;,
+  token: &quot;PRIVATE_TOKEN_FROM_JOIN&quot;
+};
+const { agents } = await collab.list(clientId);
+const reviewers = agents.filter(agent =&gt;
+  agent.agent_id !== self.agent_id &amp;&amp; agent.role === &quot;reviewer&quot;
+);
+if (reviewers.length !== 1) {
+  throw new Error(&quot;Select one reviewer agent_id from collab.list&quot;);
+}
+return await collab.send(clientId, {
+  ...self,
+  to: reviewers[0].agent_id,
+  topic: &quot;review&quot;,
+  payload: {
+    commit: &quot;COMMIT_TO_REVIEW&quot;,
+    paths: [&quot;src/http.rs&quot;],
+    question: &quot;检查授权与断线处理&quot;
+  },
+  idempotency_key: &quot;review-request-1&quot;
+});
+</code></pre></div>
+<p><code>to: &quot;*&quot;</code> 广播给发送时已经加入的其他成员，不包含发送者。之后加入的成员从自己的加入位置开始接收消息，不补发此前的广播。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>return await collab.send(&quot;CLIENT_ID_FROM_LIST&quot;, {
+  agent_id: &quot;AGENT_ID_FROM_JOIN&quot;,
+  token: &quot;PRIVATE_TOKEN_FROM_JOIN&quot;,
+  to: &quot;*&quot;,
+  topic: &quot;progress&quot;,
+  payload: {
+    task: &quot;collaboration&quot;,
+    state: &quot;ready_for_review&quot;,
+    commit: &quot;COMMIT_TO_REVIEW&quot;
+  },
+  idempotency_key: &quot;progress-ready-1&quot;
+});
+</code></pre></div>
+<p><code>payload</code> 可以是任意 JSON 值，包括显式 <code>null</code>，但请求必须提供这个字段。发送成功返回 <code>message_id</code>、<code>seq</code>、实际 <code>recipients</code> 和 <code>duplicate</code>。这表示消息已经入队；收件者完成工作后可以再发一条回复，用 <code>reply_to</code> 携带原 <code>message_id</code>。<code>reply_to</code> 是关联信息，消息路由仍由 <code>to</code> 决定。</p>
+<p><code>idempotency_key</code> 用来处理发送响应丢失后的重试。每个发送者在最近 128 次成功的新发送中保留去重记录，窗口也随未提供 key 的新发送推进；同一个 key 与相同内容返回原回执，<code>duplicate</code> 为 <code>true</code>，不重复入队。同一个 key 改用不同目标、正文、主题或回复关联会被拒绝。为每条新的逻辑消息分配新的 key，重试时保持原 key 和内容。</p>
+<h2 id="收取处理确认">收取、处理、确认<a class="heading-anchor" href="#收取处理确认" aria-label="链接到 收取、处理、确认">#</a></h2>
+<p><code>receive</code> 不会删除消息。调用方可以重试读取，并在确认一页消息全部处理完毕后，用该页的 <code>next_cursor</code> 调用 <code>ack</code>。收件响应丢失时，邮箱中的未确认消息仍可再次读取。</p>
+<p>长等待通过直接 MCP 工具发送：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>{
+  &quot;name&quot;: &quot;collab&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;receive&quot;,
+    &quot;client_id&quot;: &quot;CLIENT_ID_FROM_LIST&quot;,
+    &quot;agent_id&quot;: &quot;AGENT_ID_FROM_JOIN&quot;,
+    &quot;token&quot;: &quot;PRIVATE_TOKEN_FROM_JOIN&quot;,
+    &quot;limit&quot;: 32,
+    &quot;wait_ms&quot;: 30000
+  }
+}
+</code></pre></div>
+<p>省略 <code>after</code> 时，从最后已确认的位置开始读取。返回的 <code>messages</code> 按会话序号递增，每条包含：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>seq</code></td>
+<td>会话内递增序号，用于收件游标</td>
+</tr>
+<tr>
+<td><code>message_id</code></td>
+<td>不透明消息 ID，用于回复关联与业务去重</td>
+</tr>
+<tr>
+<td><code>from</code>、<code>to</code></td>
+<td>发送者与目标成员 ID；广播的 <code>to</code> 为 <code>&quot;*&quot;</code></td>
+</tr>
+<tr>
+<td><code>payload</code></td>
+<td>发送的 JSON 值</td>
+</tr>
+<tr>
+<td><code>topic</code>、<code>reply_to</code></td>
+<td>可选主题和关联消息 ID，未提供时为 <code>null</code></td>
+</tr>
+<tr>
+<td><code>sent_at_ms</code></td>
+<td>服务端发送时间，Unix 毫秒</td>
+</tr>
+</tbody>
+</table></div>
+<p>结果还包含 <code>next_cursor</code>、<code>has_more</code> 和 <code>acked_cursor</code>。<code>has_more: true</code> 时可用 <code>after: next_cursor</code> 读下一页；游标必须位于当前已确认位置与该成员已经收到的最高游标之间。跳到未知的未来位置或读取已经确认清理的位置会明确失败。</p>
+<p>短收件可以放进 <code>code_mode</code>：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>return await collab.receive(&quot;CLIENT_ID_FROM_LIST&quot;, {
+  agent_id: &quot;AGENT_ID_FROM_JOIN&quot;,
+  token: &quot;PRIVATE_TOKEN_FROM_JOIN&quot;,
+  limit: 32,
+  wait_ms: 1000
+});
+</code></pre></div>
+<p>查看结果、完成对应工作后，再确认已经处理的那一页。下面假设该页的 <code>next_cursor</code> 为 <code>42</code>；实际调用必须使用收到的游标。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>{
+  &quot;name&quot;: &quot;collab&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;ack&quot;,
+    &quot;client_id&quot;: &quot;CLIENT_ID_FROM_LIST&quot;,
+    &quot;agent_id&quot;: &quot;AGENT_ID_FROM_JOIN&quot;,
+    &quot;token&quot;: &quot;PRIVATE_TOKEN_FROM_JOIN&quot;,
+    &quot;through&quot;: 42
+  }
+}
+</code></pre></div>
+<p><code>ack</code> 清理 <code>seq &lt;= through</code> 的消息，允许重复确认旧位置，拒绝确认高于已经交付给该成员的游标。处理后、确认前发生故障仍会导致重复读取；对修改文件、提交任务等外部副作用，调用方应以 <code>message_id</code> 或自己的业务 ID 保证重复处理安全。协作层提供可重读邮箱与有限窗口的发送去重，业务处理的 exactly-once 需要由调用方完成。</p>
+<h2 id="在线状态与生命周期">在线状态与生命周期<a class="heading-anchor" href="#在线状态与生命周期" aria-label="链接到 在线状态与生命周期">#</a></h2>
+<p>每个成员的租约为 15 分钟，成功的成员操作会续租；开始收件等待也会续租。单纯查询 <code>list</code> 不续租。需要长时间思考或等待其他系统时，调用方应在租约到期前 <code>update</code>，同时可以向同伴说明自己的状态：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>return await collab.update(&quot;CLIENT_ID_FROM_LIST&quot;, {
+  agent_id: &quot;AGENT_ID_FROM_JOIN&quot;,
+  token: &quot;PRIVATE_TOKEN_FROM_JOIN&quot;,
+  status: &quot;reviewing&quot;,
+  role: &quot;reviewer&quot;
+});
+</code></pre></div>
+<p><code>name</code>、<code>status</code> 最多 128 个 UTF-8 字节；<code>role</code> 最多 128 字节，<code>update</code> 传 <code>role: &quot;&quot;</code> 可清空角色。<code>capabilities</code> 最多 16 项，每项为 1–64 字节。主题、回复 ID 和发送去重 key 若提供，须为 1–128 字节；这些文字字段均拒绝控制字符。</p>
+<p>租约到期后，成员不再出现在有效名单中，其邮箱和凭证被清理。主动 <code>leave</code> 也会删除成员与邮箱，并结束该成员的收件等待；重复使用已经离开的凭证返回成员失效。退出前先处理需要保留的消息。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>事件</th>
+<th>后续处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单次 HTTP 请求结束、<code>code_mode</code> 返回</td>
+<td>保留成员与未确认消息，在租约内继续使用原凭证</td>
+</tr>
+<tr>
+<td>收件响应丢失、调用方短暂断网</td>
+<td>使用原凭证重读；发送重试沿用原 <code>idempotency_key</code></td>
+</tr>
+<tr>
+<td>成员租约过期或 <code>leave</code></td>
+<td>重新 <code>join</code>，取得新的身份与邮箱</td>
+</tr>
+<tr>
+<td>开发机客户端断开、重载后重连</td>
+<td>旧协作空间关闭；重新 <code>list</code>，选择新 <code>client_id</code> 并加入</td>
+</tr>
+<tr>
+<td><code>ssmcpd</code> 重启</td>
+<td>内存中的成员和消息结束；恢复连接与授权后重新加入</td>
+</tr>
+</tbody>
+</table></div>
+<p>成员凭证同时绑定当前授权主体和在线客户端连接。同一 GitHub 用户的多个 agent 各自持有不同凭证，知道同伴的公开 ID 仍无法读取它的私信。成员名和 <code>controller.model</code> 都只是展示信息，不参与身份认证。OAuth 刷新后，只要授权主体、目标连接和成员租约仍有效，就可继续使用原成员凭证。</p>
+<h2 id="容量与背压">容量与背压<a class="heading-anchor" href="#容量与背压" aria-label="链接到 容量与背压">#</a></h2>
+<p>邮箱达到容量时，<code>send</code> 会明确失败，调用方应等收件者处理并确认后再重试。广播先检查所有目标邮箱，再一次性入队；某个目标邮箱已满时整次广播失败，避免一部分成员收到、一部分成员漏收。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>范围</th>
+<th>上限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同一客户端连接的有效成员</td>
+<td>64</td>
+</tr>
+<tr>
+<td>单条 <code>payload</code> 序列化后的 UTF-8 字节</td>
+<td>16 KiB</td>
+</tr>
+<tr>
+<td>每个成员未确认邮箱</td>
+<td>128 条，且消息总字节最多 256 KiB</td>
+</tr>
+<tr>
+<td>整个会话的逻辑排队字节</td>
+<td>4 MiB，广播按每个目标邮箱分别计入</td>
+</tr>
+<tr>
+<td>单次收件</td>
+<td>64 条，且 JSON 业务结果最多 128 KiB；默认 32 条</td>
+</tr>
+<tr>
+<td>同一成员并发等待</td>
+<td>1 个</td>
+</tr>
+<tr>
+<td>直接 <code>collab.receive</code> 等待</td>
+<td>0–30,000 ms</td>
+</tr>
+<tr>
+<td>JavaScript <code>collab.receive</code> 等待</td>
+<td>0–1,000 ms</td>
+</tr>
+<tr>
+<td>发送去重窗口</td>
+<td>每个发送者最近 128 次成功的新发送</td>
+</tr>
+</tbody>
+</table></div>
+<p>邮箱字节数包括消息封装字段；<code>payload</code> 的 16 KiB 上限单独检查。广播复用内存中的消息对象，逻辑配额仍按投递份数计算，防止大量广播占满所有邮箱。未确认消息不会因新消息入队而被静默覆盖；它们在确认、成员结束或会话结束时释放。</p>
+<p>较大的日志、补丁和工件应保存在已有工作区，再通过 <code>payload</code> 交换路径、提交 ID、产物 ID 或摘要。对方读取这些对象时仍走现有文件或工具权限检查。</p>
+<h2 id="调度边界与实现入口">调度边界与实现入口<a class="heading-anchor" href="#调度边界与实现入口" aria-label="链接到 调度边界与实现入口">#</a></h2>
+<p>协作消息作为 JSON 数据交给收件者，收件者决定如何处理。<code>send</code> 不会执行消息中的命令、启动模型或唤起一个已经停止运行的 agent；调用方需要安排收件循环，或在任务阶段之间主动检查邮箱。</p>
+<p>这组原语负责成员、消息和确认。任务分配、领导者选择、代码所有权以及并行修改策略由调用方约定，可以直接放进 <code>role</code>、<code>status</code> 和 <code>payload</code>，无需为每一种协作方式添加新的服务端工作流。</p>
+<p>实现与验证入口：</p>
+<ul>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/collab.rs">有界成员表、邮箱、租约和重试去重</a></li>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/http.rs">公共 MCP 路由与工具 Schema</a></li>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/bridge.rs">当前授权与会话访问检查</a></li>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/code_mode.js">JavaScript helper</a></li>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/tests/collaboration.rs">HTTP 协作测试</a></li>
+</ul>
+<p>已连接的 MCP 应用可以读取 <code>ssmcp://collaboration</code> 获取本文，从 <code>ssmcp://limits</code> 获取当前构建的限额。</p>
+<h2 id="结束决定与原生消息">结束决定与原生消息<a class="heading-anchor" href="#结束决定与原生消息" aria-label="链接到 结束决定与原生消息">#</a></h2>
+<p>交互接口复用当前参与者绑定，不启动额外模型。真实用户通过 <code>ssmcp.ui.ask</code> 的本机问题队列回答；agent 代答与结束审批入口已退役，正常进度、最终消息和 <code>ui.reply</code> 线程结果仍保留来源。问题答案独立放在 <code>question_answers</code>，不会伪装成用户要求。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/finish-and-questions.md">当前交互协议</a></p>
+<p>跨客户端原生消息使用 <code>messages</code> 的 list/send/inbox/ack/status。必须选择列出的完整稳定收件人 ID；同名显示标签不能代替身份。设备账户收件箱表示该账户下一次合格调用收取，agent 收件箱则要求精确绑定。独立 <code>native_messages</code> 保留实际来源，送达与确认不等于已读。完整边界与当前尚未完成的运行验收见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/finish-and-questions.md">结束申请、异步问题与原生消息</a>。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/agent-collaboration.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ssmcp/session-control/"><span class="pagination-label">上一页</span><span class="pagination-title">客户端会话、重连与输出管理</span></a></nav>
+      <footer class="page-footer">
+        <span>ssmcp <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#接口与职责">接口与职责</a></li><li class="toc-level-2"><a href="#加入并发现成员">加入并发现成员</a></li><li class="toc-level-2"><a href="#绑定本次编排并接收用户要求">绑定本次编排并接收用户要求</a></li><li class="toc-level-2"><a href="#发送私信与广播">发送私信与广播</a></li><li class="toc-level-2"><a href="#收取处理确认">收取、处理、确认</a></li><li class="toc-level-2"><a href="#在线状态与生命周期">在线状态与生命周期</a></li><li class="toc-level-2"><a href="#容量与背压">容量与背压</a></li><li class="toc-level-2"><a href="#调度边界与实现入口">调度边界与实现入口</a></li><li class="toc-level-2"><a href="#结束决定与原生消息">结束决定与原生消息</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

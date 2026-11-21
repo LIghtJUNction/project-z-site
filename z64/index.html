@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="处理 Base64 与 Base64URL 的编码、解码与校验。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="z64 · 概览 · Project Z">
+  <meta property="og:description" content="处理 Base64 与 Base64URL 的编码、解码与校验。">
+  <meta property="og:type" content="website">
+  <title>z64 · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/z64/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="z64">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/z64" aria-label="z64 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">z64</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>z64</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/" aria-current="page">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="z64 文档"><div class="nav-group"><p class="nav-label">z64</p><ul><li><a class="nav-link" href="../z64/" aria-current="page">概览</a></li><li><a class="nav-link" href="../z64/comparison-readme/">Reproducible comparison</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>z64</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/" aria-current="page">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="z64 文档"><div class="nav-group"><p class="nav-label">z64</p><ul><li><a class="nav-link" href="../z64/" aria-current="page">概览</a></li><li><a class="nav-link" href="../z64/comparison-readme/">Reproducible comparison</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../z64/">z64 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../z64/">z64</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#modes-and-buffers">Modes and buffers</a></li><li class="toc-level-2"><a href="#error-contract">Error contract</a></li><li class="toc-level-2"><a href="#scope">Scope</a></li><li class="toc-level-2"><a href="#backends-and-reproducibility">Backends and reproducibility</a></li><li class="toc-level-2"><a href="#ci-and-publishing">CI and publishing</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="z64">z64</h1><p class="project-intro">处理 Base64 与 Base64URL 的编码、解码与校验。</p>
+<p>Strict RFC 4648 Base64 and Base64URL for caller-owned buffers. Always <code>no_std</code>,
+using only <code>core</code>: no dependencies, allocation, build script, or external runtime.
+Stable Rust; MSRV <strong>1.89.0</strong>. MIT licensed.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>use z64::{decode, encode, Mode};
+
+let mut text = [0; 8];
+let n = encode(b&quot;hello&quot;, &amp;mut text, Mode::Standard).unwrap();
+assert_eq!(&amp;text[..n], b&quot;aGVsbG8=&quot;);
+
+let mut bytes = [0; 5];
+let n = decode(&amp;text[..n], &amp;mut bytes, Mode::Standard).unwrap();
+assert_eq!(&amp;bytes[..n], b&quot;hello&quot;);
+</code></pre></div>
+<h2 id="modes-and-buffers">Modes and buffers<a class="heading-anchor" href="#modes-and-buffers" aria-label="链接到 Modes and buffers">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Symbols 62 / 63</th>
+<th>Incomplete final quantum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Standard</code></td>
+<td><code>+ /</code></td>
+<td>Requires <code>=</code> padding</td>
+</tr>
+<tr>
+<td><code>StandardNoPad</code></td>
+<td><code>+ /</code></td>
+<td>Forbids <code>=</code></td>
+</tr>
+<tr>
+<td><code>UrlSafe</code></td>
+<td><code>- _</code></td>
+<td>Requires <code>=</code> padding</td>
+</tr>
+<tr>
+<td><code>UrlSafeNoPad</code></td>
+<td><code>- _</code></td>
+<td>Forbids <code>=</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Complete quanta have no padding in all four modes. Symbols 0–61 are shared;
+the other alphabet's symbols 62/63 are rejected. Whitespace, line breaks, misplaced
+padding, impossible lengths, and nonzero unused bits are errors.</p>
+<p><code>encoded_len(n, mode)</code> returns the exact size, or <code>None</code> on overflow.
+<code>decoded_capacity(n)</code> returns <code>Some</code> of a safe upper bound for every <code>usize</code>,
+without validating syntax. Terminal padding can reduce the exact decode capacity.
+Both conversions return the actual written length. Exact-sized, unaligned slices
+are supported; no readable or writable buffer tail is required.</p>
+<h2 id="error-contract">Error contract<a class="heading-anchor" href="#error-contract" aria-label="链接到 Error contract">#</a></h2>
+<p>All positions are zero-based byte offsets in the original input. Decode precedence:</p>
+<ol>
+<li>Impossible length: padded input must be divisible by four; unpadded input must
+not have remainder one. <code>InvalidLength.index</code> is the end-of-input offset.</li>
+<li>Output capacity, calculated using length and at most two terminal <code>=</code> bytes in
+padded modes. <code>OutputTooSmall</code> reports that required size even if content is invalid.</li>
+<li>First illegal alphabet byte or misplaced <code>=</code>, from left to right.</li>
+<li>Nonzero unused bits at the last alphabet symbol (<code>NonCanonical</code>).</li>
+</ol>
+<p>Length/capacity errors leave output unchanged. On a content error at <code>index</code>,
+only complete decoded quanta before that quantum may have changed: at most
+<code>output[..(index / 4) * 3]</code>. That prefix is unspecified on error. The rest remains
+unchanged. Successful calls change only <code>output[..written]</code>.</p>
+<h2 id="scope">Scope<a class="heading-anchor" href="#scope" aria-label="链接到 Scope">#</a></h2>
+<p>The specification is <a href="https://www.rfc-editor.org/rfc/rfc4648.html">RFC 4648 §§3–5 and §10</a>.
+There is no MIME handling, whitespace skipping, custom alphabet, streaming I/O,
+CLI, serde integration, or other encoding format.</p>
+<h2 id="backends-and-reproducibility">Backends and reproducibility<a class="heading-anchor" href="#backends-and-reproducibility" aria-label="链接到 Backends and reproducibility">#</a></h2>
+<p>The scalar path uses paired encoding lookups and an eight-symbol SWAR decoder.
+AVX-512 VBMI, AVX2 and AArch64 NEON accelerate conversion. VBMI uses masked
+loads/stores for partial vectors; scalar code handles the final incomplete quantum.
+On x86-64, a cached <code>core::arch</code> CPUID/XGETBV check establishes CPU and OS support,
+including opmask and ZMM state before selecting AVX-512.
+SGX, bare-metal/UEFI, and 32-bit x86 use compile-time features. AArch64 uses NEON only when enabled
+by the target. Other targets use scalar code. No API requires <code>unsafe</code>.</p>
+<p><code>force-scalar</code>, <code>reference</code>, <code>no-avx512</code>, <code>no-runtime-detect</code>, and <code>no-short-path</code> are verification
+and benchmark controls. <code>reference</code> retains the simple scalar implementation.
+No feature changes the accepted language, error precedence, or dependency graph.
+Rust 1.89 is required for stable AVX-512 intrinsics; the public API is unchanged.</p>
+<p>The independent <a href="../z64/comparison-readme/">comparison project</a> pins current baseline
+versions, checks strict semantics, and retains raw samples and environment data.
+<a href="https://github.com/LIghtJUNction/z64/blob/main/comparison/REPORT.md">Performance results</a> include both wins and losses for generic
+and native builds. The recorded measurements use warm buffers on a shared Xeon
+with AVX-512 VBMI; they establish no portable speed guarantee. The 2x target
+against the strongest current competitor remains unmet. Shared-runner smoke
+results check correctness and are not used for performance conclusions.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>cargo test --locked
+cargo +1.89.0 test --locked
+cargo test --manifest-path comparison/Cargo.toml --locked
+bash comparison/run.sh
+</code></pre></div>
+<h2 id="ci-and-publishing">CI and publishing<a class="heading-anchor" href="#ci-and-publishing" aria-label="链接到 CI and publishing">#</a></h2>
+<p>CI tests stable and MSRV on x86-64 and AArch64 runners, checks bare-metal targets,
+runs Miri on scalar code, and audits the zero-dependency package boundary.
+The comparison workspace is excluded from the published crate.</p>
+<p>Set the repository Actions secret <code>CARGO_REGISTRY_TOKEN</code>. A <code>vX.Y.Z</code> tag matching
+<code>Cargo.toml</code> triggers full checks on its resolved commit, package verification,
+and <code>cargo publish --locked</code>. The Publish workflow can also select an existing
+tag manually. Missing credentials, mismatched versions, or failed checks stop
+publication. GitHub Release creation follows confirmed crates.io publication.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/z64/blob/7e9cff67beae2c484f8b9749b83ae24a1d0e1bbd/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/z64">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../z64/comparison-readme/"><span class="pagination-label">下一页</span><span class="pagination-title">Reproducible comparison</span></a></nav>
+      <footer class="page-footer">
+        <span>z64 <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#modes-and-buffers">Modes and buffers</a></li><li class="toc-level-2"><a href="#error-contract">Error contract</a></li><li class="toc-level-2"><a href="#scope">Scope</a></li><li class="toc-level-2"><a href="#backends-and-reproducibility">Backends and reproducibility</a></li><li class="toc-level-2"><a href="#ci-and-publishing">CI and publishing</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

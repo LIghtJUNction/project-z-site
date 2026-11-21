@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zcalld · Agent library · Project Z">
+  <meta property="og:description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta property="og:type" content="website">
+  <title>zcalld · Agent library · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zcalld/library/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zcalld">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zcalld" aria-label="zcalld 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zcalld</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/" aria-current="page">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/" aria-current="page">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zcalld/">zcalld 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zcalld/">zcalld</a><span aria-hidden="true">/</span><span>Agent library</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#start-with-a-preview">Start with a preview</a></li><li class="toc-level-2"><a href="#instructions">Instructions</a></li><li class="toc-level-2"><a href="#skills">Skills</a></li><li class="toc-level-2"><a href="#mcp-definitions">MCP definitions</a></li><li class="toc-level-2"><a href="#application-matrix">Application matrix</a></li><li class="toc-level-2"><a href="#ownership-conflicts-and-rollback">Ownership, conflicts, and rollback</a></li><li class="toc-level-2"><a href="#migration-and-portable-copies">Migration and portable copies</a></li><li class="toc-level-2"><a href="#boundaries-retained-from-the-source-audit">Boundaries retained from the source audit</a></li><li class="toc-level-2"><a href="#validation-and-source-references">Validation and source references</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="agent-library">Agent library</h1>
+<p><code>zcalld library</code> keeps shared instructions, skill files, and MCP definitions in the
+zcalld configuration directory. Editing the library does <strong>not</strong> change an agent's
+files. Apply the selected content explicitly, inspect the result, and start a new
+agent session when that agent reads instructions or skills only at startup.</p>
+<p>The gateway does not read this state, watch these files, run MCP servers, or keep a
+library worker alive. These commands run only when invoked.</p>
+<h2 id="start-with-a-preview">Start with a preview<a class="heading-anchor" href="#start-with-a-preview" aria-label="链接到 Start with a preview">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>zcalld library list --json
+zcalld library targets --json
+zcalld library apply --agent claude --dry-run --json
+zcalld library apply --agent claude --json
+</code></pre></div>
+<p><code>apply</code> selects entries assigned to the requested agent. <code>--kind mcp</code>, <code>--kind instructions</code>, or <code>--kind skills</code> restricts the operation. The default is <code>all</code>.
+The result lists changed paths and counts, never MCP environment or header values.
+<code>--dry-run</code> validates the complete operation without writing agent files or an
+ownership record. <code>targets</code> reports the supported categories and instruction
+overrides; it does not claim an application is installed or its service reachable.</p>
+<p>All management commands accept the existing <code>--config PATH</code> and <code>--json</code> options.
+The previously supported <code>library list</code>, <code>import</code>, <code>export</code>, <code>add-mcp</code>, and <code>apply</code>
+commands remain available.</p>
+<h2 id="instructions">Instructions<a class="heading-anchor" href="#instructions" aria-label="链接到 Instructions">#</a></h2>
+<p>Instructions consist of a selected named set, an agent assignment list, and optional
+extra text for each agent. The default set always exists conceptually and may be
+empty.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>zcalld library instructions set default --file ./shared.md --agents claude,codex
+zcalld library instructions create research --name Research --file ./research.md
+zcalld library instructions rename research --name &#x27;Research work&#x27;
+zcalld library instructions use research
+zcalld library instructions extra --agent claude --file ./claude-extra.md
+zcalld library instructions show research --json
+zcalld library instructions show --agent claude --json
+zcalld library instructions list --json
+zcalld library instructions apply --agent claude --dry-run
+zcalld library instructions apply --agent claude
+</code></pre></div>
+<p><code>assign --agents claude,codex</code> replaces the assignment list. <code>enable --agent NAME</code>
+adds one agent and <code>disable --agent NAME</code> removes it. Apply afterwards to update
+that agent. An empty file passed to <code>extra</code> clears its extra text.</p>
+<p><code>link ID --file PATH</code> reads a user-maintained source file on each apply. It does
+not copy the file or grant permission to modify it. A later <code>set ID --file PATH</code>
+copies text into the library and detaches the link. Removing a linked set never
+deletes its external source. <code>remove ID</code> deletes a nondefault set; removing the
+active set selects <code>default</code>. To clear the default set, set it from an empty file.</p>
+<p>Applied text is placed between <code>zcalld:library:begin</code> and <code>zcalld:library:end</code>
+comments. Text outside those comments remains byte-for-byte unchanged. The next
+apply checks that the prior managed block has not been edited. A conflicting edit,
+malformed marker, higher-priority <code>AGENTS.override.md</code>, missing linked source, or
+source that is also the destination stops the operation. Existing Magpie instruction
+blocks require explicit review before another writer is added.</p>
+<h2 id="skills">Skills<a class="heading-anchor" href="#skills" aria-label="链接到 Skills">#</a></h2>
+<p>A skill is a directory containing <code>SKILL.md</code> and its supporting files. Installation
+copies the entire directory, including binary resources and executable scripts;
+no script is run. Only Git's <code>.git</code> metadata is excluded. Internal symbolic links
+are materialized as ordinary files. Links outside the source, cycles, special
+files, and excessive trees are rejected.</p>
+<p>The <code>files</code> array returned by <code>skills show --json</code> contains relative resource
+names separated by <code>/</code> on every platform; pass those names unchanged to
+<code>skills read/write --file</code>. Absolute source and destination paths use the native
+filesystem format.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>zcalld library skills install review --dir ./skills/review --agents claude,codex
+zcalld library skills fetch review-remote --git https://github.com/owner/skills.git \
+  --path skills/review --ref main --agents claude,codex
+zcalld library skills create notes --file ./SKILL.md --agents claude
+zcalld library skills list --json
+zcalld library skills show review --json
+zcalld library skills read review --file SKILL.md --json
+zcalld library skills write review --file references/style.md --input ./style.md
+zcalld library skills update review
+zcalld library skills assign review --agents claude,opencode
+zcalld library skills apply --agent claude --dry-run
+zcalld library skills apply --agent claude
+</code></pre></div>
+<p><code>install --dir</code> copies a local folder. <code>install --git</code> and <code>fetch --git</code> read a
+skill from an HTTPS Git repository or an existing local repository. <code>--path</code>
+selects the directory containing <code>SKILL.md</code> and defaults to the repository root;
+<code>--ref</code> selects a branch, tag or commit and defaults to the remote's <code>HEAD</code>.
+The saved source includes the exact resolved commit, which <code>show</code> and <code>list</code>
+expose for review. Credentials belong in Git's credential helper, not in the URL.</p>
+<p><code>update NAME</code> uses the remembered folder or Git source. A branch follows its new
+head; a commit remains pinned until an explicit <code>--ref</code> selects another revision.
+<code>--git</code>, <code>--dir</code>, <code>--ref</code> and <code>--path</code> can replace the remembered source. Updating a
+Git skill with locally edited stored files stops without changing anything;
+<code>--force</code> explicitly replaces edits present when the update starts. Files added,
+removed, edited or whose executable bit changes during source loading stop the update,
+including when <code>--force</code> is set. Fetching and updating save the library
+copy only. Review it, then apply it to the intended agents with <code>skills apply</code>.</p>
+<p>An update that changes an existing path between a file and a directory is rejected;
+the stored files and source metadata keep their previous versions. Fetch that
+revision under a new skill name and review it, then disable the old name and apply
+the replacement to each selected agent. For example, to replace <code>review</code> in Claude:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>zcalld library skills fetch review-next --git https://github.com/owner/skills.git \
+  --path skills/review --ref main --agents claude
+zcalld library skills show review-next --json
+zcalld library skills disable review
+zcalld library skills apply --agent claude --dry-run
+zcalld library skills apply --agent claude
+</code></pre></div>
+<p>Git objects are read directly into the bounded file transaction. Fetching does
+not check out the repository, invoke its filters or hooks, initialize submodules,
+install dependencies, or execute scripts. Binary resources and executable bits
+are preserved; symlinks and submodules are rejected. Temporary Git objects are
+removed when the operation ends. Git is required only for these on-demand commands
+and each subprocess has a 120-second deadline.</p>
+<p><code>disable NAME</code> preserves the stored files and assignments while excluding that
+skill from subsequent applies. <code>enable NAME</code> restores its eligibility. <code>remove NAME</code> removes the library's entry and its stored files; applying to an agent then
+removes only the previously managed copy. An unrelated agent skill is left alone.
+An extra file, edit, executable-bit change, or replacement link in a managed agent
+copy is a conflict, so apply and revert stop before changing any targets.</p>
+<p>Each tree is bounded to 32 MiB, 2,048 files and 32 directory levels; an individual
+file is limited to 8 MiB. One operation is bounded to 64 MiB and 4,096 output files.
+Exceeding a bound is an error, never a partial skill import.</p>
+<h2 id="mcp-definitions">MCP definitions<a class="heading-anchor" href="#mcp-definitions" aria-label="链接到 MCP definitions">#</a></h2>
+<p>MCP entries use the imported Magpie metadata shape:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>{
+  &quot;name&quot;: &quot;example&quot;,
+  &quot;transport&quot;: &quot;stdio&quot;,
+  &quot;command&quot;: &quot;example-mcp&quot;,
+  &quot;args&quot;: [&quot;--read-only&quot;],
+  &quot;env&quot;: {&quot;TOKEN&quot;: &quot;${EXAMPLE_TOKEN}&quot;},
+  &quot;agents&quot;: [&quot;claude&quot;, &quot;codex&quot;]
+}
+</code></pre></div>
+<p>For a remote server use <code>transport: &quot;http&quot;</code> or <code>&quot;sse&quot;</code>, <code>url</code>, and optional
+<code>headers</code>. The library preserves unknown metadata, selected header accounts,
+assignments and disabled state. Selected account headers replace matching base
+header names case-insensitively. Header accounts and the definitions themselves
+are private files; listing or showing an MCP entry prints metadata only.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>zcalld library mcp add --file ./server.json
+zcalld library mcp set example --file ./replacement.json
+zcalld library mcp update example --file ./replacement.json
+zcalld library mcp show example --json
+zcalld library mcp show example --file ./private-copy.json
+zcalld library mcp assign example --agents claude,codex
+zcalld library mcp disable example
+zcalld library mcp enable example
+zcalld library mcp remove example
+zcalld library mcp apply --agent codex --dry-run
+zcalld library mcp apply --agent codex
+</code></pre></div>
+<p><code>set</code> is an upsert of a complete definition, <code>add</code> requires a new name, and <code>update</code>
+requires an existing name. <code>add-mcp --file PATH</code> remains an alias for <code>mcp set</code>.
+An explicit empty <code>agents</code> array selects no agents. For compatibility with the
+earlier zcalld CLI, an entry with no <code>agents</code> member is eligible for an explicitly
+requested agent. Imported Magpie entries already have assignment arrays.</p>
+<p>Transport conversion is explicit: Gemini uses <code>httpUrl</code> for streamable HTTP and
+<code>url</code> for SSE; Antigravity uses <code>serverUrl</code>; OpenCode uses <code>local</code>/<code>remote</code> and an
+array command; Zed uses <code>context_servers</code>. Codex uses <code>[mcp_servers.&quot;NAME&quot;]</code>
+tables, <code>http_headers</code>, <code>env_http_headers</code>, <code>bearer_token_env_var</code>, and <code>env_vars</code>.
+Environment references stay references: the CLI does not resolve secrets into
+new agent files. Unsupported interpolation or transport combinations fail before
+any files are written. Codex startup timeouts and disabled-tool lists are supported;
+other agents' disabled-tool permission formats are reported as unsupported rather
+than silently discarded.</p>
+<h2 id="application-matrix">Application matrix<a class="heading-anchor" href="#application-matrix" aria-label="链接到 Application matrix">#</a></h2>
+<p>These are file-format adapters. No agent is installed or started by the library.
+Paths below are the normal user locations; supported native directory overrides
+are honored. <code>library targets</code> is the machine-readable capability report.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Instructions</th>
+<th>Skills</th>
+<th>MCP destination / format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td><code>.claude/CLAUDE.md</code></td>
+<td><code>.claude/skills</code></td>
+<td><code>.claude.json</code>, <code>mcpServers</code></td>
+</tr>
+<tr>
+<td>Codex</td>
+<td><code>.codex/AGENTS.md</code></td>
+<td><code>.codex/skills</code></td>
+<td><code>.codex/config.toml</code>, TOML tables</td>
+</tr>
+<tr>
+<td>Gemini CLI</td>
+<td><code>.gemini/GEMINI.md</code></td>
+<td><code>.gemini/skills</code></td>
+<td><code>.gemini/settings.json</code>, <code>mcpServers</code></td>
+</tr>
+<tr>
+<td>Qwen Code</td>
+<td><code>.qwen/QWEN.md</code></td>
+<td><code>.qwen/skills</code></td>
+<td><code>.qwen/settings.json</code>, Gemini format</td>
+</tr>
+<tr>
+<td>Antigravity / agy</td>
+<td><code>.gemini/config/GEMINI.md</code></td>
+<td><code>.gemini/config/skills</code></td>
+<td><code>.gemini/config/mcp_config.json</code></td>
+</tr>
+<tr>
+<td>OpenCode</td>
+<td>config directory <code>AGENTS.md</code></td>
+<td>config directory <code>skills</code></td>
+<td><code>opencode.jsonc</code> or <code>opencode.json</code>, v1/v2 MCP layout</td>
+</tr>
+<tr>
+<td>Copilot CLI</td>
+<td><code>.copilot/copilot-instructions.md</code></td>
+<td><code>.copilot/skills</code></td>
+<td><code>.copilot/mcp-config.json</code></td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td>No user-wide file adapter</td>
+<td><code>.cursor/skills</code></td>
+<td><code>.cursor/mcp.json</code></td>
+</tr>
+<tr>
+<td>Crush</td>
+<td>config directory <code>CRUSH.md</code></td>
+<td>config directory <code>skills</code></td>
+<td><code>crush.json</code>, <code>mcp</code></td>
+</tr>
+<tr>
+<td>Grok Build</td>
+<td><code>.grok/AGENTS.md</code></td>
+<td><code>.grok/skills</code></td>
+<td><code>.grok/config.toml</code>, TOML tables</td>
+</tr>
+<tr>
+<td>Pi</td>
+<td>agent directory context file</td>
+<td>agent directory <code>skills</code></td>
+<td>Native <code>mcp.json</code>; detected MCP adapter/extension settings</td>
+</tr>
+<tr>
+<td>OmO</td>
+<td><code>.omo/agent</code> context file</td>
+<td><code>.omo/agent/skills</code></td>
+<td><code>.omo/agent/mcp.json</code>, native Pi format</td>
+</tr>
+<tr>
+<td>omp</td>
+<td><code>.omp/agent/AGENTS.md</code></td>
+<td><code>.omp/agent/skills</code></td>
+<td><code>.omp/agent/mcp.json</code></td>
+</tr>
+<tr>
+<td>Zed</td>
+<td>No adapter</td>
+<td>No adapter</td>
+<td>native settings directory <code>settings.json</code>, <code>context_servers</code></td>
+</tr>
+<tr>
+<td>VS Code</td>
+<td>No adapter</td>
+<td>No adapter</td>
+<td>native user directory <code>mcp.json</code>, <code>servers</code></td>
+</tr>
+<tr>
+<td>Claude Desktop</td>
+<td>No adapter</td>
+<td>No adapter</td>
+<td>native config directory <code>claude_desktop_config.json</code>, stdio only</td>
+</tr>
+<tr>
+<td>Kiro CLI</td>
+<td><code>.kiro/steering/AGENTS.md</code></td>
+<td><code>.kiro/skills</code></td>
+<td><code>.kiro/settings/mcp.json</code></td>
+</tr>
+<tr>
+<td>DeepSeek Harness</td>
+<td><code>.dsh/AGENTS.md</code></td>
+<td><code>.dsh/skills</code></td>
+<td>No native YAML profile-patch adapter</td>
+</tr>
+<tr>
+<td>Shared agent directory</td>
+<td><code>.agents/AGENTS.md</code></td>
+<td><code>.agents/skills</code></td>
+<td>No adapter</td>
+</tr>
+</tbody>
+</table></div>
+<p>Windows and macOS use their native application-data locations for Zed, VS Code,
+and Claude Desktop. Crush uses its local application-data directory on Windows
+for MCP/skills and its XDG configuration directory for instructions. omp honors
+<code>OMP_PROFILE</code>/<code>PI_PROFILE</code>, <code>PI_CONFIG_DIR</code>, and <code>PI_CODING_AGENT_DIR</code>; OmO honors
+<code>OMO_CODING_AGENT_DIR</code> and <code>SENPI_CODING_AGENT_DIR</code>.
+Codex/Pi/OmO instruction overrides are checked. Gemini/Qwen
+custom context filenames are read from their settings. Pi native MCP requires a
+version that implements it (0.99 or newer); the CLI does not infer an installed
+binary's version from a directory. A detected <code>pi-mcp-adapter</code> uses
+<code>mcp-adapter.json</code>; <code>pi-mcp-extension</code> uses its documented default-home file.
+Conflicting extension registrations or disabled native MCP without an adapter
+are reported explicitly.</p>
+<h2 id="ownership-conflicts-and-rollback">Ownership, conflicts, and rollback<a class="heading-anchor" href="#ownership-conflicts-and-rollback" aria-label="链接到 Ownership, conflicts, and rollback">#</a></h2>
+<p><code>library-managed.json</code> records only what zcalld applied. JSON/JSONC MCP updates
+preserve surrounding keys and comments. TOML servers occupy marked blocks;
+unrelated tables remain unchanged. Skill copies record each file's SHA-256 and
+executable bit. Instruction blocks retain the exact last written text.</p>
+<p>An existing entry with a different definition is a conflict. An identical existing
+JSON MCP entry is left unowned and reported in <code>unowned_equal_servers</code>. To explicitly
+transfer responsibility for an identical entry, apply with <code>--adopt-existing</code>.
+That permits future zcalld updates/removal of that entry. Existing unowned TOML
+tables are not adopted by guessing their syntax or ownership.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>zcalld library revert --agent claude --dry-run
+zcalld library revert --agent claude
+zcalld library mcp revert --agent codex
+</code></pre></div>
+<p>Revert withdraws managed content without deleting the stored library. It preserves
+unrelated manual content and refuses externally changed managed content. Apply
+and revert prepare every change before writing, take a private backup, and restore
+earlier files if a write fails. A per-library process lock rejects concurrent CLI
+writers; a changed target detected during preparation also stops the operation.
+Other applications do not necessarily honor that lock, so close their settings
+editors before applying a reviewed change.</p>
+<h2 id="migration-and-portable-copies">Migration and portable copies<a class="heading-anchor" href="#migration-and-portable-copies" aria-label="链接到 Migration and portable copies">#</a></h2>
+<p>The metadata remains <code>library.json</code>. Body files use the source layout:</p>
+<ul>
+<li><code>library/instructions.md</code></li>
+<li><code>library/instruction-sets/ID.md</code></li>
+<li><code>library/instructions/AGENT.md</code></li>
+<li><code>library/skills/NAME/**</code></li>
+</ul>
+<p>The Magpie migration copies this body directory as well as metadata, safely
+materializes internal links, and privately archives <code>mcp-signins.json</code>. It does
+not apply the imported library to live agents or claim ownership of their files.
+Linked external instruction sources retain their explicit paths.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>zcalld library export --file ./private-library.json --assets ./library-assets
+zcalld library import --file ./private-library.json --assets ./library-assets
+</code></pre></div>
+<p>Without <code>--assets</code>, import/export transfers metadata only. A full export can contain
+MCP header/environment credentials; it is written privately and is not printed.
+The imported Magpie <code>applied</code> record is preserved as source metadata. It is not
+accepted as proof that zcalld owns a live agent file.</p>
+<h2 id="boundaries-retained-from-the-source-audit">Boundaries retained from the source audit<a class="heading-anchor" href="#boundaries-retained-from-the-source-audit" aria-label="链接到 Boundaries retained from the source audit">#</a></h2>
+<p>Magpie also provides market discovery, WSL target
+mapping, profile-specific DSH YAML patches, MCP OAuth sign-in, an MCP hub, skill
+routing, cloud/peer synchronization, hooks, commands, subagents and rule automation.
+Those execution paths are not implemented by this native library module. Imported
+metadata and archived credentials are retained. Unsupported application is an
+explicit error; enabled metadata-only automation flags appear in apply warnings.
+This implementation is not a claim of complete Magpie library parity.</p>
+<p>The audit of the development machine found six MCP entries (two stdio, four HTTP),
+no skills or shared instruction assignments, no MCP OAuth/header accounts, and no
+enabled library hub/router/shared-skill/automatic-update settings. No live files
+were modified to run the tests.</p>
+<h2 id="validation-and-source-references">Validation and source references<a class="heading-anchor" href="#validation-and-source-references" aria-label="链接到 Validation and source references">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>cargo test -p zcalld maintenance::agent_library::tests --locked
+cargo build -p zcalld --locked
+python3 scripts/test-library.py
+python3 scripts/test-control.py
+</code></pre></div>
+<p>Set <code>ZCALLD_TEST_BINARY</code> to test a specific built executable. The integration suite
+uses temporary homes and synthetic MCP definitions; it does not connect to MCP
+servers, start agents, run skill scripts, or make model requests. It covers CRUD,
+assignment, transport shapes, native-file preservation, dry runs, removal,
+conflicts, private exports, executable resources, link containment and locking.</p>
+<p>Behavior was checked against the pinned upstream source
+<a href="https://github.com/yetone/magpie/tree/1e174f8f9f613a920203a4658d259456fcab5d0d"><code>yetone/magpie</code> at <code>1e174f8f9f613a920203a4658d259456fcab5d0d</code></a>:
+<a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/library/library.go">library schema</a>,
+<a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/library/instructions.go">instructions</a>,
+<a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/library/skills.go">skills</a>,
+<a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/library/targets.go">target paths</a>,
+<a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/library/mcp.go">MCP encoding</a>,
+<a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/library/envref.go">environment references</a>,
+and <a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/library/pimcp.go">Pi MCP selection</a>.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/LIBRARY.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zcalld">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zcalld/keys/"><span class="pagination-label">上一页</span><span class="pagination-title">Caller API keys</span></a><a class="pagination-link next" href="../../zcalld/magpie-parity/"><span class="pagination-label">下一页</span><span class="pagination-title">Magpie alignment and remaining acceptance</span></a></nav>
+      <footer class="page-footer">
+        <span>zcalld <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#start-with-a-preview">Start with a preview</a></li><li class="toc-level-2"><a href="#instructions">Instructions</a></li><li class="toc-level-2"><a href="#skills">Skills</a></li><li class="toc-level-2"><a href="#mcp-definitions">MCP definitions</a></li><li class="toc-level-2"><a href="#application-matrix">Application matrix</a></li><li class="toc-level-2"><a href="#ownership-conflicts-and-rollback">Ownership, conflicts, and rollback</a></li><li class="toc-level-2"><a href="#migration-and-portable-copies">Migration and portable copies</a></li><li class="toc-level-2"><a href="#boundaries-retained-from-the-source-audit">Boundaries retained from the source audit</a></li><li class="toc-level-2"><a href="#validation-and-source-references">Validation and source references</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

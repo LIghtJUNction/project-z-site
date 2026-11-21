@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="通过授权 MCP 会话调用开发机的命令、文件和原生工具。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ssmcp · 概览 · Project Z">
+  <meta property="og:description" content="通过授权 MCP 会话调用开发机的命令、文件和原生工具。">
+  <meta property="og:type" content="website">
+  <title>ssmcp · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ssmcp/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="ssmcp">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ssmcp" aria-label="ssmcp 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ssmcp</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ssmcp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/" aria-current="page">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ssmcp 文档"><div class="nav-group"><p class="nav-label">ssmcp</p><ul><li><a class="nav-link" href="../ssmcp/" aria-current="page">概览</a></li><li><a class="nav-link" href="../ssmcp/windows-browser-setup/">Windows 客户端与 Zuse CLI</a></li><li><a class="nav-link" href="../ssmcp/configuration/">客户端连接、账号与授权</a></li><li><a class="nav-link" href="../ssmcp/client-accounts/">客户端账号、授权与被控设备</a></li><li><a class="nav-link" href="../ssmcp/client-extension/">可定制客户端、上下文工程与工具 hook</a></li><li><a class="nav-link" href="../ssmcp/client-input/">客户端输入、引用与本地沟通</a></li><li><a class="nav-link" href="../ssmcp/client-server/">选择中转服务器与固定服务器公钥</a></li><li><a class="nav-link" href="../ssmcp/client-ui/">客户端 UI</a></li><li><a class="nav-link" href="../ssmcp/commands/">客户端命令与独立任务</a></li><li><a class="nav-link" href="../ssmcp/browser-existing-session/">用 Zuse 连接已有浏览器</a></li><li><a class="nav-link" href="../ssmcp/session-control/">客户端会话、重连与输出管理</a></li><li><a class="nav-link" href="../ssmcp/agent-collaboration/">会话内 Agent 协作</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ssmcp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/" aria-current="page">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ssmcp 文档"><div class="nav-group"><p class="nav-label">ssmcp</p><ul><li><a class="nav-link" href="../ssmcp/" aria-current="page">概览</a></li><li><a class="nav-link" href="../ssmcp/windows-browser-setup/">Windows 客户端与 Zuse CLI</a></li><li><a class="nav-link" href="../ssmcp/configuration/">客户端连接、账号与授权</a></li><li><a class="nav-link" href="../ssmcp/client-accounts/">客户端账号、授权与被控设备</a></li><li><a class="nav-link" href="../ssmcp/client-extension/">可定制客户端、上下文工程与工具 hook</a></li><li><a class="nav-link" href="../ssmcp/client-input/">客户端输入、引用与本地沟通</a></li><li><a class="nav-link" href="../ssmcp/client-server/">选择中转服务器与固定服务器公钥</a></li><li><a class="nav-link" href="../ssmcp/client-ui/">客户端 UI</a></li><li><a class="nav-link" href="../ssmcp/commands/">客户端命令与独立任务</a></li><li><a class="nav-link" href="../ssmcp/browser-existing-session/">用 Zuse 连接已有浏览器</a></li><li><a class="nav-link" href="../ssmcp/session-control/">客户端会话、重连与输出管理</a></li><li><a class="nav-link" href="../ssmcp/agent-collaboration/">会话内 Agent 协作</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../ssmcp/">ssmcp 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../ssmcp/">ssmcp</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-3"><a href="#把你的电脑接到-agent用一个-code_mode-调用原生工具">把你的电脑接到 Agent。用一个 code_mode 调用原生工具。</a></li><li class="toc-level-2"><a href="#演示视频">演示视频</a></li><li class="toc-level-2"><a href="#一条连接三种用法">一条连接，三种用法</a></li><li class="toc-level-2"><a href="#快速开始">快速开始</a></li><li class="toc-level-3"><a href="#1-安装">1. 安装</a></li><li class="toc-level-3"><a href="#2-在项目目录连接">2. 在项目目录连接</a></li><li class="toc-level-3"><a href="#3-接入-mcp">3. 接入 MCP</a></li><li class="toc-level-2"><a href="#终端就是工作会话">终端就是工作会话</a></li><li class="toc-level-3"><a href="#只在本机运行">只在本机运行</a></li><li class="toc-level-3"><a href="#使用同一入口选择连接目标">使用同一入口选择连接目标</a></li><li class="toc-level-3"><a href="#对话与工具">对话与工具</a></li><li class="toc-level-3"><a href="#从命令行连接对话与传递结果">从命令行连接对话与传递结果</a></li><li class="toc-level-3"><a href="#定时更新-git-上游">定时更新 Git 上游</a></li><li class="toc-level-3"><a href="#先预览再调整">先预览，再调整</a></li><li class="toc-level-2"><a href="#复用现有工具">复用现有工具</a></li><li class="toc-level-3"><a href="#管理-zuse-cli">管理 Zuse CLI</a></li><li class="toc-level-2"><a href="#独立核心库">独立核心库</a></li><li class="toc-level-2"><a href="#客户端掌握能力服务端负责连接">客户端掌握能力，服务端负责连接</a></li><li class="toc-level-3"><a href="#project-zztuio">Project Z：ztuio</a></li><li class="toc-level-2"><a href="#运行边界">运行边界</a></li><li class="toc-level-2"><a href="#开发">开发</a></li><li class="toc-level-2"><a href="#文档">文档</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="ssmcp">ssmcp</h1><p class="project-intro">通过授权 MCP 会话调用开发机的命令、文件和原生工具。</p>
+<h3 id="把你的电脑接到-agent用一个-code_mode-调用原生工具">把你的电脑接到 Agent。用一个 <code>code_mode</code> 调用原生工具。<a class="heading-anchor" href="#把你的电脑接到-agent用一个-code_mode-调用原生工具" aria-label="链接到 把你的电脑接到 Agent。用一个 code_mode 调用原生工具。">#</a></h3>
+<p>ssmcp 是一个可自建的远程 harness 通道。客户端把命令、文件、会话和已安装的开发工具接入授权会话；Agent 通过 MCP 选择设备并调用这些工具。模型可以在云端，工作区、执行环境和工具状态留在你的机器上。</p>
+<p><a href="#%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91">演示视频</a> · <a href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/connection-contexts.md">本地与远程目标</a> · <a href="../ssmcp/client-input/">会话操作</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/computer-use.md">工具与 Zuse CLI</a> · <a href="../ssmcp/client-extension/">编写自己的客户端</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/deployment.md">部署服务器</a></p>
+<p>  </p>
+<hr />
+<h2 id="演示视频">演示视频<a class="heading-anchor" href="#演示视频" aria-label="链接到 演示视频">#</a></h2>
+<ul>
+<li><strong>中文</strong>：<a href="https://v.douyin.com/_3yRZNA-Qls/">抖音 · ssmcp 项目介绍</a> · <a href="https://b23.tv/wA4gzmV">哔哩哔哩 · ssmcp 项目介绍</a></li>
+<li><strong>English</strong>：<a href="https://youtu.be/9LqpS5BXRTQ?si=kn2Oy9kPiUUPoFxm">YouTube · ssmcp Demo</a></li>
+</ul>
+<h2 id="一条连接三种用法">一条连接，三种用法<a class="heading-anchor" href="#一条连接三种用法" aria-label="链接到 一条连接，三种用法">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>你想做的事</th>
+<th>ssmcp 提供什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>让云端 Agent 操作开发机</td>
+<td>原生 Shell、独立命令任务、文件、Zuse CLI 管理，以及按需加载的 Codex / Claude Code / Pi / OpenCode 工具</td>
+</tr>
+<tr>
+<td>在终端里持续协作</td>
+<td>Markdown 回复、代码高亮、文件和技能引用、问答队列、历史恢复；运行期间仍可继续输入</td>
+</tr>
+<tr>
+<td>做自己的远程 harness</td>
+<td>客户端拥有工具目录、schema、上下文与 UI；复用协议和客户端扩展 hook，替换自己需要的部分</td>
+</tr>
+</tbody>
+</table></div>
+<p>它的基本过程很直接：Agent 选中一个在线客户端，提交带参数的工具调用，客户端在本机执行，再返回结果、图片或完整输出的归档位置。工具的名称和参数来自实时目录；安装了一个产品，不代表它的全部内部功能都可以直接调用。</p>
+<h2 id="快速开始">快速开始<a class="heading-anchor" href="#快速开始" aria-label="链接到 快速开始">#</a></h2>
+<h3 id="1-安装">1. 安装<a class="heading-anchor" href="#1-安装" aria-label="链接到 1. 安装">#</a></h3>
+<p>Linux / macOS：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>curl -fsSL https://github.com/LIghtJUNction/ssmcp/releases/latest/download/install.sh | sh
+</code></pre></div>
+<p>Windows PowerShell：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">powershell</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 powershell 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>irm https://github.com/LIghtJUNction/ssmcp/releases/latest/download/install.ps1 | iex
+</code></pre></div>
+<p>也可以使用 <code>cargo install ssmcp --locked --bin ssmcp</code>。安装脚本获取已发布版本；源码构建使用下文的完整子模块检出步骤。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/releases.md">平台与安装选项</a></p>
+<p>手动安装的客户端可以直接检查和更新：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>ssmcp update --check   # 只检查最新稳定版
+ssmcp update           # 校验下载后替换当前安装
+</code></pre></div>
+<p>更新使用官方发布的 <code>SHA256SUMS</code>，并检查候选程序的版本；下载或校验失败会保留原程序，源码版本较新时不会降级。Cargo、系统包管理器等管理的安装继续使用原来的更新命令。已有会话保持当前程序，重启后使用新版本。<a href="../ssmcp/commands/#%E6%9B%B4%E6%96%B0%E5%AE%A2%E6%88%B7%E7%AB%AF">自更新说明</a></p>
+<h3 id="2-在项目目录连接">2. 在项目目录连接<a class="heading-anchor" href="#2-在项目目录连接" aria-label="链接到 2. 在项目目录连接">#</a></h3>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>ssmcp alice@relay.example.com --name dev --title &quot;开发与测试&quot;
+</code></pre></div>
+<p>把服务器地址换成自己的服务地址。首次连接引导 GitHub 授权，并在该服务器绑定你选择的用户名。后续直接运行 <code>ssmcp</code>，即可复用最近的授权账号；没有图形浏览器时使用 <code>--no-browser</code>。</p>
+<p>客户端主动建立 HTTPS/WSS 连接，无需在设备上开放入站端口。保持终端或后台客户端运行，就能使用它的工作区和工具。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>ssmcp list       # 查看已授权的在线进程与已登记线程
+ssmcp -i         # 进入一台设备的交互终端
+ssmcp whoami    # 查看当前账号
+</code></pre></div>
+<p>完整步骤见<a href="../ssmcp/client-accounts/">账号与设备</a>和<a href="../ssmcp/client-server/">默认服务器与可信公钥</a>。</p>
+<h3 id="3-接入-mcp">3. 接入 MCP<a class="heading-anchor" href="#3-接入-mcp" aria-label="链接到 3. 接入 MCP">#</a></h3>
+<p>将终端显示的 <code>https://你的服务器/mcp</code> 加入 ChatGPT 或其他支持 OAuth 的 MCP 客户端，再完成该应用的授权。CLI 登录与 MCP 应用授权分别管理。</p>
+<p>对外入口有三个：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>入口</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list</code></td>
+<td>发现当前身份可访问的设备与客户端工具目录</td>
+</tr>
+<tr>
+<td><code>code_mode</code></td>
+<td>用 JavaScript 组合原生调用，安排顺序、并发和结果读取</td>
+</tr>
+<tr>
+<td><code>collab</code></td>
+<td>同一会话中的成员身份、定向消息、广播与确认</td>
+</tr>
+</tbody>
+</table></div>
+<p>被控设备可以不登录，直接运行 <code>ssmcp --allow 用户名@中继服务器</code>；控制者必须登录该服务器的既有账号。显式名单仅授权列出的人，已登录客户端省略名单时仅允许自己。CLI <code>invite</code> / <code>join</code> 和 MCP <code>invite</code> 已移除，会话内 agent 的 <code>collab.join</code> 保留。<a href="../ssmcp/client-accounts/">账号与授权</a></p>
+<p>先从 <code>list</code> 选择确切的客户端 ID，再查询工具的原始 schema：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>const clientId = &quot;CLIENT_ID_FROM_LIST&quot;;
+return await tools.search(clientId, {
+  query: &quot;ssmcp.exec&quot;,
+  include_schemas: true
+});
+</code></pre></div>
+<p>运行一个独立命令：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>const clientId = &quot;CLIENT_ID_FROM_LIST&quot;;
+return await exec.run(clientId, {
+  command: [&quot;git&quot;, &quot;status&quot;, &quot;--short&quot;],
+  wait_ms: 5000
+});
+</code></pre></div>
+<p>返回值包含任务 ID、运行状态、退出码与输出游标。等待时间到期后，任务可以继续运行；使用同一个 ID 读取或取消。大结果返回可追溯的归档元数据。<a href="../ssmcp/commands/">命令接口</a> · <a href="../ssmcp/session-control/">编排与输出</a></p>
+<h2 id="终端就是工作会话">终端就是工作会话<a class="heading-anchor" href="#终端就是工作会话" aria-label="链接到 终端就是工作会话">#</a></h2>
+<h3 id="只在本机运行">只在本机运行<a class="heading-anchor" href="#只在本机运行" aria-label="链接到 只在本机运行">#</a></h3>
+<p>Linux 上可以使用 <code>ssmcp local</code> 在当前项目启动本地 MCP 会话，无需远程服务器或 GitHub 登录。默认监听回环地址的可用端口；在终端执行 <code>/logs</code>，将本次 MCP 地址加入同机的 OAuth 客户端，并用其中的一次性登录码授权。终端会保持运行，退出后本次连接授权结束。</p>
+<p>本地 <code>code_mode</code> 还需已安装的 Node.js、Bubblewrap（<code>bwrap</code>）和 <code>prlimit</code>，以及系统允许创建相应的 Linux namespace。缺失时会明确失败，不会绕过沙箱。同版 <code>code-mode.js</code> 已编入 Linux 客户端，每次本地会话使用自己的私有副本，无需额外安装脚本。详见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/local-mode.md#%E8%BF%90%E8%A1%8C%E5%89%8D%E6%8F%90">运行前提</a>。</p>
+<p>已有 <code>.local</code> 名称解析和受信任的本机 HTTPS 反向代理时，可运行 <code>ssmcp local --listen 127.0.0.1:8765 --public-url https://workstation.local</code>。代理须指向该固定端口；命令不自动配置 mDNS、证书或防火墙。详见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/local-mode.md">本地运行与 <code>.local</code> 入口</a>。本段描述源码能力，安装版本是否包含该命令，以 <code>ssmcp local --help</code> 为准。</p>
+<h3 id="使用同一入口选择连接目标">使用同一入口选择连接目标<a class="heading-anchor" href="#使用同一入口选择连接目标" aria-label="链接到 使用同一入口选择连接目标">#</a></h3>
+<p>把本机或 HTTPS 中继保存为命名 context，随后用同一个参数选择：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>ssmcp context create here --local
+ssmcp context create work --server https://relay.example.com
+ssmcp --context work --name dev
+ssmcp context use here
+</code></pre></div>
+<p><code>--context</code> 只选择本次目标，<code>context use</code> 保存新连接的默认选择；已有连接和保存的 session 继续使用原目标。用 <code>ssmcp context show</code> 查看目标与选择来源。命名目标不保存账号凭据；完整优先级和本地运行前提见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/connection-contexts.md">本地与远程目标</a>。安装版本是否支持，以 <code>ssmcp context --help</code> 为准。</p>
+<h3 id="对话与工具">对话与工具<a class="heading-anchor" href="#对话与工具" aria-label="链接到 对话与工具">#</a></h3>
+<p>默认对话页收起侧栏，把主要空间留给正文和输入。你可以在工具运行期间补充要求，也可以指定某个已登记的 Agent 接收。账号与本月剩余流量显示在输入区上方，底部保留连接来源与操作提示。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>发给指定 Agent</td>
+<td>光标在草稿开头时按 <strong>←</strong>，选择成员，Enter / → 返回</td>
+</tr>
+<tr>
+<td>引用文件、图片</td>
+<td>输入 <code>@</code> 枚举工作区；支持中文、带空格路径和目录续补</td>
+</tr>
+<tr>
+<td>粘贴图片</td>
+<td><strong>Ctrl + V</strong> 或 <code>/paste</code>；<code>/attach PATH</code> 导入本地图片</td>
+</tr>
+<tr>
+<td>引用技能</td>
+<td>输入 <code>$</code> 枚举有效技能；项目技能覆盖同名全局技能</td>
+</tr>
+<tr>
+<td>接受候选</td>
+<td>↑ / ↓ 选择，Tab / Enter 补全；补全后再 Enter 发送</td>
+</tr>
+<tr>
+<td>运行本地命令</td>
+<td><code>!pwd</code>、<code>!cargo test</code>；输出与退出码回到会话</td>
+</tr>
+<tr>
+<td>查看任务</td>
+<td><code>/tasks</code>；<code>/tasks cancel JOB_ID</code> 停止指定命令任务</td>
+</tr>
+<tr>
+<td>回答问题</td>
+<td><strong>Shift + ↑</strong> 打开待答问题，保留普通草稿</td>
+</tr>
+<tr>
+<td>继续旧会话</td>
+<td><code>/resume</code> 选择本工作区的 JSONL 历史</td>
+</tr>
+<tr>
+<td>交接给另一个 Agent</td>
+<td><code>/handoff [备注]</code> 生成上下文文件与可编辑引用草稿，选好收件人后发送</td>
+</tr>
+<tr>
+<td>查看上下文</td>
+<td><code>/context</code>、<code>/memory</code> 查看当前分支与有界记忆</td>
+</tr>
+<tr>
+<td>压缩与分支</td>
+<td><code>/compact [摘要]</code>、<code>/fork [名称]</code>、<code>/switch CONTEXT_ID</code></td>
+</tr>
+<tr>
+<td>查看原生工具</td>
+<td><code>/pi</code>、<code>/cc</code>、<code>/codex</code> 列出真实目录；<code>TOOL {...}</code> 显式调用</td>
+</tr>
+<tr>
+<td>浏览工具输出</td>
+<td>默认显示状态与最多两行已脱敏结果；点击 <code>Click expand</code> 或选中后按 Enter 展开</td>
+</tr>
+<tr>
+<td>查看成员历史</td>
+<td>在成员列表右键点击进程或线程，查看该真实身份的记录；Esc 返回</td>
+</tr>
+<tr>
+<td>查看详细日志</td>
+<td><code>/logs</code> 打开 Logs；其他对话页可用右键切换日志</td>
+</tr>
+<tr>
+<td>展开状态侧栏</td>
+<td><strong>F3</strong> 或 <code>/sidebar</code>；再按一次收起，F8 保存当前设置</td>
+</tr>
+<tr>
+<td>复制与帮助</td>
+<td><code>/copy</code> 复制最近回复；<strong>F7</strong> 原生选择；<code>/help</code> 打开完整帮助</td>
+</tr>
+</tbody>
+</table></div>
+<p>工具调用成功结束时显示 <code>done</code>，运行中、失败、取消或超时显示实际状态。对话页只预览简短结果，详细记录可在 Logs 中查看；长输出仍可按任务游标或归档读取。</p>
+<p>回复支持 Markdown 和常见代码块语法高亮。读取图片后，客户端会探测终端的 Kitty 图像能力；支持时显示清晰图片，其他终端显示有界半块预览或文字说明。超过 8 KiB 的整段粘贴会保存为私有工作区文件并插入引用，便于继续补充文字。</p>
+<p>Agent 使用 <code>ssmcp.ui.message</code> 把进度与回答显示在这个会话里；重试可带幂等键，回执提供消息 ID 与历史保存状态。使用 <code>ssmcp.ui.ask</code> 非阻塞提问，再通过 <code>ssmcp.ui.questions</code> 读取答案。这些工具提供本地沟通通道，外部聊天应用仍决定自己的消息显示方式。</p>
+<p><code>ssmcp.ui.present</code> 支持文字、卡片、指标、表格、进度、步骤与条形图，复用同一条消息历史和复制通道。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/intelligence-ui.md">结构化显示</a></p>
+<p>分支上下文保留消息来源 ID 与内容哈希，并限制保存和返回的大小。<code>/compact</code> 可使用本地抽取或你提供的摘要；<code>/fork</code> 和 <code>/switch</code> 管理分支。它们不启动模型，也不重放历史任务。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/context-memory.md">上下文与分支</a></p>
+<p>未选择接收人时，用户要求由下一次符合条件的单个调用领取；选择成员后，仅绑定该成员身份的调用能领取。<strong>已交付</strong>表示要求进入了工具响应，执行进度仍需由接收者反馈。<a href="../ssmcp/client-input/">输入与交付语义</a> · <a href="../ssmcp/agent-collaboration/">成员协作</a></p>
+<h3 id="从命令行连接对话与传递结果">从命令行连接对话与传递结果<a class="heading-anchor" href="#从命令行连接对话与传递结果" aria-label="链接到 从命令行连接对话与传递结果">#</a></h3>
+<p><code>ssmcp list</code> 按进程和已登记线程显示树形目录，远程 <code>attach</code> 默认连接所选对象的聊天输入与输出。进程输入发给选定目录中的主接收入口及已登记线程；线程输入只发给确切的成员 ID。数字引用最近一次列表，保留 5 分钟；显示名称不会被当成线程身份。<a href="../ssmcp/client-accounts/#%E9%80%89%E6%8B%A9%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B">选择规则</a></p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>ssmcp list
+ssmcp attach thread THREAD_ID
+ssmcp send process PROCESS_ID &#x27;检查当前改动&#x27; | ssmcp wait --any
+ssmcp send thread THREAD_ID &#x27;整理当前结论&#x27; |
+  ssmcp wait --gather |
+  ssmcp send thread NEXT_THREAD_ID --stdin
+</code></pre></div>
+<p><code>send</code> 输出请求回执，<code>wait</code> 输出接收者的实际最终回复。可以等待任意一条、全部，或用 <code>--count N</code> 等待 N 个输入的结果；确认收到输入和进度更新都不算完成。输入在接收者下一次符合条件的原生调用响应中交付，这些命令不启动模型；停止等待或退出 attach 也不取消尚未完成的工作。<a href="../ssmcp/client-accounts/#%E5%8F%91%E9%80%81%E8%BE%93%E5%85%A5%E4%B8%8E%E7%AD%89%E5%BE%85%E5%AE%9E%E9%99%85%E5%9B%9E%E5%A4%8D">收发与等待</a></p>
+<p>聊天收发需要中继与接收端客户端同时支持相应接口，仅更新本机程序不会更新远端服务。请求和回复保存在服务端的有界内存中，最长保留 1 小时，服务端重启会丢失这批状态。原有 Shell 终端仍可用 <code>ssmcp -i</code> 或 <code>ssmcp attach process PROCESS_ID --terminal main</code>；本地保存会话使用 <code>ssmcp attach --local NAME</code>。<a href="../ssmcp/client-accounts/#%E8%81%8A%E5%A4%A9%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%85%BC%E5%AE%B9%E4%B8%8E%E4%BF%9D%E7%95%99%E8%BE%B9%E7%95%8C">兼容与保留边界</a></p>
+<p>成员历史只展示当前进程保留、能够核对真实身份的事件。旧记录中无法确定成员归属的内容留在进程视图，不会按显示名称分配给某个线程。<a href="../ssmcp/client-accounts/#%E6%9F%A5%E7%9C%8B%E7%BA%BF%E7%A8%8B%E5%8E%86%E5%8F%B2">线程历史</a></p>
+<h3 id="定时更新-git-上游">定时更新 Git 上游<a class="heading-anchor" href="#定时更新-git-上游" aria-label="链接到 定时更新 Git 上游">#</a></h3>
+<p>连接存续期间，ssmcp 默认每 300 秒检查当前分支的远端上游并更新对应的远端跟踪引用；JSONL、无终端和后台连接同样运行。可设为 60–86400 秒，或用 <code>0</code> 关闭，修改对新连接生效。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>ssmcp config get git-fetch-interval
+ssmcp config set git-fetch-interval 300
+ssmcp config set git-fetch-interval 0
+</code></pre></div>
+<p>首次检查、共享调度、超时与更新范围见<a href="../ssmcp/configuration/#background-git-fetch">定时 Git fetch 配置</a>。</p>
+<h3 id="先预览再调整">先预览，再调整<a class="heading-anchor" href="#先预览再调整" aria-label="链接到 先预览，再调整">#</a></h3>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>ssmcp ui preview
+ssmcp ui init
+ssmcp ui check
+</code></pre></div>
+<p>内置 <code>dark</code>、<code>codex-dark</code>、<code>nord</code>、<code>solarized</code>、<code>light</code>、<code>minimal</code> 六种主题。通过 <code>[ui]</code> 配置调整侧栏、面板顺序和颜色，F5 应用显示配置；<code>/reload</code> 则重新启动客户端。终端支持原生图片且侧栏空间足够时显示方形像素二维码，窄窗口显示完整链接；网关提供教程时进入中英文指南，旧网关暂未提供教程时进入门户首页。<a href="../ssmcp/client-ui/">界面配置</a></p>
+<h2 id="复用现有工具">复用现有工具<a class="heading-anchor" href="#复用现有工具" aria-label="链接到 复用现有工具">#</a></h2>
+<p>ssmcp 默认启用命令、文件、会话和 Zuse CLI 管理工具，不要求安装其他 harness。Codex、Claude Code、Pi 和 OpenCode 默认不探测、不启动；需要时用 <code>ssmcp.harnesses.load</code> 显式加载一项，<code>ssmcp.harnesses.list</code> 只读取缓存状态。加载后保留该工具的完整 schema、会话和审批方式，实际模型调用仍须显式发起。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/optional-harnesses.md">按需加载说明</a></p>
+<p><code>--input</code> 默认从终端接收聊天消息，<code>--agent</code> 默认由下一位调用方领取。要在启动时加载原生协议，请用 <code>--load-harness codex</code> 或 <code>--load-harness claude-code</code>。用 <code>ssmcp --list-harnesses</code> 查看支持项。<code>--load-harness ssmcp</code> 可以连接明确指定并已认证的 MCP 网关。<a href="../ssmcp/client-input/">客户端输入</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/agent-entry.md">协议加载</a></p>
+<p><code>ssmcp local --socket</code> 提供默认路径的本机 HTTP/MCP Unix socket，<code>--socket PATH</code> 可指定私有路径。时间工具支持当前 UTC、跨时区时间差和倒计时，终端直接显示运行时长与剩余时间，<code>/wait</code> 可查看详情。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/local-mode.md">本机连接</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/time-primitives.md">时间原语</a></p>
+<ul>
+<li><strong>开发工具</strong>：Codex、Claude Code、Pi、OpenCode；能力以当前成功注册的目录为准。</li>
+<li><strong>桌面与浏览器</strong>：直接运行独立 Zuse CLI，通过通用 <code>exec</code> 传递 argv、管理任务和读取结果。<code>computer</code> 原生工具只提供版本查询、下载、安装、卸载；没有内置动作代理或隐藏 fallback。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/computer-use.md">Zuse 工作流</a> · <a href="../ssmcp/windows-browser-setup/">Windows 安装范围</a></li>
+<li><strong>上下文</strong>：工作区文件、项目指令、有效技能视图和显式只读 context roots。</li>
+</ul>
+<p>指定已有浏览器时，先确认所选 Zuse 版本支持的连接方式和实际会话，再操作用户选定的目标。OAuth 登录、用户打开链接和已授权外部 MCP 的通用转发仍保留；它们不恢复旧内置浏览器工具。<a href="../ssmcp/browser-existing-session/">现有浏览器连接</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/code-mode.md">code_mode 示例</a></p>
+<h3 id="管理-zuse-cli">管理 Zuse CLI<a class="heading-anchor" href="#管理-zuse-cli" aria-label="链接到 管理 Zuse CLI">#</a></h3>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-12" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-12" tabindex="0"><code>ssmcp computer version --json
+ssmcp computer download --json
+ssmcp computer install DOWNLOAD_ID_FROM_REPLY --json
+</code></pre></div>
+<p>版本来自实际 CLI 的 <code>--version</code>。下载选择官方稳定版并核验资产身份、大小与 SHA-256；安装仅写入当前管理器的私有目录，不覆盖外部 Zuse、不修改 PATH。使用返回的可执行路径运行任务；卸载必须提供真实 <code>installation_id</code>，且所有权和字节仍匹配。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/computer-use.md">四个管理工具与示例</a></p>
+<p>旧控制开关、兼容入口和默认 <code>Super + Alt + C</code> 快捷键已移除。独立 Zuse CLI 可直接使用，无需先切换控制权或进入 takeover 流程。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/computer-use.md">Zuse 管理与执行</a></p>
+<p>通用 Shell 与独立 Zuse 仍遵循操作系统权限；需要隔离时配置实际的账户、会话或沙箱边界。</p>
+<h2 id="独立核心库">独立核心库<a class="heading-anchor" href="#独立核心库" aria-label="链接到 独立核心库">#</a></h2>
+<p><a href="../ztuio/">ztuio</a>、<a href="../zharness/">zharness</a> 和 <a href="../zplugin/">zplugin</a> 作为固定源码的 Rust 依赖参与构建，分别承担终端帧、扩展接口和本机动态库加载。三个库均使用固定 Git 子模块，ztuio 的包名与 Rust 导入名均为 <code>ztuio</code>，精确版本为 <code>0.1.0</code>。它们独立维护版本，不启动模型或外部 harness。源码构建请使用 <code>git clone --recurse-submodules</code>；已有 checkout 使用 <code>git submodule update --init --recursive</code>。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/dependencies.md">依赖与协同开发</a></p>
+<h2 id="客户端掌握能力服务端负责连接">客户端掌握能力，服务端负责连接<a class="heading-anchor" href="#客户端掌握能力服务端负责连接" aria-label="链接到 客户端掌握能力，服务端负责连接">#</a></h2>
+<p>服务端负责身份、会话路由、成员通信与受限 JavaScript 编排。客户端负责执行工具、组织上下文、保存输出和绘制界面。增加客户端原语后，调用方可以通过实时目录发现它，并继续使用通用 <code>call(clientId, name, arguments)</code>。</p>
+<p>因此，你可以重写客户端，接入自己的远程 harness，或只替换 UI。现有界面也通过小接口读取状态和控制任务：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>边界</th>
+<th>可复用接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力发现</td>
+<td>客户端版本、原生工具 schema、客户端资源</td>
+</tr>
+<tr>
+<td>执行</td>
+<td><code>terminal.*</code>、<code>ssmcp.exec.*</code>、原生 harness 工具</td>
+</tr>
+<tr>
+<td>上下文</td>
+<td><code>ssmcp.fs.*</code>、<code>ssmcp.skills.*</code>、<code>ssmcp.agents.*</code></td>
+</tr>
+<tr>
+<td>会话界面</td>
+<td><code>ssmcp.ui.*</code>、问答、历史、队列与源码事件</td>
+</tr>
+<tr>
+<td>扩展策略</td>
+<td>可选的客户端 <code>ToolCallHook</code>，调用前允许或拒绝，调用后观察结果</td>
+</tr>
+</tbody>
+</table></div>
+<p>hook 默认关闭，不内置额外审核流程，也不改变工具原生权限。自定义策略由客户端开发者接入。当前连接统一使用 <strong>wire v7</strong>，旧协议会明确拒绝。<a href="../ssmcp/client-extension/">扩展接口与最小客户端</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/context.md">上下文边界</a></p>
+<h3 id="project-zztuio">Project Z：ztuio<a class="heading-anchor" href="#project-zztuio" aria-label="链接到 Project Z：ztuio">#</a></h3>
+<p>终端帧差分、几何边界和定宽行已接入固定源码子模块 <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/crates/ztuio/README.md">ztuio</a>。这个小库使用 <code>no_std</code>，禁止 <code>unsafe</code>，没有第三方依赖；缓冲区由调用方提供，Unicode 宽度规则由宿主决定。它只计算该写哪些终端字节，图片协议、终端输入、主题和会话状态仍由客户端管理。</p>
+<h2 id="运行边界">运行边界<a class="heading-anchor" href="#运行边界" aria-label="链接到 运行边界">#</a></h2>
+<p>工具使用客户端进程的操作系统权限；MCP 账号授权控制谁能调用设备。文件 API 受工作区和显式 context roots 限制，Shell 仍按操作系统权限执行。</p>
+<p>本地历史采用版本化 JSONL，<code>/resume</code> 恢复文本上下文，不重放工具，也不恢复外部模型线程。问答队列当前保存在进程内；reload 后可从历史查看已记录正文。完整边界见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/conversation-history.md">会话历史</a>。</p>
+<p>图片导入会在客户端生成有界预览文件，仍以私有文件引用发送；不改变 wire v7。原生图片读取限制为 400 KiB，支持 PNG / JPEG / GIF / WebP。GIF / WebP 经 <code>code_mode</code> 返回时还需要支持这些格式的 relay；旧 relay 的图像通道仍只有 PNG / JPEG。长工具输出保留有界预览与归档，展开界面事件只读取当前保留的显示正文。</p>
+<h2 id="开发">开发<a class="heading-anchor" href="#开发" aria-label="链接到 开发">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-13" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-13" tabindex="0"><code>git clone --recurse-submodules https://github.com/LIghtJUNction/ssmcp.git
+cd ssmcp
+cargo build --locked --bins --example vt_snapshot
+cargo run --locked --bin ssmcp -- ui preview
+</code></pre></div>
+<p><code>make check</code> 检查格式和 Clippy；<code>make test-client-ui</code> 在隔离的真实 PTY 中验证输入、问答、图片、历史和重载。验证脚本使用测试自己的进程与工作区。</p>
+<p>项目持续使用 ssmcp 自己的远程工具开发。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/releases.md">发布与构建</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/next-version.md">下一版本计划</a></p>
+<h2 id="文档">文档<a class="heading-anchor" href="#文档" aria-label="链接到 文档">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>从这里开始</th>
+<th>深入实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ssmcp/client-accounts/">账号、设备与临时接入</a></td>
+<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/backends.md">工具注册与 harness</a></td>
+</tr>
+<tr>
+<td><a href="../ssmcp/client-input/">输入框与本地工作流</a></td>
+<td><a href="../ssmcp/client-extension/">客户端扩展与上下文工程</a></td>
+</tr>
+<tr>
+<td><a href="../ssmcp/client-ui/">主题、布局与快捷键</a></td>
+<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/browser-desktop.md">Zuse、浏览器与能力资源</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/deployment.md">部署服务器</a></td>
+<td><a href="../ssmcp/session-control/">完整输出与会话控制</a></td>
+</tr>
+<tr>
+<td><a href="../ssmcp/client-server/">信任与默认服务器</a></td>
+<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/conversation-history.md">会话历史格式</a></td>
+</tr>
+</tbody>
+</table></div>
+<details>
+<summary>项目创作记录</summary>
+<p><a href="https://drive.google.com/file/d/1Rr9t9SpoMdwQJuHbW3eYRbgtg-krhUkF/view">原创短片《日蚀》 · 24 秒</a>（ZIP 内：<code>current/docs/assets/ssmcp-eclipse.mp4</code>）</p>
+</details>
+<hr />
+<p><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/LICENSE">MIT License</a></p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../ssmcp/windows-browser-setup/"><span class="pagination-label">下一页</span><span class="pagination-title">Windows 客户端与 Zuse CLI</span></a></nav>
+      <footer class="page-footer">
+        <span>ssmcp <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-3"><a href="#把你的电脑接到-agent用一个-code_mode-调用原生工具">把你的电脑接到 Agent。用一个 code_mode 调用原生工具。</a></li><li class="toc-level-2"><a href="#演示视频">演示视频</a></li><li class="toc-level-2"><a href="#一条连接三种用法">一条连接，三种用法</a></li><li class="toc-level-2"><a href="#快速开始">快速开始</a></li><li class="toc-level-3"><a href="#1-安装">1. 安装</a></li><li class="toc-level-3"><a href="#2-在项目目录连接">2. 在项目目录连接</a></li><li class="toc-level-3"><a href="#3-接入-mcp">3. 接入 MCP</a></li><li class="toc-level-2"><a href="#终端就是工作会话">终端就是工作会话</a></li><li class="toc-level-3"><a href="#只在本机运行">只在本机运行</a></li><li class="toc-level-3"><a href="#使用同一入口选择连接目标">使用同一入口选择连接目标</a></li><li class="toc-level-3"><a href="#对话与工具">对话与工具</a></li><li class="toc-level-3"><a href="#从命令行连接对话与传递结果">从命令行连接对话与传递结果</a></li><li class="toc-level-3"><a href="#定时更新-git-上游">定时更新 Git 上游</a></li><li class="toc-level-3"><a href="#先预览再调整">先预览，再调整</a></li><li class="toc-level-2"><a href="#复用现有工具">复用现有工具</a></li><li class="toc-level-3"><a href="#管理-zuse-cli">管理 Zuse CLI</a></li><li class="toc-level-2"><a href="#独立核心库">独立核心库</a></li><li class="toc-level-2"><a href="#客户端掌握能力服务端负责连接">客户端掌握能力，服务端负责连接</a></li><li class="toc-level-3"><a href="#project-zztuio">Project Z：ztuio</a></li><li class="toc-level-2"><a href="#运行边界">运行边界</a></li><li class="toc-level-2"><a href="#开发">开发</a></li><li class="toc-level-2"><a href="#文档">文档</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

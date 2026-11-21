@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="解析 MIME 消息、头部与正文，并按需解码内容。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zmime · Reproducible comparison with mail-parser · Project Z">
+  <meta property="og:description" content="解析 MIME 消息、头部与正文，并按需解码内容。">
+  <meta property="og:type" content="website">
+  <title>zmime · Reproducible comparison with mail-parser · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zmime/comparison-readme/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zmime">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zmime" aria-label="zmime 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zmime</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zmime</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/" aria-current="page">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zmime 文档"><div class="nav-group"><p class="nav-label">zmime</p><ul><li><a class="nav-link" href="../../zmime/">概览</a></li><li><a class="nav-link" href="../../zmime/comparison-readme/" aria-current="page">Reproducible comparison with mail-parser</a></li><li><a class="nav-link" href="../../zmime/comparison-results/">Measured performance against mail-parser 1.0.1</a></li><li><a class="nav-link" href="../../zmime/safety/">Safety and resource model</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zmime</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/" aria-current="page">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zmime 文档"><div class="nav-group"><p class="nav-label">zmime</p><ul><li><a class="nav-link" href="../../zmime/">概览</a></li><li><a class="nav-link" href="../../zmime/comparison-readme/" aria-current="page">Reproducible comparison with mail-parser</a></li><li><a class="nav-link" href="../../zmime/comparison-results/">Measured performance against mail-parser 1.0.1</a></li><li><a class="nav-link" href="../../zmime/safety/">Safety and resource model</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zmime/">zmime 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zmime/">zmime</a><span aria-hidden="true">/</span><span>Reproducible comparison with mail-parser</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#reproduce">Reproduce</a></li><li class="toc-level-2"><a href="#work-performed-in-each-mode">Work performed in each mode</a></li><li class="toc-level-2"><a href="#inputs-and-correctness-coverage">Inputs and correctness coverage</a></li><li class="toc-level-2"><a href="#sampling-and-the-simd-ablation">Sampling and the SIMD ablation</a></li><li class="toc-level-2"><a href="#evidence-and-limits">Evidence and limits</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="reproducible-comparison-with-mail-parser">Reproducible comparison with mail-parser</h1>
+<p>This independent workspace compares <code>zmime</code> with <strong>mail-parser 1.0.1</strong>, pinned in
+<code>Cargo.toml</code> with transitive versions fixed by <code>Cargo.lock</code>. It does not enter the
+published crate's dependency graph or package. The comparison needs Rust 1.98 or
+newer because that is the reference library's minimum version; <code>zmime</code> itself has
+an independently tested Rust 1.74 minimum.</p>
+<p>The experiment covers borrowed RFC 5322 headers, MIME structure, and transfer
+decoding. It makes no full-parser or complete character-set performance claim.
+Both parsers receive exactly the same generated bytes. Every timed mail fixture
+first passes an equality check of its part tree, header names and raw values,
+Content-Type and Content-Disposition parameters, transfer encodings, and raw
+body bytes. The benchmark stops before timing if those checks fail.
+The timed consumers also read every supported MIME metadata field and decode
+every quoted parameter value into reusable scratch space. This includes work
+that <code>zmime</code> normally defers and mail-parser performs during parsing. Matching
+consumer checksums are asserted before timing, in addition to the full byte and
+tree projections; attachment transfer decoding remains separate.</p>
+<h2 id="reproduce">Reproduce<a class="heading-anchor" href="#reproduce" aria-label="链接到 Reproduce">#</a></h2>
+<p>From the repository root, with <code>cargo</code>, <code>rustc</code>, and Python 3.9+ on <code>PATH</code>:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo test --locked --manifest-path comparison/Cargo.toml
+python3 comparison/run.py --output comparison/results/local --samples 9 --target-ms 20
+python3 comparison/run.py --portable --output comparison/results/local-portable --samples 9 --target-ms 20
+python3 comparison/report.py comparison/results/local comparison/results/local-portable &gt; comparison/RESULTS.md
+</code></pre></div>
+<p>The runner builds both libraries with the same release profile: thin LTO, one
+codegen unit, and the compiler's default target CPU. On Linux it pins the timed
+process to one available CPU; <code>--cpu N</code> selects another allowed CPU. On platforms
+without affinity support, it records that limitation. It records compiler
+versions, CPU capabilities, source revision, tracked modifications, feature
+selection, sampling settings, and timing scope in <code>environment.json</code>.
+The record also includes SHA-256 hashes of implementation and experiment source,
+benchmark executables, and every generated mail fixture. Collection fails if
+source or executables change during the run. <code>compare --dump-corpus DIRECTORY</code>
+validates the corpus and writes its exact <code>.eml</code> files without running timers.</p>
+<p>Each output directory contains every sample in <code>raw.csv</code> and median, minimum,
+and maximum timings in <code>summary.csv</code>. The reported ratio is
+<code>mail_parser_ns / zmime_ns</code>: values above one favor <code>zmime</code>, values below one
+favor mail-parser. Results with different storage lifecycles have an empty
+ratio. There is no aggregate score across different modes or input sizes.</p>
+<p><code>cold.csv</code> separately measures the first flat-Base64 decode in a fresh process
+and a subsequent warmed loop for each library. Process creation and buffer
+preparation are outside those timings. No cold speed ratio is calculated: CPU
+feature detection, instruction-cache state, and each API's initialization are
+being observed separately. On x86_64, <code>zmime</code> caches its detected SIMD backend
+in a private atomic; its first decoding call may be noticeably slower on a
+virtualized CPU. Both libraries' dispatch caches are warmed in the main results.</p>
+<p>For a shorter targeted run:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>cargo run --release --locked --manifest-path comparison/Cargo.toml --bin compare -- \
+  --filter structure_reuse --samples 9 --target-ms 20 &gt; structure.csv
+python3 comparison/summarize.py structure.csv
+</code></pre></div>
+<h2 id="work-performed-in-each-mode">Work performed in each mode<a class="heading-anchor" href="#work-performed-in-each-mode" aria-label="链接到 Work performed in each mode">#</a></h2>
+<p>The reference configuration keeps non-MIME headers in <code>HeaderForm::Raw</code>, matching
+the raw-header API evaluated here. It still parses Content-Type,
+Content-Disposition, and Content-Transfer-Encoding. Address lists, dates,
+Received semantics, RFC 2047 text, and character-set conversion are outside
+these parse timings. Both libraries preserve those header bytes. Separate
+differential tests cover the supported RFC 2047 character sets.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th><code>zmime</code> operation</th>
+<th>Reference operation</th>
+<th>Timed output and storage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>headers</code></td>
+<td><code>Part::parse_headers</code></td>
+<td><code>MessageParser::parse_headers</code></td>
+<td>Validate and parse root headers and MIME metadata; consume every raw header and decoded parameter value; body remains opaque. The reference's public headers API allocates its result storage.</td>
+</tr>
+<tr>
+<td><code>structure_reuse</code></td>
+<td><code>Message::parse</code> with reusable part storage</td>
+<td><code>parse_with</code> with reusable <code>MessageBuffers</code></td>
+<td>Complete supported MIME tree and metadata; consume all raw header/body views and decoded parameter values; no attachment decoding. Both receive warmed storage.</td>
+</tr>
+<tr>
+<td><code>structure_fresh_reference</code></td>
+<td><code>Message::parse</code> with reusable storage</td>
+<td><code>parse</code> with new storage</td>
+<td>Additional API-lifecycle observation. Storage lifecycles differ; no speed ratio is calculated.</td>
+</tr>
+<tr>
+<td><code>transfer_base64</code></td>
+<td><code>decode_base64</code> into a caller slice</td>
+<td><code>Encoding::Base64.decode_append</code> into a cleared, reserved <code>Vec</code></td>
+<td>Decode every encoded byte to the same bytes; output storage is reused. Flat and MIME-wrapped inputs are separate.</td>
+</tr>
+<tr>
+<td><code>transfer_qp</code></td>
+<td><code>decode_quoted_printable</code> into a caller slice</td>
+<td><code>Encoding::QuotedPrintable.decode_append</code> into a cleared, reserved <code>Vec</code></td>
+<td>Decode every byte; plain ASCII and escaped inputs are separate; output storage is reused.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The reference builds its body-role indexes as part of parsing. <code>zmime</code> builds its
+borrowed part records. These internal representation costs remain in the
+measurements. Construction of the reference parser configuration, fixture
+generation, workspace creation, output reservation, and equality checks occur
+outside timed regions. Transfer output is passed to <code>black_box</code>; parse timings
+also consume header and body views so the compiler cannot discard the results.
+MIME parameter scratch is reserved outside timing, while parameter traversal and
+unescaping are timed. Header values are compared and consumed without their final
+physical line ending because the APIs expose that delimiter differently.</p>
+<p>Both libraries use lazy transfer decoding. In particular, parsing the large
+attachment fixture does not decode its Base64 body in either implementation.
+Using an earlier eager version of mail-parser would measure a different workload;
+this experiment uses the current 1.0.1 API for that reason.</p>
+<h2 id="inputs-and-correctness-coverage">Inputs and correctness coverage<a class="heading-anchor" href="#inputs-and-correctness-coverage" aria-label="链接到 Inputs and correctness coverage">#</a></h2>
+<p>The corpus is generated by <code>src/corpus.rs</code>; it contains no personal mail and
+requires no network downloads. Each mail category has CRLF and LF variants:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tiny</td>
+<td>One header and a one-byte body</td>
+</tr>
+<tr>
+<td>Ordinary</td>
+<td>Common RFC 5322 fields, a folded custom field, UTF-8 text</td>
+</tr>
+<tr>
+<td>Large attachment</td>
+<td>One MiB of deterministic bytes encoded as wrapped Base64, plus a text part</td>
+</tr>
+<tr>
+<td>Nested multipart</td>
+<td>Eight nested multipart containers with sibling parts</td>
+</tr>
+<tr>
+<td>Newsletter</td>
+<td>Plain-text and HTML alternatives carried in a multipart container, with quoted-printable content</td>
+</tr>
+<tr>
+<td>Long headers</td>
+<td>A logical header with 100 folded lines and approximately 70 KiB of field data</td>
+</tr>
+<tr>
+<td>Many attachments</td>
+<td>128 Base64 attachments with type, disposition, and filename parameters</td>
+</tr>
+<tr>
+<td>Nested message</td>
+<td>An unencoded <code>message/rfc822</code> attachment inside a multipart</td>
+</tr>
+</tbody>
+</table></div>
+<p>Additional tests compare 300 generated multipart messages, 96 generated nested
+trees with quoted-pair filenames and folded metadata, independently encoded
+arbitrary-byte transfer round trips, supported UTF-8/US-ASCII/Latin-1 encoded
+words, and 7,200 deterministic random or mutated inputs. These tests supplement
+the core crate's RFC examples, resource-limit, alignment, buffer, and Miri tests.
+Generated fixtures exercise controlled features; they do not substitute for
+long-term validation on a diverse production mail corpus.</p>
+<p>Malformed and truncated inputs have explicit policy tests and no speed ratios.
+<code>zmime</code> returns structural errors and rejects malformed transfer encodings on
+access. mail-parser attempts recovery. For example, mail-parser 1.0.1 accepts
+unpadded <code>SGVsbG8</code> and terminal quoted-printable <code>abc=</code> without a problem flag;
+the strict <code>zmime</code> decoders reject those inputs. Invalid Base64 alphabet and
+invalid quoted-printable hex are also exercised. Comparing rejection with
+recovery would measure different tasks.</p>
+<p>Character-set equivalence is also limited to shared behavior. <code>zmime</code> implements
+literal ISO-8859-1, while mail-parser maps that label to Windows-1252: an encoded
+word carrying byte <code>0x80</code> produces U+0080 in <code>zmime</code> and <code>€</code> in the reference.
+A policy regression records that difference. Character-set conversion is absent
+from parse and transfer timers, and the encoded-word equality cases do not claim
+equivalence for the differing <code>0x80</code>–<code>0x9F</code> mapping. The reference behavior is
+documented on its <a href="https://docs.rs/mail-parser/1.0.1/mail_parser/enum.Charset.html#variant.Windows1252"><code>Charset::Windows1252</code></a>
+variant.</p>
+<h2 id="sampling-and-the-simd-ablation">Sampling and the SIMD ablation<a class="heading-anchor" href="#sampling-and-the-simd-ablation" aria-label="链接到 Sampling and the SIMD ablation">#</a></h2>
+<p>Each pair has 32 warm-up iterations followed by a calibration pass. The same
+iteration count is used for both libraries, and sample order alternates to
+reduce order bias. The default records nine paired samples and targets at least
+20 ms per sample for the faster library. There is no outlier deletion. The
+minimum and maximum accompany the median so scheduler variation is visible.</p>
+<p><code>--portable</code> disables <code>zmime</code>'s SIMD feature while retaining the identical
+fixtures, compiler profile, reference library, and output checks. Comparing
+default and portable rows measures the contribution of <code>zmime</code>'s scanning
+and transfer-decoding kernels. The reference continues to select its own available kernels. This
+ablation does not imply equal instruction sets, and measurements on one CPU do
+not establish throughput on aarch64, WASM, or another x86_64 processor.</p>
+<h2 id="evidence-and-limits">Evidence and limits<a class="heading-anchor" href="#evidence-and-limits" aria-label="链接到 Evidence and limits">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evidence</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Timed mail results agree</td>
+<td>Equality checks run before the first timing</td>
+<td>Header bytes, metadata, tree, raw bodies in the generated supported subset</td>
+</tr>
+<tr>
+<td>Attachments remain lazy</td>
+<td>Parse modes access raw bodies only; transfer modes are separate</td>
+<td>Both evaluated APIs</td>
+</tr>
+<tr>
+<td>A measured scenario is faster or slower</td>
+<td>Median paired samples plus full raw CSV</td>
+<td>Recorded machine, toolchain, fixture, feature selection</td>
+</tr>
+<tr>
+<td>SIMD contributes to a result</td>
+<td>Default/portable runs with unchanged inputs</td>
+<td>The kernels enabled by <code>zmime</code>'s feature</td>
+</tr>
+<tr>
+<td>Unsupported features are explicit</td>
+<td>Core API errors and differential policy tests</td>
+<td>No claim of all mail-parser charsets or all recovery policies</td>
+</tr>
+</tbody>
+</table></div>
+<p>The review questions are concrete: does the comparison preserve the same
+observable result, use a recent fixed baseline, disclose storage lifecycles,
+retain slow cases, and limit conclusions to measured inputs and hardware? The
+protocol above addresses each question. No result from this workspace supports
+a claim that <code>zmime</code> defeats mail-parser's full feature set.</p>
+<p>The reviewed measurement protocol reads decoded parameter values inside timing.
+Older <code>2026-11-10-default</code> and <code>2026-11-10-portable</code> results retained in this
+repository used shallower timed consumers. Their pre-timing equality checks were
+valid, but those rows do not establish the cost of materializing all MIME metadata
+and are not used for current speed claims. Current results use the <code>reviewed-</code>
+directories linked from <a href="../../zmime/comparison-results/">RESULTS.md</a>.</p>
+<p>Reference APIs and source: <a href="https://docs.rs/mail-parser/1.0.1/mail_parser/">mail-parser 1.0.1</a>,
+<a href="https://github.com/stalwartlabs/mail-parser">upstream repository</a>.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/comparison/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmime">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zmime/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../zmime/comparison-results/"><span class="pagination-label">下一页</span><span class="pagination-title">Measured performance against mail-parser 1.0.1</span></a></nav>
+      <footer class="page-footer">
+        <span>zmime <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#reproduce">Reproduce</a></li><li class="toc-level-2"><a href="#work-performed-in-each-mode">Work performed in each mode</a></li><li class="toc-level-2"><a href="#inputs-and-correctness-coverage">Inputs and correctness coverage</a></li><li class="toc-level-2"><a href="#sampling-and-the-simd-ablation">Sampling and the SIMD ablation</a></li><li class="toc-level-2"><a href="#evidence-and-limits">Evidence and limits</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

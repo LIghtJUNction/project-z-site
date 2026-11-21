@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="整合《缺氧》模组开发、构建发布与 MCP 游戏观察和操作。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="OniMods · OniMods 架构与核心实现原理 · Project Z">
+  <meta property="og:description" content="整合《缺氧》模组开发、构建发布与 MCP 游戏观察和操作。">
+  <meta property="og:type" content="website">
+  <title>OniMods · OniMods 架构与核心实现原理 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/OniMods/architecture-and-principles/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="OniMods">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/OniMods" aria-label="OniMods 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">OniMods</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>OniMods</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/" aria-current="page">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="OniMods 文档"><div class="nav-group"><p class="nav-label">OniMods</p><ul><li><a class="nav-link" href="../../OniMods/">概览</a></li><li><a class="nav-link" href="../../OniMods/readme-en/">See it working</a></li><li><a class="nav-link" href="../../OniMods/oni-mcp-cli/">oni-mcp CLI</a></li><li><a class="nav-link" href="../../OniMods/mcp-tools-reference/">ONI MCP 工具参考</a></li><li><a class="nav-link" href="../../OniMods/architecture-and-principles/" aria-current="page">OniMods 架构与核心实现原理</a></li><li><a class="nav-link" href="../../OniMods/oniharness/">OniHarness: independent headless testing project</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-en/">A Letter to Everyone Who Finds This Project Interesting</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-zh/">写给所有对这个项目感兴趣的人</a></li><li><a class="nav-link" href="../../OniMods/licensing/">Licensing and provenance</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-docs-progress/">OniSim engineering log</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-gpu-readme/">OniSim Vulkan compute operators</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-readme/">CycleTrim</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>OniMods</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/" aria-current="page">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="OniMods 文档"><div class="nav-group"><p class="nav-label">OniMods</p><ul><li><a class="nav-link" href="../../OniMods/">概览</a></li><li><a class="nav-link" href="../../OniMods/readme-en/">See it working</a></li><li><a class="nav-link" href="../../OniMods/oni-mcp-cli/">oni-mcp CLI</a></li><li><a class="nav-link" href="../../OniMods/mcp-tools-reference/">ONI MCP 工具参考</a></li><li><a class="nav-link" href="../../OniMods/architecture-and-principles/" aria-current="page">OniMods 架构与核心实现原理</a></li><li><a class="nav-link" href="../../OniMods/oniharness/">OniHarness: independent headless testing project</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-en/">A Letter to Everyone Who Finds This Project Interesting</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-zh/">写给所有对这个项目感兴趣的人</a></li><li><a class="nav-link" href="../../OniMods/licensing/">Licensing and provenance</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-docs-progress/">OniSim engineering log</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-gpu-readme/">OniSim Vulkan compute operators</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-readme/">CycleTrim</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../OniMods/">OniMods 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../OniMods/">OniMods</a><span aria-hidden="true">/</span><span>OniMods 架构与核心实现原理</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#目录">目录</a></li><li class="toc-level-2"><a href="#一-双-mod-协同体系">一、 双 Mod 协同体系</a></li><li class="toc-level-2"><a href="#二-onimcp-原理世界文本化与大模型交互">二、 OniMcp 原理：世界文本化与大模型交互</a></li><li class="toc-level-3"><a href="#1-为什么需要世界文本化">1. 为什么需要世界文本化？</a></li><li class="toc-level-3"><a href="#2-语义行程编码-semantic-runs">2. 语义行程编码 (Semantic Runs)</a></li><li class="toc-level-3"><a href="#3-单一坐标权威与消除歧义-disambiguation">3. 单一坐标权威与消除歧义 (Disambiguation)</a></li><li class="toc-level-3"><a href="#4-动态活动图例-active-legend-filtering">4. 动态活动图例 (Active Legend Filtering)</a></li><li class="toc-level-3"><a href="#5-空间-aabb-快速初筛裁剪">5. 空间 AABB 快速初筛裁剪</a></li><li class="toc-level-3"><a href="#6-虚拟文件系统与代码编辑隐喻-world-editor">6. 虚拟文件系统与代码编辑隐喻 (World Editor)</a></li><li class="toc-level-3"><a href="#7-严格安全控制环路-preflight--safety-guard">7. 严格安全控制环路 (Preflight &amp; Safety Guard)</a></li><li class="toc-level-2"><a href="#三-cycletrim-原理底层模拟热点削峰">三、 CycleTrim 原理：底层模拟热点削峰</a></li><li class="toc-level-3"><a href="#1-缺氧模拟的性能瓶颈分析">1. 缺氧模拟的性能瓶颈分析</a></li><li class="toc-level-3"><a href="#2-忙碌复制人任务感应节流-busy-duplicant-chore-throttle">2. 忙碌复制人任务感应节流 (Busy Duplicant Chore Throttle)</a></li><li class="toc-level-3"><a href="#3-条件弱引用状态表与反射短路-conditionalweaktable">3. 条件弱引用状态表与反射短路 (ConditionalWeakTable)</a></li><li class="toc-level-3"><a href="#4-寻路探针队列配额与削峰-asyncpathprober-quota">4. 寻路探针队列配额与削峰 (AsyncPathProber Quota)</a></li><li class="toc-level-3"><a href="#5-静态沉睡生物脑休眠-stationary-critter-sleep">5. 静态/沉睡生物脑休眠 (Stationary Critter Sleep)</a></li><li class="toc-level-2"><a href="#四-架构对比与设计取舍">四、 架构对比与设计取舍</a></li><li class="toc-level-2"><a href="#五-现代浏览器自动化驱动的高效控制范式-browser-inspired--codemode">五、 现代浏览器自动化驱动的高效控制范式 (Browser-Inspired &amp; CodeMode)</a></li><li class="toc-level-3"><a href="#1-目标驱动条件推进-step_until对标-playwright-waitforcondition-与游戏自动化硬件报警">1. 目标驱动条件推进 (step_until，对标 Playwright waitForCondition 与游戏自动化硬件报警)</a></li><li class="toc-level-3"><a href="#2-增量感知与执行报告-executiondelta对标-dom-mutation-diff">2. 增量感知与执行报告 (ExecutionDelta，对标 DOM Mutation Diff)</a></li><li class="toc-level-3"><a href="#3-原生-codemode-流程支持-domaincode--domainprogram">3. 原生 CodeMode 流程支持 (domain=code / domain=program)</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="onimods-架构与核心实现原理">OniMods 架构与核心实现原理</h1>
+<p>本文档系统介绍仓库内两大核心 Mod 的底层实现机制、设计取舍与运行原理：</p>
+<ul>
+<li><strong><code>OniMcp</code></strong>：面向大模型（LLM）的智能体交互协议与虚拟化世界系统（AI 交互与控制层）</li>
+<li><strong><code>CycleTrim</code></strong>：早期实验性性能模组。眼下裁剪模拟热点；下个版本实验拆掉「一格一物」，把组分通量核搬上 GPU。先加速，再兼容。说明见 <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/docs/next-cell-representation.md">next-cell-representation.md</a>。</li>
+</ul>
+<hr />
+<h2 id="目录">目录<a class="heading-anchor" href="#目录" aria-label="链接到 目录">#</a></h2>
+<ul>
+<li><a href="#%E4%B8%80-%E5%8F%8C-mod-%E5%8D%8F%E5%90%8C%E4%BD%93%E7%B3%BB">一、 双 Mod 协同体系</a></li>
+<li><a href="#%E4%BA%8C-onimcp-%E5%8E%9F%E7%90%86%E4%B8%96%E7%95%8C%E6%96%87%E6%9C%AC%E5%8C%96%E4%B8%8E%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BA%A4%E4%BA%92">二、 OniMcp 原理：世界文本化与大模型交互</a>
+<ul>
+<li><a href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%B8%96%E7%95%8C%E6%96%87%E6%9C%AC%E5%8C%96">1. 为什么需要世界文本化？</a></li>
+<li><a href="#2-%E8%AF%AD%E4%B9%89%E8%A1%8C%E7%A8%8B%E7%BC%96%E7%A0%81-semantic-runs">2. 语义行程编码 (Semantic Runs)</a></li>
+<li><a href="#3-%E5%8D%95%E4%B8%80%E5%9D%90%E6%A0%87%E6%9D%83%E5%A8%81%E4%B8%8E%E6%B6%88%E9%99%A4%E6%AD%A7%E4%B9%89-disambiguation">3. 单一坐标权威与消除歧义 (Disambiguation)</a></li>
+<li><a href="#4-%E5%8A%A8%E6%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%E4%BE%8B-active-legend-filtering">4. 动态活动图例 (Active Legend Filtering)</a></li>
+<li><a href="#5-%E7%A9%BA%E9%97%B4-aabb-%E5%BF%AB%E9%80%9F%E5%88%9D%E7%AD%9B%E8%A3%81%E5%89%AA">5. 空间 AABB 快速初筛裁剪</a></li>
+<li><a href="#6-%E8%99%9A%E6%8B%9F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E9%9A%90%E5%96%BB-world-editor">6. 虚拟文件系统与代码编辑隐喻 (World Editor)</a></li>
+<li><a href="#7-%E4%B8%A5%E6%A0%BC%E5%AE%89%E5%85%A8%E6%8E%A7%E5%88%B6%E7%8E%AF%E8%B7%AF-preflight--safety-guard">7. 严格安全控制环路 (Preflight &amp; Safety Guard)</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-cycletrim-%E5%8E%9F%E7%90%86%E5%BA%95%E5%B1%82%E6%A8%A1%E6%8B%9F%E7%83%AD%E7%82%B9%E5%89%8A%E5%B3%B0">三、 CycleTrim 原理：底层模拟热点削峰</a>
+<ul>
+<li><a href="#1-%E7%BC%BA%E6%B0%A7%E6%A8%A1%E6%8B%9F%E7%9A%84%E6%80%A7%E8%83%BD%E7%93%B6%E9%A2%88%E5%88%86%E6%9E%90">1. 缺氧模拟的性能瓶颈分析</a></li>
+<li><a href="#2-%E5%BF%99%E7%A2%8C%E5%A4%8D%E5%88%B6%E4%BA%BA%E4%BB%BB%E5%8A%A1%E6%84%9F%E5%BA%94%E8%8A%82%E6%B5%81-busy-duplicant-chore-throttle">2. 忙碌复制人任务感应节流 (Busy Duplicant Chore Throttle)</a></li>
+<li><a href="#3-%E6%9D%A1%E4%BB%B6%E5%BC%B1%E5%BC%95%E7%94%A8%E7%8A%B6%E6%80%81%E8%A1%A8%E4%B8%8E%E5%8F%8D%E5%B0%84%E7%9F%AD%E8%B7%AF-conditionalweaktable">3. 条件弱引用状态表与反射短路 (ConditionalWeakTable)</a></li>
+<li><a href="#4-%E5%AF%BB%E8%B7%AF%E6%8E%A2%E9%92%88%E9%98%9F%E5%88%97%E9%85%8D%E9%A2%9D%E4%B8%8E%E5%89%8A%E5%B3%B0-asyncpathprober-quota">4. 寻路探针队列配额与削峰 (AsyncPathProber Quota)</a></li>
+<li><a href="#5-%E9%9D%99%E6%80%81%E6%B2%89%E7%9D%A1%E7%94%9F%E7%89%A9%E8%84%91%E4%BC%91%E7%9C%A0-stationary-critter-sleep">5. 静态/沉睡生物脑休眠 (Stationary Critter Sleep)</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%8F%96%E8%88%8D">四、 架构对比与设计取舍</a></li>
+</ul>
+<hr />
+<h2 id="一-双-mod-协同体系">一、 双 Mod 协同体系<a class="heading-anchor" href="#一-双-mod-协同体系" aria-label="链接到 一、 双 Mod 协同体系">#</a></h2>
+<p>在《缺氧》中实现长周期大模型自主代理（Autonomous Play）面临两大根本难题：</p>
+<ol>
+<li><strong>交互瓶颈</strong>：原版游戏信息极度碎片化，大模型直接读图代价高昂且缺乏精细坐标，直接倾倒全量网格 JSON 会瞬间爆满上下文。</li>
+<li><strong>算力瓶颈</strong>：游戏进行到大后期，全星体实体、动物与寻路逻辑导致单核 CPU 严重过载，造成卡顿掉帧，进而导致外部 AI 调用的时钟超时与失序。</li>
+</ol>
+<p><code>OniMcp</code> 与 <code>CycleTrim</code> 形成了互补的协同闭环：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>┌────────────────────────────────────────────────────────┐
+│                      外部 AI / 客户端                  │
+└───────────────────────────┬────────────────────────────┘
+                            │  Model Context Protocol (HTTP)
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│                        OniMcp                          │
+│  • 将 2D 物理世界压缩为极低 Token 的语义行程与虚拟文件  │
+│  • 确保坐标无歧义，消除幻觉图例，提供代码级编辑接口   │
+│  • 严格执行：暂停 -&gt; 观察 -&gt; 规划 -&gt; 预检 -&gt; 验证环路 │
+└───────────────────────────┬────────────────────────────┘
+                            │  操控游戏实体与订单
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│                   Oxygen Not Included                  │
+│                     原生游戏物理引擎                   │
+└───────────────────────────▲────────────────────────────┘
+                            │  Harmony 运行时补丁
+┌───────────────────────────┴────────────────────────────┐
+│                       CycleTrim                        │
+│  • 截断忙碌小人的无用感应计算，缓存 ChoreConsumer 引用 │
+│  • 动态控制寻路探针配额，休眠静止生物行为树            │
+│  • 为 AI 长期自主游玩提供平稳帧率与低延迟环境          │
+└────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="二-onimcp-原理世界文本化与大模型交互">二、 OniMcp 原理：世界文本化与大模型交互<a class="heading-anchor" href="#二-onimcp-原理世界文本化与大模型交互" aria-label="链接到 二、 OniMcp 原理：世界文本化与大模型交互">#</a></h2>
+<h3 id="1-为什么需要世界文本化">1. 为什么需要世界文本化？<a class="heading-anchor" href="#1-为什么需要世界文本化" aria-label="链接到 1. 为什么需要世界文本化？">#</a></h3>
+<p>《缺氧》拥有复杂的网格系统（默认每个星体宽度数百格，每个格子包含实体、温度、气压、质量、病菌、铺设管线等）。如果直接输出网格 JSON，一个 40×40 的小房间需要 1600+ 个对象，占用数万 Token；如果输出 ASCII 像素画，既无法表达多层物理信息（如气体中的电线与管道），又充斥无意义空格。</p>
+<p>OniMcp 的世界文本化将 2D 实体网格转换为<strong>语义行与结构化切片</strong>。</p>
+<h3 id="2-语义行程编码-semantic-runs">2. 语义行程编码 (Semantic Runs)<a class="heading-anchor" href="#2-语义行程编码-semantic-runs" aria-label="链接到 2. 语义行程编码 (Semantic Runs)">#</a></h3>
+<p>在视口扫描中，横向连续同质的单元格被压缩为一个“行程”（Run）：</p>
+<ul>
+<li>格式定义：<code>x=X1..X2:</code>token<code>（单格为 `x=X:`token</code>）</li>
+<li>示例：<div class="code-block"><div class="code-toolbar"><span class="code-language">markdown</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 markdown 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>| Y | RY | Runs |
+|---|---:|---|
+| `102` | `2` | x=14..18:`tile`; x=19:`bld_anchor`; x=20..22:`bld`; x=23..30:`oxy` |
+</code></pre></div>
+</li>
+<li><strong>成效</strong>：
+<ul>
+<li>Token 开销由网格维度的 $O(W \times H)$ 降至语义连续区段的 $O(\text{Runs})$，平均节省 <strong>70%~90%</strong> 的 Token。</li>
+<li>行程内保留高层抽象符号（<code>bld_anchor</code> 建筑基准点、<code>bp</code> 施工蓝图、<code>tile</code> 砖块、<code>oxy</code> 氧气）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-单一坐标权威与消除歧义-disambiguation">3. 单一坐标权威与消除歧义 (Disambiguation)<a class="heading-anchor" href="#3-单一坐标权威与消除歧义-disambiguation" aria-label="链接到 3. 单一坐标权威与消除歧义 (Disambiguation)">#</a></h3>
+<p>早期文本化实现中包含 <code>x=14..18 rx=0..4</code> 等相对坐标字段，实践证明大模型经常发生“坐标系混淆”，将相对视口偏移 <code>rx</code> 当作绝对坐标下达挖掘指令，造成越界空挥或破坏重要设施。</p>
+<ul>
+<li><strong>全局权威坐标</strong>：文本地图表格全面废除 run 内连续的 <code>rx=</code> 重复输出，仅在表头标注视口原点，正文 Run 统一使用绝对坐标。</li>
+<li><strong>稀疏模式去冗余</strong>：稀疏运行表格（<code>sparseRuns</code>）剔除 <code>RX Range</code> 列，防止并列多列数值造成模型视觉注意力错位。</li>
+</ul>
+<h3 id="4-动态活动图例-active-legend-filtering">4. 动态活动图例 (Active Legend Filtering)<a class="heading-anchor" href="#4-动态活动图例-active-legend-filtering" aria-label="链接到 4. 动态活动图例 (Active Legend Filtering)">#</a></h3>
+<p>传统静态图例无论当前区域有何元素，均倾倒全量 14~20 行定义（包含氢气、高危氯气、极低温气体等）。</p>
+<ul>
+<li><strong>动态追踪</strong>：扫描网格单元时通过 <code>observedTokens</code> 收集实际出现的 Token。</li>
+<li><strong>按需渲染</strong>：图例表格仅输出当前视野中真实存在的标记，彻底杜绝模型因看到图例条目而臆测当前区域有毒气或特殊物料的幻觉（Hallucination）。</li>
+</ul>
+<h3 id="5-空间-aabb-快速初筛裁剪">5. 空间 AABB 快速初筛裁剪<a class="heading-anchor" href="#5-空间-aabb-快速初筛裁剪" aria-label="链接到 5. 空间 AABB 快速初筛裁剪">#</a></h3>
+<p>在生成建筑与蓝图覆盖层时，建筑的地基支撑（<code>MissingSupportCells</code>）与空间重叠（<code>FootprintObstructions</code>）计算开销昂贵。</p>
+<ul>
+<li><strong>包围盒剪枝</strong>：在对星体全量建筑调用分析算法前，先执行视口 AABB 快速相交初筛（<code>objX &lt; minX || objX &gt; maxX || objY &lt; minY || objY &gt; maxY</code>），跳过 90% 以上与当前视口无关的建筑。</li>
+</ul>
+<h3 id="6-虚拟文件系统与代码编辑隐喻-world-editor">6. 虚拟文件系统与代码编辑隐喻 (World Editor)<a class="heading-anchor" href="#6-虚拟文件系统与代码编辑隐喻-world-editor" aria-label="链接到 6. 虚拟文件系统与代码编辑隐喻 (World Editor)">#</a></h3>
+<p>OniMcp 的 <code>world_editor</code> 将整个世界状态映射为一组虚拟 Markdown 文件：</p>
+<ul>
+<li><code>/active/infrastructure/power.md</code>：电力连通性拓扑</li>
+<li><code>/active/infrastructure/liquid_conduits.md</code>：水管网络</li>
+<li><code>/active/buildings/instances/...</code>：具体建筑的参数与运行配置</li>
+<li><code>/active/map/cell_X_Y.md</code>：单格跨层快照
+大模型无需记忆海量专属 API，而是通过最擅长的代码重构能力（<code>read</code> 配合 <code>SEARCH/REPLACE</code> 块）提出规划与管线布线修改。</li>
+</ul>
+<h3 id="7-严格安全控制环路-preflight--safety-guard">7. 严格安全控制环路 (Preflight &amp; Safety Guard)<a class="heading-anchor" href="#7-严格安全控制环路-preflight--safety-guard" aria-label="链接到 7. 严格安全控制环路 (Preflight &amp; Safety Guard)">#</a></h3>
+<p>为防止 AI 执行破坏性操作，OniMcp 强制执行防作弊与安全预检：</p>
+<ol>
+<li><strong>硬编码安全策略</strong>：禁止沙盒强制放置、瞬间建造与实体无成本生成。</li>
+<li><strong>前置预检 (Dry-Run)</strong>：建筑规划与指令下达优先使用 <code>dryRun=true</code> 验证地基、材料存量与路径可达性。</li>
+<li><strong>闭环节奏</strong>：AI 操控遵守 <code>pause (暂停) -&gt; observe (观测) -&gt; plan (规划) -&gt; dryRun (预检) -&gt; execute (执行) -&gt; resume (短恢复) -&gt; pause (再次暂停) -&gt; verify (验证)</code> 节拍。</li>
+</ol>
+<hr />
+<h2 id="三-cycletrim-原理底层模拟热点削峰">三、 CycleTrim 原理：底层模拟热点削峰<a class="heading-anchor" href="#三-cycletrim-原理底层模拟热点削峰" aria-label="链接到 三、 CycleTrim 原理：底层模拟热点削峰">#</a></h2>
+<h3 id="1-缺氧模拟的性能瓶颈分析">1. 缺氧模拟的性能瓶颈分析<a class="heading-anchor" href="#1-缺氧模拟的性能瓶颈分析" aria-label="链接到 1. 缺氧模拟的性能瓶颈分析">#</a></h3>
+<p>0.4.0 已落地的裁剪仍是复制人、寻路和组件查询。下个版本要动的是更底层的格子表示：官方和当前 OniSim 都是一格一物，物质相遇就搜索邻格排挤。这个搜索又分支又跳内存，和后面要上的 GPU 通量核不在一条路上。实验范围、还没解决的压力步和玩法契约见 <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/mods/CycleTrim/docs/next-cell-representation.md">next-cell-representation.md</a>。当前包没有换成混合流体。</p>
+<p>《缺氧》模拟每帧都需要更新大量系统。大后期殖民地性能急剧劣化的主要热点包括：</p>
+<ol>
+<li><strong>Duplicant Chore Sensors</strong>：无论复制人是否在执行任务，传感器系统每 tick 都在重新评估全图搬运池。</li>
+<li><strong>Component Lookup 开销</strong>：C# 托管层与 Unity 原生层之间的 <code>GetComponent</code> 密集查询。</li>
+<li><strong>寻路风暴 (NavGrid Churn)</strong>：几十只小动物同时计算不可达目标导致的异步寻路队列暴涨。</li>
+</ol>
+<h3 id="2-忙碌复制人任务感应节流-busy-duplicant-chore-throttle">2. 忙碌复制人任务感应节流 (Busy Duplicant Chore Throttle)<a class="heading-anchor" href="#2-忙碌复制人任务感应节流-busy-duplicant-chore-throttle" aria-label="链接到 2. 忙碌复制人任务感应节流 (Busy Duplicant Chore Throttle)">#</a></h3>
+<ul>
+<li><strong>核心观察</strong>：当复制人正处于长周期确定性任务中（如长途跋涉搬运、持续建造、持续挖掘），绝大多数情况不需要在下一 tick 强行打断并重新分配相同的常规任务。</li>
+<li><strong>行为保持</strong>：一旦小人变成空闲（Idle）、任务被打断、或优先级发生主动改变，节流立即失效，无缝恢复原版排程敏感度。</li>
+</ul>
+<h3 id="3-条件弱引用状态表与反射短路-conditionalweaktable">3. 条件弱引用状态表与反射短路 (ConditionalWeakTable)<a class="heading-anchor" href="#3-条件弱引用状态表与反射短路-conditionalweaktable" aria-label="链接到 3. 条件弱引用状态表与反射短路 (ConditionalWeakTable)">#</a></h3>
+<ul>
+<li><strong>痛点</strong>：在传感器补丁中每次调用 <code>sensor.GetComponent&lt;ChoreConsumer&gt;()</code> 会在高频调用下累积严重的 CPU 耗时。</li>
+<li><strong>实现机制</strong>：<div class="code-block"><div class="code-toolbar"><span class="code-language">csharp</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 csharp 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>// 维护传感器与状态对象的弱引用绑定，不阻碍垃圾回收
+private static readonly ConditionalWeakTable&lt;PickupableSensor, State&gt; SensorStates =
+    new ConditionalWeakTable&lt;PickupableSensor, State&gt;();
+</code></pre></div>
+在 <code>State</code> 中缓存解析好的 <code>ChoreConsumer</code> 引用，使后续数十万次的高频检查完全避开反射与原生组件查询，纯粹在托管内存完成。</li>
+</ul>
+<h3 id="4-寻路探针队列配额与削峰-asyncpathprober-quota">4. 寻路探针队列配额与削峰 (AsyncPathProber Quota)<a class="heading-anchor" href="#4-寻路探针队列配额与削峰-asyncpathprober-quota" aria-label="链接到 4. 寻路探针队列配额与削峰 (AsyncPathProber Quota)">#</a></h3>
+<ul>
+<li>异步寻路探针在高密度基地下容易积压成千上万个工单。</li>
+<li>CycleTrim 对后台 Worker 分发实施滑动窗口配额，按在途排队数量做自适应背压削峰，防止突发大范围不可达搜索抢占主渲染线程。</li>
+</ul>
+<h3 id="5-静态沉睡生物脑休眠-stationary-critter-sleep">5. 静态/沉睡生物脑休眠 (Stationary Critter Sleep)<a class="heading-anchor" href="#5-静态沉睡生物脑休眠-stationary-critter-sleep" aria-label="链接到 5. 静态/沉睡生物脑休眠 (Stationary Critter Sleep)">#</a></h3>
+<ul>
+<li>当小动物处于被束缚、在捕获点等待搬运或夜间休眠时，其空间坐标处于静态锁定。</li>
+<li>补丁将其高频的地面导航探测与行为树刷新挂起，直至受到外部物理扰动或状态变更事件唤醒，<strong>单项热点耗时下降 90% 以上</strong>。</li>
+</ul>
+<hr />
+<h2 id="四-架构对比与设计取舍">四、 架构对比与设计取舍<a class="heading-anchor" href="#四-架构对比与设计取舍" aria-label="链接到 四、 架构对比与设计取舍">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>核心维度</th>
+<th>OniMcp</th>
+<th>CycleTrim</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>层次</strong></td>
+<td>应用层 / 外部通信协议</td>
+<td>核心模拟层 / 引擎补丁</td>
+</tr>
+<tr>
+<td><strong>工作介质</strong></td>
+<td>HTTP、JSON-RPC、Markdown 文本</td>
+<td>C# IL 字节码、Harmony 运行时 Patch</td>
+</tr>
+<tr>
+<td><strong>优化目标</strong></td>
+<td><strong>降低上下文 Token 消耗，消除 LLM 幻觉与歧义</strong></td>
+<td><strong>先把模拟帧时间打下来。下个版本实验用无分支通量核替换一格一物</strong></td>
+</tr>
+<tr>
+<td><strong>安全准则</strong></td>
+<td>零作弊、沙盒隔离、必须经过 Preflight 验证</td>
+<td>0.4.0 的热点裁剪仍尽量不改排程语义。格子表示实验不把「与原版逐格一致」当通过条件</td>
+</tr>
+<tr>
+<td><strong>验证体系</strong></td>
+<td>静态契约检查、无头 MCP 协议套件、离线格式断言</td>
+<td>合成微基准、ILSpy 反编译断言、目标 DLL 契约验证</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="五-现代浏览器自动化驱动的高效控制范式-browser-inspired--codemode">五、 现代浏览器自动化驱动的高效控制范式 (Browser-Inspired &amp; CodeMode)<a class="heading-anchor" href="#五-现代浏览器自动化驱动的高效控制范式-browser-inspired--codemode" aria-label="链接到 五、 现代浏览器自动化驱动的高效控制范式 (Browser-Inspired &amp; CodeMode)">#</a></h2>
+<p>为了解决传统基于 LLM 的游戏控制中“频繁乒乓轮询、盲目休眠、进度缓慢、Token 开销巨大”的痛点，OniMcp 深度借鉴了现代浏览器自动化框架（<strong>Playwright</strong>、<strong>Chrome DevTools Protocol</strong>）的核心设计模式：</p>
+<h3 id="1-目标驱动条件推进-step_until对标-playwright-waitforcondition-与游戏自动化硬件报警">1. 目标驱动条件推进 (<code>step_until</code>，对标 Playwright <code>waitForCondition</code> 与游戏自动化硬件报警)<a class="heading-anchor" href="#1-目标驱动条件推进-step_until对标-playwright-waitforcondition-与游戏自动化硬件报警" aria-label="链接到 1. 目标驱动条件推进 (step_until，对标 Playwright waitForCondition 与游戏自动化硬件报警)">#</a></h3>
+<p>事实读取（<code>step_facts</code>）、原子条件与 <code>all</code> / <code>any</code> 组合（<code>until</code>）、有时限推进并暂停（<code>step_until</code>）分别负责观察、表达和执行。具体暂停策略交给 Agent；例如全员空闲只是可选条件。完整语义与示例见 <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/docs/composable-game-waits.md">可组合推进条件</a>。</p>
+<ul>
+<li><strong>淘汰盲目休眠</strong>：严禁无目的的 <code>resume -&gt; sleep(10s) -&gt; pause</code>（复制人跑路需要十几秒，固定休眠导致 LLM 频繁空转轮询）。</li>
+<li><strong>事件驱动快进</strong>：通过 <code>game_control domain=speed action=step_until</code> 指定终止条件（<code>condition: &quot;orders_complete&quot; | &quot;dupe_idle&quot; | &quot;cycle_end&quot; | &quot;print&quot; | &quot;research&quot; | &quot;alarm&quot; | &quot;alarm:&lt;name&gt;&quot; | &quot;notify:&lt;keyword&gt;&quot; | &quot;notify:good&quot; | &quot;notify:bad&quot;</code> 等），游戏以 <strong>3x 快进倍速</strong> 持续模拟。</li>
+<li><strong>全方位原生通知拦截（HUD Notifications Hook）</strong>：全面接管缺氧游戏内的 <code>NotificationScreen</code> 与 <code>NotificationManager</code>。不仅支持打印舱就绪（<code>condition: &quot;print&quot;</code>）与科技研究完毕（<code>condition: &quot;research&quot;</code>）这类里程碑瞬时唤醒，还支持按通知类型（<code>notify:good</code> / <code>notify:bad</code> / <code>notify:message</code> / <code>notify:event</code>）或按关键字（如管道堵塞 <code>notify:pipe</code>、建筑故障 <code>notify:broken</code>、饥饿 <code>notify:starv</code>）进行模糊拦截。</li>
+<li><strong>自动化告警硬件联动（Hardware Alarm Hook）</strong>：充分利用缺氧强大的自动化电路（传感器 + 自动化通知器 <code>LogicAlarm</code>）。Agent 只需建造自动化通知器并命名（如 <code>WaterFull</code> 或 <code>TempNormal</code>），即可直接运行 <code>step_until condition=&quot;WaterFull&quot;</code>。信号线变绿瞬间，主线程毫秒级捕获通知器事件并自动暂停返回，达到对标 Webhook / 硬件中断级别的超高效率。</li>
+<li><strong>原生威胁自动拦截</strong>：无论当前设置何种条件，只要出现复制人窒息、致命伤、受困红警或 <code>NotificationType.DuplicantThreatening</code>，引擎立即强制刹车暂停并返回威胁告警，杜绝挂机致死。</li>
+<li><strong>自动暂停与截断</strong>：主线程在 Unity <code>Update()</code> 每帧监听目标达成或异常告警，一旦达成立即触发安全暂停，避免挂机空跑或灾难蔓延。</li>
+</ul>
+<h3 id="2-增量感知与执行报告-executiondelta对标-dom-mutation-diff">2. 增量感知与执行报告 (<code>ExecutionDelta</code>，对标 DOM Mutation Diff)<a class="heading-anchor" href="#2-增量感知与执行报告-executiondelta对标-dom-mutation-diff" aria-label="链接到 2. 增量感知与执行报告 (ExecutionDelta，对标 DOM Mutation Diff)">#</a></h3>
+<ul>
+<li><strong>拒绝全量 Dump</strong>：推进结束后不重新序列化数千 Token 的完整地图，而是直接返回仅百余 Token 的精炼差异摘要（包含新增 HUD 通知、告警、空闲复制人与工单状态）：<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>{
+  &quot;stopReason&quot;: &quot;notification:Research Complete: Basic Farming&quot;,
+  &quot;condition&quot;: &quot;research&quot;,
+  &quot;elapsedGameSeconds&quot;: 48.5,
+  &quot;elapsedWallSeconds&quot;: 13.2,
+  &quot;startCycle&quot;: 10,
+  &quot;endCycle&quot;: 10,
+  &quot;remainingTargetOrders&quot;: 0,
+  &quot;idleDuplicants&quot;: [],
+  &quot;alerts&quot;: [],
+  &quot;alarms&quot;: [],
+  &quot;notifications&quot;: [
+    { &quot;title&quot;: &quot;Research Complete: Basic Farming&quot;, &quot;type&quot;: &quot;Good&quot;, &quot;isNew&quot;: true, &quot;isAlarm&quot;: false, &quot;notifier&quot;: &quot;ResearchCenter&quot; }
+  ],
+  &quot;newNotificationCount&quot;: 1,
+  &quot;immigrantsAvailable&quot;: false,
+  &quot;isPaused&quot;: true
+}
+</code></pre></div>
+</li>
+<li>LLM 凭借增量即可确认工单达成，节省 <strong>85%+ 上下文开销</strong>。</li>
+</ul>
+<h3 id="3-原生-codemode-流程支持-domaincode--domainprogram">3. 原生 CodeMode 流程支持 (<code>domain=code</code> / <code>domain=program</code>)<a class="heading-anchor" href="#3-原生-codemode-流程支持-domaincode--domainprogram" aria-label="链接到 3. 原生 CodeMode 流程支持 (domain=code / domain=program)">#</a></h3>
+<ul>
+<li><strong>单回合闭环控制</strong>：Agent 无需在聊天对话中反复来回发起单个工具调用，可直接以代码/流程形式将“工单下达 -&gt; 目标快进 -&gt; 结果返回”组合为原子脚本：<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>{
+  &quot;domain&quot;: &quot;code&quot;,
+  &quot;action&quot;: &quot;execute&quot;,
+  &quot;code&quot;: [
+    { &quot;tool&quot;: &quot;orders_control&quot;, &quot;args&quot;: { &quot;domain&quot;: &quot;dig&quot;, &quot;action&quot;: &quot;line&quot;, &quot;x1&quot;: 20, &quot;y1&quot;: 20, &quot;x2&quot;: 25, &quot;y2&quot;: 20 } },
+    { &quot;tool&quot;: &quot;game_control&quot;, &quot;args&quot;: { &quot;domain&quot;: &quot;speed&quot;, &quot;action&quot;: &quot;step_until&quot;, &quot;condition&quot;: &quot;orders_complete&quot;, &quot;speed&quot;: 3, &quot;maxGameSeconds&quot;: 60 }, &quot;saveAs&quot;: &quot;delta&quot; },
+    { &quot;return&quot;: &quot;$delta&quot; }
+  ]
+}
+</code></pre></div>
+</li>
+<li>该架构实现了单回合内游戏时间推进数十秒、工单全量交付的极高自主游玩效率。</li>
+</ul>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/docs/architecture-and-principles.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/OniMods">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../OniMods/mcp-tools-reference/"><span class="pagination-label">上一页</span><span class="pagination-title">ONI MCP 工具参考</span></a><a class="pagination-link next" href="../../OniMods/oniharness/"><span class="pagination-label">下一页</span><span class="pagination-title">OniHarness: independent headless testing project</span></a></nav>
+      <footer class="page-footer">
+        <span>OniMods <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#目录">目录</a></li><li class="toc-level-2"><a href="#一-双-mod-协同体系">一、 双 Mod 协同体系</a></li><li class="toc-level-2"><a href="#二-onimcp-原理世界文本化与大模型交互">二、 OniMcp 原理：世界文本化与大模型交互</a></li><li class="toc-level-3"><a href="#1-为什么需要世界文本化">1. 为什么需要世界文本化？</a></li><li class="toc-level-3"><a href="#2-语义行程编码-semantic-runs">2. 语义行程编码 (Semantic Runs)</a></li><li class="toc-level-3"><a href="#3-单一坐标权威与消除歧义-disambiguation">3. 单一坐标权威与消除歧义 (Disambiguation)</a></li><li class="toc-level-3"><a href="#4-动态活动图例-active-legend-filtering">4. 动态活动图例 (Active Legend Filtering)</a></li><li class="toc-level-3"><a href="#5-空间-aabb-快速初筛裁剪">5. 空间 AABB 快速初筛裁剪</a></li><li class="toc-level-3"><a href="#6-虚拟文件系统与代码编辑隐喻-world-editor">6. 虚拟文件系统与代码编辑隐喻 (World Editor)</a></li><li class="toc-level-3"><a href="#7-严格安全控制环路-preflight--safety-guard">7. 严格安全控制环路 (Preflight &amp; Safety Guard)</a></li><li class="toc-level-2"><a href="#三-cycletrim-原理底层模拟热点削峰">三、 CycleTrim 原理：底层模拟热点削峰</a></li><li class="toc-level-3"><a href="#1-缺氧模拟的性能瓶颈分析">1. 缺氧模拟的性能瓶颈分析</a></li><li class="toc-level-3"><a href="#2-忙碌复制人任务感应节流-busy-duplicant-chore-throttle">2. 忙碌复制人任务感应节流 (Busy Duplicant Chore Throttle)</a></li><li class="toc-level-3"><a href="#3-条件弱引用状态表与反射短路-conditionalweaktable">3. 条件弱引用状态表与反射短路 (ConditionalWeakTable)</a></li><li class="toc-level-3"><a href="#4-寻路探针队列配额与削峰-asyncpathprober-quota">4. 寻路探针队列配额与削峰 (AsyncPathProber Quota)</a></li><li class="toc-level-3"><a href="#5-静态沉睡生物脑休眠-stationary-critter-sleep">5. 静态/沉睡生物脑休眠 (Stationary Critter Sleep)</a></li><li class="toc-level-2"><a href="#四-架构对比与设计取舍">四、 架构对比与设计取舍</a></li><li class="toc-level-2"><a href="#五-现代浏览器自动化驱动的高效控制范式-browser-inspired--codemode">五、 现代浏览器自动化驱动的高效控制范式 (Browser-Inspired &amp; CodeMode)</a></li><li class="toc-level-3"><a href="#1-目标驱动条件推进-step_until对标-playwright-waitforcondition-与游戏自动化硬件报警">1. 目标驱动条件推进 (step_until，对标 Playwright waitForCondition 与游戏自动化硬件报警)</a></li><li class="toc-level-3"><a href="#2-增量感知与执行报告-executiondelta对标-dom-mutation-diff">2. 增量感知与执行报告 (ExecutionDelta，对标 DOM Mutation Diff)</a></li><li class="toc-level-3"><a href="#3-原生-codemode-流程支持-domaincode--domainprogram">3. 原生 CodeMode 流程支持 (domain=code / domain=program)</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

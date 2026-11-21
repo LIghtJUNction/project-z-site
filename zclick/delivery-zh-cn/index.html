@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 zclap 的 Click 参数语义与 Python 预览绑定。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zclick · zclick 0.1.1a1 交付记录 · Project Z">
+  <meta property="og:description" content="基于 zclap 的 Click 参数语义与 Python 预览绑定。">
+  <meta property="og:type" content="website">
+  <title>zclick · zclick 0.1.1a1 交付记录 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zclick/delivery-zh-cn/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zclick">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zclick" aria-label="zclick 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zclick</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zclick</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/" aria-current="page">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zclick 文档"><div class="nav-group"><p class="nav-label">zclick</p><ul><li><a class="nav-link" href="../../zclick/">概览</a></li><li><a class="nav-link" href="../../zclick/crates-zclick-core-readme/">zclick-core</a></li><li><a class="nav-link" href="../../zclick/architecture/">Architecture and dependency boundaries</a></li><li><a class="nav-link" href="../../zclick/compatibility/">Click compatibility</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a2-zh-cn/">zclick 0.1.1a2 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a3-zh-cn/">zclick 0.1.1a3 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-zh-cn/" aria-current="page">zclick 0.1.1a1 交付记录</a></li><li><a class="nav-link" href="../../zclick/development/">Build, verify and release</a></li><li><a class="nav-link" href="../../zclick/extensions/">第三方 Click 扩展的迁移边界</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a2/">Measured performance: 0.1.1a2</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a3/">Measured performance: 0.1.1a3</a></li><li><a class="nav-link" href="../../zclick/performance/">Measured performance: 0.1.1a1</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zclick</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/" aria-current="page">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zclick 文档"><div class="nav-group"><p class="nav-label">zclick</p><ul><li><a class="nav-link" href="../../zclick/">概览</a></li><li><a class="nav-link" href="../../zclick/crates-zclick-core-readme/">zclick-core</a></li><li><a class="nav-link" href="../../zclick/architecture/">Architecture and dependency boundaries</a></li><li><a class="nav-link" href="../../zclick/compatibility/">Click compatibility</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a2-zh-cn/">zclick 0.1.1a2 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a3-zh-cn/">zclick 0.1.1a3 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-zh-cn/" aria-current="page">zclick 0.1.1a1 交付记录</a></li><li><a class="nav-link" href="../../zclick/development/">Build, verify and release</a></li><li><a class="nav-link" href="../../zclick/extensions/">第三方 Click 扩展的迁移边界</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a2/">Measured performance: 0.1.1a2</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a3/">Measured performance: 0.1.1a3</a></li><li><a class="nav-link" href="../../zclick/performance/">Measured performance: 0.1.1a1</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zclick/">zclick 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zclick/">zclick</a><span aria-hidden="true">/</span><span>zclick 0.1.1a1 交付记录</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#结论与当前边界">结论与当前边界</a></li><li class="toc-level-2"><a href="#固定目标和依赖">固定目标和依赖</a></li><li class="toc-level-2"><a href="#使用和实现">使用和实现</a></li><li class="toc-level-3"><a href="#代码分层">代码分层</a></li><li class="toc-level-2"><a href="#测试方法与已取得证据">测试方法与已取得证据</a></li><li class="toc-level-2"><a href="#性能结果">性能结果</a></li><li class="toc-level-2"><a href="#尚未完成和需要单独处理的场景">尚未完成和需要单独处理的场景</a></li><li class="toc-level-2"><a href="#构建和发布机制">构建和发布机制</a></li><li class="toc-level-2"><a href="#主要文件">主要文件</a></li><li class="toc-level-2"><a href="#最终发布结果">最终发布结果</a></li><li class="toc-level-3"><a href="#正式发布证据中的测试计数">正式发布证据中的测试计数</a></li><li class="toc-level-3"><a href="#当前可用的安装入口">当前可用的安装入口</a></li><li class="toc-level-3"><a href="#pypi-发布重试记录">PyPI 发布重试记录</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zclick-011a1-交付记录">zclick 0.1.1a1 交付记录</h1>
+<h2 id="结论与当前边界">结论与当前边界<a class="heading-anchor" href="#结论与当前边界" aria-label="链接到 结论与当前边界">#</a></h2>
+<p>本轮在 <a href="../../zclick/">LIghtJUNction/zclick</a> 中实现了可构建、可安装的 Python/Rust 命令行库，提供 <code>zclick</code> 公开命名空间及对应子模块，原生解析使用发布到 registry 的 zclap。代码、测试、示例、类型声明、性能测量、跨平台构建和自动发布流程已分阶段提交。</p>
+<p><strong>当前版本为预发布 <code>0.1.1a1</code>，完整兼容验收尚未达成。</strong> 已确认的兼容缺口是 CPython 子解释器：原版 Click 可以在已验证的主解释器先初始化场景中使用，当前 zclick 会明确拒绝子解释器导入。固定官方测试集通过不能消除这一差异；仓库保持 <code>UNFINISHED</code> 记录，并阻止带有未解决兼容项的稳定版本发布。<a href="../../zclick/compatibility/">兼容性清单</a>和<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/known-gaps.json">机器可读缺口记录</a>给出了范围与复现入口。</p>
+<p>本轮的运行时代码冻结于 <code>86bab2a8de3092155a912a4028382aba8188e6db</code>。本地基准记录该提交，首轮独立 CI 记录 <code>a8bc735a3df168b62b2e11d99b34e7ab40530ba7</code>，最终发布 CI 记录 <code>3281e18f215dec976c3ce0c4b5dd933ad4d62616</code>。这三次测量之间没有更改运行时代码；后续提交只更新发布说明、测试证据规范化和构建编排。三份原始数据均保留，实际发布结果列在本记录末尾。</p>
+<h2 id="固定目标和依赖">固定目标和依赖<a class="heading-anchor" href="#固定目标和依赖" aria-label="链接到 固定目标和依赖">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>本轮固定值</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Click 兼容目标</td>
+<td><strong>8.5.1</strong>，2026-11-06 发布，2026-11-11 核验</td>
+<td><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/target.json">target.json</a></td>
+</tr>
+<tr>
+<td>Click 源码</td>
+<td><code>cf19179e8e2fd54c601378cec9e0d21bb12b6fb1</code></td>
+<td>同一提交的文档、公开 API 与官方测试，不混用移动中的文档版本</td>
+</tr>
+<tr>
+<td>zclap</td>
+<td>registry 精确版本 <strong>0.1.4</strong></td>
+<td><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/zclap.json">zclap.json</a>、Cargo.lock 校验和</td>
+</tr>
+<tr>
+<td>zclap 对应源码</td>
+<td><code>4d87f3ae3743e81509d5ac5500909955667c860f</code></td>
+<td>已对照发布包的 VCS 信息与当前源码、测试</td>
+</tr>
+<tr>
+<td>原生绑定</td>
+<td><strong>PyO3 0.30.1</strong></td>
+<td>Cargo.lock，包含必要的传递与构建依赖</td>
+</tr>
+<tr>
+<td>Rust / MSRV</td>
+<td>实际验证的 <strong>1.99.1</strong>，Edition <strong>2024</strong></td>
+<td>rust-toolchain.toml、CI 编译与 no_std 检查</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>声明最低 <strong>3.10</strong></td>
+<td>pyproject.toml 与各解释器 CI</td>
+</tr>
+<tr>
+<td>Python 默认运行时依赖</td>
+<td>空</td>
+<td>wheel 元数据检查；原版 Click 仅属于开发、对照测试环境</td>
+</tr>
+</tbody>
+</table></div>
+<p>发行包只安装 <code>zclick</code>，不覆盖原版 <code>click</code>，不通过 <code>sys.modules</code> 改写其他库的导入。Maturin、pytest、Hypothesis、mypy 和 Click 对照环境与默认运行时依赖分开管理。<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/scripts/audit_dependencies.py">依赖审计脚本</a>与<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/scripts/check_wheel.py">发行包检查脚本</a>分别检查源码依赖边界和实际包内容。</p>
+<h2 id="使用和实现">使用和实现<a class="heading-anchor" href="#使用和实现" aria-label="链接到 使用和实现">#</a></h2>
+<p>应用迁移的基本改动是：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">python</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 python 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>import zclick as click
+from zclick.testing import CliRunner
+from zclick.types import ParamType
+from zclick.core import Command, Group, Context
+</code></pre></div>
+<p>原有 <code>from click.xxx</code> 导入应对应改为 <code>from zclick.xxx</code>。公开类型声明和 <code>py.typed</code> 随包提供。三个可执行示例分别覆盖问候与提示、链式命令与结果回调、以及自定义类型、上下文资源和超过 64 位的整数；README 中的三个执行命令已实际运行，输出分别为两行 <code>Hello, Ada!</code>、<code>HELLO Rust</code> 和 <code>demo: 18446744073709551616</code>。<a href="../../zclick/#examples">示例入口</a></p>
+<h3 id="代码分层">代码分层<a class="heading-anchor" href="#代码分层" aria-label="链接到 代码分层">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>层</th>
+<th>当前实现职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python 公开层</td>
+<td>类与装饰器、Context 生命周期、可覆盖的参数钩子、默认值与环境读取、Python 类型转换、帮助组装、终端工具、补全和 testing</td>
+</tr>
+<tr>
+<td>Rust/PyO3 绑定层</td>
+<td>解析动作编排、组命令分发、Python 对象所有权和安全回调</td>
+</tr>
+<tr>
+<td>Rust 语义核心</td>
+<td>token 与 arity 处理、位置参数分配、参数执行顺序、值来源选择、ANSI 与文本换行</td>
+</tr>
+<tr>
+<td>zclap</td>
+<td>通过真实事件解析识别选项，执行 <code>finish()</code> 最终检查，参与消费后参数值的字节解析</td>
+</tr>
+</tbody>
+</table></div>
+<p>这是具有较多 Python 职责的混合实现，不能称为整个库都由 Rust 执行。公开对象和任意用户方法仍然遵守 Python 的动态规则；Rust 负责上述集中计算和编排路径。核心 crate 使用 <code>no_std + alloc</code>，直接第三方依赖只有 zclap；Python 扩展使用 <code>std</code>、PyO3，并会创建和分配 Python 对象。<a href="../../zclick/architecture/">架构与源码说明</a></p>
+<p>调用开始时会从当前参数对象重新建立解析计划。这样，修改 <code>command.params</code>、选项属性、类型转换方法或 callback 后，下一次调用能观察到变化。默认值函数、环境变量、提示输入和 Context 状态不会作为执行结果缓存。代价是每次调用都有结构转换和分配成本，性能表包含这些成本。</p>
+<p>zclap 只借用当前调用拥有的字符串和参数表，没有 <code>Box::leak</code>、永久字符串驻留或伪造 <code>'static</code>。回调期间不持有会阻止重入的原生可变借用；原生分发对象参与 GC，并在整个 Python scope 返回或抛出后释放捕获引用。Python 整数转换保留任意精度，带 surrogate 的字符串采用可逆表示，库内部不调用 Rust <code>process::exit</code> 杀死宿主。<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/tests/test_dynamic_semantics.py">动态语义测试</a>、<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/tests/test_native_dispatch.py">原生分发测试</a></p>
+<h2 id="测试方法与已取得证据">测试方法与已取得证据<a class="heading-anchor" href="#测试方法与已取得证据" aria-label="链接到 测试方法与已取得证据">#</a></h2>
+<p>兼容清单来自固定版本的官方 API 和源码，包含 <strong>196 项公开 API</strong>及其成员、签名、默认值、属性和弃用行为。官方测试库存包含 <strong>33,459 个唯一用例 ID</strong>，其中 <strong>31,000 个为压力用例</strong>；清单和排序后哈希固定在 <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/test-manifest.json">test-manifest.json</a>。</p>
+<p>迁移测试只修改包名、模块引用、monkeypatch 路径、子进程导入、发行元数据查找及必要的模块限定 repr。没有修改行为断言、输入参数、预期结果或原版 skip/xfail 条件。每轮保存迁移日志、逐例结果、实现提交和源码哈希，发布门禁验证精确的 ID 集合。</p>
+<p>冻结快照 <code>86bab2a8</code> 的 <a href="https://github.com/LIghtJUNction/zclick/actions/runs/43028777836">CI 43028777836</a> 已全部成功：Linux CPython 3.10–3.15、3.14t/3.15t、PyPy 3.11/3.12，macOS 与 Windows CPython 3.14，以及 Rust、四 Shell 和子解释器安全诊断。各平台保留不同的原版平台跳过条件，不能把它们写成实际执行通过的用例。</p>
+<p>在本地冻结快照的最后一次压力对照中，<strong>Click 与 zclick 各 31,000 passed，双方 0 failed、0 skipped、0 xfailed，缺失和额外用例均为 0</strong>。31,000 个唯一 ID 的 SHA-256 为 <code>41721cdd2cdc8245395eb046937570a7d9ce8c8e5945c306ef6e98d7ce8a048a</code>；该次原生模块 SHA-256 为 <code>87f1d9d65e88eb08bea9b31afaf35fe9ae45cd3a3976f28919e5e01f1c958bea</code>。原始结果保留在 <code>reports/final-stress-fixed</code>，未将后来的 Git 提交号覆盖到旧报告中。</p>
+<p>首轮 <a href="https://github.com/LIghtJUNction/zclick/actions/runs/43029689108">Release 43029689108</a> 的各平台普通、压力、API、typing、Shell 和安全测试均成功，证据汇总发现了 Python 3.10 的五个枚举参数 ID 显示差异。修复只规范这五个完整 ID，并新增同份报告内的碰撞拒绝；重放真实报告后，33,459 项及原清单 SHA-256 均完全一致，未修改行为断言。最终发布仍要求新提交重新通过完整验收与实际安装包执行检查，结果和平台计数列在本记录末尾。</p>
+<h2 id="性能结果">性能结果<a class="heading-anchor" href="#性能结果" aria-label="链接到 性能结果">#</a></h2>
+<p>比值统一定义为 <strong>Click 耗时 / zclick 耗时</strong>；大于 1 表示该场景下 zclick 更快，小于 1 表示性能回退。两个环境均使用 release 构建、9 轮样本，并保存原始 wall/CPU 时间与源码哈希。以下不是对任意 CLI 应用的统一加速承诺。<a href="../../zclick/performance/">完整方法、每项时间和内存表</a></p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>场景</th>
+<th style="text-align:right">本地 CPython 3.12</th>
+<th style="text-align:right">最终发布 CI CPython 3.14</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>热调用，1 个选项</td>
+<td style="text-align:right">0.694×</td>
+<td style="text-align:right">1.058×</td>
+</tr>
+<tr>
+<td>热调用，10 个选项</td>
+<td style="text-align:right">0.822×</td>
+<td style="text-align:right">1.151×</td>
+</tr>
+<tr>
+<td>热调用，100 个选项</td>
+<td style="text-align:right">1.148×</td>
+<td style="text-align:right">1.169×</td>
+</tr>
+<tr>
+<td>热调用，1,000 个选项</td>
+<td style="text-align:right"><strong>1.706×</strong></td>
+<td style="text-align:right"><strong>1.997×</strong></td>
+</tr>
+<tr>
+<td>复用底层 parser，1 个选项</td>
+<td style="text-align:right">0.403×</td>
+<td style="text-align:right">0.520×</td>
+</tr>
+<tr>
+<td>复用底层 parser，1,000 个选项</td>
+<td style="text-align:right">0.660×</td>
+<td style="text-align:right">0.435×</td>
+</tr>
+<tr>
+<td>嵌套命令</td>
+<td style="text-align:right">0.970×</td>
+<td style="text-align:right">0.889×</td>
+</tr>
+<tr>
+<td>Unicode/ANSI 文本换行</td>
+<td style="text-align:right"><strong>7.344×</strong></td>
+<td style="text-align:right"><strong>8.724×</strong></td>
+</tr>
+<tr>
+<td>全新进程，1,000 选项命令</td>
+<td style="text-align:right">1.183×</td>
+<td style="text-align:right">1.148×</td>
+</tr>
+<tr>
+<td>全新进程，1,000 选项 <code>--help</code></td>
+<td style="text-align:right">1.288×</td>
+<td style="text-align:right">1.017×</td>
+</tr>
+</tbody>
+</table></div>
+<p>1,000 选项热调用在本地从 <strong>11.176 ms 降到 6.553 ms</strong>，在最终发布 CI 从 <strong>11.149 ms 降到 5.582 ms</strong>。该边界复用已经定义的 Command，但包含新 Context、解析计划、参数处理、转换和回调。全新进程测量另行包含 Python 启动、导入、Option/Command 构造、执行、输出捕获和进程退出。</p>
+<p>冷启动帮助收益没有稳定复现：1,000 选项命令在最终 CI 从 <strong>63.205 ms 到 55.066 ms</strong>，比值为 1.148×；同规模帮助仅从 <strong>63.471 ms 到 62.415 ms</strong>，比值为 1.017×。保留的首轮 CI 对照还记录到帮助从 <strong>73.347 ms 到 76.995 ms</strong>，比值为 0.953×。因此不能把本地 1.288× 的冷启动帮助结果当成普遍结论，也不能宣传小命令必然提速。</p>
+<p>从执行成本看，Rust 省下的是解释循环、参数编排和文本处理中的一部分工作；跨 Python/Rust 边界、读取可变对象、建立当前调用的数据结构和返回 Python 对象仍要耗时。小任务里，这些固定成本可能超过计算本身；较大的命令和文本处理才在两台主机上都表现出明确收益。测量没有把每一种成本单独隔离，因此这是一种结合代码路径的解释，不是独立的分项性能归因实验。</p>
+<p>两个环境都按 Click 再 zclick 的固定顺序运行，没有绑定 CPU 或锁定频率，主机、解释器和缓存状态也不同。小幅差异不能解释为统计显著结果。Python <code>tracemalloc</code> 不包含所有 Rust 分配；本地进程峰值 RSS 分别约为 <strong>22.78 MiB 与 23.82 MiB</strong>。本项目没有零分配或内存全面减少的结论。</p>
+<h2 id="尚未完成和需要单独处理的场景">尚未完成和需要单独处理的场景<a class="heading-anchor" href="#尚未完成和需要单独处理的场景" aria-label="链接到 尚未完成和需要单独处理的场景">#</a></h2>
+<p><strong>CPython 子解释器兼容仍未完成。</strong> PyO3 0.30.1 中部分 Python 对象缓存不按解释器隔离，直接放行可能让一个解释器调用另一个解释器保存的对象。因此当前模块在初始化最早阶段检查解释器身份，对子解释器抛出 ImportError，同时验证主解释器随后仍可调用。这个保护解决的是错误共享对象的风险，没有实现 Click 的子解释器行为。</p>
+<p>诊断分别记录安全拒绝和兼容是否通过，也保留原版的环境问题：本地 CPython 3.12 在部分 child-first 导入/销毁顺序下，原版 Click 和独立的 datetime 对照均出现 teardown 崩溃，报告保留返回码而没有预热导入来隐藏它。能够稳定工作的 main-first 原版场景仍足以表明 zclick 存在差异。<a href="../../zclick/development/#interpreter-compatibility-boundary">解释器边界说明</a></p>
+<p><strong>第三方扩展的内部导入需要单独迁移。</strong> 实测的 <code>click-didyoumean==0.3.1</code>、<code>click-plugins==1.1.1.2</code> 和 <code>click-repl==0.4.1</code> 仍然导入原版 Click，分别涉及原版类继承、<code>isinstance</code> 检查或上下文栈差异。应用里的别名只改变该模块的名字绑定，不会改写扩展文件自己的导入。这些诊断测试通过不代表扩展已经兼容。<a href="../../zclick/extensions/">完整扩展报告</a></p>
+<p><strong>CliRunner 仍有解释器和进程状态边界。</strong> 它会替换流、环境和工作目录，不应作为同一进程中多个线程并发隔离的工具。free-threaded 构建成功与其线程安全是两件不同的事；本轮没有借此宣称并行加速。</p>
+<p>平台结论仅覆盖列出的解释器、操作系统和实际执行路径。Windows 宽字符缓冲区回归包含系统 API 边界模拟，四 Shell 补全则实际执行生成的 shell source；不把两者统称为每一种终端设备都已验证。</p>
+<h2 id="构建和发布机制">构建和发布机制<a class="heading-anchor" href="#构建和发布机制" aria-label="链接到 构建和发布机制">#</a></h2>
+<p>发布前固定不可变提交，完整兼容性与安全验证和 wheel/sdist 构建并行执行；只有两方面全部成功才进入发布。wheel 在源码目录之外安装并执行，musllinux 包在固定摘要的 Alpine 镜像中验证；sdist 会重新构建 wheel 后再执行。类型声明、项目许可证、Click API 声明许可和 Rust 依赖通知随发行包提供，并核对 notice 原始字节的哈希。<a href="../../zclick/development/">构建与发布指南</a></p>
+<p>版本脚本同时更新 Python、Cargo 工作区和 lockfile，支持 prerelease、patch、minor、major 和显式版本。标签必须与项目版本一致；本次使用 <code>release: 0.1.1a1</code> 提交触发同一套完整门禁。GitHub Release 和 PyPI 上传是两个独立任务，前者成功并不自动代表后者已认证并发布。<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/.github/workflows/release.yml">发布工作流</a></p>
+<h2 id="主要文件">主要文件<a class="heading-anchor" href="#主要文件" aria-label="链接到 主要文件">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>内容</th>
+<th>文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入门、导入迁移与示例</td>
+<td><a href="../../zclick/">README.md</a></td>
+</tr>
+<tr>
+<td>公开 API、行为、平台与测试映射</td>
+<td><a href="../../zclick/compatibility/">COMPATIBILITY.md</a></td>
+</tr>
+<tr>
+<td>固定目标、完整测试 ID、未完成项</td>
+<td><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility">compatibility/</a></td>
+</tr>
+<tr>
+<td>实现与依赖边界</td>
+<td><a href="../../zclick/architecture/">architecture.md</a></td>
+</tr>
+<tr>
+<td>两台主机的性能与内存原始结果</td>
+<td><a href="../../zclick/performance/">performance.md</a>、<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/results">benchmarks/results/</a></td>
+</tr>
+<tr>
+<td>开发、完整验证、版本和发布</td>
+<td><a href="../../zclick/development/">development.md</a></td>
+</tr>
+<tr>
+<td>扩展与补全</td>
+<td><a href="../../zclick/extensions/">extensions.md</a>、<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/docs/shell-completion.md">shell-completion.md</a></td>
+</tr>
+<tr>
+<td>本次版本变化</td>
+<td><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/CHANGELOG.md">CHANGELOG.md</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="最终发布结果">最终发布结果<a class="heading-anchor" href="#最终发布结果" aria-label="链接到 最终发布结果">#</a></h2>
+<p><strong>GitHub 预发布和 PyPI 发布均已成功。</strong> <a href="https://github.com/LIghtJUNction/zclick/releases/tag/v0.1.1a1">Release v0.1.1a1</a> 的实际 Git 标签指向 <code>3281e18f215dec976c3ce0c4b5dd933ad4d62616</code>。GitHub 发布页包含 12 个 wheel、1 个 sdist、原始基准 JSON、完整兼容性证据 ZIP 和发布说明，共 16 个文件；这些公开下载文件均已逐个验证与 GitHub 资产元数据的 SHA-256 一致。<a href="https://pypi.org/project/zclick/0.1.1a1/">PyPI 的同版本页面</a>提供同一批 13 个发行包，其 SHA-256 与 GitHub 已验证文件逐个一致。</p>
+<p>公开下载的 Linux x86_64 wheel 还在未安装原版 Click 的全新虚拟环境中再次安装执行，原生解析、组命令、Unicode 输出、大整数和帮助均通过，未出现 <code>click</code> 模块注入。这项检查使用公开 Release 的实际文件，与 CI 原生模块烟测分开记录。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>发布任务</th>
+<th>实际结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>固定源码完整验收与证据门禁</td>
+<td><a href="https://github.com/LIghtJUNction/zclick/actions/runs/43031862640/job/130565817963">成功</a>，33,459 个原始 ID 与固定哈希一致</td>
+</tr>
+<tr>
+<td>12 个 wheel</td>
+<td>全部构建、检查并实际安装执行成功</td>
+</tr>
+<tr>
+<td>sdist</td>
+<td>从源码包重新构建 wheel，安装执行成功</td>
+</tr>
+<tr>
+<td>GitHub Release</td>
+<td><a href="https://github.com/LIghtJUNction/zclick/actions/runs/43031862640/job/130565922406">成功</a>，明确标记 prerelease</td>
+</tr>
+<tr>
+<td>PyPI 上传</td>
+<td><a href="https://github.com/LIghtJUNction/zclick/actions/runs/43031862640/job/130584511741">第二次尝试成功</a>，2026-11-11 14:28:58 UTC 完成；13 个发行包已公开</td>
+</tr>
+</tbody>
+</table></div>
+<p>首次 Release workflow 为 60 个任务成功、1 个任务失败，唯一失败任务是 PyPI 上传返回 <code>invalid-publisher</code>。配置发布者后，仅重跑失败的上传任务，第二次尝试于 <strong>2026-11-11 14:28:58 UTC</strong> 成功，workflow 当前结论为 <code>success</code>。本次重试使用已验证的相同发行文件，没有重写旧报告或替换软件版本；<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/releases/0.1.1a1-pypi.json">PyPI 元数据与制品哈希核验</a>保留独立确认结果。</p>
+<h3 id="正式发布证据中的测试计数">正式发布证据中的测试计数<a class="heading-anchor" href="#正式发布证据中的测试计数" aria-label="链接到 正式发布证据中的测试计数">#</a></h3>
+<p>以下是每个实现各自的结果；Click 与 zclick 对应计数相同。完整机器可读摘要位于 <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/releases/0.1.1a1.json">compatibility/releases/0.1.1a1.json</a>，原始逐例记录随 Release 的 <code>compatibility-evidence.zip</code> 发布。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>环境范围</th>
+<th>官方普通测试</th>
+<th>官方压力测试</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux 的 10 个普通测试环境：CPython 3.10–3.15、3.14t/3.15t、PyPy 3.11/3.12</td>
+<td>每个环境 2,434 passed、24 skipped、1 xfailed</td>
+<td>其中 CPython 3.14、3.14t/3.15t、PyPy 3.11/3.12 五个环境，各 31,000 passed</td>
+</tr>
+<tr>
+<td>macOS ARM64 / CPython 3.14</td>
+<td>2,433 passed、25 skipped、1 xfailed</td>
+<td>31,000 passed</td>
+</tr>
+<tr>
+<td>Windows x64 / CPython 3.14</td>
+<td>2,357 passed、101 skipped、1 xfailed</td>
+<td><strong>30,000 passed、1,000 skipped</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Windows 的 1,000 个压力跳过来自<a href="https://github.com/pallets/click/blob/cf19179e8e2fd54c601378cec9e0d21bb12b6fb1/tests/test_utils/test_echo_via_pager.py">固定上游源码的 pager 平台条件</a>，两侧均保留，未计作执行通过。其余六个压力环境没有压力跳过。所有普通测试环境还通过 196 项公开 API 契约和 12 个官方 typing 文件；四种真实 Shell 的 9 项执行测试通过。Bash、Zsh 使用非交互记录钩子接收终端编辑器集成调用，Fish 和 PowerShell 调用实际补全引擎，具体范围在原始证据中保留。</p>
+<p>wheel 的实际安装检查覆盖 Linux glibc/musl 的 x86_64 与 ARM64、macOS Intel 与 ARM64、Windows x64 与 ARM64，以及 Linux x86_64 的 PyPy 3.11/3.12、CPython 3.14t/3.15t。<strong>安装 smoke 与完整官方套件是不同验证范围</strong>；例如 Windows ARM64 和 musllinux 包已实际安装运行，但未据此宣称每个发行架构都执行了整套 33,459 项用例。</p>
+<p>wheel 标签中的系统最低版本来自构建与二进制兼容性检查，实际执行系统为 CI 当前镜像；本轮未把所有标签最低系统版本逐一作为独立主机运行。</p>
+<h3 id="当前可用的安装入口">当前可用的安装入口<a class="heading-anchor" href="#当前可用的安装入口" aria-label="链接到 当前可用的安装入口">#</a></h3>
+<p>可以直接安装 PyPI 上的固定预发布版本：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>python -m pip install zclick==0.1.1a1
+</code></pre></div>
+<p>也可以从 <a href="https://github.com/LIghtJUNction/zclick/releases/tag/v0.1.1a1">Release 页面</a> 选择与解释器、系统和架构匹配的 wheel。当前工作区的普通 CPython / Linux x86_64 对应以下公开发行包：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>python -m pip install https://github.com/LIghtJUNction/zclick/releases/download/v0.1.1a1/zclick-0.1.1a1-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+</code></pre></div>
+<p>普通 CPython 也可以从发布源码包构建，要求 Rust 1.99.1 与当前平台的构建工具：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>python -m pip install https://github.com/LIghtJUNction/zclick/releases/download/v0.1.1a1/zclick-0.1.1a1.tar.gz
+</code></pre></div>
+<h3 id="pypi-发布重试记录">PyPI 发布重试记录<a class="heading-anchor" href="#pypi-发布重试记录" aria-label="链接到 PyPI 发布重试记录">#</a></h3>
+<p>第一次上传时，PyPI 返回的原因是有效身份令牌没有匹配到已配置的 publisher。账户所有者完成配置后，使用同一不可变源码提交和同一批制品重跑了失败的上传任务。第二次尝试从 2026-11-11 14:28:09 UTC 开始，14:28:58 UTC 成功完成；PyPI 元数据显示 13 个文件于 14:28:39–14:28:56 UTC 上传。</p>
+<p>本仓库工作流使用的发布者字段为：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyPI project name</td>
+<td><code>zclick</code></td>
+</tr>
+<tr>
+<td>Repository owner</td>
+<td><code>LIghtJUNction</code></td>
+</tr>
+<tr>
+<td>Repository name</td>
+<td><code>zclick</code></td>
+</tr>
+<tr>
+<td>Workflow filename</td>
+<td><code>release.yml</code></td>
+</tr>
+<tr>
+<td>Environment name</td>
+<td><code>pypi</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>首次失败的 <a href="https://github.com/LIghtJUNction/zclick/actions/runs/43031862640/job/130565922326">job 130565922326</a> 和成功重试的 <a href="https://github.com/LIghtJUNction/zclick/actions/runs/43031862640/job/130584511741">job 130584511741</a> 均保留。该发布步骤现已完成；子解释器兼容缺口和预发布定位保持不变。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/docs/DELIVERY.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zclick">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zclick/delivery-0-1-1a3-zh-cn/"><span class="pagination-label">上一页</span><span class="pagination-title">zclick 0.1.1a3 交付记录</span></a><a class="pagination-link next" href="../../zclick/development/"><span class="pagination-label">下一页</span><span class="pagination-title">Build, verify and release</span></a></nav>
+      <footer class="page-footer">
+        <span>zclick <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#结论与当前边界">结论与当前边界</a></li><li class="toc-level-2"><a href="#固定目标和依赖">固定目标和依赖</a></li><li class="toc-level-2"><a href="#使用和实现">使用和实现</a></li><li class="toc-level-3"><a href="#代码分层">代码分层</a></li><li class="toc-level-2"><a href="#测试方法与已取得证据">测试方法与已取得证据</a></li><li class="toc-level-2"><a href="#性能结果">性能结果</a></li><li class="toc-level-2"><a href="#尚未完成和需要单独处理的场景">尚未完成和需要单独处理的场景</a></li><li class="toc-level-2"><a href="#构建和发布机制">构建和发布机制</a></li><li class="toc-level-2"><a href="#主要文件">主要文件</a></li><li class="toc-level-2"><a href="#最终发布结果">最终发布结果</a></li><li class="toc-level-3"><a href="#正式发布证据中的测试计数">正式发布证据中的测试计数</a></li><li class="toc-level-3"><a href="#当前可用的安装入口">当前可用的安装入口</a></li><li class="toc-level-3"><a href="#pypi-发布重试记录">PyPI 发布重试记录</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

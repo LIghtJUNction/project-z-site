@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="维护终端屏幕、光标、滚动历史与 VT 协议状态。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zterm · 概览 · Project Z">
+  <meta property="og:description" content="维护终端屏幕、光标、滚动历史与 VT 协议状态。">
+  <meta property="og:type" content="website">
+  <title>zterm · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zterm/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zterm">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zterm" aria-label="zterm 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zterm</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zterm</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/" aria-current="page">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zterm 文档"><div class="nav-group"><p class="nav-label">zterm</p><ul><li><a class="nav-link" href="../zterm/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zterm</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/" aria-current="page">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zterm 文档"><div class="nav-group"><p class="nav-label">zterm</p><ul><li><a class="nav-link" href="../zterm/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zterm/">zterm 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zterm/">zterm</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#use-independently">Use independently</a></li><li class="toc-level-2"><a href="#runtime-themes">Runtime themes</a></li><li class="toc-level-2"><a href="#shell-command-metadata">Shell command metadata</a></li><li class="toc-level-2"><a href="#graphics">Graphics</a></li><li class="toc-level-2"><a href="#host-clipboard-and-ui-integration">Host clipboard and UI integration</a></li><li class="toc-level-2"><a href="#terminal-checkpoints">Terminal checkpoints</a></li><li class="toc-level-2"><a href="#screen-and-storage">Screen and storage</a></li><li class="toc-level-2"><a href="#implemented-protocol-state">Implemented protocol state</a></li><li class="toc-level-2"><a href="#current-boundaries">Current boundaries</a></li><li class="toc-level-2"><a href="#validation-and-measurements">Validation and measurements</a></li><li class="toc-level-2"><a href="#license">License</a></li><li class="toc-level-2"><a href="#sixel-parsing">Sixel parsing</a></li><li class="toc-level-2"><a href="#repository-and-module-layout">Repository and module layout</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zterm">zterm</h1><p class="project-intro">维护终端屏幕、光标、滚动历史与 VT 协议状态。</p>
+<p>A bounded terminal screen and VT state machine in Rust. <code>zterm</code> converts bytes
+from a process into character cells, cursor state, protocol replies, and input
+modes. A host application supplies the PTY, event loop, font rendering, window,
+and clipboard policy.</p>
+<p>The production library is <code>no_std</code> with <code>alloc</code> and forbids unsafe code. It uses
+<a href="https://crates.io/crates/zvte"><code>zvte</code></a> for streaming parsing,
+<a href="https://crates.io/crates/zinput"><code>zinput</code></a> for input encoding,
+<a href="https://crates.io/crates/zgraphics"><code>zgraphics</code></a> for Kitty and Sixel images,
+<a href="https://crates.io/crates/zgpui"><code>zgpui</code></a> for optional UI scenes, and
+<code>unicode-width</code> / <code>unicode-segmentation</code> for character widths and cluster boundaries.
+Applications supply the allocator; tests and development examples use <code>std</code>.</p>
+<h2 id="use-independently">Use independently<a class="heading-anchor" href="#use-independently" aria-label="链接到 Use independently">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>[dependencies]
+zterm = &quot;0.5.0&quot;
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>use zterm::{Terminal, input::{self, Key, KeyEvent, Modifiers}};
+
+let mut terminal = Terminal::new(80, 24, 2_000);
+terminal.feed(b&quot;\x1b[38;2;99;179;237mhello\x1b[0m&quot;);
+assert_eq!(terminal.cell(0, 0).ch, &#x27;h&#x27;);
+assert_eq!(terminal.cell(0, 0).fg, 0x63b3ed);
+
+// Paint only the rows marked dirty, then acknowledge the rendered frame.
+assert!(terminal.row_dirty(0));
+terminal.clear_dirty();
+
+// A child can negotiate input modes through its output stream.
+terminal.feed(b&quot;\x1b[?1h&quot;);
+let encoded = input::encode_key(
+    Key::Up,
+    Modifiers::default(),
+    KeyEvent::Press,
+    &quot;&quot;,
+    &amp;terminal.modes().input(),
+);
+assert_eq!(encoded, b&quot;\x1bOA&quot;);
+
+// Write response bytes back to the child before clearing the queue.
+terminal.feed(b&quot;\x1b[6n&quot;);
+assert_eq!(terminal.responses(), b&quot;\x1b[1;6R&quot;);
+terminal.clear_responses();
+</code></pre></div>
+<p><code>feed</code> accepts arbitrary chunk boundaries, including split UTF-8 characters and
+control sequences. <code>cell</code> addresses the live screen; <code>view_cell</code> addresses the
+same viewport with a scrollback offset. Both return a blank cell for invalid
+coordinates. <code>resize</code> clamps dimensions to <code>1..=1024</code>, reflows retained primary
+text using recorded soft wraps, and marks all rows dirty. <code>resize_anchored</code> also
+maps requested text positions; alternate-screen content remains a fixed grid.
+History stays within the configured row and byte limits.</p>
+<p><code>Modes::input()</code> snapshots the negotiated keyboard, mouse, focus, and paste
+modes into the independent <code>zinput::Modes</code> value. The input crate is re-exported
+as <code>zterm::input</code>; it is also usable without this terminal model.</p>
+<h2 id="runtime-themes">Runtime themes<a class="heading-anchor" href="#runtime-themes" aria-label="链接到 Runtime themes">#</a></h2>
+<p><code>Terminal::set_theme</code> applies configured default colors and the 16 ANSI palette
+entries to retained cells in place. It updates the live screen, scrollback,
+alternate screens, and saved SGR styles, then marks every screen row dirty.
+<code>Terminal::theme()</code> returns the current configuration. Applying an identical
+theme does no work; changing one does not allocate or restart the child process.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>use zterm::Terminal;
+
+let mut terminal = Terminal::new(80, 24, 2_000);
+terminal.feed(b&quot;normal \x1b[31mred\x1b[0m&quot;);
+let mut theme = terminal.theme();
+theme.foreground = 0xe8eaed;
+theme.background = 0x000000;
+theme.palette[1] = 0xff6666;
+terminal.set_theme(theme);
+assert_eq!(terminal.cell(0, 0).fg, 0xe8eaed);
+assert_eq!(terminal.cell(7, 0).fg, 0xff6666);
+assert!(terminal.row_dirty(0));
+</code></pre></div>
+<p>SGR default colors and ANSI palette references follow the new configuration.
+Explicit truecolor and indexed colors 16 through 255 keep their values, even
+when their RGB values happen to equal an old default or palette entry. Color
+provenance is retained alongside resolved <code>fg</code>/<code>bg</code> values. The 32-byte <code>Cell</code>
+also stores an ID for complete grapheme clusters; <code>cell_chars</code> reads their content. The frontend still owns
+window padding, cursor colors, and redraw scheduling. OSC 4/10/11 queries report
+the current colors with their original terminator; OSC color writes remain
+unsupported. The SGR defaults and OSC query format follow the
+<a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html">xterm control-sequence reference</a>.</p>
+<h2 id="shell-command-metadata">Shell command metadata<a class="heading-anchor" href="#shell-command-metadata" aria-label="链接到 Shell command metadata">#</a></h2>
+<p>OSC 133 A/B/C/D marks expose prompt, input, output, and completion boundaries
+through <code>commands()</code>. Records have stable session-local IDs, absolute history
+coordinates, and optional exit codes. <code>command_input(id, max_bytes)</code> and
+<code>command_output(id, max_bytes)</code> extract current rendered text from retained
+primary-screen cells; <code>command_scroll_offset(id)</code> locates a retained prompt.
+The result reports completion and truncation explicitly.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>use zterm::Terminal;
+
+let mut terminal = Terminal::new(80, 24, 2_000);
+// These marks normally arrive from the configured shell through the PTY.
+terminal.feed(b&quot;\x1b]133;A\x07$ \x1b]133;B\x07printf hello\r\n\x1b]133;C\x07hello\r\n\x1b]133;D;0\x07&quot;);
+let command = terminal.commands().next_back().unwrap();
+assert_eq!(command.exit_status, Some(0));
+let output = terminal.command_output(command.id, 4_096).unwrap();
+assert_eq!(output.text, &quot;hello\n&quot;);
+assert!(output.complete &amp;&amp; !output.truncated);
+assert_eq!(terminal.command_scroll_offset(command.id), Some(0));
+</code></pre></div>
+<p>Use <code>commands().rev()</code> to locate recent executed commands and copy their IDs
+before mutating the terminal. A missing command ID or output boundary returns
+<code>None</code>. A returned <code>CommandText</code> may be incomplete while the process is running,
+or truncated by the requested byte limit, history eviction, or destructive
+screen edits. Check both fields before labeling a copied result complete.
+<code>command_scroll_offset</code> returns a viewport offset that can be passed to
+<code>view_cell</code>; it returns <code>None</code> for unavailable prompts or an active alternate
+screen. Offsets should be queried again after more terminal output arrives.</p>
+<p>Metadata is allocated on the first marker and retains at most 128 records.
+Reads return at most 64 KiB of UTF-8 without duplicating the whole history.
+Scrolling keeps retained anchors stable. History eviction, width changes,
+and destructive screen operations can make a range unavailable; a reset clears
+records without reusing IDs. These are untrusted display markers, not proof
+of command identity or authorization. See the
+<a href="https://github.com/LIghtJUNction/zterm/blob/c0860ae44dbf5dedeaea5719449004b8bb1ec65f/../../shell/README.md">shell setup and acceptance guide</a>.</p>
+<h2 id="graphics">Graphics<a class="heading-anchor" href="#graphics" aria-label="链接到 Graphics">#</a></h2>
+<p>Call <code>set_cell_size(width, height)</code> when physical text-cell metrics change.
+<code>graphics_draws(history_offset)</code> returns the visible image placements in z-order,
+including source, destination and optional clip rectangles. Text-backed placements
+use a bounded geometry cache. The frontend preserves the full source-to-destination
+transform when applying <code>Draw::clip</code>, then performs viewport clipping and alpha
+compositing. Negative z-indices are behind text; values below -1,073,741,824 are
+also behind cells with explicit backgrounds. Types are re-exported as <code>zterm::graphics</code>.</p>
+<p>PTY inline RGB, RGBA and PNG support optional zlib compression, chunked transfers,
+image IDs/numbers, placement IDs, source cropping, scaling and deletion. PNG
+accepts palette, grayscale, transparency, 16-bit and Adam7 input. Metadata is
+discarded before decoding; invalid CRCs, oversized dimensions and decompression
+limits produce protocol errors. APNG remains unsupported.</p>
+<p><code>set_graphics_reader</code> installs the host's bounded file, temporary-file and
+shared-memory reader. The host validates objects and owns unlink policy.
+<code>advance_graphics</code> advances animation from host-supplied monotonic milliseconds
+and returns the next deadline. Unicode placeholders and relative placements
+resolve through the same draw contract. The clock and external I/O remain supplied by the host.</p>
+<p>Primary and alternate screens own independent bounded image scenes. Images move
+with full-screen scrolling and remain available within retained history. Resizing
+keeps their row anchors in step with text; clearing the display removes visible
+placements. Dirty rows include graphics changes, so deleting an image causes the
+underlying text and background to be repainted. A new non-continuation command or
+deletion aborts a previous incomplete transfer, except that feature queries leave
+it intact. Normal text between completed APC chunks
+continues to render. An unterminated APC can be cancelled by CAN, SUB or a new ESC
+sequence. APC headers are capped and encoded payloads stream through a fixed-size
+staging buffer. Larger single-APC transfers emitted by existing <code>kitten icat</code>
+versions and unpadded final base64 are accepted without retaining the whole
+encoded body.</p>
+<h2 id="host-clipboard-and-ui-integration">Host clipboard and UI integration<a class="heading-anchor" href="#host-clipboard-and-ui-integration" aria-label="链接到 Host clipboard and UI integration">#</a></h2>
+<p>OSC 52 uses a dedicated bounded streaming path and request queue. The host drains
+<code>next_clipboard_request</code>, applies its clipboard policy, and checks <code>clipboard_epoch</code>
+before completing an asynchronous request. Reset and host cancellation invalidate
+older requests. The public <code>MAX_CLIPBOARD_BYTES</code> and <code>MAX_CLIPBOARD_REQUESTS</code>
+constants describe this queue independently of ordinary OSC string limits.</p>
+<p>UI scenes are re-exported as <code>zterm::ui</code>. Hosts opt in with <code>set_ui_host_enabled</code>
+after attaching a renderer and event router, then consume <code>ui_scene</code> / <code>ui_revision</code>.
+<code>ui_action</code> checks the expected surface and revision before returning an intent;
+the host applies current session and input-owner authorization.</p>
+<h2 id="terminal-checkpoints">Terminal checkpoints<a class="heading-anchor" href="#terminal-checkpoints" aria-label="链接到 Terminal checkpoints">#</a></h2>
+<p><code>Terminal::checkpoint() -&gt; Result&lt;Vec&lt;u8&gt;, &amp;'static str&gt;</code> encodes retained
+terminal state for a host-controlled process replacement.
+<code>Terminal::restore_checkpoint(&amp;[u8]) -&gt; Result&lt;Terminal, &amp;'static str&gt;</code> constructs
+an independent terminal for validation and restoration. The checkpoint includes
+primary and alternate screens, scrollback, cursors, styles, modes, tab stops,
+grapheme identities, shell markers and queued protocol replies.</p>
+<p>Checkpointing requires a complete parser boundary. Partial UTF-8, ESC, CSI, OSC
+or DCS input returns an error without changing the original terminal. A host can
+continue normal input processing and retry with a bounded deadline; it must
+keep the original session if no safe boundary arrives. Pending OSC 52 work must
+also finish through the host's normal clipboard handling. Terminals that have
+processed Kitty graphics, Sixel or native UI input are conservatively rejected,
+even after deleting resources or resetting the screen.</p>
+<p>The current internal format has version 1, explicit little-endian fields,
+bounded lengths and a corruption checksum, with a 128 MiB limit per terminal.
+Decoding rejects unknown versions, malformed data and invalid state references.
+Compatibility across builds depends on the replacement decoder accepting the
+format and state; validate every checkpoint in the replacement before giving
+up the running host. This format is intended for controlled handover rather
+than a stable archival interchange.</p>
+<p>The host retains ownership of PTYs, child processes, pending I/O, windows and
+session layout. After a successful export, stop advancing that terminal until
+handover completes. Reinstall process-local callbacks such as
+<code>set_graphics_reader</code> and mark restored rows dirty for a newly created renderer.
+Derived caches are rebuilt. Restoration preserves every retained history row
+while rebuilding bounded storage; allocator capacities are not part of the
+format.</p>
+<h2 id="screen-and-storage">Screen and storage<a class="heading-anchor" href="#screen-and-storage" aria-label="链接到 Screen and storage">#</a></h2>
+<p>The visible screen is a flat cell array with a circular row origin. Full-screen
+scrolling rotates that origin and clears the recycled row. A partial scrolling
+region moves only its own rows. Dirty bits are tracked per row, including the
+old and new cursor rows.</p>
+<p>Scrollback is allocated as output arrives and is limited by both the requested
+line count and an 8 MiB retained-history budget. Once full, old line buffers are
+reused. The alternate screen is created on first use and retained for reuse.
+It does not append to scrollback; the primary screen's existing history is
+preserved while the alternate screen is active.</p>
+<p>Additional bounds are explicit:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Storage</th>
+<th>Bound</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Screen dimensions</td>
+<td>1–1024 columns and 1–1024 rows</td>
+</tr>
+<tr>
+<td>Requested history</td>
+<td>At most 65,536 lines, subject to the 8 MiB retained-history budget</td>
+</tr>
+<tr>
+<td>Ordinary OSC parser payload</td>
+<td>4,096 bytes; OSC 52 uses its separate bounded streaming queue</td>
+</tr>
+<tr>
+<td>Pending protocol responses</td>
+<td>65,536 bytes</td>
+</tr>
+<tr>
+<td>Hyperlink identities</td>
+<td>1,024 entries</td>
+</tr>
+<tr>
+<td>Hyperlink URI</td>
+<td>2,048 UTF-8 bytes</td>
+</tr>
+<tr>
+<td>Window title</td>
+<td>256 UTF-8 bytes</td>
+</tr>
+<tr>
+<td>Working-directory value</td>
+<td>2,048 UTF-8 bytes</td>
+</tr>
+<tr>
+<td>Kitty keyboard stack</td>
+<td>32 entries per screen</td>
+</tr>
+<tr>
+<td>Shell command records</td>
+<td>128, allocated lazily</td>
+</tr>
+<tr>
+<td>Command-text read</td>
+<td>65,536 UTF-8 bytes</td>
+</tr>
+<tr>
+<td>Graphics APC staging</td>
+<td>At most a 512-byte header plus 4,096 encoded payload bytes; larger bodies stream through it</td>
+</tr>
+<tr>
+<td>Decoded graphics</td>
+<td>32 MiB per image and per screen, counting vector capacity</td>
+</tr>
+<tr>
+<td>Pending graphics transfer</td>
+<td>16 MiB per screen; one transfer at a time</td>
+</tr>
+<tr>
+<td>Graphics dimensions</td>
+<td>At most 8,192 pixels in either dimension, also subject to byte limit</td>
+</tr>
+<tr>
+<td>Stored images / placements</td>
+<td>128 / 512 per screen</td>
+</tr>
+<tr>
+<td>Complete grapheme content</td>
+<td>At most 256 UTF-8 bytes per cluster, 16,384 pooled entries and a combined 1 MiB for text and reference headers</td>
+</tr>
+</tbody>
+</table></div>
+<p>The history byte limit includes cell-vector capacity and history-deque metadata.
+Screen arrays, parser state, titles, hyperlinks, queued responses and the bounded
+grapheme pool are separate allocations. Grapheme slot/tree metadata is additional
+to the pool's text/reference-header accounting. Passing a history limit of zero disables
+scrollback allocation.
+Image decoding uses additional bounded temporary storage. Renderer copies and
+buffers retained through <code>Arc</code> are outside the model's decoded-storage quota;
+frontends must bound and release those resources separately.</p>
+<h2 id="implemented-protocol-state">Implemented protocol state<a class="heading-anchor" href="#implemented-protocol-state" aria-label="链接到 Implemented protocol state">#</a></h2>
+<ul>
+<li>Cursor positioning, saved cursor and attributes, scrolling regions, origin
+mode, delayed autowrap, insert/delete characters and lines, erasing, tabs,
+alternate screen, and DEC line-drawing characters.</li>
+<li>SGR attributes and 16-color, 256-color, and RGB colors. RGB accepts both
+semicolon and colon parameter forms; cells expose resolved RGB values.</li>
+<li>UTF-8, double-width characters and complete extended grapheme clusters within
+the storage limits. Editing and resizing repair split double-width cells.</li>
+<li>OSC titles, working-directory metadata, indexed/default color queries, and
+OSC 8 hyperlinks attached to cells and retained in scrollback. The host
+decides whether to open a URI.</li>
+<li>Application cursor/keypad modes, bracketed paste, focus events, independent
+mouse tracking and SGR mouse encoding, and Kitty keyboard protocol flags with
+separate primary/alternate screen stacks.</li>
+<li>Synchronized-output mode, DSR cursor/status replies, device attributes,
+DECRQM mode queries, character/text-area/cell pixel-size queries, and basic XTGETTCAP queries for
+<code>TN</code>, <code>Co</code>, and <code>Tc</code>. Unknown capabilities return an unsupported response.</li>
+</ul>
+<p>The startup compatibility environment is <code>TERM=xterm-256color</code>, using the
+standard system terminfo entry. The <code>TN</code> capability query returns that same
+name; the library does not report a <code>ztty</code> terminal identity.</p>
+<p>While synchronized output is enabled, the host should keep displaying its last
+completed frame and continue feeding bytes to the model. After reset of mode
+2026, the accumulated dirty rows can be rendered together. A host with a
+documented timeout can call <code>force_end_sync()</code> to finish a stalled frame.</p>
+<p>Protocol references:
+<a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html">xterm control sequences</a>,
+<a href="https://sw.kovidgoyal.net/kitty/keyboard-protocol/">Kitty keyboard protocol</a>,
+<a href="https://sw.kovidgoyal.net/kitty/graphics-protocol/">Kitty graphics protocol</a>,
+<a href="https://github.com/contour-terminal/vt-extensions/blob/master/synchronized-output.md">synchronized output</a>,
+and <a href="https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda">OSC 8 hyperlinks</a>.</p>
+<h2 id="current-boundaries">Current boundaries<a class="heading-anchor" href="#current-boundaries" aria-label="链接到 Current boundaries">#</a></h2>
+<p>Width changes reflow retained primary-screen soft wraps while preserving hard
+line boundaries and requested <code>ResizeAnchor</code> positions. The alternate screen
+keeps a fixed grid. History eviction and addressed content outside the retained
+area remain bounded; lost anchors are reported as absent.</p>
+<p>Complete extended grapheme clusters, including emoji ZWJ sequences, are retained
+in bounded shared storage. <code>cell_chars</code> and <code>grapheme</code> expose the complete content.
+Font shaping and bidirectional layout belong to the renderer. Clipboard requests,
+UI actions and external image reads require host policy and host implementations.</p>
+<p>The library changes screen state and returns protocol bytes. It does not
+perform I/O, invoke programs, render text, or open links.</p>
+<h2 id="validation-and-measurements">Validation and measurements<a class="heading-anchor" href="#validation-and-measurements" aria-label="链接到 Validation and measurements">#</a></h2>
+<p>From this standalone workspace:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>cargo test --locked --lib
+cargo test --locked --doc
+cargo fmt --all -- --check
+cargo clippy --locked --all-targets -- -D warnings
+python3 tools/check_package.py
+cargo package --locked
+rustup target add wasm32-unknown-unknown x86_64-unknown-none
+cargo check --locked --lib --target wasm32-unknown-unknown
+cargo check --locked --lib --target x86_64-unknown-none
+</code></pre></div>
+<p>The core tests cover fragmented streams, wide-cell repair, scroll regions,
+bounded history, screen switching, color forms, hyperlink lifetime, oversized
+OSC rejection, mode queries, keyboard stacks, malformed input, and response
+queue limits. The benchmark reports parser-plus-screen throughput, sampled
+latency, allocations after warmup, and initial core heap use. PTY scheduling,
+rendering, compositor behavior, and physical display latency are separate
+measurements.</p>
+<h2 id="license">License<a class="heading-anchor" href="#license" aria-label="链接到 License">#</a></h2>
+<p>MIT. See <a href="https://github.com/LIghtJUNction/zterm/blob/c0860ae44dbf5dedeaea5719449004b8bb1ec65f/LICENSE">LICENSE</a>.</p>
+<h2 id="sixel-parsing">Sixel parsing<a class="heading-anchor" href="#sixel-parsing" aria-label="链接到 Sixel parsing">#</a></h2>
+<p><code>Terminal::feed</code> decodes bounded Sixel images from DCS streams and exposes them
+through <code>graphics_draws</code>, alongside Kitty images. DECSDM 80, private/shared
+palette mode 1070 and cursor-right mode 8452 are queryable with DECRQM. Sixel
+input commits only at ST; cancellation drops the partial decoder without moving
+the cursor or publishing pixels. The <a href="https://github.com/LIghtJUNction/ztty/blob/d0e00923f9502121b5c2ff367d2750b42ccd57da/docs/protocols.md#sixel">graphics protocol scope</a>
+distinguishes tested decoding/cursor behavior from framebuffer and native-GUI
+compatibility limits.</p>
+<h2 id="repository-and-module-layout">Repository and module layout<a class="heading-anchor" href="#repository-and-module-layout" aria-label="链接到 Repository and module layout">#</a></h2>
+<p>The independent <code>0.5.0</code> workspace uses published version dependencies for <code>zgpui</code>,
+<code>zgraphics</code> and <code>zinput</code>. Its initial source was copied from
+<a href="https://github.com/LIghtJUNction/ztty/tree/d0e00923f9502121b5c2ff367d2750b42ccd57da/crates/zterm">ztty <code>d0e00923</code></a>;
+<a href="https://github.com/LIghtJUNction/zterm/blob/main/docs/extraction.json">the extraction record</a>
+contains the original file blobs. The subsequent split preserves public paths,
+method bodies and the parent data structures.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Terminal module</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>terminal.rs</code></td>
+<td>Shared state, public types and construction</td>
+</tr>
+<tr>
+<td><code>framing.rs</code></td>
+<td>Byte-stream framing, cancellation and extension routing</td>
+</tr>
+<tr>
+<td><code>dispatch.rs</code></td>
+<td>VT parser callbacks and bounded replies</td>
+</tr>
+<tr>
+<td><code>editing.rs</code></td>
+<td>Cell editing, cursor movement, scrolling and history insertion</td>
+</tr>
+<tr>
+<td><code>style.rs</code>, <code>modes.rs</code></td>
+<td>Theme/SGR state and terminal mode negotiation</td>
+</tr>
+<tr>
+<td><code>view.rs</code></td>
+<td>Visible/retained text access, shell ranges and frontend acknowledgements</td>
+</tr>
+<tr>
+<td><code>graphics.rs</code>, <code>image_cells.rs</code></td>
+<td>Host image integration and cached placeholder geometry</td>
+</tr>
+<tr>
+<td><code>reflow.rs</code>, <code>grapheme.rs</code></td>
+<td>Resize mapping and complete-cluster editing</td>
+</tr>
+<tr>
+<td><code>checkpoint.rs</code></td>
+<td>Versioned terminal-state encoding, validation and restoration</td>
+</tr>
+</tbody>
+</table></div>
+<p>The manual <a href="https://github.com/LIghtJUNction/zterm/blob/main/.github/workflows/ci.yml">candidate workflow</a>
+validates one exact commit on Linux, macOS and Windows, with WebAssembly and
+bare-metal checks, formatting, Clippy, package boundaries and isolated release-script
+tests. These checks cover the library; native PTY, renderer, clipboard and display
+integration remain host-level validation.</p>
+<p>The separate manual <a href="https://github.com/LIghtJUNction/zterm/blob/main/.github/workflows/release.yml">release workflow</a>
+prepares or resumes an exact candidate, reruns those gates, checks the crate's
+embedded Git identity and registry checksum, then pushes the matching tag and
+completes its GitHub Release. An interrupted publication resumes only when package
+bytes and the existing tag agree with that candidate.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zterm/blob/c0860ae44dbf5dedeaea5719449004b8bb1ec65f/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zterm">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"></nav>
+      <footer class="page-footer">
+        <span>zterm <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#use-independently">Use independently</a></li><li class="toc-level-2"><a href="#runtime-themes">Runtime themes</a></li><li class="toc-level-2"><a href="#shell-command-metadata">Shell command metadata</a></li><li class="toc-level-2"><a href="#graphics">Graphics</a></li><li class="toc-level-2"><a href="#host-clipboard-and-ui-integration">Host clipboard and UI integration</a></li><li class="toc-level-2"><a href="#terminal-checkpoints">Terminal checkpoints</a></li><li class="toc-level-2"><a href="#screen-and-storage">Screen and storage</a></li><li class="toc-level-2"><a href="#implemented-protocol-state">Implemented protocol state</a></li><li class="toc-level-2"><a href="#current-boundaries">Current boundaries</a></li><li class="toc-level-2"><a href="#validation-and-measurements">Validation and measurements</a></li><li class="toc-level-2"><a href="#license">License</a></li><li class="toc-level-2"><a href="#sixel-parsing">Sixel parsing</a></li><li class="toc-level-2"><a href="#repository-and-module-layout">Repository and module layout</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

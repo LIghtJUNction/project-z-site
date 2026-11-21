@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zcalld · Codex transport negotiation · Project Z">
+  <meta property="og:description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta property="og:type" content="website">
+  <title>zcalld · Codex transport negotiation · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zcalld/codex-transport/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zcalld">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zcalld" aria-label="zcalld 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zcalld</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/" aria-current="page">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/" aria-current="page">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zcalld/">zcalld 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zcalld/">zcalld</a><span aria-hidden="true">/</span><span>Codex transport negotiation</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#scope">Scope</a></li><li class="toc-level-2"><a href="#validation">Validation</a></li><li class="toc-level-2"><a href="#chatgpt-endpoint-path">ChatGPT endpoint path</a></li><li class="toc-level-2"><a href="#quota-response-metadata">Quota response metadata</a></li><li class="toc-level-2"><a href="#compressed-http-requests">Compressed HTTP requests</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="codex-transport-negotiation">Codex transport negotiation</h1>
+<p>Codex 0.170.0 can start a Responses request by negotiating WebSocket transport. A gateway that serves Responses over ordinary HTTP must return the client's supported negotiation result. Returning HTTP 400 ends the request before Codex can use the otherwise working HTTP/SSE endpoint.</p>
+<p>zcalld returns <strong>426 Upgrade Required</strong> for a complete, body-free HTTP/1.1 WebSocket handshake. Codex then submits its Responses request over HTTP and reads the streamed SSE response. This follows the explicit fallback branch in <a href="https://github.com/openai/codex/blob/rust-v0.170.0/codex-rs/core/src/client.rs">Codex 0.170.0's client</a>.</p>
+<h2 id="scope">Scope<a class="heading-anchor" href="#scope" aria-label="链接到 Scope">#</a></h2>
+<p>The gateway does not return 101 or establish a WebSocket session. This is transport negotiation for clients that implement HTTP fallback. A client that requires a persistent WebSocket session still needs a WebSocket-capable adapter.</p>
+<p>The check belongs to HTTP transport and does not hard-code an AI endpoint. It requires GET, HTTP/1.1, Host, the WebSocket upgrade and connection tokens, version 13, a valid 16-byte nonce, and no request body or transfer encoding. Malformed upgrades remain rejected. Browser Origin restrictions, duplicate-header rejection and Expect handling retain their existing precedence.</p>
+<p>The subsequent HTTP request uses the same authentication, route selection, privacy plugins, provider handling and response conversion as other requests. No provider or Agent configuration needs to be rewritten to negotiate this fallback.</p>
+<h2 id="validation">Validation<a class="heading-anchor" href="#validation" aria-label="链接到 Validation">#</a></h2>
+<p>The transport regressions exercise TCP negotiation followed by a real local HTTP/SSE generation fixture, the private Unix socket, and malformed upgrades that must not become successful negotiations. An additional installed-Codex fixture uses a temporary home and a local synthetic provider; it does not use real accounts or contact a paid model. Its result is recorded separately from ordinary HTTP integration checks.</p>
+<h2 id="chatgpt-endpoint-path">ChatGPT endpoint path<a class="heading-anchor" href="#chatgpt-endpoint-path" aria-label="链接到 ChatGPT endpoint path">#</a></h2>
+<p>The built-in OpenAI provider chooses different default URL paths according to its authentication mode. In <a href="https://github.com/openai/codex/blob/rust-v0.170.0/codex-rs/model-provider-info/src/lib.rs">Codex 0.170.0 provider selection</a>, API-key requests use <code>/v1</code>, while ChatGPT requests use <code>/backend-api/codex</code>. The Responses client appends <code>/responses</code> to that base.</p>
+<p>zcalld accepts the exact <code>/backend-api/codex/responses</code> path as a Responses ingress alias. It uses the same authentication, body limits, decoding, privacy, routing and upstream protocol path as <code>/v1/responses</code>. Account, model-catalog and quota requests use the separately configured <a href="../../zcalld/codex/">account-bound metadata extension</a>. Arbitrary <code>/backend-api</code> paths remain unavailable.</p>
+<p>The installed-client fixture preserves each built-in provider's default path and replaces only its scheme and authority with a server inside the isolated network namespace. It asserts that both the ChatGPT WebSocket handshake and its subsequent zstd POST use <code>/backend-api/codex/responses</code>. Its recording proxy forwards that path unchanged; the actual gateway must map it to the configured upstream Responses endpoint. The API-key case separately verifies <code>/v1/responses</code>.</p>
+<p>The earlier transport fixture explicitly overrode every built-in provider to <code>/v1</code>. It proved negotiation and decoding but missed the ChatGPT default-path failure. The updated regression demonstrates the installed pre-alias gateway returning 404 before testing the fixed gateway with the same client and fake credentials. No real default external URL is contacted.</p>
+<h2 id="quota-response-metadata">Quota response metadata<a class="heading-anchor" href="#quota-response-metadata" aria-label="链接到 Quota response metadata">#</a></h2>
+<p>Codex can report both its default allowance and separate model allowances in the same upstream response. zcalld preserves the default <code>x-codex</code> family and named families such as <code>x-codex-bengalfox</code> and <code>x-codex-other-v2</code>. The <a href="https://github.com/openai/codex/blob/rust-v0.170.0/codex-rs/codex-api/src/rate_limits.rs">Codex 0.170.0 header parser</a> discovers a named family from its primary-used-percent header and normalizes its ID by replacing hyphens with underscores.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Forwarding rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary and secondary used-percent, window-minutes, reset-at</td>
+<td>Default family and named Codex families</td>
+</tr>
+<tr>
+<td>Limit name</td>
+<td>Default family and named Codex families</td>
+</tr>
+<tr>
+<td>Credits has-credits, unlimited, balance</td>
+<td>The three shared <code>x-codex-credits-*</code> fields</td>
+</tr>
+<tr>
+<td>Rate-limit-reached type</td>
+<td>The fixed <code>x-codex-rate-limit-reached-type</code> field</td>
+</tr>
+</tbody>
+</table></div>
+<p>A named family consists of nonempty ASCII letter/digit segments separated by single hyphens. Matching ignores header-name case and preserves the upstream values. Unrecognized suffixes, empty family segments, private headers and non-Codex families remain excluded. The filter does not allocate a lowercase copy of each name; the existing 16 KiB upstream-header bound applies to all accepted and rejected fields together.</p>
+<p>The same response path preserves these fields for JSON, SSE and upstream 429/503 responses. The HTTP regression checks two named families, mixed-case names, exact numeric strings, shared credits and rejected private fields. The installed-client fixture uses separate default and named-family cases under both API-key and ChatGPT authentication. Codex records the last rate-limit update in each completed TokenCount rollout event, so each family is asserted independently against exact synthetic values.</p>
+<p>These fixtures use disposable private homes and local synthetic providers. They do not read the user's Codex settings or contact a real account. Codex account-rate-limit requests use the separate account-usage API. The optional <a href="../../zcalld/codex/">metadata extension</a> serves that endpoint, and its installed-client fixture checks parsed quota windows and bound model names independently of response-header forwarding.</p>
+<h2 id="compressed-http-requests">Compressed HTTP requests<a class="heading-anchor" href="#compressed-http-requests" aria-label="链接到 Compressed HTTP requests">#</a></h2>
+<p>The handshake and the request body are separate compatibility requirements. Codex with ChatGPT authentication sends zstd after falling back to HTTP. The gateway accepts identity, gzip and zstd, decodes before routing and privacy, and normalizes the downstream request metadata to the decoded body. It removes the old content-encoding and transfer-encoding fields and sets the decoded content length.</p>
+<p>Both the received bytes and decoded bytes must fit max_body_bytes. The zstd history window is capped at 8 MiB; gzip uses a 32 KiB window. Native decoding produces at most 16 KiB per output step, checks the original receive deadline and shutdown flag between steps, rejects incomplete or corrupt frames, and frees the decoder on every exit. These are cooperative checks between native calls, not hard real-time preemption.</p>
+<p>Linux links distribution zstd and zlib packages. macOS links zstd statically and uses system zlib; Windows links both codecs statically with the same dynamic CRT as the Rust program. No Rust crate dependency is added, and standalone updates on macOS/Windows do not gain a new codec DLL or dylib requirement. Distributed notices accompany the binaries.</p>
+<p>The <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/evidence/codex-transport-fixture.json">installed-client fixture record</a> covers the actual Codex 0.170.0 binary with temporary credentials and no external network. Its ChatGPT case requires zstd at ingress, ordinary JSON at the fake provider, no forwarded caller Authorization, and one completed HTTP/SSE response. Separate native privacy acceptance checks masking and restoration for both encodings.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/CODEX_TRANSPORT.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zcalld">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zcalld/codex/"><span class="pagination-label">上一页</span><span class="pagination-title">Native Codex metadata</span></a><a class="pagination-link next" href="../../zcalld/desktop/"><span class="pagination-label">下一页</span><span class="pagination-title">Optional desktop events</span></a></nav>
+      <footer class="page-footer">
+        <span>zcalld <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#scope">Scope</a></li><li class="toc-level-2"><a href="#validation">Validation</a></li><li class="toc-level-2"><a href="#chatgpt-endpoint-path">ChatGPT endpoint path</a></li><li class="toc-level-2"><a href="#quota-response-metadata">Quota response metadata</a></li><li class="toc-level-2"><a href="#compressed-http-requests">Compressed HTTP requests</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

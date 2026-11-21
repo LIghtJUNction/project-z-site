@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ztty · Documentation · Project Z">
+  <meta property="og:description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta property="og:type" content="website">
+  <title>ztty · Documentation · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ztty/readme/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ztty">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ztty" aria-label="ztty 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ztty</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/" aria-current="page">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/" aria-current="page">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ztty/">ztty 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ztty/">ztty</a><span aria-hidden="true">/</span><span>Documentation</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#use-ztty">Use ztty</a></li><li class="toc-level-2"><a href="#implementation-and-measurement">Implementation and measurement</a></li><li class="toc-level-2"><a href="#dated-verification-records">Dated verification records</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="documentation">Documentation</h1>
+<p>The READMEs cover installation and common controls:
+<a href="../../ztty/readme-en/">English</a> · <a href="../../ztty/">中文</a>.</p>
+<p>These guides describe 0.6.1 and current main. Dated reports retain the source
+revision and executable they tested; release notes identify published behavior.</p>
+<h2 id="use-ztty">Use ztty<a class="heading-anchor" href="#use-ztty" aria-label="链接到 Use ztty">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Guide</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../ztty/configuration/">Configuration</a></td>
+<td>Fonts, colors, X11 renderer, Wayland setup, keys and text actions</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/native-wayland.zh-CN.md">Native Wayland</a></td>
+<td>Explicit experimental single window and current platform limits</td>
+</tr>
+<tr>
+<td><a href="../../ztty/daily-workflow/">Daily workflow</a></td>
+<td>Search, command palette, live configuration and shell commands</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/workspaces.md">Workspaces</a></td>
+<td>Tabs, splits, pane movement and saved layouts</td>
+</tr>
+<tr>
+<td><a href="../../ztty/sessions/">Sessions and MCP</a></td>
+<td>Shared sessions, attach, input ownership and MCP clients</td>
+</tr>
+<tr>
+<td><a href="../../ztty/ssh-sessions/">SSH sessions</a></td>
+<td>Remote persistent PTYs, connection reuse, native tabs/splits and reconnect</td>
+</tr>
+<tr>
+<td><a href="../../ztty/sessions/#reload-the-running-broker">Runtime reload</a></td>
+<td>Executable handover, retained sessions, refusal conditions and migration from 0.5.0</td>
+</tr>
+<tr>
+<td><a href="../../ztty/ssmcp-observer/">Observer mode</a></td>
+<td>Read-only windows and ssmcp integration</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/shell/README.md">Shell integration</a></td>
+<td>Bash, Zsh, Fish and Nushell setup</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/startup-directory.md">Startup directory</a></td>
+<td>Shell selection and working-directory rules</td>
+</tr>
+<tr>
+<td><a href="../../ztty/input-compatibility/">Input compatibility</a></td>
+<td>Keypad, keyboard protocols and mouse behavior</td>
+</tr>
+<tr>
+<td><a href="../../ztty/text-plugins-zh-cn/">Text extensions</a></td>
+<td>Trusted native actions and worker lifecycle</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/examples/dedent-plugin/README.md">Dedent example</a></td>
+<td>Build a text action independently</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="implementation-and-measurement">Implementation and measurement<a class="heading-anchor" href="#implementation-and-measurement" aria-label="链接到 Implementation and measurement">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Reference</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../ztty/architecture/">Architecture</a></td>
+<td>Terminal model, libraries and resource ownership</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/dependency-propagation.md">Dependency propagation</a></td>
+<td>Consumer ownership, source pins and open integration handoffs</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/default-branch-sources-20261121/README.zh-CN.md">Default-branch source validation</a></td>
+<td>Git dependency sources, shared Cargo outputs, plugins and runtime reload</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/search-navigation-20261121/README.zh-CN.md">Bounded search navigation</a></td>
+<td>Search cache limits, paired navigation measurements and exact-pixel input checks</td>
+</tr>
+<tr>
+<td><a href="../../ztty/readme-en/#reusable-libraries">Reusable libraries</a></td>
+<td>Independent repositories, component responsibilities and release status</td>
+</tr>
+<tr>
+<td><a href="../../ztty/protocols/">Protocols</a></td>
+<td>Implemented sequences, graphics and platform acceptance</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/session-core.md">Session core</a></td>
+<td>PTY reads, input queues, sizing and ownership</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/native-output-bytes.zh-CN.md">Native output bytes</a></td>
+<td>Lossless MCP output and readable text</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/darwin-threaded-pty.md">Darwin PTY helper</a></td>
+<td>Native macOS process creation</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/performance-reload-2026-11-20.md">Performance and reload report</a></td>
+<td>Fixed sources, raw measurements, distinct-ELF handover, sampled tab/synchronized frames and validation limits</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/README.md">Benchmark instructions</a></td>
+<td>Workloads, accounting and reproduction</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/performance.md">Performance</a></td>
+<td>Design and dated measurements</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/releasing.md">Releasing</a></td>
+<td>Native builds, packages and published versions</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="dated-verification-records">Dated verification records<a class="heading-anchor" href="#dated-verification-records" aria-label="链接到 Dated verification records">#</a></h2>
+<p>These reports retain the source, executable and environment used for each run.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH multiplexing</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/ssh-mux-20261121/README.zh-CN.md">Persistent sessions and frame measurements</a></td>
+</tr>
+<tr>
+<td>X11 rendering</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/x11-gpu-20261119/report.zh-CN.md">GPU text and complete frames</a></td>
+</tr>
+<tr>
+<td>Native Wayland</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/native-wayland-2026-11-19/README.md">Single-window acceptance</a></td>
+</tr>
+<tr>
+<td>Kitty and OSC 52</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/graphics-extensions-20261120/report.zh-CN.md">Linux GPU/software integration</a></td>
+</tr>
+<tr>
+<td>Input method</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/xim-recovery-2026-11-19.zh-CN.md">XIM lifecycle and recovery</a></td>
+</tr>
+<tr>
+<td>Input and controls</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/keypad-input-2026-11-19.zh-CN.md">Keypad routing</a>, <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/shortcuts-validation-2026-11-19.zh-CN.md">shortcut verification</a></td>
+</tr>
+<tr>
+<td>Clipboard</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/copy-paste-2026-11-19.zh-CN.md">Copy/paste behavior</a></td>
+</tr>
+<tr>
+<td>Terminal output</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/output-throughput-2026-11-19.zh-CN.md">2026-11-19 throughput</a>, <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/native-output-bytes.zh-CN.md">native raw output</a></td>
+</tr>
+<tr>
+<td>History and scrolling</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/performance-function-2026-11-19.zh-CN.md">Performance and function checks</a></td>
+</tr>
+<tr>
+<td>Shell and sessions</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/shell-resume-2026-11-18.md">Shell resume</a>, <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/integration-unicode-2026-11-18.md">Unicode integration</a></td>
+</tr>
+<tr>
+<td>Daily workflow</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/experience-release-2026-11-18.md">Experience verification</a></td>
+</tr>
+<tr>
+<td>Platform coverage</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/native-candidates-2026-11-18.md">Native candidates</a>, <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/native-ui-progress-2026-11-19.zh-CN.md">native UI</a></td>
+</tr>
+<tr>
+<td>Images</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/sixel-gui-acceptance.md">Sixel GUI acceptance</a></td>
+</tr>
+<tr>
+<td>Release 0.4.1</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/numpad-release-0.4.1-2026-11-19.zh-CN.md">Keypad release and installation</a></td>
+</tr>
+<tr>
+<td>Earlier comparison</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/guarded-idle-1-10-2026-11-18.md">Shared idle windows</a>, <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/guarded-idle-1-10-2026-11-18.json">raw JSON</a>, <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/guarded-idle-1-10-2026-11-18.svg">chart</a></td>
+</tr>
+<tr>
+<td>Earlier output tests</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/throughput-2026-11-18.md">Throughput</a>, <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/repaint-ab-2026-11-18.md">redraw batching</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Reports describe their own revisions. Their results stay separate from a later
+source checkout or release package.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztty">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztty/daily-workflow/"><span class="pagination-label">上一页</span><span class="pagination-title">Daily workflow on Linux</span></a><a class="pagination-link next" href="../../ztty/ssmcp-observer/"><span class="pagination-label">下一页</span><span class="pagination-title">ssmcp observation on Linux</span></a></nav>
+      <footer class="page-footer">
+        <span>ztty <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#use-ztty">Use ztty</a></li><li class="toc-level-2"><a href="#implementation-and-measurement">Implementation and measurement</a></li><li class="toc-level-2"><a href="#dated-verification-records">Dated verification records</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

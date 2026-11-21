@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="机械革命笔记本的 Linux 平台驱动与设备控制台，按机型提供功能。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="mechrevo-drivers · 概览 · Project Z">
+  <meta property="og:description" content="机械革命笔记本的 Linux 平台驱动与设备控制台，按机型提供功能。">
+  <meta property="og:type" content="website">
+  <title>mechrevo-drivers · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/mechrevo-drivers/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="mechrevo-drivers">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/mechrevo-drivers" aria-label="mechrevo-drivers 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">mechrevo-drivers</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>mechrevo-drivers</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/" aria-current="page">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="mechrevo-drivers 文档"><div class="nav-group"><p class="nav-label">mechrevo-drivers</p><ul><li><a class="nav-link" href="../mechrevo-drivers/" aria-current="page">概览</a></li><li><a class="nav-link" href="../mechrevo-drivers/aur/">Arch Linux / AUR 打包</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-gm6bg0q/">蛟龙 16K GM6BG0Q 本机记录</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-gm6px0x/">旷世 16 Pro GM6PX0X 本机验证</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-native-kernel-controls/">复用 Linux 已加载的原生驱动</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-other-models/">其他机械革命机型</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-wujie-hpt-p916f/">无界 15 Pro HPT 与星耀 P916F HPT-R</a></li><li><a class="nav-link" href="../mechrevo-drivers/mechrevo-console/">Rust 双端控制台</a></li><li><a class="nav-link" href="../mechrevo-drivers/mechrevo/">机械革命支持范围</a></li><li><a class="nav-link" href="../mechrevo-drivers/power-control/">CPU 长期功耗上限</a></li><li><a class="nav-link" href="../mechrevo-drivers/packaging-arch-mechrevo-console-readme/">Arch / AUR 控制台包</a></li><li><a class="nav-link" href="../mechrevo-drivers/console-design/">界面设计</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>mechrevo-drivers</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/" aria-current="page">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="mechrevo-drivers 文档"><div class="nav-group"><p class="nav-label">mechrevo-drivers</p><ul><li><a class="nav-link" href="../mechrevo-drivers/" aria-current="page">概览</a></li><li><a class="nav-link" href="../mechrevo-drivers/aur/">Arch Linux / AUR 打包</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-gm6bg0q/">蛟龙 16K GM6BG0Q 本机记录</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-gm6px0x/">旷世 16 Pro GM6PX0X 本机验证</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-native-kernel-controls/">复用 Linux 已加载的原生驱动</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-other-models/">其他机械革命机型</a></li><li><a class="nav-link" href="../mechrevo-drivers/hardware-wujie-hpt-p916f/">无界 15 Pro HPT 与星耀 P916F HPT-R</a></li><li><a class="nav-link" href="../mechrevo-drivers/mechrevo-console/">Rust 双端控制台</a></li><li><a class="nav-link" href="../mechrevo-drivers/mechrevo/">机械革命支持范围</a></li><li><a class="nav-link" href="../mechrevo-drivers/power-control/">CPU 长期功耗上限</a></li><li><a class="nav-link" href="../mechrevo-drivers/packaging-arch-mechrevo-console-readme/">Arch / AUR 控制台包</a></li><li><a class="nav-link" href="../mechrevo-drivers/console-design/">界面设计</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../mechrevo-drivers/">mechrevo-drivers 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../mechrevo-drivers/">mechrevo-drivers</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#支持范围">支持范围</a></li><li class="toc-level-2"><a href="#安装arch-linux--aur">安装（Arch Linux / AUR）</a></li><li class="toc-level-3"><a href="#原生控制台">原生控制台</a></li><li class="toc-level-3"><a href="#触摸板开关">触摸板开关</a></li><li class="toc-level-2"><a href="#只读识别本机">只读识别本机</a></li><li class="toc-level-2"><a href="#驱动维护内容">驱动维护内容</a></li><li class="toc-level-2"><a href="#构建与验证">构建与验证</a></li><li class="toc-level-2"><a href="#上游同步">上游同步</a></li><li class="toc-level-2"><a href="#上游模块">上游模块</a></li><li class="toc-level-2"><a href="#许可证">许可证</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="mechrevo-drivers">mechrevo-drivers</h1><p class="project-intro">机械革命笔记本的 Linux 平台驱动与设备控制台，按机型提供功能。</p>
+<p>机械革命笔记本的社区 Linux 平台驱动，基于 TUXEDO drivers 维护。</p>
+<p>
+
+
+</p>
+<blockquote>
+<p>[!CAUTION]
+本项目与 MECHREVO、TUXEDO 均无官方支持关系。错误的 EC、风扇或功耗写入可能损坏硬件。安装前请核对具体型号、固件和功能的支持范围。</p>
+</blockquote>
+<h2 id="支持范围">支持范围<a class="heading-anchor" href="#支持范围" aria-label="链接到 支持范围">#</a></h2>
+<p>适配依据 DMI、板号与 BIOS 精确匹配，复用已有平台接口，并修复错误传播、参数边界和并发问题。品牌识别本身不能证明某项硬件控制可用；下面的实机记录也只覆盖明确列出的功能。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>范围</th>
+<th>状态</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>旷世 16 Pro <code>GM6PX0X</code></td>
+<td><strong>部分实机验证</strong></td>
+<td>已验证部分背光、Fn 锁、传感器、功耗拒绝路径与状态保持，以及触摸板命令和注入热键链路；物理操作验收范围见下文</td>
+</tr>
+<tr>
+<td>蛟龙 16K <code>GM6BG0Q</code></td>
+<td><strong>部分实机验证</strong></td>
+<td>本机核对 EC 温度、双风扇 RPM 与手动占空比、三档模式、PL1 写入效果；TDP 范围取自 OEM 控制台 profile 点，PL2/PL4 效果未测</td>
+</tr>
+<tr>
+<td>无界 14X <code>GX4HRXL</code></td>
+<td>源码适配，待本项目实机验收</td>
+<td>三档模式，未复制旧式风扇表</td>
+</tr>
+<tr>
+<td>蛟龙 16 Pro 2025 <code>JIAOLONG Series-X6xR55xK</code></td>
+<td>精确身份接入，待实机验收</td>
+<td>复用已有 TDP 范围和 custom-profile 流程</td>
+</tr>
+<tr>
+<td>无界 15X Pro、翼龙 15 Pro</td>
+<td>精确型号/固件接入，待实机验收</td>
+<td>接电开机、USB 供电等已有接口</td>
+</tr>
+<tr>
+<td>蛟龙 16 Pro 2023 <code>MRID6-23</code></td>
+<td>原生 Bitland/Uniwill 接口整合</td>
+<td>不移植其他机型 EC 参数</td>
+</tr>
+<tr>
+<td>无界 15 Pro HPT、星耀 P916F HPT-R</td>
+<td>精确识别与控制台适配</td>
+<td>固件差异和未确认 OEM 控制保持封闭</td>
+</tr>
+<tr>
+<td>其他 MECHREVO 机型</td>
+<td><strong>未知</strong></td>
+<td>只命中品牌字符串不能推导功能安全性</td>
+</tr>
+</tbody>
+</table></div>
+<p>完整身份与功能边界见 <a href="../mechrevo-drivers/mechrevo/">机械革命适配说明</a>。实机记录：<a href="../mechrevo-drivers/hardware-gm6px0x/">GM6PX0X</a>、<a href="../mechrevo-drivers/hardware-gm6bg0q/">GM6BG0Q</a>；其他范围：<a href="../mechrevo-drivers/hardware-other-models/">机型证据</a>、<a href="../mechrevo-drivers/hardware-native-kernel-controls/">原生内核控制</a>、<a href="../mechrevo-drivers/hardware-wujie-hpt-p916f/">HPT / P916F</a>。</p>
+<h2 id="安装arch-linux--aur">安装（Arch Linux / AUR）<a class="heading-anchor" href="#安装arch-linux--aur" aria-label="链接到 安装（Arch Linux / AUR）">#</a></h2>
+<p>安装与当前内核匹配的 headers，再安装 DKMS 包。标准 Arch 内核示例：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">bash</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 bash 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>sudo pacman -S --needed base-devel linux-headers
+yay -S mechrevo-drivers-dkms-git
+# 或：paru -S mechrevo-drivers-dkms-git
+</code></pre></div>
+<p>LTS、Zen、Hardened 或自定义内核必须安装对应 headers。安装后检查：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">bash</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 bash 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>dkms status
+</code></pre></div>
+<p>AUR 提供构建配方，DKMS 在本机为装有 headers 的内核编译模块。更新安装包不会替换内存中已加载的模块；保留安装前版本和恢复方法，再通过重启加载新模块，避免直接热卸载相互依赖的平台驱动。</p>
+<blockquote>
+<p><code>mechrevo-drivers-dkms-git</code> 与另一维护者的 <code>mechrevo-drivers-dkms</code>、原版 <code>tuxedo-drivers</code>、旧 <code>tuxedo-keyboard</code> DKMS 包互斥。它不使用 <code>replaces</code>，不会接管其他维护者的包。</p>
+</blockquote>
+<p>安装、卸载、恢复和发布步骤见 <a href="../mechrevo-drivers/aur/">Arch / AUR 文档</a>。</p>
+<h3 id="原生控制台">原生控制台<a class="heading-anchor" href="#原生控制台" aria-label="链接到 原生控制台">#</a></h3>
+<p>独立的 <code>mechrevo-console</code> 包提供设备状态、温度趋势和受限 OEM 控制，支持已验证 <code>GM6PX0X</code> 上的五档性能选择。它不依赖或自动升级 DKMS 包。五档控制需要有效的 tccd 配置，并保留用户修改过的参数。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">bash</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 bash 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>yay -S mechrevo-console
+# 或：paru -S mechrevo-console
+</code></pre></div>
+<ul>
+<li><a href="https://aur.archlinux.org/packages/mechrevo-console">AUR 触摸板修复版本：0.1.0.r1553.g97e6656-1</a>：已包含下述触摸板实现及专用 helper。</li>
+<li><a href="../mechrevo-drivers/packaging-arch-mechrevo-console-readme/">安装与授权说明</a>、<a href="../mechrevo-drivers/mechrevo-console/">控制台功能边界</a>。</li>
+</ul>
+<h3 id="触摸板开关">触摸板开关<a class="heading-anchor" href="#触摸板开关" aria-label="链接到 触摸板开关">#</a></h3>
+<p>触摸板热键与命令行共用 Linux input 的 <code>inhibited</code> 接口，通过 udev 的 <code>ID_INPUT_TOUCHPAD=1</code> 识别设备，写入后回读状态。使用条件是内核导出该属性、udev 正确标识触摸板；输入开关不依赖具体桌面的私有接口。机制见 <a href="https://www.kernel.org/doc/html/latest/input/input-programming.html#inhibiting-input-devices">Linux input 文档</a>。</p>
+<p>控制台包内置独立 touchpad helper 和 polkit 策略。普通用户切换需要活动本地会话，由专用 polkit 动作授权，并由 helper 通过 logind 核对用户及所属 seat。helper 只接受固定操作，不接受任意文件路径；查询状态不提权，其他 OEM 控制的授权保持原有边界。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">bash</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 bash 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>mechrevo-control touchpad status
+mechrevo-control touchpad off
+mechrevo-control touchpad on
+mechrevo-control touchpad toggle
+</code></pre></div>
+<p>同一热键只保留一个处理入口。使用用户热键守护进程时，应移除桌面对同一键的重复切换绑定，避免一次按键切换两次。</p>
+<p>成功结果表示内核开关已回读一致。桌面自己的“禁用触摸板”设置仍独立生效；若内核已启用但光标不移动，还需检查桌面设置。设备缺失或接口不可用时返回错误，不显示为“已禁用”。恢复入口为 <code>mechrevo-control touchpad on</code>。</p>
+<p><strong>已验证范围：</strong> GM6PX0X / Hyprland 安装 <code>0.1.0.r1553.g97e6656-1</code> 后，普通用户（UID 1000）的 <code>off/on</code> 已通过；向 evdev 注入两次 F21，用户热键守护进程回读到 <code>enabled: true → false → true</code>。物理手指操作与实际按键尚未经用户验收，其他桌面环境也未逐一实测。详细结果见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/verification/touchpad-driver-quality-2026-11-20.md">本轮验收记录</a>。源码见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/commit/97e6656">触摸板实现</a>与<a href="https://github.com/LIghtJUNction/mechrevo-drivers/commit/4194801">打包提交</a>。</p>
+<h2 id="只读识别本机">只读识别本机<a class="heading-anchor" href="#只读识别本机" aria-label="链接到 只读识别本机">#</a></h2>
+<p>下列命令不加载模块，也不写 EC：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">bash</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 bash 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>uname -r
+for field in \
+  sys_vendor product_name product_version \
+  board_vendor board_name chassis_vendor bios_version
+do
+  printf &#x27;%s: &#x27; &quot;$field&quot;
+  cat &quot;/sys/class/dmi/id/$field&quot; 2&gt;/dev/null || true
+done
+</code></pre></div>
+<p>反馈兼容性时请附型号、CPU/GPU、BIOS、发行版、内核、驱动版本，以及每项功能的实际结果。不要上传序列号、UUID、MAC 地址或未脱敏的完整系统报告。</p>
+<h2 id="驱动维护内容">驱动维护内容<a class="heading-anchor" href="#驱动维护内容" aria-label="链接到 驱动维护内容">#</a></h2>
+<p>相对上游正式版 <code>v4.24.0</code>，主要维护内容包括：</p>
+<ul>
+<li>在原有兼容检查下增加已知机械革命板号、产品名与 BIOS 匹配。</li>
+<li>修复 Uniwill TDP、WMI 和输入输出复制中的边界、错误传播与回读问题。</li>
+<li>修复 WMI 设备移除、后台任务停止、LED 阻塞回调及风扇读数处理；仅在写入成功后更新配置状态。</li>
+<li>统一风扇、模式和睡眠恢复中的同步与状态更新。</li>
+<li>避免 <code>GM6PX0X</code> 探测时覆盖已有显卡电源配置。</li>
+</ul>
+<p>这些改动不引入未知机型的 EC 地址、风扇曲线或功耗策略。<code>GM6PX0X</code> 的 CPU 长期功耗工具单独维护，未包含在 DKMS 包中，见 <a href="../mechrevo-drivers/power-control/">功耗控制说明</a>。</p>
+<h2 id="构建与验证">构建与验证<a class="heading-anchor" href="#构建与验证" aria-label="链接到 构建与验证">#</a></h2>
+<p>需要编译器、<code>make</code> 和当前内核 headers：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">bash</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 bash 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>make -j2 KDIR=/usr/lib/modules/$(uname -r)/build
+mkdir -p .local-tests
+python3 -B scripts/verify.py --domain driver
+python3 -B scripts/verify.py --domain console
+# 完整范围：python3 -B scripts/verify.py --domain all
+</code></pre></div>
+<p>验证入口会把缺失依赖、跳过用例和未运行用例报告为 <code>incomplete</code>，不能只依据 unittest 的 <code>OK</code> 判断完整通过。离线测试、模块编译、磁盘安装与实际加载分别记录。</p>
+<p>本轮触摸板、驱动质量、软件包安装与系统更新的版本和证据见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/verification/touchpad-driver-quality-2026-11-20.md">2026-11-20 验收记录</a>。</p>
+<p>安装和恢复请使用 DKMS 包；<code>make install</code> 会直接写入系统模块和规则，绕过包管理器，不适合作为未知机型的试用步骤。</p>
+<h2 id="上游同步">上游同步<a class="heading-anchor" href="#上游同步" aria-label="链接到 上游同步">#</a></h2>
+<p>每日任务镜像开发分支到 <code>upstream</code>，仅为正式上游版本创建更新 PR；不会强推 <code>main</code> 或自动合并。合并仍需审阅和本机验证，安装后的加载与硬件结果另行核对。同步和冲突处理见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/MAINTENANCE.md">维护文档</a>。</p>
+<h2 id="上游模块">上游模块<a class="heading-anchor" href="#上游模块" aria-label="链接到 上游模块">#</a></h2>
+<p>保留上游 Clevo、Uniwill、ITE、NB04/NB05 等模块、原有匹配和用户态接口。Fn 键、背光、传感器、风扇和功耗功能是否可用，取决于各模块的 DMI、控制器与固件条件。</p>
+<p>上游正在逐步把适合主线的部分提交到 Linux 内核。引用或移植 TUXEDO 代码时，应保留作者与许可证信息，并在提交主线前与上游协调相应 <code>Codeveloped-by</code> 归属。</p>
+<h2 id="许可证">许可证<a class="heading-anchor" href="#许可证" aria-label="链接到 许可证">#</a></h2>
+<p>本项目保留 TUXEDO 上游历史、版权与 GPL 许可证。具体条款见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/LICENSE">LICENSE</a>。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../mechrevo-drivers/aur/"><span class="pagination-label">下一页</span><span class="pagination-title">Arch Linux / AUR 打包</span></a></nav>
+      <footer class="page-footer">
+        <span>mechrevo-drivers <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#支持范围">支持范围</a></li><li class="toc-level-2"><a href="#安装arch-linux--aur">安装（Arch Linux / AUR）</a></li><li class="toc-level-3"><a href="#原生控制台">原生控制台</a></li><li class="toc-level-3"><a href="#触摸板开关">触摸板开关</a></li><li class="toc-level-2"><a href="#只读识别本机">只读识别本机</a></li><li class="toc-level-2"><a href="#驱动维护内容">驱动维护内容</a></li><li class="toc-level-2"><a href="#构建与验证">构建与验证</a></li><li class="toc-level-2"><a href="#上游同步">上游同步</a></li><li class="toc-level-2"><a href="#上游模块">上游模块</a></li><li class="toc-level-2"><a href="#许可证">许可证</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

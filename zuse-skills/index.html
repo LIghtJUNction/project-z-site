@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="提供可导入的桌面观察函数与浏览器验收模块，供 Zuse 脚本复用。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zuse-skills · 概览 · Project Z">
+  <meta property="og:description" content="提供可导入的桌面观察函数与浏览器验收模块，供 Zuse 脚本复用。">
+  <meta property="og:type" content="website">
+  <title>zuse-skills · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zuse-skills/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zuse-skills">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zuse-skills" aria-label="zuse-skills 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zuse-skills</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zuse-skills</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/" aria-current="page">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zuse-skills 文档"><div class="nav-group"><p class="nav-label">zuse-skills</p><ul><li><a class="nav-link" href="../zuse-skills/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zuse-skills/zgpui-native/">zgpui → zuse: native automation contract (proposal)</a></li><li><a class="nav-link" href="../zuse-skills/skills-zuse-skill-creator-skill/">description: Create importable Zuse GUI modules with native function descriptions, explicit application scope, Zuse 0.5 guarded draft writes, bounded output, and tests for independent calls and honest application support metadata.</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zuse-skills</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/" aria-current="page">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zuse-skills 文档"><div class="nav-group"><p class="nav-label">zuse-skills</p><ul><li><a class="nav-link" href="../zuse-skills/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zuse-skills/zgpui-native/">zgpui → zuse: native automation contract (proposal)</a></li><li><a class="nav-link" href="../zuse-skills/skills-zuse-skill-creator-skill/">description: Create importable Zuse GUI modules with native function descriptions, explicit application scope, Zuse 0.5 guarded draft writes, bounded output, and tests for independent calls and honest application support metadata.</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zuse-skills/">zuse-skills 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zuse-skills/">zuse-skills</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#原生入口">原生入口</a></li><li class="toc-level-3"><a href="#检查具体调用不启动浏览器">检查具体调用，不启动浏览器</a></li><li class="toc-level-3"><a href="#一次导入多次查询">一次导入，多次查询</a></li><li class="toc-level-2"><a href="#桌面模块">桌面模块</a></li><li class="toc-level-3"><a href="#条件草稿与单独发送">条件草稿与单独发送</a></li><li class="toc-level-2"><a href="#机器可读的能力与阻断原因">机器可读的能力与阻断原因</a></li><li class="toc-level-2"><a href="#紧凑输出与并行调用">紧凑输出与并行调用</a></li><li class="toc-level-2"><a href="#验证">验证</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zuse-skills">zuse-skills</h1><p class="project-intro">提供可导入的桌面观察函数与浏览器验收模块，供 Zuse 脚本复用。</p>
+<p>把 GUI 能力封装成可原生导入、带简短说明的 <code>.zuse</code> 函数。Zuse 负责解析、导入、参数替换和执行；本仓库提供 ChatGPT 桌面版的观察、条件草稿准备和独立动作声明，微信、QQ 的只读模块，以及自有 Chromium 的操作验收模块。</p>
+<p>桌面模块不请求焦点，不调用系统键鼠。它们要求调用者先确认应用窗口范围；应用不提供后台访问能力时返回错误。<strong>ChatGPT 的空草稿与进程守卫机制已接入，真实 ChatGPT Desktop 的读写和发送仍处于 blocked，尚未验收。</strong> 最近记录的目标没有可用 AT-SPI 应用入口；模块声明和预检不能证明目标应用开放了后台控制接口。</p>
+<h2 id="原生入口">原生入口<a class="heading-anchor" href="#原生入口" aria-label="链接到 原生入口">#</a></h2>
+<p>完整目录预检和条件草稿准备需要 <a href="../zuse/">Zuse 0.5</a> 或具备相同守卫接口的运行时。原有 <code>chatgpt_controls(scope)</code>、<code>chatgpt_find(scope, window, label)</code> 的定义与签名保持不变。可从上游正式发行安装；开发时使用最新公开源码：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo install --locked --git https://github.com/LIghtJUNction/zuse.git zuse-computer
+zuse --version
+git clone https://github.com/LIghtJUNction/zuse-skills.git
+cd zuse-skills
+</code></pre></div>
+<p>先查看一个模块的函数与说明。导入只注册声明；不会执行函数体，也不会启动浏览器：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>zuse eval &#x27;import(path=&quot;skills/chatgpt-desktop/module.zuse&quot;,as=&quot;chatgpt&quot;); functions(namespace=&quot;chatgpt&quot;)&#x27; --read-only
+</code></pre></div>
+<p><code>functions()</code> 原生返回名称、参数顺序、<code>///</code> 说明及源码位置。查看全部 14 个函数，其中 ChatGPT 模块导出 8 个：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>zuse run examples/catalog.zuse --read-only
+</code></pre></div>
+<p>执行自有浏览器验收，填字段、点击 Preview，再读回本地页面结果：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>zuse run examples/chromium-preview.zuse
+</code></pre></div>
+<p>它新建私有无头 Chromium 会话，只访问模块内的 <code>data:</code> 页面，不连接现有浏览器或账号；完成后关闭会话。需要已安装的 Chromium/Chrome。可用 <code>ZUSE_BROWSER</code> 指定其可执行文件，保留浏览器沙箱。</p>
+<h3 id="检查具体调用不启动浏览器">检查具体调用，不启动浏览器<a class="heading-anchor" href="#检查具体调用不启动浏览器" aria-label="链接到 检查具体调用，不启动浏览器">#</a></h3>
+<p>原生 Zuse 可以直接预检含引号的参数：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>zuse eval &#x27;import(path=&quot;skills/chromium/module.zuse&quot;,as=&quot;fixture&quot;); fixture.chromium_fixture(text=&quot;他说 \&quot;hello\&quot;；本地预览&quot;)&#x27; --dry-run
+</code></pre></div>
+<p>可选 Python 适配器也提供具体调用的预检入口：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>python3 zskills.py plan chromium_fixture &#x27;&quot;他说 \&quot;hello\&quot;；路径 C:\\tmp\\demo&quot;&#x27;
+python3 zskills.py run chromium_fixture &#x27;&quot;仅检查&quot;&#x27; --dry-run
+</code></pre></div>
+<p>原生 <code>--dry-run</code> 返回步骤计划；适配器另附实际参数和 <code>function_executed:false</code>。两种方式都不会启动浏览器或执行应用操作。预检通过只说明该程序满足语法和策略，不证明应用存在或目标正确。正常 <code>run</code> 会重新检查当前模块，不使用旧预检结果跳过检查。</p>
+<h3 id="一次导入多次查询">一次导入，多次查询<a class="heading-anchor" href="#一次导入多次查询" aria-label="链接到 一次导入，多次查询">#</a></h3>
+<p><code>zuse shell --read-only</code> 会保留模块定义，直到退出。以下两行输入到同一 shell：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">zuse</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 zuse 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>import(path=&quot;skills/chatgpt-desktop/module.zuse&quot;, as=&quot;chatgpt&quot;)
+functions(namespace=&quot;chatgpt&quot;)
+</code></pre></div>
+<p>脚本中的相对导入从脚本所在目录解析；<code>eval</code> 和交互 shell 的相对路径从启动目录解析。独立的 CLI 进程不共享定义或浏览器会话。</p>
+<h2 id="桌面模块">桌面模块<a class="heading-anchor" href="#桌面模块" aria-label="链接到 桌面模块">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>原生函数</th>
+<th>已实现的行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChatGPT 桌面版</td>
+<td><code>chatgpt_controls(scope)</code>、<code>chatgpt_find(scope, window, label)</code></td>
+<td>保留原有只读接口：读取指定 AT-SPI 子树；查找唯一精确标签</td>
+</tr>
+<tr>
+<td>ChatGPT 原生观察</td>
+<td><code>windows()</code>、<code>inspect_window(scope)</code>、<code>read_conversation(scope)</code>、<code>read_draft(editor)</code></td>
+<td>列出窗口供识别，或观察已经确认的窗口、会话、编辑器子树</td>
+</tr>
+<tr>
+<td>ChatGPT 草稿机制</td>
+<td><code>prepare_draft(editor, pid, message)</code></td>
+<td>要求进程匹配、编辑器精确为空，再对同一对象写入并读回；不发送</td>
+</tr>
+<tr>
+<td>ChatGPT 独立动作</td>
+<td><code>send_prepared(send_button, action_index)</code></td>
+<td>显式授权后调用一个新观察到的原生动作；发送结果仍需观察确认</td>
+</tr>
+<tr>
+<td>微信</td>
+<td><code>wechat_controls(scope)</code>、<code>wechat_find(scope, window, label)</code></td>
+<td>同上，范围由调用者确认属于微信</td>
+</tr>
+<tr>
+<td>QQ</td>
+<td><code>qq_controls(scope)</code>、<code>qq_find(scope, window, label)</code></td>
+<td>同上，范围由调用者确认属于 QQ</td>
+</tr>
+<tr>
+<td>Chromium</td>
+<td><code>chromium_fixture(text)</code></td>
+<td>在自有无头浏览器中填写、点击并读取本地验收页面</td>
+</tr>
+<tr>
+<td>编写工具</td>
+<td><code>zuse_capabilities()</code></td>
+<td>读取当前运行时和后端能力</td>
+</tr>
+</tbody>
+</table></div>
+<p>先使用宿主已授权的只读电脑工具，确认进程、窗口 ID 和 AT-SPI 窗口路径。<code>scope</code> 必须属于目标应用的明确窗口或更小子树，<code>window</code> 必须是同一个窗口的原生 ID，<code>label</code> 使用刚观察到的完整标签。不要用全桌面范围，也不要把 <code>active</code> 当作窗口身份。缺少这组证据时停止调用该桌面函数。</p>
+<p>例如，<strong>仅在已验证 <code>0/12/0</code> 和 <code>0x123456</code> 确为目标窗口后</strong>：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">zuse</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 zuse 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>import(path=&quot;skills/chatgpt-desktop/module.zuse&quot;, as=&quot;chatgpt&quot;)
+chatgpt.chatgpt_controls(scope=&quot;0/12/0&quot;)
+chatgpt.chatgpt_find(scope=&quot;0/12/0&quot;, window=&quot;0x123456&quot;, label=&quot;New chat&quot;)
+</code></pre></div>
+<p>这些路径与 ID 只是语法示例，不能直接用于真实会话。应用重启、窗口或无障碍树变化后需要重新确认。原生 <code>*_controls</code> 通过有界 <code>watch</code> 取得所选窗口子树的观察结果，然后立即 <code>watch.close</code>；快照位于返回的 <code>watch</code> 结果中的 <code>receipt.observation</code>，不会留下持续订阅。该快照可能含该子树内的文本；<code>*_find</code> 返回目标描述，不点击它。查不到、匹配不唯一、后端不可用或范围不满足条件时不进行输入。</p>
+<p>最近一次真实应用记录确认 ChatGPT 窗口和进程稳定存在。正常 AT-SPI 短时监听前和监听期间的完整根枚举分别记录 10、15 个应用，均无错误或截断，但没有 ChatGPT 目标进程。监听结束后服务状态恢复，观察进程退出；全程没有桌面输入、读取应用文本字段或主动修改设置。该记录仍未提供可信 <code>scope</code>；本次模块同步没有重新探测目标。微信、QQ 尚未完成真实应用验收。Windows/macOS 的原生无障碍支持不能由 Linux AT-SPI 测试推断。</p>
+<h3 id="条件草稿与单独发送">条件草稿与单独发送<a class="heading-anchor" href="#条件草稿与单独发送" aria-label="链接到 条件草稿与单独发送">#</a></h3>
+<p>六个新增函数与<a href="https://github.com/LIghtJUNction/zuse/blob/main/skills/zuse/assets/chatgpt-desktop.zuse">上游原生模块</a>同名、同参数、同函数体。先确认原生进程、窗口、唯一的目标会话和编辑器，再读草稿；缺少 Text 接口、空值之外的现有文字、空白草稿或不完整观察都不能作为可覆盖依据。</p>
+<p><code>prepare_draft</code> 将 <code>expected_text=&quot;&quot;</code> 和调用者观察到的正整数 <code>pid</code> 交给 Zuse。Linux AT-SPI 在同一个原生对象上检查条件、写入并读回；这些应用调用不是原子事务，调用者仍需确认会话身份并响应用户接管。适配器保留 <code>edit</code> 的完整守卫回执和 <code>observation</code>，并返回 <code>send_performed:false</code>。写入后观察不完整时，错误明确提示已经提交写入，需要先检查当前编辑器再决定下一步。</p>
+<p>条件编辑当前仅支持 Linux AT-SPI；Windows/macOS 在输入前拒绝带条件的编辑。运行时预检只验证调用契约，不能证明当地无障碍后端可用。</p>
+<p>以下仅预检语法和策略；示例路径与 PID 不代表真实目标：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>python3 zskills.py plan prepare_draft &#x27;&quot;0/1/0/0&quot;&#x27; 42 &#x27;&quot;待核验的草稿&quot;&#x27;
+python3 zskills.py plan send_prepared &#x27;&quot;0/1/0/1&quot;&#x27; 0
+</code></pre></div>
+<p><code>pid</code>、<code>action_index</code> 使用 JSON 整数，其余参数仍为最多 4096 UTF-8 字节的 JSON 字符串。预检写入或发送不访问应用；两者在 <code>--read-only</code> 下均被原生运行时拒绝。</p>
+<p>发送需要对具体目标和消息的明确授权。适配器的实际 <code>run send_prepared</code> 还要求 <code>--authorize-send</code>，Python 调用要求 <code>authorize_send=True</code>；计划和导入不授予发送权限。该参数记录调用者已经取得授权，不替代宿主输入权限，也不会自动核验会话或草稿。调用前重新检查目标、草稿、发送节点和其提供的动作索引，调用后观察同一会话确认结果。单次原生动作回执始终标注 <code>delivery_confirmed:false</code>，不会据此宣称消息送达或自动重试。</p>
+<h2 id="机器可读的能力与阻断原因">机器可读的能力与阻断原因<a class="heading-anchor" href="#机器可读的能力与阻断原因" aria-label="链接到 机器可读的能力与阻断原因">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>python3 zskills.py capabilities chatgpt-desktop
+python3 zskills.py capabilities wechat
+python3 zskills.py capabilities qq
+</code></pre></div>
+<p>这个入口只执行原生导入和条件草稿的全程序预检，不枚举真实应用、不访问聊天内容。<code>runtime.native_import</code> 表示导入能力；<code>runtime.guarded_prepare</code> 单独报告守卫调用能否通过预检，导入成功不会被当作新接口可用。缺少兼容运行时时返回具体阻断原因。</p>
+<p>ChatGPT 的 <code>prepare</code>、<code>send</code> 返回 <code>implemented:true</code> 表示已有函数机制，同时保持 <code>state:blocked</code>、<code>application_accepted:false</code> 和 <code>target_checked:false</code>。<code>last_target_assessment</code> 引用最近 AT-SPI 入口缺失的历史证据；它不是本次实时探测。只读操作仍要求 <code>requires_verified_target</code>。微信、QQ 的写入与发送继续返回 <code>implemented:false</code>、<code>background_adapter_not_implemented</code>。</p>
+<p><a href="https://github.com/LIghtJUNction/zuse-skills/blob/201a7508d3ed2928295ebaf0853ea4528212b980/docs/acceptance.md">完整应用验收条件与当前差距</a> 分别记录模块可导入、后端可访问、草稿写入、显式发送及结果确认。<strong>真实 ChatGPT 的后台写入与发送尚未验收；微信、QQ 尚未实现写入和发送适配。</strong></p>
+<h2 id="紧凑输出与并行调用">紧凑输出与并行调用<a class="heading-anchor" href="#紧凑输出与并行调用" aria-label="链接到 紧凑输出与并行调用">#</a></h2>
+<p><code>zskills.py</code> 是可选的 Python 3.10+ 适配器。它把导入和执行交给 Zuse，不再自行解释 <code>.zuse</code>。无需第三方 Python 依赖。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>python3 zskills.py list
+python3 zskills.py list --json
+python3 zskills.py run zuse_capabilities
+python3 zskills.py run chromium_fixture &#x27;&quot;本地预览&quot;&#x27;
+python3 zskills.py parallel &#x27;[[&quot;zuse_capabilities&quot;],[&quot;zuse_capabilities&quot;]]&#x27;
+</code></pre></div>
+<p>原有桌面 <code>*_controls</code> 继续要求 <code>scope</code>，<code>*_find</code> 继续要求 <code>scope, window, label</code>。新增的 <code>pid</code> 和 <code>action_index</code> 按 JSON 整数传入，其他参数使用 JSON 字符串。选择特定运行时：<code>python3 zskills.py --zuse /path/to/zuse check</code>。</p>
+<p>适配器负责：</p>
+<ul>
+<li>从原生 <code>functions()</code> 读取名称与说明，核对 <code>catalog.json</code> 的参数和后端声明，省去反复读取完整模块。</li>
+<li>对 <code>*_controls</code> 只保留最多 40 个控件的角色与标签，每个标签最多 100 字符，不输出 <code>text</code>/值字段或坐标。可访问名称由目标应用提供，仍可能含用户内容；此投影不承诺任意文本脱敏。后端返回不完整子树时明确报错。</li>
+<li>新的观察函数返回有界完整子树，可能包含会话或草稿文字；请求前确认范围。条件草稿保留编辑回执和观察结果，单独发送保留动作回执并明确尚未确认送达。</li>
+<li>一批最多 8 个独立调用、最多 4 个工作进程。先为每一项执行真实 Zuse 全程序预检，全部通过后才执行第一项；结果保持输入顺序，每项失败单独返回。每个执行进程有 30 秒期限，取消后最多等待 18 秒退出。</li>
+</ul>
+<p>并行使用独立运行时，适合只读查询或分别拥有的浏览器实例。适配器在执行第一项前拒绝任何包含原生桌面写入或发送的并行批次；这些动作需要独立执行。预检检查语法、参数、只读权限和允许的操作类别；被导入的模块仍是需要审阅的程序源码。</p>
+<h2 id="验证">验证<a class="heading-anchor" href="#验证" aria-label="链接到 验证">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-12" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-12" tabindex="0"><code>python3 zskills.py check
+ZUSE_BIN=/path/to/zuse python3 -m unittest discover -s tests -v
+</code></pre></div>
+<p>2026-11-22 01:51（Asia/Taipei），使用实际从 crates.io 安装的 <strong>zuse-computer 0.5.0</strong> 对模块源码 <code>fce48d78dcbedbecaaa56a09fdf11b12b9a6b09a</code> 完成发布后复验：14 个函数检查通过，<strong>34 项测试全部通过，0 跳过，耗时 2.122 秒</strong>。两项私有 Chromium 测试均实际执行。二进制、公开归档及测试日志摘要见<a href="https://github.com/LIghtJUNction/zuse-skills/blob/201a7508d3ed2928295ebaf0853ea4528212b980/docs/validation-zuse-0.5.0.json">发布版验收收据</a>。真实 ChatGPT 的草稿和发送仍未验收，微信、QQ 的写入适配仍未实现。</p>
+<p>本次六函数同步在 Zuse 0.5 候选源码的 dev 构建上完成。沙箱的 14 个函数原生 check 通过，32 项测试通过，2 项自有浏览器测试默认跳过；随后开发机启用私有 Chromium 验收，<strong>34 项全部通过，耗时 2.650 秒</strong>。验证时该候选构建的版本字符串仍为 <code>0.4.2</code>，守卫接口通过实际预检确认，没有把它记为已发布的 0.5 二进制。测试没有访问真实账号、操作用户桌面或发送消息，也未重跑旧 Zuse 0.4.0 发行二进制。新增覆盖包括整数参数、输入只读拒绝、独立发送授权、写入批次拒绝、完整编辑回执和诚实能力元数据。</p>
+<p>以下是原版本的历史验证，不能用来证明新增草稿或发送能力已通过真实应用验收。2026-11-21 对源码 <code>dbe3533684e39f90e7a7a05d55638629c242bb91</code> 完成：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>环境</th>
+<th>运行时来源</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>沙箱</td>
+<td>Zuse 0.4.0 Git <code>0016f96067d1e4672c62be9d8008d210edcdae2d</code>，dev 构建</td>
+<td>22 项测试通过，2 项浏览器测试默认跳过；该沙箱 Chromium 启动曾收到 SIGABRT</td>
+</tr>
+<tr>
+<td>原生 Linux 开发机</td>
+<td>已发表 <code>zuse-computer 0.4.0</code> 包的原生发布验证阶段已有 dev 构建</td>
+<td>原生 check 通过；<strong>24/24 项测试通过，耗时 2.245 秒</strong>，包含两个自有浏览器测试</td>
+</tr>
+</tbody>
+</table></div>
+<p>原生浏览器验收实际完成单会话的字段填写、Preview 点击和结果读回，以及两个私有会话并行时的结果隔离。运行时所用包源码与已发表归档的全部 200 个文件逐字节匹配；本轮没有重新编译、从沙箱传入二进制或全局安装。测试没有连接真实账号，也没有操作用户桌面。</p>
+<p>历史测试覆盖原生导入与说明、相对路径、持久 shell、导入无顶层副作用、参数注入、只读预检、子树边界、输出预算、并行预检顺序、具体调用计划及能力目录。当时的 8 个导出函数通过原生预检；真实 ChatGPT、微信、QQ 的读写支持按上文边界单独记录。</p>
+<p>在具备正常 Chromium 运行条件的隔离环境复验：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-13" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-13" tabindex="0"><code>ZUSE_BIN=/path/to/zuse ZUSE_SKILLS_BROWSER_TESTS=1 python3 -m unittest discover -s tests -v
+</code></pre></div>
+<p>运行时与归档 SHA256、测试日志 SHA256、AT-SPI 观察结果见 <a href="https://github.com/LIghtJUNction/zuse-skills/blob/201a7508d3ed2928295ebaf0853ea4528212b980/docs/validation-2026-11-21.json">验收收据</a>。本地网页验收不替代真实应用的草稿或发送验收。</p>
+<p><a href="../zuse-skills/skills-zuse-skill-creator-skill/">编写技能</a> · <a href="../zuse-skills/zgpui-native/">zgpui 原生后端提案</a> · <a href="https://github.com/LIghtJUNction/zuse/blob/main/src/script/modules.rs">上游原生模块实现</a></p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse-skills/blob/201a7508d3ed2928295ebaf0853ea4528212b980/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse-skills">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../zuse-skills/zgpui-native/"><span class="pagination-label">下一页</span><span class="pagination-title">zgpui → zuse: native automation contract (proposal)</span></a></nav>
+      <footer class="page-footer">
+        <span>zuse-skills <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#原生入口">原生入口</a></li><li class="toc-level-3"><a href="#检查具体调用不启动浏览器">检查具体调用，不启动浏览器</a></li><li class="toc-level-3"><a href="#一次导入多次查询">一次导入，多次查询</a></li><li class="toc-level-2"><a href="#桌面模块">桌面模块</a></li><li class="toc-level-3"><a href="#条件草稿与单独发送">条件草稿与单独发送</a></li><li class="toc-level-2"><a href="#机器可读的能力与阻断原因">机器可读的能力与阻断原因</a></li><li class="toc-level-2"><a href="#紧凑输出与并行调用">紧凑输出与并行调用</a></li><li class="toc-level-2"><a href="#验证">验证</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

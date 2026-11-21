@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="按需采集 Linux 的处理器、内存、进程与存储状态，提供可借用的数据视图。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zsys · 采样语义与 API · Project Z">
+  <meta property="og:description" content="按需采集 Linux 的处理器、内存、进程与存储状态，提供可借用的数据视图。">
+  <meta property="og:type" content="website">
+  <title>zsys · 采样语义与 API · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zsys/semantics/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zsys">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zsys" aria-label="zsys 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zsys</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zsys</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/" aria-current="page">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zsys 文档"><div class="nav-group"><p class="nav-label">zsys</p><ul><li><a class="nav-link" href="../../zsys/">概览</a></li><li><a class="nav-link" href="../../zsys/architecture/">架构与可验证的设计</a></li><li><a class="nav-link" href="../../zsys/platforms/">Platform support</a></li><li><a class="nav-link" href="../../zsys/progress/">开发与验收进展</a></li><li><a class="nav-link" href="../../zsys/semantics/" aria-current="page">采样语义与 API</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zsys</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/" aria-current="page">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zsys 文档"><div class="nav-group"><p class="nav-label">zsys</p><ul><li><a class="nav-link" href="../../zsys/">概览</a></li><li><a class="nav-link" href="../../zsys/architecture/">架构与可验证的设计</a></li><li><a class="nav-link" href="../../zsys/platforms/">Platform support</a></li><li><a class="nav-link" href="../../zsys/progress/">开发与验收进展</a></li><li><a class="nav-link" href="../../zsys/semantics/" aria-current="page">采样语义与 API</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zsys/">zsys 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zsys/">zsys</a><span aria-hidden="true">/</span><span>采样语义与 API</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#时间快照与刷新边界">时间、快照与刷新边界</a></li><li class="toc-level-2"><a href="#cpu-使用率">CPU 使用率</a></li><li class="toc-level-2"><a href="#进程身份可见性与详情">进程身份、可见性与详情</a></li><li class="toc-level-2"><a href="#内存">内存</a></li><li class="toc-level-2"><a href="#磁盘挂载与容量">磁盘、挂载与容量</a></li><li class="toc-level-2"><a href="#网络">网络</a></li><li class="toc-level-2"><a href="#硬件与-gpu">硬件与 GPU</a></li><li class="toc-level-2"><a href="#内存复用并发与调度">内存复用、并发与调度</a></li><li class="toc-level-2"><a href="#公共-api-索引">公共 API 索引</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="采样语义与-api">采样语义与 API</h1>
+<p>zsys 的一次刷新表示一次明确的读取操作。调用者选择模块、调用时间和需要的详情，采集器保存本模块上次成功观测及可复用存储。所有单位、差分和失败状态都应与对应快照一起使用。</p>
+<h2 id="时间快照与刷新边界">时间、快照与刷新边界<a class="heading-anchor" href="#时间快照与刷新边界" aria-label="链接到 时间、快照与刷新边界">#</a></h2>
+<p><code>Sample</code> 包含 <code>timestamp_ns</code> 和 <code>sequence</code>。Linux 采集器的时间戳来自该实例创建时建立的 <code>Instant</code> 原点，因此可用于同一实例前后采样的差分。不同采集器的数值没有共同原点；它们也不是 Unix 时间或系统启动时间。若业务需要跨模块时间轴，应在调用刷新前后额外记录应用自己的共享时钟。</p>
+<p>CPU、内存、网络计数器、块 I/O、挂载列表和文件系统容量在首次成功采样前没有有效观测。相应计数器快照的 <code>sequence == 0</code> 表示尚未成功采样，读取接口上的 <code>Option</code> 用于避免把初始化零值当作真实数据。硬件字段另用 <code>HardwareValue</code> 区分尚未采样和读取失败，硬件数值的样本序号表示读取尝试，字段可能为 <code>Unavailable</code>。</p>
+<p><code>System::new()</code> 不执行文件系统访问，模块在首次显式刷新时初始化。<code>refresh_memory</code> 不会刷新 CPU；<code>refresh_process</code> 不会扫描其他 PID。<code>refresh_basic</code> 依次刷新 CPU、内存、进程、网络计数器和块 I/O，较早步骤成功后即保留新值；后续步骤失败时，剩余模块仍保留自己的旧值。这种组合保留了每个模块的真实时序。相关断言见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/tests/system.rs">tests/system.rs</a>。</p>
+<p><code>SystemSnapshot</code> 是可由调用者组合的 CPU／内存数据类型，本身不会执行采集，也不会使不同时间的观测变成原子快照。<code>CpuTimes</code>、<code>Memory</code> 等 <code>Copy</code> 数据可以直接复制；进程等含拥有型字段的记录可以按需 <code>clone</code>。借用视图避免在每次读取结果时重新构造整个集合。</p>
+<h2 id="cpu-使用率">CPU 使用率<a class="heading-anchor" href="#cpu-使用率" aria-label="链接到 CPU 使用率">#</a></h2>
+<p>系统与单核 CPU 百分比来自两次累计 tick 的差。<code>CpuTimes</code> 累计 user、nice、system、idle、iowait、irq、softirq 和 steal；guest 时间已经包含在 user/nice 中，不重复累加。实现将 idle 和 iowait 视为空闲，计算：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>busy_percent = 100 × (Δtotal − Δidle − Δiowait) / Δtotal
+</code></pre></div>
+<p>首次观测、累计值回退或 <code>Δtotal == 0</code> 时，使用率为 <code>None</code>。Linux 文档说明 iowait 也可能下降，因此该情况会使当前差分无效。<code>CpuCollector</code> 每次发现当前在线 CPU；在线集合变化时重建聚合基线，仍存在且身份一致的单核可以继续差分。实现和回归测试见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/src/cpu.rs">src/cpu.rs</a>、<a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/tests/collectors.rs">tests/collectors.rs</a>，字段来源见 <a href="https://man7.org/linux/man-pages/man5/proc_stat.5.html">proc_stat(5)</a>。</p>
+<p>进程 CPU 百分比以一颗逻辑 CPU 为 100%，使用成功观测之间的单调时间间隔：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>cpu_percent = 100 × Δ(user_ticks + system_ticks)
+              / (ticks_per_second × elapsed_seconds)
+</code></pre></div>
+<p>多线程进程同时占用两颗逻辑 CPU 时可以接近 200%。代码不按机器核数、CPU affinity 或 cgroup 配额再归一化。<code>Processes</code> 为各 PID 保存各自的采样时间；函数执行了多少微秒，不会被用作两次采样之间的时间。第一次读取、PID 复用、前次不可访问、计数器回退或无效时间间隔会得到 <code>None</code>。该公式在 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/src/process.rs">src/process.rs</a> 有确定性测试。</p>
+<p>高频读取不会增加内核 CPU tick 的分辨率。短间隔内可能得到零增量、<code>None</code>，或量化明显的瞬时进程百分比；应用可按业务需要延长间隔或对多次结果平滑。<code>CpuCollector::refresh_frequencies</code> 单独读取 sysfs <code>scaling_cur_freq</code> 并转为 Hz；它不修改使用率采样时间，频率也不保证等于芯片此刻的实际运行频率。频率字段没有单独的内置时间戳，调用者如需精确 freshness 应记录调用时间。参见 <a href="https://docs.kernel.org/admin-guide/pm/cpufreq.html">CPUFreq 文档</a>。</p>
+<h2 id="进程身份可见性与详情">进程身份、可见性与详情<a class="heading-anchor" href="#进程身份可见性与详情" aria-label="链接到 进程身份、可见性与详情">#</a></h2>
+<p><code>ProcessId</code> 由 PID 和 <code>start_time_ticks</code> 组成，区分同一次系统启动中的 PID 复用。<code>start_time_since_boot(ticks_per_second)</code> 把启动 tick 转为启动后的 <code>Duration</code>，保留可获得的亚秒精度。该值不是墙上时钟日期；跨重启持久化身份时，应用还需要自行关联启动会话。时钟 tick 和页大小由原生 <code>sysconf</code> 读取；fixture 可以通过 <code>with_parameters</code> 显式给定。字段定义见 <a href="https://man7.org/linux/man-pages/man5/proc_pid_stat.5.html">proc_pid_stat(5)</a>。</p>
+<p><code>Processes::refresh</code> 每次枚举当前可见 PID 并读取选中的记录，复用表项、名称缓冲区和基线。增量体现在状态维护与生命周期变化；它没有订阅内核事件，也没有跳过全部已有 PID 的实时计数器读取。<code>ProcessChanges</code> 的 <code>added</code>、<code>removed</code>、<code>reused</code>、<code>failed</code> 描述生命周期与采样结果，<code>updated</code> 统计成功读取的数量，包含新建和复用 PID，并不表示每个字段发生变化。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>情况</th>
+<th>全表 <code>refresh</code> 的处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新 PID 可读取</td>
+<td>插入记录，CPU 基线为 <code>None</code></td>
+</tr>
+<tr>
+<td>PID 相同、启动 tick 改变</td>
+<td>标记 <code>reused</code>，替换身份，重置 CPU 基线</td>
+</tr>
+<tr>
+<td>原记录本轮无法访问</td>
+<td>保留历史数据和时间戳，标记 <code>Inaccessible</code>、<code>Vanished</code> 或 <code>Invalid</code>，清除 CPU 使用率</td>
+</tr>
+<tr>
+<td>原 PID 未出现在成功枚举结果</td>
+<td>从可见进程表移除</td>
+</tr>
+<tr>
+<td>整个目录枚举失败</td>
+<td>返回错误，保留已有表</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>refresh_pid(pid)</code> 只更新该 PID，发现其已经消失时移除该项，不会顺带清理其他 PID。<code>enumerate_pids()</code> 返回复用缓冲区中的排序去重列表，不读取进程内容、不更新快照。枚举后进程仍可立刻退出，后续读取必须处理错误。<code>failures()</code> 对应最近一次全表刷新；单 PID 调用的错误通过返回值和该记录的 <code>availability</code> 表达。生命周期、权限、快速创建退出与枚举测试见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/tests/processes.rs">tests/processes.rs</a>。</p>
+<p>权限与 namespace 决定采集范围。<code>hidepid</code>、容器 PID namespace 或挂载视图可以让进程完全不出现在 <code>/proc</code>；从表中移除表示不再可见，业务不能仅据此推断其已在宿主机终止。<code>name</code> 保存内核 <code>comm</code> 的原始字节，它可能被内核截短，也可能不是 UTF-8。线程数量是记录字段；当前 API 不展开每个线程为独立进程对象。</p>
+<p>默认进程 <code>memory_bytes</code> 读取 <code>/proc/PID/statm</code> 的 resident 页数并转换为字节。<code>counters.resident_pages</code> 则保留 <code>/proc/PID/stat</code> 的原始近似字段，两者可能不同。Linux 对这类 RSS 统计仍有近似说明；它们没有提供 PSS，也不等同于逐映射计算的精确内存。共享页会出现在多个进程的 RSS 中，不宜直接求和当作系统已用内存。参见 <a href="https://man7.org/linux/man-pages/man5/proc_pid_statm.5.html">proc_pid_statm(5)</a>。</p>
+<p><code>details(pid, options)</code> 按需读取 executable、NUL 分隔的命令行、四组 UID 和四组 GID，返回拥有型 <code>ProcessDetails</code>。用户／组 ID 顺序为 real、effective、saved-set、filesystem；当前 API 不执行用户名数据库查询。命令行保留空参数和非 UTF-8 字节。每个详情字段为 <code>Detail::NotRequested</code>、<code>Detail::Unavailable(ErrorKind)</code> 或 <code>Detail::Value</code>，空值与读失败各有语义。</p>
+<p>详情操作通过同一个打开的 PID 目录读取，并在前后校验身份。它返回读取时的 <code>ProcessDetails.id</code>，不会自动替换进程表中较早的记录。把详情附加到已有快照前，应比较两个 <code>id</code>，如 README 的示例所示。详情读取会分配拥有型结果，适合按需请求而非无条件放入每个高频循环。</p>
+<h2 id="内存">内存<a class="heading-anchor" href="#内存" aria-label="链接到 内存">#</a></h2>
+<p><code>Memory</code> 的容量单位均为字节，procfs 的 kB 数值按 1024 转换。<code>used_bytes()</code> 是 total 减 available；<code>swap_used_bytes()</code> 是 swap total 减 swap free。<code>free_bytes</code> 与 <code>available_bytes</code> 分别表示空闲页和内核估计的可用容量，含义不同。</p>
+<p>当内核未提供 <code>MemAvailable</code> 时，解析器使用 free、buffers、cached、reclaimable、shared 的已记录近似算法，<code>MemorySample::available_is_estimate</code> 明确标记此路径。已有 <code>MemAvailable</code> 时使用内核值。解析失败保留旧成功快照，测试见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/tests/collectors.rs">tests/collectors.rs</a>；来源见 <a href="https://man7.org/linux/man-pages/man5/proc_meminfo.5.html">proc_meminfo(5)</a>。默认读取所在挂载视图的 <code>/proc/meminfo</code>，不自动替换为容器 cgroup 内存配额。</p>
+<h2 id="磁盘挂载与容量">磁盘、挂载与容量<a class="heading-anchor" href="#磁盘挂载与容量" aria-label="链接到 磁盘、挂载与容量">#</a></h2>
+<p><code>DiskIoCollector</code> 从 <code>/proc/diskstats</code> 获取块设备和分区计数器。sector 固定按 512 字节计算，与设备物理扇区大小分开；in-flight 是当前进行中的 I/O 数量，属于 gauge。<code>DiskDelta</code> 对支持的累计计数器求差，遇到回退、设备名称变化或溢出时不生成有效差分。物理设备和它的分区可能表示同一批 I/O，混合求和会重复统计。参见 <a href="https://docs.kernel.org/admin-guide/iostats.html">Linux I/O statistics</a> 和 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/tests/disks.rs">tests/disks.rs</a>。</p>
+<p><code>Mounts::refresh</code> 只发现挂载及其路径、类型、源设备和选项。它解码内核的路径转义，按挂载身份保留仍匹配的容量样本。<code>Filesystem::refresh</code> 才会调用原生 <code>statvfs</code> 获取容量；<code>free_bytes</code> 包含所有空闲块，<code>available_bytes</code> 表示普通用户可用部分。失败会保留上次成功容量与时间戳，并更新 <code>last_error</code>。当前容量 FFI 支持 Linux 64 位 ABI，其他位宽返回 <code>Unsupported</code>。参见 <a href="https://man7.org/linux/man-pages/man3/statvfs.3.html">statvfs(3)</a>。</p>
+<p>容量查询可能因远程或故障文件系统阻塞。调用者可以使用 <code>iter_mut()</code> 挑选本地挂载点；<code>refresh_capacities()</code> 会遍历所有已发现挂载，并返回成功／失败数量。库不设置内核文件系统访问超时，也不在后台执行这些调用。</p>
+<h2 id="网络">网络<a class="heading-anchor" href="#网络" aria-label="链接到 网络">#</a></h2>
+<p><code>Networks::refresh_counters</code> 读取 <code>/proc/net/dev</code> 的全部十六个累计计数器，包含字节、包、错误、丢弃等字段。完整解析和重复接口校验成功后才提交快照，旧接口移除，新接口建立基线。<code>Network.delta</code> 与 <code>interval_ns</code> 可用于应用自己的速率计算；计数器回退时差分为 <code>None</code>。字段来源见 <a href="https://docs.kernel.org/networking/statistics.html">Linux interface statistics</a>。</p>
+<p><code>refresh_details</code> 独立获取地址、掩码、ifindex、flags、MAC、MTU 和可用的驱动链路速率，详情带有自己的 <code>sampled_at_ns</code>。<code>AddressSource::Getifaddrs</code> 表示原生地址列表；明确的 netlink 权限或协议限制会启用 <code>IoctlProcfs</code> 后备：IPv4 通过只读 ioctl 枚举，IPv6 来自 <code>/proc/net/if_inet6</code>。后备 flags 受 <code>SIOCGIFFLAGS</code> 返回范围限制。IPv6 scope ID 保留，六字节 MAC 不适用的硬件类型返回 <code>None</code>。参见 <a href="https://man7.org/linux/man-pages/man3/getifaddrs.3.html">getifaddrs(3)</a>、<a href="https://man7.org/linux/man-pages/man7/netdevice.7.html">netdevice(7)</a>。</p>
+<p>详情发现 ifindex 变化时清除相关差分，避免跨接口复用计算速率。若同名接口的移除和重建都发生在两次详情刷新之间，纯计数器路径可能无法识别该生命周期；需要更强身份检查的应用应同时安排详情刷新。<code>refresh()</code> 依次调用 counters 和 details，因此详情失败时，计数器可能已是新样本，调用者应分别检查它们的时间。</p>
+<p>网络详情始终读取当前进程所在的网络 namespace；<code>with_proc_root</code> 提供的 fixture 路径只替换计数器文件。详情刷新和新接口发现可以分配内存，稳定接口的计数器路径复用存储。</p>
+<h2 id="硬件与-gpu">硬件与 GPU<a class="heading-anchor" href="#硬件与-gpu" aria-label="链接到 硬件与 GPU">#</a></h2>
+<p><code>Hardware::refresh_inventory</code> 发现 hwmon、thermal zone 和 DRM primary card，connector 与 render 节点不作为重复 GPU。缺失 class 目录表示没有暴露此类设备，其他目录错误保留旧 inventory。<code>refresh_info</code> 读取 DMI 描述，<code>refresh_temperatures</code>、<code>refresh_gpus</code> 分别读取已知设备的可用数值。硬件字段通过 <code>HardwareValue::{NotSampled, Unavailable, Value}</code> 表达结果。</p>
+<p>thermal zone 的 <code>raw_input</code> 单位是毫摄氏度，<code>celsius()</code> 提供换算。hwmon 保留驱动原始固定点值：多数驱动使用毫摄氏度，部分 ADC 驱动输出毫伏，因此库不对所有 hwmon 输入统一作温度换算。<code>fault == Value(true)</code> 表示该通道的测量存在硬件故障。hwmon 与 thermal 两个视图可能重复描述同一个物理传感器，inventory 保留来源供应用选择。依据见 <a href="https://docs.kernel.org/hwmon/sysfs-interface.html">hwmon ABI</a>、<a href="https://docs.kernel.org/driver-api/thermal/sysfs-api.html">thermal sysfs API</a>。</p>
+<p>GPU 识别包含 DRM card、PCI vendor/device ID、驱动及可用产品名称。VRAM 总量／已用字节和 busy 百分比来自驱动公开的可选 sysfs 文件，当前覆盖 AMDGPU 提供这些属性的情形。缺少属性返回 <code>Unavailable</code>，不会生成零占用数据；NVML、完整 Intel/AMD/NVIDIA 遥测和 GPU 控制不在当前实现内。依据见 <a href="https://docs.kernel.org/PCI/sysfs-pci.html">PCI sysfs</a>、<a href="https://docs.kernel.org/gpu/amdgpu/driver-misc.html">AMDGPU memory</a>、<a href="https://docs.kernel.org/gpu/amdgpu/thermal.html">AMDGPU activity</a>，fixture 见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/tests/hardware.rs">tests/hardware.rs</a>。</p>
+<h2 id="内存复用并发与调度">内存复用、并发与调度<a class="heading-anchor" href="#内存复用并发与调度" aria-label="链接到 内存复用、并发与调度">#</a></h2>
+<p>采集器拥有自己的缓冲区和状态，通过 <code>&amp;mut self</code> 刷新，通过借用读取快照。新 PID、较长名称、新接口、CPU 热插拔或更大的文件都可能扩容。Vec 和 HashMap 在规模回落后通常保留容量，目的是复用；这部分驻留容量与未释放对象泄漏应分开测量。当前没有自动缩容策略或公共 reserve/shrink 接口，调用者可以丢弃并重建采集器以释放保留容量，同时建立新的时间与差分基线。</p>
+<p>公共 procfs 文件复用打开的文件与读取缓冲；进程记录按本次身份读取，文件所有权由 Rust RAII 管理。读取缓冲存在记录大小上限，过大的输入返回错误，避免无限增长；PID 表的内存仍随可见进程规模增长。<code>LinuxCollector::processes()</code> 是早期兼容接口，每次构造 <code>Vec&lt;ProcessRecord&gt;</code>；高频调用应使用保留表的 <code>Processes</code>。</p>
+<p>独立实例可以放在不同线程中使用。库没有全局采样锁；同一实例的并发刷新仍需要调用者提供同步。<code>Send + Sync</code> 编译检查和并行独立采集见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/tests/system.rs">tests/system.rs</a>。<a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/tests/process_resources.rs">tests/process_resources.rs</a> 对持续存活的进程采集器检查 Rust 分配、保留字节和文件描述符，并支持 <code>ZSYS_SOAK_SECONDS</code> 延长运行时间。</p>
+<p><code>Cadence</code> 接收调用者提供的单调纳秒时间。先检查 <code>is_due(now)</code>，刷新成功后调用 <code>mark_success(now)</code>；失败不推进成功时间。<code>set_interval_ns</code> 修改采样策略，不改写先前观测；<code>reset</code> 清除调度基线。它不会 sleep、spawn 线程或隐式刷新。示例见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/examples/cadence.rs">examples/cadence.rs</a>。</p>
+<h2 id="公共-api-索引">公共 API 索引<a class="heading-anchor" href="#公共-api-索引" aria-label="链接到 公共 API 索引">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>模块／类型</th>
+<th>入口与数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu</code></td>
+<td><code>CpuTimes::total</code>、<code>busy_percent_since</code>；八类累计 tick</td>
+</tr>
+<tr>
+<td><code>memory</code></td>
+<td><code>Memory</code>；<code>used_bytes</code>、<code>swap_used_bytes</code></td>
+</tr>
+<tr>
+<td><code>process</code></td>
+<td><code>ProcessId::start_time_since_boot</code>、<code>ProcessCounters::cpu_percent_since</code>、<code>ProcessState</code></td>
+</tr>
+<tr>
+<td><code>parse</code></td>
+<td><code>parse_cpu_stat</code>、<code>parse_meminfo</code>、<code>process_stat</code>／<code>RawProcess</code>、兼容 <code>parse_process_stat</code>、<code>ParseError</code></td>
+</tr>
+<tr>
+<td><code>disk</code></td>
+<td><code>DiskCounters</code>、<code>DiskDelta</code>、<code>DiscardCounters</code>、<code>FlushCounters</code>、<code>Capacity</code>、<code>RawDisk</code>、<code>RawMount</code>、<code>DISKSTATS_SECTOR_BYTES</code>、diskstats/mountinfo 解析与转义解码</td>
+</tr>
+<tr>
+<td><code>network</code></td>
+<td><code>NetworkCounters::delta_since</code>、<code>RawNetwork</code>、<code>parse_net_dev_line</code></td>
+</tr>
+<tr>
+<td><code>snapshot</code>／<code>sampling</code></td>
+<td><code>Sample</code>、<code>SystemSnapshot</code>、<code>Cadence</code></td>
+</tr>
+<tr>
+<td><code>CpuCollector</code></td>
+<td><code>new</code>、<code>with_roots</code>、<code>refresh</code>、<code>refresh_frequencies</code>、<code>cores</code>、<code>aggregate_times</code>、<code>aggregate_busy_percent</code>、<code>sample</code>；<code>CpuSample</code></td>
+</tr>
+<tr>
+<td><code>MemoryCollector</code></td>
+<td><code>new</code>、<code>with_proc_root</code>、<code>refresh</code>、<code>snapshot</code>；<code>MemorySample</code></td>
+</tr>
+<tr>
+<td><code>Processes</code></td>
+<td><code>new</code>、<code>with_proc_root</code>、<code>with_parameters</code>、<code>set_scan_mode</code>、<code>enumerate_pids</code>、<code>refresh</code>、<code>refresh_pid</code>、<code>details</code>、<code>iter/get/len/is_empty/failures</code>、<code>ticks_per_second/page_size</code>；<code>Process</code>、<code>ProcessChanges</code>、<code>ProcessFailure</code>、<code>Availability</code>、<code>Detail</code>、<code>DetailOptions</code>、<code>ProcessDetails</code>、<code>ScanMode</code></td>
+</tr>
+<tr>
+<td><code>DiskIoCollector</code></td>
+<td><code>new</code>、<code>with_proc_root</code>、<code>refresh</code>、<code>iter/get/sample</code>；<code>DiskDevice</code></td>
+</tr>
+<tr>
+<td><code>Filesystem</code>／<code>Mounts</code></td>
+<td><code>Filesystem::new/refresh/path/capacity/last_error/sample</code>；<code>Mounts::new/with_proc_root/refresh/refresh_capacities/iter/iter_mut/sample</code>；<code>Mount</code></td>
+</tr>
+<tr>
+<td><code>Networks</code></td>
+<td><code>new</code>、<code>with_proc_root</code>、<code>refresh_counters/refresh_details/refresh</code>、<code>iter/get/sample</code>；<code>Network</code>、<code>InterfaceDetails</code>（含 <code>is_up/is_running/is_loopback</code>）、<code>InterfaceAddress</code>、<code>AddressSource</code></td>
+</tr>
+<tr>
+<td><code>Hardware</code></td>
+<td><code>new</code>、<code>with_sys_root</code>、四个显式刷新方法、<code>temperatures/gpus/info/inventory_sample</code>；<code>Gpu</code>、<code>HardwareInfo</code>、<code>HardwareValue::value</code>、<code>TemperatureSensor::celsius</code>、<code>TemperatureSource</code></td>
+</tr>
+<tr>
+<td><code>System</code></td>
+<td><code>new</code>、<code>refresh_cpu/memory/processes/process/networks/network_counters/disk_io/mounts/basic</code>；对应借用 getter、<code>process_table</code> 与 <code>process_collector</code></td>
+</tr>
+<tr>
+<td><code>LinuxCollector</code></td>
+<td><code>new</code>、<code>with_proc_root</code>、<code>cpu_times</code>、<code>memory</code>、<code>processes</code>；<code>ProcessRecord</code>、<code>LinuxError::{Io, Parse}</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>精确签名和所有公开字段以 <code>cargo doc --no-deps --all-features</code> 生成的 rustdoc 为准。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/docs/semantics.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zsys">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zsys/progress/"><span class="pagination-label">上一页</span><span class="pagination-title">开发与验收进展</span></a></nav>
+      <footer class="page-footer">
+        <span>zsys <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#时间快照与刷新边界">时间、快照与刷新边界</a></li><li class="toc-level-2"><a href="#cpu-使用率">CPU 使用率</a></li><li class="toc-level-2"><a href="#进程身份可见性与详情">进程身份、可见性与详情</a></li><li class="toc-level-2"><a href="#内存">内存</a></li><li class="toc-level-2"><a href="#磁盘挂载与容量">磁盘、挂载与容量</a></li><li class="toc-level-2"><a href="#网络">网络</a></li><li class="toc-level-2"><a href="#硬件与-gpu">硬件与 GPU</a></li><li class="toc-level-2"><a href="#内存复用并发与调度">内存复用、并发与调度</a></li><li class="toc-level-2"><a href="#公共-api-索引">公共 API 索引</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

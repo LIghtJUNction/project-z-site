@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="复用上下文、工具循环、hook 与协作执行原语。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zharness · Model/tool loop primitives · Project Z">
+  <meta property="og:description" content="复用上下文、工具循环、hook 与协作执行原语。">
+  <meta property="og:type" content="website">
+  <title>zharness · Model/tool loop primitives · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zharness/harness/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zharness">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zharness" aria-label="zharness 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zharness</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zharness</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/" aria-current="page">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zharness 文档"><div class="nav-group"><p class="nav-label">zharness</p><ul><li><a class="nav-link" href="../../zharness/">概览</a></li><li><a class="nav-link" href="../../zharness/commands/">Command execution hooks</a></li><li><a class="nav-link" href="../../zharness/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zharness/plugins/">Native and Wasm plugin primitives</a></li><li><a class="nav-link" href="../../zharness/context/">Context management</a></li><li><a class="nav-link" href="../../zharness/guardrails/">Native security guardrails</a></li><li><a class="nav-link" href="../../zharness/harness/" aria-current="page">Model/tool loop primitives</a></li><li><a class="nav-link" href="../../zharness/hooks/">Hook systems and boundaries</a></li><li><a class="nav-link" href="../../zharness/lifecycle/">Typed Harness Lifecycle API</a></li><li><a class="nav-link" href="../../zharness/output/">Tool output processing</a></li><li><a class="nav-link" href="../../zharness/performance/">Performance methodology</a></li><li><a class="nav-link" href="../../zharness/skills/">Skills</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zharness</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/" aria-current="page">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zharness 文档"><div class="nav-group"><p class="nav-label">zharness</p><ul><li><a class="nav-link" href="../../zharness/">概览</a></li><li><a class="nav-link" href="../../zharness/commands/">Command execution hooks</a></li><li><a class="nav-link" href="../../zharness/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zharness/plugins/">Native and Wasm plugin primitives</a></li><li><a class="nav-link" href="../../zharness/context/">Context management</a></li><li><a class="nav-link" href="../../zharness/guardrails/">Native security guardrails</a></li><li><a class="nav-link" href="../../zharness/harness/" aria-current="page">Model/tool loop primitives</a></li><li><a class="nav-link" href="../../zharness/hooks/">Hook systems and boundaries</a></li><li><a class="nav-link" href="../../zharness/lifecycle/">Typed Harness Lifecycle API</a></li><li><a class="nav-link" href="../../zharness/output/">Tool output processing</a></li><li><a class="nav-link" href="../../zharness/performance/">Performance methodology</a></li><li><a class="nav-link" href="../../zharness/skills/">Skills</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zharness/">zharness 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zharness/">zharness</a><span aria-hidden="true">/</span><span>Model/tool loop primitives</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#observation-and-dispatch">Observation and dispatch</a></li><li class="toc-level-2"><a href="#completion-and-persistence">Completion and persistence</a></li><li class="toc-level-2"><a href="#pause-stop-and-cancellation">Pause, stop and cancellation</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="modeltool-loop-primitives">Model/tool loop primitives</h1>
+<p>ToolLoop is an application-driven state machine. Calling next issues one action;
+it does not call a model, run a tool, sleep or create a task. Drive it from a sync
+loop, a future, an event loop or a distributed coordinator chosen by the caller.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>Ready -&gt; CallModel -&gt; Receiving
+                       | real zcall events
+                       +-- terminal Completed -&gt; Stopped
+                       +-- terminal failure   -&gt; Stopped
+                       +-- terminal WaitingTools -&gt; Tools
+                                                    |
+                           Execute tickets (possibly several concurrently)
+                                                    |
+                            retained results + commit_result for each ticket
+                                                    |
+                           next -&gt; CallModel, or Stopped at the round limit
+</code></pre></div>
+<h2 id="observation-and-dispatch">Observation and dispatch<a class="heading-anchor" href="#observation-and-dispatch" aria-label="链接到 Observation and dispatch">#</a></h2>
+<p>Create a distinct application run ID and caller-owned CallSlot array. N is
+bytes per retained call: the real call ID, name and complete argument object
+share that storage. LoopLimits bounds model rounds and total tool calls. The
+controller retains genuine zcall EventData::ToolReady; it never fabricates a
+provider event or executes partial argument deltas.</p>
+<p>Pass events from Session::step to observe. Return Control::Continue only after
+observe succeeds. An event that cannot fit accepts no partial invocation. For
+recoverable slot-count exhaustion, return Pause, replace_slots with larger caller
+storage and resume the same Session with only its unconsumed input suffix. The
+recovery integration test exercises this actual replay path. Per-call byte size
+N is a fixed configuration; a limit/policy failure should abort or cancel unless
+the application has a safe recovery strategy.</p>
+<p>ToolReady alone does not authorize execution. The controller waits for zcall's
+WaitingTools terminal outcome. next then issues Execute tickets after the
+Before::Tool hook allows them. Issue several tickets to run concurrently, or
+finish one before asking for another. Prepared arguments and authorization remain
+mandatory at the application's execution boundary.</p>
+<h2 id="completion-and-persistence">Completion and persistence<a class="heading-anchor" href="#completion-and-persistence" aria-label="链接到 Completion and persistence">#</a></h2>
+<p>An invocation returned by invocation(ticket) borrows controller storage. Copy it
+into application transcript storage when it must outlive the next mutable
+controller operation. The example keeps history InvocationStorage buffers and
+result arrays separate from per-turn CallSlot storage.</p>
+<p>Retain the tool result, accept it into application history, acknowledge it through
+Completion::submit to the zcall Session, and call ToolLoop::commit_result. These
+are explicit boundaries, not an atomic transaction across memory, external I/O
+and persistent storage. commit_result checks the original call ID and rejects
+stale or duplicate completion tickets. It does not perform the history/session
+operations implicitly. Failures use a retained Completion with is_error=true.</p>
+<p>Once all results are committed, next can issue the following CallModel action.
+It clears per-turn retention only after the before-model hook allows that action.
+Durable history must already exist elsewhere. Context::build constructs the next
+Request from that history via zcall, without loss of real tool-call IDs.</p>
+<h2 id="pause-stop-and-cancellation">Pause, stop and cancellation<a class="heading-anchor" href="#pause-stop-and-cancellation" aria-label="链接到 Pause, stop and cancellation">#</a></h2>
+<p>Pending means model input or dispatched work is still outstanding. Paused means
+a before hook deferred a proposal without dispatching it. Deny is Error::Denied
+and leaves the proposal uncommitted; the application chooses whether to cancel,
+revise policy or produce an explicit error result. No implicit retry occurs.</p>
+<p>cancel marks the controller stopped and rejects late commits. It cannot stop an
+already-running process, revoke a network request or undo a side effect. Model
+failure, explicit cancellation and round-limit exhaustion are distinct stop
+reasons. Use fresh run IDs after recreation; tickets are not authentication tokens.</p>
+<p><code>examples/tool_loop.rs</code> composes Context, Hooks, a real zcall Session and the tool
+executor for two recorded model rounds. <code>tests/turn.rs</code>, <code>tests/recovery.rs</code> and
+<code>tests/native_example.rs</code> execute normal, denied, incomplete, cancelled, replay
+and out-of-order paths without live provider credentials.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zharness/blob/8907262ce6c8494f2849f8e5abd84f7a3da2e405/HARNESS.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zharness">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zharness/guardrails/"><span class="pagination-label">上一页</span><span class="pagination-title">Native security guardrails</span></a><a class="pagination-link next" href="../../zharness/hooks/"><span class="pagination-label">下一页</span><span class="pagination-title">Hook systems and boundaries</span></a></nav>
+      <footer class="page-footer">
+        <span>zharness <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#observation-and-dispatch">Observation and dispatch</a></li><li class="toc-level-2"><a href="#completion-and-persistence">Completion and persistence</a></li><li class="toc-level-2"><a href="#pause-stop-and-cancellation">Pause, stop and cancellation</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

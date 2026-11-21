@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ztty · Protocol scope · Project Z">
+  <meta property="og:description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta property="og:type" content="website">
+  <title>ztty · Protocol scope · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ztty/protocols/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ztty">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ztty" aria-label="ztty 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ztty</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/" aria-current="page">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/" aria-current="page">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ztty/">ztty 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ztty/">ztty</a><span aria-hidden="true">/</span><span>Protocol scope</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#text-and-input-protocols">Text and input protocols</a></li><li class="toc-level-2"><a href="#kitty-graphics">Kitty graphics</a></li><li class="toc-level-3"><a href="#image-limits-and-recovery">Image limits and recovery</a></li><li class="toc-level-3"><a href="#remaining-boundaries">Remaining boundaries</a></li><li class="toc-level-2"><a href="#sixel">Sixel</a></li><li class="toc-level-2"><a href="#acceptance-coverage">Acceptance coverage</a></li><li class="toc-level-3"><a href="#historical-acceptance-snapshots">Historical acceptance snapshots</a></li><li class="toc-level-2"><a href="#references">References</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="protocol-scope">Protocol scope</h1>
+<p>ztty 0.5.2 implements the following subset of public terminal protocols.
+The shared core is used by Linux, macOS, and Windows; native window integration
+and its verification status are described separately below. The
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/releases/0.5.2/report.zh-CN.md">0.5.2 release report</a> binds the current release's
+six-platform acceptance to its source and artifacts.</p>
+<h2 id="text-and-input-protocols">Text and input protocols<a class="heading-anchor" href="#text-and-input-protocols" aria-label="链接到 Text and input protocols">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Protocol / behavior</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANSI / VT controls</td>
+<td>Cursor motion, save/restore, tabs, scrolling regions, erase, insert/delete, main/alternate screen, DEC line drawing</td>
+</tr>
+<tr>
+<td>SGR</td>
+<td>16/256/RGB colors, semicolon and colon parameters, core attributes; font shaping and style rendering depend on the frontend</td>
+</tr>
+<tr>
+<td>UTF-8</td>
+<td>Streaming decode across arbitrary chunks; CJK widths; complete extended grapheme clusters within bounded storage</td>
+</tr>
+<tr>
+<td>Kitty keyboard</td>
+<td>Flags 1/2/4/8/16, event reports, shifted alternatives, associated text, independent screen stacks; the Linux frontend does not supply a base-layout alternative</td>
+</tr>
+<tr>
+<td>Mouse</td>
+<td>DEC 9 (X10)/1000/1002/1003 tracking; legacy and SGR 1006 encoding</td>
+</tr>
+<tr>
+<td>Focus</td>
+<td>DEC 1004</td>
+</tr>
+<tr>
+<td>Cursor appearance</td>
+<td>DECSCUSR block, underline, and bar with steady or blinking variants; DEC private modes 12 and 25</td>
+</tr>
+<tr>
+<td>Bracketed paste</td>
+<td>DEC 2004; bounded paste with control-character sanitization</td>
+</tr>
+<tr>
+<td>Synchronized output</td>
+<td>DEC 2026, DECRQM, retained last frame, 150 ms recovery timeout</td>
+</tr>
+<tr>
+<td>OSC 0/2</td>
+<td>Window title</td>
+</tr>
+<tr>
+<td>OSC 7</td>
+<td>Working-directory metadata retained in the model</td>
+</tr>
+<tr>
+<td>OSC 8</td>
+<td>Cell identity, history retention, underline, explicit Ctrl+click opening</td>
+</tr>
+<tr>
+<td>OSC 4/10/11</td>
+<td>Color queries; reply with the request's BEL or ST terminator</td>
+</tr>
+<tr>
+<td>DSR / DA / DECRQM</td>
+<td>Implemented state reports; unknown modes report unsupported</td>
+</tr>
+<tr>
+<td>Window and cell size</td>
+<td>CSI 14 t reports text-area pixels; CSI 16 t reports cell pixels; CSI 18 t reports character dimensions</td>
+</tr>
+<tr>
+<td>XTGETTCAP</td>
+<td>TN=xterm-256color, Co=256, Tc; unknown capabilities report failure</td>
+</tr>
+<tr>
+<td>X11 clipboard</td>
+<td>Clipboard and primary selection, advertised text formats, UTF-8 and Latin-1 fallback, bounded INCR receiving</td>
+</tr>
+<tr>
+<td>OSC 52</td>
+<td>Bounded clipboard requests with frontend policy; Linux enforces visible-view and input-ownership checks</td>
+</tr>
+<tr>
+<td>Native Wayland input</td>
+<td>XKB/compose and text-input-v3 preedit/commit; see <a href="../../ztty/configuration/#native-wayland-experimental">Wayland configuration and limits</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>The shared core retains extended grapheme clusters, including emoji ZWJ sequences,
+with at most 256 UTF-8 bytes per cluster and a bounded pool; this is separate from
+font rendering. Width changes reflow retained primary-screen soft wraps while
+preserving hard line boundaries. Alternate screens retain fixed-grid resize
+semantics, and history limits can evict content. See the
+<a href="https://github.com/LIghtJUNction/zterm/blob/b5adc3dbc5ca5f28a3ea7e45650a45245be9dc2d/README.md#current-boundaries">core storage and reflow contract</a>.</p>
+<p>Linux GPU text uses HarfBuzz run shaping; the Xft fallback draws Unicode cells
+without that complete-run shaping path. Linux supports italic glyphs and SGR 5/6
+text blink. Cursor blinking remains separate. These capabilities do not establish
+identical complex-script or emoji presentation across every renderer.</p>
+<p>Primary DA uses <code>CSI ? 62 ; 4 c</code>: a VT220-style identification with the Sixel
+feature field. No other optional DA features are asserted. This also satisfies
+the minimum response length used by <a href="https://github.com/kovidgoyal/kitty/blob/master/kittens/icat/detect.go">Kitty's graphics probe</a>.
+Kitty graphics support and transport choices are established by their own queries.</p>
+<h2 id="kitty-graphics">Kitty graphics<a class="heading-anchor" href="#kitty-graphics" aria-label="链接到 Kitty graphics">#</a></h2>
+<p><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zgraphics/README.md"><code>zgraphics</code></a> implements the bounded image lifecycle:
+receive image data, store decoded pixels, place an image, and delete its placements
+or data. <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zterm/src/terminal.rs"><code>zterm</code></a> frames APC sequences and attaches
+placements to terminal content. The native frontend composites the resulting
+RGBA images; no Kitty renderer is embedded.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Implemented scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport</td>
+<td>Direct PTY data, <code>t=d</code>; base64 encoded. The Linux host also supplies bounded file (<code>t=f</code>), temporary-file (<code>t=t</code>) and shared-memory (<code>t=s</code>) reads</td>
+</tr>
+<tr>
+<td>Pixel formats</td>
+<td><code>f=24</code> RGB, <code>f=32</code> RGBA, <code>f=100</code> PNG; canonical storage is straight-alpha RGBA8</td>
+</tr>
+<tr>
+<td>Compression</td>
+<td>Optional zlib, <code>o=z</code>, with bounded output</td>
+</tr>
+<tr>
+<td>Static actions</td>
+<td>Capability query <code>a=q</code>, transmit <code>a=t</code>, transmit and display <code>a=T</code>, place <code>a=p</code>, delete <code>a=d</code></td>
+</tr>
+<tr>
+<td>Extensions</td>
+<td>Linux X11 integrates Kitty animation, Unicode placeholders and relative placements; <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/graphics-extensions-20261120/report.zh-CN.md">extension acceptance</a> records GPU and Xft coverage</td>
+</tr>
+<tr>
+<td>Transfer chunks</td>
+<td><code>m=1</code> continuation and <code>m=0</code> final chunk; arbitrary PTY read boundaries; larger single APCs and repeated-action continuation headers from current clients</td>
+</tr>
+<tr>
+<td>Base64 endings</td>
+<td>Padded or unpadded final payload; nonfinal protocol chunks must contain complete groups without padding</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td>Explicit image IDs <code>i</code>, image numbers <code>I</code>, automatic IDs, placement IDs <code>p</code>, replacement under an existing ID</td>
+</tr>
+<tr>
+<td>Geometry</td>
+<td>Source crop <code>x/y/w/h</code>, cell-relative offset <code>X/Y</code>, requested columns/rows <code>c/r</code>, viewport clipping</td>
+</tr>
+<tr>
+<td>Scaling</td>
+<td>Aspect ratio preserved; when both <code>c</code> and <code>r</code> are set, the image is centered within that box</td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td>Placement advances the cursor according to its occupied box; <code>C=1</code> leaves it unchanged</td>
+</tr>
+<tr>
+<td>Layers</td>
+<td><code>z &gt;= 0</code> above text; negative <code>z</code> behind text; <code>z &lt; -1073741824</code> also behind explicitly colored backgrounds</td>
+</tr>
+<tr>
+<td>Deletion</td>
+<td>Visible placements, ID/number/placement, cursor or cell, row, column, z-index, and ID range selectors; uppercase forms free selected data once unreferenced</td>
+</tr>
+<tr>
+<td>Replies</td>
+<td>Success/error responses for identified requests; <code>q=1</code> suppresses success, <code>q=2</code> suppresses all replies; queries do not place or retain images</td>
+</tr>
+<tr>
+<td>Content lifetime</td>
+<td>Full-screen scroll can retain images in history; partial-region scroll moves placements anchored in that region; primary and alternate screens have independent scenes</td>
+</tr>
+</tbody>
+</table></div>
+<p>An image appears only after its final transfer completes successfully. Replacing
+an image ID removes the old placements; changing a placement ID replaces that
+placement. Cell metrics supplied by the frontend determine pixel geometry and
+size replies. Both image IDs and their generation values are used when deciding
+whether a renderer's cached pixels are still current.</p>
+<p>Existing <code>kitten icat</code> clients can emit image payloads larger than 4096 encoded
+bytes in one APC and use unpadded base64. The streaming receiver accepts that
+shape while retaining at most a 512-byte header and a 4096-byte encoded staging
+buffer. It incrementally decodes into a separately bounded pending transfer.
+This avoids accumulating an entire encoded APC in a general control-string
+buffer. Client emission behavior can be inspected in
+<a href="https://github.com/kovidgoyal/kitty/blob/master/tools/tui/graphics/command.go">Kitty's graphics command writer</a>.</p>
+<h3 id="image-limits-and-recovery">Image limits and recovery<a class="heading-anchor" href="#image-limits-and-recovery" aria-label="链接到 Image limits and recovery">#</a></h3>
+<p>These are default limits per graphics scene, as defined by
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zgraphics/src/lib.rs"><code>zgraphics::Limits</code></a>:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Default bound</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Width or height</td>
+<td>8192 pixels</td>
+</tr>
+<tr>
+<td>One decoded image</td>
+<td>32 MiB</td>
+</tr>
+<tr>
+<td>Retained decoded image storage</td>
+<td>32 MiB, counting vector capacity</td>
+</tr>
+<tr>
+<td>Pending transfer</td>
+<td>16 MiB</td>
+</tr>
+<tr>
+<td>Stored images</td>
+<td>128</td>
+</tr>
+<tr>
+<td>Placements</td>
+<td>512</td>
+</tr>
+</tbody>
+</table></div>
+<p>Both dimensional and byte limits apply. A nominally permitted width and height
+can still exceed the decoded-image byte limit. Primary and alternate scenes
+have separate quotas; these figures are not a process-wide memory ceiling.
+PNG decoding uses temporary buffers, and frontends retain display resources.
+The <a href="../../ztty/architecture/#memory-accounting">memory accounting section</a> explains those
+additional costs. Empty scenes allocate no image storage.</p>
+<p>PNG headers, chunk lengths, CRCs, and dimensions are checked before decoding;
+nonessential metadata is removed. Malformed PNG, incorrect pixel lengths, bad
+base64, unsupported options, and quota overruns are rejected. A pending <code>m=1</code>
+transfer does not consume ordinary text between APCs. CAN, SUB, or a new escape
+sequence can cancel an unfinished APC, so a missing terminator does not trap
+subsequent escape sequences. Tests exercise valid text, keyboard input, and a
+new valid image after rejection. The test sources are
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zgraphics/src/tests.rs"><code>zgraphics</code> tests</a>,
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zterm/src/tests.rs"><code>zterm</code> tests</a>, and
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/tests/graphics_smoke.py">the graphics acceptance suite</a>.</p>
+<h3 id="remaining-boundaries">Remaining boundaries<a class="heading-anchor" href="#remaining-boundaries" aria-label="链接到 Remaining boundaries">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Current boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>External Kitty transport</td>
+<td>The file/temporary-file/shared-memory host reader is Linux-only; macOS and Windows use direct transmission</td>
+</tr>
+<tr>
+<td>Image decoding and protocols</td>
+<td>APNG and ReGIS remain unsupported; Kitty frame animation is a separate implemented protocol</td>
+</tr>
+<tr>
+<td>Native Wayland</td>
+<td>No tabs, splits, workspace containers or runtime reload; desktop scaling and real IME/GPU acceptance remain separate work</td>
+</tr>
+<tr>
+<td>Text layout</td>
+<td>Complex-script and emoji presentation depend on the font and renderer; Xft does not provide the GPU path's complete-run HarfBuzz shaping</td>
+</tr>
+</tbody>
+</table></div>
+<p>Applications should query the required transport and extension capabilities.
+Successful static-image display alone does not establish full Kitty compatibility.</p>
+<h2 id="sixel">Sixel<a class="heading-anchor" href="#sixel" aria-label="链接到 Sixel">#</a></h2>
+<p>The shared <code>no_std</code> core accepts <code>ESC P ... q</code> Sixel images, commits only at ST,
+and reuses the existing RGBA scene and native renderers. RGB/HLS color registers,
+repeat compression, raster extents, aspect ratio, transparent/opaque backgrounds,
+color overprinting, and arbitrary PTY chunk boundaries are implemented. Modes
+80, 1070 and 8452 control display origin/scrolling, palette scope and cursor
+placement. Default scrolling starts at the text cursor and ends at column zero
+on the following text row; display mode preserves the cursor. Details and
+resource limits are in <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zgraphics/README.md#sixel">zgraphics</a>.</p>
+<p>Sixel images use the scene's behind-text layer and remain anchored to cell rows.
+Text writes and partial erases clear intersecting Sixel source pixels; Kitty
+placements are unaffected. At scaled boundaries, a whole intersecting source
+pixel is cleared, as documented in the
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/performance-function-2026-11-19.zh-CN.md#sixel%E6%96%87%E5%AD%97%E8%A6%86%E7%9B%96%E4%B8%8E%E5%B1%80%E9%83%A8%E6%B8%85%E9%99%A4%E4%B8%8D%E5%86%8D%E7%95%99%E4%B8%8B%E6%97%A7%E5%9B%BE%E7%89%87">Sixel erasure regression</a>.
+Partial-region scrolling follows the anchor policy. Shared palettes seed later
+images; changing a register does not recolor an already completed RGBA image.
+These limits remain distinct from complete VT340 framebuffer compatibility.</p>
+<p>Decoder validation uses the <a href="https://vt100.net/docs/vt3xx-gp/chapter14.html">DEC manual</a>,
+the modern <a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html">xterm control reference</a>,
+and an independent <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/tests/sixel_reference.py">libsixel pixel comparison</a>.
+The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/sixel-linux.json">measurement</a> records source/binary hashes,
+chunk sizes, exact pixel results and reference-decoder discrepancies. These
+decoder results are distinct from the native GUI acceptance below.</p>
+<h2 id="acceptance-coverage">Acceptance coverage<a class="heading-anchor" href="#acceptance-coverage" aria-label="链接到 Acceptance coverage">#</a></h2>
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/releases/0.5.2/report.zh-CN.md">0.5.2 release report</a> records successful
+Verify and native Linux, macOS and Windows jobs on x86_64 and AArch64 for source
+<code>6e2ce246b0b50e6b82da99756832feae6e966f21</code>. Each Linux artifact has 22 reports
+with 312 recorded checks, including 65 Wayland checks, bound to that artifact's
+ELF. The Linux GPU-path tests use software Mesa; they do not measure physical
+GPU performance, display latency or general desktop IME compatibility.
+This documentation update adds no new test execution.</p>
+<h3 id="historical-acceptance-snapshots">Historical acceptance snapshots<a class="heading-anchor" href="#historical-acceptance-snapshots" aria-label="链接到 Historical acceptance snapshots">#</a></h3>
+<p>The reports below retain their original source, binary and test scope. For
+example, the <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/native-candidates-2026-11-18.md">earlier native record</a> at <code>2dc6769</code>
+passed four Linux x86_64 GUI suites and 25 Windows x86_64 checks, while its ARM64
+gates failed and macOS completed eight protocol checks. Those historical
+outcomes are not the current 0.5.2 release status.</p>
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/tests/gui_smoke.py">GUI suite</a> has passed 12 checks under an isolated Xvfb/X11 server,
+as recorded in <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/gui-graphics-2026-11-18.json">the GUI result</a>:
+legacy keyboard input; Kitty disambiguation; all five Kitty flags with modifier,
+repeat, and release events; resize and SIGWINCH; ASCII/CJK selection and clipboard;
+bracketed paste with control stripping; a 139,264-byte paste under backpressure;
+SGR mouse input; Shift gesture ownership; explicit OSC 8 opening; configured ARGB background and cursor rendering; and synchronized
+output across writes and Expose events. The large-paste assertion includes the
+12 bytes of bracketed-paste delimiters, for 139,276 delivered bytes.</p>
+<p>Unit tests also cover screen state and query semantics. The optional
+<code>--fcitx</code> test runs Fcitx 5 with Pinyin on Xvfb and a private D-Bus session,
+checking ordinary key forwarding and Chinese text committed to the PTY.
+That run did not establish IBus or deliberately fragmented INCR coverage;
+current clipboard-transfer results are recorded in the 0.5.2 release report.</p>
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/tests/graphics_smoke.py">graphics suite</a> has passed all seven groups on
+Linux/Xvfb through a real PTY and window-pixel readback, recorded in
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/graphics-xvfb-2026-11-18.json">the graphics result</a>:</p>
+<ol>
+<li>Graphics capability and cell/window-size replies, with no image placed by a query.</li>
+<li>RGB, RGBA, and PNG colors, including four alpha levels and split PNG transmission.</li>
+<li>Chunked transmission, placement, soft deletion, image replacement, and data deletion.</li>
+<li>Source crop, clipping to the text viewport, and images below explicit cell backgrounds.</li>
+<li>Scrolling, window resize, primary/alternate isolation, and deletion without residual pixels.</li>
+<li>Malformed images, excessive dimensions, invalid base64, interrupted transfers, and subsequent keyboard/image recovery.</li>
+<li>Unmodified <code>kitten icat</code> 0.50 detecting <code>stream</code>, displaying a photo with explicit inline transport, and displaying a transparent-edge PNG through automatic detection.</li>
+</ol>
+<p>The interrupted-transfer check observed <strong>0 bytes of RSS growth</strong> between its
+before/after samples across 80 aborted uploads after earlier image tests warmed
+the process. This is an observation for that run, not a measurement of peak
+allocation or a general zero-growth guarantee. The test enforces a finite
+growth allowance and records the actual value in its JSON result.</p>
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/graphics-hyprland-2026-11-18.json">live Hyprland/XWayland run</a>
+also passed on Hyprland 0.57.2: <code>kitten icat --detect-support</code> selected <code>stream</code>,
+and the real tools displayed both the photo and transparent-edge PNG. Only the
+owned test window was captured. The session's normal X0 pathname was absent;
+the probe used and removed its own temporary socket alias to the existing
+same-user XWayland endpoint, without changing compositor or authorization
+settings. This was the real desktop server, separate from Xvfb.</p>
+<p>Native artifact verification also passed in
+<a href="https://github.com/LIghtJUNction/ztty/actions/runs/44165748395">workflow run 44165748395</a>,
+on source <code>7535aa29f1a2728a78a446ffea6784dcbc2aae92</code>:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Native environment</th>
+<th>Observed coverage</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>macOS Intel</td>
+<td>8 session/protocol checks through a real AppKit application and Darwin PTY: geometry, cursor reply, image query, chunked RGBA, PNG, alternate screen, malformed-input recovery, deletion</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/ztty-macos-x86_64.native-7535aa2.json">Native report</a></td>
+</tr>
+<tr>
+<td>macOS Apple Silicon</td>
+<td>The same 8 session/protocol checks through a native application</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/ztty-macos-aarch64.native-7535aa2.json">Native report</a></td>
+</tr>
+<tr>
+<td>Windows x86_64</td>
+<td>17 checks: native child/Unicode arguments, ConPTY query round trip, RGB/RGBA/PNG pixel readback, alpha, scrolling, clipping, resize, alternate screen, deletion, keyboard recovery</td>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/ztty-windows-x86_64.native-7535aa2.json">Native report</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Both historical macOS reports explicitly record <code>pixel_readback: not_performed</code>
+and <code>ime_keyboard: not_performed</code>; they do not establish either capability.
+Later native window-pixel acceptance is recorded in the
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/native-edae40b-20261120/README.md">six-platform candidate report</a> and the
+0.5.2 release report; those results do not turn the earlier runs into pixel tests. The Windows result uses
+the actual packaged ConPTY runtime and native window pixels, with the binary
+hash recorded in its report. This final native run includes the DA1 serialization
+fix described above.
+Formal packaging and native checks are defined in
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/.github/workflows/release.yml">the release workflow</a>.</p>
+<h2 id="references">References<a class="heading-anchor" href="#references" aria-label="链接到 References">#</a></h2>
+<ul>
+<li><a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html">xterm control sequences</a></li>
+<li><a href="https://sw.kovidgoyal.net/kitty/keyboard-protocol/">Kitty keyboard protocol</a></li>
+<li><a href="https://sw.kovidgoyal.net/kitty/graphics-protocol/">Kitty graphics protocol</a></li>
+<li><a href="https://sw.kovidgoyal.net/kitty/kittens/icat/">Kitty <code>icat</code></a></li>
+<li><a href="https://ecma-international.org/wp-content/uploads/ECMA-48_5th_edition_june_1991.pdf">ECMA-48 numeric parameter format</a></li>
+<li><a href="https://github.com/contour-terminal/vt-extensions/blob/master/synchronized-output.md">Synchronized output</a></li>
+<li><a href="https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda">OSC 8 hyperlinks</a></li>
+<li><a href="https://docs.rs/unicode-width/0.2.3/unicode_width/">Unicode width rules</a></li>
+<li><a href="https://docs.rs/zvte/0.1.3/zvte/">zvte parser API</a></li>
+</ul>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/protocols.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztty">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztty/ssh-sessions/"><span class="pagination-label">上一页</span><span class="pagination-title">SSH sessions</span></a><a class="pagination-link next" href="../../ztty/text-plugins-zh-cn/"><span class="pagination-label">下一页</span><span class="pagination-title">文本扩展：用 zplugin 处理选区并复制</span></a></nav>
+      <footer class="page-footer">
+        <span>ztty <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#text-and-input-protocols">Text and input protocols</a></li><li class="toc-level-2"><a href="#kitty-graphics">Kitty graphics</a></li><li class="toc-level-3"><a href="#image-limits-and-recovery">Image limits and recovery</a></li><li class="toc-level-3"><a href="#remaining-boundaries">Remaining boundaries</a></li><li class="toc-level-2"><a href="#sixel">Sixel</a></li><li class="toc-level-2"><a href="#acceptance-coverage">Acceptance coverage</a></li><li class="toc-level-3"><a href="#historical-acceptance-snapshots">Historical acceptance snapshots</a></li><li class="toc-level-2"><a href="#references">References</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

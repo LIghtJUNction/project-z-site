@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="模型网关与业务扩展平台，管理身份、权限、账本和调用路由。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="lmm-api-source · 开发与测试 · Project Z">
+  <meta property="og:description" content="模型网关与业务扩展平台，管理身份、权限、账本和调用路由。">
+  <meta property="og:type" content="website">
+  <title>lmm-api-source · 开发与测试 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/lmm-api-source/development/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="lmm-api-source">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/TokenNotIncluded/lmm-api-source" aria-label="lmm-api-source 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">lmm-api-source</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>lmm-api-source</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/" aria-current="page">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="lmm-api-source 文档"><div class="nav-group"><p class="nav-label">lmm-api-source</p><ul><li><a class="nav-link" href="../../lmm-api-source/">概览</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-docker-readme/">全新微内核 Docker 开发栈（WIP）</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-postgres-readme/">Explicit offline core roles</a></li><li><a class="nav-link" href="../../lmm-api-source/agent-workflows/">Agent 工作指南</a></li><li><a class="nav-link" href="../../lmm-api-source/archive/">历史资料索引</a></li><li><a class="nav-link" href="../../lmm-api-source/core-migration/">Core 与 Extensions 架构</a></li><li><a class="nav-link" href="../../lmm-api-source/development/" aria-current="page">开发与测试</a></li><li><a class="nav-link" href="../../lmm-api-source/extore/">Extore 商品集成</a></li><li><a class="nav-link" href="../../lmm-api-source/filesystem-layout/">配置与文件路径</a></li><li><a class="nav-link" href="../../lmm-api-source/legal-readme/">可配置的协议模板</a></li><li><a class="nav-link" href="../../lmm-api-source/progress/">新架构进度</a></li><li><a class="nav-link" href="../../lmm-api-source/quality/">本地质量检查与独立验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>lmm-api-source</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/" aria-current="page">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="lmm-api-source 文档"><div class="nav-group"><p class="nav-label">lmm-api-source</p><ul><li><a class="nav-link" href="../../lmm-api-source/">概览</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-docker-readme/">全新微内核 Docker 开发栈（WIP）</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-postgres-readme/">Explicit offline core roles</a></li><li><a class="nav-link" href="../../lmm-api-source/agent-workflows/">Agent 工作指南</a></li><li><a class="nav-link" href="../../lmm-api-source/archive/">历史资料索引</a></li><li><a class="nav-link" href="../../lmm-api-source/core-migration/">Core 与 Extensions 架构</a></li><li><a class="nav-link" href="../../lmm-api-source/development/" aria-current="page">开发与测试</a></li><li><a class="nav-link" href="../../lmm-api-source/extore/">Extore 商品集成</a></li><li><a class="nav-link" href="../../lmm-api-source/filesystem-layout/">配置与文件路径</a></li><li><a class="nav-link" href="../../lmm-api-source/legal-readme/">可配置的协议模板</a></li><li><a class="nav-link" href="../../lmm-api-source/progress/">新架构进度</a></li><li><a class="nav-link" href="../../lmm-api-source/quality/">本地质量检查与独立验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../lmm-api-source/">lmm-api-source 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../lmm-api-source/">lmm-api-source</a><span aria-hidden="true">/</span><span>开发与测试</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#仓库与主线">仓库与主线</a></li><li class="toc-level-2"><a href="#只准备所需工具">只准备所需工具</a></li><li class="toc-level-2"><a href="#核心与数据库">核心与数据库</a></li><li class="toc-level-2"><a href="#启动扩展与前端">启动扩展与前端</a></li><li class="toc-level-2"><a href="#验证与分发">验证与分发</a></li><li class="toc-level-2"><a href="#github-actions">GitHub Actions</a></li><li class="toc-level-2"><a href="#按需pgroll-实验">按需：pgroll 实验</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="开发与测试">开发与测试</h1>
+<p><a href="../../lmm-api-source/agent-workflows/">工作指南</a> · <a href="../../lmm-api-source/core-migration/">架构</a> · <a href="../../lmm-api-source/filesystem-layout/">配置路径</a></p>
+<p>开发按组件准备工具和隔离环境。以下初始化示例只用于全新隔离库；已有站点使用其
+经过审核的升级或迁移流程。</p>
+<h2 id="仓库与主线">仓库与主线<a class="heading-anchor" href="#仓库与主线" aria-label="链接到 仓库与主线">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>仓库</th>
+<th>主线</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../lmm-api-source/">lmm-api-source</a></td>
+<td><code>main</code></td>
+<td>Rust Core、Go Extensions、Web 与集成工具</td>
+</tr>
+<tr>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api">lmm-api</a></td>
+<td><code>main</code></td>
+<td>Recipkg 配方、产品要求与固定源码 gitlink</td>
+</tr>
+<tr>
+<td><a href="../../lmm/">lmm</a></td>
+<td>以子项目规则为准</td>
+<td>客户端，由 <code>apps/cli</code> 固定提交</td>
+</tr>
+</tbody>
+</table></div>
+<p>继续使用现有工作区和 <code>main</code>。先检查版本与本地修改，写入共享分支前检查远端；
+保留并行工作，不为每轮任务新建分支或 worktree，不强推、重置或清理他人改动。
+跨仓库修改先在子项目自测、提交并推送，再更新父仓库 gitlink；源码提交、制品发布
+和生产部署分别记录，授权按实际动作沿用，不能由一次提交推断其他动作已获授权。</p>
+<p>旧单体比较固定到 <a href="https://github.com/TokenNotIncluded/lmm-api/releases/tag/go-v0.2.118">go-v0.2.118</a>
+的 <code>cc52aa195c6f2a01d703a1a407be73c31b89867d</code>。旧问题需在当前实现核对和移植，
+不能仅改 PR 目标；历史失败、未运行检查和资金义务保留。早期 WIP 交接见
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/0eae39f10ce8a1d80744ad44e88807e01facfda5/docs/development-branches.md">固定历史记录</a>。</p>
+<p><a href="../../lmm-api-source/extore/">Extore 集成</a>另有部署边界：不得合并或推送会自动部署的 Extore <code>main</code>，
+不得据此部署。继续前核对其分支、已有修改与两端候选版本。</p>
+<h2 id="只准备所需工具">只准备所需工具<a class="heading-anchor" href="#只准备所需工具" aria-label="链接到 只准备所需工具">#</a></h2>
+<p>版本以 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/mise.toml">mise.toml</a> 为准；已有匹配工具和锁定依赖可复用。命令使用
+<code>mise exec --</code>，just 的 recipe 已通过 mise 执行；也可直接调用已准备好的固定版本工具。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>任务</th>
+<th>准备内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文档或技能正文</td>
+<td>Python、Git</td>
+</tr>
+<tr>
+<td>Rust 核心</td>
+<td>Rust、rustfmt/clippy；数据库测试另需隔离 PostgreSQL</td>
+</tr>
+<tr>
+<td>Go 扩展</td>
+<td>Go 与受影响模块的测试库，不连接 Core 数据库</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>Bun/Node.js；首次需要依赖时执行 <code>mise exec -- just setup</code></td>
+</tr>
+<tr>
+<td>CLI</td>
+<td>初始化 <code>apps/cli</code>，使用其固定工具链</td>
+</tr>
+<tr>
+<td>Docker 或原生打包</td>
+<td><a href="../../lmm-api-source/deployment-docker-readme/">Docker 指南</a>或<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/packaging/linux/README.md">原生包指南</a>列出的工具</td>
+</tr>
+<tr>
+<td>pgroll</td>
+<td>仅在对应实验中准备 pgroll 和隔离 Docker</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>mise install</code> 准备整个工具集，<code>just setup</code> 安装 Web 依赖；二者都不是每轮必跑步骤。
+只在涉及 CLI 或检查要求完整子模块状态时初始化客户端：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>git submodule update --init --depth 1 -- apps/cli
+</code></pre></div>
+<p>CLI 先在子仓库验证、提交并推送，再更新本仓库指针。质量工具拒绝未初始化、版本
+不符或有未提交源码的 CLI；普通文档检查不依赖它。测试 DSN 仅注入所需子进程，
+不写入 mise 配置，不传给实际扩展服务。</p>
+<h2 id="核心与数据库">核心与数据库<a class="heading-anchor" href="#核心与数据库" aria-label="链接到 核心与数据库">#</a></h2>
+<p>Core 独立于 Go，身份和账户功能依赖 PostgreSQL。安装与升级合同见
+<a href="../../lmm-api-source/core-migration/#%E5%AE%89%E8%A3%85%E6%9D%83%E9%99%90%E4%B8%8E%E7%BB%93%E6%9E%84%E5%8D%87%E7%BA%A7">架构说明</a>和 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/core/schema/README.md">schema</a>。
+普通启动只检查结构、catalog 指纹和运行权限，不创建角色、授权、执行 DDL 或升级库。</p>
+<p>当前源码的新装合同为 <strong>75 个组件</strong>，以 <code>lmm-core schema-manifest</code> 和
+<code>services/core/src/core_schema/upgrade/fresh70_target.json</code> 为准。
+<code>fresh_target.json</code> 保留冻结的历史 69 组件目标，不随当前新装目标改写。已声明的精确后缀升级为
+66→67（付款折扣）、67→68（折扣管理）、68→69（Responses 连续性）和 69→70（托管应用，<code>core-managed-applications-v1</code>）；每一步仍须满足
+其独立的前置版本、冻结指纹、owner 授权和升级回执，不能用组件数代替验证。
+日签验证另有精确的 74→75 升级 <code>core-checkin-challenges-v1</code>，不替代先前版本的
+升级链；配置、权限和验证边界见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/checkin-anti-automation.md">签到防自动化</a>。
+旧站升级、历史签到导入及其策略发布仍使用与旧站匹配的保留执行器；不得以当前组件
+前缀重建或更新冻结历史指纹。新装合同不等于旧站离线迁移已经验收，后者见
+<a href="../../lmm-api-source/progress/">当前迁移状态</a>。
+已有库不得通过清空、重复初始化或修改契约记录绕过检查。
+连续性映射的保留期限与恢复性能验收见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/responses-continuity.md">存储与恢复合同</a>。</p>
+<p>初始化 owner 与受限 runtime 使用分开的凭据，按<a href="../../lmm-api-source/deployment-postgres-readme/">离线角色说明</a>
+准备授权；owner URL 不挂载给运行服务。配置采用 TOML 和受控的绝对路径文件，
+不扫描目录、不混入环境覆盖，私密文件须归属服务账户，权限 <code>0600</code> 或可读的 <code>0400</code>。
+<a href="../../lmm-api-source/filesystem-layout/">原生路径</a>为 <code>/etc/lmm.conf.d/core.toml</code>、
+<code>/var/lib/lmm/core</code> 和 <code>/run/lmm/core</code>；模板见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/core.example.toml">core.example.toml</a>。
+<code>database.url_file</code> 读取 <code>/etc/lmm.conf.d/secrets/core/database-url</code> 中的 runtime URL；
+把 owner 凭据交给网络服务会在监听前拒绝。</p>
+<p>只对已明确选定的全新隔离空库执行一次安装；运行检查使用另一个受限配置：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>lmm-core --config /absolute/private/core-owner.toml init-db
+lmm-core --config /absolute/private/core.toml check-db
+</code></pre></div>
+<p><code>check-db</code> 输出 JSON，只读检查目标结构和配置所需权限，不启动 HTTP、RPC、worker
+或模型流量。退出 <code>0</code> 表示该次检查通过；备份、物理数据库身份和恢复就绪另行核验。
+历史余额导入使用<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/legacy-financial-opening.md">财务导入合同</a>，不属于新库安装。</p>
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/scripts/core-ops.py"><code>scripts/core-ops.py</code></a> 的 <code>plan</code>、<code>status</code>、<code>reconcile</code> 接受显式
+安装记录、文件摘要和私有输入，可先运行 <code>python3 -B scripts/core-ops.py --help</code>。
+<code>plan</code> 在私有材料目录独占创建计划；其余两项只读，UNKNOWN 不重放。
+物理身份未验证返回 <code>PHYSICAL_IDENTITY_UNVERIFIED</code> 和退出码 <code>3</code>；工具不授予维护或恢复权限。</p>
+<p>本地 HTTP 显式设 <code>identity.web.local_http=true</code>；配置 <code>identity.web.origin</code> 和
+<code>identity.web.refresh_key_file</code>，并使 <code>user_agreement_enabled</code>、<code>privacy_policy_enabled</code>
+符合公开协议。注册用 <code>identity.registration_enabled</code>；<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/core-identity.md#%E5%8F%AF%E9%80%89-totp-%E4%BA%8C%E6%AC%A1%E9%AA%8C%E8%AF%81mfa">MFA keyring</a>
+另行配置，未配置也不会绕过已有账号的 MFA。模型、支付默认关闭，健康检查范围见
+<a href="../../lmm-api-source/core-migration/#%E7%8B%AC%E7%AB%8B%E5%90%AF%E5%8A%A8%E4%B8%8E%E8%B5%84%E6%BA%90">独立启动</a>。</p>
+<h2 id="启动扩展与前端">启动扩展与前端<a class="heading-anchor" href="#启动扩展与前端" aria-label="链接到 启动扩展与前端">#</a></h2>
+<p>先准备扩展的独立完整 TOML 和私有凭据，再从仓库根目录运行：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>(cd services/extensions &amp;&amp; mise exec -- go run ./cmd/extensions --config /absolute/private/extensions.toml)
+mise exec -- bun run --filter @lmm/web dev --port 5173 --host 127.0.0.1 --strict-port
+</code></pre></div>
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/extensions.example.toml">Extensions 模板</a>的 <code>host.token_file</code> 是独立宿主
+凭据；<code>host.modules=[&quot;none&quot;]</code> 关闭受保护模块。identity 还需 RPC socket、独立口令
+和跨用户文件权限。Go 不加载 <code>.env</code>，拒绝 <code>SQL_DSN</code>、<code>DATABASE_URL</code>、
+<code>LMM_CORE_DATABASE_URL</code> 等旧单体/Core 库变量。Core 和 Extensions 均已移除 <code>--legacy-env</code>，只读取 TOML；Core 同时拒绝混入
+<code>LMM_CORE_*</code> 环境设置。冻结导入脚本的旧 executor 调用仅适用于匹配 schema 的历史二进制，不能用于当前 Core。</p>
+<p>公开协议页面调试可将 <code>VITE_REACT_APP_SERVER_URL</code> 指向本地扩展；仅
+<a href="../../lmm-api-source/legal-readme/">协议指南</a>列出的公开 API 不需要 Core。前端构建与业务接通分别
+验证；OpenUI 使用明确组件契约，不再向已删除的 Go controller 生成文件。</p>
+<h2 id="验证与分发">验证与分发<a class="heading-anchor" href="#验证与分发" aria-label="链接到 验证与分发">#</a></h2>
+<p>使用<a href="../../lmm-api-source/agent-workflows/#%E6%8C%89%E8%8C%83%E5%9B%B4%E9%80%89%E6%8B%A9%E6%A3%80%E6%9F%A5">检查选择表</a>，遵守<a href="../../lmm-api-source/agent-workflows/#%E9%80%82%E5%BA%A6%E4%B8%8E%E5%81%9C%E6%AD%A2">适度与停止</a>。
+Core-only 工作直接调用核心工具链，不运行同时构建 Core、Go、Web 的 <code>just build</code>。
+归档与原生包见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/release-architecture.md">独立分发</a>；保留匹配的构建缓存和原始来源记录。</p>
+<h2 id="github-actions">GitHub Actions<a class="heading-anchor" href="#github-actions" aria-label="链接到 GitHub Actions">#</a></h2>
+<p>工作流位于源码仓库，自动检查按路径筛选，镜像发布与 S11 源码快照保留手动入口。
+实际触发器、输入、权限及 Actions 启用状态以当前仓库和文件为准；修改配置不自动
+改变已关闭的 Actions 设置，也不授予触发或部署权限。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>文件</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/ci.yml">ci.yml</a></td>
+<td>手动服务端、前端与翻译诊断</td>
+</tr>
+<tr>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/core-protocol.yml">core-protocol.yml</a></td>
+<td>Rust/Go、协议及一次性数据库检查</td>
+</tr>
+<tr>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/microservice-distribution.yml">microservice-distribution.yml</a></td>
+<td>三个程序与静态 Web 的独立预览归档</td>
+</tr>
+<tr>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/microservice-images.yml">microservice-images.yml</a></td>
+<td>Core/Go 构建、冒烟与 GHCR 预览镜像</td>
+</tr>
+<tr>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/s11-source-snapshot.yml">s11-source-snapshot.yml</a></td>
+<td>固定源码及 CLI，保存可恢复的 Git bundle 和来源记录</td>
+</tr>
+<tr>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/linux-packages.yml">linux-packages.yml</a></td>
+<td>原生预览包及隔离安装、升级、运行、卸载</td>
+</tr>
+<tr>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/store-claim-refund-review.yml">store-claim-refund-review.yml</a></td>
+<td>商店提货/退款的服务端、前端和浏览器回归</td>
+</tr>
+</tbody>
+</table></div>
+<p>记录源码、输入、命令、退出码和日志，区分成功、失败、取消与未运行；复用
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/scripts/local-release-tests.py">本地证据工具</a>或<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/scripts/verify-release-commit-checks.sh">检查记录校验器</a>
+时保留其来源约束。归档的所有组件绑定同一固定 SHA；S11 只冻结源码，宿主、资金
+及最终组合仍按<a href="../../lmm-api-source/progress/">进度表</a>独立验收。旧单体工作流见<a href="../../lmm-api-source/archive/">归档</a>。</p>
+<p>预览归档、镜像、正式 Release 和生产部署分别记录。路径检查不覆盖全仓，静态
+检查不替代实际运行，不能用空执行消除失败。镜像入口见<a href="../../lmm-api-source/deployment-docker-readme/#github-container-registry-%E9%A2%84%E8%A7%88%E9%95%9C%E5%83%8F">Docker 指南</a>。</p>
+<h2 id="按需pgroll-实验">按需：pgroll 实验<a class="heading-anchor" href="#按需pgroll-实验" aria-label="链接到 按需：pgroll 实验">#</a></h2>
+<p>pgroll 是 mise 固定的外部实验工具，不进入运行镜像、分发包、启动或 <code>init-db</code>，
+也不作为现有 Core 库升级方案；边界见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/core/schema/README.md#pgroll-evaluation-boundary">schema</a>。</p>
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/tests/pgroll/test_pgroll.py">实验测试</a>只连接 <code>/var/run/docker.sock</code>，不接收外部 DSN
+或读取已有库凭据。它核对新建随机空容器的所有权，只清理自有容器；指定摘要的
+镜像须预先准备，测试不下载镜像：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>mise install aqua:xataio/pgroll@0.16.3
+mise exec -- just pgroll-version
+mise exec -- docker --host unix:///var/run/docker.sock pull postgres:18-alpine@sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873
+mise exec -- just test-pgroll
+</code></pre></div>
+<p>实验覆盖 init、validate、start、rollback、complete 和两版本视图读写。<code>validate</code>
+需要真实数据库，<code>status</code> 也可能升级旧元数据；不得把它们当只读探针，不得对现有
+Core 库运行 init、baseline、convert 或迁移命令。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/development.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/core-migration/"><span class="pagination-label">上一页</span><span class="pagination-title">Core 与 Extensions 架构</span></a><a class="pagination-link next" href="../../lmm-api-source/extore/"><span class="pagination-label">下一页</span><span class="pagination-title">Extore 商品集成</span></a></nav>
+      <footer class="page-footer">
+        <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#仓库与主线">仓库与主线</a></li><li class="toc-level-2"><a href="#只准备所需工具">只准备所需工具</a></li><li class="toc-level-2"><a href="#核心与数据库">核心与数据库</a></li><li class="toc-level-2"><a href="#启动扩展与前端">启动扩展与前端</a></li><li class="toc-level-2"><a href="#验证与分发">验证与分发</a></li><li class="toc-level-2"><a href="#github-actions">GitHub Actions</a></li><li class="toc-level-2"><a href="#按需pgroll-实验">按需：pgroll 实验</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

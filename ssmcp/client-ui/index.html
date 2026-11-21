@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="通过授权 MCP 会话调用开发机的命令、文件和原生工具。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ssmcp · 客户端 UI · Project Z">
+  <meta property="og:description" content="通过授权 MCP 会话调用开发机的命令、文件和原生工具。">
+  <meta property="og:type" content="website">
+  <title>ssmcp · 客户端 UI · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ssmcp/client-ui/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ssmcp">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ssmcp" aria-label="ssmcp 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ssmcp</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ssmcp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/" aria-current="page">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ssmcp 文档"><div class="nav-group"><p class="nav-label">ssmcp</p><ul><li><a class="nav-link" href="../../ssmcp/">概览</a></li><li><a class="nav-link" href="../../ssmcp/windows-browser-setup/">Windows 客户端与 Zuse CLI</a></li><li><a class="nav-link" href="../../ssmcp/configuration/">客户端连接、账号与授权</a></li><li><a class="nav-link" href="../../ssmcp/client-accounts/">客户端账号、授权与被控设备</a></li><li><a class="nav-link" href="../../ssmcp/client-extension/">可定制客户端、上下文工程与工具 hook</a></li><li><a class="nav-link" href="../../ssmcp/client-input/">客户端输入、引用与本地沟通</a></li><li><a class="nav-link" href="../../ssmcp/client-server/">选择中转服务器与固定服务器公钥</a></li><li><a class="nav-link" href="../../ssmcp/client-ui/" aria-current="page">客户端 UI</a></li><li><a class="nav-link" href="../../ssmcp/commands/">客户端命令与独立任务</a></li><li><a class="nav-link" href="../../ssmcp/browser-existing-session/">用 Zuse 连接已有浏览器</a></li><li><a class="nav-link" href="../../ssmcp/session-control/">客户端会话、重连与输出管理</a></li><li><a class="nav-link" href="../../ssmcp/agent-collaboration/">会话内 Agent 协作</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ssmcp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/" aria-current="page">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ssmcp 文档"><div class="nav-group"><p class="nav-label">ssmcp</p><ul><li><a class="nav-link" href="../../ssmcp/">概览</a></li><li><a class="nav-link" href="../../ssmcp/windows-browser-setup/">Windows 客户端与 Zuse CLI</a></li><li><a class="nav-link" href="../../ssmcp/configuration/">客户端连接、账号与授权</a></li><li><a class="nav-link" href="../../ssmcp/client-accounts/">客户端账号、授权与被控设备</a></li><li><a class="nav-link" href="../../ssmcp/client-extension/">可定制客户端、上下文工程与工具 hook</a></li><li><a class="nav-link" href="../../ssmcp/client-input/">客户端输入、引用与本地沟通</a></li><li><a class="nav-link" href="../../ssmcp/client-server/">选择中转服务器与固定服务器公钥</a></li><li><a class="nav-link" href="../../ssmcp/client-ui/" aria-current="page">客户端 UI</a></li><li><a class="nav-link" href="../../ssmcp/commands/">客户端命令与独立任务</a></li><li><a class="nav-link" href="../../ssmcp/browser-existing-session/">用 Zuse 连接已有浏览器</a></li><li><a class="nav-link" href="../../ssmcp/session-control/">客户端会话、重连与输出管理</a></li><li><a class="nav-link" href="../../ssmcp/agent-collaboration/">会话内 Agent 协作</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ssmcp/">ssmcp 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ssmcp/">ssmcp</a><span aria-hidden="true">/</span><span>客户端 UI</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#先预览再连接">先预览，再连接</a></li><li class="toc-level-2"><a href="#输入要求与队列">输入要求与队列</a></li><li class="toc-level-2"><a href="#文件技能与长粘贴">文件、技能与长粘贴</a></li><li class="toc-level-2"><a href="#工具窗口与滚动">工具窗口与滚动</a></li><li class="toc-level-2"><a href="#水平画布与-agent">水平画布与 Agent</a></li><li class="toc-level-2"><a href="#日志列与任务列">日志列与任务列</a></li><li class="toc-level-2"><a href="#原生消息与收件人">原生消息与收件人</a></li><li class="toc-level-2"><a href="#本地命令">本地命令</a></li><li class="toc-level-2"><a href="#本地历史标题与摘要">本地历史标题与摘要</a></li><li class="toc-level-2"><a href="#登录与-diff-显示">登录与 diff 显示</a></li><li class="toc-level-2"><a href="#本地消息与回答问题">本地消息与回答问题</a></li><li class="toc-level-3"><a href="#明确决定是否结束">明确决定是否结束</a></li><li class="toc-level-2"><a href="#agent-面板与成员身份">Agent 面板与成员身份</a></li><li class="toc-level-2"><a href="#配置文件">配置文件</a></li><li class="toc-level-3"><a href="#侧栏-ascii-宠物">侧栏 ASCII 宠物</a></li><li class="toc-level-2"><a href="#布局与状态面板">布局与状态面板</a></li><li class="toc-level-2"><a href="#源码审计与运行状态">源码审计与运行状态</a></li><li class="toc-level-2"><a href="#日志滚动与筛选">日志滚动与筛选</a></li><li class="toc-level-2"><a href="#主题与颜色">主题与颜色</a></li><li class="toc-level-2"><a href="#键盘与鼠标操作">键盘与鼠标操作</a></li><li class="toc-level-2"><a href="#原子-ui-接口">原子 UI 接口</a></li><li class="toc-level-2"><a href="#要求队列接口">要求队列接口</a></li><li class="toc-level-2"><a href="#活动颜色与图片">活动、颜色与图片</a></li><li class="toc-level-2"><a href="#构建自己的界面">构建自己的界面</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="客户端-ui">客户端 UI</h1>
+<p>连接可用的功能以客户端和中继公布的能力为准。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/release-notes-0.10.21.md">0.10.21 版本说明</a></p>
+<p>ssmcp 默认使用 <code>dark</code> 主题和 <code>chat</code> 布局，状态侧栏默认收起。对话正文占据主区域，工具调用显示为简短摘要，底部输入区用于追加要求。按 F3 或输入 <code>/sidebar</code> 打开侧栏，可查看成员、队列与工作区状态；再按一次即可收起。</p>
+<p>顶部左侧显示项目，右侧显示当前页；窄窗口使用简短的页面标题。默认深色主题以深灰底区分输入区，不加额外框线，空草稿显示 <code>Message the agent</code>。侧栏收起时，账号与本月剩余流量显示在输入区上方的一行中，空间不足时优先显示余量。底部保留连接来源、连接状态和当前操作提示。</p>
+<p>启动信息、后端诊断和原始终端记录在 Logs 中查看。按鼠标右键或输入 <code>/logs</code> 打开，Esc 返回先前的页。输入的要求先进入可编辑队列，在符合接收目标的后续 <code>code_mode</code> 响应中交付；显示设置独立于工具执行。</p>
+<h2 id="先预览再连接">先预览，再连接<a class="heading-anchor" href="#先预览再连接" aria-label="链接到 先预览，再连接">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>ssmcp ui preview
+ssmcp ui preview --theme light
+ssmcp ui init
+ssmcp ui show
+ssmcp ui check
+</code></pre></div>
+<p><code>preview</code> 使用实际终端渲染器展示固定示例，不连接服务器、不启动后端，也不会执行输入的要求。示例成员、命令、输出和耗时只用于检查布局。F1 打开快捷键与本地命令帮助；修改保留在内存，F8 可以保存到配置文件。输入 <code>/exit</code>、<code>/quit</code>，或按 Ctrl-C / Ctrl-] 退出预览，再运行 <code>ssmcp</code> 连接设备。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ssmcp ui preview</code></td>
+<td>交互预览主题、布局和状态面板</td>
+</tr>
+<tr>
+<td><code>ssmcp ui init</code></td>
+<td>创建默认配置；已有文件时停止，保留原文件</td>
+</tr>
+<tr>
+<td><code>ssmcp ui show</code></td>
+<td>以 TOML 输出加载后的配置</td>
+</tr>
+<tr>
+<td><code>ssmcp ui check</code></td>
+<td>检查配置格式、颜色和参数范围</td>
+</tr>
+</tbody>
+</table></div>
+<p>这些命令可使用 <code>--ui-config FILE</code> 指定配置。<code>show</code> 和 <code>preview</code> 还接受 <code>--theme NAME</code>，便于比较预设。<code>show</code> 和 <code>check</code> 读取文件；运行中界面的当前状态通过 <code>ssmcp.ui.get</code> 获取。</p>
+<p>无交互终端时，可以输出一帧真实渲染结果，用于截图或检查不同窗口尺寸：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>ssmcp ui preview --static --rows 36 --cols 120 --theme light
+</code></pre></div>
+<p><code>--rows</code>、<code>--cols</code> 范围为 <code>1</code>–<code>1000</code>，只用于 <code>--static</code>，默认 <code>36</code> 行、<code>120</code> 列。输出包含 ANSI 序列；<code>NO_COLOR</code> 可关闭颜色。交互预览需要前台终端、<code>dashboard = true</code> 和 <code>pretty</code> 或 <code>pretty-verbose</code> 日志模式。</p>
+<h2 id="输入要求与队列">输入要求与队列<a class="heading-anchor" href="#输入要求与队列" aria-label="链接到 输入要求与队列">#</a></h2>
+<p>输入框交付功能用于直接连接服务器的前台客户端。后台连接可以通过 <code>ssmcp.ui.queue</code> 管理要求；本地 <code>attach</code> 目前只观察后台会话，不转发 attach 自己的输入框队列。</p>
+<p>在底部输入框写下要求，按 Enter 提交。本地入队成功后，正文保存在客户端队列中，输入框立即清空；如果此前暂存了另一份草稿，则立即恢复其文字、接收目标和光标。此时可以继续写下一条要求，后续输入不会追加到刚提交的正文。队列条目在等待服务器确认时显示 <code>sending</code>；确认只更新队列状态，不清空后来输入的草稿。发送失败时，队列记录和当前草稿保留，供用户检查。前台输入与后台 <code>ssmcp.ui.queue</code> 提交的要求都在服务器确认接收后写入本地会话历史，保存失败会提示；<code>requested:true</code> 只表示已请求处理，不表示已经确认或交付。</p>
+<p>默认目标为 <code>Next caller</code>，即下一次实际访问本客户端、且仍有授权的 <code>code_mode</code> 调用方；初始画布中，也可以在输入框为空或光标位于整份草稿开头时按 ←，从相邻的 Agent 面板选择成员。要求只附加到符合目标的响应，不广播给全部成员。</p>
+<p>自定义界面刷新 <code>ssmcp.ui.*</code>、查询工具目录，或调用 <code>capabilities(clientId)</code> 与 <code>resources.forClient(clientId)</code> 的 <code>list/templates/read</code> 时，默认不领取这些要求，避免界面轮询抢先消耗队列。后两者对应 <code>ssmcp.client.capabilities</code> 和 <code>ssmcp.resources.list/templates/read</code> 四个观测原语，原生调用仍记录源码审计。显式通过 <code>collab.bind</code> 绑定成员的编排仍可领取符合目标的要求。</p>
+<p><code>/queue</code> 打开队列。内容区中 ↑/↓ 选择记录，Enter 请求取回尚未交付的要求，I 只读查看详情，Esc 返回列表，Delete 取消可撤回的待交付项。取回获得服务器确认后，文字进入输入框，修改后按 Enter 重新提交同一条要求。输入框与内容区通过 Tab 或 Shift-Tab 切换。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>queued</code></td>
+<td>已确认入队，等待符合目标的 <code>code_mode</code> 响应</td>
+</tr>
+<tr>
+<td><code>editing</code></td>
+<td>已取回，交付暂停，等待重新提交</td>
+</tr>
+<tr>
+<td><code>delivered</code></td>
+<td>已附加到响应，无法修改已经交付的内容</td>
+</tr>
+<tr>
+<td><code>sending</code></td>
+<td>正文已存入本地队列，正在等待服务器确认；输入框可继续编辑下一条</td>
+</tr>
+<tr>
+<td><code>taking-back</code> / <code>cancelling</code></td>
+<td>取回或取消正在等待确认，当前草稿不变</td>
+</tr>
+<tr>
+<td><code>uncertain</code></td>
+<td>先前交付无法确认，或服务器已裁剪该项历史，需要复核后决定是否补发</td>
+</tr>
+<tr>
+<td><code>retarget-required</code></td>
+<td>连接或原接收目标已经变化，需要重新选择目标</td>
+</tr>
+<tr>
+<td><code>offline</code></td>
+<td>当前未连接，要求尚未发布到服务器</td>
+</tr>
+<tr>
+<td><code>cancelled</code></td>
+<td>已取消，不再等待交付</td>
+</tr>
+</tbody>
+</table></div>
+<p>输入框为空时按 ↑，优先尝试取回最新的待交付要求。输入框有字时，↑ 先移动到上一个显示行，到边界后可浏览输入历史。已发出的要求等服务器确认取回后才进入编辑，确定尚未发出的本地待办可以直接取回。普通取回后按 Enter 用原请求 ID 提交修改。服务器确认取回和重新提交时，都会推进该请求的修订号。</p>
+<p>确认取回后，客户端按请求 ID 和原始正文移除对应的待交付气泡及 JSONL 记录。同文的其他请求与 Logs 审计仍可核对。若交付先发生，取回会失败并显示最新状态。删除历史记录失败时会另行提示，取回仍有效，磁盘可能留有旧记录。</p>
+<p>在队列中对 <code>uncertain</code>、<code>retarget-required</code> 或 <code>offline</code> 项按 R，会显式改为 <code>Next caller</code> 并进入复核编辑，须按 Enter 才重新提交。对 <code>delivered</code> 项按 R 只复制成一条新草稿。已经发出、仍属于旧连接房间的未知请求保留原记录；显式改投新房间会创建独立请求 ID，先停在 <code>editing</code>。新尝试的 <code>retry_of</code> 指向原请求，取回新尝试不会撤下旧请求的历史。</p>
+<p>复制队列内容时，输入框中的原草稿会暂存。在输入框编辑复制出来的普通草稿时，按 Esc 可恢复原草稿的文字、目标和光标。补全菜单打开时，Esc 先收起菜单。取回编辑和正在提交的队列项继续保留各自状态。已有暂存草稿时，界面会阻止再次复制或取回另一条要求来覆盖它。</p>
+<p>已交付只描述 ssmcp 的响应处理，不证明模型已阅读、同意或执行要求。响应可能在网络中丢失，因此交付不确定的记录不会自动重发。没有后续符合目标的调用时，要求继续等待；客户端不会启动模型或立即打断任意外部会话。</p>
+<p>单条要求和输入草稿最多 16 KiB UTF-8 字节，允许换行与制表符。服务器每条客户端连接最多保留 64 条待处理要求、64 条近期结束记录，队列总容量为 512 KiB，含封装开销；容量不足时明确返回错误。每次响应最多附加 8 条、合计 64 KiB，其余继续等待。</p>
+<p>要求附加在 <code>code_mode</code> 响应的 <code>structuredContent.user_messages</code> 和单独的用户要求文本块中，不替换原生输出，也不改变原本的成功或错误状态。<code>list</code> 和直接 <code>collab</code> 响应不承担这条交付通道。<a href="#%E8%A6%81%E6%B1%82%E9%98%9F%E5%88%97%E6%8E%A5%E5%8F%A3">队列原子接口</a></p>
+<p>为代理包装或压缩工具结果时，应保留 <code>user_messages</code> 及对应文本块，并将要求交给代理处理。只转发原生结果里的 <code>result</code> 或 <code>stdout</code> 会丢掉这条交付通道；界面的已交付状态仍只表示服务器把要求放进了响应。</p>
+<h2 id="文件技能与长粘贴">文件、技能与长粘贴<a class="heading-anchor" href="#文件技能与长粘贴" aria-label="链接到 文件、技能与长粘贴">#</a></h2>
+<p>普通要求和本地监听发送支持 <code>@src/example.rs</code>、<code>@&quot;docs/设计 说明.md&quot;</code> 与 <code>$review-helper</code>。路径从客户端工作区查找，须能读取其中的普通文件。工作区内的绝对路径可转为相对路径。含空格的路径可用单引号或双引号。</p>
+<p>技能按元数据名称查找，依次使用项目、显式上下文根、已登记的全局技能目录和内置技能。数字开头可写成 <code>$&quot;007-helper&quot;</code>，<code>$100</code> 保留为金额文字。引用随消息提供技能元数据、来源和 <code>ssmcp.skills.read</code> 入口，接收方先读完整技能再使用。</p>
+<p>用 <code>\@example.txt</code>、<code>\$review-helper</code> 或反引号代码保留字面内容。原生消息正文也保持原文。<code>/raw</code> 只切换原始日志视图。</p>
+<p>缺失、不可读或越界的文件以及未知技能会显示引用警告，合法正文仍可发送。每条要求最多 8 个不同引用，单个文件最多 64 MiB，文本预览最多 1 KiB，完整技能文档最多 256 KiB。原文和展开后正文各受 16 KiB UTF-8 字节限制。空间不足时，不可用引用的提示可只留在本机回执中。</p>
+<p>未闭合引号、引用数超限或有效引用使正文超出限制时会报错。普通队列把原始正文保留为可编辑要求，本地监听发送保留输入框草稿。普通队列重试沿用已准备的数据，取回并编辑后重新检查引用。<a href="../../ssmcp/client-input/#2-%E7%94%A8--%E5%BC%95%E7%94%A8%E6%96%87%E4%BB%B6%E7%94%A8--%E5%BC%95%E7%94%A8%E6%8A%80%E8%83%BD">输入语法与查找顺序</a></p>
+<p>图片的原生读取接口是 <code>ssmcp.fs.read_image</code>，接受工作区相对路径，支持 PNG、JPEG、GIF、WebP，单图最多 400 KiB。原生结果返回后，前台按终端能力显示彩色或灰度缩略图；日志不展开 base64。旧中转端可继续处理 PNG/JPEG，GIF/WebP 还需要中转端使用支持这两种 MIME 的版本。</p>
+<p>支持整段粘贴事件的 Unix 终端中，粘贴正文<strong>超过 4096 个 UTF-8 字节，或至少有 8 行</strong>时，会保存到私有的 <code>.ssmcp/inputs/paste-&lt;随机ID&gt;.txt</code>，再把带引号的 <code>@file</code> 插入草稿。较短文本直接进入当前编辑器。保存保留原文的 UTF-8 与换行字节，在原光标位置插入引用并保留周围草稿与收件人；异步保存期间若用户已换草稿或目标，完成结果只提示可恢复路径，不覆盖新内容。</p>
+<p>正常大小的粘贴若因目录、权限或写入错误而失败，原文保留在当前客户端进程内，界面显示保留字节数。<code>/paste-retry</code> 重试保存同一份原文，<code>/paste-retry discard</code> 明确丢弃保留文本；未处理前不会用新输入任务替换这份待恢复内容。单次最多 4 MiB UTF-8，超限会明确报错。Windows 可手动保存工作区文件再引用。输入文件不会自动删除，请在确认后续读取结束后自行管理。<a href="../../ssmcp/client-input/#4-%E9%95%BF%E7%B2%98%E8%B4%B4%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%96%87%E4%BB%B6%E5%86%8D%E7%BB%A7%E7%BB%AD%E5%86%99%E8%A6%81%E6%B1%82">完整语法与存储边界</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/references/paste.rs">阈值与私有写入实现</a></p>
+<h2 id="工具窗口与滚动">工具窗口与滚动<a class="heading-anchor" href="#工具窗口与滚动" aria-label="链接到 工具窗口与滚动">#</a></h2>
+<p>命令输出显示在有限高度的独立窗口内。鼠标位于对话正文左半区时，滚轮优先滚动所指向的命令窗口；达到窗口边缘后仍停留在该窗口。鼠标位于正文右半区时，滚轮始终滚动整段对话。每个命令窗口分别保留自己的位置，滚动不会改动输入草稿。输入框和侧栏不属于这两个正文区域。</p>
+<h2 id="水平画布与-agent">水平画布与 Agent<a class="heading-anchor" href="#水平画布与-agent" aria-label="链接到 水平画布与 Agent">#</a></h2>
+<p>画布是一列可扩展的面板序列。初始从左到右为 Agent、对话、源码审计、队列、问题、历史、Logs 与 Tasks；任务列紧跟日志列。按 Alt+← / Alt+→ 切换相邻列；内容区拥有焦点时，普通 ← / → 也切列。输入框内，方向键先移动文字光标，只有到整份草稿的开头或末尾才切到相邻列。到画布边缘会停下，列顺序不循环。</p>
+<p><code>/new chat</code> 在当前列右侧新建对话列，也可以使用 <code>agents</code>、<code>audit</code>、<code>queue</code>、<code>questions</code> 或 <code>history</code>。在 Logs 或 Tasks 上新建时，新列放在这对面板之后，保持日志与任务相邻。<code>/close</code> 关闭当前视图并返回左邻，至少保留一列；显式执行 <code>/logs</code> 或 <code>/tasks</code> 会恢复缺失的对应列。列分别记住选择、滚动、详情与工具展开状态；普通草稿和收件人沿用当前会话。历史列保存各自查看的会话，切列只恢复阅读位置。关闭视图不删除会话或取消任务。</p>
+<p>初始对话列左边就是 Agent。进入后 ↑/↓ 移动选择，● 标记当前目标；对已登记成员按 Enter 后返回对话，底部 <code>To</code> 显示收件人。Esc 返回对话并保留草稿与光标。切换目标后仍需在输入框按 Enter 才发送要求。</p>
+<p>列表突出成员名称与报告状态，同名成员附带缩短的 ID；宽窗口在列表右侧展示角色、状态与身份详情，窄窗口保留紧凑列表和返回提示。自动观察到的普通调用以 <code>Call</code> 和 <code>view only</code> 标示，选择后进入源码与结果审计；详情中按 Esc 或鼠标左键返回列表，再按 Esc 回到会话。普通调用无需先执行 <code>collab.join</code>，查看它不会修改消息收件人。</p>
+<p>本地命令入口已移除 <code>/agents</code>，命令候选和帮助统一提示方向键入口。</p>
+<p>普通调用按调用来源、名称和模型归并，单次运行仍有独立的 <code>run_id</code> 可供审计。侧栏预览近期调用；统计区分别显示已登记成员与观测调用方。这些观察记录不提供可认证的收件人身份，定向要求仍使用已登记成员的 <code>agent_id</code>。名称或模型缺失时显示未知，不借用其他调用的身份。</p>
+<h2 id="日志列与任务列">日志列与任务列<a class="heading-anchor" href="#日志列与任务列" aria-label="链接到 日志列与任务列">#</a></h2>
+<p>鼠标右键或 <code>/logs</code> 聚焦 Logs。日志列显示启动、发现、诊断与原始终端输出，并单独保留滚动位置及文本、类别筛选。按右方向键进入紧邻的 Tasks，向左返回 Logs；Esc 或再次按右键返回触发日志入口时的列。中途在日志与任务间移动不会改写这个返回位置。关闭视图不清除日志、不删除任务。</p>
+<p><code>/tasks</code> 立即打开任务列，再异步读取当前客户端的 <code>ssmcp.exec.list</code>。列表显示真实任务 ID、命令、运行状态、退出码和耗时；Enter 查看工作目录及输入、输出游标等元数据，Esc 返回列表。任务选择按 ID 保存，列表刷新或重新排序不会把选择悄悄移到另一任务；已移除的任务会明确提示。列表为空、尚未加载和刷新失败各有独立提示。预览模式使用标明为虚构的数据，不访问运行中的任务。</p>
+<p>任务面板只读取列表和状态，不读取任务的完整 stdout/stderr，也不会启动命令。取消仍需输入 <code>/tasks cancel JOB_ID</code>；取消动作与切换、关闭面板分开。任务列表、日志和对话的显示状态都保存在客户端，服务端沿用通用的连接、授权和工具转发接口。</p>
+<h2 id="原生消息与收件人">原生消息与收件人<a class="heading-anchor" href="#原生消息与收件人" aria-label="链接到 原生消息与收件人">#</a></h2>
+<p>输入 <code>/message</code> 或 <code>/recipients</code> 打开原生收件人选择器。选择器使用当前服务器返回的账号与稳定 ID；同名对象仍分别显示，显示名称不会替代身份。面板打开时会自动刷新后来上线或离线的对象，关闭后停止仅为收件人列表进行的轮询。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>收件类型</th>
+<th>谁能收取</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Account inbox</td>
+<td>所选设备上的该账号，在后续合格工具调用中收取；这不代表已识别某个模型线程</td>
+</tr>
+<tr>
+<td>Verified agent</td>
+<td>所选设备上通过实际成员凭据绑定的那个 agent</td>
+</tr>
+</tbody>
+</table></div>
+<p>选中对象后按 Enter 返回输入框，草稿保持原样，再按 Enter 才发送。开头的 <code>@名称</code> 可引导打开选择器，仍须明确选择。同名文件可写成 <code>@./example.txt</code> 或 <code>@&quot;example.txt&quot;</code> 来明确引用。恢复草稿时会保留原生目标，再次发送前须核对账号和收件人可用性。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/terminal/conversation/messaging.rs">选择与正文处理</a></p>
+<p>原生消息正文按纯文本发送。<code>@path</code>、<code>$skill</code> 和 <code>!command</code> 保留为字面正文。普通 Enter 可能把匹配所选收件人的开头 <code>@名称</code> 当作寻址前缀。<code>/send</code> 保留命令后正文中的这个前缀。长粘贴保存的文件仍在本机，发送路径文字不会传输文件。</p>
+<p>在 <code>/sessions</code> 中用空格选择精确收件人，按 <code>g</code> 编辑组消息。勾选设备收件箱只选中该账号的收件箱。组发范围最多 32 个明确目标，<code>/group status</code> 可查看逐个回执。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/session-groups.md">终端组发</a></p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>界面回执</th>
+<th>已发生的事实</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Submitting</td>
+<td>本机已发起发送，等待服务回执；原草稿仍保留</td>
+</tr>
+<tr>
+<td>Queued by service</td>
+<td>服务已接收入队，等待目标的后续调用</td>
+</tr>
+<tr>
+<td>Included in recipient tool response</td>
+<td>正文已经放进目标工具响应；不表示已阅读或执行</td>
+</tr>
+<tr>
+<td>Acknowledged by recipient</td>
+<td>目标显式确认收到</td>
+</tr>
+<tr>
+<td>Delivery failed or expired</td>
+<td>发送未确认或回执已失效，先核对状态再决定是否重试</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>/send 正文</code> 使用最近明确选择的组、原生收件人或本地目标。原生目标须仍匹配精确连接、账号与线程。选择本地目标时，<code>Next caller</code> 对应主线程监听器，指定成员需要同线程监听器。本地发送会准备文件与技能引用。原生单发或组发失败会保留原目标和草稿，且不会改投本地监听器。</p>
+<p>只有匹配的接受回执才会清空上下文仍一致的草稿，正文、目标、修订或光标有变化时保留当前输入。组发需要每个目标都已入队或收到更后续的确认，部分成功时保留草稿。组发重试沿用组和子请求 ID。目标已获接受回执时，后续状态查询出错也不会重发。回执只描述交付，agent 执行结果由接收方另行报告。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/thread-messaging.md">原生消息协议</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/force-send-listener.md">监听与发送选路</a></p>
+<h2 id="本地命令">本地命令<a class="heading-anchor" href="#本地命令" aria-label="链接到 本地命令">#</a></h2>
+<p>输入框中的 <code>/</code> 用于本地命令，日志搜索使用 <code>/filter 文本</code>。命令候选展开时，↑/↓ 选择，Tab 补全，Enter 执行选中的命令，Esc 收起候选并保留文字；选择候选不会取回排队要求或切换输入历史。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/help</code></td>
+<td>打开可滚动的完整快捷键与本地命令帮助</td>
+</tr>
+<tr>
+<td><code>/exit</code> / <code>/quit</code></td>
+<td>正常关闭当前前端并恢复终端；本地 attach 只离开观察会话</td>
+</tr>
+<tr>
+<td><code>/login</code> / <code>/login copy</code> / <code>/login link</code></td>
+<td>开始 GitHub 客户端授权：打开浏览器 / 复制公开授权链接 / 显示链接</td>
+</tr>
+<tr>
+<td><code>/diff [single|split]</code></td>
+<td>选择单列或双列 diff；省略参数时显示当前模式</td>
+</tr>
+<tr>
+<td><code>/reload</code> / <code>/restart</code></td>
+<td>请求重新启动客户端；两个命令等价</td>
+</tr>
+<tr>
+<td><code>/queue</code></td>
+<td>查看、取回或取消待交付要求</td>
+</tr>
+<tr>
+<td><code>/message [名称或 ID]</code> / <code>/recipients [名称或 ID]</code></td>
+<td>打开原生收件人选择器；仍须明确选择后再发送</td>
+</tr>
+<tr>
+<td><code>/sessions</code> / <code>/group list</code></td>
+<td>查看连接和线程，或列出当前精确组发目标</td>
+</tr>
+<tr>
+<td><code>/send 正文</code></td>
+<td>向当前所选组、原生收件人或本地监听程序发送</td>
+</tr>
+<tr>
+<td><code>/paste-retry</code> / <code>/paste-retry discard</code></td>
+<td>重试保存失败的长粘贴，或明确丢弃该保留原文</td>
+</tr>
+<tr>
+<td><code>/tasks</code> / <code>/tasks cancel JOB_ID</code></td>
+<td>打开 Logs 右侧的任务列；显式 <code>cancel JOB_ID</code> 才取消指定任务</td>
+</tr>
+<tr>
+<td><code>/audit</code></td>
+<td>浏览 <code>code_mode</code> 源码与调用记录</td>
+</tr>
+<tr>
+<td><code>/logs</code></td>
+<td>打开日志列；Esc 或鼠标右键返回先前的列</td>
+</tr>
+<tr>
+<td><code>/raw</code></td>
+<td>切换同一日志面板</td>
+</tr>
+<tr>
+<td><code>/new [chat|agents|audit|queue|questions|history]</code></td>
+<td>在当前列右侧新建视图；省略类型时新建对话列</td>
+</tr>
+<tr>
+<td><code>/close</code></td>
+<td>关闭当前视图，保留会话与草稿</td>
+</tr>
+<tr>
+<td><code>/filter 文本</code></td>
+<td>按文本筛选当前保留的日志</td>
+</tr>
+<tr>
+<td><code>/filter --all</code> / <code>--commands</code> / <code>--errors</code></td>
+<td>切换日志类别；保留已有文本条件</td>
+</tr>
+<tr>
+<td><code>/theme [名称]</code></td>
+<td>指定主题；省略名称时切换到下一预设</td>
+</tr>
+<tr>
+<td><code>/sidebar</code></td>
+<td>展开或收起侧栏</td>
+</tr>
+<tr>
+<td><code>/clear</code></td>
+<td>清空可见日志与屏幕回看缓存，不删除输出归档或会话文件</td>
+</tr>
+<tr>
+<td><code>/resume</code></td>
+<td>列出本工作区的已保存会话，选中后按 Enter 继续该文本历史</td>
+</tr>
+<tr>
+<td><code>/pi</code> / <code>/cc</code> / <code>/codex</code></td>
+<td>查看对应后端的实际工具目录；<code>TOOL</code> 查看 schema，<code>TOOL {...}</code> 显式调用</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>/exit</code> 与 <code>/quit</code> 只接受无参数形式。输入 <code>/exit extra</code> 等带参数形式时，界面显示 <code>Use /exit or /quit without arguments</code>，保留当前输入并继续运行。合法退出沿正常清理路径关闭前端，恢复终端输入模式、光标、鼠标与括号粘贴状态；预览也使用同一退出入口。本地 attach 的退出只结束观察会话。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/terminal/conversation.rs">本地命令处理</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/ui_command.rs">预览清理路径</a></p>
+<p><code>/reload</code> 重新启动客户端，F5 和原子 UI 动作 <code>reload</code> 只重载显示配置。重启前，客户端尝试取回仍在服务器排队的要求，并通过私有、单次读取的交接文件保留草稿与队列。新连接只继续发布确定尚未交付且目标仍适用的要求；目标成员失效或交付不确定时等待显式复核，不自动重发。</p>
+<p>若重启在取回要求之后中止，已获服务器确认、仍属于当前连接的要求恢复排队，沿用原消息 ID 和最新版本。迟到的取回确认也会恢复要求；确认尚未到达时继续等待，用户主动进入的编辑状态保持原样。</p>
+<p>重载仍遵守已有会话生命周期，连接所属任务会随旧连接结束；重连后需要确认新的客户端 ID。交接文件用于这次受控重启，不是跨任意退出的永久会话存档。<a href="../../ssmcp/session-control/">重载与恢复</a></p>
+<p>帮助页可用 ↑/↓、滚轮、PgUp/PgDn、Home/End 滚动。按 F1 或 Esc 关闭。<code>/resume</code> 使用版本化的 <code>ssmcp.conversation.v1</code> JSONL，恢复显示文本并将后续消息写入所选会话；它不会重发旧要求、执行旧工具调用或恢复外部模型会话与凭据。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/conversation-history.md">历史位置、容量与格式</a></p>
+<p><code>/pi</code>、<code>/cc</code>、<code>/codex</code> 以及后接 <code>tools [OFFSET]</code> 只列出当前已注册工具；后接工具名只查看原始描述与参数 schema。显式追加 JSON 对象才异步调用原生工具，沿用其授权要求。<code>cc</code> 对应 Claude 的规范工具命名空间；工具缺失时直接报错。Pi RPC 的 <code>get_commands</code> 不等于内部 LSP 或模型工具清单，界面不会虚构这类接口。<a href="../../ssmcp/client-input/">目录与显式调用示例</a></p>
+<h2 id="本地历史标题与摘要">本地历史标题与摘要<a class="heading-anchor" href="#本地历史标题与摘要" aria-label="链接到 本地历史标题与摘要">#</a></h2>
+<p><code>/resume</code> 列出未归档的本地会话。<code>/archived</code> 查看已归档会话，Enter 恢复并继续所选项。内容区用 ↑/↓ 移动、PgUp/PgDn 翻页，滚轮也可移动选择。鼠标左键选择条目，点摘要行仍选中同一会话。列表按窗口宽度缩略显示摘要。</p>
+<p>用 <code>ssmcp.ui.history</code> 的 <code>list</code> 或 <code>metadata</code> 查找精确会话 ID。用原生工具 <code>ssmcp.ui.history_update</code> 修改标题或摘要，分别最多 256 和 2048 个 UTF-8 字节。至少提供一项，省略的字段保持原值。空字符串清除该字段，清除标题后恢复自动标题。仅空白、控制字符和 <code>null</code> 均会被拒绝。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>return await call(clientId, &quot;ssmcp.ui.history_update&quot;, {
+  id: &quot;conversation_0123456789abcdef0123456789abcdef&quot;,
+  title: &quot;示例检查&quot;,
+  summary: &quot;核对了测试项目的输入流程。&quot;
+});
+</code></pre></div>
+<p>描述保存在工作区对应的私有历史元数据中，更新时保持 JSONL 正文。其他客户端持有写入租约的会话须等租约释放。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/conversation-history.md">历史格式和读取接口</a></p>
+<h2 id="登录与-diff-显示">登录与 diff 显示<a class="heading-anchor" href="#登录与-diff-显示" aria-label="链接到 登录与 diff 显示">#</a></h2>
+<p><code>/login</code> 通过已配置服务器的客户端授权接口取得公开登录链接，打开浏览器后完成 GitHub 登录与授权。<code>/login copy</code> 把同一流程的公开链接复制到剪贴板，<code>/login link</code> 在对话中显示链接。授权等待期间输入框仍可使用；重复命令复用尚未结束的授权流程。凭据由现有账号模块校验并保存，终端只显示公开链接、确认码和结果。登录成功不会重启当前连接；按结果提示在需要时重新连接。</p>
+<p>默认 diff 使用单列，按统一补丁顺序显示上下文、删除与新增行。<code>/diff split</code> 以旧内容在左、新内容在右的双列方式显示展开的 diff；<code>/diff single</code> 切回单列。宽度不足时自动使用单列，窗口恢复后继续按所选模式显示。该选项只改变主对话的展示，原始日志仍保留原文。</p>
+<h2 id="本地消息与回答问题">本地消息与回答问题<a class="heading-anchor" href="#本地消息与回答问题" aria-label="链接到 本地消息与回答问题">#</a></h2>
+<p>主对话用 You、Assistant 或消息提供的作者名标识正文，省去日志前缀、长请求 ID 和 Progress/Answer 分类。文本按当前窗口宽度排版，消息之间留空行。</p>
+<p>带本地会话归属的任务输出和回复按当前所选历史显示。旧任务的延迟输出仍可在 Logs 与 Tasks 的保留范围内查阅。普通原生事件没有会话归属时只进入全局 Logs。</p>
+<p>已验证线程首次发起原生调用时，客户端按账号、连接和线程绑定当时的本地历史。切换历史后，该线程的 <code>ssmcp.ui.message</code> 新回复仍写入原会话。原会话未选中时，写入成功会返回 <code>history_saved: true</code> 和 <code>shown: false</code>，对话和 <code>/copy</code> 继续使用所选历史。原写入资格已释放、会话已归档或租约由其他进程持有时，新写入报错。</p>
+<p>幂等重试命中仍保留的回执时会返回 <code>duplicate: true</code> 和原回执中的消息 ID、保存与显示状态。<code>shown</code> 记录的是原提交时的显示状态。</p>
+<p><code>attach</code> 连接到提供会话归属的后台时，按后台所选历史和事件归属显示对话。该流后续缺少选择字段时沿用已知选择，缺少归属的事件留在 Logs。旧后台没有归属信息时保留共享对话视图。先前混在一起的记录按原样供查看，切换到本地历史时仍归共享视图。</p>
+<p>迟到的原生图片沿用调用发起时的会话归属，预览附在该次输出自己的占位记录上。</p>
+<p><code>/reload</code> 成功打开原会话时，对话正文与保存的 JSONL 对齐。快照之后保存的消息也会在 Logs 的保留范围内显示。JSONL 无法打开时，快照中属于原选中会话的预览仍可只读查看，失败原因会显示在界面和 Logs 中。</p>
+<p>Agent 面向本机用户的进度使用 <code>ssmcp.ui.message</code>；普通问题用 <code>ssmcp.ui.ask</code> 创建后立即返回。按 Shift+↑ 优先进入未回答问题，输入选项编号或自由文本后按 Enter 保存。回答编辑器与主草稿分开，Esc 回到问题列表，再按 Esc 回到会话。普通问题可以用 Delete 跳过；结束申请必须作出独立决定。</p>
+<p>回答之后，问题保留在列表中并显示交付状态。绑定了实际提问线程的答案先显示 <code>Answer queued</code>，等待该线程的下一次合格调用；<code>Included in requester tool response</code> 表示已放入回复，不表示模型读过。未绑定线程的旧式问题提示提问方手动读取；原连接失效的答案不会转给新线程。只读查询本身不会消耗答案。</p>
+<p>当前公共接口不允许 agent 代替本机用户回答问题或批准结束。界面保留后端确认的真实来源与修订号；历史 Agent 来源的记录不会被改写成 Human，普通文本中的名字或“yes”也不能伪造来源。尚未提交的本地评论仍显示为 <code>Your unsent draft · not delivered</code>，不会冒充已经发送的答案。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/finish-and-questions.md#%E5%BC%82%E6%AD%A5%E9%97%AE%E9%A2%98%E4%B8%8E%E7%AD%94%E6%A1%88">问答与交付协议</a></p>
+<h3 id="明确决定是否结束">明确决定是否结束<a class="heading-anchor" href="#明确决定是否结束" aria-label="链接到 明确决定是否结束">#</a></h3>
+<p>已验证的提问线程通过 <code>ui.wait(intent: &quot;finish&quot;)</code> 发起结束等待。存在尚未交付的普通用户输入时，服务先交付输入，不创建新的结束申请；否则，同一次等待会创建或续接 No/Yes 问题。结束申请默认选中 <strong>No</strong>，但尚未提交时仍然是“未决定”。← 选择 No，→ 选择 Yes，或点击对应选项；之后按 Enter 才记录决定。Tab 进入独立的可选评论。评论里输入 <code>yes</code> 不会改变选项，Delete 也不会批准或跳过结束申请。</p>
+<p>No 表示继续工作；只有本机真实用户的 Yes 才能让原提问线程按精确申请和修订号消费一次批准。服务器最终还要复核权限、原连接、线程及相关输入，才返回 <code>decided</code>、<code>may_finish: true</code>；仅看到问题已批准，或再次读取已完成记录，都不是新的许可。新的相关用户输入、取消、断线或重连、撤权和绑定失效不会批准结束。用户自己的决定显示为 You，其他 agent 不能代用户批准 Yes。</p>
+<p>普通进度、answer 和 reply 消息仍可提交；它们本身不授予结束许可。当前协议要求调用者结束前读取真实用户决定，但不声称能拦截任意外部模型的最终发言或强制它继续运行。</p>
+<p>真实人工等待进行时，输入区显示红色 <code>! 等待你的输入 · 剩余 00:13 · /wait</code>；多个 episode 显示数量，时间取最短实际剩余值并向上取整到秒。普通计时器和后台任务不显示人工等待红标。进入休眠画面后背景压暗，最后一行保留红色粗体倒计时；具体错误、补全和浏览提示仍有自己的显示优先级。</p>
+<p>完整的鼠标点击只唤醒画面，不提交 No/Yes，也不伪造答案；键盘唤醒后继续处理该按键。只要真实等待仍在进行，唤醒后的输入区继续显示倒计时。超时可以由同一提问线程带返回的 <code>finish_request_id</code> 续等，不批准结束；同一 episode 的短时重试不会反复遮住已唤醒的画面。普通异步问题本身不触发休眠。<code>/wait</code> 查看与取消入口保持不变，结束结果的近期提示为中性的“本轮结束决策已返回”。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/finish-and-questions.md#%E7%94%B3%E8%AF%B7%E7%BB%93%E6%9D%9F">结束申请与一次性回执</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/user-wait.md">等待与倒计时</a></p>
+<p>问题和决定保存在当前客户端进程内；最多 32 个待答问题、64 条保留记录，共用 256 KiB。进程重启或 <code>/reload</code> 不恢复这份待答状态；断线后的旧记录可以留作本机查看，但不会自动改投新连接。观察模式的 attach 不代答。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/terminal/conversation/questions.rs">UI 实现</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/terminal/sleep.rs">等待遮罩</a></p>
+<h2 id="agent-面板与成员身份">Agent 面板与成员身份<a class="heading-anchor" href="#agent-面板与成员身份" aria-label="链接到 Agent 面板与成员身份">#</a></h2>
+<p>Agent 页分别显示已登记成员和观测到的调用方，标题分别统计 <code>members</code> 与 <code>callers</code>。<code>Next caller</code> 是后续输入的收件选项，不计为在线成员。侧栏跟随当前选中项，显示它的身份、状态及相关消息；关闭侧栏后，足够宽的主区域会并排显示详情，较窄窗口保留完整列表导航。</p>
+<p>已登记成员来自服务器协作成员表，展示名称、角色和成员报告的状态。选择记录并按 Enter，即可将后续输入定向到该成员；名称允许重复，同名成员显示各自的 ID 后缀，目标始终以完整 <code>agent_id</code> 区分。成员离线后保留原收件人选择并显示离线提示，需要用户重新选定有效成员。</p>
+<p>观测到的调用方按调用来源、名称和模型归并。重复工具调用更新同一行的调用数与运行状态，模型名称也显示在列表中；无法识别身份的调用保留独立记录。选择调用方并按 Enter 会打开其代表调用的审计详情，原来的消息目标、草稿与光标保持不变。显示名称与模型只用于归类，不能作为可接收定向要求的成员凭证。</p>
+<p>新活动和列表重新排序按稳定的调用方键或成员 ID 保留选择。鼠标点击按上一帧实际显示的条目定位，避免新调用插入时选中相邻对象。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/terminal/conversation.rs">Agent 页实现</a>与<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/activity.rs">调用方分组</a></p>
+<p>用 <code>ssmcp.ui.get</code> 读取 <code>/identity</code> 可查看当前客户端的操作系统 <code>process_id</code> 与中继连接 <code>client_id</code>。重连分配新的 <code>client_id</code>，它也可作为当前逻辑 <code>session_id</code>。<code>/steering/agents</code> 列出的 <code>agent_id</code> 是逻辑线程 ID，在协作 API 中也称 <code>thread_id</code>。</p>
+<p><code>collab.join</code> 和经过认证的 <code>collab.update</code> 可用 <code>summary</code> 填写在线角色短摘要。它是 <code>role</code> 的别名，单次只传其中一个字段，最多 128 个 UTF-8 字节。更新时传 <code>summary: &quot;&quot;</code> 清除，省略该字段保留原值。摘要随在线成员租约展示，可在会话页查看。</p>
+<p>成员由 <code>collab.join</code> 显式加入，租约到期或退出后不再是有效成员。<code>status</code> 由成员自行报告，不等于某个模型正在生成内容，也不等于后台命令进程的状态。<code>agents.*</code> 用于项目 AGENTS 指令文件，在线成员由 <code>collab.*</code> 管理。<a href="../../ssmcp/agent-collaboration/">成员、邮箱与租约</a></p>
+<p>要接收定向要求，agent 在每次 <code>code_mode</code> 开始时绑定已经登记的身份：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>const clientId = &quot;CLIENT_ID_FROM_LIST&quot;;
+await collab.bind(clientId, {
+  agent_id: &quot;AGENT_ID_FROM_JOIN&quot;,
+  token: &quot;PRIVATE_TOKEN_FROM_JOIN&quot;
+});
+return await exec.list(clientId);
+</code></pre></div>
+<p>绑定只作用于本次编排，同一客户端不能在一次编排中切换到另一成员。服务器在交付前重新检查授权与成员凭证；名称、角色和 <code>controller.model</code> 只作展示，不决定接收者。<code>Next caller</code> 可以接收未绑定成员的合格调用方，定向要求只进入经过验证的对应成员响应。</p>
+<p>要求队列与 <code>collab</code> 邮箱分别管理。成员之间的 JSON 消息通过 <code>collab.send/receive/ack</code> 交换；输入框中的用户要求由 <code>ssmcp.ui.queue</code> 管理，不使用邮箱的 <code>ack</code>。</p>
+<p>客户端和服务器现在只接受协议 v7，要求队列、成员快照、源码审计和控制者元数据使用同一协议。版本不匹配会明确拒绝连接，不再逐级尝试 v6/v5/v4；更新两端后重新连接。</p>
+<h2 id="配置文件">配置文件<a class="heading-anchor" href="#配置文件" aria-label="链接到 配置文件">#</a></h2>
+<p>配置路径依次选择：</p>
+<ol>
+<li><code>--ui-config FILE</code>。</li>
+<li><code>SSMCP_UI_CONFIG</code> 环境变量。</li>
+<li><code>$XDG_CONFIG_HOME/ssmcp/config.toml</code>。</li>
+<li><code>~/.config/ssmcp/config.toml</code>，Windows 使用用户目录下的 <code>.config/ssmcp/config.toml</code>。</li>
+</ol>
+<p>命令行显示选项覆盖对应的文件设置。默认路径不存在时使用内置默认值；显式指定的文件不存在、格式损坏或参数非法时返回错误。修改文件后按 F5 重载，或调用 <code>ssmcp.ui.action</code> 的 <code>reload</code> 动作。</p>
+<p>同一个 TOML 文件可以同时包含 <code>[client]</code> 和 <code>[ui]</code>。显示配置保存会保留服务器设置；服务器地址与可信公钥的选择规则见<a href="../../ssmcp/client-server/">中转服务器与信任</a>。<code>SSMCP_CLIENT_CONFIG</code> 与 <code>SSMCP_UI_CONFIG</code> 分别选择客户端和显示配置，不能互相替代。</p>
+<p>下面是完整的显示配置示例，可直接作为 TOML 文件使用：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>[ui]
+color = true
+dashboard = true
+log_format = &quot;pretty&quot;
+theme = &quot;dark&quot;
+layout = &quot;chat&quot;
+log_height_percent = 60
+sidebar = false
+sidebar_width = 37
+panels = [&quot;agents&quot;, &quot;queue&quot;, &quot;controller&quot;, &quot;tasks&quot;, &quot;progress&quot;, &quot;git&quot;, &quot;history&quot;]
+hide_empty = true
+timestamps = false
+show_request_id = true
+show_raw_json = false
+max_inline_output = 8
+activity_interval_secs = 5
+
+[ui.pet]
+preset = &quot;cat&quot;
+text = &quot;&quot;
+
+[ui.colors]
+background = &quot;&quot;
+foreground = &quot;&quot;
+muted = &quot;&quot;
+accent = &quot;&quot;
+success = &quot;&quot;
+warning = &quot;&quot;
+error = &quot;&quot;
+heading = &quot;&quot;
+</code></pre></div>
+<p>空字符串表示继承所选主题的颜色。可以只写需要修改的字段，其余使用默认值。F8 和 <code>save</code> 动作保存当前显示设置；<code>set</code> 调用使用 <code>persist:true</code> 时也会写入本机配置文件。</p>
+<p>已有配置中的 <code>sidebar = true</code> 会继续生效。想让下次打开时也收起侧栏，可按 F3 后用 F8 保存，或将配置中的 <code>sidebar</code> 改为 <code>false</code>。</p>
+<p><code>dashboard</code> 与 <code>log_format</code> 是启动设置，不能通过 <code>ssmcp.ui.set</code> 修改；内置界面运行时，配置重载也不能切换这两项。修改文件后重启客户端即可应用。主题、颜色、布局和面板设置可在运行时调整。</p>
+<h3 id="侧栏-ascii-宠物">侧栏 ASCII 宠物<a class="heading-anchor" href="#侧栏-ascii-宠物" aria-label="链接到 侧栏 ASCII 宠物">#</a></h3>
+<p><code>[ui.pet]</code> 控制侧栏底部的小图案。<code>preset</code> 接受 <code>cat</code>（默认）、<code>robot</code>、<code>custom</code> 和 <code>off</code>；选择 <code>off</code> 即关闭。图案随主题颜色显示，只有侧栏有足够空间容纳整幅图案并保留状态区时才出现，窄小窗口会将其隐藏。</p>
+<p>自定义图案使用 TOML 多行字面量字符串，空格与反斜杠按原样保存：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>[ui.pet]
+preset = &quot;custom&quot;
+text = &#x27;&#x27;&#x27;
+ /\_/\
+( o.o )
+ &gt; ^ &lt;
+&#x27;&#x27;&#x27;
+</code></pre></div>
+<p><code>custom</code> 必须提供非空图案；<code>text</code> 只接受可打印 ASCII 字符与换行，最多 1024 字节、8 行，每行最多 80 列。制表符、回车、ANSI 控制序列和其他控制字符会被拒绝。它是静态文字配置，不执行命令或加载外部图片。修改后按 F5 重载；通过原子 UI 接口修改 <code>pet</code> 后也可用 F8 或 <code>persist:true</code> 保存。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/ui/pet.rs">配置校验</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/terminal/guide/pet.rs">侧栏排版</a></p>
+<h2 id="布局与状态面板">布局与状态面板<a class="heading-anchor" href="#布局与状态面板" aria-label="链接到 布局与状态面板">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>设置</th>
+<th>默认值</th>
+<th>可选值与作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>layout</code></td>
+<td><code>&quot;chat&quot;</code></td>
+<td><code>chat</code> 显示事件流与底部输入框；<code>split</code> 上下显示日志与源码审计；<code>audit</code> 展开审计区；<code>logs</code> 展开日志</td>
+</tr>
+<tr>
+<td><code>log_height_percent</code></td>
+<td><code>60</code></td>
+<td><code>10</code>–<code>80</code>，控制 <code>split</code> 布局中日志的高度占比</td>
+</tr>
+<tr>
+<td><code>sidebar</code></td>
+<td><code>false</code></td>
+<td>默认收起状态侧栏；F3 或 <code>/sidebar</code> 切换显示</td>
+</tr>
+<tr>
+<td><code>sidebar_width</code></td>
+<td><code>37</code></td>
+<td><code>20</code>–<code>60</code> 列；可用空间不足时收起侧栏</td>
+</tr>
+<tr>
+<td><code>panels</code></td>
+<td>七种面板</td>
+<td>按数组顺序排列，移除名称即可隐藏对应面板</td>
+</tr>
+<tr>
+<td><code>hide_empty</code></td>
+<td><code>true</code></td>
+<td>收起没有内容的状态面板；成员和队列面板保留入口提示</td>
+</tr>
+<tr>
+<td><code>dashboard</code></td>
+<td><code>true</code></td>
+<td>是否启用终端合成界面；关闭时使用行式输出</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>panels</code> 可以是空数组，名称不能重复。面板名称与内容：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>agents</code></td>
+<td>当前连接中的登记成员、成员报告的状态与最近普通调用</td>
+</tr>
+<tr>
+<td><code>queue</code></td>
+<td>本地用户要求与交付状态摘要</td>
+</tr>
+<tr>
+<td><code>controller</code></td>
+<td>当前或上次调用方声明的应用、模型信息</td>
+</tr>
+<tr>
+<td><code>tasks</code></td>
+<td>正在运行的任务、命令与耗时</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>原生工具实际报告的进度</td>
+</tr>
+<tr>
+<td><code>git</code></td>
+<td>当前工作区的分支和改动摘要</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td>最近提交</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>agents</code> 和 <code>queue</code> 只在 <code>chat</code> 布局中显示；配置了这两个面板时，即使为空也保留计数和入口提示。<code>hide_empty</code> 作用于其余状态面板。</p>
+<p>例如，展开源码审计，同时保留任务和工作区状态：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>[ui]
+layout = &quot;audit&quot;
+sidebar = true
+sidebar_width = 26
+panels = [&quot;tasks&quot;, &quot;git&quot;]
+hide_empty = true
+</code></pre></div>
+<p>窗口变化后，布局根据可用行列重新计算。Git 状态来自本地读取；控制者的模型名称来自调用方声明；进度百分比来自工具实际提供的进度与总量。</p>
+<p>默认 <code>chat</code> 中 F2 切换成员、对话、审计、队列、问题、历史、日志与任务内容，仍保留输入框。<code>layout</code> 则决定整个显示方式；使用配置或 <code>ssmcp.ui.set</code> 选择 <code>split</code>、<code>audit</code>、<code>logs</code>。这些专用布局保留此前的浏览方式，F2 可以继续切换布局并回到 <code>chat</code>。</p>
+<p>前台输入用于用户要求和本地命令，不会写入隐藏的 PTY。需要交互终端时，在另一个终端运行 <code>ssmcp -i</code>；自定义前端可以直接使用 <code>terminal.*</code>。本地 <code>attach</code> 用于观察后台会话，目前不转发其前端输入框的要求队列；可通过后台连接的 <code>ssmcp.ui.queue</code> 原子接口管理要求。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/terminal-control.md">交互终端与后台输入</a></p>
+<h2 id="源码审计与运行状态">源码审计与运行状态<a class="heading-anchor" href="#源码审计与运行状态" aria-label="链接到 源码审计与运行状态">#</a></h2>
+<p>审计区按运行 ID 保留调用方提交的 <code>code_mode.code</code>，源码经过现有审计脱敏处理。使用 <code>/audit</code> 或 Ctrl-O 打开审计，内容区中的 ↑/↓ 选择运行记录，Enter 展开带行号与语法颜色的源码；详情中继续用 ↑/↓ 滚动，Esc 返回列表。Tab 切回输入框后，方向键用于文字编辑和历史浏览。</p>
+<p><a href="https://drive.google.com/file/d/1Rr9t9SpoMdwQJuHbW3eYRbgtg-krhUkF/view">源码审计详情：行号与语法颜色</a>（ZIP 内：<code>current/docs/assets/client-audit.png</code>）</p>
+<p><em>由实际渲染器回放的审计示例；示例源码不会执行。</em></p>
+<p>审计信息分别记录三个层次的状态：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>含义</th>
+<th>后续查看</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code_mode</code> 运行</td>
+<td>这次 JavaScript 编排正在运行、已经返回、失败或超时</td>
+<td>审计运行 ID、耗时与错误</td>
+</tr>
+<tr>
+<td>原生调用</td>
+<td>编排发出的某个工具请求及其返回结果</td>
+<td>调用 ID、工具名、耗时及实际返回的退出码或任务 ID</td>
+</tr>
+<tr>
+<td>后台命令</td>
+<td>设备上的命令进程仍在执行，或已经退出</td>
+<td><code>exec.status/read/wait</code> 和日志中的真实退出状态</td>
+</tr>
+</tbody>
+</table></div>
+<p>例如，<code>exec.start</code> 返回任务 ID 后，<code>code_mode</code> 可以正常结束，命令仍在后台执行。要判断命令是否成功，读取对应任务的 <code>running</code> 和 <code>exit_code</code>。日志用 <code>python3 -c · 83 lines</code> 这类中性标签识别脚本，再分别显示 stdout、stderr、退出码和耗时；<code>--verbose</code> 可展开脚本正文。</p>
+<p>源码审计使用当前唯一支持的 <strong>协议 v7</strong>。服务器将源码发送给本次编排实际访问的客户端，每次运行按 ID 合并；设备列表中的其他客户端不会收到这份源码。协议不匹配时连接被拒绝，不会退回缺少审计的旧连接。</p>
+<p>界面最多保留 <strong>128 次运行、合计 2 MiB</strong> 的审计浏览数据，单段源码显示上限为 <strong>64 KiB</strong>。达到容量后淘汰最旧的运行记录，截断状态随快照返回。屏幕回看与长期输出保存各有容量边界；需要读取归档时使用审计事件返回的 artifact 和 <code>outputs.read</code>。</p>
+<h2 id="日志滚动与筛选">日志滚动与筛选<a class="heading-anchor" href="#日志滚动与筛选" aria-label="链接到 日志滚动与筛选">#</a></h2>
+<p>日志中的缓冲工具输出默认保留最多 8 行摘要，取开头与末尾并注明省略；<code>max_inline_output</code> 调整这一上限。对话页从已脱敏的记录中显示最多两行结果预览，展开后查看当前保留的正文。用户要求、Agent 消息和回答保持会话正文显示，图片使用摘要或预览，不逐字段打印 base64。显示长度的调整不会改写原生工具返回值。</p>
+<p>默认 <code>chat</code> 布局的活动页按每次发布显示一条事件。Tab 切到内容区，↑/↓ 选择，Enter 切换工具折叠；鼠标点击同样可选择并切换，←/→ 用于切换相邻列。用户与 Agent 正文保持展开，工具和图片摘要按需打开。事件视图最多保留 128 条、合计 2 MiB 的展示正文，与审计浏览缓存独立。展开只显示本地仍保留的正文，不会找回先前被摘要省略的输出，也不重新执行工具；完整输出需通过相应任务游标或输出归档读取。</p>
+<p>滚轮和 PgUp/PgDn 直接滚动当前内容，无需先切换焦点。Ctrl-Home/Ctrl-End 到最早保留日志或最新输出。浏览记录与编辑输入分别处理；输入框中的方向键先按实际显示行移动光标，包括自动换行；到达第一或最后一行后再取回排队内容或浏览历史。内容区中的方向键用于浏览。F7 冻结当前画面并释放鼠标，让终端原生选择与复制；复制通常使用终端的 Ctrl-Shift-C，F7 或 Esc 恢复界面。支持的终端可直接按住 Shift 拖选。</p>
+<p>输入 <code>/filter 文本</code> 并提交，应用不区分大小写的搜索。搜索使用普通文本包含匹配，保留命中命令的输出和结果上下文。单独输入 <code>/filter</code> 清除文本；<code>/filter --all</code>、<code>/filter --commands</code>、<code>/filter --errors</code> 选择类别，F9 在类别间循环：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>显示内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>all</code></td>
+<td>全部保留的日志</td>
+</tr>
+<tr>
+<td><code>commands</code></td>
+<td>命令、输出与结果相关记录</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td>包含错误、警告或 stderr 等诊断信息的记录</td>
+</tr>
+</tbody>
+</table></div>
+<p>日志筛选和其他日志布局沿用原有屏幕历史显示，不使用活动页的逐事件展开。筛选在当前屏幕历史范围内进行，不改变任务执行和审计归档。文本上限为 256 个 UTF-8 字节。无界面前端可以按游标读取事件，再自行筛选。</p>
+<h2 id="主题与颜色">主题与颜色<a class="heading-anchor" href="#主题与颜色" aria-label="链接到 主题与颜色">#</a></h2>
+<p><a href="https://drive.google.com/file/d/1Rr9t9SpoMdwQJuHbW3eYRbgtg-krhUkF/view">浅色主题的客户端</a>（ZIP 内：<code>current/docs/assets/client-ui-light.png</code>）</p>
+<p><em>实际渲染器的固定示例，展示浅色主题、输入框与可折叠侧栏。</em></p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>主题</th>
+<th>风格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dark</code></td>
+<td>默认主题，深色背景、浅色正文与蓝色强调；成功、警告和错误使用独立语义色</td>
+</tr>
+<tr>
+<td><code>codex-dark</code></td>
+<td>冷色强调的深色主题</td>
+</tr>
+<tr>
+<td><code>nord</code></td>
+<td>冷色背景与柔和强调色</td>
+</tr>
+<tr>
+<td><code>solarized</code></td>
+<td>Solarized 深色配色</td>
+</tr>
+<tr>
+<td><code>light</code></td>
+<td>浅色背景与深色文字</td>
+</tr>
+<tr>
+<td><code>minimal</code></td>
+<td>跟随终端底色，使用基础语义色</td>
+</tr>
+</tbody>
+</table></div>
+<p>默认主题的颜色用于分清结构与状态：蓝色标记调用与交互，绿色标记成功，黄色标记警告，红色标记错误；标签文字仍保留含义。F4 和不带名称的 <code>/theme</code> 按表中顺序循环。<code>/theme light</code> 等命令直接选择预设。</p>
+<p><code>[ui.colors]</code> 按语义覆盖主题，支持以下值：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>写法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#RRGGBB</code></td>
+<td>六位十六进制真彩色，例如 <code>#8ab4f8</code></td>
+</tr>
+<tr>
+<td><code>black</code>、<code>red</code>、<code>green</code>、<code>yellow</code>、<code>blue</code>、<code>magenta</code>、<code>cyan</code>、<code>white</code></td>
+<td>ANSI 基础色，<code>purple</code> 是 <code>magenta</code> 的别名</td>
+</tr>
+<tr>
+<td><code>bright-</code> 加上述颜色名</td>
+<td>ANSI 高亮色，例如 <code>bright-blue</code>、<code>bright-purple</code></td>
+</tr>
+<tr>
+<td><code>gray</code>、<code>grey</code></td>
+<td>ANSI 高亮黑色</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>终端自己的默认前景或背景色</td>
+</tr>
+<tr>
+<td><code>&quot;&quot;</code></td>
+<td>继承当前主题的对应颜色</td>
+</tr>
+</tbody>
+</table></div>
+<p>颜色名使用小写，十六进制数字支持大小写。十六进制颜色通过终端真彩色序列输出，最终效果取决于终端的颜色支持。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>[ui]
+theme = &quot;minimal&quot;
+
+[ui.colors]
+background = &quot;#101214&quot;
+foreground = &quot;#e8eaed&quot;
+muted = &quot;#9aa0a6&quot;
+accent = &quot;#8ab4f8&quot;
+success = &quot;#81c995&quot;
+warning = &quot;#fdd663&quot;
+error = &quot;#f28b82&quot;
+heading = &quot;#e8eaed&quot;
+</code></pre></div>
+<p>要沿用终端自己的背景与前景色，可以设置：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>[ui.colors]
+background = &quot;default&quot;
+foreground = &quot;default&quot;
+</code></pre></div>
+<p><code>NO_COLOR</code>、<code>--no-color</code>、<code>TERM=dumb</code> 或重定向日志会关闭日志颜色。终端内应用自行输出的颜色由应用控制。JSONL 与后台日志使用结构化事件，主题不会写入原生调用结果。</p>
+<h2 id="键盘与鼠标操作">键盘与鼠标操作<a class="heading-anchor" href="#键盘与鼠标操作" aria-label="链接到 键盘与鼠标操作">#</a></h2>
+<p>下面的操作用于默认 <code>chat</code> 布局。F1 显示当前帮助；Tab 或 Shift-Tab 在输入框与内容区之间切换焦点。输入框出现斜杠命令补全时，Tab 优先接受补全，Shift-Tab 仍可切换焦点。</p>
+<p>底栏根据当前焦点显示快捷键：空输入提示粘贴、<code>@</code> 文件和 <code>$</code> 技能，已有草稿提示发送与换行，补全菜单提示选择、插入和关闭；进入对话、审计或队列内容区后，提示随该区域的操作变化。窗口变窄时自动选择较短的提示，状态或错误通知优先显示，完整按键仍可用 F1 或 <code>/help</code> 查看。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/terminal/conversation/hints.rs">上下文提示实现</a></p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>鼠标滚轮、PgUp / PgDn</td>
+<td>直接滚动当前内容</td>
+</tr>
+<tr>
+<td>Ctrl-Home / Ctrl-End</td>
+<td>到当前对话或日志的最早保留内容 / 最新输出</td>
+</tr>
+<tr>
+<td>Tab / Shift-Tab</td>
+<td>在输入框与内容区之间切换焦点；Tab 优先接受显示中的命令补全</td>
+</tr>
+<tr>
+<td>输入框 ↑ / ↓</td>
+<td>先按实际显示行移动光标，到边界后浏览输入历史。空输入框按 ↑ 优先尝试取回最新待交付项</td>
+</tr>
+<tr>
+<td>Alt+← / Alt+→</td>
+<td>切换相邻画布列，保留草稿与各列位置</td>
+</tr>
+<tr>
+<td>内容区 ← / →</td>
+<td>切换相邻画布列</td>
+</tr>
+<tr>
+<td>输入框 ← / →、Home / End</td>
+<td>移动光标或到当前逻辑行起止位置；整份草稿边缘的左右键切列</td>
+</tr>
+<tr>
+<td>鼠标右键</td>
+<td>打开日志列，或返回打开日志前的列</td>
+</tr>
+<tr>
+<td>输入框 Enter</td>
+<td>提交新要求、重新提交编辑内容，或执行本地命令</td>
+</tr>
+<tr>
+<td>Ctrl-J、Shift-Enter、反斜杠后按 Enter</td>
+<td>换行；Shift-Enter 需要终端能区分该按键</td>
+</tr>
+<tr>
+<td>内容区 ↑ / ↓</td>
+<td>选择活动事件，或浏览审计、成员、队列、问题、历史与任务记录</td>
+</tr>
+<tr>
+<td>对话内容区 Enter</td>
+<td>切换所选工具事件的展开状态；点击工具摘要也可切换</td>
+</tr>
+<tr>
+<td>内容区 Home / End</td>
+<td>到当前内容的起止位置</td>
+</tr>
+<tr>
+<td>审计区 Enter / Esc</td>
+<td>展开当前记录 / 返回列表</td>
+</tr>
+<tr>
+<td>任务区 Enter / Esc</td>
+<td>查看任务详情 / 返回任务列表；列表中 Esc 回到输入框</td>
+</tr>
+<tr>
+<td>成员区 Enter</td>
+<td>登记成员设为接收目标；普通调用展开其源码与结果审计</td>
+</tr>
+<tr>
+<td>队列区 Enter / Delete</td>
+<td>取回编辑 / 取消待交付项</td>
+</tr>
+<tr>
+<td>队列区 I / Esc</td>
+<td>只读查看详情 / 返回列表</td>
+</tr>
+<tr>
+<td>队列区 R</td>
+<td>对需复核项显式改为 Next caller 并编辑；对已交付项复制为新草稿</td>
+</tr>
+<tr>
+<td>Shift-↑</td>
+<td>打开待答问题；重复按键切换待答项</td>
+</tr>
+<tr>
+<td>问题回答 Enter / Esc</td>
+<td>保存答案 / 返回问题列表；列表中 Delete 跳过</td>
+</tr>
+<tr>
+<td>历史区 Enter</td>
+<td>恢复所选本地文本历史，不重放工具或要求</td>
+</tr>
+<tr>
+<td><code>/filter 文本</code></td>
+<td>筛选日志</td>
+</tr>
+<tr>
+<td>Ctrl-O</td>
+<td>在活动与源码审计间切换</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>关闭帮助或详情、返回输入；普通复制草稿可恢复暂存的原稿，不中断外部模型</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>打开或关闭完整帮助；页内方向键、滚轮、PgUp/PgDn、Home/End 滚动</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>在成员、对话、源码审计、队列、问题、历史、日志与任务之间切换</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>显示或隐藏侧栏</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>切换内置主题</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>从配置文件重载显示设置</td>
+</tr>
+<tr>
+<td>F7</td>
+<td>冻结画面并开启终端鼠标选择；再次 F7 或 Esc 返回</td>
+</tr>
+<tr>
+<td>Shift+拖选</td>
+<td>在支持的终端中直接进行原生文本选择</td>
+</tr>
+<tr>
+<td>F8</td>
+<td>保存当前显示设置</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>在 <code>all</code>、<code>commands</code>、<code>errors</code> 日志类别间切换</td>
+</tr>
+</tbody>
+</table></div>
+<p>日志回看使用有界屏幕缓存，命令输出通过任务游标或输出归档读取。</p>
+<h2 id="原子-ui-接口">原子 UI 接口<a class="heading-anchor" href="#原子-ui-接口" aria-label="链接到 原子 UI 接口">#</a></h2>
+<p>客户端提供以下原生工具，和文件、终端、任务接口一样由已授权的连接调用：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>参数</th>
+<th>结果与作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ssmcp.ui.get</code></td>
+<td><code>{}</code> 或 <code>{path, offset?, limit?}</code></td>
+<td>获取完整快照，或按 JSON Pointer 读取字段、分页读取数组与字符串</td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.set</code></td>
+<td><code>{patch, persist?}</code></td>
+<td>合并并验证配置改动，应用后返回当前状态；<code>persist</code> 默认 <code>false</code></td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.action</code></td>
+<td><code>{action}</code></td>
+<td>执行一个界面动作并返回当前状态</td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.filter</code></td>
+<td><code>{text?, level?}</code></td>
+<td>设置当前日志筛选；省略字段时保留该项</td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.queue</code></td>
+<td><code>{action, ...}</code></td>
+<td>读取或修改本机用户要求队列，见下方动作表</td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.message</code></td>
+<td><code>{text}</code></td>
+<td>向本机用户显示 Markdown 进度或结果，记录为 Agent 消息</td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.ask</code></td>
+<td><code>{question, title?, options?, idempotency_key?}</code></td>
+<td>非阻塞创建本地问题，返回问题 ID</td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.questions</code></td>
+<td><code>{id}</code> 或 <code>{state?, offset?, limit?}</code></td>
+<td>读取问题与已保存答案，不消费记录</td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.history</code></td>
+<td><code>{action:&quot;list&quot;/&quot;metadata&quot;/&quot;read&quot;/&quot;search&quot;, ...}</code></td>
+<td>只读浏览会话元数据、分页正文和关键词命中，见 <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/conversation-history.md">历史格式</a></td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.history_update</code></td>
+<td><code>{id, title?, summary?}</code></td>
+<td>更新一个已保存会话的描述，见 <a href="#%E6%9C%AC%E5%9C%B0%E5%8E%86%E5%8F%B2%E6%A0%87%E9%A2%98%E4%B8%8E%E6%91%98%E8%A6%81">本地历史标题与摘要</a></td>
+</tr>
+<tr>
+<td><code>ssmcp.ui.harness</code></td>
+<td><code>{action:&quot;tools&quot;, provider, offset?, limit?}</code> 或 <code>{action:&quot;inspect&quot;, provider, tool}</code></td>
+<td>只读发现实际后端目录与原始 schema，不调用模型</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>patch</code> 使用工具 schema 列出的可动态修改字段，<code>colors</code> 是其嵌套对象。例如 <code>{theme:&quot;nord&quot;, colors:{accent:&quot;#8ab4f8&quot;}}</code>。颜色设为 <code>&quot;&quot;</code> 恢复预设；<code>null</code> 不是有效配置值。将 <code>panels</code> 设为新的数组可以整体替换面板顺序。</p>
+<p>空参数 <code>get</code> 返回 <code>schema_version</code>、<code>config</code>、<code>config_path</code>、<code>display</code>、<code>activity</code>、<code>steering</code> 和 <code>questions</code>。内置界面活动时，<code>display</code> 提供内容区尺寸、事件状态、鼠标选择模式、审计记录、筛选与输入焦点；<code>activity</code> 提供经过脱敏的控制者、任务、进度、Git 和诊断摘要；<code>steering</code> 提供队列、连接支持状态和实际成员快照；<code>questions</code> 提供本地提问状态。界面应根据实际返回状态绘制，完整工具 schema 可通过发现接口读取。</p>
+<p>在 <code>code_mode</code> 中先定位设备和工具：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>const matches = clients.filter(c =&gt; c.name === &quot;dev&quot;);
+if (matches.length !== 1) throw new Error(&quot;Select a unique client ID from list&quot;);
+const client = matches[0];
+
+return await tools.search(client.id, {
+  query: &quot;ssmcp.ui&quot;,
+  include_schemas: true
+});
+</code></pre></div>
+<p>读取输入与浏览状态：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>const client = clients.find(c =&gt; c.name === &quot;dev&quot;);
+if (!client) throw new Error(&quot;dev is offline&quot;);
+
+return await call(client.id, &quot;ssmcp.ui.get&quot;, {
+  path: &quot;/display/conversation&quot;
+});
+</code></pre></div>
+<p>自定义界面应按实际需要轮询字段，例如 <code>/config</code>、<code>/display/panes</code>、<code>/display/filter</code> 或 <code>/steering/connected</code>。<code>path</code> 使用非空 JSON Pointer，返回 <code>{schema_version:1, path, value}</code>；键名中的 <code>~</code> 和 <code>/</code> 分别写成 <code>~0</code> 和 <code>~1</code>。这样读取输入状态时，不会顺带返回不断增长的源码审计记录。</p>
+<p>数组与字符串支持 <code>offset</code> 和 <code>limit</code>，返回 <code>total</code>，有后续内容时提供 <code>next_offset</code>。数组偏移按元素计，字符串偏移按 Unicode 码点计；默认从 0 开始，每页分别为 32 个元素或 1024 个码点，<code>limit</code> 范围为 1–4096。对象和标量不接受分页参数。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-12" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-12" tabindex="0"><code>const client = clients.find(c =&gt; c.name === &quot;dev&quot;);
+if (!client) throw new Error(&quot;dev is offline&quot;);
+
+return await call(client.id, &quot;ssmcp.ui.get&quot;, {
+  path: &quot;/steering/queue&quot;,
+  offset: 0,
+  limit: 4
+});
+</code></pre></div>
+<p>投影响应最多 8 KiB；超过时返回明确错误，要求缩小字段或页大小，不会静默截断对象或改成输出附件。单个队列项很大时，可以读取 <code>/steering/queue/0/text</code> 并对正文分页。<code>{}</code> 保留完整快照的兼容行为，长快照仍遵守通用输出归档规则；持续刷新界面优先使用 <code>path</code>，避免为了读取状态而调用会领取要求的工作类接口。</p>
+<p>应用颜色与布局，并保存到客户端选择的配置路径：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-13" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-13" tabindex="0"><code>const client = clients.find(c =&gt; c.name === &quot;dev&quot;);
+if (!client) throw new Error(&quot;dev is offline&quot;);
+
+return await call(client.id, &quot;ssmcp.ui.set&quot;, {
+  patch: {
+    theme: &quot;minimal&quot;,
+    layout: &quot;chat&quot;,
+    panels: [&quot;agents&quot;, &quot;queue&quot;, &quot;tasks&quot;, &quot;git&quot;],
+    colors: { background: &quot;#101214&quot;, accent: &quot;#8ab4f8&quot; }
+  },
+  persist: true
+});
+</code></pre></div>
+<p>可调用的动作：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th><code>action</code></th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>layout.next</code></td>
+<td>切换布局</td>
+</tr>
+<tr>
+<td><code>sidebar.toggle</code></td>
+<td>切换侧栏可见性</td>
+</tr>
+<tr>
+<td><code>theme.next</code></td>
+<td>切换内置主题</td>
+</tr>
+<tr>
+<td><code>reload</code></td>
+<td>读取并应用配置文件</td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td>保存当前设置</td>
+</tr>
+<tr>
+<td><code>logs.clear</code></td>
+<td>清空内置界面的日志屏幕与回看缓存</td>
+</tr>
+<tr>
+<td><code>audit.up</code> / <code>audit.down</code></td>
+<td>选择上一条或下一条记录；详情模式滚动源码</td>
+</tr>
+<tr>
+<td><code>audit.open</code> / <code>audit.back</code></td>
+<td>展开当前源码 / 返回列表</td>
+</tr>
+<tr>
+<td><code>logs.page-up</code> / <code>logs.page-down</code></td>
+<td>翻阅日志</td>
+</tr>
+<tr>
+<td><code>logs.end</code></td>
+<td>返回最新日志</td>
+</tr>
+</tbody>
+</table></div>
+<p>筛选示例：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-14" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-14" tabindex="0"><code>const matches = clients.filter(c =&gt; c.name === &quot;dev&quot;);
+if (matches.length !== 1) throw new Error(&quot;Select a unique client ID from list&quot;);
+
+return await call(matches[0].id, &quot;ssmcp.ui.filter&quot;, {
+  text: &quot;cargo&quot;,
+  level: &quot;commands&quot;
+});
+</code></pre></div>
+<p><code>text:&quot;&quot;</code> 清除文本条件，<code>level:&quot;all&quot;</code> 恢复全部类别。筛选与浏览动作需要内置界面处于活动状态；无界面时使用事件接口构建自己的浏览器。清空日志视图后，命令输出和审计归档继续遵守原有保留规则。UI 操作沿用当前客户端的访问授权，配置保存到当前设备选择的本地文件。</p>
+<h2 id="要求队列接口">要求队列接口<a class="heading-anchor" href="#要求队列接口" aria-label="链接到 要求队列接口">#</a></h2>
+<p><code>ssmcp.ui.queue</code> 提供独立的队列操作，自定义前端无需模拟按键：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th><code>action</code></th>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get</code></td>
+<td>无</td>
+<td>读取连接支持状态、成员、草稿和队列快照</td>
+</tr>
+<tr>
+<td><code>submit</code></td>
+<td><code>text</code>、可选 <code>target</code></td>
+<td>创建要求；目标默认 <code>&quot;next&quot;</code></td>
+</tr>
+<tr>
+<td><code>takeback</code></td>
+<td><code>id</code></td>
+<td>按当前版本请求取回尚未交付的要求，等待进入 <code>editing</code></td>
+</tr>
+<tr>
+<td><code>edit</code></td>
+<td><code>id</code>、<code>text</code>、可选 <code>target</code></td>
+<td>重新发布已取回的要求；省略目标时保留原目标</td>
+</tr>
+<tr>
+<td><code>cancel</code></td>
+<td><code>id</code></td>
+<td>请求取消尚未交付且可确认状态的要求</td>
+</tr>
+<tr>
+<td><code>retarget</code></td>
+<td><code>id</code>、可选 <code>target</code></td>
+<td>显式重新选择目标并进入编辑；返回实际可编辑的 <code>id</code>；省略目标时设为 <code>&quot;next&quot;</code>，不自动发布</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>target</code> 使用 <code>&quot;next&quot;</code> 或当前成员快照中的精确 <code>agent_id</code>。显式 <code>null</code> 无效，文本不能为空白，长度上限为 16 KiB UTF-8 字节。<code>id</code> 与成员 ID 必须使用实际返回值。</p>
+<p>提交示例：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-15" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-15" tabindex="0"><code>const matches = clients.filter(c =&gt; c.name === &quot;dev&quot;);
+if (matches.length !== 1) throw new Error(&quot;Select a unique client ID from list&quot;);
+
+return await call(matches[0].id, &quot;ssmcp.ui.queue&quot;, {
+  action: &quot;submit&quot;,
+  text: &quot;请先检查命令的真实退出状态，再继续下一步。&quot;,
+  target: &quot;next&quot;
+});
+</code></pre></div>
+<p>变更返回 <code>{requested:true, id, queue}</code>，表示本地已接收请求，不表示服务器已经确认交付或取回。随后读取快照，检查对应 ID 的 <code>status</code>、<code>revision</code> 和 <code>error</code>：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-16" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-16" tabindex="0"><code>return await call(&quot;CLIENT_ID_FROM_LIST&quot;, &quot;ssmcp.ui.queue&quot;, {
+  action: &quot;get&quot;
+});
+</code></pre></div>
+<p>编辑同一条要求时，先 <code>takeback</code>，确认状态已是 <code>editing</code>，再 <code>edit</code>。如果交付先完成，取回返回错误，记录成为只读。对 <code>uncertain</code> 或 <code>retarget-required</code> 记录，先复核旧请求，再 <code>retarget</code>，使用其返回的 <code>id</code> 调用 <code>edit</code>。跨房间的已发送请求使用新 ID，原未知记录继续保留；同房间重试和普通取回编辑保持原 ID。不确定旧要求是否已经交付时，不应由前端自动重试。需要再次发送已交付内容时，用 <code>submit</code> 创建新记录。</p>
+<p>快照包含 <code>connected</code>、<code>supported</code>、<code>room_id</code>、<code>agents</code>、<code>draft</code>、<code>queue</code>、<code>error</code> 与 <code>reloading</code>。每条要求带目标、版本、状态和可用的交付信息。接口可用于没有内置 TUI 的客户端；队列发布仍需要支持协议 v7 的活动连接。</p>
+<h2 id="活动颜色与图片">活动、颜色与图片<a class="heading-anchor" href="#活动颜色与图片" aria-label="链接到 活动、颜色与图片">#</a></h2>
+<p>对话页的工具摘要显示工具名或命令，以及实际运行状态。成功结束的调用显示 <code>done</code>；运行中、失败、取消或超时保留对应状态，失败时显示退出码或原因。摘要下方最多显示两行已脱敏结果，失败时优先展示错误内容；<code>Click expand</code> 提示可以点击展开，选中事件后按 Enter 也能切换。展开显示当前保留的正文，用户与 Agent 的消息保持展开。</p>
+<p>详细记录在 Logs 中查看，长输出继续通过任务游标或输出归档读取。命令、路径、代码与状态使用不同的语义颜色；关闭颜色或设置 <code>NO_COLOR</code> 时，仍可通过标签和文字区分内容。</p>
+<p>向上滚动后，输入区会显示下方还有多少行，以及 <code>Ctrl+End</code> 返回最新输出的提示。<code>Ctrl+End</code> 恢复跟随新输出，同时保留草稿和输入焦点。<code>/logs</code> 或鼠标右键打开 Logs，<code>/raw</code> 切换同一日志列。日志打开时使用滚轮和 PgUp/PgDn 回看，F9 切换日志类别；在共享输入区输入文字会留在 Logs 中继续编辑。按 Esc 或再次按鼠标右键返回原列及阅读位置，草稿与光标保持不变。日志筛选只影响日志视图；界面缓存与完整输出归档分别保留。</p>
+<p>重复的连接器登录警告按来源和服务端点合并并累计次数。不同连接器或新的错误继续分别显示。同一调用方的多次编排在侧栏归组；断线时未确认结束的调用显示为未知状态，连接状态和身份选择保持独立。</p>
+<p>原生图片需要终端同时确认 Kitty 图片协议和实际字符像素尺寸。确认后，图片按真实像素比例缩放与裁剪；不支持的终端继续使用有界预览或文字说明。窗口大小改变后会重新测量字符尺寸，避免沿用旧字体几何。PNG 粘贴按二进制容器解析，内部控制字节不会触发快捷键；图片未完整到达或缺少外层结束标记时，两秒输入空闲后恢复编辑，保留原有草稿。</p>
+<p>侧栏二维码只在完整图片能放下时以方形像素显示，并保留完整链接。网关的公开教程可用时进入中英文指南；旧网关未提供教程时回到门户首页。二维码生成和普通图片编码都不占用输入或显示状态锁。实现与真实终端验收见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/terminal-images.md">终端图片</a>。</p>
+<p>帧差分和边界计算使用固定源码子模块 <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/crates/ztuio/README.md">ztuio 核心</a>。该核心不分配堆内存，缓冲区和 Unicode 宽度策略由调用方提供；图片、输入、主题与会话状态继续由客户端管理。</p>
+<h2 id="构建自己的界面">构建自己的界面<a class="heading-anchor" href="#构建自己的界面" aria-label="链接到 构建自己的界面">#</a></h2>
+<p>前端可以分别消费状态、终端字节和执行事件，自行决定布局与颜色。下面的接口分工适合 TUI、桌面面板或 MCP 应用：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>前端需要的数据或动作</th>
+<th>接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客户端版本、能力与资源目录</td>
+<td><code>capabilities(clientId)</code>、<code>resources.forClient(clientId)</code></td>
+</tr>
+<tr>
+<td>配置、面板活动与当前显示状态</td>
+<td><code>ssmcp.ui.get</code></td>
+</tr>
+<tr>
+<td>调整和筛选内置界面</td>
+<td><code>ssmcp.ui.set</code>、<code>ssmcp.ui.action</code>、<code>ssmcp.ui.filter</code></td>
+</tr>
+<tr>
+<td>用户要求、草稿和交付队列</td>
+<td><code>ssmcp.ui.queue</code></td>
+</tr>
+<tr>
+<td>Agent 的本地消息、提问与答案</td>
+<td><code>ssmcp.ui.message</code>、<code>ssmcp.ui.ask</code>、<code>ssmcp.ui.questions</code></td>
+</tr>
+<tr>
+<td>本工作区已保存的会话文本</td>
+<td><code>ssmcp.ui.history</code></td>
+</tr>
+<tr>
+<td>实际后端工具目录与参数</td>
+<td><code>ssmcp.ui.harness</code></td>
+</tr>
+<tr>
+<td>成员通信与本次编排的接收身份</td>
+<td><code>collab.*</code>；<code>collab.bind</code> 只在 <code>code_mode</code> 中调用</td>
+</tr>
+<tr>
+<td>编排源码与原生调用生命周期</td>
+<td><code>ssmcp.audit.events</code></td>
+</tr>
+<tr>
+<td>列出、创建、选择和关闭交互终端</td>
+<td><code>terminal.list/open/select/close</code></td>
+</tr>
+<tr>
+<td>终端输出、键盘输入和尺寸</td>
+<td><code>terminal.read/write/resize</code></td>
+</tr>
+<tr>
+<td>启动任务、读取输出和取消</td>
+<td><code>exec.start/read/write/wait/cancel</code></td>
+</tr>
+<tr>
+<td>命令的开始、输出和结束事件</td>
+<td><code>exec.events</code></td>
+</tr>
+<tr>
+<td>长输出归档</td>
+<td><code>outputs.read</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>例如，前端一次轮询输入状态、布局和队列摘要：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-17" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-17" tabindex="0"><code>const matches = clients.filter(c =&gt; c.name === &quot;dev&quot;);
+if (matches.length !== 1) throw new Error(&quot;Select a unique client ID from list&quot;);
+const id = matches[0].id;
+
+const [conversation, panes, requests] = await Promise.all([
+  call(id, &quot;ssmcp.ui.get&quot;, { path: &quot;/display/conversation&quot; }),
+  call(id, &quot;ssmcp.ui.get&quot;, { path: &quot;/display/panes&quot; }),
+  call(id, &quot;ssmcp.ui.get&quot;, { path: &quot;/steering/queue&quot;, limit: 4 })
+]);
+return { conversation, panes, requests };
+</code></pre></div>
+<p>这些 UI 原子读取，以及能力清单和客户端资源查询，默认不领取 <code>Next caller</code> 要求。独立读取 <code>ssmcp.audit.events</code>、<code>exec.events</code>、终端或输出归档属于工作类调用，会使本次编排具备领取要求的资格；需要由 agent 采集这些事件时，应同时处理响应中的 <code>user_messages</code>，定向接收时先绑定身份。</p>
+<p>采集事件的调用分别保存每个流返回的 <code>next_cursor</code>，后续沿用各自游标，避免重复展示历史内容。检查 <code>truncated</code> 和归档状态，以便在缓存不足时读取归档。终端字节使用终端解析器绘制；命令 stdout/stderr 可按游标分开读取。调用结果还应检查原生 <code>isError</code>、任务 <code>running</code> 与 <code>exit_code</code>，让界面显示实际执行状态。</p>
+<p>无需内置终端界面时，在配置中设置 <code>dashboard = false</code>。使用 <code>ssmcp --log-format jsonl</code> 可以将脱敏后的事件交给自己的日志消费者。自定义前端仍通过现有客户端授权访问设备能力。</p>
+<p>相关说明：<a href="../../ssmcp/client-input/">输入、引用与本地沟通</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/conversation-history.md">会话历史</a> · <a href="../../ssmcp/commands/">命令与事件</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/terminal-control.md">多终端</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/backends.md">后端与代码模式</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/logging.md">日志与归档</a></p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/client-ui.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ssmcp/client-server/"><span class="pagination-label">上一页</span><span class="pagination-title">选择中转服务器与固定服务器公钥</span></a><a class="pagination-link next" href="../../ssmcp/commands/"><span class="pagination-label">下一页</span><span class="pagination-title">客户端命令与独立任务</span></a></nav>
+      <footer class="page-footer">
+        <span>ssmcp <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#先预览再连接">先预览，再连接</a></li><li class="toc-level-2"><a href="#输入要求与队列">输入要求与队列</a></li><li class="toc-level-2"><a href="#文件技能与长粘贴">文件、技能与长粘贴</a></li><li class="toc-level-2"><a href="#工具窗口与滚动">工具窗口与滚动</a></li><li class="toc-level-2"><a href="#水平画布与-agent">水平画布与 Agent</a></li><li class="toc-level-2"><a href="#日志列与任务列">日志列与任务列</a></li><li class="toc-level-2"><a href="#原生消息与收件人">原生消息与收件人</a></li><li class="toc-level-2"><a href="#本地命令">本地命令</a></li><li class="toc-level-2"><a href="#本地历史标题与摘要">本地历史标题与摘要</a></li><li class="toc-level-2"><a href="#登录与-diff-显示">登录与 diff 显示</a></li><li class="toc-level-2"><a href="#本地消息与回答问题">本地消息与回答问题</a></li><li class="toc-level-3"><a href="#明确决定是否结束">明确决定是否结束</a></li><li class="toc-level-2"><a href="#agent-面板与成员身份">Agent 面板与成员身份</a></li><li class="toc-level-2"><a href="#配置文件">配置文件</a></li><li class="toc-level-3"><a href="#侧栏-ascii-宠物">侧栏 ASCII 宠物</a></li><li class="toc-level-2"><a href="#布局与状态面板">布局与状态面板</a></li><li class="toc-level-2"><a href="#源码审计与运行状态">源码审计与运行状态</a></li><li class="toc-level-2"><a href="#日志滚动与筛选">日志滚动与筛选</a></li><li class="toc-level-2"><a href="#主题与颜色">主题与颜色</a></li><li class="toc-level-2"><a href="#键盘与鼠标操作">键盘与鼠标操作</a></li><li class="toc-level-2"><a href="#原子-ui-接口">原子 UI 接口</a></li><li class="toc-level-2"><a href="#要求队列接口">要求队列接口</a></li><li class="toc-level-2"><a href="#活动颜色与图片">活动、颜色与图片</a></li><li class="toc-level-2"><a href="#构建自己的界面">构建自己的界面</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

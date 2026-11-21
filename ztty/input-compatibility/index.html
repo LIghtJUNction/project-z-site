@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ztty · Input protocol compatibility · Project Z">
+  <meta property="og:description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta property="og:type" content="website">
+  <title>ztty · Input protocol compatibility · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ztty/input-compatibility/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ztty">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ztty" aria-label="ztty 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ztty</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/" aria-current="page">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/" aria-current="page">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ztty/">ztty 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ztty/">ztty</a><span aria-hidden="true">/</span><span>Input protocol compatibility</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#changes-and-protocol-evidence">Changes and protocol evidence</a></li><li class="toc-level-2"><a href="#reproducible-checks">Reproducible checks</a></li><li class="toc-level-2"><a href="#verified-linux-x11-integration">Verified Linux X11 integration</a></li><li class="toc-level-2"><a href="#remaining-integration-boundaries">Remaining integration boundaries</a></li><li class="toc-level-2"><a href="#numeric-keypad-routing-acceptance-2026-11-19">Numeric keypad routing acceptance (2026-11-19)</a></li><li class="toc-level-2"><a href="#clipboard-images-and-application-paste">Clipboard images and application paste</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="input-protocol-compatibility">Input protocol compatibility</h1>
+<p>The independent <code>zinput</code> codec remains <code>no_std</code>, uses <code>alloc</code>, forbids unsafe
+code and adds no dependencies. Unit tests verify generated bytes. The separate
+Linux X11 GUI gate below verifies delivery from X11 events through the frontend
+to an actual raw PTY, including terminal mode negotiation.</p>
+<h2 id="changes-and-protocol-evidence">Changes and protocol evidence<a class="heading-anchor" href="#changes-and-protocol-evidence" aria-label="链接到 Changes and protocol evidence">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Previous behavior</th>
+<th>Implemented behavior</th>
+<th>Primary reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl+Shift character shortcuts in legacy mode</td>
+<td>Shift collapsed into the Control mapping</td>
+<td>CSI-u preserves the Shift bit; Space retains its NUL exception</td>
+<td><a href="https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-text-keys">Kitty legacy text keys</a>, <a href="https://github.com/ghostty-org/ghostty/blob/main/src/input/key_encode.zig">Ghostty keyboard encoder</a></td>
+</tr>
+<tr>
+<td>Printable keypad keys in normal keypad mode with Kitty flags 1–7</td>
+<td>Digits and operators became private-use key events when disambiguation was enabled</td>
+<td>Digits, decimal and operators remain UTF-8 text; report-all retains keypad identity and associated text; Num Lock overrides application-keypad mode; with Num Lock off, application-keypad mode keeps functional events</td>
+<td><a href="https://sw.kovidgoyal.net/kitty/keyboard-protocol/#disambiguate-escape-codes">Kitty disambiguation</a>, <a href="https://sw.kovidgoyal.net/kitty/keyboard-protocol/#report-all-keys-as-escape-codes">report-all</a></td>
+</tr>
+<tr>
+<td>Ctrl+tilde</td>
+<td>Literal tilde</td>
+<td>Control byte 30</td>
+<td><a href="https://sw.kovidgoyal.net/kitty/keyboard-protocol/#legacy-ctrl-mapping-of-ascii-keys">Kitty legacy Control mapping</a></td>
+</tr>
+<tr>
+<td>X10 tracking mode 9</td>
+<td>No report</td>
+<td>Left, middle and right presses, with no modifier bits; no releases, motion or wheel events</td>
+<td><a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-Mouse-Tracking">XTerm mouse tracking</a>, <a href="https://github.com/ghostty-org/ghostty/blob/main/src/input/mouse_encode.zig">Ghostty mouse encoder</a></td>
+</tr>
+<tr>
+<td>Wheel buttons 4–7 and extra buttons 8–11</td>
+<td>Only vertical <code>Scroll</code> events could be encoded</td>
+<td>Distinct button codes, horizontal wheel presses, extra-button releases and dragging</td>
+<td><a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-Other-buttons">XTerm other buttons and extended coordinates</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Button numbers in <code>MouseEvent</code> are zero-based. Callers therefore pass <code>5</code> for
+X11 button 6 and <code>7</code> for X11 button 8. Buttons beyond X11 number 11 are rejected
+because their encoding overlaps modifier bits. Wheel releases and motion are
+suppressed. Tracking mode and coordinate encoding remain separate decisions:
+setting <code>sgr_mouse</code> does not turn tracking on.</p>
+<p>The audit also checked existing Kitty alternate-key fields, base-layout fields,
+modifier transition state, event subfields, F3 disambiguation and associated-text
+release suppression. Those mechanisms already existed. New regression vectors
+exercise them without asserting that all native input paths are verified.
+<a href="https://sw.kovidgoyal.net/kitty/keyboard-protocol/">Kitty protocol</a></p>
+<h2 id="reproducible-checks">Reproducible checks<a class="heading-anchor" href="#reproducible-checks" aria-label="链接到 Reproducible checks">#</a></h2>
+<p>Run from the repository root:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo test --locked -p zinput -j 1
+cargo clippy --locked -p zinput --all-targets -j 1 -- -D warnings
+cargo check --locked -p zinput --lib --target x86_64-unknown-none -j 1
+</code></pre></div>
+<p>The regression suite checks exact protocol vectors, all 32 Kitty flag
+combinations for Enter/Tab/Backspace release rules, all eleven xterm button
+numbers, invalid-button and coordinate overflow rejection, and append-only
+buffer reuse. Unknown or filtered mouse events must append no partial sequence.
+The bare-metal target check verifies that the library does not acquire a
+standard-library dependency.</p>
+<h2 id="verified-linux-x11-integration">Verified Linux X11 integration<a class="heading-anchor" href="#verified-linux-x11-integration" aria-label="链接到 Verified Linux X11 integration">#</a></h2>
+<p>The API keeps its existing public struct and enum shapes. Frontends can pass
+extra button numbers through the existing <code>MouseEvent::Press</code>, <code>Release</code> and
+<code>Motion</code> variants. <code>MouseEvent::Scroll</code> remains a vertical-wheel convenience.
+The Linux frontend now routes all four wheel directions and buttons 8–11,
+retains held extra-button state for dragging, and propagates terminal tracking
+mode 9. Its release routing follows the owner of the original press when Shift
+changes; local selection and configured actions cannot leak unmatched releases
+to the PTY.</p>
+<p>The real GUI regression in <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/tests/input_gui.py">tests/input_gui.py</a> passed
+all <strong>27 vectors</strong> against the immutable candidate with SHA-256
+<code>b3d8fdb31d71ef9d1ed602b35673bf4648362fa354078e191e35a2cd75ac4631</code>.
+The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/input-x11-2026-11-18.json">JSON evidence</a> records exact expected
+and received bytes, binary/test/source hashes, the source commit and changes,
+pointer mapping, verified Xvfb socket ownership, and completed process cleanup.
+The <a href="https://drive.google.com/file/d/10Lf0VuCzh5I2y54kYfwgHCcyFO7KXvpb/view">actual window capture（历史附件）</a> was visually checked:
+text is readable on the black background, overlays are closed, and no stray
+protocol bytes or drawing artifacts appear.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th style="text-align:right">Vectors</th>
+<th>Verified behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keyboard</td>
+<td style="text-align:right">3</td>
+<td>Ctrl+I remains Tab; Ctrl+Shift+I produces distinct CSI-u; unshifted tilde plus Control produces byte 30</td>
+</tr>
+<tr>
+<td>Wheels</td>
+<td style="text-align:right">4</td>
+<td>Buttons 4–7 produce distinct vertical/horizontal SGR press codes without release reports</td>
+</tr>
+<tr>
+<td>Extra buttons</td>
+<td style="text-align:right">8</td>
+<td>Buttons 8–11 retain identity on SGR press/release and mode-1002 drag motion</td>
+</tr>
+<tr>
+<td>Shift and press ownership</td>
+<td style="text-align:right">4</td>
+<td>Primary/extra releases retain their remote destination after Shift changes; a local Shift press produces no remote release</td>
+</tr>
+<tr>
+<td>Focus</td>
+<td style="text-align:right">1</td>
+<td>Mode-1004 focus-out/in replies acknowledge both real transitions; subsequent motion/release cannot reuse old held-button state</td>
+</tr>
+<tr>
+<td>X10 and mode changes</td>
+<td style="text-align:right">4</td>
+<td>Left-button presses ignore modifiers; wheel/extra/motion probes are filtered; SGR selection is independent; resetting mode 9 preserves subsequently selected mode 1000</td>
+</tr>
+<tr>
+<td>Configured actions</td>
+<td style="text-align:right">3</td>
+<td>The custom search key and primary/extra mouse palette bindings consume their input and overlay text</td>
+</tr>
+</tbody>
+</table></div>
+<p>The private Xvfb pointer exposes buttons <strong>1–10</strong>. Tested buttons 1, 3 and 4–10
+use XTEST, as do keyboard input and pointer movement. Button <strong>11</strong> uses
+explicitly labelled <code>XSendEvent</code> press/release events with XTEST pointer motion
+because this virtual device cannot generate button 11. This establishes X11
+event routing for button 11; physical-device delivery remains a separate gate.
+The Control+tilde case uses an unshifted tilde mapping on an unused keycode in
+the private server, leaving the user's keyboard configuration untouched.</p>
+<p>To reproduce, install Xvfb, Python Xlib and Pillow, build the Linux binary, then
+run from the repository root:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>python3 tests/input_gui.py \
+  --binary target/release/ztty \
+  --source-root &quot;$PWD&quot; \
+  --output artifacts/input-gui.json \
+  --screenshot artifacts/input-gui.png
+</code></pre></div>
+<p>The script uses an isolated runtime directory, broker socket and owned Xvfb.
+It compares real PTY bytes, waits for focus reports rather than a fixed delay,
+and fails if its owned processes remain after cleanup. The <code>--source-root</code> tree
+must contain <code>tools/isolated_xvfb.py</code> and match the supplied binary.</p>
+<h2 id="remaining-integration-boundaries">Remaining integration boundaries<a class="heading-anchor" href="#remaining-integration-boundaries" aria-label="链接到 Remaining integration boundaries">#</a></h2>
+<p>This gate covers the listed Linux X11 paths. Native Wayland, macOS and Windows
+event delivery, hardware buttons, IME/layout combinations, platform media keys,
+UTF-8 mouse coordinates, URXVT encoding and SGR pixel coordinates require their
+own acceptance tests. Complete Kitty/Ghostty equivalence is not established by
+these vectors. Ghostty separates mode-aware encoding from the frontend event
+source in its <a href="https://lib.ghostty.org/vt/guide-input.html">input guide</a>.</p>
+<h2 id="numeric-keypad-routing-acceptance-2026-11-19">Numeric keypad routing acceptance (2026-11-19)<a class="heading-anchor" href="#numeric-keypad-routing-acceptance-2026-11-19" aria-label="链接到 Numeric keypad routing acceptance (2026-11-19)">#</a></h2>
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/keypad-input-2026-11-19.zh-CN.md">keypad report</a> records 177 X11/PTY
+input vectors, 14 font scenarios and 4 keypad overlay scenarios. The GUI gate
+requires <code>setxkbmap</code> in addition to Xvfb, Python Xlib and Pillow. It configures
+<code>numpad:pc</code> and <code>kpdl:dot</code> only on its private server to exercise the actual
+Num Lock/Shift layer and physical decimal/Delete key. The codec retains
+explicit Kitty identity and event negotiation when Num Lock overrides DECKPAM.</p>
+<p><a id="clipboard-images-and-application-paste-unreleased-main-2026-11-20"></a></p>
+<h2 id="clipboard-images-and-application-paste">Clipboard images and application paste<a class="heading-anchor" href="#clipboard-images-and-application-paste" aria-label="链接到 Clipboard images and application paste">#</a></h2>
+<p>With the default bindings, <code>Ctrl+Shift+V</code> invokes ztty's <strong>text</strong> paste;
+<code>Ctrl+V</code> is delivered to the foreground application. In a locally running
+Codex CLI 0.170.0 composer, <code>Ctrl+V</code> requests an image attachment through
+Codex's own clipboard reader. Codex also recognizes a pasted path to an
+existing image file. These routes require the Codex process to have access
+to the corresponding clipboard or file; custom key bindings can change
+which application receives the shortcut.
+<a href="https://github.com/openai/codex/blob/29eb79e9866b3262a777fdf8195c1b9e63684c91/codex-rs/tui/src/chatwidget/clipboard.rs#L22-L80">Codex image shortcut</a>,
+<a href="https://github.com/openai/codex/blob/29eb79e9866b3262a777fdf8195c1b9e63684c91/codex-rs/tui/src/clipboard_paste.rs#L55-L154">clipboard reader</a>,
+<a href="https://github.com/openai/codex/blob/29eb79e9866b3262a777fdf8195c1b9e63684c91/codex-rs/tui/src/bottom_pane/chat_composer.rs#L1288-L1305">image-path handling</a>.</p>
+<p>The ztty 0.5.1 X11/XWayland frontend requests <code>TARGETS</code> before reading
+selection data. It accepts an advertised <code>UTF8_STRING</code>,
+<code>text/plain;charset=utf-8</code>, <code>text/plain</code>, or <code>STRING</code> target and requires the
+returned property type to match. UTF-8 text is validated after a complete
+transfer, including all <code>INCR</code> chunks; <code>STRING</code> retains its Latin-1 conversion.
+An image-only selection produces a visible no-text message without requesting
+image bytes or putting them into the PTY. OSC 52 reads use the same type checks.
+The native Wayland frontend already selects advertised text MIME types and
+now also validates the completed UTF-8 response.</p>
+<p>The reported desktop advertised only <code>image/png</code> through a types-only Wayland
+query. Its X11 selection could not be inspected because the desktop denied
+X11 authorization; no real image contents were read. This
+establishes the available Wayland format, not the exact behavior of that
+desktop's XWayland conversion. The isolated Xvfb regression uses synthetic
+owners, including an image-only owner that incorrectly returns PNG bytes for
+text requests. Its scope is terminal text-paste negotiation and PTY delivery;
+it does not establish successful image attachment for every desktop or
+application. See the <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/performance-reload-2026-11-20.md">performance and reload report</a>
+for the recorded results and their environment.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/input-compatibility.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztty">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztty/text-plugins-zh-cn/"><span class="pagination-label">上一页</span><span class="pagination-title">文本扩展：用 zplugin 处理选区并复制</span></a><a class="pagination-link next" href="../../ztty/daily-workflow/"><span class="pagination-label">下一页</span><span class="pagination-title">Daily workflow on Linux</span></a></nav>
+      <footer class="page-footer">
+        <span>ztty <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#changes-and-protocol-evidence">Changes and protocol evidence</a></li><li class="toc-level-2"><a href="#reproducible-checks">Reproducible checks</a></li><li class="toc-level-2"><a href="#verified-linux-x11-integration">Verified Linux X11 integration</a></li><li class="toc-level-2"><a href="#remaining-integration-boundaries">Remaining integration boundaries</a></li><li class="toc-level-2"><a href="#numeric-keypad-routing-acceptance-2026-11-19">Numeric keypad routing acceptance (2026-11-19)</a></li><li class="toc-level-2"><a href="#clipboard-images-and-application-paste">Clipboard images and application paste</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

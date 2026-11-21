@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在字节数据与十六进制文本之间转换，写入调用方缓冲区。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zhex · 概览 · Project Z">
+  <meta property="og:description" content="在字节数据与十六进制文本之间转换，写入调用方缓冲区。">
+  <meta property="og:type" content="website">
+  <title>zhex · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zhex/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zhex">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zhex" aria-label="zhex 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zhex</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zhex</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/" aria-current="page">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zhex 文档"><div class="nav-group"><p class="nav-label">zhex</p><ul><li><a class="nav-link" href="../zhex/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zhex/comparison-acceleration/">Second optimization pass: measured gains and limits</a></li><li><a class="nav-link" href="../zhex/comparison-performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zhex</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/" aria-current="page">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zhex 文档"><div class="nav-group"><p class="nav-label">zhex</p><ul><li><a class="nav-link" href="../zhex/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zhex/comparison-acceleration/">Second optimization pass: measured gains and limits</a></li><li><a class="nav-link" href="../zhex/comparison-performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zhex/">zhex 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zhex/">zhex</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#backends-and-verification">Backends and verification</a></li><li class="toc-level-2"><a href="#measured-performance">Measured performance</a></li><li class="toc-level-2"><a href="#publishing">Publishing</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zhex">zhex</h1><p class="project-intro">在字节数据与十六进制文本之间转换，写入调用方缓冲区。</p>
+<p>Hexadecimal encoding and decoding into caller-owned buffers. The crate always
+uses <code>#![no_std]</code> and only <code>core</code>: no allocation, dependencies, build script, or
+external runtime. Stable Rust 1.70 or newer.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>let mut text = [0; 8];
+assert_eq!(zhex::encode_lower(&amp;[0, 18, 171, 255], &amp;mut text), Ok(8));
+assert_eq!(&amp;text, b&quot;0012abff&quot;);
+
+let mut bytes = [0; 4];
+assert_eq!(zhex::decode(b&quot;0012aBfF&quot;, &amp;mut bytes), Ok(4));
+assert_eq!(bytes, [0, 18, 171, 255]);
+</code></pre></div>
+<p><code>encode_upper</code> produces uppercase text. <code>encoded_len</code> checks multiplication
+overflow; <code>decoded_len</code> rejects odd lengths. All functions return <code>Result</code>.
+An oversized output is accepted and its unused suffix stays unchanged.</p>
+<p>Decoding accepts only ASCII <code>0–9</code>, <code>a–f</code>, and <code>A–F</code>. Empty input succeeds.
+Error precedence is odd length, insufficient capacity, then the first invalid
+byte. <code>Error::InvalidByte { index, byte }</code> uses the original input byte offset.
+Encoding checks overflow before capacity. Length and capacity errors leave all
+output unchanged. An invalid byte may leave an unspecified output prefix
+modified; decoding checks characters as it goes, without a full prescan.</p>
+<h2 id="backends-and-verification">Backends and verification<a class="heading-anchor" href="#backends-and-verification" aria-label="链接到 Backends and verification">#</a></h2>
+<p>On x86/x86-64, encoding from 16 bytes and decoding from 32 text bytes use
+AVX2 after a cached <code>core::arch</code> CPUID/XGETBV
+check verifies CPU support and OS vector-state handling. A build explicitly
+targeting AVX2 omits that probe and requires that CPU/OS feature set to run.
+When the target guarantees SSE2, decoding from 16 text bytes uses SSE2 if the
+AVX2 path is not selected. AArch64 uses NEON when the target guarantees it.
+Smaller inputs, other targets, SGX, and unsupported CPUs use scalar code.
+<code>--features force-scalar</code> disables handwritten SIMD;
+the compiler may still vectorize ordinary Rust. No slice padding is required.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>cargo test --locked
+cargo test --locked --release --features force-scalar
+</code></pre></div>
+<p>CI runs stable and MSRV tests on x86-64 and AArch64 hosts, forced supported
+SIMD, Miri on scalar code, bare-metal compilation, and package dependency checks.
+Shared-runner benchmark timings are smoke tests without performance thresholds.</p>
+<p>The standalone <a href="https://github.com/LIghtJUNction/zhex/tree/main/comparison">comparison project</a> is excluded from
+the crate's workspace and published package. It pins checked, nonallocating
+competitor APIs and records every size, offset, failed goal, and raw sample.
+Its third-party dependencies never enter zhex's dependency tree.</p>
+<h2 id="measured-performance">Measured performance<a class="heading-anchor" href="#measured-performance" aria-label="链接到 Measured performance">#</a></h2>
+<p>On an Intel Xeon Platinum 8573C cloud host, Linux 6.18.57 and Rust 1.99.1,
+the second optimization pass measured the following geometric mean speed ratios.
+A value above 1 means zhex is faster; each operation uses preallocated buffers
+and checked decoding. Generic and <code>target-cpu=native</code> builds are separate.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Comparison</th>
+<th style="text-align:right">Generic</th>
+<th style="text-align:right">Native</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Previous zhex / current, 0–64-byte payloads, lowercase encoding</td>
+<td style="text-align:right">1.278×</td>
+<td style="text-align:right">1.386×</td>
+</tr>
+<tr>
+<td>Previous zhex / current, 0–64-byte payloads, uppercase encoding</td>
+<td style="text-align:right">1.301×</td>
+<td style="text-align:right">1.360×</td>
+</tr>
+<tr>
+<td>Previous zhex / current, 0–64-byte payloads, decoding</td>
+<td style="text-align:right">1.305×</td>
+<td style="text-align:right">1.386×</td>
+</tr>
+<tr>
+<td>Previous zhex / current, fixed 96 primary cases</td>
+<td style="text-align:right">1.012×</td>
+<td style="text-align:right">1.055×</td>
+</tr>
+<tr>
+<td>Fastest external baseline / current, same 96 cases</td>
+<td style="text-align:right">0.783×</td>
+<td style="text-align:right">0.794×</td>
+</tr>
+</tbody>
+</table></div>
+<p>The <strong>2× target was not met</strong>; no primary case reached 2× the fastest competitor.
+Primary cases span 16 bytes–8 MiB and four alignments. Compared with previous
+zhex, 39/96 generic and 40/96 native primary cases regressed, including some
+large encodes. These shared-host, hot-buffer timings are exploratory.
+<a href="../zhex/comparison-acceleration/">The acceleration report</a>
+records latency, payload throughput, scalar/SIMD and dispatch ablations,
+rejected experiments, every regression, raw samples and reproduction metadata.</p>
+<h2 id="publishing">Publishing<a class="heading-anchor" href="#publishing" aria-label="链接到 Publishing">#</a></h2>
+<p>Run <strong>Bump and release</strong> on the default branch with <code>patch</code>, <code>minor</code>, <code>major</code>,
+or <code>custom</code> plus an explicit <code>X.Y.Z</code>. <code>current</code> publishes the manifest's version
+only if it has no release tag yet. For example:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>gh workflow run bump.yml -R LIghtJUNction/zhex -f bump=patch
+</code></pre></div>
+<p>The workflow updates both manifests and lockfiles, commits the change, creates
+an immutable <code>vX.Y.Z</code> tag, and runs the complete release checks on that exact
+commit. Pushing a version tag directly or selecting an existing tag in the
+<strong>Release</strong> workflow is also supported. The tag must match <code>Cargo.toml</code>.</p>
+<p>Only the actual publish step receives the repository's <code>CARGO_REGISTRY_TOKEN</code>
+secret; a missing secret fails explicitly. Publication follows package and
+dry-run checks. A GitHub Release is created only after crates.io publication
+succeeds. Published versions cannot be overwritten, and active releases are
+serialized without cancellation.</p>
+<p>MIT licensed.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zhex">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../zhex/comparison-acceleration/"><span class="pagination-label">下一页</span><span class="pagination-title">Second optimization pass: measured gains and limits</span></a></nav>
+      <footer class="page-footer">
+        <span>zhex <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#backends-and-verification">Backends and verification</a></li><li class="toc-level-2"><a href="#measured-performance">Measured performance</a></li><li class="toc-level-2"><a href="#publishing">Publishing</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

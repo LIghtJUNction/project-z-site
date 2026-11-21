@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 zclap 的 Click 参数语义与 Python 预览绑定。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zclick · Measured performance: 0.1.1a1 · Project Z">
+  <meta property="og:description" content="基于 zclap 的 Click 参数语义与 Python 预览绑定。">
+  <meta property="og:type" content="website">
+  <title>zclick · Measured performance: 0.1.1a1 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zclick/performance/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zclick">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zclick" aria-label="zclick 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zclick</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zclick</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/" aria-current="page">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zclick 文档"><div class="nav-group"><p class="nav-label">zclick</p><ul><li><a class="nav-link" href="../../zclick/">概览</a></li><li><a class="nav-link" href="../../zclick/crates-zclick-core-readme/">zclick-core</a></li><li><a class="nav-link" href="../../zclick/architecture/">Architecture and dependency boundaries</a></li><li><a class="nav-link" href="../../zclick/compatibility/">Click compatibility</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a2-zh-cn/">zclick 0.1.1a2 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a3-zh-cn/">zclick 0.1.1a3 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-zh-cn/">zclick 0.1.1a1 交付记录</a></li><li><a class="nav-link" href="../../zclick/development/">Build, verify and release</a></li><li><a class="nav-link" href="../../zclick/extensions/">第三方 Click 扩展的迁移边界</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a2/">Measured performance: 0.1.1a2</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a3/">Measured performance: 0.1.1a3</a></li><li><a class="nav-link" href="../../zclick/performance/" aria-current="page">Measured performance: 0.1.1a1</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zclick</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/" aria-current="page">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zclick 文档"><div class="nav-group"><p class="nav-label">zclick</p><ul><li><a class="nav-link" href="../../zclick/">概览</a></li><li><a class="nav-link" href="../../zclick/crates-zclick-core-readme/">zclick-core</a></li><li><a class="nav-link" href="../../zclick/architecture/">Architecture and dependency boundaries</a></li><li><a class="nav-link" href="../../zclick/compatibility/">Click compatibility</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a2-zh-cn/">zclick 0.1.1a2 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a3-zh-cn/">zclick 0.1.1a3 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-zh-cn/">zclick 0.1.1a1 交付记录</a></li><li><a class="nav-link" href="../../zclick/development/">Build, verify and release</a></li><li><a class="nav-link" href="../../zclick/extensions/">第三方 Click 扩展的迁移边界</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a2/">Measured performance: 0.1.1a2</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a3/">Measured performance: 0.1.1a3</a></li><li><a class="nav-link" href="../../zclick/performance/" aria-current="page">Measured performance: 0.1.1a1</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zclick/">zclick 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zclick/">zclick</a><span aria-hidden="true">/</span><span>Measured performance: 0.1.1a1</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#source-and-environment">Source and environment</a></li><li class="toc-level-2"><a href="#warm-python-api-measurements">Warm Python API measurements</a></li><li class="toc-level-2"><a href="#whole-fresh-process-commands">Whole fresh-process commands</a></li><li class="toc-level-2"><a href="#import-only-startup">Import-only startup</a></li><li class="toc-level-2"><a href="#memory-observations">Memory observations</a></li><li class="toc-level-2"><a href="#reproduce-and-interpret-the-historical-run">Reproduce and interpret the historical run</a></li><li class="toc-level-2"><a href="#earlier-release-ci-comparison-a8bc735">Earlier release CI comparison (a8bc735)</a></li><li class="toc-level-2"><a href="#final-release-commit-3281e18">Final release commit (3281e18)</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="measured-performance-011a1">Measured performance: 0.1.1a1</h1>
+<p>This page preserves the 0.1.1a1 measurements and their original protocol.
+The <a href="../../zclick/performance-0-1-1a2/">0.1.1a2 performance document</a> describes the current
+implementation changes and the separate three-way measurement protocol.</p>
+<p>For the final measured <code>0.1.1a1</code> snapshot, the 1,000-option <code>Command.main</code> workload was <strong>1.706× faster</strong> than Click 8.5.1 and the Unicode/ANSI wrapping workload was <strong>7.344× faster</strong>. Small warm invocations and reused-parser calls were slower. A fresh process that imported the package, constructed and invoked a 1,000-option command was <strong>1.183× faster</strong> in this run. These results are workload-specific and do not establish a universal speedup.</p>
+<h2 id="source-and-environment">Source and environment<a class="heading-anchor" href="#source-and-environment" aria-label="链接到 Source and environment">#</a></h2>
+<ul>
+<li>Date: 2026-11-11.</li>
+<li>zclick: <code>0.1.1a1</code> at <a href="https://github.com/LIghtJUNction/zclick/commit/86bab2a8de3092155a912a4028382aba8188e6db"><code>86bab2a8de3092155a912a4028382aba8188e6db</code></a>.</li>
+<li>Reference: Click <code>8.5.1</code>; <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/target.json">target.json</a> pins its source, release and documentation.</li>
+<li>Interpreter: <code>3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]</code>.</li>
+<li>Host: <code>Linux-6.18.57-x86_64-with-glibc2.41</code>; 9 logical CPUs reported to the process.</li>
+<li>Build: release extension, Rust 1.99.1 / Edition 2024, zclap 0.1.4 and PyO3 0.30.1.</li>
+<li>Samples: 9 per workload. Warm measurements use 1,000 base iterations, scaled to 100 for 100 parameters and 10 for 1,000 parameters; help uses one fifth as many, with a minimum of 5. Cold measurements use 9 separate fresh interpreters for each package, size and action.</li>
+<li><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/results/cpython312-linux-86bab2a.json">Final raw measurements</a> retain every sample, runtime/native-file hashes, Cargo.lock hash, Python allocation observations and process peak RSS.</li>
+<li><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/results/cpython312-linux-8f782c5.json">Earlier 0.1.0 development measurements</a> are retained as history. They are not substituted for the final measurements when an earlier number was more favorable.</li>
+</ul>
+<h2 id="warm-python-api-measurements">Warm Python API measurements<a class="heading-anchor" href="#warm-python-api-measurements" aria-label="链接到 Warm Python API measurements">#</a></h2>
+<p>Values are median microseconds per call. <strong>Ratio = Click time / zclick time</strong>; above 1 means lower zclick latency. CPU ratios use process CPU time. Wall time also includes scheduling delays.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Workload</th>
+<th style="text-align:right">Click wall µs</th>
+<th style="text-align:right">zclick wall µs</th>
+<th style="text-align:right">Wall ratio</th>
+<th style="text-align:right">CPU ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construct command (1 option)</td>
+<td style="text-align:right">3.410</td>
+<td style="text-align:right">3.981</td>
+<td style="text-align:right">0.857×</td>
+<td style="text-align:right">0.856×</td>
+</tr>
+<tr>
+<td>Reuse parser (1 option)</td>
+<td style="text-align:right">1.558</td>
+<td style="text-align:right">3.867</td>
+<td style="text-align:right">0.403×</td>
+<td style="text-align:right">0.403×</td>
+</tr>
+<tr>
+<td>Command.main (1 option)</td>
+<td style="text-align:right">23.453</td>
+<td style="text-align:right">33.813</td>
+<td style="text-align:right">0.694×</td>
+<td style="text-align:right">0.694×</td>
+</tr>
+<tr>
+<td>Render help (1 option)</td>
+<td style="text-align:right">53.449</td>
+<td style="text-align:right">35.509</td>
+<td style="text-align:right">1.505×</td>
+<td style="text-align:right">1.504×</td>
+</tr>
+<tr>
+<td>Construct command (10 options)</td>
+<td style="text-align:right">29.481</td>
+<td style="text-align:right">38.888</td>
+<td style="text-align:right">0.758×</td>
+<td style="text-align:right">0.758×</td>
+</tr>
+<tr>
+<td>Reuse parser (10 options)</td>
+<td style="text-align:right">6.389</td>
+<td style="text-align:right">17.415</td>
+<td style="text-align:right">0.367×</td>
+<td style="text-align:right">0.367×</td>
+</tr>
+<tr>
+<td>Command.main (10 options)</td>
+<td style="text-align:right">70.954</td>
+<td style="text-align:right">86.287</td>
+<td style="text-align:right">0.822×</td>
+<td style="text-align:right">0.822×</td>
+</tr>
+<tr>
+<td>Render help (10 options)</td>
+<td style="text-align:right">103.318</td>
+<td style="text-align:right">74.396</td>
+<td style="text-align:right">1.389×</td>
+<td style="text-align:right">1.389×</td>
+</tr>
+<tr>
+<td>Construct command (100 options)</td>
+<td style="text-align:right">292.765</td>
+<td style="text-align:right">367.733</td>
+<td style="text-align:right">0.796×</td>
+<td style="text-align:right">0.796×</td>
+</tr>
+<tr>
+<td>Reuse parser (100 options)</td>
+<td style="text-align:right">60.797</td>
+<td style="text-align:right">167.109</td>
+<td style="text-align:right">0.364×</td>
+<td style="text-align:right">0.364×</td>
+</tr>
+<tr>
+<td>Command.main (100 options)</td>
+<td style="text-align:right">606.239</td>
+<td style="text-align:right">528.201</td>
+<td style="text-align:right">1.148×</td>
+<td style="text-align:right">1.148×</td>
+</tr>
+<tr>
+<td>Render help (100 options)</td>
+<td style="text-align:right">525.247</td>
+<td style="text-align:right">452.839</td>
+<td style="text-align:right">1.160×</td>
+<td style="text-align:right">1.160×</td>
+</tr>
+<tr>
+<td>Construct command (1000 options)</td>
+<td style="text-align:right">4781.334</td>
+<td style="text-align:right">3478.570</td>
+<td style="text-align:right">1.375×</td>
+<td style="text-align:right">1.374×</td>
+</tr>
+<tr>
+<td>Reuse parser (1000 options)</td>
+<td style="text-align:right">1000.769</td>
+<td style="text-align:right">1516.540</td>
+<td style="text-align:right">0.660×</td>
+<td style="text-align:right">0.660×</td>
+</tr>
+<tr>
+<td>Command.main (1000 options)</td>
+<td style="text-align:right">11176.295</td>
+<td style="text-align:right">6552.579</td>
+<td style="text-align:right">1.706×</td>
+<td style="text-align:right">1.707×</td>
+</tr>
+<tr>
+<td>Render help (1000 options)</td>
+<td style="text-align:right">4899.930</td>
+<td style="text-align:right">4896.697</td>
+<td style="text-align:right">1.001×</td>
+<td style="text-align:right">1.001×</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">51.620</td>
+<td style="text-align:right">53.222</td>
+<td style="text-align:right">0.970×</td>
+<td style="text-align:right">0.969×</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrap</td>
+<td style="text-align:right">471.700</td>
+<td style="text-align:right">64.231</td>
+<td style="text-align:right">7.344×</td>
+<td style="text-align:right">7.272×</td>
+</tr>
+</tbody>
+</table></div>
+<p>The 1,000-option warm invocation took 11.176 ms with Click and 6.553 ms with zclick, about 41.4% less elapsed time per call. It reuses an already-defined <code>Command</code>: the timed work includes a fresh invocation context, parser-plan setup, argument processing, integer conversion and the command callback. <code>Command</code> and <code>Option</code> construction, process startup and terminal I/O are outside this warm invocation measurement.</p>
+<p>The reused-parser result is a material limitation. That workload constructs its parser before timing and measures <code>parse_args</code> plus a fresh argument-list copy. Inspection of that 0.1.1a1 runtime shows that it reconstructs the native definition while preserving mutable option objects and original argument identities. The timings do not separate schema construction, zclap work, allocations and binding overhead from each other. A future optimization must retain those mutation and identity guarantees.</p>
+<h2 id="whole-fresh-process-commands">Whole fresh-process commands<a class="heading-anchor" href="#whole-fresh-process-commands" aria-label="链接到 Whole fresh-process commands">#</a></h2>
+<p>Each sample creates a new interpreter, imports the selected package, constructs all <code>Option</code> and <code>Command</code> objects, then invokes the command or renders <code>--help</code>. The interval ends after process termination and includes output capture. These measurements answer a different question from repeated calls in an already-running Python process.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Fresh process action</th>
+<th style="text-align:right">Click median ms</th>
+<th style="text-align:right">zclick median ms</th>
+<th style="text-align:right">Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invoke command (1 option)</td>
+<td style="text-align:right">44.227</td>
+<td style="text-align:right">41.522</td>
+<td style="text-align:right">1.065×</td>
+</tr>
+<tr>
+<td>Render help (1 option)</td>
+<td style="text-align:right">44.435</td>
+<td style="text-align:right">41.370</td>
+<td style="text-align:right">1.074×</td>
+</tr>
+<tr>
+<td>Invoke command (10 options)</td>
+<td style="text-align:right">39.195</td>
+<td style="text-align:right">40.491</td>
+<td style="text-align:right">0.968×</td>
+</tr>
+<tr>
+<td>Render help (10 options)</td>
+<td style="text-align:right">47.201</td>
+<td style="text-align:right">41.713</td>
+<td style="text-align:right">1.132×</td>
+</tr>
+<tr>
+<td>Invoke command (100 options)</td>
+<td style="text-align:right">44.755</td>
+<td style="text-align:right">40.799</td>
+<td style="text-align:right">1.097×</td>
+</tr>
+<tr>
+<td>Render help (100 options)</td>
+<td style="text-align:right">46.028</td>
+<td style="text-align:right">41.057</td>
+<td style="text-align:right">1.121×</td>
+</tr>
+<tr>
+<td>Invoke command (1000 options)</td>
+<td style="text-align:right">62.046</td>
+<td style="text-align:right">52.450</td>
+<td style="text-align:right">1.183×</td>
+</tr>
+<tr>
+<td>Render help (1000 options)</td>
+<td style="text-align:right">74.022</td>
+<td style="text-align:right">57.461</td>
+<td style="text-align:right">1.288×</td>
+</tr>
+</tbody>
+</table></div>
+<p>The roughly 3–10% differences in small fresh-process cases should not be treated as significant or guaranteed improvements. Process scheduling, CPU frequency and filesystem caches can affect measurements of this size. Full sample ranges are preserved in the raw JSON. A CLI with expensive user callbacks or filesystem work can show a different ratio.</p>
+<h2 id="import-only-startup">Import-only startup<a class="heading-anchor" href="#import-only-startup" aria-label="链接到 Import-only startup">#</a></h2>
+<p>These samples start a fresh interpreter and import the package without constructing a command. Only <code>time</code> is imported before the inner import interval. The whole-process interval includes interpreter startup and printing the timing. Operating-system filesystem caches are not flushed.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Boundary</th>
+<th style="text-align:right">Click median ms</th>
+<th style="text-align:right">zclick median ms</th>
+<th style="text-align:right">Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import package</td>
+<td style="text-align:right">21.352</td>
+<td style="text-align:right">26.043</td>
+<td style="text-align:right">0.820×</td>
+</tr>
+<tr>
+<td>Fresh process + import</td>
+<td style="text-align:right">40.251</td>
+<td style="text-align:right">46.862</td>
+<td style="text-align:right">0.859×</td>
+</tr>
+</tbody>
+</table></div>
+<p>Import-only timing does not establish the performance of an actual command. Use the fresh-process command results for that boundary.</p>
+<h2 id="memory-observations">Memory observations<a class="heading-anchor" href="#memory-observations" aria-label="链接到 Memory observations">#</a></h2>
+<p><code>tracemalloc</code> observes Python-managed allocations during one call after a collection; returned objects remain alive through the sample. It does <strong>not</strong> count every Rust allocation. RSS is a separate process high-water mark across the worker's complete workload set, including the interpreter and benchmark driver.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Workload</th>
+<th style="text-align:right">Click Python peak bytes</th>
+<th style="text-align:right">zclick Python peak bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construct command (1 option)</td>
+<td style="text-align:right">3,290</td>
+<td style="text-align:right">3,458</td>
+</tr>
+<tr>
+<td>Reuse parser (1 option)</td>
+<td style="text-align:right">2,488</td>
+<td style="text-align:right">1,330</td>
+</tr>
+<tr>
+<td>Command.main (1 option)</td>
+<td style="text-align:right">7,274</td>
+<td style="text-align:right">7,160</td>
+</tr>
+<tr>
+<td>Render help (1 option)</td>
+<td style="text-align:right">5,288</td>
+<td style="text-align:right">2,996</td>
+</tr>
+<tr>
+<td>Construct command (10 options)</td>
+<td style="text-align:right">20,252</td>
+<td style="text-align:right">20,420</td>
+</tr>
+<tr>
+<td>Reuse parser (10 options)</td>
+<td style="text-align:right">2,792</td>
+<td style="text-align:right">2,522</td>
+</tr>
+<tr>
+<td>Command.main (10 options)</td>
+<td style="text-align:right">14,857</td>
+<td style="text-align:right">14,891</td>
+</tr>
+<tr>
+<td>Render help (10 options)</td>
+<td style="text-align:right">7,102</td>
+<td style="text-align:right">4,850</td>
+</tr>
+<tr>
+<td>Construct command (100 options)</td>
+<td style="text-align:right">189,828</td>
+<td style="text-align:right">189,996</td>
+</tr>
+<tr>
+<td>Reuse parser (100 options)</td>
+<td style="text-align:right">6,584</td>
+<td style="text-align:right">16,362</td>
+</tr>
+<tr>
+<td>Command.main (100 options)</td>
+<td style="text-align:right">93,387</td>
+<td style="text-align:right">98,625</td>
+</tr>
+<tr>
+<td>Render help (100 options)</td>
+<td style="text-align:right">25,999</td>
+<td style="text-align:right">23,729</td>
+</tr>
+<tr>
+<td>Construct command (1000 options)</td>
+<td style="text-align:right">1,887,972</td>
+<td style="text-align:right">1,888,140</td>
+</tr>
+<tr>
+<td>Reuse parser (1000 options)</td>
+<td style="text-align:right">54,560</td>
+<td style="text-align:right">163,850</td>
+</tr>
+<tr>
+<td>Command.main (1000 options)</td>
+<td style="text-align:right">780,943</td>
+<td style="text-align:right">919,413</td>
+</tr>
+<tr>
+<td>Render help (1000 options)</td>
+<td style="text-align:right">215,608</td>
+<td style="text-align:right">213,339</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">9,810</td>
+<td style="text-align:right">9,951</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrap</td>
+<td style="text-align:right">42,128</td>
+<td style="text-align:right">8,126</td>
+</tr>
+</tbody>
+</table></div>
+<p>Worker peak RSS was 22.78 MiB for Click and 23.82 MiB for zclick. This is not an isolated measurement of native parser allocations. Text wrapping uses fewer observed Python bytes, while large option invocation uses more. The extension allocates Python and Rust objects; no zero-allocation claim is made.</p>
+<h2 id="reproduce-and-interpret-the-historical-run">Reproduce and interpret the historical run<a class="heading-anchor" href="#reproduce-and-interpret-the-historical-run" aria-label="链接到 Reproduce and interpret the historical run">#</a></h2>
+<p>These commands use the driver from the pinned 0.1.1a1 source snapshot above.
+Use that checkout and its own development environment to reproduce this method.
+The current driver uses the <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/README.md">schema-2 protocol</a>, including
+three implementations and at least twelve balanced rounds.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>maturin develop --release --locked
+python benchmarks/compare.py --iterations 1000 --repeats 9 --output reports/benchmarks.json
+</code></pre></div>
+<p>The driver verifies outputs before warm timing and validates every fresh-process result. The two packages run in separate worker processes. Normal interpreter GC remains enabled. Command construction uses the public <code>Option</code> and <code>Command</code> constructors; each long option receives an integer value, and the callback sums the converted values. Dynamic defaults, prompts, user business logic and application filesystem work are outside these workloads.</p>
+<p>Packages run in a fixed order: Click, then zclick. The shared host is not isolated with CPU affinity or frequency locking, and package order is not randomized or interleaved. A quiet interval was used, but other host activity remains possible. Nine samples show variability; they are not a statistical guarantee. Small differences and differences between the earlier and final snapshot can reflect both code and measurement conditions. Release CI independently runs this driver on its immutable commit and publishes its raw JSON.</p>
+<h2 id="earlier-release-ci-comparison-a8bc735">Earlier release CI comparison (a8bc735)<a class="heading-anchor" href="#earlier-release-ci-comparison-a8bc735" aria-label="链接到 Earlier release CI comparison (a8bc735)">#</a></h2>
+<p>The release pipeline measured commit <a href="https://github.com/LIghtJUNction/zclick/commit/a8bc735a3df168b62b2e11d99b34e7ab40530ba7"><code>a8bc735a3df168b62b2e11d99b34e7ab40530ba7</code></a> on a separate runner. Its runtime code is the same as the locally measured <code>86bab2a</code> snapshot; the release-trigger commit adds documentation and release-note generation. The host and interpreter differ, so the two sets remain separate measurements.</p>
+<ul>
+<li>CI interpreter: <code>3.14.10 (main, Oct 26 2026, 14:17:03) [GCC 15.2.0]</code>.</li>
+<li>CI host: <code>Linux-7.0.0-1019-azure-x86_64-with-glibc2.43</code>; 4 logical CPUs reported.</li>
+<li><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/results/cpython314-linux-a8bc735.json">CI raw JSON</a> and <a href="https://github.com/LIghtJUNction/zclick/actions/runs/43029689108">release workflow</a> retain source hashes, all repeated samples and the exact environment.</li>
+</ul>
+<p>Ratios below are Click median / zclick median. All listed boundaries use the same driver and parameters on both hosts.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Boundary</th>
+<th style="text-align:right">Local CPython 3.12 ratio</th>
+<th style="text-align:right">CI CPython 3.14 ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warm Command.main / 1 option</td>
+<td style="text-align:right">0.694×</td>
+<td style="text-align:right">0.939×</td>
+</tr>
+<tr>
+<td>Warm Command.main / 10 options</td>
+<td style="text-align:right">0.822×</td>
+<td style="text-align:right">1.006×</td>
+</tr>
+<tr>
+<td>Warm Command.main / 100 options</td>
+<td style="text-align:right">1.148×</td>
+<td style="text-align:right">1.185×</td>
+</tr>
+<tr>
+<td>Warm Command.main / 1,000 options</td>
+<td style="text-align:right">1.706×</td>
+<td style="text-align:right">2.013×</td>
+</tr>
+<tr>
+<td>Reused parser / 1 option</td>
+<td style="text-align:right">0.403×</td>
+<td style="text-align:right">0.464×</td>
+</tr>
+<tr>
+<td>Reused parser / 1,000 options</td>
+<td style="text-align:right">0.660×</td>
+<td style="text-align:right">0.425×</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">0.970×</td>
+<td style="text-align:right">0.886×</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrapping</td>
+<td style="text-align:right">7.344×</td>
+<td style="text-align:right">9.038×</td>
+</tr>
+<tr>
+<td>Fresh-process command / 1 option</td>
+<td style="text-align:right">1.065×</td>
+<td style="text-align:right">0.952×</td>
+</tr>
+<tr>
+<td>Fresh-process command / 10 options</td>
+<td style="text-align:right">0.968×</td>
+<td style="text-align:right">0.945×</td>
+</tr>
+<tr>
+<td>Fresh-process command / 100 options</td>
+<td style="text-align:right">1.097×</td>
+<td style="text-align:right">0.961×</td>
+</tr>
+<tr>
+<td>Fresh-process command / 1,000 options</td>
+<td style="text-align:right">1.183×</td>
+<td style="text-align:right">1.067×</td>
+</tr>
+<tr>
+<td>Fresh-process help / 1,000 options</td>
+<td style="text-align:right">1.288×</td>
+<td style="text-align:right">0.953×</td>
+</tr>
+</tbody>
+</table></div>
+<p>The larger warm invocation and text-wrapping gains appear on both hosts. The reused parser remains slower on both. Small warm commands and whole-process startup show mixed results. The local 1.288× fresh-process help result did <strong>not</strong> reproduce on CI, where that boundary measured 0.953×. It must not be presented as a portable help-startup improvement.</p>
+<p>On CI, the 1,000-option warm invocation was 14.713 ms for Click and 7.309 ms for zclick. Whole-process invocation was 71.540 ms and 67.020 ms respectively; whole-process help was 73.347 ms and 76.995 ms. The approximately 6.7% invocation difference is small relative to the scheduling and frequency limitations of this method and is not claimed to be statistically significant.</p>
+<p>Neither host's results replace the other. The source archives and release assets retain the original measurements, including regressions.</p>
+<h2 id="final-release-commit-3281e18">Final release commit (3281e18)<a class="heading-anchor" href="#final-release-commit-3281e18" aria-label="链接到 Final release commit (3281e18)">#</a></h2>
+<p>The release pipeline for <a href="https://github.com/LIghtJUNction/zclick/commit/3281e18f215dec976c3ce0c4b5dd933ad4d62616"><code>3281e18f215dec976c3ce0c4b5dd933ad4d62616</code></a> generated another complete measurement as part of its required validation. This commit fixes the report-only normalization of five Python 3.10 Enum test IDs and permits independent builds to run alongside validation. It does not change the zclick runtime from either the local <code>86bab2a</code> measurement or the earlier <code>a8bc735</code> CI attempt. The earlier release attempt stopped at evidence aggregation; its benchmark remains archived above.</p>
+<p>The final runner reports CPython 3.14.10, GCC 15.2.0, Linux 7.0.0-1019-azure, glibc 2.43 and four logical CPUs. <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/results/cpython314-linux-3281e18.json">Final CI raw JSON</a> retains every sample, memory observation, source hash and environment field; the <a href="https://github.com/LIghtJUNction/zclick/actions/runs/43031862640">release workflow</a> records how it was produced. This is a separate automatically required run, not a replacement chosen for a better result.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Boundary</th>
+<th style="text-align:right">Local 86bab2a ratio</th>
+<th style="text-align:right">Earlier CI a8bc735 ratio</th>
+<th style="text-align:right">Final CI 3281e18 ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warm Command.main / 1 option</td>
+<td style="text-align:right">0.694×</td>
+<td style="text-align:right">0.939×</td>
+<td style="text-align:right">1.058×</td>
+</tr>
+<tr>
+<td>Warm Command.main / 10 options</td>
+<td style="text-align:right">0.822×</td>
+<td style="text-align:right">1.006×</td>
+<td style="text-align:right">1.151×</td>
+</tr>
+<tr>
+<td>Warm Command.main / 100 options</td>
+<td style="text-align:right">1.148×</td>
+<td style="text-align:right">1.185×</td>
+<td style="text-align:right">1.169×</td>
+</tr>
+<tr>
+<td>Warm Command.main / 1,000 options</td>
+<td style="text-align:right">1.706×</td>
+<td style="text-align:right">2.013×</td>
+<td style="text-align:right">1.997×</td>
+</tr>
+<tr>
+<td>Reused parser / 1 option</td>
+<td style="text-align:right">0.403×</td>
+<td style="text-align:right">0.464×</td>
+<td style="text-align:right">0.520×</td>
+</tr>
+<tr>
+<td>Reused parser / 1,000 options</td>
+<td style="text-align:right">0.660×</td>
+<td style="text-align:right">0.425×</td>
+<td style="text-align:right">0.435×</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">0.970×</td>
+<td style="text-align:right">0.886×</td>
+<td style="text-align:right">0.889×</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrapping</td>
+<td style="text-align:right">7.344×</td>
+<td style="text-align:right">9.038×</td>
+<td style="text-align:right">8.724×</td>
+</tr>
+<tr>
+<td>Fresh-process command / 1,000 options</td>
+<td style="text-align:right">1.183×</td>
+<td style="text-align:right">1.067×</td>
+<td style="text-align:right">1.148×</td>
+</tr>
+<tr>
+<td>Fresh-process help / 1,000 options</td>
+<td style="text-align:right">1.288×</td>
+<td style="text-align:right">0.953×</td>
+<td style="text-align:right">1.017×</td>
+</tr>
+</tbody>
+</table></div>
+<p>On this final CI runner, the warm 1,000-option invocation measured 11.149 ms for Click and 5.582 ms for zclick. Whole-process invocation measured 63.205 ms and 55.066 ms; whole-process help measured 63.471 ms and 62.415 ms. The warm interval reuses the command definition; the whole-process interval includes interpreter startup, import, command construction, invocation or help rendering, output capture and process exit.</p>
+<p>The same runtime code shows different small-workload ratios across these runs, including changes from slower to faster. Neither CPU model and frequency nor process affinity and host activity are controlled, the local interpreter differs from CI, and package timing order is fixed. Even identical CI platform strings do not establish identical machine conditions. The final 1.017× cold-help result does not turn the earlier mixed cold-help measurements into a reliable improvement. Large warm invocation and wrapping gains, slower reused parsing, and variable small or cold workloads are the conclusions supported by the complete record; the best individual ratio must not be generalized to every Click application.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/docs/performance.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zclick">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zclick/performance-0-1-1a3/"><span class="pagination-label">上一页</span><span class="pagination-title">Measured performance: 0.1.1a3</span></a></nav>
+      <footer class="page-footer">
+        <span>zclick <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#source-and-environment">Source and environment</a></li><li class="toc-level-2"><a href="#warm-python-api-measurements">Warm Python API measurements</a></li><li class="toc-level-2"><a href="#whole-fresh-process-commands">Whole fresh-process commands</a></li><li class="toc-level-2"><a href="#import-only-startup">Import-only startup</a></li><li class="toc-level-2"><a href="#memory-observations">Memory observations</a></li><li class="toc-level-2"><a href="#reproduce-and-interpret-the-historical-run">Reproduce and interpret the historical run</a></li><li class="toc-level-2"><a href="#earlier-release-ci-comparison-a8bc735">Earlier release CI comparison (a8bc735)</a></li><li class="toc-level-2"><a href="#final-release-commit-3281e18">Final release commit (3281e18)</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

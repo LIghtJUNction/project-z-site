@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zcalld · 概览 · Project Z">
+  <meta property="og:description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta property="og:type" content="website">
+  <title>zcalld · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zcalld/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zcalld">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zcalld" aria-label="zcalld 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zcalld</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/" aria-current="page">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../zcalld/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/" aria-current="page">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../zcalld/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../zcalld/migration/">Migrate from Magpie</a></li><li><a class="nav-link" href="../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zcalld/">zcalld 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zcalld/">zcalld</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install">Install</a></li><li class="toc-level-2"><a href="#preserve-an-existing-magpie-setup">Preserve an existing Magpie setup</a></li><li class="toc-level-2"><a href="#configure-and-use">Configure and use</a></li><li class="toc-level-2"><a href="#management">Management</a></li><li class="toc-level-2"><a href="#services">Services</a></li><li class="toc-level-2"><a href="#build-submodules-and-release">Build, submodules and release</a></li><li class="toc-level-2"><a href="#codex-transport-compatibility">Codex transport compatibility</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zcalld">zcalld</h1><p class="project-intro">本地模型网关，集中管理提供方、路由规则与模型调用。</p>
+<p>A native local AI gateway for Linux, macOS and Windows, built on <a href="../zcall/">zcall</a>, <a href="../zconv/">zconv</a>, <a href="../zplugin/">zplugin</a> and <a href="../zsys/">zsys</a>.</p>
+<p>The CLI daemon owns transport, bounded queues, credentials and protocol conversion. Privacy, community providers, model-group decisions and desktop notifications are optional plugins. <a href="../zcall-gui/">zcall-gui</a> is a separate native application built with <a href="../zgpui/">zgpui</a>; closing it leaves the gateway running. There is no embedded browser in either application. The optional compatibility package supplies the Go privacy and advanced-rule workers and one lazy Bun host for existing JavaScript community plugins. <a href="../zcall-omarchy/">zcall-omarchy</a> is a second, independent frontend that uses Omarchy's native plugin and menu interfaces without another background gateway.</p>
+<p>The daemon reuses zcall's optional server module for HTTP framing, protocol conversion and caller-key parsing. zcalld owns worker queues, native plugin instances, upstream transport and bounded gzip/zstd decoding; each worker retains its own plugin state.</p>
+<h2 id="install">Install<a class="heading-anchor" href="#install" aria-label="链接到 Install">#</a></h2>
+<p>On Arch Linux, choose one core package and add the capabilities you use:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>paru -S zcalld-bin
+# Source build alternative: paru -S zcalld
+paru -S zcalld-compat    # Privacy model, community plugins and subscription accounts
+paru -S zcall-gui       # Optional native desktop application
+paru -S zcall-omarchy   # Optional Omarchy bar and terminal menu frontend
+</code></pre></div>
+<p><a href="https://github.com/LIghtJUNction/zcalld/releases">Releases</a> provide Linux x86_64/aarch64, Windows x86_64 and macOS Apple Silicon/Intel archives with platform-native plugin libraries. Linux and macOS use the system libcurl; the Windows archive includes its TLS transport DLLs. Incoming gzip/zstd requests use native codecs: distribution libraries on Linux, static zstd plus system zlib on macOS, and static codecs on Windows. These are real operating-system dependencies, not an embedded browser runtime.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>zcalld init
+# Edit the generated provider and route to match an available upstream.
+zcalld check --json
+zcalld serve
+</code></pre></div>
+<p>The default configuration uses an Ollama-compatible upstream. zcalld does not download or execute an LLM. Configuration follows <code>--config</code>, <code>ZCALLD_CONFIG</code>, then the platform user configuration directory. Run <code>zcalld --help</code> for the exact local path and command list.</p>
+<h2 id="preserve-an-existing-magpie-setup">Preserve an existing Magpie setup<a class="heading-anchor" href="#preserve-an-existing-magpie-setup" aria-label="链接到 Preserve an existing Magpie setup">#</a></h2>
+<p>Migration first creates a private copy; it does not stop Magpie or change agent settings:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>zcalld migrate magpie --json
+zcalld migrate magpie --apply --json
+zcalld migrate verify --json
+zcalld check --json
+</code></pre></div>
+<p>The importer preserves public model IDs and catalog metadata, routes, accounts, enabled community packages, the reversible privacy key, custom rules and history. It reports unresolved routes or unsupported rules explicitly. The old TCP address can remain unchanged while zcalld's own CLI and GUI prefer a private Unix socket on Linux and macOS.</p>
+<p>See <a href="../zcalld/migration/">MIGRATION.md</a> for the service transaction and rollback. Credential refresh ownership matters: an active native Codex login remains externally managed and is reread for each request. The gateway does not race another process to rotate that account's refresh token. Explicit handoff requires the recorded original owners to have exited.</p>
+<h2 id="configure-and-use">Configure and use<a class="heading-anchor" href="#configure-and-use" aria-label="链接到 Configure and use">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">ini</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 ini 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>[server]
+listen = 127.0.0.1:9415
+unix_socket = auto
+workers = 4
+queue = 16
+token_env = ZCALLD_GATEWAY_TOKEN
+
+[provider cloud]
+base_url = https://api.example.com/v1
+protocol = chat
+api_key_env = CLOUD_API_KEY
+
+[route coding]
+provider = cloud
+model = upstream-model
+</code></pre></div>
+<p>Put secrets in the private <code>credentials</code> file beside the configuration, as <code>NAME=&quot;value&quot;</code> assignments. Environment values take precedence. Provider credentials and caller credentials are separate; incoming authorization, cookies and query keys are not forwarded upstream. A non-loopback listener requires a LAN-capable credential.</p>
+<p>Protocol names are <code>chat</code>, <code>responses</code>, <code>anthropic</code>, <code>gemini</code>, <code>completions</code> and <code>interactions</code>. Native per-protocol endpoint overrides accept a base URL or a complete endpoint URL. Same-protocol forwarding retains provider extensions. Cross-protocol conversion uses strict zcall semantics and rejects unsupported information loss.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/v1/chat/completions</code>, <code>/v1/responses</code></td>
+<td>OpenAI-style generation</td>
+</tr>
+<tr>
+<td><code>/backend-api/codex/responses</code></td>
+<td>Codex ChatGPT Responses ingress; shared authentication, privacy and routing</td>
+</tr>
+<tr>
+<td><code>/v1/messages</code></td>
+<td>Anthropic Messages</td>
+</tr>
+<tr>
+<td><code>/v1beta/models/{model}:generateContent</code></td>
+<td>Gemini generation</td>
+</tr>
+<tr>
+<td><code>/v1beta/models/{model}:streamGenerateContent</code></td>
+<td>Gemini streaming</td>
+</tr>
+<tr>
+<td><code>/v1/completions</code>, <code>/v1beta/interactions</code></td>
+<td>Additional protocol ingress</td>
+</tr>
+<tr>
+<td><code>GET /v1/models</code></td>
+<td>Public routes with preserved catalog metadata</td>
+</tr>
+<tr>
+<td><code>GET /backend-api/codex/models</code> and bound account metadata paths</td>
+<td>Optional <a href="../zcalld/codex/">native Codex metadata</a>; disabled until explicitly configured</td>
+</tr>
+<tr>
+<td><code>GET /healthz</code></td>
+<td>Readiness</td>
+</tr>
+<tr>
+<td><code>POST /mcp/zcalld/tools</code>, <code>POST /mcp/magpie/tools</code></td>
+<td>Optional community-tool MCP; the legacy address remains valid</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="management">Management<a class="heading-anchor" href="#management" aria-label="链接到 Management">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>zcalld status --json
+zcalld providers list --json
+zcalld keys list --json
+zcalld providers add work --base-url https://api.example.com/v1 --api-key-stdin
+zcalld routes list --json
+zcalld groups set group/work --members work/model-a,work/model-b --mode rotate
+zcalld agents detect --json
+zcalld agents apply claude --route group/work --json
+zcalld agents revert claude --json
+zcalld plugins list --json
+zcalld plugins mcp show --json
+zcalld accounts list --json
+zcalld plugins quota list --json
+zcalld privacy show --json
+zcalld desktop show --json
+zcalld profiles save work --json
+zcalld library list --json
+zcalld library targets --json
+zcalld usage enable --json
+zcalld usage summary --model group/work --json
+zcalld usage export --file usage-export.jsonl --json
+zcalld update check --json
+</code></pre></div>
+<p>Provider <code>--api-key-stdin</code> updates an exclusive credential reference in place. If another provider, header or gateway token shares that reference, the edited provider receives a separate credential slot and the other references keep their saved value. New slots avoid existing saved credentials, configuration references and environment variables. Use <code>--api-key-env NAME</code> to select an existing credential instead; it cannot be combined with <code>--api-key-stdin</code>. Environment values still take precedence over saved credentials. Invalid or oversized credential files are rejected before either file is changed.</p>
+<p>Model edits through <code>providers add/edit --model</code> or <code>routes set --model</code> use the configuration reader's INI value rules: the parsed model must be nonempty, contain no control characters and fit in 512 UTF-8 bytes. Provider model and route errors are rejected before reading <code>--api-key-stdin</code>, creating backups or writing files. Group routes preserve the selected model's literal quotes and surrounding spaces.</p>
+<p>Provider add/edit validates the effective base URL and protocol together before reading credentials or writing files. Route and group edits preserve the selected provider's literal name, including quotes or spaces. Configuration updates and removals recognize section headers with surrounding whitespace, while keeping whitespace inside names distinct.</p>
+<p>Managed model groups own their public route names. Direct route edits and provider model options cannot overwrite or remove a group route. Removing a member route, or a provider that still supplies a group route or member, is rejected before credential input, backups or file writes. First update the group's members with <code>groups set</code>, or remove the group with <code>groups remove</code>. These route-changing commands also reject malformed <code>routing.json</code> instead of treating it as an empty group list.</p>
+<p>Group definition files preserve member <code>weight</code> and <code>off</code> settings and literal route names, including commas. Explicit settings replace the selected member's values; omitted settings keep them. Invalid new weights or disabled-state values fail before files or backups change. See the <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/ROUTING.md">group configuration examples</a>.</p>
+<p>Agent edits preserve unrelated fields and keep exact-byte backups. Revert refuses to overwrite later user edits unless explicitly forced. Account controls operate on the actual private compatibility-host store. Community packages must be deliberately enabled; trusted native libraries run inside the daemon process.</p>
+<p>The <a href="../zcalld/library/">agent library</a> manages MCP definitions, instruction sets and skill files separately from gateway providers. Preview/apply/revert keeps exact owned bytes and refuses conflicting user edits. Skills can be fetched from an HTTPS or local Git repository, restricted to one subdirectory, and updated from a remembered branch, tag or commit. Fetching never checks out or runs repository code; later local edits require an explicit force before replacement. <a href="../zcalld/mcp/">Community MCP</a> uses the optional HTTP plugin interface and the same shared Bun process as community providers; initialize and ping do not start that process. Caller-key permissions remain separate from upstream credentials.</p>
+<p>Privacy runs before model-group classification. JSON and fragmented SSE responses restore masked values. If a required privacy worker is unavailable, requests fail closed before upstream generation. With compatibility 0.1.3 or later, private daily audit files continue recording detection metadata and per-agent counters; request bodies and restoration maps are not stored. Audit writes have size and retention bounds. A disk-write failure is reported without discarding a valid redacted request. Group modes include order, smart, rotate, usage, pace, weight and drain; turn affinity is bounded. Explicit upstream 429/503 responses may select another member before downstream headers are committed, with at most four total attempts. An already-started stream or an ambiguous network failure is never replayed. <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/ROUTING.md">Advanced rules</a> support IANA time zones, RE2 message conditions and trusted workspace conditions through a lazy optional worker; ordinary groups do not start it.</p>
+<p><a href="../zcalld/keys/">Caller-key management</a> provides <code>keys add</code>, <code>rotate</code> and <code>revoke</code>; new key material is accepted only through <code>--api-key-stdin</code>. Saved key changes require a gateway restart and never restart the service automatically.</p>
+<p><code>plugins quota list</code> reads local saved results. With the optional compatibility helper 0.1.6 or newer, <code>plugins quota refresh --account ACCOUNT_ID</code> explicitly updates one supported account; ordinary status and quota-list commands do not refresh credentials or contact providers.</p>
+<p><a href="../zcalld/usage/">Usage recording</a> counts upstream attempts, including retries, and exposes input, output, cache and reasoning token details. <code>usage enable</code> validates the native observer and destination before saving; <code>usage disable</code> retains history. Both report whether an explicit gateway restart is required. The GUI provides recording controls, retained totals, refresh and a separate restart action. Summaries support model and time filters, scan native or migrated history with bounded record buffering, and skip records over 1 MiB, excluding LF or CRLF. <code>usage export --file PATH</code> preserves original bytes and refuses existing destinations. See the <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/validation/usage-bounds-20261120.md">usage boundary validation</a> and <a href="../zcalld/magpie-parity/">Magpie alignment matrix</a> for tested scope and remaining gaps.</p>
+<p><a href="../zcalld/desktop/">Desktop integration</a> is a separate native plugin, disabled by default.
+It can keep the device awake while an agent is working and deliver usage, balance,
+renewal, expiring reset-credit, first-mask and completed-turn notices. Only existing
+fresh observations are used; notifications add no provider polling. A completed
+turn requires a terminal success that was fully delivered to the client; tools,
+cancelled requests and truncated streams do not count as completed answers.</p>
+<p>Use <code>zcalld desktop configure --file SETTINGS.json</code> for explicit settings, or
+<code>desktop plan --source /absolute/path/to/magpie</code> followed by
+<code>desktop sync --source PATH --expect-plan HASH</code> to preserve existing preferences.
+Inspection and configuration validation do not send notifications or acquire an
+inhibitor. Saved changes take effect after the gateway is restarted. Windows and
+macOS notification identities require the native platform's explicit registration
+or permission step; their packaged helper never requests that permission implicitly.</p>
+<h2 id="services">Services<a class="heading-anchor" href="#services" aria-label="链接到 Services">#</a></h2>
+<p>Linux user service, after configuration:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>systemctl --user daemon-reload
+systemctl --user enable --now zcalld.service
+journalctl --user -u zcalld.service
+</code></pre></div>
+<p>The Linux system service runs as the dedicated <code>zcalld</code> user and reads <code>/var/lib/zcalld/config.conf</code>. Initialize that private state directory before starting it; <code>/etc/zcalld/config.conf</code> is a template. Both units use readiness notification, private socket permissions and a 60-second stop budget so an in-progress credential rotation can finish writing.</p>
+<p>On macOS, <code>zcalld service start</code> manages a per-user launchd agent. On Windows it manages a per-user scheduled task. <code>service status</code> queries the actual platform manager and checks gateway health. Unix sockets are used where supported; Windows clients use loopback TCP.</p>
+<h2 id="build-submodules-and-release">Build, submodules and release<a class="heading-anchor" href="#build-submodules-and-release" aria-label="链接到 Build, submodules and release">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>git clone --recurse-submodules https://github.com/LIghtJUNction/zcalld.git
+cd zcalld
+make check
+make package
+make bump BUMP=patch
+make release
+# Or: gh workflow run bump.yml -f bump=patch
+</code></pre></div>
+<p>Use Rust 1.100.0, Python 3.11+, a native compiler, and libcurl, zstd and zlib development libraries. On macOS, add the Homebrew zstd library directory to RUSTFLAGS so the static archive can be found. The native release workflow provides the exact Windows static-codec build recipe. Project Z library dependencies use their public Git repositories, with exact revisions pinned in Cargo.lock. Git submodules retain the matching source snapshots for coordinated development. The optional GUI, Omarchy frontend and compatibility repositories are also submodules; they keep independent releases.</p>
+<p>Day-to-day checks run locally. Formal release workflows validate five native targets, including real privacy, routing and community MCP worker calls, publish versioned archives plus SHA256SUMS, and update source/binary AUR recipes. Linux also runs the migration transaction and rollback fixtures before publication. Source archives recursively include the exact tracked submodule commits; private and untracked development files are excluded. The bump command updates workspace versions, internal dependency version constraints, the lockfile and changelog as one recoverable operation. Upgrading a shared library is a separate, deliberate change to its lockfile revision and matching submodule pin.</p>
+<p>Before tagging a Windows-specific correction, dispatch the Release workflow on the candidate branch with <code>candidate=true</code>, <code>tag=&lt;full commit SHA&gt;</code> and <code>platform=windows</code>. This runs the complete Windows build, recovery, control, runtime, compatibility and archive checks without publishing. Platform selection only narrows candidates; formal releases always validate all five native targets.</p>
+<p><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/RELEASING.md">RELEASING.md</a> describes publishing and recovery. <a href="../zcalld/plugins/">PLUGINS.md</a> describes the SDK. <a href="../zcalld/performance/">PERFORMANCE.md</a> contains measured daemon baselines, with versions and workload limitations. GUI renderer and native-platform evidence live in its own repository. No client pricing table, subscription tier or paid feature gate is built into these projects.</p>
+<p><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/DEPLOYMENT-2026-11-20.md">Deployment acceptance, 2026-11-20</a> records the installed 0.2.4 gateway with 0.1.5-2 compatibility workers: migration preservation, real JSON/SSE generation, package provenance and full-process-tree memory including swap. Its scope differs from the historical minimal-daemon benchmark.</p>
+<p>MIT licensed. Magpie compatibility code retains upstream notices in the optional compatibility repository.</p>
+<h2 id="codex-transport-compatibility">Codex transport compatibility<a class="heading-anchor" href="#codex-transport-compatibility" aria-label="链接到 Codex transport compatibility">#</a></h2>
+<p>Responses clients that negotiate WebSocket transport can fall back to HTTP/SSE through the gateway. See <a href="../zcalld/codex-transport/">the negotiation contract and local validation</a> for the supported boundary.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zcalld">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../zcalld/usage/"><span class="pagination-label">下一页</span><span class="pagination-title">Native usage records</span></a></nav>
+      <footer class="page-footer">
+        <span>zcalld <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install">Install</a></li><li class="toc-level-2"><a href="#preserve-an-existing-magpie-setup">Preserve an existing Magpie setup</a></li><li class="toc-level-2"><a href="#configure-and-use">Configure and use</a></li><li class="toc-level-2"><a href="#management">Management</a></li><li class="toc-level-2"><a href="#services">Services</a></li><li class="toc-level-2"><a href="#build-submodules-and-release">Build, submodules and release</a></li><li class="toc-level-2"><a href="#codex-transport-compatibility">Codex transport compatibility</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

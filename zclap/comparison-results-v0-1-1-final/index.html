@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="命令行参数解析核心，保留调用方的数据所有权。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zclap · Recorded comparison · Project Z">
+  <meta property="og:description" content="命令行参数解析核心，保留调用方的数据所有权。">
+  <meta property="og:type" content="website">
+  <title>zclap · Recorded comparison · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zclap/comparison-results-v0-1-1-final/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zclap">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zclap" aria-label="zclap 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zclap</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zclap</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/" aria-current="page">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zclap 文档"><div class="nav-group"><p class="nav-label">zclap</p><ul><li><a class="nav-link" href="../../zclap/">概览</a></li><li><a class="nav-link" href="../../zclap/comparison-results-v0-1-1/">zclap 0.1.1 measurements</a></li><li><a class="nav-link" href="../../zclap/comparison-readme/">zclap comparison</a></li><li><a class="nav-link" href="../../zclap/comparison-results-v0-1-1-final/" aria-current="page">Recorded comparison</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zclap</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/" aria-current="page">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zclap 文档"><div class="nav-group"><p class="nav-label">zclap</p><ul><li><a class="nav-link" href="../../zclap/">概览</a></li><li><a class="nav-link" href="../../zclap/comparison-results-v0-1-1/">zclap 0.1.1 measurements</a></li><li><a class="nav-link" href="../../zclap/comparison-readme/">zclap comparison</a></li><li><a class="nav-link" href="../../zclap/comparison-results-v0-1-1-final/" aria-current="page">Recorded comparison</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zclap/">zclap 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zclap/">zclap</a><span aria-hidden="true">/</span><span>Recorded comparison</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#sparse-long-options">Sparse long options</a></li><li class="toc-level-2"><a href="#dense-long-options">Dense long options</a></li><li class="toc-level-2"><a href="#short-flag-cluster">Short flag cluster</a></li><li class="toc-level-2"><a href="#repeated-flags-and-values">Repeated flags and values</a></li><li class="toc-level-2"><a href="#mixed-short-and-long-syntax">Mixed short and long syntax</a></li><li class="toc-level-2"><a href="#nested-subcommands">Nested subcommands</a></li><li class="toc-level-2"><a href="#eight-byte-command-name">Eight-byte command name</a></li><li class="toc-level-2"><a href="#32-byte-command-name">32-byte command name</a></li><li class="toc-level-2"><a href="#128-byte-command-name">128-byte command name</a></li><li class="toc-level-2"><a href="#definition-layout">Definition layout</a></li><li class="toc-level-2"><a href="#scope">Scope</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="recorded-comparison">Recorded comparison</h1>
+<p>Generated: 2026-11-10T03:00:00.461469+00:00</p>
+<p>CPU: INTEL(R) XEON(R) PLATINUM 8573C. OS: Linux-6.18.57-x86_64-with-glibc2.41.
+Rust: <code>rustc 1.99.1 (58cf8f9c3 2026-10-13)</code>. Pinned CPU: 7.</p>
+<p>Release profile: opt-level 3, thin LTO, one codegen unit, stripped executables.</p>
+<p>The JSON and CSV files contain every sample. A range is the observed minimum–maximum, not a confidence interval.</p>
+<h2 id="sparse-long-options">Sparse long options<a class="heading-anchor" href="#sparse-long-options" aria-label="链接到 Sparse long options">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Definitions</th>
+<th>Parser</th>
+<th style="text-align:right">Median ns/parse ↓</th>
+<th style="text-align:right">Min–max ns</th>
+<th style="text-align:right">Parses/s ↑</th>
+<th style="text-align:right">Allocations/parse ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td>zclap</td>
+<td style="text-align:right">192.2</td>
+<td style="text-align:right">161.1–252.3</td>
+<td style="text-align:right">5,202,670</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap</td>
+<td style="text-align:right">2575.8</td>
+<td style="text-align:right">2293.3–3818.6</td>
+<td style="text-align:right">388,236</td>
+<td style="text-align:right">51</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>lexopt</td>
+<td style="text-align:right">336.0</td>
+<td style="text-align:right">270.8–499.6</td>
+<td style="text-align:right">2,976,509</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>pico-args</td>
+<td style="text-align:right">238.2</td>
+<td style="text-align:right">213.6–312.3</td>
+<td style="text-align:right">4,198,629</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap_lex</td>
+<td style="text-align:right">362.3</td>
+<td style="text-align:right">292.8–460.7</td>
+<td style="text-align:right">2,760,243</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>zclap</td>
+<td style="text-align:right">218.6</td>
+<td style="text-align:right">205.6–257.3</td>
+<td style="text-align:right">4,574,900</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>clap</td>
+<td style="text-align:right">4054.3</td>
+<td style="text-align:right">3564.8–5259.8</td>
+<td style="text-align:right">246,649</td>
+<td style="text-align:right">77</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>lexopt</td>
+<td style="text-align:right">339.0</td>
+<td style="text-align:right">309.4–461.5</td>
+<td style="text-align:right">2,949,504</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>pico-args</td>
+<td style="text-align:right">395.8</td>
+<td style="text-align:right">330.3–477.8</td>
+<td style="text-align:right">2,526,446</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>clap_lex</td>
+<td style="text-align:right">365.7</td>
+<td style="text-align:right">323.0–605.5</td>
+<td style="text-align:right">2,734,280</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>zclap</td>
+<td style="text-align:right">205.8</td>
+<td style="text-align:right">187.1–249.0</td>
+<td style="text-align:right">4,858,213</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>clap</td>
+<td style="text-align:right">6297.4</td>
+<td style="text-align:right">5567.6–15839.4</td>
+<td style="text-align:right">158,794</td>
+<td style="text-align:right">102</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>lexopt</td>
+<td style="text-align:right">313.2</td>
+<td style="text-align:right">270.3–382.7</td>
+<td style="text-align:right">3,193,001</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>pico-args</td>
+<td style="text-align:right">775.2</td>
+<td style="text-align:right">700.0–958.1</td>
+<td style="text-align:right">1,290,048</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>clap_lex</td>
+<td style="text-align:right">315.5</td>
+<td style="text-align:right">289.1–365.6</td>
+<td style="text-align:right">3,169,361</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>zclap</td>
+<td style="text-align:right">219.4</td>
+<td style="text-align:right">203.7–257.5</td>
+<td style="text-align:right">4,558,425</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>clap</td>
+<td style="text-align:right">14082.4</td>
+<td style="text-align:right">12611.1–16278.3</td>
+<td style="text-align:right">71,011</td>
+<td style="text-align:right">177</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>lexopt</td>
+<td style="text-align:right">348.6</td>
+<td style="text-align:right">311.1–394.1</td>
+<td style="text-align:right">2,868,872</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>pico-args</td>
+<td style="text-align:right">1222.4</td>
+<td style="text-align:right">1126.4–1557.9</td>
+<td style="text-align:right">818,037</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>clap_lex</td>
+<td style="text-align:right">352.9</td>
+<td style="text-align:right">324.9–392.7</td>
+<td style="text-align:right">2,833,359</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>zclap</td>
+<td style="text-align:right">239.4</td>
+<td style="text-align:right">206.2–294.7</td>
+<td style="text-align:right">4,177,197</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>clap</td>
+<td style="text-align:right">39961.1</td>
+<td style="text-align:right">31554.5–43587.6</td>
+<td style="text-align:right">25,024</td>
+<td style="text-align:right">298</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>lexopt</td>
+<td style="text-align:right">309.3</td>
+<td style="text-align:right">287.2–374.0</td>
+<td style="text-align:right">3,232,971</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>pico-args</td>
+<td style="text-align:right">2598.9</td>
+<td style="text-align:right">2447.0–3452.6</td>
+<td style="text-align:right">384,781</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>clap_lex</td>
+<td style="text-align:right">345.7</td>
+<td style="text-align:right">284.5–369.0</td>
+<td style="text-align:right">2,892,489</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>zclap</td>
+<td style="text-align:right">253.9</td>
+<td style="text-align:right">237.3–334.3</td>
+<td style="text-align:right">3,938,341</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>clap</td>
+<td style="text-align:right">120735.3</td>
+<td style="text-align:right">107237.8–155479.0</td>
+<td style="text-align:right">8,283</td>
+<td style="text-align:right">565</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>lexopt</td>
+<td style="text-align:right">350.9</td>
+<td style="text-align:right">318.0–385.0</td>
+<td style="text-align:right">2,849,595</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>pico-args</td>
+<td style="text-align:right">4282.5</td>
+<td style="text-align:right">3794.5–5023.0</td>
+<td style="text-align:right">233,511</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>clap_lex</td>
+<td style="text-align:right">349.5</td>
+<td style="text-align:right">318.2–464.9</td>
+<td style="text-align:right">2,861,099</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>zclap</td>
+<td style="text-align:right">264.9</td>
+<td style="text-align:right">229.1–400.9</td>
+<td style="text-align:right">3,774,383</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>clap</td>
+<td style="text-align:right">354444.5</td>
+<td style="text-align:right">315578.7–413542.9</td>
+<td style="text-align:right">2,821</td>
+<td style="text-align:right">1070</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>lexopt</td>
+<td style="text-align:right">308.4</td>
+<td style="text-align:right">286.4–387.4</td>
+<td style="text-align:right">3,242,479</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>pico-args</td>
+<td style="text-align:right">9785.6</td>
+<td style="text-align:right">9236.6–11119.5</td>
+<td style="text-align:right">102,191</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>clap_lex</td>
+<td style="text-align:right">322.3</td>
+<td style="text-align:right">292.1–448.5</td>
+<td style="text-align:right">3,102,767</td>
+<td style="text-align:right">5</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="dense-long-options">Dense long options<a class="heading-anchor" href="#dense-long-options" aria-label="链接到 Dense long options">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Definitions</th>
+<th>Parser</th>
+<th style="text-align:right">Median ns/parse ↓</th>
+<th style="text-align:right">Min–max ns</th>
+<th style="text-align:right">Parses/s ↑</th>
+<th style="text-align:right">Allocations/parse ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td>zclap</td>
+<td style="text-align:right">187.1</td>
+<td style="text-align:right">165.8–247.4</td>
+<td style="text-align:right">5,344,507</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap</td>
+<td style="text-align:right">2569.0</td>
+<td style="text-align:right">2194.2–4129.6</td>
+<td style="text-align:right">389,255</td>
+<td style="text-align:right">51</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>lexopt</td>
+<td style="text-align:right">323.5</td>
+<td style="text-align:right">272.8–451.7</td>
+<td style="text-align:right">3,090,732</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>pico-args</td>
+<td style="text-align:right">240.4</td>
+<td style="text-align:right">209.6–328.3</td>
+<td style="text-align:right">4,160,513</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap_lex</td>
+<td style="text-align:right">342.7</td>
+<td style="text-align:right">297.9–425.9</td>
+<td style="text-align:right">2,917,893</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>zclap</td>
+<td style="text-align:right">395.5</td>
+<td style="text-align:right">350.8–464.7</td>
+<td style="text-align:right">2,528,707</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>clap</td>
+<td style="text-align:right">6888.7</td>
+<td style="text-align:right">5689.6–8825.0</td>
+<td style="text-align:right">145,165</td>
+<td style="text-align:right">100</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>lexopt</td>
+<td style="text-align:right">618.4</td>
+<td style="text-align:right">560.0–819.6</td>
+<td style="text-align:right">1,617,160</td>
+<td style="text-align:right">13</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>pico-args</td>
+<td style="text-align:right">568.5</td>
+<td style="text-align:right">519.6–641.5</td>
+<td style="text-align:right">1,759,092</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>clap_lex</td>
+<td style="text-align:right">709.7</td>
+<td style="text-align:right">664.1–909.2</td>
+<td style="text-align:right">1,408,969</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>zclap</td>
+<td style="text-align:right">784.1</td>
+<td style="text-align:right">683.9–1633.8</td>
+<td style="text-align:right">1,275,291</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>clap</td>
+<td style="text-align:right">21003.3</td>
+<td style="text-align:right">16987.0–33124.2</td>
+<td style="text-align:right">47,612</td>
+<td style="text-align:right">194</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>lexopt</td>
+<td style="text-align:right">1262.0</td>
+<td style="text-align:right">1141.2–2594.1</td>
+<td style="text-align:right">792,369</td>
+<td style="text-align:right">25</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>pico-args</td>
+<td style="text-align:right">1317.9</td>
+<td style="text-align:right">1215.0–1547.1</td>
+<td style="text-align:right">758,801</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td>clap_lex</td>
+<td style="text-align:right">1374.2</td>
+<td style="text-align:right">1215.4–1570.5</td>
+<td style="text-align:right">727,699</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>zclap</td>
+<td style="text-align:right">1675.5</td>
+<td style="text-align:right">1465.2–2011.7</td>
+<td style="text-align:right">596,820</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>clap</td>
+<td style="text-align:right">78615.9</td>
+<td style="text-align:right">73752.7–100833.0</td>
+<td style="text-align:right">12,720</td>
+<td style="text-align:right">378</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>lexopt</td>
+<td style="text-align:right">2506.9</td>
+<td style="text-align:right">2114.5–2832.5</td>
+<td style="text-align:right">398,901</td>
+<td style="text-align:right">49</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>pico-args</td>
+<td style="text-align:right">3787.1</td>
+<td style="text-align:right">3545.4–5657.8</td>
+<td style="text-align:right">264,052</td>
+<td style="text-align:right">41</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td>clap_lex</td>
+<td style="text-align:right">2762.2</td>
+<td style="text-align:right">2477.0–3518.9</td>
+<td style="text-align:right">362,036</td>
+<td style="text-align:right">41</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>zclap</td>
+<td style="text-align:right">3336.5</td>
+<td style="text-align:right">3119.2–3871.2</td>
+<td style="text-align:right">299,716</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>clap</td>
+<td style="text-align:right">392577.1</td>
+<td style="text-align:right">367022.4–471708.6</td>
+<td style="text-align:right">2,547</td>
+<td style="text-align:right">742</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>lexopt</td>
+<td style="text-align:right">6826.6</td>
+<td style="text-align:right">6026.5–7753.4</td>
+<td style="text-align:right">146,485</td>
+<td style="text-align:right">97</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>pico-args</td>
+<td style="text-align:right">13688.6</td>
+<td style="text-align:right">12415.9–23083.7</td>
+<td style="text-align:right">73,053</td>
+<td style="text-align:right">81</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td>clap_lex</td>
+<td style="text-align:right">7277.5</td>
+<td style="text-align:right">6323.5–16152.2</td>
+<td style="text-align:right">137,409</td>
+<td style="text-align:right">81</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>zclap</td>
+<td style="text-align:right">7381.6</td>
+<td style="text-align:right">6649.1–9463.4</td>
+<td style="text-align:right">135,471</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>clap</td>
+<td style="text-align:right">2197266.9</td>
+<td style="text-align:right">2031490.6–3011994.4</td>
+<td style="text-align:right">455</td>
+<td style="text-align:right">1466</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>lexopt</td>
+<td style="text-align:right">13110.9</td>
+<td style="text-align:right">11883.4–15085.3</td>
+<td style="text-align:right">76,272</td>
+<td style="text-align:right">193</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>pico-args</td>
+<td style="text-align:right">43501.2</td>
+<td style="text-align:right">40080.7–54295.3</td>
+<td style="text-align:right">22,988</td>
+<td style="text-align:right">161</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td>clap_lex</td>
+<td style="text-align:right">13639.0</td>
+<td style="text-align:right">12421.9–58072.3</td>
+<td style="text-align:right">73,319</td>
+<td style="text-align:right">161</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>zclap</td>
+<td style="text-align:right">21161.9</td>
+<td style="text-align:right">18425.1–32643.5</td>
+<td style="text-align:right">47,255</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>clap</td>
+<td style="text-align:right">14611691.3</td>
+<td style="text-align:right">13120550.3–20362386.6</td>
+<td style="text-align:right">68</td>
+<td style="text-align:right">2910</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>lexopt</td>
+<td style="text-align:right">28455.7</td>
+<td style="text-align:right">23529.6–36388.1</td>
+<td style="text-align:right">35,142</td>
+<td style="text-align:right">385</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>pico-args</td>
+<td style="text-align:right">150281.3</td>
+<td style="text-align:right">135633.1–235474.6</td>
+<td style="text-align:right">6,654</td>
+<td style="text-align:right">321</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td>clap_lex</td>
+<td style="text-align:right">28999.9</td>
+<td style="text-align:right">23424.2–50380.7</td>
+<td style="text-align:right">34,483</td>
+<td style="text-align:right">321</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="short-flag-cluster">Short flag cluster<a class="heading-anchor" href="#short-flag-cluster" aria-label="链接到 Short flag cluster">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Definitions</th>
+<th>Parser</th>
+<th style="text-align:right">Median ns/parse ↓</th>
+<th style="text-align:right">Min–max ns</th>
+<th style="text-align:right">Parses/s ↑</th>
+<th style="text-align:right">Allocations/parse ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">5</td>
+<td>zclap</td>
+<td style="text-align:right">118.3</td>
+<td style="text-align:right">98.8–194.4</td>
+<td style="text-align:right">8,456,159</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>clap</td>
+<td style="text-align:right">2640.2</td>
+<td style="text-align:right">1948.7–7612.3</td>
+<td style="text-align:right">378,757</td>
+<td style="text-align:right">51</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>lexopt</td>
+<td style="text-align:right">192.2</td>
+<td style="text-align:right">156.7–353.8</td>
+<td style="text-align:right">5,203,049</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>pico-args</td>
+<td style="text-align:right">377.9</td>
+<td style="text-align:right">329.5–712.2</td>
+<td style="text-align:right">2,646,504</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>clap_lex</td>
+<td style="text-align:right">155.9</td>
+<td style="text-align:right">124.6–302.7</td>
+<td style="text-align:right">6,413,751</td>
+<td style="text-align:right">5</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="repeated-flags-and-values">Repeated flags and values<a class="heading-anchor" href="#repeated-flags-and-values" aria-label="链接到 Repeated flags and values">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Definitions</th>
+<th>Parser</th>
+<th style="text-align:right">Median ns/parse ↓</th>
+<th style="text-align:right">Min–max ns</th>
+<th style="text-align:right">Parses/s ↑</th>
+<th style="text-align:right">Allocations/parse ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">5</td>
+<td>zclap</td>
+<td style="text-align:right">293.4</td>
+<td style="text-align:right">256.9–455.3</td>
+<td style="text-align:right">3,408,119</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>clap</td>
+<td style="text-align:right">4633.3</td>
+<td style="text-align:right">3837.8–13497.5</td>
+<td style="text-align:right">215,827</td>
+<td style="text-align:right">102</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>lexopt</td>
+<td style="text-align:right">512.2</td>
+<td style="text-align:right">458.1–1766.2</td>
+<td style="text-align:right">1,952,237</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>pico-args</td>
+<td style="text-align:right">1524.2</td>
+<td style="text-align:right">1309.0–1975.7</td>
+<td style="text-align:right">656,095</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>clap_lex</td>
+<td style="text-align:right">464.9</td>
+<td style="text-align:right">387.8–622.2</td>
+<td style="text-align:right">2,150,787</td>
+<td style="text-align:right">9</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="mixed-short-and-long-syntax">Mixed short and long syntax<a class="heading-anchor" href="#mixed-short-and-long-syntax" aria-label="链接到 Mixed short and long syntax">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Definitions</th>
+<th>Parser</th>
+<th style="text-align:right">Median ns/parse ↓</th>
+<th style="text-align:right">Min–max ns</th>
+<th style="text-align:right">Parses/s ↑</th>
+<th style="text-align:right">Allocations/parse ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">5</td>
+<td>zclap</td>
+<td style="text-align:right">213.5</td>
+<td style="text-align:right">176.5–601.9</td>
+<td style="text-align:right">4,684,455</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>clap</td>
+<td style="text-align:right">3558.5</td>
+<td style="text-align:right">3113.3–5170.2</td>
+<td style="text-align:right">281,018</td>
+<td style="text-align:right">74</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>lexopt</td>
+<td style="text-align:right">327.3</td>
+<td style="text-align:right">304.3–643.2</td>
+<td style="text-align:right">3,055,618</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>pico-args</td>
+<td style="text-align:right">708.2</td>
+<td style="text-align:right">591.9–1061.2</td>
+<td style="text-align:right">1,411,973</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>clap_lex</td>
+<td style="text-align:right">271.2</td>
+<td style="text-align:right">226.9–581.4</td>
+<td style="text-align:right">3,687,397</td>
+<td style="text-align:right">7</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nested-subcommands">Nested subcommands<a class="heading-anchor" href="#nested-subcommands" aria-label="链接到 Nested subcommands">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Definitions</th>
+<th>Parser</th>
+<th style="text-align:right">Median ns/parse ↓</th>
+<th style="text-align:right">Min–max ns</th>
+<th style="text-align:right">Parses/s ↑</th>
+<th style="text-align:right">Allocations/parse ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">5</td>
+<td>zclap</td>
+<td style="text-align:right">185.7</td>
+<td style="text-align:right">168.1–635.3</td>
+<td style="text-align:right">5,384,537</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>clap</td>
+<td style="text-align:right">4078.3</td>
+<td style="text-align:right">3326.0–6193.3</td>
+<td style="text-align:right">245,200</td>
+<td style="text-align:right">87</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>lexopt</td>
+<td style="text-align:right">316.8</td>
+<td style="text-align:right">280.3–1310.3</td>
+<td style="text-align:right">3,156,217</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>pico-args</td>
+<td style="text-align:right">708.8</td>
+<td style="text-align:right">587.0–921.5</td>
+<td style="text-align:right">1,410,875</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>clap_lex</td>
+<td style="text-align:right">250.9</td>
+<td style="text-align:right">218.3–384.8</td>
+<td style="text-align:right">3,984,985</td>
+<td style="text-align:right">7</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="eight-byte-command-name">Eight-byte command name<a class="heading-anchor" href="#eight-byte-command-name" aria-label="链接到 Eight-byte command name">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Definitions</th>
+<th>Parser</th>
+<th style="text-align:right">Median ns/parse ↓</th>
+<th style="text-align:right">Min–max ns</th>
+<th style="text-align:right">Parses/s ↑</th>
+<th style="text-align:right">Allocations/parse ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td>zclap</td>
+<td style="text-align:right">189.6</td>
+<td style="text-align:right">162.5–305.5</td>
+<td style="text-align:right">5,275,124</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap</td>
+<td style="text-align:right">2620.8</td>
+<td style="text-align:right">2246.4–3579.6</td>
+<td style="text-align:right">381,557</td>
+<td style="text-align:right">51</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>lexopt</td>
+<td style="text-align:right">323.9</td>
+<td style="text-align:right">263.8–819.0</td>
+<td style="text-align:right">3,087,458</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>pico-args</td>
+<td style="text-align:right">244.0</td>
+<td style="text-align:right">202.0–369.9</td>
+<td style="text-align:right">4,098,663</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap_lex</td>
+<td style="text-align:right">344.7</td>
+<td style="text-align:right">298.3–495.4</td>
+<td style="text-align:right">2,901,301</td>
+<td style="text-align:right">6</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="32-byte-command-name">32-byte command name<a class="heading-anchor" href="#32-byte-command-name" aria-label="链接到 32-byte command name">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Definitions</th>
+<th>Parser</th>
+<th style="text-align:right">Median ns/parse ↓</th>
+<th style="text-align:right">Min–max ns</th>
+<th style="text-align:right">Parses/s ↑</th>
+<th style="text-align:right">Allocations/parse ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td>zclap</td>
+<td style="text-align:right">181.9</td>
+<td style="text-align:right">165.1–222.2</td>
+<td style="text-align:right">5,496,922</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap</td>
+<td style="text-align:right">2682.2</td>
+<td style="text-align:right">2321.9–3713.8</td>
+<td style="text-align:right">372,822</td>
+<td style="text-align:right">51</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>lexopt</td>
+<td style="text-align:right">318.1</td>
+<td style="text-align:right">280.6–504.3</td>
+<td style="text-align:right">3,143,596</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>pico-args</td>
+<td style="text-align:right">235.1</td>
+<td style="text-align:right">213.5–304.4</td>
+<td style="text-align:right">4,254,215</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap_lex</td>
+<td style="text-align:right">320.3</td>
+<td style="text-align:right">297.3–1014.1</td>
+<td style="text-align:right">3,122,063</td>
+<td style="text-align:right">6</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="128-byte-command-name">128-byte command name<a class="heading-anchor" href="#128-byte-command-name" aria-label="链接到 128-byte command name">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Definitions</th>
+<th>Parser</th>
+<th style="text-align:right">Median ns/parse ↓</th>
+<th style="text-align:right">Min–max ns</th>
+<th style="text-align:right">Parses/s ↑</th>
+<th style="text-align:right">Allocations/parse ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td>zclap</td>
+<td style="text-align:right">191.1</td>
+<td style="text-align:right">158.7–622.8</td>
+<td style="text-align:right">5,231,576</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap</td>
+<td style="text-align:right">2535.7</td>
+<td style="text-align:right">2249.5–3594.0</td>
+<td style="text-align:right">394,368</td>
+<td style="text-align:right">51</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>lexopt</td>
+<td style="text-align:right">319.9</td>
+<td style="text-align:right">266.4–991.3</td>
+<td style="text-align:right">3,126,211</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>pico-args</td>
+<td style="text-align:right">242.4</td>
+<td style="text-align:right">216.8–333.7</td>
+<td style="text-align:right">4,126,008</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>clap_lex</td>
+<td style="text-align:right">349.5</td>
+<td style="text-align:right">303.8–555.0</td>
+<td style="text-align:right">2,861,091</td>
+<td style="text-align:right">6</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="definition-layout">Definition layout<a class="heading-anchor" href="#definition-layout" aria-label="链接到 Definition layout">#</a></h2>
+<p><code>Command</code>: 440 bytes. <code>Arg</code>: 160 bytes. Default <code>Parser</code>: 192 bytes.</p>
+<p>The following shallow footprint is <code>size_of::&lt;Command&gt;() + n * size_of::&lt;Arg&gt;()</code>. It excludes borrowed name/help strings and external alias/rule slices; it describes this compiler and target.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">Argument definitions</th>
+<th style="text-align:right">Shallow definition bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1080</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">1720</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:right">3000</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td style="text-align:right">5560</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td style="text-align:right">10680</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td style="text-align:right">20920</td>
+</tr>
+<tr>
+<td style="text-align:right">256</td>
+<td style="text-align:right">41400</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="scope">Scope<a class="heading-anchor" href="#scope" aria-label="链接到 Scope">#</a></h2>
+<ul>
+<li>Shared cloud host; CPU affinity is used where supported; turbo and neighboring workloads are not controlled.</li>
+<li>Timing builds have no counting allocator. Allocation builds count alloc, alloc_zeroed and realloc calls separately from timing.</li>
+<li>Definitions are prepared once outside the timed loop. Every parse includes input ownership required by each API, semantic validation, result reading and drop.</li>
+<li>Build timings start with an empty target directory and use a warm local registry cache; network download time is excluded.</li>
+<li>The extended grammars use five leaf definitions: verbose, quiet, port, tag and a positional input; subcommands add two command levels.</li>
+<li>Repeated-flag inputs contain four occurrences, inside clap's u8 counter range. Inputs use UTF-8, allowed tag values, and no escaped option-looking positional values.</li>
+<li>Command-name cases vary only the command metadata name length (8/32/128 bytes); they share the same four-argument dense input.</li>
+</ul>
+<p>The timed workloads use valid UTF-8 long options, short flag clusters, bounded repeated flags, repeated enum values, mixed syntax and nested subcommands. Help rendering, error formatting, operating-system process startup, non-UTF-8 values and escaped option-looking positional values are outside this common grammar.
+Small-parser adapters perform the semantic checks absent from their lexer APIs. The harness rejects unknown arguments, forbidden repetitions, missing required arguments, invalid integers, invalid tag choices and invalid subcommands before collecting samples.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zclap/blob/a4c7e6f3e0ff860de701573117248fe8538c71e5/comparison/results/v0_1_1-final.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zclap">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zclap/comparison-readme/"><span class="pagination-label">上一页</span><span class="pagination-title">zclap comparison</span></a></nav>
+      <footer class="page-footer">
+        <span>zclap <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#sparse-long-options">Sparse long options</a></li><li class="toc-level-2"><a href="#dense-long-options">Dense long options</a></li><li class="toc-level-2"><a href="#short-flag-cluster">Short flag cluster</a></li><li class="toc-level-2"><a href="#repeated-flags-and-values">Repeated flags and values</a></li><li class="toc-level-2"><a href="#mixed-short-and-long-syntax">Mixed short and long syntax</a></li><li class="toc-level-2"><a href="#nested-subcommands">Nested subcommands</a></li><li class="toc-level-2"><a href="#eight-byte-command-name">Eight-byte command name</a></li><li class="toc-level-2"><a href="#32-byte-command-name">32-byte command name</a></li><li class="toc-level-2"><a href="#128-byte-command-name">128-byte command name</a></li><li class="toc-level-2"><a href="#definition-layout">Definition layout</a></li><li class="toc-level-2"><a href="#scope">Scope</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

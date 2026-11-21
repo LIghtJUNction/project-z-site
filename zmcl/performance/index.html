@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 Project Z 的原生 Minecraft 启动器。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zmcl · 性能测量与可复核记录 · Project Z">
+  <meta property="og:description" content="基于 Project Z 的原生 Minecraft 启动器。">
+  <meta property="og:type" content="website">
+  <title>zmcl · 性能测量与可复核记录 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zmcl/performance/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zmcl">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zmcl" aria-label="zmcl 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zmcl</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zmcl</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/" aria-current="page">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zmcl 文档"><div class="nav-group"><p class="nav-label">zmcl</p><ul><li><a class="nav-link" href="../../zmcl/">概览</a></li><li><a class="nav-link" href="../../zmcl/install/">安装 zmcl</a></li><li><a class="nav-link" href="../../zmcl/architecture/">Architecture and resource ownership</a></li><li><a class="nav-link" href="../../zmcl/distribution/">用 zdistro 分发 zmcl</a></li><li><a class="nav-link" href="../../zmcl/features/">XMCL compatibility record</a></li><li><a class="nav-link" href="../../zmcl/performance/" aria-current="page">性能测量与可复核记录</a></li><li><a class="nav-link" href="../../zmcl/site-readme/">zmcl project site</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zmcl</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/" aria-current="page">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zmcl 文档"><div class="nav-group"><p class="nav-label">zmcl</p><ul><li><a class="nav-link" href="../../zmcl/">概览</a></li><li><a class="nav-link" href="../../zmcl/install/">安装 zmcl</a></li><li><a class="nav-link" href="../../zmcl/architecture/">Architecture and resource ownership</a></li><li><a class="nav-link" href="../../zmcl/distribution/">用 zdistro 分发 zmcl</a></li><li><a class="nav-link" href="../../zmcl/features/">XMCL compatibility record</a></li><li><a class="nav-link" href="../../zmcl/performance/" aria-current="page">性能测量与可复核记录</a></li><li><a class="nav-link" href="../../zmcl/site-readme/">zmcl project site</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zmcl/">zmcl 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zmcl/">zmcl</a><span aria-hidden="true">/</span><span>性能测量与可复核记录</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#013大备份查询下降完整-gui-目标仍未完成">0.1.3：大备份查询下降，完整 GUI 目标仍未完成</a></li><li class="toc-level-2"><a href="#2026-11-20-012-gui-迭代分开报告两项对照">2026-11-20 0.1.2 GUI 迭代：分开报告两项对照</a></li><li class="toc-level-2"><a href="#v011历史冻结实测">v0.1.1：历史冻结实测</a></li><li class="toc-level-3"><a href="#主进程与相关进程树">主进程与相关进程树</a></li><li class="toc-level-3"><a href="#条件显示服务与换页">条件、显示服务与换页</a></li><li class="toc-level-3"><a href="#cpu与观察器成本">CPU与观察器成本</a></li><li class="toc-level-3"><a href="#为什么下降仍缺什么">为什么下降，仍缺什么</a></li><li class="toc-level-3"><a href="#v011-发行文件">v0.1.1 发行文件</a></li><li class="toc-level-2"><a href="#v010-与-xmcl-的历史对照">v0.1.0 与 XMCL 的历史对照</a></li><li class="toc-level-2"><a href="#v010-冻结结果">v0.1.0 冻结结果</a></li><li class="toc-level-3"><a href="#各轮数据与范围">各轮数据与范围</a></li><li class="toc-level-3"><a href="#程序文件与发行包">程序文件与发行包</a></li><li class="toc-level-3"><a href="#窗口出现与首帧">窗口出现与首帧</a></li><li class="toc-level-2"><a href="#环境与测试协议">环境与测试协议</a></li><li class="toc-level-3"><a href="#内存与-cpu-采样方式">内存与 CPU 采样方式</a></li><li class="toc-level-2"><a href="#构建身份与原始证据">构建身份与原始证据</a></li><li class="toc-level-2"><a href="#复现">复现</a></li><li class="toc-level-2"><a href="#游戏启动后减少常驻进程">游戏启动后减少常驻进程</a></li><li class="toc-level-2"><a href="#尚未覆盖的性能问题">尚未覆盖的性能问题</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="性能测量与可复核记录">性能测量与可复核记录</h1>
+<h2 id="013大备份查询下降完整-gui-目标仍未完成">0.1.3：大备份查询下降，完整 GUI 目标仍未完成<a class="heading-anchor" href="#013大备份查询下降完整-gui-目标仍未完成" aria-label="链接到 0.1.3：大备份查询下降，完整 GUI 目标仍未完成">#</a></h2>
+<p>相对已经完成按需导入的 af14e2c 候选，固定两份各含 10000 个文件的备份、系统 Python、三对交错实际 CLI 查询中，完整树观测峰值均下降。各组三轮最大值为 RSS <strong>45,692 → 35,368 KiB</strong>（约 −22.6%），PSS <strong>35,099 → 24,824 KiB</strong>（约 −29.3%）。2000 个世界的列表查询峰值有重叠，未证明稳定下降；同一种查询的前后规范 JSON 响应逐轮一致。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-helper-queries-0.1.3.json">逐轮数据与夹具</a></p>
+<p>最终 0.1.3 二进制 SHA-256 为 <code>02620a8ec4fac34e63fcbe483268149b2ed4032ac2d7bf42975ff6b19b72a1aa</code>。以下为六组原生管理流程，包含启动和流程间等待，单位 KiB。10 MiB = 10,240 KiB；不是空首页静置统计。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>环境</th>
+<th style="text-align:right">主 RSS 中位 / 峰值</th>
+<th style="text-align:right">主 PSS 中位 / 峰值</th>
+<th style="text-align:right">相关树 RSS 峰值</th>
+<th style="text-align:right">相关树 PSS 峰值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>默认 PATH，含 mise shim</td>
+<td style="text-align:right">11,316 / 17,780</td>
+<td style="text-align:right">7,300 / 13,326</td>
+<td style="text-align:right">59,884</td>
+<td style="text-align:right">48,651</td>
+</tr>
+<tr>
+<td>ZMCL_PYTHON=/usr/bin/python3</td>
+<td style="text-align:right">11,020 / 17,040</td>
+<td style="text-align:right">6,783 / 12,528</td>
+<td style="text-align:right">37,948</td>
+<td style="text-align:right">19,306</td>
+</tr>
+</tbody>
+</table></div>
+<p>两组 GUI 分别有 116/2820、132/2767 个含缺读样本；查询共 73/1193 个。完整树中位数为 <code>null</code>，峰值为采样下界；未知内存没有填零。成功读取的样本中 Swap/SwapPss 为零，缺读仍未知。默认环境中一部分名为 python3 的进程实际映像为 mise；这些开销保留在相关树中，选择系统 Python 不是代码优化。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-helper-gui-0.1.3.json">完整 GUI 数据</a></p>
+<p>私有 Xvfb 为 1280×900×24，窗口 1120×760；GUI 实际采样间隔中位约 8.24/8.18 ms。显示服务 RSS 中位数 38,992/38,732 KiB、PSS 32,746/32,496 KiB 单列，观察线程 CPU 为 9.83/9.31 秒。GUI 控制器内存未独立采样。共享主机、未清缓存、缺读和不同原型身份均在<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/reports/2026-11-20-helper-memory.md">完整报告</a>说明。主进程和完整树都存在超过 10 MiB 的状态，不能用局部查询收益宣称整体目标完成。</p>
+<p>本版程序 1,473,752 字节，官方 tar.gz 679,517 字节，展开的 7 个常规文件合计 1,527,273 字节。文件体积与运行内存分开，系统库、Python、Java、游戏及缓存不包含在发布文件中。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/release-0.1.3-2026-11-20.json">发行记录</a></p>
+<h2 id="2026-11-20-012-gui-迭代分开报告两项对照">2026-11-20 0.1.2 GUI 迭代：分开报告两项对照<a class="heading-anchor" href="#2026-11-20-012-gui-迭代分开报告两项对照" aria-label="链接到 2026-11-20 0.1.2 GUI 迭代：分开报告两项对照">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>固定场景</th>
+<th style="text-align:right">基线 → 候选</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空库窗口，6 秒内请求 360 次 Expose，三对交错运行</td>
+<td style="text-align:right">GUI CPU 中位数 2.65 → 1.47 秒</td>
+<td>−44.53%；请求频率不是渲染帧率</td>
+</tr>
+<tr>
+<td>2000 个世界，Library → Worlds → Library，两对交错运行</td>
+<td style="text-align:right">返回 Library 的 GUI PSS+SwapPss 7,940 → 6,110 KiB</td>
+<td>−23.05%</td>
+</tr>
+<tr>
+<td>同一大列表返回阶段</td>
+<td style="text-align:right">GUI RSS 12,808 → 10,948 KiB</td>
+<td>−14.52%</td>
+</tr>
+<tr>
+<td>同一阶段，应用加单列显示服务</td>
+<td style="text-align:right">逐样本合计 PSS+SwapPss 39,952 → 38,742.5 KiB</td>
+<td>−3.03%</td>
+</tr>
+</tbody>
+</table></div>
+<p>CPU 对照冻结到一个 renderer 候选，大列表对照冻结到另一组合候选；<strong>都不是最终 0.1.2 二进制重新实测</strong>。大列表收益不能全部归因于离页清理，释放对象也不保证分配器立即归还 RSS。空库 idle RSS 基本不变、PSS 未下降；管理动作完整树峰值没有稳定降低。全状态低于 10 MiB 的目标仍未完成。</p>
+<p>两项均在有其他构建任务的共享 Linux 主机运行。保留 swap、外部显示服务、观察器与短命进程缺读，不将缺读填成零。详见<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/reports/2026-11-20-gui-iteration.md">分析与测量方法</a>、<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-renderer-iteration.json">空库逐轮汇总</a>、<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-large-library-iteration.json">2000 世界逐轮汇总及公开源码等价证明</a>。renderer 的本地实测候选可用公开基线和已发布补丁<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-renderer-source-proof.json">精确重建</a>。</p>
+<p>最终 0.1.2 Linux GUI 的大小为 1,473,144 字节（1.40 MiB），Windows GNU 跨编译为 1,366,528 字节（1.30 MiB）。构建、功能与对应哈希见<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/gui-iteration-0.1.2-2026-11-20.json">最终应用验收</a>；这些是文件大小，不是内存值。</p>
+<h2 id="v011历史冻结实测">v0.1.1：历史冻结实测<a class="heading-anchor" href="#v011历史冻结实测" aria-label="链接到 v0.1.1：历史冻结实测">#</a></h2>
+<p><strong>空库默认首页静置 RSS 的本次中位数为 9.55 MiB；完整 GUI 内存目标仍未完成。</strong> 启动、连续重绘和管理操作均存在超过 10 MiB 的 RSS。PSS 与 RSS 分别报告；按需启动后退出的 CLI/Python 仍计入相关进程树。</p>
+<p>冻结应用源码为 <a href="https://github.com/LIghtJUNction/zmcl/commit/35eb8a3242a6ba637266ba1480354138389c9cb0">35eb8a3</a>，消费正式 zgpui 0.1.2 / <a href="https://github.com/LIghtJUNction/zgpui/commit/5b268da910639abd2fb8e581acb4f6eed50b7516">5b268da</a>。主程序1,439,712字节，SHA-256 <code>a28998952b42d09f652ac95da47ddb15930cd556b6fa4e9b7e7ebbd23a4ac2e9</code>。统计和每轮结果见<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-zmcl-0.1.1-summary.json">当前测量汇总</a>。</p>
+<h3 id="主进程与相关进程树">主进程与相关进程树<a class="heading-anchor" href="#主进程与相关进程树" aria-label="链接到 主进程与相关进程树">#</a></h3>
+<p>单位为 KiB；10 MiB = 10,240 KiB。静置取每轮11样本的中位数，再取三轮中位数。峰值均为采样观察下界，各列分别取最大值。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>场景</th>
+<th style="text-align:right">主 RSS</th>
+<th style="text-align:right">主 PSS</th>
+<th style="text-align:right">相关树 RSS</th>
+<th style="text-align:right">相关树 PSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空库首页静置中位数</td>
+<td style="text-align:right">9,784</td>
+<td style="text-align:right">4,647</td>
+<td style="text-align:right">9,784</td>
+<td style="text-align:right">4,647</td>
+</tr>
+<tr>
+<td>空库静置样本最大值</td>
+<td style="text-align:right">9,864</td>
+<td style="text-align:right">5,085</td>
+<td style="text-align:right">9,864</td>
+<td style="text-align:right">5,085</td>
+</tr>
+<tr>
+<td>连续重绘观察峰值</td>
+<td style="text-align:right">13,192</td>
+<td style="text-align:right">8,256</td>
+<td style="text-align:right">13,192</td>
+<td style="text-align:right">8,256</td>
+</tr>
+<tr>
+<td>管理测试启动阶段峰值</td>
+<td style="text-align:right">16,972</td>
+<td style="text-align:right">9,989</td>
+<td style="text-align:right">16,972</td>
+<td style="text-align:right">9,989</td>
+</tr>
+<tr>
+<td>六项动作阶段峰值，排除启动</td>
+<td style="text-align:right">13,892</td>
+<td style="text-align:right">9,306</td>
+<td style="text-align:right">60,860</td>
+<td style="text-align:right">49,269</td>
+</tr>
+</tbody>
+</table></div>
+<p>空库与重绘期间只观察到一个应用进程；管理操作最多同时三个。管理全程主 RSS 中位数为10,424 KiB，不能把空首页的数字推广到其他页面。三轮活动进程的 VmHWM 为17,204、16,540、15,832 KiB，管理进程为17,064 KiB；这些生命周期计数包含启动。</p>
+<p>最大相关树样本出现在备份/恢复阶段，该条读取完整：GUI RSS/PSS为10,420/5,260 KiB，GUI派生的CLI为5,256/1,454 KiB，CLI派生的Python为45,184/42,555 KiB，合计60,860/49,269 KiB。这里是同一条样本的相加，并非把各进程不同时间的最大值叠加。</p>
+<h3 id="条件显示服务与换页">条件、显示服务与换页<a class="heading-anchor" href="#条件显示服务与换页" aria-label="链接到 条件、显示服务与换页">#</a></h3>
+<p>在2026-11-20 15:48:13–15:50:49（Asia/Taipei）运行，Linux x86_64、1120×760窗口、私有Xvfb、zgpui原生CPU后端。每轮先预热20秒，再记录11个一秒间隔的静置样本；随后6秒内以60 Hz请求360次Expose，事件可能合并，并记录重绘后静置。没有清空系统缓存，没有启动Minecraft/Java。</p>
+<p>三轮活动样本完整。六项管理流程共有2,938条样本，其中129条包含已退出或不可读的相关进程；这些条目保留，完整树中位数和完整CPU总量为 <code>null</code>，管理内存状态为 <code>needs_review</code>。功能六项通过与测量完整性分别判断；未知进程的值不作为零。</p>
+<p>显示服务单列：启动前Xvfb RSS为37,620–37,900 KiB；运行时静置RSS增量为1,248–1,512 KiB，PSS增量为1,061–1,269 KiB。管理流程Xvfb RSS/PSS中位数增量为584/270 KiB。显示服务不是应用子进程，其绝对值、before/during差值及负增量都保留在汇总中。优化未增加常驻后台绘制进程。</p>
+<p>第二轮重绘后静置发生换页：该阶段应用PSS中位数为3,301 KiB、SwapPss中位数为1,336 KiB，逐样本相加后中位数为4,637 KiB；Xvfb SwapPss为8,432 KiB。不能把这一轮驻留下降视为优化收益。空库idle、drawing和管理阶段已读取到的SwapPss为零；缺读仍是未知。</p>
+<p>33个宿主快照都观察到外部Cargo/Rustc等任务。MemAvailable最低2,009,508 KiB，memory PSI avg10最高some=4.34、full=3.87。这是共享开发机的限定实测，不是独占安静机器上的普遍性能结论。</p>
+<h3 id="cpu与观察器成本">CPU与观察器成本<a class="heading-anchor" href="#cpu与观察器成本" aria-label="链接到 CPU与观察器成本">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>6秒重绘轮次</th>
+<th style="text-align:right">GUI/树CPU秒</th>
+<th style="text-align:right">Xvfb CPU秒</th>
+<th style="text-align:right">控制器CPU秒</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:right">3.38</td>
+<td style="text-align:right">0.60</td>
+<td style="text-align:right">3.18</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:right">3.21</td>
+<td style="text-align:right">0.56</td>
+<td style="text-align:right">3.11</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:right">2.68</td>
+<td style="text-align:right">0.46</td>
+<td style="text-align:right">2.82</td>
+</tr>
+</tbody>
+</table></div>
+<p>GUI重绘CPU中位数为3.21秒。管理观察窗约30.94秒，主进程CPU为10.04秒，树共同身份增量的观察下界为10.96秒；观察线程自身使用15.55秒CPU。频繁读取 <code>/proc</code> 会扰动被测程序，未把观察成本省略。</p>
+<p>测试端xdotool、ImageMagick、夹具CLI和测试端ZIP回导CLI不属于已部署应用，已单列其范围；这些外部驱动的RSS/PSS没有由现有脚本独立采样。GUI自己派生的CLI/Python则完整纳入应用树。最后核对32个观察到的应用/显示进程身份均已退出。</p>
+<h3 id="为什么下降仍缺什么">为什么下降，仍缺什么<a class="heading-anchor" href="#为什么下降仍缺什么" aria-label="链接到 为什么下降，仍缺什么">#</a></h3>
+<p>原版本的OpenGL软件驱动和字体匹配状态占据了大量驻留内存。本版直接使用CPU绘制，字体匹配后释放临时状态，并在X11复制帧后释放客户端像素页；重绘仍需要完整四字节像素表面，1120×760即3,404,800字节。原生实现与生命周期检查见<a href="https://github.com/LIghtJUNction/zgpui/blob/5b268da910639abd2fb8e581acb4f6eed50b7516/docs/native.md">上游源码</a>。</p>
+<p>首次CPU接入开发构建 <code>fcc214bf</code> / 二进制 <code>99ea0d70…</code> 的同类活动脚本基线为RSS/PSS 17,560/9,846 KiB。当前构建的空库值更低，但两批共享宿主压力不同，不据此给出通用节省倍数。后续重点是字体初始化峰值、绘制期间的像素与文字缓存，以及管理任务的Python常驻工作集。仅降低首页或把操作移至后台，都不能完成完整口径目标。</p>
+<p>复测入口为 <code>scripts/bench_gui_activity.py</code> 和 <code>src/gui/manage_smoke.py --memory-output</code>，先固定实际构建版本、源码提交和二进制哈希，再运行默认参数。完整复现命令及数据字段在脚本 <code>--help</code> 和当前汇总中。</p>
+<h3 id="v011-发行文件">v0.1.1 发行文件<a class="heading-anchor" href="#v011-发行文件" aria-label="链接到 v0.1.1 发行文件">#</a></h3>
+<p>官方<a href="https://github.com/LIghtJUNction/zmcl/releases/tag/v0.1.1">Linux预览包</a>为664,850字节，SHA-256 <code>c61a83ce918d7fe3d58a080bc41bc1c5f301c259396cc4a96a5acf81c3ee9f0b</code>；展开后7个常规文件、内容合计1,490,322字节。程序本身1,439,712字节。实际预编译ABI要求glibc≥2.39、Fontconfig≥2.17.0，直接ELF不依赖OpenGL。系统库、Java、Minecraft、账号和缓存不包含在这些分发文件数字中。</p>
+<h2 id="v010-与-xmcl-的历史对照">v0.1.0 与 XMCL 的历史对照<a class="heading-anchor" href="#v010-与-xmcl-的历史对照" aria-label="链接到 v0.1.0 与 XMCL 的历史对照">#</a></h2>
+<p>以下保留v0.1.0原始身份、软件图形环境和固定XMCL v0.73.1比较；不改标为本次0.1.1的测量。</p>
+<p>本次记录对应 zmcl 源码 <a href="https://github.com/LIghtJUNction/zmcl/commit/033776287ab10aab90f46fd5b65309fecb9b8711">0337762</a> 和 XMCL 官方 0.73.1 Linux x64 发行版。2026 年 11 月 20 日，在同一台 Linux 开发机上，使用同一份 schema 4 脚本，各运行三轮默认空首页。zmcl 的主程序为 <strong>1,412,176 bytes</strong>；空闲 PSS 的三轮汇总值为 <strong>89,946 KiB（87.84 MiB）</strong>，XMCL 为 <strong>376,722 KiB（367.89 MiB）</strong>。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-zmcl-0337762.json">zmcl 原始样本</a> · <a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-xmcl-0.73.1.json">XMCL 原始样本</a></p>
+<p><strong>这些数值只描述本次软件渲染环境中的默认首页。</strong> 两款应用开始测量时，主机可用内存分别为：XMCL <strong>1,894,756 KiB</strong>，zmcl <strong>6,492,216 KiB</strong>。XMCL 样本存在明显换页，两个默认首页的内容也不同。以下表格同时保留驻留页、换出页和合计值，不据此推导相同功能下、所有机器上的性能倍数。zmcl 仍在补齐功能，当前范围见<a href="../../zmcl/features/">功能矩阵</a>。</p>
+<h2 id="v010-冻结结果">v0.1.0 冻结结果<a class="heading-anchor" href="#v010-冻结结果" aria-label="链接到 v0.1.0 冻结结果">#</a></h2>
+<p>内存单位为 KiB。每轮先取 11 个完整样本的中位数，再取三轮中位数；下表不是单次最低值。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align:right">zmcl 0.1.0 / 0337762</th>
+<th style="text-align:right">XMCL 0.73.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PSS：按份额计入共享驻留页</td>
+<td style="text-align:right">89,946</td>
+<td style="text-align:right">376,722</td>
+</tr>
+<tr>
+<td>SwapPss：换出页的相应份额</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">104,439</td>
+</tr>
+<tr>
+<td>逐样本 PSS+SwapPss 后的中位数</td>
+<td style="text-align:right">89,946</td>
+<td style="text-align:right">484,747</td>
+</tr>
+<tr>
+<td>RSS：进程驻留页直接求和</td>
+<td style="text-align:right">108,728</td>
+<td style="text-align:right">696,252</td>
+</tr>
+<tr>
+<td>Swap：进程换出页直接求和</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">132,516</td>
+</tr>
+<tr>
+<td>完整样本 / 轮数</td>
+<td style="text-align:right">33 / 3</td>
+<td style="text-align:right">33 / 3</td>
+</tr>
+<tr>
+<td>观察到的启动器进程数</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>CPU 时间中位数（秒）</td>
+<td style="text-align:right">0.00</td>
+<td style="text-align:right">0.70</td>
+</tr>
+<tr>
+<td>CPU 观察时间范围（秒）</td>
+<td style="text-align:right">10.047–10.080</td>
+<td style="text-align:right">10.146–10.247</td>
+</tr>
+<tr>
+<td>单核占用率中位数</td>
+<td style="text-align:right">0.00%</td>
+<td style="text-align:right">6.90%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>PSS+SwapPss 是“驻留和换出页面的合计，非实际物理 RAM”。</strong> 它是在每个采样点内先相加，然后取轮内与轮间中位数；不能直接相加表格中已取中位数的两行。这里的合计也不代表总分配量、峰值或系统整体内存使用。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-comparison.json">派生汇总与计算口径</a></p>
+<p>zmcl 三轮观察窗内的 CPU ticks 都没有增加。内核 CPU 计数频率为 100 Hz，每 tick 为 10 ms，因此这里的 0.00 秒表示有限观察窗内未观察到计数增加，不表示任意时段都没有 CPU 消耗。CPU 单核占用率由 CPU 时间除以各轮实际经过时间计算；不是全机 24 个逻辑 CPU 的总百分比。</p>
+<h3 id="各轮数据与范围">各轮数据与范围<a class="heading-anchor" href="#各轮数据与范围" aria-label="链接到 各轮数据与范围">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>应用 / 轮次</th>
+<th style="text-align:right">PSS 中位数</th>
+<th style="text-align:right">SwapPss 中位数</th>
+<th style="text-align:right">逐样本合计中位数</th>
+<th style="text-align:right">RSS 中位数</th>
+<th style="text-align:right">CPU 秒 / 实际观察秒</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zmcl 1</td>
+<td style="text-align:right">89,946</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">89,946</td>
+<td style="text-align:right">108,728</td>
+<td style="text-align:right">0.00 / 10.080</td>
+</tr>
+<tr>
+<td>zmcl 2</td>
+<td style="text-align:right">89,826</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">89,826</td>
+<td style="text-align:right">108,600</td>
+<td style="text-align:right">0.00 / 10.077</td>
+</tr>
+<tr>
+<td>zmcl 3</td>
+<td style="text-align:right">90,300</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">90,300</td>
+<td style="text-align:right">109,100</td>
+<td style="text-align:right">0.00 / 10.047</td>
+</tr>
+<tr>
+<td>xmcl 1</td>
+<td style="text-align:right">376,722</td>
+<td style="text-align:right">104,439</td>
+<td style="text-align:right">481,459</td>
+<td style="text-align:right">696,252</td>
+<td style="text-align:right">0.76 / 10.247</td>
+</tr>
+<tr>
+<td>xmcl 2</td>
+<td style="text-align:right">366,925</td>
+<td style="text-align:right">117,641</td>
+<td style="text-align:right">484,747</td>
+<td style="text-align:right">692,344</td>
+<td style="text-align:right">0.70 / 10.146</td>
+</tr>
+<tr>
+<td>xmcl 3</td>
+<td style="text-align:right">490,434</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">490,434</td>
+<td style="text-align:right">852,600</td>
+<td style="text-align:right">0.61 / 10.177</td>
+</tr>
+</tbody>
+</table></div>
+<p>六轮均读取到 11 个完整内存样本，采样点上的 PID/starttime 身份集合均稳定，没有将缺失样本当作零。XMCL 三轮的驻留页与换出页差异较大，合计值比仅看 PSS 更便于识别换页影响；这些变化仍受共享主机状态与应用内容影响。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>应用 / 指标</th>
+<th style="text-align:right">三轮中位数范围（KiB）</th>
+<th style="text-align:right">全部 33 个样本范围（KiB）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zmcl / PSS</td>
+<td style="text-align:right">89,826–90,300</td>
+<td style="text-align:right">89,816–90,300</td>
+</tr>
+<tr>
+<td>zmcl / SwapPss</td>
+<td style="text-align:right">0–0</td>
+<td style="text-align:right">0–0</td>
+</tr>
+<tr>
+<td>zmcl / PSS+SwapPss</td>
+<td style="text-align:right">89,826–90,300</td>
+<td style="text-align:right">89,816–90,300</td>
+</tr>
+<tr>
+<td>xmcl / PSS</td>
+<td style="text-align:right">366,925–490,434</td>
+<td style="text-align:right">340,145–496,167</td>
+</tr>
+<tr>
+<td>xmcl / SwapPss</td>
+<td style="text-align:right">0–117,641</td>
+<td style="text-align:right">0–117,850</td>
+</tr>
+<tr>
+<td>xmcl / PSS+SwapPss</td>
+<td style="text-align:right">481,459–490,434</td>
+<td style="text-align:right">424,310–496,167</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="程序文件与发行包">程序文件与发行包<a class="heading-anchor" href="#程序文件与发行包" aria-label="链接到 程序文件与发行包">#</a></h3>
+<p>文件体积按逻辑字节数统计。ELF、下载包、展开后的常规文件合计是不同口径；不把一个项目的单个可执行文件与另一个项目的完整发行包直接计算比例。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align:right">zmcl</th>
+<th style="text-align:right">XMCL 0.73.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主程序 ELF（bytes）</td>
+<td style="text-align:right">1,412,176</td>
+<td style="text-align:right">224,836,856</td>
+</tr>
+<tr>
+<td>压缩发行包（bytes）</td>
+<td style="text-align:right">648,849（tar.gz）</td>
+<td style="text-align:right">85,934,576（tar.xz）</td>
+</tr>
+<tr>
+<td>展开后的常规文件合计（bytes）</td>
+<td style="text-align:right">1,453,865</td>
+<td style="text-align:right">293,657,164</td>
+</tr>
+<tr>
+<td>展开后的常规文件数</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">23</td>
+</tr>
+</tbody>
+</table></div>
+<p>zmcl 的 <a href="https://github.com/LIghtJUNction/zmcl/releases/tag/v0.1.0">v0.1.0 Linux x86_64 开发预览</a> 包含七个常规文件：主程序、README、功能文档、许可证、图标、安装器和 release.json。648,849 bytes 是最终 tar.gz 的实际大小；1,453,865 bytes 是七个文件的内容字节之和，不包括归档头或文件系统分配。压缩方法及两款产品包含的内容不同，本页不由发行包体积推导等功能节省比例。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/package-install-2026-11-20.json">清单与安装验收</a></p>
+<p><strong>该 v0.1.0 预编译包要求 Linux x86_64、glibc 2.43 或更新。</strong> 2.43 是此 ELF 直接引用的最高 GLIBC 符号版本，不是所有 Linux 发行版都兼容的证明；系统图形、字体库和外部工具还有自己的要求。其它环境可按<a href="../../zmcl/">源码构建说明</a>构建，并自行验证运行依赖。该分发包的内容与安装验收只覆盖 Linux x86_64。</p>
+<p>zmcl 是动态链接的原生程序；系统图形、字体与其它动态库不包含在 ELF 数字中。上表也不包含 Java、Minecraft、mods、账号配置、下载缓存、构建目录或实例数据。展开文件合计没有按设备号与 inode 去重，不等于实际物理磁盘块占用。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-19-xmcl-package.json">XMCL 官方包记录</a></p>
+<h3 id="窗口出现与首帧">窗口出现与首帧<a class="heading-anchor" href="#窗口出现与首帧" aria-label="链接到 窗口出现与首帧">#</a></h3>
+<p>同一脚本以约 250 ms 间隔轮询 X11 窗口，记录“窗口被发现”的时间。zmcl 三轮为 292.377、296.835、296.322 ms；XMCL 为 1,621.568、3,334.413、1,066.178 ms。各自中位数为 <strong>296.322 ms</strong> 与 <strong>1,621.568 ms</strong>。这是轮询发现窗口的时间，受到调度和轮询粒度影响，不是首个可交互画面时间，也不能视为严格冷启动成绩。</p>
+<p>zmcl 另有进程内首帧标记，本次为 277、271、298 ms。它从 GUI 入口计到第一帧提交，起点与外部窗口检测不同；XMCL 没有对应标记，因此不对这一数值作跨应用比较。操作系统缓存没有清空，顺序运行可能影响时间。</p>
+<h2 id="环境与测试协议">环境与测试协议<a class="heading-anchor" href="#环境与测试协议" aria-label="链接到 环境与测试协议">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>本次设置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作系统</td>
+<td>Omarchy / Linux 7.3.4-arch1-1，x86_64</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Intel Core i9-12900HX，24 个逻辑 CPU</td>
+</tr>
+<tr>
+<td>物理内存</td>
+<td>16,090,532 KiB，约 15.35 GiB</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>独立 Xvfb，1280×800×24；应用窗口 1024×720</td>
+</tr>
+<tr>
+<td>图形环境</td>
+<td>LIBGL_ALWAYS_SOFTWARE=1；X server 报告 llvmpipe（LLVM 23.1.1，256 bits）</td>
+</tr>
+<tr>
+<td>其它驱动覆盖</td>
+<td>LP_NUM_THREADS、GALLIUM_DRIVER、MESA_LOADER_DRIVER_OVERRIDE、MESA_GL_VERSION_OVERRIDE 均未设置</td>
+</tr>
+<tr>
+<td>桌面会话变量</td>
+<td>XDG_SESSION_TYPE=x11、SDL_VIDEO_DRIVER=x11，移除 WAYLAND_DISPLAY</td>
+</tr>
+<tr>
+<td>场景</td>
+<td>每轮全新应用数据和缓存目录，未登录、无实例、默认首页</td>
+</tr>
+<tr>
+<td>暖机 / 采样</td>
+<td>窗口出现后等待 20 秒；11 个样本，间隔设为 1 秒</td>
+</tr>
+<tr>
+<td>顺序</td>
+<td>XMCL 连续三轮，然后 zmcl 连续三轮；没有随机化或交错</td>
+</tr>
+<tr>
+<td>主机背景与缓存</td>
+<td>共享开发机，未做系统级隔离；没有清空操作系统缓存</td>
+</tr>
+<tr>
+<td>进程范围</td>
+<td>启动器进程树、会话和此前观察到的存活子进程；排除 Xvfb、测试控制器、Java 与 Minecraft</td>
+</tr>
+</tbody>
+</table></div>
+<p>X server 的 renderer 是测试显示服务的记录。相同 Xvfb 和环境变量不保证两款应用内部使用相同图形后端；该记录不能单独证明 XMCL 的 ANGLE 后端。本次 zmcl 自身的首帧记录也报告 llvmpipe。硬件 GPU 路径未测得，结果不能推广到硬件加速、Windows 或 macOS。</p>
+<p>应用开始测量时记录的主机状态如下。这里是两批测试的开始状态，不是每个样本同步采集的系统状态。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>主机内存状态（KiB）</th>
+<th style="text-align:right">XMCL 测试开始</th>
+<th style="text-align:right">zmcl 测试开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MemAvailable</td>
+<td style="text-align:right">1,894,756</td>
+<td style="text-align:right">6,492,216</td>
+</tr>
+<tr>
+<td>SwapTotal</td>
+<td style="text-align:right">47,535,828</td>
+<td style="text-align:right">47,535,828</td>
+</tr>
+<tr>
+<td>SwapFree</td>
+<td style="text-align:right">29,582,628</td>
+<td style="text-align:right">29,239,648</td>
+</tr>
+<tr>
+<td>SwapTotal−SwapFree</td>
+<td style="text-align:right">17,953,200</td>
+<td style="text-align:right">18,296,180</td>
+</tr>
+</tbody>
+</table></div>
+<p>两批测试开始时分别已有约 <strong>17.12 GiB</strong> 和 <strong>17.45 GiB</strong> 交换空间被使用。这一差异以及可用内存变化，限制了对结果作因果解释的强度。这里只公布描述性样本，不给出置信区间或普遍优化结论。</p>
+<h3 id="内存与-cpu-采样方式">内存与 CPU 采样方式<a class="heading-anchor" href="#内存与-cpu-采样方式" aria-label="链接到 内存与 CPU 采样方式">#</a></h3>
+<p>RSS 表示驻留页；PSS 对共享页按共享进程数分摊。SwapPss 记录换出页的相应份额。多进程 RSS 直接相加会重复计入共享页，所以资源比较同时展示 PSS、SwapPss、RSS 和进程数。<a href="https://docs.kernel.org/filesystems/proc.html">Linux 内核 /proc 说明</a></p>
+<p>脚本读取每个观察到的进程的 smaps_rollup。读取失败的样本会保留失败标记，不参与完整内存样本的中位数。CPU 身份由 PID 和 starttime 组成，累计 utime+stime 增量。只有采样点身份集合稳定、读取成功且计数没有回退，才发布完整 CPU 值；否则返回 null，并单独保留共同存活进程的观察值。两个采样点之间产生并退出的短命进程可能漏记，因此本协议不代替安装、下载或游戏运行阶段的持续跟踪。</p>
+<p>每轮开始和结束都校验可执行文件 SHA-256。最终脚本仅选择 100–199 号显示，跳过任何已有锁或 socket，确认 Xvfb 锁中的 PID 属于本轮进程后才使用；每轮使用新的空授权文件，不读取现有桌面授权，不修改已有显示的访问策略。本次六轮均使用释放后可复用的 :110。</p>
+<h2 id="构建身份与原始证据">构建身份与原始证据<a class="heading-anchor" href="#构建身份与原始证据" aria-label="链接到 构建身份与原始证据">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>对象</th>
+<th>身份</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zmcl 版本 / 源码</td>
+<td>0.1.0 / 033776287ab10aab90f46fd5b65309fecb9b8711</td>
+</tr>
+<tr>
+<td>zmcl ELF SHA-256</td>
+<td>8139bab8416ec9720bc4c9e11765944755f85bbe778b5cf404863bd6fb3ba30c</td>
+</tr>
+<tr>
+<td>zmcl tar.gz SHA-256</td>
+<td>304f7a0e3c2ed5dd84ecc98093715793b3f5eb4cb484449b8342b619116d9ea5</td>
+</tr>
+<tr>
+<td>干净打包提交</td>
+<td>a8f72474c4f5289ea881226299ae7706b8024b59；working_tree_modified=false</td>
+</tr>
+<tr>
+<td>zmcl 原生 UI 依赖</td>
+<td>zui-native，zui commit 5e37fcfb791eec9ac523fc19373e95d0a513112f</td>
+</tr>
+<tr>
+<td>XMCL 官方发行版</td>
+<td><a href="https://github.com/Voxelum/x-minecraft-launcher/releases/tag/v0.73.1">v0.73.1</a></td>
+</tr>
+<tr>
+<td>XMCL ELF SHA-256</td>
+<td>34c11d2cbb5bf342cc701a10d205b2b34db37adf1d5d68c73174aeccf69fa7cd</td>
+</tr>
+<tr>
+<td>XMCL tar.xz SHA-256</td>
+<td>b2baa582131f53c7c017124c8e8e6d801576794c2ac77e422105259dff6b4461</td>
+</tr>
+<tr>
+<td>采样脚本 SHA-256</td>
+<td>e1f6171edeabf67c0664545df696805ca4565ee59d5801e19f366b5b2f5fbaa2</td>
+</tr>
+</tbody>
+</table></div>
+<p>原始 schema 4 JSON 以测量输出的字节原样公开。文件中保留每个采样点的内存、进程身份与 CPU ticks，未发布私人路径、账号数据或完整启动日志。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>文件</th>
+<th>SHA-256 / 用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-zmcl-0337762.json">zmcl 原始记录</a></td>
+<td>f24e3421ff01122c56778350767d5d47a5c3374647450ddba39a2afa78b37f95</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-xmcl-0.73.1.json">XMCL 原始记录</a></td>
+<td>d4e8c12f0ffcd7b317e9f285ca6717c200bce9ec312ad4864f37903629647973</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-comparison.json">最终汇总 JSON</a></td>
+<td>包含逐样本合计后的范围、轮内中位数和轮间中位数</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/validation/package-install-2026-11-20.json">最终分发包与安装验收</a></td>
+<td>4e374decd2c396a0af9f2585440110c0eeeb52de8f882c764c1efb6dd99ac01d</td>
+</tr>
+<tr>
+<td><a href="https://drive.google.com/file/d/1jMOYzLeo1prfhObfF_XA1OE852OJKUNt/view">zmcl 默认首页（历史附件）</a></td>
+<td>本次第一轮 1024×720 实际截图</td>
+</tr>
+<tr>
+<td><a href="https://drive.google.com/file/d/1jMOYzLeo1prfhObfF_XA1OE852OJKUNt/view">XMCL 默认首页（历史附件）</a></td>
+<td>本次第一轮 1024×720 实际截图</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-19-xmcl-0.73.1.json">2026-11-19 的 XMCL schema 3 记录</a> 是历史方法试运行。早期 GUI 烟测、早期单轮 XMCL 数值、其它源码对应的体积与内存均不参与本页最终对照。GUI 退出生命周期的功能验收单独保存在 <a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-gui-exit-and-window.json">2026-11-20 原生窗口与生命周期记录</a>，该功能测试的限核条件不用于性能表。</p>
+<h2 id="复现">复现<a class="heading-anchor" href="#复现" aria-label="链接到 复现">#</a></h2>
+<p>先准备已经校验的两个应用。脚本需要 Linux /proc、Python 3、Xvfb、xdotool、glxinfo 和 ImageMagick import。下例只展示测试入口；XMCL 路径替换为解包后的官方 ELF，输出路径选用新的空目录。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>nice -n 10 python3 scripts/test_bench_linux.py
+
+nice -n 10 python3 scripts/bench_linux.py \
+  --app xmcl --binary /path/to/xmcl \
+  --version 0.73.1 --revision v0.73.1 \
+  --output .test-evidence/reproduce/xmcl \
+  --trials 3 --warmup 20 --samples 11 --interval 1
+
+nice -n 10 python3 scripts/bench_linux.py \
+  --app zmcl --binary target/release/zmcl \
+  --version 0.1.0 \
+  --revision 033776287ab10aab90f46fd5b65309fecb9b8711 \
+  --output .test-evidence/reproduce/zmcl \
+  --trials 3 --warmup 20 --samples 11 --interval 1
+</code></pre></div>
+<p>五项脚本回归验证了已有子进程的后代遍历、稳定集合的 CPU 增量、进程进入与退出、PID 复用、读取不完整时的判断。它们验证采样代码的关键边界，不消除共享主机与图形后端的实验限制。正式原始记录共 66 个完整样本，未在结果中挑选轮次。</p>
+<h2 id="游戏启动后减少常驻进程">游戏启动后减少常驻进程<a class="heading-anchor" href="#游戏启动后减少常驻进程" aria-label="链接到 游戏启动后减少常驻进程">#</a></h2>
+<p>普通 CLI 的 launch 子命令在启动游戏并返回 PID 后退出。GUI 用户也可以显式启用：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>zmcl gui --exit-after-launch
+</code></pre></div>
+<p>该选项只在游戏 launch 任务成功、输出包含有效正 PID 后让 GUI 正常退出；安装、账号任务、错误、取消和不包含真实 PID 的输出不会触发退出。游戏在独立进程组中继续运行，日志写入实例日志目录。实际功能验收观察到 GUI 退出码为 0，游戏 Java 在其退出 10.162 秒后仍存活；该次记录没有把“Java 存活”表述为“已到达主菜单”。<a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/measurements/2026-11-20-gui-exit-and-window.json">生命周期证据</a></p>
+<p>本页所有 GUI 基准均使用默认保持打开的状态。退出后的启动器零常驻进程不与仍打开的 XMCL 作比较。</p>
+<h2 id="尚未覆盖的性能问题">尚未覆盖的性能问题<a class="heading-anchor" href="#尚未覆盖的性能问题" aria-label="链接到 尚未覆盖的性能问题">#</a></h2>
+<p>当前没有发布硬件 GPU 数据、Windows/macOS 数据、安装和解压峰值、相同大型整合包的运行结果，或按设备号与 inode 去重的物理游戏存储对比。三轮默认空首页也不能代替长期空闲、网络内容变化、批量实例和账号同步场景。后续每增加一组场景，都应固定输入、单独记录源码与产物、保留完整样本，并给两款应用使用相同的计数口径。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmcl/blob/6a83e6215d583a4e03c02a3e07df576cc599081d/docs/PERFORMANCE.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmcl">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zmcl/features/"><span class="pagination-label">上一页</span><span class="pagination-title">XMCL compatibility record</span></a><a class="pagination-link next" href="../../zmcl/site-readme/"><span class="pagination-label">下一页</span><span class="pagination-title">zmcl project site</span></a></nav>
+      <footer class="page-footer">
+        <span>zmcl <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#013大备份查询下降完整-gui-目标仍未完成">0.1.3：大备份查询下降，完整 GUI 目标仍未完成</a></li><li class="toc-level-2"><a href="#2026-11-20-012-gui-迭代分开报告两项对照">2026-11-20 0.1.2 GUI 迭代：分开报告两项对照</a></li><li class="toc-level-2"><a href="#v011历史冻结实测">v0.1.1：历史冻结实测</a></li><li class="toc-level-3"><a href="#主进程与相关进程树">主进程与相关进程树</a></li><li class="toc-level-3"><a href="#条件显示服务与换页">条件、显示服务与换页</a></li><li class="toc-level-3"><a href="#cpu与观察器成本">CPU与观察器成本</a></li><li class="toc-level-3"><a href="#为什么下降仍缺什么">为什么下降，仍缺什么</a></li><li class="toc-level-3"><a href="#v011-发行文件">v0.1.1 发行文件</a></li><li class="toc-level-2"><a href="#v010-与-xmcl-的历史对照">v0.1.0 与 XMCL 的历史对照</a></li><li class="toc-level-2"><a href="#v010-冻结结果">v0.1.0 冻结结果</a></li><li class="toc-level-3"><a href="#各轮数据与范围">各轮数据与范围</a></li><li class="toc-level-3"><a href="#程序文件与发行包">程序文件与发行包</a></li><li class="toc-level-3"><a href="#窗口出现与首帧">窗口出现与首帧</a></li><li class="toc-level-2"><a href="#环境与测试协议">环境与测试协议</a></li><li class="toc-level-3"><a href="#内存与-cpu-采样方式">内存与 CPU 采样方式</a></li><li class="toc-level-2"><a href="#构建身份与原始证据">构建身份与原始证据</a></li><li class="toc-level-2"><a href="#复现">复现</a></li><li class="toc-level-2"><a href="#游戏启动后减少常驻进程">游戏启动后减少常驻进程</a></li><li class="toc-level-2"><a href="#尚未覆盖的性能问题">尚未覆盖的性能问题</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

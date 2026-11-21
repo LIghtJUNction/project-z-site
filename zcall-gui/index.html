@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用于管理 zcalld 本地模型网关的原生控制面板。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zcall-gui · 概览 · Project Z">
+  <meta property="og:description" content="用于管理 zcalld 本地模型网关的原生控制面板。">
+  <meta property="og:type" content="website">
+  <title>zcall-gui · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zcall-gui/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zcall-gui">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zcall-gui" aria-label="zcall-gui 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zcall-gui</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zcall-gui</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/" aria-current="page">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zcall-gui 文档"><div class="nav-group"><p class="nav-label">zcall-gui</p><ul><li><a class="nav-link" href="../zcall-gui/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zcall-gui/dependencies/">Dependency propagation</a></li><li><a class="nav-link" href="../zcall-gui/zgpui-migration/">Unified native UI dependency</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zcall-gui</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/" aria-current="page">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zcall-gui 文档"><div class="nav-group"><p class="nav-label">zcall-gui</p><ul><li><a class="nav-link" href="../zcall-gui/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zcall-gui/dependencies/">Dependency propagation</a></li><li><a class="nav-link" href="../zcall-gui/zgpui-migration/">Unified native UI dependency</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zcall-gui/">zcall-gui 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zcall-gui/">zcall-gui</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#build-and-run">Build and run</a></li><li class="toc-level-2"><a href="#install-the-gateway">Install the gateway</a></li><li class="toc-level-2"><a href="#controls">Controls</a></li><li class="toc-level-2"><a href="#appearance-and-language">Appearance and language</a></li><li class="toc-level-2"><a href="#updates">Updates</a></li><li class="toc-level-3"><a href="#gateway-and-native-plugins">Gateway and native plugins</a></li><li class="toc-level-3"><a href="#gui-executable">GUI executable</a></li><li class="toc-level-2"><a href="#releases-and-packages">Releases and packages</a></li><li class="toc-level-2"><a href="#development-and-evidence">Development and evidence</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zcall-gui">zcall-gui</h1><p class="project-intro">用于管理 zcalld 本地模型网关的原生控制面板。</p>
+<p>zcall-gui is an optional native control panel for <a href="../zcalld/">zcalld</a>. It manages providers, AI tool settings, plugins, privacy rules, usage, service state and updates by calling the installed <code>zcalld --json</code> interface. Closing the window leaves the gateway service running.</p>
+<p>The application uses <a href="../zgpui/">zgpui</a> 0.1.5, with its public Git source pinned in <code>Cargo.lock</code> and the same revision recorded by the <code>vendor/zgpui</code> submodule. Cargo resolves only these two first-party packages; the GUI enables the toolkit's <code>native</code> feature and imports <code>zgpui::native</code>. Window creation, input, fonts and OpenGL use platform libraries; there is no embedded browser or third-party Rust crate.</p>
+<h2 id="build-and-run">Build and run<a class="heading-anchor" href="#build-and-run" aria-label="链接到 Build and run">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>git clone --recurse-submodules https://github.com/LIghtJUNction/zcall-gui.git
+cd zcall-gui
+cargo fetch --locked
+cargo build --release --locked --offline
+./target/release/zcall-gui
+</code></pre></div>
+<p>Rust 1.100 and a native C compiler are required. On Arch Linux, install <code>base-devel rust pkgconf libx11 libgl freetype2 fontconfig</code>. On Ubuntu/Debian, install <code>build-essential pkg-config libx11-dev libgl1-mesa-dev libfreetype6-dev libfontconfig1-dev</code>. Linux Wayland sessions use XWayland.</p>
+<p>Management commands require zcalld 0.2.0 or newer. Use <code>zcall-gui --zcalld /absolute/path/to/zcalld --config /path/to/config.conf</code> to select a custom CLI or configuration. A missing CLI presents <strong>Install background service</strong>. Installation requires an explicit review and confirmation; opening the GUI never downloads or starts a gateway.</p>
+<h2 id="install-the-gateway">Install the gateway<a class="heading-anchor" href="#install-the-gateway" aria-label="链接到 Install the gateway">#</a></h2>
+<p>The GUI obtains a complete native gateway from an official stable core release. It first verifies the small <code>zcalld-installer</code> helper against that release's SHA-256 list and checks its version and supported installer protocol. The same helper implements the core CLI's <code>zcalld install</code> commands. It validates and stages the full archive, including the gateway, native plugins and platform helpers, before changing an owned installation.</p>
+<p>The confirmation page shows the version, installation location and administrator requirement. New installations use a private location and do not request administrator privileges:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Default location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td><code>$XDG_DATA_HOME/zcalld/runtime</code>, or <code>~/.local/share/zcalld/runtime</code></td>
+</tr>
+<tr>
+<td>macOS</td>
+<td><code>~/Library/Application Support/zcalld/runtime</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>%LOCALAPPDATA%/zcalld/runtime</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>After a committed transaction, the GUI remembers the actual executable path. It also discovers the default private installation on later launches, so editing <code>PATH</code> is not required. An explicit <code>--zcalld</code> or <code>ZCALLD_BIN</code> still takes precedence. Unknown shared or legacy directories are not adopted; an unmanaged legacy executable can be left in place while a new private installation is prepared.</p>
+<p>Installation leaves service control and user configuration separate. For a committed private installation whose selected configuration is explicitly reported missing, the next action is <strong>Initialize configuration</strong>. It invokes the core's existing <code>init</code> command after a fresh state check; an existing or unreadable file is never treated as missing. The confirmation identifies the configuration location. No service is started by initialization.</p>
+<p>On Linux, <strong>Install user service</strong> then verifies or creates the user unit for that exact executable and configuration. A pre-existing unrelated unit is an error, even if the service manager reports a unit with the same name. Only after this explicit check does the bootstrap flow offer <strong>Start gateway</strong>. On macOS and Windows, the core's existing service-start registration remains a separate explicit action. Opening the GUI, preparing a bundle and completing its installation do not start or stop a service, refresh an account, install a model or rewrite an AI tool's configuration.</p>
+<h2 id="controls">Controls<a class="heading-anchor" href="#controls" aria-label="链接到 Controls">#</a></h2>
+<ul>
+<li><strong>Overview:</strong> see the gateway state and one next step: add a provider or connect your AI tools. Click either count to open its list; service controls stay in Service settings.</li>
+<li><strong>Providers:</strong> search by name, model, protocol or endpoint; add or update an endpoint, select a protocol, set a default model, test it, or remove it. API keys are masked and sent to the CLI through stdin.</li>
+<li><strong>AI tools:</strong> detect supported tools, apply a gateway route, or revert an earlier configuration change.</li>
+<li><strong>Plugins:</strong> inspect enabled state, install a local library or pinned remote source, enable/disable, update or remove a plugin. Newly installed native code requires a separate enable action.</li>
+<li><strong>Privacy:</strong> select off, secret sanitization, or secret plus personal information sanitization.</li>
+<li><strong>Usage:</strong> inspect recorded upstream attempts, including retries, successful and failed attempts, input/output tokens, cache and reasoning details, and attempt success rate. The page reads local accounting on first open or when you select Refresh; other pages do not scan usage history. Enable or disable local recording from this page, then explicitly restart the service to apply the saved setting. Disabling recording preserves existing history. Older gateways without detail counters still show their supported totals; a missing recording-status field is shown as unknown.</li>
+<li><strong>Updates:</strong> install a missing gateway, update a complete unmanaged gateway, inspect or recover an installation, or use the package manager for a managed installation. GUI updates remain separate.</li>
+</ul>
+<p>Tab / Shift+Tab move focus, Enter activates buttons, Ctrl+A selects an input, and standard copy/paste shortcuts work. Ctrl+Q closes the GUI. Provider rows open details on demand. Adding an endpoint uses two short steps; removal stays in the detail panel.</p>
+<h2 id="appearance-and-language">Appearance and language<a class="heading-anchor" href="#appearance-and-language" aria-label="链接到 Appearance and language">#</a></h2>
+<p>The window uses neutral light or graphite surfaces, restrained blue accents and
+the platform's native interface font with glyph fallback. Controls, input focus
+and status colors share the application-local palette. It does not install
+fonts or change desktop fonts or other applications.</p>
+<p>The AI tools list gives each of the 16 supported tools its own vector mark and
+display name. Connection state and the current or saved route appear separately.
+Detection-only tools have no inactive connect button. Narrow windows move route
+actions below the tool details, and paging controls complement wheel scrolling.
+The route picker repeats the selected tool's mark and name. All icon geometry is
+bundled; displaying this page requires no network request. <a href="https://github.com/LIghtJUNction/zcall-gui/blob/daa540307573d86838b108f4a76aa45230fca5f5/assets/agents/README.md">Asset sources and
+licenses</a> record the original SVGs and native conversion.</p>
+<p>Open Settings at the lower left to select System, Light or Dark, and System, Simplified Chinese, Traditional Chinese, English or Japanese. Choices are stored locally and restored on the next launch. System preferences are read at launch and when opening Settings; there is no background desktop-preference polling.</p>
+<p>Language strings live in four complete catalogs under resources/locales. Tests check matching keys and locale fallback. An explicit session override is also available:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>zcall-gui --theme dark --language ja
+</code></pre></div>
+<p>The previews use synthetic local configuration in a private native window.</p>
+<p><a href="https://github.com/LIghtJUNction/zcall-gui/blob/daa540307573d86838b108f4a76aa45230fca5f5/docs/evidence-archive-20261120.md">Overview in light mode</a></p>
+<p><a href="https://github.com/LIghtJUNction/zcall-gui/blob/daa540307573d86838b108f4a76aa45230fca5f5/docs/evidence-archive-20261120.md">Providers in dark mode</a></p>
+<h2 id="updates">Updates<a class="heading-anchor" href="#updates" aria-label="链接到 Updates">#</a></h2>
+<h3 id="gateway-and-native-plugins">Gateway and native plugins<a class="heading-anchor" href="#gateway-and-native-plugins" aria-label="链接到 Gateway and native plugins">#</a></h3>
+<p>The gateway update button prepares a fixed official release and displays its confirmation. Its saved plan is bound to the release commit, platform, archive checksum and installation location. The GUI rechecks the downloaded helper and approved plan before invoking them. Verification and recovery paths are available in <strong>Details</strong>.</p>
+<p>If an owned gateway is still running, the installation stays at <strong>Waiting for service exit</strong>. Stop it through the existing service controls, then use <strong>Complete update</strong> or <strong>Check status</strong>. A launched helper or pending transaction is never reported as an installed update. Closing the window does not cancel a helper already performing a transaction; reopening reads its local result. The prior installation and recovery journal are retained for <strong>Restore previous</strong>.</p>
+<p>The same GUI entry point is available without opening a window:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>zcall-gui --core-install prepare
+zcall-gui --core-install apply
+zcall-gui --core-install status
+zcall-gui --core-install resume
+zcall-gui --core-install rollback
+</code></pre></div>
+<p>These commands return JSON. <code>prepare</code> obtains the official metadata and verified helper; <code>apply</code> is the explicit installation action. <code>status</code> only reads local installation state. Native bootstrap needs system <code>curl</code> and <code>tar</code>; Windows uses native file-handle security APIs to set and verify private cache permissions. The GUI and installer add no third-party Rust dependency or Python runtime requirement. A core release without the complete archive and installer protocol is rejected before installation.</p>
+<p>Managed paths remain on their package-manager update route. For AUR packages, the existing native terminal preserves package review, authorization, source-versus-binary package identity, and actual exit status.</p>
+<h3 id="gui-executable">GUI executable<a class="heading-anchor" href="#gui-executable" aria-label="链接到 GUI executable">#</a></h3>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>zcall-gui --update check
+zcall-gui --update apply
+</code></pre></div>
+<p>The GUI self-updater downloads only its official stable GitHub release for the current platform, checks SHA-256 and the staged executable's version, retains one previous GUI binary, then replaces that executable. A user-writable GUI can update in place. Managed GUI packages use their package manager.</p>
+<p>Linux and macOS keep the current process alive until you close it and open the new version. Windows uses a small deferred helper after the current process exits. The current first implementation is unsigned; Windows/macOS may require their normal downloaded-application approval.</p>
+<h2 id="releases-and-packages">Releases and packages<a class="heading-anchor" href="#releases-and-packages" aria-label="链接到 Releases and packages">#</a></h2>
+<p>Published binaries and archives are available through <a href="https://github.com/LIghtJUNction/zcall-gui/releases">GitHub Releases</a>. Arch recipes are zcall-gui (source) and zcall-gui-bin (binary), both requiring zcalld 0.2.0 or newer. <a href="https://github.com/LIghtJUNction/zcall-gui/blob/daa540307573d86838b108f4a76aa45230fca5f5/docs/RELEASING.md">Release and installation instructions</a> cover AUR, portable archives, staged installs and the patch-bump workflow.</p>
+<h2 id="development-and-evidence">Development and evidence<a class="heading-anchor" href="#development-and-evidence" aria-label="链接到 Development and evidence">#</a></h2>
+<p>Daily checks run locally:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>cargo fmt --check
+cargo clippy --all-targets -- -D warnings
+cargo test
+cargo build --release --offline
+xvfb-run -a -s &#x27;-screen 0 1100x740x24 -nolisten tcp&#x27; python3 scripts/ui_smoke.py
+xvfb-run -a -s &#x27;-screen 0 1100x740x24 -nolisten tcp&#x27; python3 scripts/usage_recording_smoke.py
+xvfb-run -a -s &#x27;-screen 0 1440x1000x24 -nolisten tcp&#x27; python3 scripts/agent_identity_smoke.py
+</code></pre></div>
+<p>The Linux GUI has been opened on an Intel UHD GPU. The real-window test uses an isolated Xvfb display. It exercises provider stdin credentials, agent route changes, plugin activation, privacy selection and update checks against a local fixture. A separate run uses the actual developing zcalld CLI and an isolated home to verify saved providers, agent apply/restore, privacy changes and appearance persistence. Neither run calls a remote model. Screenshots contain isolated test configuration. <a href="https://github.com/LIghtJUNction/zcall-gui/blob/daa540307573d86838b108f4a76aa45230fca5f5/docs/VALIDATION.md">Validation evidence</a> records the scope and current limits. <a href="https://github.com/LIghtJUNction/zcall-gui/blob/daa540307573d86838b108f4a76aa45230fca5f5/docs/validation-0.1.4.md">The 0.1.4 release record</a> identifies the exact source, native jobs and published archives.</p>
+<p>The recording smoke uses a stateful synthetic CLI and a 45-second native window. It checks that enabling recording only saves configuration, restarting requires confirmation, successful restart clears the pending state, and disabling preserves the displayed history before and after another confirmed restart. It saves seven screenshots and a JSON result under <code>_validation/usage-recording</code>; it does not operate a real service.</p>
+<p>The native backend currently uses X11/GLX on Linux, Win32/WGL on Windows and Cocoa/OpenGL on macOS. Apple has <a href="https://developer.apple.com/documentation/appkit/nsopenglcontext">deprecated OpenGL</a>; there is no Metal or native Wayland backend in this version. Native screen-reader accessibility and complex-script shaping are also not implemented.</p>
+<p>License: <a href="https://github.com/LIghtJUNction/zcall-gui/blob/daa540307573d86838b108f4a76aa45230fca5f5/LICENSE">MIT</a>.</p>
+<p><a href="../zcall-gui/dependencies/">Dependency propagation</a> records the frozen shared-library snapshot and downstream ownership.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zcall-gui/blob/daa540307573d86838b108f4a76aa45230fca5f5/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zcall-gui">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../zcall-gui/dependencies/"><span class="pagination-label">下一页</span><span class="pagination-title">Dependency propagation</span></a></nav>
+      <footer class="page-footer">
+        <span>zcall-gui <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#build-and-run">Build and run</a></li><li class="toc-level-2"><a href="#install-the-gateway">Install the gateway</a></li><li class="toc-level-2"><a href="#controls">Controls</a></li><li class="toc-level-2"><a href="#appearance-and-language">Appearance and language</a></li><li class="toc-level-2"><a href="#updates">Updates</a></li><li class="toc-level-3"><a href="#gateway-and-native-plugins">Gateway and native plugins</a></li><li class="toc-level-3"><a href="#gui-executable">GUI executable</a></li><li class="toc-level-2"><a href="#releases-and-packages">Releases and packages</a></li><li class="toc-level-2"><a href="#development-and-evidence">Development and evidence</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

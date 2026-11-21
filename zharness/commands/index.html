@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="复用上下文、工具循环、hook 与协作执行原语。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zharness · Command execution hooks · Project Z">
+  <meta property="og:description" content="复用上下文、工具循环、hook 与协作执行原语。">
+  <meta property="og:type" content="website">
+  <title>zharness · Command execution hooks · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zharness/commands/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zharness">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zharness" aria-label="zharness 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zharness</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zharness</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/" aria-current="page">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zharness 文档"><div class="nav-group"><p class="nav-label">zharness</p><ul><li><a class="nav-link" href="../../zharness/">概览</a></li><li><a class="nav-link" href="../../zharness/commands/" aria-current="page">Command execution hooks</a></li><li><a class="nav-link" href="../../zharness/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zharness/plugins/">Native and Wasm plugin primitives</a></li><li><a class="nav-link" href="../../zharness/context/">Context management</a></li><li><a class="nav-link" href="../../zharness/guardrails/">Native security guardrails</a></li><li><a class="nav-link" href="../../zharness/harness/">Model/tool loop primitives</a></li><li><a class="nav-link" href="../../zharness/hooks/">Hook systems and boundaries</a></li><li><a class="nav-link" href="../../zharness/lifecycle/">Typed Harness Lifecycle API</a></li><li><a class="nav-link" href="../../zharness/output/">Tool output processing</a></li><li><a class="nav-link" href="../../zharness/performance/">Performance methodology</a></li><li><a class="nav-link" href="../../zharness/skills/">Skills</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zharness</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/" aria-current="page">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zharness 文档"><div class="nav-group"><p class="nav-label">zharness</p><ul><li><a class="nav-link" href="../../zharness/">概览</a></li><li><a class="nav-link" href="../../zharness/commands/" aria-current="page">Command execution hooks</a></li><li><a class="nav-link" href="../../zharness/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zharness/plugins/">Native and Wasm plugin primitives</a></li><li><a class="nav-link" href="../../zharness/context/">Context management</a></li><li><a class="nav-link" href="../../zharness/guardrails/">Native security guardrails</a></li><li><a class="nav-link" href="../../zharness/harness/">Model/tool loop primitives</a></li><li><a class="nav-link" href="../../zharness/hooks/">Hook systems and boundaries</a></li><li><a class="nav-link" href="../../zharness/lifecycle/">Typed Harness Lifecycle API</a></li><li><a class="nav-link" href="../../zharness/output/">Tool output processing</a></li><li><a class="nav-link" href="../../zharness/performance/">Performance methodology</a></li><li><a class="nav-link" href="../../zharness/skills/">Skills</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zharness/">zharness 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zharness/">zharness</a><span aria-hidden="true">/</span><span>Command execution hooks</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#minimal-complete-example">Minimal complete example</a></li><li class="toc-level-2"><a href="#event-contract">Event contract</a></li><li class="toc-level-2"><a href="#actual-tool-execution-versus-commands">Actual tool execution versus commands</a></li><li class="toc-level-2"><a href="#adapter-responsibilities">Adapter responsibilities</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="command-execution-hooks">Command execution hooks</h1>
+<p>Command hooks surround an explicitly supplied command adapter, not every process
+in the host application. The core remains no_std and does not spawn a process,
+interpret a shell string, create threads, wait on I/O or allocate capture buffers.
+Use the hooked entry point to obtain its guarantees; direct OS calls bypass it.</p>
+<h2 id="minimal-complete-example">Minimal complete example<a class="heading-anchor" href="#minimal-complete-example" aria-label="链接到 Minimal complete example">#</a></h2>
+<p>This memory adapter demonstrates the contract without starting an OS process.
+The actual process adapter is in <code>examples/command_hooks.rs</code>.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>use zharness::command::{Command, CommandError, CommandExecutor, CommandOutput, ExitStatus};
+use zharness::hooks::{Decision, HookResult, Hooks};
+
+struct Approval { approved: bool }
+impl Hooks for Approval {
+    fn before_command(&amp;mut self, command: Command&lt;&#x27;_&gt;) -&gt; Decision {
+        if command.program != &quot;approved-program&quot; { return Decision::Deny; }
+        if self.approved { Decision::Allow } else { Decision::Pause }
+    }
+}
+struct MemoryAdapter { calls: usize }
+impl CommandExecutor for MemoryAdapter {
+    fn execute(&amp;mut self, _: Command&lt;&#x27;_&gt;, _: &amp;mut [u8], _: &amp;mut [u8])
+        -&gt; Result&lt;CommandOutput, CommandError&gt;
+    {
+        self.calls += 1;
+        Ok(CommandOutput { status: ExitStatus::Exited(0), stdout_len: 0, stderr_len: 0 })
+    }
+}
+let command = Command::new(&quot;command-1&quot;, &quot;approved-program&quot;, &amp;[&quot;--literal-argument&quot;]);
+let mut adapter = MemoryAdapter { calls: 0 };
+let mut approval = Approval { approved: false };
+assert!(matches!(command.execute_with_hooks(&amp;mut adapter, &amp;mut [], &amp;mut [], &amp;mut approval)?, HookResult::Paused));
+assert_eq!(adapter.calls, 0);
+approval.approved = true;
+let HookResult::Applied(result) = command.execute_with_hooks(&amp;mut adapter, &amp;mut [], &amp;mut [], &amp;mut approval)?
+    else { unreachable!(&quot;approval was supplied&quot;); };
+assert!(result.status.success());
+assert_eq!(adapter.calls, 1);
+# Ok::&lt;(), CommandError&gt;(())
+</code></pre></div>
+<h2 id="event-contract">Event contract<a class="heading-anchor" href="#event-contract" aria-label="链接到 Event contract">#</a></h2>
+<p><code>Command::execute_with_hooks</code> validates nonempty identities/executables and rejects
+NULs in executable/arguments/cwd. These are structural checks, not executable
+resolution or permission checks. Invalid descriptors never reach the hooks or
+adapter. Empty literal arguments are allowed; an explicitly empty cwd is not.</p>
+<p><code>before_command</code> sees the exact command ID, program, argument slice and optional
+working directory. Tuple chains evaluate left-to-right. Pause returns
+HookResult::Paused; Deny returns CommandError::Denied. Both prevent the adapter
+call and leave stdout/stderr buffers untouched. No after/error callback describes
+these as attempted process executions.</p>
+<p>After Allow, the adapter is invoked once. A normal completed result first passes
+capture-length checks, then <code>after_command</code> receives the original description,
+exit status and borrowed stdout/stderr bytes. Nonzero exit codes and termination
+without a code remain completed results with success() == false. They are not
+silently normalized to success or automatically retried.</p>
+<p>Adapter errors call <code>command_error</code> and return that same bounded error. Categories
+include Spawn, Io, TimedOut, Cancelled, Capacity and adapter-defined codes. Invalid
+capture lengths produce InvalidOutput before after_command can observe invalid
+slices. Error observers cannot suppress failure or replace it with success.
+Output may be binary: UTF-8 checking belongs to an explicit text conversion.</p>
+<p>There is one completion OR error observation per attempted adapter call on normal
+return. Hook/adapter panics, process crashes and externally abandoned work are not
+caught or guaranteed to generate a final callback. A later explicit invocation is
+a new attempt, not an idempotent replay protected by command ID.</p>
+<h2 id="actual-tool-execution-versus-commands">Actual tool execution versus commands<a class="heading-anchor" href="#actual-tool-execution-versus-commands" aria-label="链接到 Actual tool execution versus commands">#</a></h2>
+<p><code>Prepared::execute_with_hooks</code> brackets the actual generic Executor invocation
+using <code>before_execute</code>, <code>after_execute</code> and <code>execute_error</code>. It retains the real
+model call ID, validated arguments and failure flag. Business is_error=true
+results invoke after_execute; executor errors, oversized lengths and invalid
+UTF-8 invoke execute_error. Pause/deny does not execute or modify output.</p>
+<p>These boundaries differ from ToolLoop's Before::Tool ticket issuance and
+After::ToolFinished result commitment. A command inside a tool can use its own
+command hooks. A typical composition is:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>ToolLoop ticket gate
+  -&gt; before_execute
+     -&gt; application Executor
+        -&gt; before_command -&gt; application OS adapter -&gt; after_command / command_error
+  -&gt; after_execute / execute_error
+  -&gt; before_result -&gt; optional output transforms -&gt; after_result
+  -&gt; explicit history and Session acceptance -&gt; ToolLoop result commitment
+</code></pre></div>
+<p>No inner event is fabricated: a tool that does not execute commands emits no
+command hooks, and no result processing happens unless requested explicitly.
+Execution hooks see raw output, so apply appropriate secrecy policy to observers.
+Output transforms remain the separate redaction/reduction layer from OUTPUT.md.</p>
+<h2 id="adapter-responsibilities">Adapter responsibilities<a class="heading-anchor" href="#adapter-responsibilities" aria-label="链接到 Adapter responsibilities">#</a></h2>
+<p>Pass argv elements literally; never concatenate them into an implicit shell.
+An explicit shell program (sh -c, cmd /C, etc.) is still a shell and requires its
+own authorization. A string allowlist does not defeat PATH replacement, symlinks,
+working-directory races or executable substitution. Resolve and enforce identities
+and privileges at the actual OS boundary when those risks matter.</p>
+<p>The descriptor intentionally omits OS-specific environment, stdin, file handles,
+resource limits and sandbox policy. Configure those in a trusted adapter and make
+them available to application policy out of band. Do not treat the descriptor as
+a full audit record of unrepresented OS settings. UTF-8 descriptors do not encode
+all possible native OS paths; use a platform-specific application boundary for
+non-UTF-8 requirements rather than lossy conversion.</p>
+<p>The example clears inherited environment, disables stdin, uses an absolute path
+to its own controlled child executable, and drains stdout/stderr concurrently into
+bounded buffers. It waits/reaps the child even after capture exceeds capacity.
+It tests success, exit code 7, and both pipes exceeding capacity without retry.
+It deliberately has no timeout implementation; TimedOut/Cancelled are adapter
+reports, not library timers or cancellation mechanisms.</p>
+<p>An error after execution may follow real side effects. Do not rerun a command
+just to enlarge a capture buffer. Retain available results and apply explicit
+idempotency or recovery policy. Parallel commands need separate buffers and hook
+state or application synchronization. The library does not schedule workers.</p>
+<p>Run <code>cargo run --locked --example command_hooks</code>. The example uses std and
+application threads; those allocations and OS calls are outside the no_std core.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zharness/blob/8907262ce6c8494f2849f8e5abd84f7a3da2e405/COMMANDS.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zharness">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zharness/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../zharness/architecture/"><span class="pagination-label">下一页</span><span class="pagination-title">Architecture</span></a></nav>
+      <footer class="page-footer">
+        <span>zharness <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#minimal-complete-example">Minimal complete example</a></li><li class="toc-level-2"><a href="#event-contract">Event contract</a></li><li class="toc-level-2"><a href="#actual-tool-execution-versus-commands">Actual tool execution versus commands</a></li><li class="toc-level-2"><a href="#adapter-responsibilities">Adapter responsibilities</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

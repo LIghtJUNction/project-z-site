@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="观测 Linux 内存压力，管理 Swap 并约束后台任务的内存预算。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zmem · 概览 · Project Z">
+  <meta property="og:description" content="观测 Linux 内存压力，管理 Swap 并约束后台任务的内存预算。">
+  <meta property="og:type" content="website">
+  <title>zmem · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zmem/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zmem">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zmem" aria-label="zmem 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zmem</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zmem</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/" aria-current="page">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zmem 文档"><div class="nav-group"><p class="nav-label">zmem</p><ul><li><a class="nav-link" href="../zmem/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zmem</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/" aria-current="page">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zmem 文档"><div class="nav-group"><p class="nav-label">zmem</p><ul><li><a class="nav-link" href="../zmem/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zmem/">zmem 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zmem/">zmem</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#what-it-does">What it does</a></li><li class="toc-level-2"><a href="#installation">Installation</a></li><li class="toc-level-3"><a href="#from-cratesio">From crates.io</a></li><li class="toc-level-3"><a href="#prebuilt-linux-executable">Prebuilt Linux executable</a></li><li class="toc-level-3"><a href="#service-and-rollback">Service and rollback</a></li><li class="toc-level-2"><a href="#everyday-use">Everyday use</a></li><li class="toc-level-2"><a href="#policy-and-resource-limits">Policy and resource limits</a></li><li class="toc-level-2"><a href="#build-and-validate">Build and validate</a></li><li class="toc-level-2"><a href="#release-a-version">Release a version</a></li><li class="toc-level-2"><a href="#kernel-references">Kernel references</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zmem">zmem</h1><p class="project-intro">观测 Linux 内存压力，管理 Swap 并约束后台任务的内存预算。</p>
+<p><strong>Memory, with room to work.</strong> A small Linux memory and Swap controller from <a href="https://github.com/LIghtJUNction/project-z">Project Z</a>.</p>
+<p><a href="https://lightjunction.github.io/zmem/">Website</a> · <a href="https://github.com/LIghtJUNction/zmem/releases">Releases</a> · <a href="https://crates.io/crates/zmem-manager">crates.io</a> · <a href="https://docs.rs/zmem-manager">Rust API</a> · <a href="https://github.com/LIghtJUNction/zmem/blob/57deca203bf6e1aab33b3e96e4c7abdcd2fbd0b6/docs/acceptance-0.1.1.md">Host acceptance</a></p>
+<p>zmem observes memory pressure, preserves headroom for interactive work, and gives managed background jobs a bounded memory budget. It brings zram setup, dynamic disk swap, pressure policy and structured inspection into one tool. The Rust implementation has no third-party crate dependencies; the policy library uses <code>no_std</code> and makes no heap allocations.</p>
+<h2 id="what-it-does">What it does<a class="heading-anchor" href="#what-it-does" aria-label="链接到 What it does">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pressure policy</td>
+<td>Combines available memory, memory/IO PSI and swap activity, with cooldowns and recovery hysteresis.</td>
+</tr>
+<tr>
+<td>Swap management</td>
+<td>Adopts active swap, grows disk swap within capacity and free-space limits, and shrinks only unused, owned files.</td>
+</tr>
+<tr>
+<td>zram lifecycle</td>
+<td>Keeps the current active device during migration and prepares zram on subsequent boots.</td>
+</tr>
+<tr>
+<td>Workload budgets</td>
+<td>Uses cgroup v2 <code>memory.high</code> for managed background work and explicit hard limits for disposable jobs.</td>
+</tr>
+<tr>
+<td>Interactive protection</td>
+<td>Protects desktop sessions and SSH through the system's memory-control hierarchy.</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>Exposes memory, swap, compression, process usage and policy reasons through human-readable and JSON commands.</td>
+</tr>
+<tr>
+<td>Service migration</td>
+<td>Saves prior service/configuration state, replaces existing management services, and offers rollback.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The Linux kernel performs actual paging, compression and final OOM handling. zmem makes earlier policy decisions using those facilities. Automatic application checkpoints, general-purpose memory deduplication and energy optimization are future work. KSM statistics describe what the kernel has already merged; they are not a claim that every application's memory can be deduplicated.</p>
+<p>The default policy preserves processes. It does not issue global cache drops or automatically kill arbitrary applications. A task explicitly started as disposable can be given a hard cgroup limit, where the kernel may terminate it if the budget is exhausted.</p>
+<h2 id="installation">Installation<a class="heading-anchor" href="#installation" aria-label="链接到 Installation">#</a></h2>
+<p>Use a Linux system with systemd, PSI and cgroup v2. Swap creation uses the host's swap utilities; Btrfs hosts also need <code>btrfs-progs</code>. The daemon needs root privileges for system-wide configuration and swap management. Read-only status and policy inspection can run without root.</p>
+<h3 id="from-cratesio">From crates.io<a class="heading-anchor" href="#from-cratesio" aria-label="链接到 From crates.io">#</a></h3>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo install zmem-manager --locked
+zmem doctor
+zmem status --json
+sudo &quot;$(command -v zmem)&quot; install --replace
+</code></pre></div>
+<p><code>install --replace</code> is the explicit system migration operation. It preserves active swap, records the prior management configuration and installs the zmem service. Existing swap that contains data is adopted in place. Changes that require rebuilding zram take effect at a normal subsequent boot.</p>
+<h3 id="prebuilt-linux-executable">Prebuilt Linux executable<a class="heading-anchor" href="#prebuilt-linux-executable" aria-label="链接到 Prebuilt Linux executable">#</a></h3>
+<p>Download the archive and its <code>.sha256</code> file for your architecture from <a href="https://github.com/LIghtJUNction/zmem/releases">GitHub Releases</a>. Verify the checksum, extract the archive and run its <code>bin/zmem</code> executable. The release contains <code>build.json</code> with source identity, architecture and build libc information. Source installation is available for distributions with an older libc than the published binary requires.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code># In the directory containing the downloaded archive and checksum:
+sha256sum --check zmem-*.tar.gz.sha256
+tar -xzf zmem-VERSION-linux-ARCH.tar.gz
+./zmem-VERSION-linux-ARCH/bin/zmem doctor
+sudo ./zmem-VERSION-linux-ARCH/bin/zmem install --replace
+</code></pre></div>
+<p>Replace <code>VERSION</code> and <code>ARCH</code> with the downloaded release name. Supported release architectures are <code>x86_64</code> and <code>aarch64</code>.</p>
+<h3 id="service-and-rollback">Service and rollback<a class="heading-anchor" href="#service-and-rollback" aria-label="链接到 Service and rollback">#</a></h3>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>systemctl status zmem.service
+journalctl -u zmem.service
+sudo zmem rollback
+</code></pre></div>
+<p>Stopping or upgrading the management daemon leaves active swap in place. Rollback restores the saved management configuration. It does not drain active swap into RAM. Keep the previous configuration record until the new setup has completed a normal boot on your machine.</p>
+<h2 id="everyday-use">Everyday use<a class="heading-anchor" href="#everyday-use" aria-label="链接到 Everyday use">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>zmem status
+zmem status --json --processes
+zmem plan --json
+zmem doctor --json
+zmem schema
+</code></pre></div>
+<p><code>status</code> reports measurements. <code>plan</code> reports the policy's proposed action and its reason. <code>schema</code> describes the command contract for scripts and AI tools. Process details are collected on request rather than on every daemon tick.</p>
+<p>To observe policy over time before applying system changes:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>zmem daemon --observe
+</code></pre></div>
+<p>Start background work with its classification from the beginning:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>zmem run --class background -- cargo build --release
+zmem run --class interactive -- YOUR_COMMAND
+zmem run --class disposable --max-memory 2048 -- YOUR_BATCH_COMMAND
+</code></pre></div>
+<p>The <code>--max-memory</code> value is in MiB. The disposable class is for work that can be restarted if it exceeds its explicit budget. Starting a job inside a cgroup gives the kernel a consistent accounting boundary for the job's allocations.</p>
+<h2 id="policy-and-resource-limits">Policy and resource limits<a class="heading-anchor" href="#policy-and-resource-limits" aria-label="链接到 Policy and resource limits">#</a></h2>
+<p>The policy core is a deterministic state machine. It receives a snapshot and a monotonic timestamp, then produces a bounded decision. The Linux adapter checks real ownership, kernel state, disk capacity and operation results before acting.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Default policy setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Available-memory reserve</td>
+<td>Larger of 1 GiB or 10% of physical RAM, capped at total RAM</td>
+</tr>
+<tr>
+<td>Desired unused Swap headroom</td>
+<td>4 GiB when growth is needed</td>
+</tr>
+<tr>
+<td>Maximum growth request</td>
+<td>2 GiB per decision</td>
+</tr>
+<tr>
+<td>Managed disk Swap cap</td>
+<td>32 GiB</td>
+</tr>
+<tr>
+<td>Filesystem free-space reserve</td>
+<td>8 GiB</td>
+</tr>
+<tr>
+<td>Swap growth cooldown</td>
+<td>30 seconds</td>
+</tr>
+<tr>
+<td>Stable healthy time before shrinking</td>
+<td>600 seconds</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are policy defaults, not a promise about application latency. A machine can run out of physical memory and swap, or spend time waiting for a slow storage device. zmem bounds its own actions and exposes the observed pressure so the tradeoffs remain visible.</p>
+<p>Memory and swap quantities use binary units: one MiB is 1,048,576 bytes and one GiB is 1,073,741,824 bytes. PSI measures time spent waiting for a resource. In the library, 10,000 basis points means 100% of the measurement interval.</p>
+<p>The <a href="https://lightjunction.github.io/zmem/#playground">interactive website</a> illustrates a simplified policy decision using synthetic inputs. It runs entirely in the browser and does not connect to the daemon.</p>
+<h2 id="build-and-validate">Build and validate<a class="heading-anchor" href="#build-and-validate" aria-label="链接到 Build and validate">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>cargo test --locked
+cargo check --locked --lib --no-default-features
+cargo build --release --locked
+</code></pre></div>
+<p>The public policy types can be embedded without the operating-system adapter. The <code>zmem</code> executable targets Linux; the <code>no_std</code> policy library does not depend on Linux.</p>
+<p>For meaningful host acceptance, exercise a bounded test workload in its own cgroup. Record probe latency, workload progress, PSI, swap IO and daemon RSS/CPU together. Do not infer responsiveness from a lower used-memory number alone. Exact measurements should identify the tested source, kernel, storage and workload.</p>
+<h2 id="release-a-version">Release a version<a class="heading-anchor" href="#release-a-version" aria-label="链接到 Release a version">#</a></h2>
+<p>Open <strong>Actions → Release zmem → Run workflow</strong>. Leave <code>tag</code> empty and set <code>version</code> to <code>patch</code>, <code>minor</code>, <code>major</code>, or an explicit <code>X.Y.Z</code>.</p>
+<p>The workflow updates <code>Cargo.toml</code>, <code>Cargo.lock</code> and the website version, validates the source, commits to <code>main</code>, and creates the release tag. The same run builds native Linux x86_64 and ARM64 executables, publishes the crate with the repository's <code>CARGO_REGISTRY_TOKEN</code> secret, and uploads the archives and checksums to GitHub Releases. A direct version-tag push runs the release pipeline too. All releases share a concurrency group to prevent overlapping version publication.</p>
+<p>To rebuild an existing tag after a failed infrastructure step, set <code>tag</code> to that version. An existing crate version is retained; an existing release asset must match the rebuilt file exactly. The workflow does not silently replace published artifacts.</p>
+<p>Local version editing is also available:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>python3 scripts/bump.py patch
+# Or commit, tag and atomically push a validated release from a clean main:
+python3 scripts/bump.py patch --release
+</code></pre></div>
+<p>Local <code>--release</code> pushes a tag, which starts the official release workflow when pushed using a normal repository credential. GitHub's workflow token does not recursively start tag workflows; the one-click path therefore continues its release in the same workflow run.</p>
+<p>The Pages workflow deploys <code>site/</code> directly. There is no package install, external font, analytics script or frontend build step. Daily source work is tested locally; the automated test jobs belong to the explicit release pipeline.</p>
+<h2 id="kernel-references">Kernel references<a class="heading-anchor" href="#kernel-references" aria-label="链接到 Kernel references">#</a></h2>
+<ul>
+<li><a href="https://docs.kernel.org/accounting/psi.html">Pressure Stall Information</a></li>
+<li><a href="https://docs.kernel.org/admin-guide/cgroup-v2.html">cgroup v2 memory controls</a></li>
+<li><a href="https://docs.kernel.org/admin-guide/blockdev/zram.html">zram administration</a></li>
+<li><a href="https://docs.kernel.org/admin-guide/sysctl/vm.html">Virtual-memory sysctls</a></li>
+<li><a href="https://docs.kernel.org/admin-guide/mm/ksm.html">Kernel Samepage Merging</a></li>
+<li><a href="https://btrfs.readthedocs.io/en/latest/Swapfile.html">Btrfs swap files</a></li>
+</ul>
+<p>The website uses the warm graphite, linen and copper direction of <a href="https://lightjunction.github.io/oh-my-ztty/">oh-my-ztty</a>. MIT licensed.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmem/blob/57deca203bf6e1aab33b3e96e4c7abdcd2fbd0b6/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmem">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"></nav>
+      <footer class="page-footer">
+        <span>zmem <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#what-it-does">What it does</a></li><li class="toc-level-2"><a href="#installation">Installation</a></li><li class="toc-level-3"><a href="#from-cratesio">From crates.io</a></li><li class="toc-level-3"><a href="#prebuilt-linux-executable">Prebuilt Linux executable</a></li><li class="toc-level-3"><a href="#service-and-rollback">Service and rollback</a></li><li class="toc-level-2"><a href="#everyday-use">Everyday use</a></li><li class="toc-level-2"><a href="#policy-and-resource-limits">Policy and resource limits</a></li><li class="toc-level-2"><a href="#build-and-validate">Build and validate</a></li><li class="toc-level-2"><a href="#release-a-version">Release a version</a></li><li class="toc-level-2"><a href="#kernel-references">Kernel references</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

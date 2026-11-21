@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="处理 Kitty / Sixel 图像协议，向宿主提供图像与放置数据。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zgraphics · 概览 · Project Z">
+  <meta property="og:description" content="处理 Kitty / Sixel 图像协议，向宿主提供图像与放置数据。">
+  <meta property="og:type" content="website">
+  <title>zgraphics · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zgraphics/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zgraphics">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zgraphics" aria-label="zgraphics 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zgraphics</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zgraphics</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/" aria-current="page">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zgraphics 文档"><div class="nav-group"><p class="nav-label">zgraphics</p><ul><li><a class="nav-link" href="../zgraphics/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zgraphics</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/" aria-current="page">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zgraphics 文档"><div class="nav-group"><p class="nav-label">zgraphics</p><ul><li><a class="nav-link" href="../zgraphics/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zgraphics/">zgraphics 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zgraphics/">zgraphics</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#sixel">Sixel</a></li><li class="toc-level-2"><a href="#standalone-crate-and-validation">Standalone crate and validation</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zgraphics">zgraphics</h1><p class="project-intro">处理 Kitty / Sixel 图像协议，向宿主提供图像与放置数据。</p>
+<p>Bounded Kitty Graphics Protocol and DEC Sixel processing for <code>no_std</code> terminals. The library
+uses <code>alloc</code>, performs no operating-system calls, and does not select a window
+system or renderer. All production Rust dependencies disable default features.</p>
+<p>It accepts direct (<code>t=d</code>) RGB, RGBA and PNG image data, including zlib compression,
+base64 transfers, capability queries, image IDs/numbers, source cropping,
+placements, placement IDs, scaling, z-order and deletion. PNG decoding uses
+<code>zune-png</code>; the container is checked before decoding and nonessential metadata is
+removed. Kitty animation frames, frame composition and playback use a monotonic
+clock supplied by the host; the library starts no timer. APNG remains unsupported.</p>
+<p>File, temporary-file and shared-memory transfers use an optional host-supplied
+<code>ExternalReader</code>. The host owns object validation, bounded reads and unlink policy.
+Without that callback, external transfers are unavailable. Unicode placeholders
+and relative placements resolve through the same scene: the host supplies decoded
+<code>Placeholder</code> cells, and <code>draws_with_placeholders</code> returns the corresponding draws.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>use zgraphics::{Context, Graphics};
+
+let mut images = Graphics::default();
+let context = Context {
+    col: 0, row: 0, cols: 80, rows: 24, cell_width: 8, cell_height: 16,
+};
+let mut replies = Vec::new();
+images.command(b&quot;Ga=T,i=1,f=24,s=1,v=1,C=1;/wAA&quot;, context, &amp;mut replies);
+let draw = images.draws(0).next().unwrap();
+assert_eq!(draw.image.pixels.as_slice(), [255, 0, 0, 255]);
+assert_eq!(replies, b&quot;\x1b_Gi=1;OK\x1b\\&quot;);
+</code></pre></div>
+<p><code>Graphics::command</code> accepts one protocol-sized APC body starting with <code>G</code>, without
+the surrounding <code>ESC _</code> and <code>ESC \\</code>. For a byte stream, use <code>CommandStream</code>:
+it retains at most a 512-byte header and 4096 encoded bytes, decoding larger bodies
+incrementally into the bounded transfer. This also accepts existing clients such
+as <code>kitten icat</code> which can emit an entire image in one APC. Both padded and
+unpadded final base64 are accepted; an explicit nonfinal <code>m=1</code> chunk must still be
+a multiple of four without padding. The host owns ESC/ST framing and passes
+cursor/grid context. Images become visible only when <code>finish</code> receives ST.
+<code>Graphics::draws</code> returns sorted, borrowed straight-alpha RGBA images and source
+and destination rectangles. The renderer honors <code>Draw::clip</code> while preserving the
+full source-to-destination transform, additionally clips to its viewport, and
+implements the documented z-order around text and explicit backgrounds.
+Pixel buffers use <code>Arc&lt;Vec&lt;u8&gt;&gt;</code>; a native renderer can retain a buffer until its
+graphics API has finished reading it. Renderers must release their retained
+references and converted-image caches when no longer needed. The dependency on
+<code>Arc</code> requires targets with pointer-width atomics.</p>
+<p>Default limits per scene are 8192 pixels per dimension, 32 MiB per decoded image,
+32 MiB total decoded storage, 16 MiB per pending transfer, 128 stored images and
+512 placements. Limits are configurable. PNG decoding has additional temporary
+buffers bounded by validated dimensions and compressed input; the decoded-store
+quota is not a claim about peak process RSS. A terminal normally keeps independent
+scenes for primary and alternate screens. No image storage is allocated while idle.
+The decoded-storage accounting includes vector capacity, not only populated pixels.</p>
+<p><code>scroll</code>, <code>trim_history</code>, and <code>set_viewport</code> let the host keep placements attached
+to terminal content. <code>revision</code> changes on scene mutations; <code>Image::generation</code>
+distinguishes replacement pixel data under an existing ID for renderer caches.
+Generation values are local to a scene; clear renderer caches when changing to a
+different scene. Full-screen upward scrolls can retain images in history, while
+partial-region scrolls move only placements whose anchors lie inside the region.</p>
+<p>Protocol reference: <a href="https://sw.kovidgoyal.net/kitty/graphics-protocol/">https://sw.kovidgoyal.net/kitty/graphics-protocol/</a>.</p>
+<h2 id="sixel">Sixel<a class="heading-anchor" href="#sixel" aria-label="链接到 Sixel">#</a></h2>
+<p><code>begin_sixel</code>, <code>sixel_put</code>, <code>finish_sixel</code>, and <code>abort_sixel</code> decode a DCS body
+incrementally into the same image scene used by Kitty images. The decoder handles
+repeat counts, raster extents, integer pixel aspect ratios, graphics carriage
+return/newline, 256 color registers, RGB percentages, DEC HLS colors, and opaque
+or transparent backgrounds. Raster extents are minimum dimensions, so following
+pixel data may extend them. Redefining a register recolors earlier pixels within
+the image. The initial 16 registers use VT340 colors; remaining registers start
+black. The host can retain the returned palette for shared-register mode.</p>
+<p>The decoder creates no image storage before its first pixel or declared raster.
+It counts encoded input against <code>max_transfer_bytes</code>, decoded RGBA capacity
+against <code>max_image_bytes</code>, and expanded painting/copying work against eight times
+<code>max_image_bytes</code> pixel operations. Dimensions include the vertical aspect scale;
+aspect ratios are rounded to an integer of at least one and bounded at 64.
+Malformed parameters or a quota violation immediately release the partial
+decoder. A host must call <code>finish_sixel</code> only for ST; CAN, SUB, replacement escape
+sequences and a truncated stream must cancel it. Invalid input cannot replace a
+completed image or move the text cursor.</p>
+<p>During decoding the indexed canvas uses at most half the decoded-image quota.
+Final conversion can briefly hold that canvas and one RGBA buffer together
+(48 MiB with the default 32 MiB image quota). Completed images remain subject to
+the existing 32 MiB scene quota; renderer-owned uploads are separate. Palette
+changes in a later image do not recolor already completed RGBA images.</p>
+<p>The <code>zterm</code> host implements default scrolling, display mode (DECSDM 80), the
+right-of-image cursor option (8452), and private/shared color registers (1070).
+It accepts <code>ESC P</code> introducers and either <code>ESC \\</code> or the 8-bit ST byte as the
+terminator. It preserves framing across arbitrary PTY read boundaries.</p>
+<p>Sixel protocol and raster/color definitions:
+<a href="https://vt100.net/docs/vt3xx-gp/chapter14.html">https://vt100.net/docs/vt3xx-gp/chapter14.html</a>.
+Modern DECSDM polarity and cursor extensions:
+<a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html">https://invisible-island.net/xterm/ctlseqs/ctlseqs.html</a>.
+The DEC manual's DECSDM set/reset prose conflicts with modern xterm behavior;
+this implementation follows xterm: mode 80 set disables scrolling and uses the
+top-left origin, while reset enables scrolling at the text cursor.</p>
+<p>The host-level <a href="https://github.com/LIghtJUNction/ztty/blob/f2db31d7ea35bf1a0554e76d69d2e44faafd0cab/tests/sixel_reference.py">Sixel reference test</a>
+compares fixture pixels, libsixel's <code>sixel2png</code>, and the <code>zterm</code> parser at five input
+chunk sizes. It remains in the host repository. This crate's tests exercise protocol
+and pixel behavior; they do not establish native GUI presentation.</p>
+<h2 id="standalone-crate-and-validation">Standalone crate and validation<a class="heading-anchor" href="#standalone-crate-and-validation" aria-label="链接到 Standalone crate and validation">#</a></h2>
+<p>This repository contains the independent <code>zgraphics 0.2.0</code> workspace. It was
+extracted from <a href="https://github.com/LIghtJUNction/ztty/tree/f2db31d7ea35bf1a0554e76d69d2e44faafd0cab/crates/zgraphics">ztty at <code>f2db31d7</code></a>;
+<a href="https://github.com/LIghtJUNction/zgraphics/blob/main/docs/extraction.json">the extraction record</a>
+records the original file blobs. Public types remain under <code>zgraphics::</code>, and
+the module split changes neither their paths nor the method bodies.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lib.rs</code></td>
+<td>Public data, scene storage, quotas and content lifecycle</td>
+</tr>
+<tr>
+<td><code>kitty.rs</code></td>
+<td>Kitty command execution, transfer completion and replies</td>
+</tr>
+<tr>
+<td><code>sixel_scene.rs</code></td>
+<td>Sixel stream lifetime, scene commit and cell erasure</td>
+</tr>
+<tr>
+<td><code>sixel.rs</code>, <code>decode.rs</code></td>
+<td>Bounded raster and image decoding</td>
+</tr>
+<tr>
+<td><code>placement.rs</code></td>
+<td>Relative anchors and Unicode placeholder draw geometry</td>
+</tr>
+<tr>
+<td><code>animation.rs</code></td>
+<td>Frame storage, composition and host-clock advancement</td>
+</tr>
+<tr>
+<td><code>protocol.rs</code>, <code>stream.rs</code>, <code>transport.rs</code></td>
+<td>Command parsing, APC streaming and host I/O callback</td>
+</tr>
+</tbody>
+</table></div>
+<p>Run the library checks from this directory with Rust 1.100 or newer:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>cargo test --locked --lib
+cargo test --locked --doc
+cargo fmt --all -- --check
+cargo clippy --locked --all-targets -- -D warnings
+python3 tools/check_package.py
+cargo package --locked
+rustup target add wasm32-unknown-unknown x86_64-unknown-none
+cargo check --locked --lib --target wasm32-unknown-unknown
+cargo check --locked --lib --target x86_64-unknown-none
+</code></pre></div>
+<p>The manually invoked <a href="https://github.com/LIghtJUNction/zgraphics/blob/main/.github/workflows/ci.yml">candidate workflow</a>
+checks one fixed commit on Linux, macOS and Windows, plus WebAssembly and bare-metal
+compilation, formatting, Clippy and the crate archive. It has read-only repository
+permissions and does not publish a crate or create a release. Compilation on a
+target does not establish renderer, filesystem callback or GUI behavior on that
+platform.</p>
+<p>The separate <a href="https://github.com/LIghtJUNction/zgraphics/blob/main/.github/workflows/release.yml">release workflow</a>
+is also manual. It prepares an optional version bump or resumes an exact existing
+candidate, runs the full candidate workflow, then verifies the package's embedded
+Git identity and crates.io checksum before pushing the matching tag and completing
+the GitHub Release. Repeating an interrupted release requires matching package
+bytes and the same tag commit. Publication credentials are supplied only when
+the repository owner invokes that workflow.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zgraphics/blob/aa0ed19fb706ad147aff1df54c4ef762d918e864/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zgraphics">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"></nav>
+      <footer class="page-footer">
+        <span>zgraphics <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#sixel">Sixel</a></li><li class="toc-level-2"><a href="#standalone-crate-and-validation">Standalone crate and validation</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

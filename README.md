@@ -1,7 +1,7 @@
-# Project Z
+# Project Z documentation
 
-Public introduction and project catalog: [lightjunction.github.io/project-z-site](https://lightjunction.github.io/project-z-site/).
+[Open the documentation portal](https://lightjunction.github.io/project-z-site/).
 
-This repository contains only the generated static website and publicly verified project metadata. Each project retains its own source repository, documentation and license, linked from its catalog entry.
+49 Project Z projects and 259 source-based documentation pages, using the warm Ink design from oh-my-ztty. Every project has its own URL, chapters, source links and a shared full-text search. Dark and light themes, mobile navigation and code copying are included. The content remains readable without JavaScript.
 
-The site uses local assets, supports keyboard navigation and a light or dark theme, and remains readable without JavaScript.
+The maintained source, public-document collector and build instructions are in [LIghtJUNction/project-z/site](https://github.com/LIghtJUNction/project-z/tree/main/site). Each project retains its own license. See [design-license.txt](design-license.txt) for design attribution.

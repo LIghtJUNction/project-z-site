@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="组合终端、shell、应用配置与内存管理，提供 Linux 工作环境。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="oh-my-ztty · Development · Project Z">
+  <meta property="og:description" content="组合终端、shell、应用配置与内存管理，提供 Linux 工作环境。">
+  <meta property="og:type" content="website">
+  <title>oh-my-ztty · Development · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/oh-my-ztty/development/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="oh-my-ztty">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/oh-my-ztty" aria-label="oh-my-ztty 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">oh-my-ztty</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>oh-my-ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/" aria-current="page">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="oh-my-ztty 文档"><div class="nav-group"><p class="nav-label">oh-my-ztty</p><ul><li><a class="nav-link" href="../../oh-my-ztty/">概览</a></li><li><a class="nav-link" href="../../oh-my-ztty/readme-en/">oh-my-ztty</a></li><li><a class="nav-link" href="../../oh-my-ztty/installation/">Installation</a></li><li><a class="nav-link" href="../../oh-my-ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../oh-my-ztty/shell/">Shell, PATH and environment</a></li><li><a class="nav-link" href="../../oh-my-ztty/memory/">Memory and Swap</a></li><li><a class="nav-link" href="../../oh-my-ztty/plugins/">Plugins</a></li><li><a class="nav-link" href="../../oh-my-ztty/ai/">AI integration</a></li><li><a class="nav-link" href="../../oh-my-ztty/dotfiles/">Dotfiles</a></li><li><a class="nav-link" href="../../oh-my-ztty/performance/">Performance</a></li><li><a class="nav-link" href="../../oh-my-ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../oh-my-ztty/development/" aria-current="page">Development</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>oh-my-ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/" aria-current="page">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="oh-my-ztty 文档"><div class="nav-group"><p class="nav-label">oh-my-ztty</p><ul><li><a class="nav-link" href="../../oh-my-ztty/">概览</a></li><li><a class="nav-link" href="../../oh-my-ztty/readme-en/">oh-my-ztty</a></li><li><a class="nav-link" href="../../oh-my-ztty/installation/">Installation</a></li><li><a class="nav-link" href="../../oh-my-ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../oh-my-ztty/shell/">Shell, PATH and environment</a></li><li><a class="nav-link" href="../../oh-my-ztty/memory/">Memory and Swap</a></li><li><a class="nav-link" href="../../oh-my-ztty/plugins/">Plugins</a></li><li><a class="nav-link" href="../../oh-my-ztty/ai/">AI integration</a></li><li><a class="nav-link" href="../../oh-my-ztty/dotfiles/">Dotfiles</a></li><li><a class="nav-link" href="../../oh-my-ztty/performance/">Performance</a></li><li><a class="nav-link" href="../../oh-my-ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../oh-my-ztty/development/" aria-current="page">Development</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../oh-my-ztty/">oh-my-ztty 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../oh-my-ztty/">oh-my-ztty</a><span aria-hidden="true">/</span><span>Development</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#clone-the-workspace">Clone the workspace</a></li><li class="toc-level-2"><a href="#validate-a-change">Validate a change</a></li><li class="toc-level-2"><a href="#work-in-a-submodule">Work in a submodule</a></li><li class="toc-level-2"><a href="#synchronize-default-branches">Synchronize default branches</a></li><li class="toc-level-3"><a href="#local-state-and-recovery">Local state and recovery</a></li><li class="toc-level-2"><a href="#build-the-source-locked-bundle">Build the source-locked bundle</a></li><li class="toc-level-2"><a href="#bump-and-release">Bump and release</a></li><li class="toc-level-2"><a href="#release-evidence">Release evidence</a></li><li class="toc-level-2"><a href="#edit-this-documentation">Edit this documentation</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="development">Development</h1>
+<p>Use this workspace to change a component, validate its integration and prepare a suite release. Development follows each component's latest default branch. The suite records the observed revisions and builds that exact source combination.</p>
+<h2 id="clone-the-workspace">Clone the workspace<a class="heading-anchor" href="#clone-the-workspace" aria-label="链接到 Clone the workspace">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>git clone --recurse-submodules https://github.com/LIghtJUNction/oh-my-ztty.git
+cd oh-my-ztty
+python3 scripts/workspace.py status
+</code></pre></div>
+<p>Development uses Git, Python 3, make, zsh and the Rust toolchain required by the component you change. Installation from a release does not need Rust or Python.</p>
+<p>Use a machine-readable view when integrating with another tool:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>python3 scripts/workspace.py status --json
+</code></pre></div>
+<p>Status reads local repository state and makes no network request.</p>
+<h2 id="validate-a-change">Validate a change<a class="heading-anchor" href="#validate-a-change" aria-label="链接到 Validate a change">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>python3 scripts/workspace.py check
+</code></pre></div>
+<p>This runs the zshard, zdot, zrc, zfetch and zmem checks, then the suite's installer and integration tests. Use <code>--component suite</code> for the suite checks alone. Full ztty and ssmcp test suites remain in their own repositories; the bundle build compiles their programs and subsequent smoke tests exercise the integration.</p>
+<p>Run the relevant checks locally after a change. Manual validation workflows are available. Routine code pushes and pull requests do not start a duplicate daily test matrix.</p>
+<p>Keep <a href="../../oh-my-ztty/performance/#reproduce-a-result">benchmark runs</a> separate from correctness checks, and record the source, binary, machine, configuration and workload behind each number.</p>
+<h2 id="work-in-a-submodule">Work in a submodule<a class="heading-anchor" href="#work-in-a-submodule" aria-label="链接到 Work in a submodule">#</a></h2>
+<p>A freshly cloned submodule starts at a detached commit. Create a branch before editing:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>git -C components/zshard switch -c improve-completion
+make -C components/zshard check
+</code></pre></div>
+<p>Commit component changes and merge them into the repository's default branch before synchronizing the suite. Review the parent gitlink together with its source-lock record.</p>
+<h2 id="synchronize-default-branches">Synchronize default branches<a class="heading-anchor" href="#synchronize-default-branches" aria-label="链接到 Synchronize default branches">#</a></h2>
+<p>Synchronize the current default-branch heads of all seven components:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>python3 scripts/workspace.py sync
+python3 scripts/workspace.py check
+</code></pre></div>
+<p>Sync resolves the live default branch of each canonical GitHub repository, fetches its observed head, checks out that source and updates nested submodules recursively. <code>dependencies.lock.json</code> schema 2 records the repository URL, branch, exact commit and observation time; its top-level timestamp records the completed synchronization. Commit the changed gitlinks and source lock together after validation.</p>
+<p>The first migration from the old release-asset lock requires a full <code>sync</code>. Once schema 2 is present, an optional component limits the update:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>python3 scripts/workspace.py sync zshard
+</code></pre></div>
+<p>Every synchronization observes the current remote head again. The saved commit identifies the input selected for a build. Component publication and suite publication remain separate, explicit steps.</p>
+<h3 id="local-state-and-recovery">Local state and recovery<a class="heading-anchor" href="#local-state-and-recovery" aria-label="链接到 Local state and recovery">#</a></h3>
+<p>Sync requires clean selected source checkouts, including initialized nested repositories, and a committed dependency lock. It refuses a nonempty uninitialized submodule directory and preserves its contents.</p>
+<p>Ignored paths in an initialized nested repository are also refused. These paths may be ordinary build caches; the restriction exists because Git's recursive checkout can overwrite ignored files. The error names the repository and paths to move aside. An ignored cache at the component's top level can remain if it does not collide with the new revision.</p>
+<p>The source lock is replaced after all selected checkouts succeed. If an update fails, sync attempts to restore the changed component and nested commits, their checkout branches, and saved submodule URL configuration. It leaves the lock unchanged and preserves concurrent lock edits. Newly initialized directories can remain and are listed for inspection.</p>
+<p>A failed recovery is reported alongside the original failure. For example, a source edit made while sync is running can prevent Git from restoring an old checkout. Inspect the reported paths before retrying.</p>
+<h2 id="build-the-source-locked-bundle">Build the source-locked bundle<a class="heading-anchor" href="#build-the-source-locked-bundle" aria-label="链接到 Build the source-locked bundle">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>python3 scripts/build_bundle.py
+python3 scripts/smoke_bundle.py &quot;dist/oh-my-ztty-$(cat VERSION)-linux-$(uname -m).tar.gz&quot;
+</code></pre></div>
+<p>The build requires all seven checkouts to be clean and match schema 2's recorded commits. It compiles ztty, ssmcp, zdot, zfetch and zmem with Cargo's <code>--locked --release</code> options. The ztty build enables Wayland, and ssmcp's JavaScript helper is copied from its matching source checkout. <code>BUILD.json</code> records the component commits, branch names and source-lock synchronization time.</p>
+<p>Cargo discovers executable paths through its build output and respects the user's configured target directory, including shared output caches. Native builds use normal release outputs. A different <code>--arch</code> selects a cross target and requires its Rust standard library, linker and system development libraries. The resulting executable architecture is checked before packaging.</p>
+<p>See <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/main/.github/workflows/release.yml">the release workflow</a> for the native development libraries. Builds consume the source lock without refreshing component branches; use <code>workspace.py sync</code> to select newer sources. Source and lock consistency are checked again before the archive is written.</p>
+<h2 id="bump-and-release">Bump and release<a class="heading-anchor" href="#bump-and-release" aria-label="链接到 Bump and release">#</a></h2>
+<p>Prepare the suite's next version with:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>python3 scripts/bump.py patch
+</code></pre></div>
+<p>This updates version files for review. In the suite it also synchronizes the current release version and installation examples in the documentation. Historical performance results and release evidence keep their original version links. Use <code>minor</code> or <code>major</code> when appropriate.</p>
+<p>From a clean, validated main branch, the release form checks, commits, tags and pushes:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>python3 scripts/bump.py patch --release
+</code></pre></div>
+<p>Synchronize component sources, validate the assembled bundle, then bump oh-my-ztty when preparing publication. The suite's release-tag workflow builds and validates Linux x86_64 and ARM64 on native runners. Historical releases retain their original source and evidence; the <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/main/docs/reports/0.2.6/release.zh-CN.md">0.2.6 report</a> describes that shipped version.</p>
+<h2 id="release-evidence">Release evidence<a class="heading-anchor" href="#release-evidence" aria-label="链接到 Release evidence">#</a></h2>
+<p>A release record should identify the source lock, seven gitlinks, archive checksums, local check results and a full installation lifecycle. Store text measurements and artifact links in Git; keep generated screenshots and release archives in the artifact destination.</p>
+<p>Use <code>--no-memory-manager</code> when testing in an isolated home so bundle tests leave the host services alone. Validate system adoption separately through zmem. Install twice in that home, exercise the actual shell and bundled programs, then uninstall. Include pre-existing files so preservation checks test real data. Keep startup, first completion, live memory and active AI sessions as distinct measurement scopes.</p>
+<p>The <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/main/docs/reports/release-0.1.1.md">0.1.1 report</a> shows the evidence format. The <a href="https://github.com/LIghtJUNction/oh-my-ztty/actions/runs/44609624654">formal workflow</a> and <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/main/docs/reports/public-release-0.1.1.json">public download audit</a> verify the published result.</p>
+<h2 id="edit-this-documentation">Edit this documentation<a class="heading-anchor" href="#edit-this-documentation" aria-label="链接到 Edit this documentation">#</a></h2>
+<p>Pages are Markdown files in <code>site/content/</code>. Navigation is declared in <code>site/nav.json</code>. The build produces static HTML for GitHub Pages.</p>
+<p>Create the isolated build environment and render the site:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>python3 -m venv .cache/docs-venv
+.cache/docs-venv/bin/python -m pip install --require-hashes -r site/requirements.txt
+.cache/docs-venv/bin/python scripts/build_site.py
+</code></pre></div>
+<p>Preview the generated pages locally:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>python3 -m http.server 8765 --bind 127.0.0.1 --directory _site
+</code></pre></div>
+<p>Check desktop and narrow layouts, keyboard navigation, search, copy controls and links before publishing a site change. The Pages workflow handles website deployment independently of binary releases.</p>
+<p>See <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/main/site/README.md">the site authoring guide</a> and <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/main/CONTRIBUTING.md">repository contribution guide</a>.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/site/content/development.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/oh-my-ztty">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../oh-my-ztty/architecture/"><span class="pagination-label">上一页</span><span class="pagination-title">Architecture</span></a></nav>
+      <footer class="page-footer">
+        <span>oh-my-ztty <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#clone-the-workspace">Clone the workspace</a></li><li class="toc-level-2"><a href="#validate-a-change">Validate a change</a></li><li class="toc-level-2"><a href="#work-in-a-submodule">Work in a submodule</a></li><li class="toc-level-2"><a href="#synchronize-default-branches">Synchronize default branches</a></li><li class="toc-level-3"><a href="#local-state-and-recovery">Local state and recovery</a></li><li class="toc-level-2"><a href="#build-the-source-locked-bundle">Build the source-locked bundle</a></li><li class="toc-level-2"><a href="#bump-and-release">Bump and release</a></li><li class="toc-level-2"><a href="#release-evidence">Release evidence</a></li><li class="toc-level-2"><a href="#edit-this-documentation">Edit this documentation</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

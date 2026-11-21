@@ -1,0 +1,4635 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在字节切片中正向或反向查找字节和子串，并返回原始位置。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zscan · Recorded search comparison · Project Z">
+  <meta property="og:description" content="在字节切片中正向或反向查找字节和子串，并返回原始位置。">
+  <meta property="og:type" content="website">
+  <title>zscan · Recorded search comparison · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zscan/comparison-results-final-summary/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zscan">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zscan" aria-label="zscan 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zscan</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zscan</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/" aria-current="page">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zscan 文档"><div class="nav-group"><p class="nav-label">zscan</p><ul><li><a class="nav-link" href="../../zscan/">概览</a></li><li><a class="nav-link" href="../../zscan/comparison-baseline-notes/">Baseline versions and correctness</a></li><li><a class="nav-link" href="../../zscan/comparison-cases/">Fixed comparison protocol</a></li><li><a class="nav-link" href="../../zscan/comparison-readme/">Independent comparison project</a></li><li><a class="nav-link" href="../../zscan/comparison-results-final-summary/" aria-current="page">Recorded search comparison</a></li><li><a class="nav-link" href="../../zscan/comparison-results-round2-after-calibrated-summary/">Recorded search comparison</a></li><li><a class="nav-link" href="../../zscan/comparison-results-round2-review/">Round 2: bounded vector tails and byte scanning</a></li><li><a class="nav-link" href="../../zscan/scripts-readme/">Verification and release maintenance</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zscan</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/" aria-current="page">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zscan 文档"><div class="nav-group"><p class="nav-label">zscan</p><ul><li><a class="nav-link" href="../../zscan/">概览</a></li><li><a class="nav-link" href="../../zscan/comparison-baseline-notes/">Baseline versions and correctness</a></li><li><a class="nav-link" href="../../zscan/comparison-cases/">Fixed comparison protocol</a></li><li><a class="nav-link" href="../../zscan/comparison-readme/">Independent comparison project</a></li><li><a class="nav-link" href="../../zscan/comparison-results-final-summary/" aria-current="page">Recorded search comparison</a></li><li><a class="nav-link" href="../../zscan/comparison-results-round2-after-calibrated-summary/">Recorded search comparison</a></li><li><a class="nav-link" href="../../zscan/comparison-results-round2-review/">Round 2: bounded vector tails and byte scanning</a></li><li><a class="nav-link" href="../../zscan/scripts-readme/">Verification and release maintenance</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zscan/">zscan 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zscan/">zscan</a><span aria-hidden="true">/</span><span>Recorded search comparison</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#generic">generic</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#native">native</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-1">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#no-prefilter">no-prefilter</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-2">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#no-short">no-short</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-3">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#scalar">scalar</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-4">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#component-observations">Component observations</a></li><li class="toc-level-3"><a href="#finder-cache-reuse">Finder cache reuse</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="recorded-search-comparison">Recorded search comparison</h1>
+<p>These are observations on the machine recorded in each metadata.json. Shared/cloud hardware is not a reliable release performance gate. Ratios are the fastest valid competitor's median ns/op divided by zscan's median ns/op; above 1 means zscan is faster. Every sample is retained, including outliers, slower cases, and the diagnostic timings of an incorrect comparator.</p>
+<p>memx 0.2.2's reverse substring implementation omits a valid final candidate on some inputs. All memx/rfind cells are ineligible for speed claims; their actual correctness and timing remain in samples.csv.gz. memchr is the strict reverse baseline. See <a href="../../zscan/comparison-baseline-notes/">baseline-notes.md</a>.</p>
+<h2 id="generic">generic<a class="heading-anchor" href="#generic" aria-label="链接到 generic">#</a></h2>
+<p>Mode: <code>full</code>. RUSTFLAGS: <code>(empty)</code>. Retained 10926 engine/case cells; 630 raw samples returned a wrong comparator answer, and 4249 samples were excluded from ratios because the comparator operation is not semantics-equivalent. No zscan or memchr correctness failure is permitted in a completed run.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Operation</th>
+<th style="text-align:right">Cases</th>
+<th style="text-align:right">Geometric speedup</th>
+<th style="text-align:right">Minimum</th>
+<th style="text-align:right">Median</th>
+<th style="text-align:right">Maximum</th>
+<th style="text-align:right">At least 2x</th>
+<th style="text-align:right">Slower than best</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adversarial</td>
+<td>build_both</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.160x</td>
+<td style="text-align:right">0.461x</td>
+<td style="text-align:right">1.232x</td>
+<td style="text-align:right">1.799x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.640x</td>
+<td style="text-align:right">0.419x</td>
+<td style="text-align:right">0.635x</td>
+<td style="text-align:right">0.983x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">24</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.728x</td>
+<td style="text-align:right">0.547x</td>
+<td style="text-align:right">0.753x</td>
+<td style="text-align:right">0.919x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">24</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.447x</td>
+<td style="text-align:right">0.674x</td>
+<td style="text-align:right">1.486x</td>
+<td style="text-align:right">2.592x</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.985x</td>
+<td style="text-align:right">0.850x</td>
+<td style="text-align:right">1.545x</td>
+<td style="text-align:right">8.522x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">5.843x</td>
+<td style="text-align:right">0.973x</td>
+<td style="text-align:right">4.782x</td>
+<td style="text-align:right">54.699x</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">10.184x</td>
+<td style="text-align:right">0.866x</td>
+<td style="text-align:right">23.120x</td>
+<td style="text-align:right">74.637x</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>build_both</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.191x</td>
+<td style="text-align:right">0.640x</td>
+<td style="text-align:right">1.101x</td>
+<td style="text-align:right">2.869x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">22</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.595x</td>
+<td style="text-align:right">0.294x</td>
+<td style="text-align:right">0.619x</td>
+<td style="text-align:right">1.048x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">63</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.793x</td>
+<td style="text-align:right">0.493x</td>
+<td style="text-align:right">0.790x</td>
+<td style="text-align:right">1.455x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">60</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.066x</td>
+<td style="text-align:right">0.338x</td>
+<td style="text-align:right">0.925x</td>
+<td style="text-align:right">4.081x</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">35</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.828x</td>
+<td style="text-align:right">0.229x</td>
+<td style="text-align:right">0.685x</td>
+<td style="text-align:right">2.353x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">40</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.348x</td>
+<td style="text-align:right">0.355x</td>
+<td style="text-align:right">1.464x</td>
+<td style="text-align:right">4.524x</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">17</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">2.108x</td>
+<td style="text-align:right">0.783x</td>
+<td style="text-align:right">2.324x</td>
+<td style="text-align:right">4.716x</td>
+<td style="text-align:right">41</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>large</td>
+<td>build_both</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.059x</td>
+<td style="text-align:right">0.773x</td>
+<td style="text-align:right">0.966x</td>
+<td style="text-align:right">1.569x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.641x</td>
+<td style="text-align:right">0.478x</td>
+<td style="text-align:right">0.613x</td>
+<td style="text-align:right">0.870x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.915x</td>
+<td style="text-align:right">0.730x</td>
+<td style="text-align:right">0.843x</td>
+<td style="text-align:right">1.508x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>large</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.160x</td>
+<td style="text-align:right">0.969x</td>
+<td style="text-align:right">1.130x</td>
+<td style="text-align:right">1.492x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.274x</td>
+<td style="text-align:right">0.886x</td>
+<td style="text-align:right">1.395x</td>
+<td style="text-align:right">1.541x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">5.385x</td>
+<td style="text-align:right">1.464x</td>
+<td style="text-align:right">6.368x</td>
+<td style="text-align:right">15.940x</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>large</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">9.782x</td>
+<td style="text-align:right">4.026x</td>
+<td style="text-align:right">10.352x</td>
+<td style="text-align:right">27.670x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>build_both</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.618x</td>
+<td style="text-align:right">0.414x</td>
+<td style="text-align:right">1.742x</td>
+<td style="text-align:right">4.042x</td>
+<td style="text-align:right">87</td>
+<td style="text-align:right">41</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.824x</td>
+<td style="text-align:right">0.348x</td>
+<td style="text-align:right">0.826x</td>
+<td style="text-align:right">1.784x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">172</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.975x</td>
+<td style="text-align:right">0.309x</td>
+<td style="text-align:right">0.988x</td>
+<td style="text-align:right">2.266x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">121</td>
+</tr>
+<tr>
+<td>short</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.082x</td>
+<td style="text-align:right">0.316x</td>
+<td style="text-align:right">1.105x</td>
+<td style="text-align:right">3.385x</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">89</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.899x</td>
+<td style="text-align:right">0.358x</td>
+<td style="text-align:right">0.858x</td>
+<td style="text-align:right">4.000x</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">142</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.206x</td>
+<td style="text-align:right">0.399x</td>
+<td style="text-align:right">1.112x</td>
+<td style="text-align:right">7.261x</td>
+<td style="text-align:right">31</td>
+<td style="text-align:right">78</td>
+</tr>
+<tr>
+<td>short</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.538x</td>
+<td style="text-align:right">0.343x</td>
+<td style="text-align:right">1.379x</td>
+<td style="text-align:right">5.960x</td>
+<td style="text-align:right">80</td>
+<td style="text-align:right">56</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>build_both</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.203x</td>
+<td style="text-align:right">0.630x</td>
+<td style="text-align:right">1.083x</td>
+<td style="text-align:right">3.296x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.560x</td>
+<td style="text-align:right">0.242x</td>
+<td style="text-align:right">0.599x</td>
+<td style="text-align:right">1.052x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">30</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.876x</td>
+<td style="text-align:right">0.680x</td>
+<td style="text-align:right">0.837x</td>
+<td style="text-align:right">1.478x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">27</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.928x</td>
+<td style="text-align:right">0.411x</td>
+<td style="text-align:right">0.764x</td>
+<td style="text-align:right">2.388x</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">19</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.695x</td>
+<td style="text-align:right">0.303x</td>
+<td style="text-align:right">0.557x</td>
+<td style="text-align:right">2.075x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.242x</td>
+<td style="text-align:right">0.413x</td>
+<td style="text-align:right">1.404x</td>
+<td style="text-align:right">2.909x</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">2.832x</td>
+<td style="text-align:right">1.028x</td>
+<td style="text-align:right">2.609x</td>
+<td style="text-align:right">8.914x</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>text</td>
+<td>build_both</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.855x</td>
+<td style="text-align:right">0.470x</td>
+<td style="text-align:right">0.878x</td>
+<td style="text-align:right">1.859x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">45</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.709x</td>
+<td style="text-align:right">0.355x</td>
+<td style="text-align:right">0.657x</td>
+<td style="text-align:right">1.310x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">43</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.818x</td>
+<td style="text-align:right">0.325x</td>
+<td style="text-align:right">0.810x</td>
+<td style="text-align:right">1.126x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">37</td>
+</tr>
+<tr>
+<td>text</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.906x</td>
+<td style="text-align:right">1.014x</td>
+<td style="text-align:right">1.997x</td>
+<td style="text-align:right">3.585x</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.133x</td>
+<td style="text-align:right">0.424x</td>
+<td style="text-align:right">1.171x</td>
+<td style="text-align:right">3.223x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">16</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">2.772x</td>
+<td style="text-align:right">0.760x</td>
+<td style="text-align:right">2.277x</td>
+<td style="text-align:right">9.458x</td>
+<td style="text-align:right">35</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>text</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">5.210x</td>
+<td style="text-align:right">2.642x</td>
+<td style="text-align:right">5.061x</td>
+<td style="text-align:right">10.270x</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>build_both</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.248x</td>
+<td style="text-align:right">0.598x</td>
+<td style="text-align:right">1.252x</td>
+<td style="text-align:right">3.344x</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">55</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.871x</td>
+<td style="text-align:right">0.442x</td>
+<td style="text-align:right">0.873x</td>
+<td style="text-align:right">1.640x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">161</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.880x</td>
+<td style="text-align:right">0.398x</td>
+<td style="text-align:right">0.891x</td>
+<td style="text-align:right">1.492x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">158</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.157x</td>
+<td style="text-align:right">0.415x</td>
+<td style="text-align:right">1.146x</td>
+<td style="text-align:right">3.053x</td>
+<td style="text-align:right">34</td>
+<td style="text-align:right">86</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.650x</td>
+<td style="text-align:right">0.395x</td>
+<td style="text-align:right">1.485x</td>
+<td style="text-align:right">8.238x</td>
+<td style="text-align:right">62</td>
+<td style="text-align:right">48</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">3.594x</td>
+<td style="text-align:right">0.534x</td>
+<td style="text-align:right">3.416x</td>
+<td style="text-align:right">38.879x</td>
+<td style="text-align:right">158</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">8.122x</td>
+<td style="text-align:right">1.343x</td>
+<td style="text-align:right">7.625x</td>
+<td style="text-align:right">79.364x</td>
+<td style="text-align:right">191</td>
+<td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ten-lowest-ratios-all-remaining-cases-are-in-cellscsv">Ten lowest ratios (all remaining cases are in cells.csv)<a class="heading-anchor" href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv" aria-label="链接到 Ten lowest ratios (all remaining cases are in cells.csv)">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Operation</th>
+<th style="text-align:right">zscan ns/op</th>
+<th style="text-align:right">Best baseline ns/op</th>
+<th>Baseline</th>
+<th style="text-align:right">Speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alignment-last-n42-m12-a10</td>
+<td>reuse_find</td>
+<td style="text-align:right">53.824</td>
+<td style="text-align:right">12.330</td>
+<td>memchr</td>
+<td style="text-align:right">0.229x</td>
+</tr>
+<tr>
+<td>tail-none-n87-m10-a7</td>
+<td>byte_find</td>
+<td style="text-align:right">12.830</td>
+<td style="text-align:right">3.103</td>
+<td>memchr</td>
+<td style="text-align:right">0.242x</td>
+</tr>
+<tr>
+<td>alignment-last-n51-m3-a52</td>
+<td>byte_find</td>
+<td style="text-align:right">10.424</td>
+<td style="text-align:right">3.067</td>
+<td>memchr</td>
+<td style="text-align:right">0.294x</td>
+</tr>
+<tr>
+<td>tail-none-n66-m4-a7</td>
+<td>reuse_find</td>
+<td style="text-align:right">19.400</td>
+<td style="text-align:right">5.869</td>
+<td>memchr</td>
+<td style="text-align:right">0.303x</td>
+</tr>
+<tr>
+<td>short-last-n17-m16-a33</td>
+<td>byte_rfind</td>
+<td style="text-align:right">12.026</td>
+<td style="text-align:right">3.719</td>
+<td>memx</td>
+<td style="text-align:right">0.309x</td>
+</tr>
+<tr>
+<td>alignment-none-n61-m13-a62</td>
+<td>byte_find</td>
+<td style="text-align:right">9.748</td>
+<td style="text-align:right">3.067</td>
+<td>memchr</td>
+<td style="text-align:right">0.315x</td>
+</tr>
+<tr>
+<td>short-none-n32-m4-a36</td>
+<td>find</td>
+<td style="text-align:right">34.982</td>
+<td style="text-align:right">11.042</td>
+<td>memx</td>
+<td style="text-align:right">0.316x</td>
+</tr>
+<tr>
+<td>alignment-none-n55-m7-a56</td>
+<td>byte_find</td>
+<td style="text-align:right">9.485</td>
+<td style="text-align:right">3.067</td>
+<td>memchr</td>
+<td style="text-align:right">0.323x</td>
+</tr>
+<tr>
+<td>text-log-last-n128-m11</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6.891</td>
+<td style="text-align:right">2.241</td>
+<td>memx</td>
+<td style="text-align:right">0.325x</td>
+</tr>
+<tr>
+<td>tail-none-n75-m13-a7</td>
+<td>reuse_find</td>
+<td style="text-align:right">32.556</td>
+<td style="text-align:right">10.831</td>
+<td>memchr</td>
+<td style="text-align:right">0.333x</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="native">native<a class="heading-anchor" href="#native" aria-label="链接到 native">#</a></h2>
+<p>Mode: <code>full</code>. RUSTFLAGS: <code>-C target-cpu=native</code>. Retained 10926 engine/case cells; 630 raw samples returned a wrong comparator answer, and 4249 samples were excluded from ratios because the comparator operation is not semantics-equivalent. No zscan or memchr correctness failure is permitted in a completed run.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Operation</th>
+<th style="text-align:right">Cases</th>
+<th style="text-align:right">Geometric speedup</th>
+<th style="text-align:right">Minimum</th>
+<th style="text-align:right">Median</th>
+<th style="text-align:right">Maximum</th>
+<th style="text-align:right">At least 2x</th>
+<th style="text-align:right">Slower than best</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adversarial</td>
+<td>build_both</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.285x</td>
+<td style="text-align:right">0.674x</td>
+<td style="text-align:right">1.367x</td>
+<td style="text-align:right">1.905x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.415x</td>
+<td style="text-align:right">0.975x</td>
+<td style="text-align:right">1.499x</td>
+<td style="text-align:right">1.820x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.398x</td>
+<td style="text-align:right">0.828x</td>
+<td style="text-align:right">1.443x</td>
+<td style="text-align:right">1.684x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.398x</td>
+<td style="text-align:right">0.703x</td>
+<td style="text-align:right">1.481x</td>
+<td style="text-align:right">2.812x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.920x</td>
+<td style="text-align:right">0.801x</td>
+<td style="text-align:right">1.406x</td>
+<td style="text-align:right">9.568x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">6.276x</td>
+<td style="text-align:right">0.813x</td>
+<td style="text-align:right">5.784x</td>
+<td style="text-align:right">59.018x</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">10.562x</td>
+<td style="text-align:right">0.913x</td>
+<td style="text-align:right">23.104x</td>
+<td style="text-align:right">77.563x</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>build_both</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.316x</td>
+<td style="text-align:right">0.817x</td>
+<td style="text-align:right">1.228x</td>
+<td style="text-align:right">3.891x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.071x</td>
+<td style="text-align:right">0.354x</td>
+<td style="text-align:right">1.191x</td>
+<td style="text-align:right">2.004x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">23</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.194x</td>
+<td style="text-align:right">0.622x</td>
+<td style="text-align:right">1.292x</td>
+<td style="text-align:right">2.266x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">18</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.233x</td>
+<td style="text-align:right">0.453x</td>
+<td style="text-align:right">1.155x</td>
+<td style="text-align:right">3.413x</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">22</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.665x</td>
+<td style="text-align:right">0.264x</td>
+<td style="text-align:right">0.601x</td>
+<td style="text-align:right">2.147x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">47</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.510x</td>
+<td style="text-align:right">0.500x</td>
+<td style="text-align:right">1.432x</td>
+<td style="text-align:right">4.386x</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">15</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">2.491x</td>
+<td style="text-align:right">0.950x</td>
+<td style="text-align:right">2.628x</td>
+<td style="text-align:right">6.567x</td>
+<td style="text-align:right">45</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>large</td>
+<td>build_both</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.263x</td>
+<td style="text-align:right">0.809x</td>
+<td style="text-align:right">1.445x</td>
+<td style="text-align:right">1.722x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.647x</td>
+<td style="text-align:right">0.445x</td>
+<td style="text-align:right">0.614x</td>
+<td style="text-align:right">1.126x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.046x</td>
+<td style="text-align:right">0.662x</td>
+<td style="text-align:right">1.152x</td>
+<td style="text-align:right">1.553x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>large</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.836x</td>
+<td style="text-align:right">0.567x</td>
+<td style="text-align:right">0.850x</td>
+<td style="text-align:right">1.266x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.124x</td>
+<td style="text-align:right">0.729x</td>
+<td style="text-align:right">1.177x</td>
+<td style="text-align:right">1.450x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">5.805x</td>
+<td style="text-align:right">1.264x</td>
+<td style="text-align:right">7.577x</td>
+<td style="text-align:right">15.176x</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>large</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">10.614x</td>
+<td style="text-align:right">2.890x</td>
+<td style="text-align:right">11.738x</td>
+<td style="text-align:right">27.728x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>build_both</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.876x</td>
+<td style="text-align:right">0.655x</td>
+<td style="text-align:right">1.845x</td>
+<td style="text-align:right">7.984x</td>
+<td style="text-align:right">108</td>
+<td style="text-align:right">29</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.250x</td>
+<td style="text-align:right">0.310x</td>
+<td style="text-align:right">1.245x</td>
+<td style="text-align:right">4.010x</td>
+<td style="text-align:right">25</td>
+<td style="text-align:right">54</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.400x</td>
+<td style="text-align:right">0.444x</td>
+<td style="text-align:right">1.455x</td>
+<td style="text-align:right">3.569x</td>
+<td style="text-align:right">53</td>
+<td style="text-align:right">55</td>
+</tr>
+<tr>
+<td>short</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.279x</td>
+<td style="text-align:right">0.363x</td>
+<td style="text-align:right">1.285x</td>
+<td style="text-align:right">3.256x</td>
+<td style="text-align:right">42</td>
+<td style="text-align:right">61</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.928x</td>
+<td style="text-align:right">0.202x</td>
+<td style="text-align:right">0.910x</td>
+<td style="text-align:right">7.168x</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">131</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.261x</td>
+<td style="text-align:right">0.351x</td>
+<td style="text-align:right">1.236x</td>
+<td style="text-align:right">8.171x</td>
+<td style="text-align:right">35</td>
+<td style="text-align:right">70</td>
+</tr>
+<tr>
+<td>short</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.666x</td>
+<td style="text-align:right">0.479x</td>
+<td style="text-align:right">1.569x</td>
+<td style="text-align:right">9.444x</td>
+<td style="text-align:right">85</td>
+<td style="text-align:right">55</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>build_both</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.358x</td>
+<td style="text-align:right">0.879x</td>
+<td style="text-align:right">1.262x</td>
+<td style="text-align:right">3.136x</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.926x</td>
+<td style="text-align:right">0.469x</td>
+<td style="text-align:right">0.965x</td>
+<td style="text-align:right">1.529x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">19</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.257x</td>
+<td style="text-align:right">0.811x</td>
+<td style="text-align:right">1.266x</td>
+<td style="text-align:right">1.945x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.028x</td>
+<td style="text-align:right">0.426x</td>
+<td style="text-align:right">0.919x</td>
+<td style="text-align:right">4.455x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">19</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.595x</td>
+<td style="text-align:right">0.289x</td>
+<td style="text-align:right">0.500x</td>
+<td style="text-align:right">1.804x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">23</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.361x</td>
+<td style="text-align:right">0.482x</td>
+<td style="text-align:right">1.403x</td>
+<td style="text-align:right">2.832x</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">3.029x</td>
+<td style="text-align:right">1.427x</td>
+<td style="text-align:right">2.868x</td>
+<td style="text-align:right">8.247x</td>
+<td style="text-align:right">28</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>text</td>
+<td>build_both</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.026x</td>
+<td style="text-align:right">0.688x</td>
+<td style="text-align:right">0.990x</td>
+<td style="text-align:right">2.087x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">27</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.505x</td>
+<td style="text-align:right">0.796x</td>
+<td style="text-align:right">1.501x</td>
+<td style="text-align:right">2.336x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.431x</td>
+<td style="text-align:right">0.594x</td>
+<td style="text-align:right">1.443x</td>
+<td style="text-align:right">2.360x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>text</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.812x</td>
+<td style="text-align:right">0.841x</td>
+<td style="text-align:right">1.849x</td>
+<td style="text-align:right">3.947x</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.093x</td>
+<td style="text-align:right">0.542x</td>
+<td style="text-align:right">1.148x</td>
+<td style="text-align:right">2.088x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">15</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">2.905x</td>
+<td style="text-align:right">1.212x</td>
+<td style="text-align:right">2.315x</td>
+<td style="text-align:right">7.998x</td>
+<td style="text-align:right">36</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>text</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">6.058x</td>
+<td style="text-align:right">2.386x</td>
+<td style="text-align:right">5.996x</td>
+<td style="text-align:right">15.246x</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>build_both</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.330x</td>
+<td style="text-align:right">0.560x</td>
+<td style="text-align:right">1.296x</td>
+<td style="text-align:right">3.129x</td>
+<td style="text-align:right">25</td>
+<td style="text-align:right">44</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.376x</td>
+<td style="text-align:right">0.675x</td>
+<td style="text-align:right">1.395x</td>
+<td style="text-align:right">2.866x</td>
+<td style="text-align:right">39</td>
+<td style="text-align:right">47</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.234x</td>
+<td style="text-align:right">0.576x</td>
+<td style="text-align:right">1.208x</td>
+<td style="text-align:right">2.981x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">34</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.328x</td>
+<td style="text-align:right">0.428x</td>
+<td style="text-align:right">1.279x</td>
+<td style="text-align:right">5.056x</td>
+<td style="text-align:right">43</td>
+<td style="text-align:right">66</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.561x</td>
+<td style="text-align:right">0.333x</td>
+<td style="text-align:right">1.314x</td>
+<td style="text-align:right">9.779x</td>
+<td style="text-align:right">50</td>
+<td style="text-align:right">55</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">3.715x</td>
+<td style="text-align:right">0.687x</td>
+<td style="text-align:right">3.689x</td>
+<td style="text-align:right">65.459x</td>
+<td style="text-align:right">161</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">8.517x</td>
+<td style="text-align:right">1.576x</td>
+<td style="text-align:right">8.262x</td>
+<td style="text-align:right">78.660x</td>
+<td style="text-align:right">191</td>
+<td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-1">Ten lowest ratios (all remaining cases are in cells.csv)<a class="heading-anchor" href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-1" aria-label="链接到 Ten lowest ratios (all remaining cases are in cells.csv)">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Operation</th>
+<th style="text-align:right">zscan ns/op</th>
+<th style="text-align:right">Best baseline ns/op</th>
+<th>Baseline</th>
+<th style="text-align:right">Speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>short-last-n17-m3-a20</td>
+<td>reuse_find</td>
+<td style="text-align:right">22.075</td>
+<td style="text-align:right">4.460</td>
+<td>memchr</td>
+<td style="text-align:right">0.202x</td>
+</tr>
+<tr>
+<td>short-last-n33-m4-a37</td>
+<td>reuse_find</td>
+<td style="text-align:right">27.219</td>
+<td style="text-align:right">5.667</td>
+<td>memchr</td>
+<td style="text-align:right">0.208x</td>
+</tr>
+<tr>
+<td>short-none-n31-m8-a39</td>
+<td>reuse_find</td>
+<td style="text-align:right">18.711</td>
+<td style="text-align:right">4.464</td>
+<td>memchr</td>
+<td style="text-align:right">0.239x</td>
+</tr>
+<tr>
+<td>alignment-last-n36-m6-a4</td>
+<td>reuse_find</td>
+<td style="text-align:right">26.081</td>
+<td style="text-align:right">6.898</td>
+<td>memchr</td>
+<td style="text-align:right">0.264x</td>
+</tr>
+<tr>
+<td>alignment-last-n45-m15-a13</td>
+<td>reuse_find</td>
+<td style="text-align:right">23.954</td>
+<td style="text-align:right">6.690</td>
+<td>memchr</td>
+<td style="text-align:right">0.279x</td>
+</tr>
+<tr>
+<td>short-none-n32-m2-a34</td>
+<td>reuse_find</td>
+<td style="text-align:right">15.654</td>
+<td style="text-align:right">4.463</td>
+<td>memchr</td>
+<td style="text-align:right">0.285x</td>
+</tr>
+<tr>
+<td>alignment-none-n46-m16-a14</td>
+<td>reuse_find</td>
+<td style="text-align:right">18.703</td>
+<td style="text-align:right">5.356</td>
+<td>memchr</td>
+<td style="text-align:right">0.286x</td>
+</tr>
+<tr>
+<td>tail-none-n66-m4-a7</td>
+<td>reuse_find</td>
+<td style="text-align:right">16.958</td>
+<td style="text-align:right">4.902</td>
+<td>memchr</td>
+<td style="text-align:right">0.289x</td>
+</tr>
+<tr>
+<td>short-none-n33-m3-a36</td>
+<td>reuse_find</td>
+<td style="text-align:right">15.150</td>
+<td style="text-align:right">4.463</td>
+<td>memchr</td>
+<td style="text-align:right">0.295x</td>
+</tr>
+<tr>
+<td>short-none-n31-m2-a33</td>
+<td>reuse_find</td>
+<td style="text-align:right">15.059</td>
+<td style="text-align:right">4.459</td>
+<td>memchr</td>
+<td style="text-align:right">0.296x</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="no-prefilter">no-prefilter<a class="heading-anchor" href="#no-prefilter" aria-label="链接到 no-prefilter">#</a></h2>
+<p>Mode: <code>full</code>. RUSTFLAGS: <code>--cfg zscan_no_prefilter</code>. Retained 10926 engine/case cells; 630 raw samples returned a wrong comparator answer, and 4249 samples were excluded from ratios because the comparator operation is not semantics-equivalent. No zscan or memchr correctness failure is permitted in a completed run.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Operation</th>
+<th style="text-align:right">Cases</th>
+<th style="text-align:right">Geometric speedup</th>
+<th style="text-align:right">Minimum</th>
+<th style="text-align:right">Median</th>
+<th style="text-align:right">Maximum</th>
+<th style="text-align:right">At least 2x</th>
+<th style="text-align:right">Slower than best</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adversarial</td>
+<td>build_both</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.332x</td>
+<td style="text-align:right">0.749x</td>
+<td style="text-align:right">1.347x</td>
+<td style="text-align:right">2.378x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.744x</td>
+<td style="text-align:right">0.563x</td>
+<td style="text-align:right">0.749x</td>
+<td style="text-align:right">1.238x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">22</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.647x</td>
+<td style="text-align:right">0.349x</td>
+<td style="text-align:right">0.746x</td>
+<td style="text-align:right">0.788x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">24</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.189x</td>
+<td style="text-align:right">0.007x</td>
+<td style="text-align:right">0.299x</td>
+<td style="text-align:right">3.144x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">18</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.278x</td>
+<td style="text-align:right">0.005x</td>
+<td style="text-align:right">0.524x</td>
+<td style="text-align:right">7.456x</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">13</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.738x</td>
+<td style="text-align:right">0.833x</td>
+<td style="text-align:right">1.259x</td>
+<td style="text-align:right">11.850x</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">2.918x</td>
+<td style="text-align:right">0.835x</td>
+<td style="text-align:right">1.303x</td>
+<td style="text-align:right">84.464x</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>build_both</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.263x</td>
+<td style="text-align:right">0.657x</td>
+<td style="text-align:right">1.144x</td>
+<td style="text-align:right">3.248x</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">16</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.620x</td>
+<td style="text-align:right">0.308x</td>
+<td style="text-align:right">0.666x</td>
+<td style="text-align:right">1.122x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">62</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.750x</td>
+<td style="text-align:right">0.391x</td>
+<td style="text-align:right">0.750x</td>
+<td style="text-align:right">1.188x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">57</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.405x</td>
+<td style="text-align:right">0.084x</td>
+<td style="text-align:right">0.200x</td>
+<td style="text-align:right">3.398x</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">43</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.347x</td>
+<td style="text-align:right">0.098x</td>
+<td style="text-align:right">0.189x</td>
+<td style="text-align:right">2.246x</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">44</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.451x</td>
+<td style="text-align:right">0.078x</td>
+<td style="text-align:right">0.321x</td>
+<td style="text-align:right">3.504x</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">42</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.717x</td>
+<td style="text-align:right">0.287x</td>
+<td style="text-align:right">0.446x</td>
+<td style="text-align:right">5.078x</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">43</td>
+</tr>
+<tr>
+<td>large</td>
+<td>build_both</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.334x</td>
+<td style="text-align:right">0.920x</td>
+<td style="text-align:right">1.444x</td>
+<td style="text-align:right">1.731x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.545x</td>
+<td style="text-align:right">0.482x</td>
+<td style="text-align:right">0.560x</td>
+<td style="text-align:right">0.602x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.690x</td>
+<td style="text-align:right">0.623x</td>
+<td style="text-align:right">0.693x</td>
+<td style="text-align:right">0.768x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.024x</td>
+<td style="text-align:right">0.016x</td>
+<td style="text-align:right">0.025x</td>
+<td style="text-align:right">0.030x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.031x</td>
+<td style="text-align:right">0.027x</td>
+<td style="text-align:right">0.032x</td>
+<td style="text-align:right">0.035x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.745x</td>
+<td style="text-align:right">0.110x</td>
+<td style="text-align:right">0.762x</td>
+<td style="text-align:right">5.695x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>large</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.490x</td>
+<td style="text-align:right">0.116x</td>
+<td style="text-align:right">1.843x</td>
+<td style="text-align:right">37.606x</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>short</td>
+<td>build_both</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.677x</td>
+<td style="text-align:right">0.422x</td>
+<td style="text-align:right">1.825x</td>
+<td style="text-align:right">3.345x</td>
+<td style="text-align:right">90</td>
+<td style="text-align:right">40</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.800x</td>
+<td style="text-align:right">0.186x</td>
+<td style="text-align:right">0.809x</td>
+<td style="text-align:right">2.153x</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">180</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.964x</td>
+<td style="text-align:right">0.264x</td>
+<td style="text-align:right">0.977x</td>
+<td style="text-align:right">2.207x</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">127</td>
+</tr>
+<tr>
+<td>short</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.977x</td>
+<td style="text-align:right">0.058x</td>
+<td style="text-align:right">1.111x</td>
+<td style="text-align:right">3.567x</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">87</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.806x</td>
+<td style="text-align:right">0.097x</td>
+<td style="text-align:right">0.873x</td>
+<td style="text-align:right">5.223x</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">135</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.005x</td>
+<td style="text-align:right">0.087x</td>
+<td style="text-align:right">1.050x</td>
+<td style="text-align:right">4.719x</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">94</td>
+</tr>
+<tr>
+<td>short</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.453x</td>
+<td style="text-align:right">0.164x</td>
+<td style="text-align:right">1.307x</td>
+<td style="text-align:right">8.114x</td>
+<td style="text-align:right">75</td>
+<td style="text-align:right">52</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>build_both</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.292x</td>
+<td style="text-align:right">0.604x</td>
+<td style="text-align:right">1.199x</td>
+<td style="text-align:right">3.367x</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.632x</td>
+<td style="text-align:right">0.302x</td>
+<td style="text-align:right">0.661x</td>
+<td style="text-align:right">1.171x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">31</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.796x</td>
+<td style="text-align:right">0.562x</td>
+<td style="text-align:right">0.752x</td>
+<td style="text-align:right">1.151x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">28</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.364x</td>
+<td style="text-align:right">0.090x</td>
+<td style="text-align:right">0.154x</td>
+<td style="text-align:right">4.115x</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.270x</td>
+<td style="text-align:right">0.069x</td>
+<td style="text-align:right">0.126x</td>
+<td style="text-align:right">2.316x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">22</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.354x</td>
+<td style="text-align:right">0.068x</td>
+<td style="text-align:right">0.228x</td>
+<td style="text-align:right">2.750x</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.848x</td>
+<td style="text-align:right">0.253x</td>
+<td style="text-align:right">0.374x</td>
+<td style="text-align:right">8.982x</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td>text</td>
+<td>build_both</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.963x</td>
+<td style="text-align:right">0.556x</td>
+<td style="text-align:right">0.964x</td>
+<td style="text-align:right">1.737x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">38</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.766x</td>
+<td style="text-align:right">0.299x</td>
+<td style="text-align:right">0.749x</td>
+<td style="text-align:right">1.182x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">40</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.762x</td>
+<td style="text-align:right">0.356x</td>
+<td style="text-align:right">0.750x</td>
+<td style="text-align:right">1.083x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">46</td>
+</tr>
+<tr>
+<td>text</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.438x</td>
+<td style="text-align:right">0.035x</td>
+<td style="text-align:right">0.841x</td>
+<td style="text-align:right">4.212x</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">24</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.260x</td>
+<td style="text-align:right">0.033x</td>
+<td style="text-align:right">0.481x</td>
+<td style="text-align:right">2.629x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">28</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.361x</td>
+<td style="text-align:right">0.100x</td>
+<td style="text-align:right">0.239x</td>
+<td style="text-align:right">2.517x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">36</td>
+</tr>
+<tr>
+<td>text</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.626x</td>
+<td style="text-align:right">0.088x</td>
+<td style="text-align:right">0.411x</td>
+<td style="text-align:right">10.009x</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">35</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>build_both</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.281x</td>
+<td style="text-align:right">0.437x</td>
+<td style="text-align:right">1.285x</td>
+<td style="text-align:right">3.306x</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">49</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.971x</td>
+<td style="text-align:right">0.206x</td>
+<td style="text-align:right">0.955x</td>
+<td style="text-align:right">2.142x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">114</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.870x</td>
+<td style="text-align:right">0.257x</td>
+<td style="text-align:right">0.899x</td>
+<td style="text-align:right">1.427x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">145</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.184x</td>
+<td style="text-align:right">0.013x</td>
+<td style="text-align:right">0.070x</td>
+<td style="text-align:right">4.901x</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">130</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.271x</td>
+<td style="text-align:right">0.015x</td>
+<td style="text-align:right">0.161x</td>
+<td style="text-align:right">10.336x</td>
+<td style="text-align:right">41</td>
+<td style="text-align:right">117</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.468x</td>
+<td style="text-align:right">0.017x</td>
+<td style="text-align:right">0.404x</td>
+<td style="text-align:right">12.017x</td>
+<td style="text-align:right">52</td>
+<td style="text-align:right">122</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.939x</td>
+<td style="text-align:right">0.028x</td>
+<td style="text-align:right">0.566x</td>
+<td style="text-align:right">91.029x</td>
+<td style="text-align:right">68</td>
+<td style="text-align:right">123</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-2">Ten lowest ratios (all remaining cases are in cells.csv)<a class="heading-anchor" href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-2" aria-label="链接到 Ten lowest ratios (all remaining cases are in cells.csv)">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Operation</th>
+<th style="text-align:right">zscan ns/op</th>
+<th style="text-align:right">Best baseline ns/op</th>
+<th>Baseline</th>
+<th style="text-align:right">Speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adversarial-low-entropy-neartrue-n65536-m128</td>
+<td>reuse_find</td>
+<td style="text-align:right">410836.000</td>
+<td style="text-align:right">2148.911</td>
+<td>memchr</td>
+<td style="text-align:right">0.005x</td>
+</tr>
+<tr>
+<td>adversarial-low-entropy-neartrue-n65536-m32</td>
+<td>find</td>
+<td style="text-align:right">293969.000</td>
+<td style="text-align:right">2082.133</td>
+<td>memchr</td>
+<td style="text-align:right">0.007x</td>
+</tr>
+<tr>
+<td>adversarial-low-entropy-neartrue-n65536-m32</td>
+<td>reuse_find</td>
+<td style="text-align:right">273556.000</td>
+<td style="text-align:right">2071.319</td>
+<td>memchr</td>
+<td style="text-align:right">0.008x</td>
+</tr>
+<tr>
+<td>adversarial-low-entropy-neartrue-n65536-m8</td>
+<td>find</td>
+<td style="text-align:right">223357.000</td>
+<td style="text-align:right">1831.500</td>
+<td>memchr</td>
+<td style="text-align:right">0.008x</td>
+</tr>
+<tr>
+<td>adversarial-low-entropy-neartrue-n65536-m128</td>
+<td>find</td>
+<td style="text-align:right">323491.000</td>
+<td style="text-align:right">2698.657</td>
+<td>memchr</td>
+<td style="text-align:right">0.008x</td>
+</tr>
+<tr>
+<td>adversarial-low-entropy-neartrue-n65536-m8</td>
+<td>reuse_find</td>
+<td style="text-align:right">197122.000</td>
+<td style="text-align:right">1811.833</td>
+<td>memchr</td>
+<td style="text-align:right">0.009x</td>
+</tr>
+<tr>
+<td>typical-last-n4096-m32-a0</td>
+<td>find</td>
+<td style="text-align:right">6609.938</td>
+<td style="text-align:right">83.961</td>
+<td>memx</td>
+<td style="text-align:right">0.013x</td>
+</tr>
+<tr>
+<td>typical-none-n65536-m16-a0</td>
+<td>find</td>
+<td style="text-align:right">80841.000</td>
+<td style="text-align:right">1173.698</td>
+<td>memx</td>
+<td style="text-align:right">0.015x</td>
+</tr>
+<tr>
+<td>typical-none-n4096-m127-a0</td>
+<td>reuse_find</td>
+<td style="text-align:right">5267.429</td>
+<td style="text-align:right">76.680</td>
+<td>memchr</td>
+<td style="text-align:right">0.015x</td>
+</tr>
+<tr>
+<td>typical-last-n4096-m2-a0</td>
+<td>find</td>
+<td style="text-align:right">9147.529</td>
+<td style="text-align:right">144.781</td>
+<td>memchr</td>
+<td style="text-align:right">0.016x</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="no-short">no-short<a class="heading-anchor" href="#no-short" aria-label="链接到 no-short">#</a></h2>
+<p>Mode: <code>full</code>. RUSTFLAGS: <code>--cfg zscan_no_short</code>. Retained 10926 engine/case cells; 630 raw samples returned a wrong comparator answer, and 4249 samples were excluded from ratios because the comparator operation is not semantics-equivalent. No zscan or memchr correctness failure is permitted in a completed run.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Operation</th>
+<th style="text-align:right">Cases</th>
+<th style="text-align:right">Geometric speedup</th>
+<th style="text-align:right">Minimum</th>
+<th style="text-align:right">Median</th>
+<th style="text-align:right">Maximum</th>
+<th style="text-align:right">At least 2x</th>
+<th style="text-align:right">Slower than best</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adversarial</td>
+<td>build_both</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.265x</td>
+<td style="text-align:right">0.554x</td>
+<td style="text-align:right">1.279x</td>
+<td style="text-align:right">2.515x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.700x</td>
+<td style="text-align:right">0.562x</td>
+<td style="text-align:right">0.680x</td>
+<td style="text-align:right">1.214x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">23</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.658x</td>
+<td style="text-align:right">0.116x</td>
+<td style="text-align:right">0.750x</td>
+<td style="text-align:right">1.008x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">22</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.034x</td>
+<td style="text-align:right">0.260x</td>
+<td style="text-align:right">1.083x</td>
+<td style="text-align:right">2.868x</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.836x</td>
+<td style="text-align:right">0.753x</td>
+<td style="text-align:right">1.281x</td>
+<td style="text-align:right">12.707x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">4.808x</td>
+<td style="text-align:right">0.451x</td>
+<td style="text-align:right">6.402x</td>
+<td style="text-align:right">52.033x</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">7.253x</td>
+<td style="text-align:right">0.874x</td>
+<td style="text-align:right">15.901x</td>
+<td style="text-align:right">95.101x</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>build_both</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.348x</td>
+<td style="text-align:right">0.753x</td>
+<td style="text-align:right">1.208x</td>
+<td style="text-align:right">3.244x</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.600x</td>
+<td style="text-align:right">0.269x</td>
+<td style="text-align:right">0.607x</td>
+<td style="text-align:right">1.194x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">60</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.667x</td>
+<td style="text-align:right">0.308x</td>
+<td style="text-align:right">0.671x</td>
+<td style="text-align:right">0.995x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">64</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.894x</td>
+<td style="text-align:right">0.399x</td>
+<td style="text-align:right">0.874x</td>
+<td style="text-align:right">2.173x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">42</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.624x</td>
+<td style="text-align:right">0.214x</td>
+<td style="text-align:right">0.640x</td>
+<td style="text-align:right">1.104x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">62</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.275x</td>
+<td style="text-align:right">0.393x</td>
+<td style="text-align:right">1.359x</td>
+<td style="text-align:right">4.377x</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">20</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">2.069x</td>
+<td style="text-align:right">0.613x</td>
+<td style="text-align:right">2.376x</td>
+<td style="text-align:right">5.511x</td>
+<td style="text-align:right">34</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td>large</td>
+<td>build_both</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.549x</td>
+<td style="text-align:right">1.027x</td>
+<td style="text-align:right">1.507x</td>
+<td style="text-align:right">2.219x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.526x</td>
+<td style="text-align:right">0.381x</td>
+<td style="text-align:right">0.561x</td>
+<td style="text-align:right">0.607x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.708x</td>
+<td style="text-align:right">0.624x</td>
+<td style="text-align:right">0.663x</td>
+<td style="text-align:right">1.026x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>large</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.768x</td>
+<td style="text-align:right">0.571x</td>
+<td style="text-align:right">0.674x</td>
+<td style="text-align:right">1.267x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.922x</td>
+<td style="text-align:right">0.392x</td>
+<td style="text-align:right">1.001x</td>
+<td style="text-align:right">1.469x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">3.431x</td>
+<td style="text-align:right">0.453x</td>
+<td style="text-align:right">5.576x</td>
+<td style="text-align:right">8.082x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>large</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">6.836x</td>
+<td style="text-align:right">2.351x</td>
+<td style="text-align:right">7.012x</td>
+<td style="text-align:right">16.617x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>build_both</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.783x</td>
+<td style="text-align:right">0.517x</td>
+<td style="text-align:right">1.882x</td>
+<td style="text-align:right">5.781x</td>
+<td style="text-align:right">105</td>
+<td style="text-align:right">28</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.901x</td>
+<td style="text-align:right">0.209x</td>
+<td style="text-align:right">0.909x</td>
+<td style="text-align:right">2.629x</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">140</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.995x</td>
+<td style="text-align:right">0.290x</td>
+<td style="text-align:right">0.929x</td>
+<td style="text-align:right">3.906x</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">138</td>
+</tr>
+<tr>
+<td>short</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.119x</td>
+<td style="text-align:right">0.323x</td>
+<td style="text-align:right">1.042x</td>
+<td style="text-align:right">4.610x</td>
+<td style="text-align:right">55</td>
+<td style="text-align:right">114</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.723x</td>
+<td style="text-align:right">0.274x</td>
+<td style="text-align:right">0.728x</td>
+<td style="text-align:right">2.812x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">201</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.050x</td>
+<td style="text-align:right">0.352x</td>
+<td style="text-align:right">1.056x</td>
+<td style="text-align:right">7.274x</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">106</td>
+</tr>
+<tr>
+<td>short</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.608x</td>
+<td style="text-align:right">0.270x</td>
+<td style="text-align:right">1.656x</td>
+<td style="text-align:right">10.740x</td>
+<td style="text-align:right">87</td>
+<td style="text-align:right">81</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>build_both</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.319x</td>
+<td style="text-align:right">0.625x</td>
+<td style="text-align:right">1.190x</td>
+<td style="text-align:right">3.063x</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.647x</td>
+<td style="text-align:right">0.417x</td>
+<td style="text-align:right">0.627x</td>
+<td style="text-align:right">1.154x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">30</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.776x</td>
+<td style="text-align:right">0.484x</td>
+<td style="text-align:right">0.772x</td>
+<td style="text-align:right">1.230x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">29</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.792x</td>
+<td style="text-align:right">0.488x</td>
+<td style="text-align:right">0.834x</td>
+<td style="text-align:right">1.427x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">27</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.588x</td>
+<td style="text-align:right">0.319x</td>
+<td style="text-align:right">0.591x</td>
+<td style="text-align:right">1.207x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">30</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.250x</td>
+<td style="text-align:right">0.455x</td>
+<td style="text-align:right">1.085x</td>
+<td style="text-align:right">3.392x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">13</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">2.957x</td>
+<td style="text-align:right">1.518x</td>
+<td style="text-align:right">2.997x</td>
+<td style="text-align:right">6.057x</td>
+<td style="text-align:right">29</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>text</td>
+<td>build_both</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.972x</td>
+<td style="text-align:right">0.538x</td>
+<td style="text-align:right">0.992x</td>
+<td style="text-align:right">1.812x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">27</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.760x</td>
+<td style="text-align:right">0.397x</td>
+<td style="text-align:right">0.735x</td>
+<td style="text-align:right">1.381x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">38</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.758x</td>
+<td style="text-align:right">0.224x</td>
+<td style="text-align:right">0.751x</td>
+<td style="text-align:right">1.001x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">46</td>
+</tr>
+<tr>
+<td>text</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.275x</td>
+<td style="text-align:right">0.611x</td>
+<td style="text-align:right">1.221x</td>
+<td style="text-align:right">2.933x</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">16</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.797x</td>
+<td style="text-align:right">0.398x</td>
+<td style="text-align:right">0.743x</td>
+<td style="text-align:right">1.809x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">36</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">2.470x</td>
+<td style="text-align:right">1.069x</td>
+<td style="text-align:right">2.227x</td>
+<td style="text-align:right">7.730x</td>
+<td style="text-align:right">25</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>text</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">5.016x</td>
+<td style="text-align:right">2.138x</td>
+<td style="text-align:right">5.140x</td>
+<td style="text-align:right">9.386x</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>build_both</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.343x</td>
+<td style="text-align:right">0.625x</td>
+<td style="text-align:right">1.342x</td>
+<td style="text-align:right">5.979x</td>
+<td style="text-align:right">28</td>
+<td style="text-align:right">51</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.974x</td>
+<td style="text-align:right">0.450x</td>
+<td style="text-align:right">0.993x</td>
+<td style="text-align:right">1.785x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">106</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.840x</td>
+<td style="text-align:right">0.145x</td>
+<td style="text-align:right">0.878x</td>
+<td style="text-align:right">1.848x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">162</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.082x</td>
+<td style="text-align:right">0.287x</td>
+<td style="text-align:right">1.093x</td>
+<td style="text-align:right">2.879x</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">81</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.399x</td>
+<td style="text-align:right">0.401x</td>
+<td style="text-align:right">1.206x</td>
+<td style="text-align:right">10.314x</td>
+<td style="text-align:right">51</td>
+<td style="text-align:right">74</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">3.036x</td>
+<td style="text-align:right">0.443x</td>
+<td style="text-align:right">2.909x</td>
+<td style="text-align:right">54.916x</td>
+<td style="text-align:right">140</td>
+<td style="text-align:right">19</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">7.261x</td>
+<td style="text-align:right">0.865x</td>
+<td style="text-align:right">6.933x</td>
+<td style="text-align:right">76.223x</td>
+<td style="text-align:right">181</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-3">Ten lowest ratios (all remaining cases are in cells.csv)<a class="heading-anchor" href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-3" aria-label="链接到 Ten lowest ratios (all remaining cases are in cells.csv)">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Operation</th>
+<th style="text-align:right">zscan ns/op</th>
+<th style="text-align:right">Best baseline ns/op</th>
+<th>Baseline</th>
+<th style="text-align:right">Speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adversarial-periodic-neartrue-n65536-m32</td>
+<td>byte_rfind</td>
+<td style="text-align:right">14.600</td>
+<td style="text-align:right">1.687</td>
+<td>memx</td>
+<td style="text-align:right">0.116x</td>
+</tr>
+<tr>
+<td>typical-dense-n65536-m32-a0</td>
+<td>byte_rfind</td>
+<td style="text-align:right">15.416</td>
+<td style="text-align:right">2.231</td>
+<td>memx</td>
+<td style="text-align:right">0.145x</td>
+</tr>
+<tr>
+<td>short-last-n63-m3-a2</td>
+<td>byte_find</td>
+<td style="text-align:right">10.672</td>
+<td style="text-align:right">2.231</td>
+<td>memx</td>
+<td style="text-align:right">0.209x</td>
+</tr>
+<tr>
+<td>alignment-last-n42-m12-a10</td>
+<td>reuse_find</td>
+<td style="text-align:right">44.738</td>
+<td style="text-align:right">9.576</td>
+<td>memchr</td>
+<td style="text-align:right">0.214x</td>
+</tr>
+<tr>
+<td>short-none-n63-m2-a1</td>
+<td>byte_find</td>
+<td style="text-align:right">15.290</td>
+<td style="text-align:right">3.416</td>
+<td>memchr</td>
+<td style="text-align:right">0.223x</td>
+</tr>
+<tr>
+<td>text-json-none-n4096-m14</td>
+<td>byte_rfind</td>
+<td style="text-align:right">9.385</td>
+<td style="text-align:right">2.098</td>
+<td>memx</td>
+<td style="text-align:right">0.224x</td>
+</tr>
+<tr>
+<td>short-last-n63-m4-a3</td>
+<td>byte_find</td>
+<td style="text-align:right">8.910</td>
+<td style="text-align:right">2.234</td>
+<td>memx</td>
+<td style="text-align:right">0.251x</td>
+</tr>
+<tr>
+<td>short-empty-n63-m0-a63</td>
+<td>byte_find</td>
+<td style="text-align:right">11.823</td>
+<td style="text-align:right">3.068</td>
+<td>memchr</td>
+<td style="text-align:right">0.260x</td>
+</tr>
+<tr>
+<td>adversarial-repeated-nearfalse-n65536-m32</td>
+<td>find</td>
+<td style="text-align:right">37.294</td>
+<td style="text-align:right">9.701</td>
+<td>memx</td>
+<td style="text-align:right">0.260x</td>
+</tr>
+<tr>
+<td>adversarial-periodic-neartrue-n65536-m257</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6.333</td>
+<td style="text-align:right">1.696</td>
+<td>memx</td>
+<td style="text-align:right">0.268x</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="scalar">scalar<a class="heading-anchor" href="#scalar" aria-label="链接到 scalar">#</a></h2>
+<p>Mode: <code>full</code>. RUSTFLAGS: <code>--cfg zscan_scalar</code>. Retained 10926 engine/case cells; 630 raw samples returned a wrong comparator answer, and 4249 samples were excluded from ratios because the comparator operation is not semantics-equivalent. No zscan or memchr correctness failure is permitted in a completed run.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Operation</th>
+<th style="text-align:right">Cases</th>
+<th style="text-align:right">Geometric speedup</th>
+<th style="text-align:right">Minimum</th>
+<th style="text-align:right">Median</th>
+<th style="text-align:right">Maximum</th>
+<th style="text-align:right">At least 2x</th>
+<th style="text-align:right">Slower than best</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adversarial</td>
+<td>build_both</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.293x</td>
+<td style="text-align:right">0.800x</td>
+<td style="text-align:right">1.211x</td>
+<td style="text-align:right">2.948x</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.850x</td>
+<td style="text-align:right">0.584x</td>
+<td style="text-align:right">0.903x</td>
+<td style="text-align:right">1.204x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">23</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>byte_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.856x</td>
+<td style="text-align:right">0.445x</td>
+<td style="text-align:right">0.900x</td>
+<td style="text-align:right">1.280x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">23</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.493x</td>
+<td style="text-align:right">0.101x</td>
+<td style="text-align:right">0.463x</td>
+<td style="text-align:right">3.009x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">16</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.688x</td>
+<td style="text-align:right">0.095x</td>
+<td style="text-align:right">0.857x</td>
+<td style="text-align:right">6.366x</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">2.849x</td>
+<td style="text-align:right">0.662x</td>
+<td style="text-align:right">3.103x</td>
+<td style="text-align:right">12.308x</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">4.649x</td>
+<td style="text-align:right">0.715x</td>
+<td style="text-align:right">3.810x</td>
+<td style="text-align:right">57.818x</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>build_both</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.312x</td>
+<td style="text-align:right">0.599x</td>
+<td style="text-align:right">1.160x</td>
+<td style="text-align:right">13.254x</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">14</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.578x</td>
+<td style="text-align:right">0.259x</td>
+<td style="text-align:right">0.542x</td>
+<td style="text-align:right">1.240x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">60</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>byte_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.648x</td>
+<td style="text-align:right">0.338x</td>
+<td style="text-align:right">0.663x</td>
+<td style="text-align:right">1.269x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">60</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.034x</td>
+<td style="text-align:right">0.433x</td>
+<td style="text-align:right">0.868x</td>
+<td style="text-align:right">3.475x</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">37</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.655x</td>
+<td style="text-align:right">0.186x</td>
+<td style="text-align:right">0.471x</td>
+<td style="text-align:right">4.404x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">45</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.114x</td>
+<td style="text-align:right">0.329x</td>
+<td style="text-align:right">1.099x</td>
+<td style="text-align:right">3.959x</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">25</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.804x</td>
+<td style="text-align:right">0.566x</td>
+<td style="text-align:right">1.954x</td>
+<td style="text-align:right">5.001x</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td>large</td>
+<td>build_both</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.102x</td>
+<td style="text-align:right">0.702x</td>
+<td style="text-align:right">1.090x</td>
+<td style="text-align:right">1.701x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.128x</td>
+<td style="text-align:right">0.114x</td>
+<td style="text-align:right">0.131x</td>
+<td style="text-align:right">0.133x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.284x</td>
+<td style="text-align:right">0.131x</td>
+<td style="text-align:right">0.239x</td>
+<td style="text-align:right">0.911x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.117x</td>
+<td style="text-align:right">0.082x</td>
+<td style="text-align:right">0.113x</td>
+<td style="text-align:right">0.179x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.153x</td>
+<td style="text-align:right">0.123x</td>
+<td style="text-align:right">0.149x</td>
+<td style="text-align:right">0.199x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>large</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.782x</td>
+<td style="text-align:right">0.746x</td>
+<td style="text-align:right">1.527x</td>
+<td style="text-align:right">4.879x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>large</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2.929x</td>
+<td style="text-align:right">0.729x</td>
+<td style="text-align:right">2.128x</td>
+<td style="text-align:right">20.296x</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>short</td>
+<td>build_both</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.613x</td>
+<td style="text-align:right">0.547x</td>
+<td style="text-align:right">1.749x</td>
+<td style="text-align:right">5.499x</td>
+<td style="text-align:right">82</td>
+<td style="text-align:right">38</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.902x</td>
+<td style="text-align:right">0.219x</td>
+<td style="text-align:right">0.913x</td>
+<td style="text-align:right">3.027x</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">138</td>
+</tr>
+<tr>
+<td>short</td>
+<td>byte_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.112x</td>
+<td style="text-align:right">0.336x</td>
+<td style="text-align:right">1.172x</td>
+<td style="text-align:right">3.438x</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">92</td>
+</tr>
+<tr>
+<td>short</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.239x</td>
+<td style="text-align:right">0.369x</td>
+<td style="text-align:right">1.237x</td>
+<td style="text-align:right">3.619x</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">63</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.950x</td>
+<td style="text-align:right">0.154x</td>
+<td style="text-align:right">0.913x</td>
+<td style="text-align:right">6.283x</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">123</td>
+</tr>
+<tr>
+<td>short</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.287x</td>
+<td style="text-align:right">0.268x</td>
+<td style="text-align:right">1.234x</td>
+<td style="text-align:right">9.895x</td>
+<td style="text-align:right">36</td>
+<td style="text-align:right">64</td>
+</tr>
+<tr>
+<td>short</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.646x</td>
+<td style="text-align:right">0.410x</td>
+<td style="text-align:right">1.507x</td>
+<td style="text-align:right">27.355x</td>
+<td style="text-align:right">83</td>
+<td style="text-align:right">43</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>build_both</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.176x</td>
+<td style="text-align:right">0.481x</td>
+<td style="text-align:right">1.108x</td>
+<td style="text-align:right">2.363x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.525x</td>
+<td style="text-align:right">0.246x</td>
+<td style="text-align:right">0.500x</td>
+<td style="text-align:right">1.171x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">31</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>byte_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.495x</td>
+<td style="text-align:right">0.248x</td>
+<td style="text-align:right">0.471x</td>
+<td style="text-align:right">0.931x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">32</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.745x</td>
+<td style="text-align:right">0.166x</td>
+<td style="text-align:right">0.602x</td>
+<td style="text-align:right">3.449x</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.559x</td>
+<td style="text-align:right">0.134x</td>
+<td style="text-align:right">0.347x</td>
+<td style="text-align:right">2.242x</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.848x</td>
+<td style="text-align:right">0.198x</td>
+<td style="text-align:right">0.866x</td>
+<td style="text-align:right">2.261x</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">19</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">2.231x</td>
+<td style="text-align:right">0.795x</td>
+<td style="text-align:right">1.830x</td>
+<td style="text-align:right">8.124x</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>text</td>
+<td>build_both</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.957x</td>
+<td style="text-align:right">0.179x</td>
+<td style="text-align:right">0.942x</td>
+<td style="text-align:right">1.644x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">37</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.772x</td>
+<td style="text-align:right">0.295x</td>
+<td style="text-align:right">0.918x</td>
+<td style="text-align:right">1.311x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">38</td>
+</tr>
+<tr>
+<td>text</td>
+<td>byte_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.707x</td>
+<td style="text-align:right">0.293x</td>
+<td style="text-align:right">0.862x</td>
+<td style="text-align:right">1.346x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">40</td>
+</tr>
+<tr>
+<td>text</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.907x</td>
+<td style="text-align:right">0.170x</td>
+<td style="text-align:right">1.250x</td>
+<td style="text-align:right">6.834x</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.535x</td>
+<td style="text-align:right">0.127x</td>
+<td style="text-align:right">0.611x</td>
+<td style="text-align:right">3.190x</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">28</td>
+</tr>
+<tr>
+<td>text</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.131x</td>
+<td style="text-align:right">0.454x</td>
+<td style="text-align:right">1.054x</td>
+<td style="text-align:right">2.876x</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td>text</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">2.083x</td>
+<td style="text-align:right">0.590x</td>
+<td style="text-align:right">2.586x</td>
+<td style="text-align:right">6.244x</td>
+<td style="text-align:right">27</td>
+<td style="text-align:right">13</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>build_both</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.273x</td>
+<td style="text-align:right">0.503x</td>
+<td style="text-align:right">1.273x</td>
+<td style="text-align:right">3.486x</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">53</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.374x</td>
+<td style="text-align:right">0.057x</td>
+<td style="text-align:right">0.446x</td>
+<td style="text-align:right">1.898x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">134</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>byte_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.277x</td>
+<td style="text-align:right">0.055x</td>
+<td style="text-align:right">0.273x</td>
+<td style="text-align:right">1.502x</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">171</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.516x</td>
+<td style="text-align:right">0.079x</td>
+<td style="text-align:right">0.499x</td>
+<td style="text-align:right">4.937x</td>
+<td style="text-align:right">33</td>
+<td style="text-align:right">130</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.658x</td>
+<td style="text-align:right">0.089x</td>
+<td style="text-align:right">0.533x</td>
+<td style="text-align:right">11.476x</td>
+<td style="text-align:right">47</td>
+<td style="text-align:right">105</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.396x</td>
+<td style="text-align:right">0.173x</td>
+<td style="text-align:right">1.398x</td>
+<td style="text-align:right">13.564x</td>
+<td style="text-align:right">80</td>
+<td style="text-align:right">64</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">3.183x</td>
+<td style="text-align:right">0.128x</td>
+<td style="text-align:right">2.836x</td>
+<td style="text-align:right">36.404x</td>
+<td style="text-align:right">121</td>
+<td style="text-align:right">39</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-4">Ten lowest ratios (all remaining cases are in cells.csv)<a class="heading-anchor" href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-4" aria-label="链接到 Ten lowest ratios (all remaining cases are in cells.csv)">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Operation</th>
+<th style="text-align:right">zscan ns/op</th>
+<th style="text-align:right">Best baseline ns/op</th>
+<th>Baseline</th>
+<th style="text-align:right">Speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>typical-sparse-n4096-m256-a0</td>
+<td>byte_rfind</td>
+<td style="text-align:right">519.366</td>
+<td style="text-align:right">28.666</td>
+<td>memchr</td>
+<td style="text-align:right">0.055x</td>
+</tr>
+<tr>
+<td>typical-none-n65536-m8-a0</td>
+<td>byte_find</td>
+<td style="text-align:right">14168.667</td>
+<td style="text-align:right">805.953</td>
+<td>memchr</td>
+<td style="text-align:right">0.057x</td>
+</tr>
+<tr>
+<td>typical-last-n4096-m2-a0</td>
+<td>byte_find</td>
+<td style="text-align:right">516.531</td>
+<td style="text-align:right">31.522</td>
+<td>memchr</td>
+<td style="text-align:right">0.061x</td>
+</tr>
+<tr>
+<td>typical-last-n65536-m31-a0</td>
+<td>byte_find</td>
+<td style="text-align:right">10310.100</td>
+<td style="text-align:right">658.318</td>
+<td>memchr</td>
+<td style="text-align:right">0.064x</td>
+</tr>
+<tr>
+<td>typical-sparse-n65536-m2-a0</td>
+<td>byte_find</td>
+<td style="text-align:right">1249.410</td>
+<td style="text-align:right">79.973</td>
+<td>memchr</td>
+<td style="text-align:right">0.064x</td>
+</tr>
+<tr>
+<td>typical-last-n4096-m32-a0</td>
+<td>byte_find</td>
+<td style="text-align:right">444.580</td>
+<td style="text-align:right">31.450</td>
+<td>memchr</td>
+<td style="text-align:right">0.071x</td>
+</tr>
+<tr>
+<td>typical-none-n512-m32-a0</td>
+<td>byte_rfind</td>
+<td style="text-align:right">82.577</td>
+<td style="text-align:right">5.851</td>
+<td>memchr</td>
+<td style="text-align:right">0.071x</td>
+</tr>
+<tr>
+<td>typical-none-n4096-m33-a0</td>
+<td>byte_rfind</td>
+<td style="text-align:right">430.919</td>
+<td style="text-align:right">31.791</td>
+<td>memchr</td>
+<td style="text-align:right">0.074x</td>
+</tr>
+<tr>
+<td>typical-first-n4096-m33-a0</td>
+<td>byte_rfind</td>
+<td style="text-align:right">435.134</td>
+<td style="text-align:right">32.106</td>
+<td>memchr</td>
+<td style="text-align:right">0.074x</td>
+</tr>
+<tr>
+<td>typical-first-n4096-m31-a0</td>
+<td>byte_rfind</td>
+<td style="text-align:right">436.838</td>
+<td style="text-align:right">32.250</td>
+<td>memchr</td>
+<td style="text-align:right">0.074x</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="component-observations">Component observations<a class="heading-anchor" href="#component-observations" aria-label="链接到 Component observations">#</a></h2>
+<p>For ablations, the ratio is ablated zscan time / generic zscan time, so above 1 means the enabled component helped. These separate-process comparisons are sensitive to machine load. No interaction effects are removed.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Ablation</th>
+<th>Group</th>
+<th>Operation</th>
+<th style="text-align:right">Cases</th>
+<th style="text-align:right">Geometric ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scalar</td>
+<td>adversarial</td>
+<td>build_both</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.002x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>adversarial</td>
+<td>byte_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.912x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>adversarial</td>
+<td>byte_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.983x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>adversarial</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">3.359x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>adversarial</td>
+<td>reuse_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">3.311x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>adversarial</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">2.261x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>adversarial</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">2.238x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>alignment</td>
+<td>build_both</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.762x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>alignment</td>
+<td>byte_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.788x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>alignment</td>
+<td>byte_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.864x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>alignment</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.848x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>alignment</td>
+<td>reuse_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.913x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>alignment</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.972x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>alignment</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.916x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>large</td>
+<td>build_both</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.560x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>large</td>
+<td>byte_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2.061x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>large</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.362x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>large</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">5.075x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>large</td>
+<td>reuse_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">5.390x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>large</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2.002x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>large</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2.096x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>short</td>
+<td>build_both</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.728x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>short</td>
+<td>byte_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.538x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>short</td>
+<td>byte_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.548x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>short</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.604x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>short</td>
+<td>reuse_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.592x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>short</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.610x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>short</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.621x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>tail</td>
+<td>build_both</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.335x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>tail</td>
+<td>byte_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.590x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>tail</td>
+<td>byte_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">2.201x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>tail</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.744x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>tail</td>
+<td>reuse_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.797x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>tail</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.924x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>tail</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.765x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>text</td>
+<td>build_both</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.933x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>text</td>
+<td>byte_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.939x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>text</td>
+<td>byte_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.154x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>text</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">2.116x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>text</td>
+<td>reuse_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">2.151x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>text</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">2.405x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>text</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">2.378x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>typical</td>
+<td>build_both</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.597x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>typical</td>
+<td>byte_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.208x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>typical</td>
+<td>byte_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.719x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>typical</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.409x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>typical</td>
+<td>reuse_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.428x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>typical</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.492x</td>
+</tr>
+<tr>
+<td>scalar</td>
+<td>typical</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.470x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>adversarial</td>
+<td>build_both</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.932x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>adversarial</td>
+<td>byte_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.013x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>adversarial</td>
+<td>byte_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.177x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>adversarial</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.472x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>adversarial</td>
+<td>reuse_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.271x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>adversarial</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.160x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>adversarial</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.397x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>alignment</td>
+<td>build_both</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.736x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>alignment</td>
+<td>byte_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.774x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>alignment</td>
+<td>byte_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.830x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>alignment</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.873x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>alignment</td>
+<td>reuse_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.945x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>alignment</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.852x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>alignment</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.806x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>large</td>
+<td>build_both</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.504x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>large</td>
+<td>byte_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.475x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>large</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.761x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>large</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.736x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>large</td>
+<td>reuse_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.858x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>large</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.961x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>large</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.929x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>short</td>
+<td>build_both</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.654x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>short</td>
+<td>byte_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.589x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>short</td>
+<td>byte_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.639x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>short</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.617x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>short</td>
+<td>reuse_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.771x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>short</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.756x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>short</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.624x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>tail</td>
+<td>build_both</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.759x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>tail</td>
+<td>byte_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.709x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>tail</td>
+<td>byte_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.817x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>tail</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.870x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>tail</td>
+<td>reuse_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.928x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>tail</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.845x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>tail</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.806x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>text</td>
+<td>build_both</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.911x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>text</td>
+<td>byte_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.027x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>text</td>
+<td>byte_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.065x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>text</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.391x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>text</td>
+<td>reuse_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.393x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>text</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.111x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>text</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.061x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>typical</td>
+<td>build_both</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.569x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>typical</td>
+<td>byte_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.535x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>typical</td>
+<td>byte_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.585x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>typical</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.689x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>typical</td>
+<td>reuse_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.712x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>typical</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.669x</td>
+</tr>
+<tr>
+<td>no-short</td>
+<td>typical</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.652x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>adversarial</td>
+<td>build_both</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.889x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>adversarial</td>
+<td>byte_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.942x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>adversarial</td>
+<td>byte_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.083x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>adversarial</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">7.359x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>adversarial</td>
+<td>reuse_find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">7.153x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>adversarial</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">3.029x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>adversarial</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">3.201x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>alignment</td>
+<td>build_both</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.725x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>alignment</td>
+<td>byte_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.694x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>alignment</td>
+<td>byte_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">0.752x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>alignment</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">2.083x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>alignment</td>
+<td>reuse_find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.721x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>alignment</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">2.021x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>alignment</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">2.329x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>large</td>
+<td>build_both</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.466x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>large</td>
+<td>byte_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.463x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>large</td>
+<td>byte_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.559x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>large</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">26.544x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>large</td>
+<td>reuse_find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">26.203x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>large</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">4.227x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>large</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">4.219x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>short</td>
+<td>build_both</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.683x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>short</td>
+<td>byte_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.648x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>short</td>
+<td>byte_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.623x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>short</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.743x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>short</td>
+<td>reuse_find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.722x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>short</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.743x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>short</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">0.731x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>tail</td>
+<td>build_both</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.700x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>tail</td>
+<td>byte_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.674x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>tail</td>
+<td>byte_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">0.783x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>tail</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">2.079x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>tail</td>
+<td>reuse_find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.920x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>tail</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">2.341x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>tail</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">2.442x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>text</td>
+<td>build_both</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.885x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>text</td>
+<td>byte_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">0.993x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>text</td>
+<td>byte_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.045x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>text</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">4.542x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>text</td>
+<td>reuse_find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">4.393x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>text</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">6.774x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>text</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">7.920x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>typical</td>
+<td>build_both</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.756x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>typical</td>
+<td>byte_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.668x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>typical</td>
+<td>byte_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">0.701x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>typical</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">5.054x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>typical</td>
+<td>reuse_find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">4.529x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>typical</td>
+<td>reuse_rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">5.432x</td>
+</tr>
+<tr>
+<td>no-prefilter</td>
+<td>typical</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">6.464x</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="finder-cache-reuse">Finder cache reuse<a class="heading-anchor" href="#finder-cache-reuse" aria-label="链接到 Finder cache reuse">#</a></h3>
+<p>Ratio is one-shot / reuse time within the generic build. Construction is reported separately above as build_both and is not amortized into reuse. Ratios do not predict a break-even query count without including construction and needle length.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Engine</th>
+<th>Direction</th>
+<th style="text-align:right">Cases</th>
+<th style="text-align:right">Geometric one-shot / reuse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adversarial</td>
+<td>memchr</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">3.274x</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>memchr</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">1.729x</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>zscan</td>
+<td>find</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.992x</td>
+</tr>
+<tr>
+<td>adversarial</td>
+<td>zscan</td>
+<td>rfind</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">0.992x</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>memchr</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">3.177x</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>memchr</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.722x</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>zscan</td>
+<td>find</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.110x</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>zscan</td>
+<td>rfind</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">1.101x</td>
+</tr>
+<tr>
+<td>large</td>
+<td>memchr</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.038x</td>
+</tr>
+<tr>
+<td>large</td>
+<td>memchr</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.793x</td>
+</tr>
+<tr>
+<td>large</td>
+<td>zscan</td>
+<td>find</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1.013x</td>
+</tr>
+<tr>
+<td>large</td>
+<td>zscan</td>
+<td>rfind</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">0.987x</td>
+</tr>
+<tr>
+<td>short</td>
+<td>memchr</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">2.095x</td>
+</tr>
+<tr>
+<td>short</td>
+<td>memchr</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.356x</td>
+</tr>
+<tr>
+<td>short</td>
+<td>zscan</td>
+<td>find</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.061x</td>
+</tr>
+<tr>
+<td>short</td>
+<td>zscan</td>
+<td>rfind</td>
+<td style="text-align:right">238</td>
+<td style="text-align:right">1.063x</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>memchr</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">4.236x</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>memchr</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">2.459x</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>zscan</td>
+<td>find</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.085x</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>zscan</td>
+<td>rfind</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">1.079x</td>
+</tr>
+<tr>
+<td>text</td>
+<td>memchr</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">3.124x</td>
+</tr>
+<tr>
+<td>text</td>
+<td>memchr</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">2.040x</td>
+</tr>
+<tr>
+<td>text</td>
+<td>zscan</td>
+<td>find</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.019x</td>
+</tr>
+<tr>
+<td>text</td>
+<td>zscan</td>
+<td>rfind</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1.085x</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>memchr</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">3.898x</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>memchr</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">2.410x</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>zscan</td>
+<td>find</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.049x</td>
+</tr>
+<tr>
+<td>typical</td>
+<td>zscan</td>
+<td>rfind</td>
+<td style="text-align:right">195</td>
+<td style="text-align:right">1.066x</td>
+</tr>
+</tbody>
+</table></div>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zscan/blob/c000a84c748d8e090ff662b2aef3858aa4880b09/comparison/results/final/summary.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zscan">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zscan/comparison-readme/"><span class="pagination-label">上一页</span><span class="pagination-title">Independent comparison project</span></a><a class="pagination-link next" href="../../zscan/comparison-results-round2-after-calibrated-summary/"><span class="pagination-label">下一页</span><span class="pagination-title">Recorded search comparison</span></a></nav>
+      <footer class="page-footer">
+        <span>zscan <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#generic">generic</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#native">native</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-1">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#no-prefilter">no-prefilter</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-2">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#no-short">no-short</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-3">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#scalar">scalar</a></li><li class="toc-level-3"><a href="#ten-lowest-ratios-all-remaining-cases-are-in-cellscsv-4">Ten lowest ratios (all remaining cases are in cells.csv)</a></li><li class="toc-level-2"><a href="#component-observations">Component observations</a></li><li class="toc-level-3"><a href="#finder-cache-reuse">Finder cache reuse</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

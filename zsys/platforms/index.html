@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="按需采集 Linux 的处理器、内存、进程与存储状态，提供可借用的数据视图。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zsys · Platform support · Project Z">
+  <meta property="og:description" content="按需采集 Linux 的处理器、内存、进程与存储状态，提供可借用的数据视图。">
+  <meta property="og:type" content="website">
+  <title>zsys · Platform support · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zsys/platforms/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zsys">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zsys" aria-label="zsys 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zsys</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zsys</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/" aria-current="page">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zsys 文档"><div class="nav-group"><p class="nav-label">zsys</p><ul><li><a class="nav-link" href="../../zsys/">概览</a></li><li><a class="nav-link" href="../../zsys/architecture/">架构与可验证的设计</a></li><li><a class="nav-link" href="../../zsys/platforms/" aria-current="page">Platform support</a></li><li><a class="nav-link" href="../../zsys/progress/">开发与验收进展</a></li><li><a class="nav-link" href="../../zsys/semantics/">采样语义与 API</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zsys</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/" aria-current="page">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zsys 文档"><div class="nav-group"><p class="nav-label">zsys</p><ul><li><a class="nav-link" href="../../zsys/">概览</a></li><li><a class="nav-link" href="../../zsys/architecture/">架构与可验证的设计</a></li><li><a class="nav-link" href="../../zsys/platforms/" aria-current="page">Platform support</a></li><li><a class="nav-link" href="../../zsys/progress/">开发与验收进展</a></li><li><a class="nav-link" href="../../zsys/semantics/">采样语义与 API</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zsys/">zsys 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zsys/">zsys</a><span aria-hidden="true">/</span><span>Platform support</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#implemented-capability">Implemented capability</a></li><li class="toc-level-2"><a href="#shared-dynamic-library-interface">Shared dynamic-library interface</a></li><li class="toc-level-2"><a href="#feature-and-compiler-requirements">Feature and compiler requirements</a></li><li class="toc-level-2"><a href="#linux-native-boundary">Linux native boundary</a></li><li class="toc-level-2"><a href="#validation-matrix">Validation matrix</a></li><li class="toc-level-2"><a href="#next-native-backends">Next native backends</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="platform-support">Platform support</h1>
+<p>The portable core and native collection backends have different support boundaries. A successful Windows or macOS core build does not provide a native system-information collector on that platform.</p>
+<h2 id="implemented-capability">Implemented capability<a class="heading-anchor" href="#implemented-capability" aria-label="链接到 Implemented capability">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Portable models/parsers</th>
+<th>Native collection</th>
+<th>Boundaries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux x86_64, glibc</td>
+<td>Yes</td>
+<td>CPU, memory, processes, disk/mounts, network, optional sysfs hardware</td>
+<td>Requires accessible kernel files and permitted native calls</td>
+</tr>
+<tr>
+<td>Linux aarch64, glibc</td>
+<td>Yes</td>
+<td>Same Linux backend</td>
+<td>Native <code>getdents64</code> number and C ABI have dedicated CI checks</td>
+</tr>
+<tr>
+<td>Linux x86_64, musl</td>
+<td>Yes</td>
+<td>Same Linux backend</td>
+<td>Alpine CI checks the native headers and runs Linux tests</td>
+</tr>
+<tr>
+<td>Other Linux architectures</td>
+<td>Yes</td>
+<td>Common procfs paths are conditionally available</td>
+<td>Process construction defaults to <code>ScanMode::Std</code> outside x86_64/aarch64; these architectures do not have the same native test coverage</td>
+</tr>
+<tr>
+<td>Linux 32-bit</td>
+<td>Yes</td>
+<td>Partial platform paths only</td>
+<td>Filesystem capacity returns <code>Unsupported</code>; no complete backend acceptance claim</td>
+</tr>
+<tr>
+<td>Windows and macOS</td>
+<td>Yes</td>
+<td><strong>Not implemented</strong></td>
+<td>CI builds/tests the core and verifies Linux code stays gated</td>
+</tr>
+<tr>
+<td>Android, iOS, FreeBSD</td>
+<td>Portable core is designed to remain OS-independent</td>
+<td><strong>Not implemented</strong></td>
+<td>No native collection or runtime validation is claimed</td>
+</tr>
+<tr>
+<td><code>thumbv7em-none-eabi</code></td>
+<td>Core compilation</td>
+<td>None</td>
+<td><code>no_std</code>, including the optional <code>alloc</code> configuration, is a compile gate</td>
+</tr>
+<tr>
+<td><code>wasm32-unknown-unknown</code></td>
+<td>Core compilation</td>
+<td>None</td>
+<td><code>no_std</code> core is a compile gate</td>
+</tr>
+</tbody>
+</table></div>
+<p>These rows describe source capabilities and the configured validation scope. Inspect the <a href="https://github.com/LIghtJUNction/zsys/actions/workflows/ci.yml">CI runs</a> and <a href="../../zsys/progress/">acceptance record</a> for execution results on the commit you use.</p>
+<h2 id="shared-dynamic-library-interface">Shared dynamic-library interface<a class="heading-anchor" href="#shared-dynamic-library-interface" aria-label="链接到 Shared dynamic-library interface">#</a></h2>
+<p>The independent <code>dylib</code> feature implements native loading on Linux, macOS and Windows with <code>no_std</code> and no allocator. Unix uses eager, local symbol loading. Windows uses the platform default DLL search directories and preserves UTF-16 paths through <code>open_wide</code>. Statically linked musl and other unsupported targets return an explicit unsupported error.</p>
+<p>A handle owns one OS loader reference and is thread-local. Dropping it pins the mapping; unloading is an explicit unsafe operation whose caller must stop every dependent object, symbol, callback and native task first. This is the system primitive used by zplugin; it does not implement plugin ABI validation or platform telemetry collection.</p>
+<p>The native CI matrix exercises independently built dynamic libraries. The bare-metal/WASM jobs also compile the feature's unsupported-target path. A configured CI job is not a recorded native runtime result; consult its completed run for the tested commit.</p>
+<h2 id="feature-and-compiler-requirements">Feature and compiler requirements<a class="heading-anchor" href="#feature-and-compiler-requirements" aria-label="链接到 Feature and compiler requirements">#</a></h2>
+<p>The MSRV is Rust <strong>1.95</strong>, edition <strong>2024</strong>. With default features disabled, the crate is <code>no_std</code> and its counter types and parsers do not require a global allocator. The <code>alloc</code> feature enables that capability without enabling OS access; it currently adds no separate allocation-backed public collection API. Default <code>std</code> enables Linux collection only when <code>target_os = &quot;linux&quot;</code>.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo test --locked --no-default-features
+cargo check --locked --no-default-features --features alloc
+cargo check --locked --no-default-features --target thumbv7em-none-eabi
+cargo check --locked --no-default-features --features alloc --target thumbv7em-none-eabi
+cargo check --locked --no-default-features --target wasm32-unknown-unknown
+</code></pre></div>
+<p>Install the listed Rust targets before running cross-target commands. Compilation on bare metal or WASM validates the portable core; these commands do not read the host's system information from those targets.</p>
+<h2 id="linux-native-boundary">Linux native boundary<a class="heading-anchor" href="#linux-native-boundary" aria-label="链接到 Linux native boundary">#</a></h2>
+<p>The runtime dependency list is empty. Linux FFI calls the platform C ABI and kernel interfaces directly; the Rust <code>libc</code> crate is not required. The application still uses Rust <code>std</code> and the operating system's normal C runtime/linker environment. <code>getdents64</code> is used on x86_64/aarch64; <code>ScanMode::Std</code> allows a directly comparable standard-library enumeration path.</p>
+<p>Filesystem capacity uses the Linux LP64 <code>statvfs</code> layout. Native headers are checked by <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/scripts/check-abi.c">scripts/check-abi.c</a>, including socket/address layouts and syscall/ioctl constants; corresponding Rust layout assertions run in unit tests. Current glibc and musl declarations for <code>statvfs</code> preserve the offsets used here, including their trailing reserved storage. See <a href="https://man7.org/linux/man-pages/man3/statvfs.3.html">statvfs(3)</a> and the <a href="https://git.musl-libc.org/cgit/musl/tree/include/sys/statvfs.h">musl header</a>.</p>
+<p>A mounted <code>/proc</code> and <code>/sys</code> can expose a container-specific, restricted, or host-wide view. zsys reports the view it reads: it does not grant permissions, join other namespaces, normalize CPU by container quota, or replace RAM totals with cgroup limits. <code>with_proc_root</code> and <code>with_sys_root</code> support fixtures and alternate mounted views. Cached descriptors are associated with the view used when opened; create new collectors after changing the process's namespace or mounts.</p>
+<p>Network details use <code>getifaddrs</code>, with a read-only ioctl/procfs fallback when the native address path encounters specified permission/protocol restrictions. Metadata queries still can fail; counter collection remains independently callable. Six-octet MAC addresses are optional, and link speed depends on driver sysfs support. Details use the current network namespace even when the counter collector reads a custom proc root.</p>
+<p>Hardware inventory depends on exported kernel attributes. A headless container can legitimately have no sensors or DRM cards. Thermal-class temperatures, raw hwmon channels, DMI descriptions, PCI identification, and optional AMDGPU metrics are the current scope. There is no universal GPU telemetry backend, and no hardware-control operation.</p>
+<h2 id="validation-matrix">Validation matrix<a class="heading-anchor" href="#validation-matrix" aria-label="链接到 Validation matrix">#</a></h2>
+<p><a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/.github/workflows/ci.yml">ci.yml</a> defines Ubuntu 22.04/24.04, Windows/macOS core jobs, a native Ubuntu aarch64 job, Debian/glibc and Alpine/musl containers, MSRV, bare-metal/WASM checks, formatting, Clippy, rustdoc and benchmark compilation. Fixtures cover parsing, stale values, lifecycle and identity changes without requiring a particular physical disk, GPU, or sensor.</p>
+<p><a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/.github/workflows/soak.yml">soak.yml</a> runs an extended process-resource test, with a manually selectable duration and a scheduled run. <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/tests/process_resources.rs">tests/process_resources.rs</a> checks allocations and descriptor growth for a continuously reused collector. This test's scope is the process collector; hardware-driver behavior and every filesystem implementation remain dependent on the deployment environment.</p>
+<h2 id="next-native-backends">Next native backends<a class="heading-anchor" href="#next-native-backends" aria-label="链接到 Next native backends">#</a></h2>
+<p>Windows, macOS, FreeBSD, Android and iOS require their own native interfaces and semantics. They will be added behind platform-specific modules rather than treating Linux procfs fields as an implementation for other kernels. Their implementation and native testing are pending.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/docs/platforms.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zsys">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zsys/architecture/"><span class="pagination-label">上一页</span><span class="pagination-title">架构与可验证的设计</span></a><a class="pagination-link next" href="../../zsys/progress/"><span class="pagination-label">下一页</span><span class="pagination-title">开发与验收进展</span></a></nav>
+      <footer class="page-footer">
+        <span>zsys <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#implemented-capability">Implemented capability</a></li><li class="toc-level-2"><a href="#shared-dynamic-library-interface">Shared dynamic-library interface</a></li><li class="toc-level-2"><a href="#feature-and-compiler-requirements">Feature and compiler requirements</a></li><li class="toc-level-2"><a href="#linux-native-boundary">Linux native boundary</a></li><li class="toc-level-2"><a href="#validation-matrix">Validation matrix</a></li><li class="toc-level-2"><a href="#next-native-backends">Next native backends</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

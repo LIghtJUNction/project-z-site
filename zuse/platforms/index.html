@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zuse · Platform support and verification · Project Z">
+  <meta property="og:description" content="用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。">
+  <meta property="og:type" content="website">
+  <title>zuse · Platform support and verification · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zuse/platforms/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zuse">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zuse" aria-label="zuse 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zuse</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zuse</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/" aria-current="page">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zuse 文档"><div class="nav-group"><p class="nav-label">zuse</p><ul><li><a class="nav-link" href="../../zuse/">概览</a></li><li><a class="nav-link" href="../../zuse/readme-en/">zuse</a></li><li><a class="nav-link" href="../../zuse/language/">Flat execution language</a></li><li><a class="nav-link" href="../../zuse/session-protocol/">Zuse 会话协议 v1</a></li><li><a class="nav-link" href="../../zuse/sessions/">持久会话：观察、执行与取消</a></li><li><a class="nav-link" href="../../zuse/platforms/" aria-current="page">Platform support and verification</a></li><li><a class="nav-link" href="../../zuse/chatgpt-desktop/">ChatGPT desktop module</a></li><li><a class="nav-link" href="../../zuse/development/">Development and release</a></li><li><a class="nav-link" href="../../zuse/device-io/">Native serial and USB I/O</a></li><li><a class="nav-link" href="../../zuse/drawing/">绘图原语与窗口锚点</a></li><li><a class="nav-link" href="../../zuse/ios/">iOS through WebDriverAgent</a></li><li><a class="nav-link" href="../../zuse/key-holds/">Bounded key holds</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zuse</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/" aria-current="page">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zuse 文档"><div class="nav-group"><p class="nav-label">zuse</p><ul><li><a class="nav-link" href="../../zuse/">概览</a></li><li><a class="nav-link" href="../../zuse/readme-en/">zuse</a></li><li><a class="nav-link" href="../../zuse/language/">Flat execution language</a></li><li><a class="nav-link" href="../../zuse/session-protocol/">Zuse 会话协议 v1</a></li><li><a class="nav-link" href="../../zuse/sessions/">持久会话：观察、执行与取消</a></li><li><a class="nav-link" href="../../zuse/platforms/" aria-current="page">Platform support and verification</a></li><li><a class="nav-link" href="../../zuse/chatgpt-desktop/">ChatGPT desktop module</a></li><li><a class="nav-link" href="../../zuse/development/">Development and release</a></li><li><a class="nav-link" href="../../zuse/device-io/">Native serial and USB I/O</a></li><li><a class="nav-link" href="../../zuse/drawing/">绘图原语与窗口锚点</a></li><li><a class="nav-link" href="../../zuse/ios/">iOS through WebDriverAgent</a></li><li><a class="nav-link" href="../../zuse/key-holds/">Bounded key holds</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zuse/">zuse 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zuse/">zuse</a><span aria-hidden="true">/</span><span>Platform support and verification</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#independent-and-shared-mice">Independent and shared mice</a></li><li class="toc-level-2"><a href="#linux-libraries-and-helpers">Linux libraries and helpers</a></li><li class="toc-level-2"><a href="#wayland-keyboard-conditions">Wayland keyboard conditions</a></li><li class="toc-level-2"><a href="#touchpad-gestures">Touchpad gestures</a></li><li class="toc-level-2"><a href="#submission-and-application-acceptance">Submission and application acceptance</a></li><li class="toc-level-2"><a href="#windows-and-macos-requirements">Windows and macOS requirements</a></li><li class="toc-level-2"><a href="#browser-scope">Browser scope</a></li><li class="toc-level-2"><a href="#android-scope">Android scope</a></li><li class="toc-level-2"><a href="#peripheral-interfaces">Peripheral interfaces</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="platform-support-and-verification">Platform support and verification</h1>
+<p>Capabilities are discovered at runtime. Missing permissions, system libraries, display protocols, or device commands produce explicit errors. Compilation and actual application interaction are recorded separately.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Backend</th>
+<th>Implemented interface</th>
+<th>Verified scope through 0.2.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux X11</td>
+<td>Xlib/XTest pointer and keyboard, window metadata, targeted synthetic events, PNG</td>
+<td>Private Xvfb fixture; delivered text and events, image dimensions/pixels/CRCs</td>
+</tr>
+<tr>
+<td>Linux Hyprland</td>
+<td>Native compositor IPC, Wayland virtual keyboard, actual XKB keymap lookup</td>
+<td>Hyprland 0.57.2 private graphical sessions, including Fcitx; foreground Unicode, background ASCII and state rejection</td>
+</tr>
+<tr>
+<td>Shared Linux desktop</td>
+<td>Window discovery and pointer operations</td>
+<td>Actual development session; keyboard stopped before effects because Num Lock was enabled; focus/pointer restored</td>
+</tr>
+<tr>
+<td>Wayland capture</td>
+<td>grim using the compositor's capture protocol</td>
+<td>Fixture PNG color and dimensions verified; window capture is its composited visible region</td>
+</tr>
+<tr>
+<td>Linux AT-SPI</td>
+<td>Tree, text, bounds, focus, actions, editable text and password redaction</td>
+<td>Private D-Bus/Xvfb GTK fixture</td>
+</tr>
+<tr>
+<td>Chromium CDP</td>
+<td>Isolated browser, navigation, text/AX, input, viewport and PNG</td>
+<td>Isolated sandboxed Chromium fixture rerun after the 0.2.0 mobile fix</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Win32 input/window/GDI and system UI Automation</td>
+<td>Full x86_64-pc-windows-gnu type check; no live Windows desktop in this acceptance</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>Quartz/ApplicationServices and System Events accessibility</td>
+<td>Clippy/all-targets on aarch64 and x86_64 apple-darwin; permission preflight implemented; no live Mac</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>Native ADB/shell-v2, display-aware input/capture/launch</td>
+<td>Physical Android 16/API 36, foreground and fixture-owned secondary display</td>
+</tr>
+<tr>
+<td>Android Chrome</td>
+<td>Native ADB tunnel and owned CDP target</td>
+<td>Physical Chrome 157: 13 checks, restored foreground during background page operations</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>Native HTTP to explicit local WDA</td>
+<td>20 protocol/MCP tests; no iPhone available</td>
+</tr>
+<tr>
+<td>Serial</td>
+<td>Linux/macOS termios, Windows COM</td>
+<td>5 real Linux PTY test groups; no physical serial peripheral</td>
+</tr>
+<tr>
+<td>USB</td>
+<td>System libusb through zsys</td>
+<td>11 isolated C ABI groups and real descriptor enumeration; no hardware transfer tests</td>
+</tr>
+<tr>
+<td>Wine</td>
+<td>Host X11/XWayland control and Wine-marked discovery</td>
+<td>Shared X11 implementation verified; no separate Wine application acceptance</td>
+</tr>
+<tr>
+<td>IDE / Omarchy / harness</td>
+<td>Installed command interfaces and bounded managed processes</td>
+<td>Process tests and capability discovery; tests do not launch model sessions</td>
+</tr>
+</tbody>
+</table></div>
+<p>Detailed results: <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/validation-0.2.0.md">0.2.0 validation</a>, <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/validation-0.1.1.md">0.1.1 validation</a>, <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/evidence/android-physical-2026-11-20.json">Android evidence</a>, <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/evidence/linux-native-2026-11-20.json">Linux evidence</a>.</p>
+<h2 id="independent-and-shared-mice">Independent and shared mice<a class="heading-anchor" href="#independent-and-shared-mice" aria-label="链接到 Independent and shared mice">#</a></h2>
+<p>The current repository adds <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/scoped-mice.md">scoped mouse programs</a>. A native independent mouse needs a separate OS pointer identity as well as its own cursor image. Linux X11 supplies that identity through XInput2 master pointers; zuse creates and removes one master pair per owned mouse, keeps the user's pointer separate, and assigns a device-specific ARGB cursor.</p>
+<p>The <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/validation-scoped-mice.md">unreleased candidate validation</a> records the current Xvfb, GTK/AT-SPI, private Hyprland Num Lock, CLI cancellation, and cross-target results.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Requested mode</th>
+<th>Linux native X11</th>
+<th>Wayland, Windows, macOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Independent mouse, including default <code>mouse()</code> and flat pointer actions</td>
+<td>Requires XInput2/MPX, XTEST, and ARGB cursors</td>
+<td>Unsupported; returns an error</td>
+</tr>
+<tr>
+<td>Shared user pointer with generated or custom appearance</td>
+<td>Uses the user's master pointer and temporary per-device cursor overrides</td>
+<td>Unsupported; returns an error</td>
+</tr>
+<tr>
+<td>Explicit user pointer with <code>appearance=&quot;system&quot;</code></td>
+<td>Uses the existing system-pointer backend</td>
+<td>Uses the existing native backend, subject to its permissions and requirements</td>
+</tr>
+</tbody>
+</table></div>
+<p>Use <code>user_mouse(appearance=&quot;system&quot;)</code> in <code>zuse script</code>, or <code>mouse.use(kind=&quot;user&quot;, appearance=&quot;system&quot;)</code> in a flat CLI, shell, or MCP batch. The independent mode does not fall back to the user pointer. A fresh flat runtime has no selected mouse for <code>mouse.position()</code> until an explicit selection or mouse action creates a handle.</p>
+<p>Parallel independent trajectories have separate native coordinates and button state. Applications can still share focus and content, and some legacy GUI clients accept only one active drag or pointer grab. Those application limits are separate from pointer ownership. XWayland availability does not imply independent native Wayland pointers; <code>ZUSE_BACKEND=x11</code> is an explicit request to use an accessible X11 server with the required extensions.</p>
+<p>Scope cleanup releases held synthetic buttons and removes owned devices. Normal errors and cooperative cancellation follow this path. SIGKILL, abort, crashes, or a lost display connection can prevent cleanup; XInput master devices may then remain on the server. A shared styled mouse removes its own cursor overrides on close. An older per-device override installed by another XI-aware tool cannot be recovered because XInput has no query for that previous override.</p>
+<h2 id="linux-libraries-and-helpers">Linux libraries and helpers<a class="heading-anchor" href="#linux-libraries-and-helpers" aria-label="链接到 Linux libraries and helpers">#</a></h2>
+<p>Native dynamic-library loading uses the exact Project Z dependency zsys 0.1.1. System-pointer X11 operations need libX11 and libXtst; independent or styled mice also need libXi and libXcursor. Wayland keyboard support needs libwayland-client and libxkbcommon. AT-SPI needs libatspi and a usable accessibility D-Bus session. These libraries are loaded at runtime, with no link-time X11 dependency. Static-musl native dynamic loading is unsupported by this zsys version.</p>
+<p>Hyprland metadata, focus and targeted input use its native socket. Screen capture uses grim. Pointer buttons/wheel require an authorized ydotool daemon; pointer positioning can use Hyprland IPC. Text input no longer depends on wtype.</p>
+<p>OCR uses Tesseract, notifications use notify-send, and the graphical password prompt uses Zenity. Omarchy operations call installed Omarchy/Hyprland interfaces; zuse does not install a theme or change system settings during capability discovery.</p>
+<h2 id="wayland-keyboard-conditions">Wayland keyboard conditions<a class="heading-anchor" href="#wayland-keyboard-conditions" aria-label="链接到 Wayland keyboard conditions">#</a></h2>
+<p>Keyboard input requires Hyprland 0.55 or newer with the adapter's state queries, no held keys, Caps Lock off, and layout group 0. Text input and background shortcuts also require Num Lock off. Known unsupported or unobservable required state returns <code>error_code=unsupported_state</code> before keyboard effects. Sticky modifiers and custom latched/locked state are not supported: the compositor's public interface does not expose a complete modifier snapshot to an unfocused observer.</p>
+<p>Foreground <code>keyboard.key</code> can preserve Num Lock for an ordinary mapped chord such as <code>Ctrl+T</code>. It resolves the key and modifier masks against the captured XKB map, uses an owned virtual keyboard with that same map, then explicitly restores the Num Lock mask before destroying the device. This path requires a verifiable Num Lock action, byte-identical keymap parse/serialization, and the current main keyboard to be the last device in Hyprland's keyboard list so destruction selects that same keyboard again. A named target must already be focused; the adapter does not change focus or toggle Num Lock to satisfy these conditions. Lock-changing keys and configurations outside those checks remain unsupported.</p>
+<p>Foreground typing installs a bounded Unicode keymap and restores the captured original keymap before disconnecting. Background typing leaves the live keymap intact. It resolves the whole string against the real plain/Shift levels before sending targeted shortcuts. A missing character returns error_code=unsupported_character before any character in that call is sent. This does not provide arbitrary background Unicode on every layout; a US map, for example, cannot represent Chinese or emoji through these levels.</p>
+<p>The Fcitx regression demonstrates the tested session, not every input method, preedit state, compositor or application. zuse does not toggle the operator's locks or reclaim a changed focus to make an operation pass.</p>
+<h2 id="touchpad-gestures">Touchpad gestures<a class="heading-anchor" href="#touchpad-gestures" aria-label="链接到 Touchpad gestures">#</a></h2>
+<p><code>touchpad.capabilities()</code> reports native gesture support separately from pure planning. Current backends support bounded swipe, pinch, rotation, and cancellation plans only; every native gesture capability is false. An executable program containing a native gesture fails capability preflight before any earlier pointer action is submitted. There is no pointer-motion or wheel-event substitute. See <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/scoped-mice.md#touchpad-gesture-planning">touchpad planning</a> for the script and Rust interfaces.</p>
+<h2 id="submission-and-application-acceptance">Submission and application acceptance<a class="heading-anchor" href="#submission-and-application-acceptance" aria-label="链接到 Submission and application acceptance">#</a></h2>
+<p>A successful native key request means the event was submitted to the OS/compositor. It does not prove that a widget consumed it. In particular, X11 applications can ignore XSendEvent events even when the X server accepts them.</p>
+<p>Keyboard results include delivery=submitted and application_confirmation_required=true. The compatibility field typed_bytes counts submitted UTF-8 bytes, as does submitted_bytes; neither measures the widget's final text. Read accessibility state or another application observation to verify the intended result. Applications that reject background events require an explicit foreground or accessibility operation.</p>
+<h2 id="windows-and-macos-requirements">Windows and macOS requirements<a class="heading-anchor" href="#windows-and-macos-requirements" aria-label="链接到 Windows and macOS requirements">#</a></h2>
+<p>Windows uses Win32 for native input/window/capture and the system PowerShell/.NET UI Automation interface for accessibility. OS-protected desktops and application permission boundaries remain in effect.</p>
+<p>macOS exposes non-prompting Accessibility and Screen Recording preflight with granted/denied/unknown states. See <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/macos.md">macOS setup</a>. Actual input/capture requires the corresponding permission. Native input uses Quartz; tree operations use System Events/JXA. The local password dialog uses the OS scripting interface. These desktop paths need live acceptance on their respective systems; cross-target compilation does not establish permission behavior or widget delivery.</p>
+<h2 id="browser-scope">Browser scope<a class="heading-anchor" href="#browser-scope" aria-label="链接到 Browser scope">#</a></h2>
+<p>The browser adapter supports Chromium-family DevTools Protocol. A launched browser owns an isolated temporary profile. Connecting uses an explicit loopback endpoint and creates a fresh page. Existing pages require explicit selection; closing an external connection preserves pages it did not create. Android Chrome uses an owned target in its existing profile; see <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/mobile-browser.md">mobile browser scope</a>. Firefox remote automation and Safari DOM/CDP are outside 0.2.0. <a href="../../zuse/ios/">iOS</a> controls native application UI through WDA and opens URLs through the default handler.</p>
+<h2 id="android-scope">Android scope<a class="heading-anchor" href="#android-scope" aria-label="链接到 Android scope">#</a></h2>
+<p>A previously authorized ADB server must listen on loopback. zuse sends smart-socket and shell-v2 frames directly from Rust. It does not spawn adb for product operations. An explicit serial is recommended. Without a serial, the complete inventory must contain exactly one ready device, including consideration of offline or unauthorized entries.</p>
+<p>Foreground/preempt mode selects display 0. Background mode selects an explicitly supplied existing nonzero logical display, and never falls back to the primary display. The test APK can create its own temporary secondary display; that fixture ability is not a product virtual-display provisioning feature.</p>
+<p>Capture maps logical displays to SurfaceFlinger IDs. Physical IDs and virtual display IDs are resolved separately; absent, nonunique or ambiguous virtual names are rejected. Focus is correlated with per-display window tokens; unknown focus is reported as null rather than invented as false.</p>
+<p>Text input accepts printable ASCII, excluding the ADB-reserved literal sequence %s, up to 4096 bytes. Unsupported text, keys and components fail whole-program preflight. Android I/O uses a shared operation deadline, including handshake and partial reads; this is not a promise that arbitrary filesystem work or a multi-step program finishes within 15 seconds.</p>
+<p>The tested Android 16 device exposes window metadata, but its uiautomator command does not offer XML dumping. The result reports this observation source explicitly. Other devices and permission configurations can expose different accessibility capabilities.</p>
+<h2 id="peripheral-interfaces">Peripheral interfaces<a class="heading-anchor" href="#peripheral-interfaces" aria-label="链接到 Peripheral interfaces">#</a></h2>
+<p>See <a href="../../zuse/device-io/">device I/O</a> for serial configuration/restoration, exact USB selection, transfer bounds, partial completion and cleanup. Device operations use the same runtime and MCP command schema.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/platforms.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zuse/sessions/"><span class="pagination-label">上一页</span><span class="pagination-title">持久会话：观察、执行与取消</span></a><a class="pagination-link next" href="../../zuse/chatgpt-desktop/"><span class="pagination-label">下一页</span><span class="pagination-title">ChatGPT desktop module</span></a></nav>
+      <footer class="page-footer">
+        <span>zuse <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#independent-and-shared-mice">Independent and shared mice</a></li><li class="toc-level-2"><a href="#linux-libraries-and-helpers">Linux libraries and helpers</a></li><li class="toc-level-2"><a href="#wayland-keyboard-conditions">Wayland keyboard conditions</a></li><li class="toc-level-2"><a href="#touchpad-gestures">Touchpad gestures</a></li><li class="toc-level-2"><a href="#submission-and-application-acceptance">Submission and application acceptance</a></li><li class="toc-level-2"><a href="#windows-and-macos-requirements">Windows and macOS requirements</a></li><li class="toc-level-2"><a href="#browser-scope">Browser scope</a></li><li class="toc-level-2"><a href="#android-scope">Android scope</a></li><li class="toc-level-2"><a href="#peripheral-interfaces">Peripheral interfaces</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

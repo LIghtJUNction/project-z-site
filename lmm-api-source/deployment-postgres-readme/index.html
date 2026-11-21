@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="模型网关与业务扩展平台，管理身份、权限、账本和调用路由。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="lmm-api-source · Explicit offline core roles · Project Z">
+  <meta property="og:description" content="模型网关与业务扩展平台，管理身份、权限、账本和调用路由。">
+  <meta property="og:type" content="website">
+  <title>lmm-api-source · Explicit offline core roles · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/lmm-api-source/deployment-postgres-readme/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="lmm-api-source">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/TokenNotIncluded/lmm-api-source" aria-label="lmm-api-source 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">lmm-api-source</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>lmm-api-source</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/" aria-current="page">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="lmm-api-source 文档"><div class="nav-group"><p class="nav-label">lmm-api-source</p><ul><li><a class="nav-link" href="../../lmm-api-source/">概览</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-docker-readme/">全新微内核 Docker 开发栈（WIP）</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-postgres-readme/" aria-current="page">Explicit offline core roles</a></li><li><a class="nav-link" href="../../lmm-api-source/agent-workflows/">Agent 工作指南</a></li><li><a class="nav-link" href="../../lmm-api-source/archive/">历史资料索引</a></li><li><a class="nav-link" href="../../lmm-api-source/core-migration/">Core 与 Extensions 架构</a></li><li><a class="nav-link" href="../../lmm-api-source/development/">开发与测试</a></li><li><a class="nav-link" href="../../lmm-api-source/extore/">Extore 商品集成</a></li><li><a class="nav-link" href="../../lmm-api-source/filesystem-layout/">配置与文件路径</a></li><li><a class="nav-link" href="../../lmm-api-source/legal-readme/">可配置的协议模板</a></li><li><a class="nav-link" href="../../lmm-api-source/progress/">新架构进度</a></li><li><a class="nav-link" href="../../lmm-api-source/quality/">本地质量检查与独立验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>lmm-api-source</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/" aria-current="page">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="lmm-api-source 文档"><div class="nav-group"><p class="nav-label">lmm-api-source</p><ul><li><a class="nav-link" href="../../lmm-api-source/">概览</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-docker-readme/">全新微内核 Docker 开发栈（WIP）</a></li><li><a class="nav-link" href="../../lmm-api-source/deployment-postgres-readme/" aria-current="page">Explicit offline core roles</a></li><li><a class="nav-link" href="../../lmm-api-source/agent-workflows/">Agent 工作指南</a></li><li><a class="nav-link" href="../../lmm-api-source/archive/">历史资料索引</a></li><li><a class="nav-link" href="../../lmm-api-source/core-migration/">Core 与 Extensions 架构</a></li><li><a class="nav-link" href="../../lmm-api-source/development/">开发与测试</a></li><li><a class="nav-link" href="../../lmm-api-source/extore/">Extore 商品集成</a></li><li><a class="nav-link" href="../../lmm-api-source/filesystem-layout/">配置与文件路径</a></li><li><a class="nav-link" href="../../lmm-api-source/legal-readme/">可配置的协议模板</a></li><li><a class="nav-link" href="../../lmm-api-source/progress/">新架构进度</a></li><li><a class="nav-link" href="../../lmm-api-source/quality/">本地质量检查与独立验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../lmm-api-source/">lmm-api-source 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../lmm-api-source/">lmm-api-source</a><span aria-hidden="true">/</span><span>Explicit offline core roles</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="explicit-offline-core-roles">Explicit offline core roles</h1>
+<p>These scripts target a new isolated PostgreSQL 18 database. They do not initialize
+schema, upgrade data, change production or run during startup/package installation.
+Keep the administrator, NOLOGIN object owner and restricted runtime separate.
+Go extensions never receive a core credential.</p>
+<p>Run <code>create-core-roles.sql</code> explicitly as database administrator before
+explicit <code>lmm-core --config /absolute/private-init.toml init-db</code>. It creates NOLOGIN <code>lmm_core_owner</code> and unprivileged LOGIN
+<code>lmm_core_runtime</code> without a password. Existing same-name roles reject the
+transaction; this is not a repair/reset tool. PUBLIC loses database CREATE/TEMP
+and public-schema CREATE; only the offline owner receives installation CREATE.</p>
+<p>Set the runtime password in an interactive private administrative psql session:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>\password lmm_core_runtime
+</code></pre></div>
+<p>For Docker, use the complete <code>dc</code> function from the <a href="../../lmm-api-source/deployment-docker-readme/">Docker guide</a>:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>dc exec core-db psql -X -U lmm_core_admin -d lmm_core
+</code></pre></div>
+<p>Use the same secret in the runtime URL file. Never put passwords in <code>psql -c</code>,
+<code>-v</code>, Docker arguments, shell history or evidence. The isolated fixture uses
+synthetic passwords and sends administrative SQL over private stdin.</p>
+<p>The install URL authenticates the administrator and includes connection option
+<code>options=-c%20role%3Dlmm_core_owner</code>. Session user remains administrator while
+current user and new application objects belong to the NOLOGIN owner. Runtime
+gets no owner membership. Verify actual object ownership after installation;
+do not use whole-cluster <code>REASSIGN OWNED</code>. Mount this URL only into <code>core-init</code>.</p>
+<p>Select an absolute version 1 init TOML whose <code>[database] url_file</code> references only
+the private owner URL file. Do not select the runtime TOML or use legacy environment
+configuration. The Docker <code>core-init</code> service already selects its separate
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/deployment/docker/config/core-init.toml">init template</a> and owner secret.</p>
+<p>Run that explicit <code>--config</code> init command once, then execute <code>grant-core-runtime.sql</code> as
+administrator. Its non-secret, quoted psql identifier variable <code>runtime_role</code>
+defaults to <code>lmm_core_runtime</code>. Feature switches default to false:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>psql variable</th>
+<th>Explicit capability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No feature flag</td>
+<td>Identity, read-only ledger, controlled ledger functions</td>
+</tr>
+<tr>
+<td><code>enable_events=true</code></td>
+<td>RPC events and durable inbox/outbox</td>
+</tr>
+<tr>
+<td><code>enable_console=true</code></td>
+<td>Read-only config/setup and append-only announcement reads</td>
+</tr>
+<tr>
+<td><code>enable_models=true</code></td>
+<td>Charging and controlled model checkpoint/recovery functions</td>
+</tr>
+<tr>
+<td><code>enable_web_identity=true</code></td>
+<td>Budget management and read-only consumption for legacy Web identity</td>
+</tr>
+<tr>
+<td><code>enable_federated_auth=true</code></td>
+<td>Federated provider configuration, bindings and one-time authentication flows with column-limited writes</td>
+</tr>
+<tr>
+<td><code>enable_commerce=true</code></td>
+<td>Commerce, charging, events and original-order partial refunds through the closed money function</td>
+</tr>
+<tr>
+<td><code>enable_community=true</code></td>
+<td>Read-only community aggregates (rankings, profile cards, onboarding facts)</td>
+</tr>
+<tr>
+<td><code>enable_payments=true</code></td>
+<td>Payment intents/refund holds and append-only receipts/proofs</td>
+</tr>
+<tr>
+<td><code>enable_assistant=true</code></td>
+<td>Personal assistant and charging, including read dependencies of agent charge guards</td>
+</tr>
+<tr>
+<td><code>enable_assistant_tools=true</code></td>
+<td>Business-facts reads and browser confirmation state</td>
+</tr>
+<tr>
+<td><code>enable_assistant_agent=true</code></td>
+<td>Assistant and charging plus column-limited durable agent journals</td>
+</tr>
+</tbody>
+</table></div>
+<p>These flags grant rights only: they do not enable HTTP modules or supply provider
+credentials. There are no wildcard grants or default ACLs for future objects.
+Legacy Web identity alone cannot write model requests, holds or consumption.
+Import records remain read-only. Runtime receives no opening-balance import
+function, owner switching, DDL, TRIGGER, direct ledger or model checkpoint writes.
+The grant script is additive by default. When a capability is disabled, an earlier
+run can still leave its runtime ACLs in place. Revoke those optional ACLs in a
+reviewed offline session, then re-apply the final flag set in one maintenance
+window:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code># Run as the private database administrator, while the runtime is stopped or
+# otherwise fenced from requests. The explicit confirmation is required.
+dc exec -T core-db psql -X -U lmm_core_admin -d lmm_core \
+  -v ON_ERROR_STOP=1 -v runtime_role=lmm_core_runtime \
+  -v confirm_revoke=true &lt; deployment/postgres/revoke-core-runtime.sql
+
+# Include every capability that should remain enabled; this is only an example.
+dc exec -T core-db psql -X -U lmm_core_admin -d lmm_core \
+  -v ON_ERROR_STOP=1 -v runtime_role=lmm_core_runtime \
+  -v enable_models=true &lt; deployment/postgres/grant-core-runtime.sql
+</code></pre></div>
+<p><code>revoke-core-runtime.sql</code> resets only optional capability schemas and the
+optional Web routing, assistant and CREDIT-v2 tables. It preserves the baseline
+identity, ledger, history, abuse, gift qualification and billing authority. It
+never runs during startup and does not change ownership, passwords or default
+ACLs. Re-run <code>grant-tool-market-credit.sql</code> with the same explicit
+<code>-v runtime_role=lmm_core_runtime</code> after the reset when that separate
+installer-only complement is required.</p>
+<p>Check-in rewards on component 75 additionally use
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/deployment/postgres/grant-checkin-challenges-runtime.sql">grant-checkin-challenges-runtime.sql</a>, with
+an explicit <code>-v runtime_role=lmm_core_runtime</code>, after installing or upgrading the
+schema and applying native Web identity/account-security grants. The separate
+script grants only challenge reads/inserts/expired deletes, the three state
+columns, and append-only reward receipts. It does not enable the removed legacy
+Core check-in HTTP route. Its ACLs are not reset by the historical
+<code>revoke-core-runtime.sql</code>; revoke them explicitly when disabling this capability.</p>
+<p>Startup independently checks exact authority and enabled capabilities before
+binding a listener. Roles/GRANTs are excluded from the catalog fingerprint and do
+not change schema definitions. Actual container acceptance remains separate from
+static SQL/Compose checks; run the new fixture on final frozen sources before
+claiming the Docker flow works.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/deployment/postgres/README.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/deployment-docker-readme/"><span class="pagination-label">上一页</span><span class="pagination-title">全新微内核 Docker 开发栈（WIP）</span></a><a class="pagination-link next" href="../../lmm-api-source/agent-workflows/"><span class="pagination-label">下一页</span><span class="pagination-title">Agent 工作指南</span></a></nav>
+      <footer class="page-footer">
+        <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

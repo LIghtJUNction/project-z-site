@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="整合《缺氧》模组开发、构建发布与 MCP 游戏观察和操作。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="OniMods · ONI MCP 工具参考 · Project Z">
+  <meta property="og:description" content="整合《缺氧》模组开发、构建发布与 MCP 游戏观察和操作。">
+  <meta property="og:type" content="website">
+  <title>OniMods · ONI MCP 工具参考 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/OniMods/mcp-tools-reference/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="OniMods">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/OniMods" aria-label="OniMods 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">OniMods</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>OniMods</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/" aria-current="page">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="OniMods 文档"><div class="nav-group"><p class="nav-label">OniMods</p><ul><li><a class="nav-link" href="../../OniMods/">概览</a></li><li><a class="nav-link" href="../../OniMods/readme-en/">See it working</a></li><li><a class="nav-link" href="../../OniMods/oni-mcp-cli/">oni-mcp CLI</a></li><li><a class="nav-link" href="../../OniMods/mcp-tools-reference/" aria-current="page">ONI MCP 工具参考</a></li><li><a class="nav-link" href="../../OniMods/architecture-and-principles/">OniMods 架构与核心实现原理</a></li><li><a class="nav-link" href="../../OniMods/oniharness/">OniHarness: independent headless testing project</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-en/">A Letter to Everyone Who Finds This Project Interesting</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-zh/">写给所有对这个项目感兴趣的人</a></li><li><a class="nav-link" href="../../OniMods/licensing/">Licensing and provenance</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-docs-progress/">OniSim engineering log</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-gpu-readme/">OniSim Vulkan compute operators</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-readme/">CycleTrim</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>OniMods</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/" aria-current="page">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="OniMods 文档"><div class="nav-group"><p class="nav-label">OniMods</p><ul><li><a class="nav-link" href="../../OniMods/">概览</a></li><li><a class="nav-link" href="../../OniMods/readme-en/">See it working</a></li><li><a class="nav-link" href="../../OniMods/oni-mcp-cli/">oni-mcp CLI</a></li><li><a class="nav-link" href="../../OniMods/mcp-tools-reference/" aria-current="page">ONI MCP 工具参考</a></li><li><a class="nav-link" href="../../OniMods/architecture-and-principles/">OniMods 架构与核心实现原理</a></li><li><a class="nav-link" href="../../OniMods/oniharness/">OniHarness: independent headless testing project</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-en/">A Letter to Everyone Who Finds This Project Interesting</a></li><li><a class="nav-link" href="../../OniMods/open-source-letter-zh/">写给所有对这个项目感兴趣的人</a></li><li><a class="nav-link" href="../../OniMods/licensing/">Licensing and provenance</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-docs-progress/">OniSim engineering log</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-onisim-gpu-readme/">OniSim Vulkan compute operators</a></li><li><a class="nav-link" href="../../OniMods/mods-cycletrim-readme/">CycleTrim</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../OniMods/">OniMods 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../OniMods/">OniMods</a><span aria-hidden="true">/</span><span>ONI MCP 工具参考</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#快速开始">快速开始</a></li><li class="toc-level-2"><a href="#定位与执行原则">定位与执行原则</a></li><li class="toc-level-2"><a href="#核心工具">核心工具</a></li><li class="toc-level-2"><a href="#原生新开局">原生新开局</a></li><li class="toc-level-2"><a href="#建造规划">建造规划</a></li><li class="toc-level-3"><a href="#材料返回">材料返回</a></li><li class="toc-level-3"><a href="#线路和管路">线路和管路</a></li><li class="toc-level-2"><a href="#文件夹式蓝图管理系统-folder-based-blueprints">文件夹式蓝图管理系统 (Folder-based Blueprints)</a></li><li class="toc-level-2"><a href="#存档隔离的文件夹式游戏笔记工具-save-isolated-notes--agentsmd">存档隔离的文件夹式游戏笔记工具 (Save-Isolated Notes &amp; AGENTS.md)</a></li><li class="toc-level-2"><a href="#动态资源体系与异步长耗时通知-dynamic-resources--async-notifications">动态资源体系与异步长耗时通知 (Dynamic Resources &amp; Async Notifications)</a></li><li class="toc-level-3"><a href="#核心殖民地动态资源">核心殖民地动态资源</a></li><li class="toc-level-3"><a href="#异步执行与主动通知-method-2-async--dynamic-resources-notification">异步执行与主动通知 (Method 2: Async + Dynamic Resources Notification)</a></li><li class="toc-level-2"><a href="#订单与剪断">订单与剪断</a></li><li class="toc-level-2"><a href="#相机与视图">相机与视图</a></li><li class="toc-level-2"><a href="#尚未就绪的读数">尚未就绪的读数</a></li><li class="toc-level-2"><a href="#常用资源">常用资源</a></li><li class="toc-level-2"><a href="#代码目录">代码目录</a></li><li class="toc-level-2"><a href="#兼容性说明">兼容性说明</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="oni-mcp-工具参考">ONI MCP 工具参考</h1>
+<p>本文档描述 <code>OniMcp</code> 当前推荐的工具面。运行时清单永远以 <code>server_control domain=catalog action=manifest</code> 和 <code>oni://tools/manifest</code> 为准。</p>
+<h2 id="快速开始">快速开始<a class="heading-anchor" href="#快速开始" aria-label="链接到 快速开始">#</a></h2>
+<ul>
+<li>MCP 地址: <code>http://localhost:8788/mcp/</code></li>
+<li>支持协议: <code>2025-11-25</code>，使用 <code>initialize</code> 和服务端签发的 <code>Mcp-Session-Id</code></li>
+<li>Public tools: 7 entrypoints: <code>benchmark</code>, <code>world_editor</code>, <code>game_control</code>, <code>navigation_control</code>, <code>building_control</code>, <code>orders_control</code>, <code>server_control</code></li>
+<li>旧聚合入口: 仅作为虚拟文件工作流的内部操作，不再注册为 MCP 工具</li>
+<li><code>coordinate_control</code> 不属于当前公开运行时；普通聚合工具拒绝 raw coordinates</li>
+<li>Tool descriptions: default-public tool descriptions and parameter descriptions are in English</li>
+</ul>
+<p>客户端先以 <code>2025-11-25</code> 调用 <code>initialize</code>，读取响应中的 <code>Mcp-Session-Id</code>。后续会话请求携带该 ID 和 <code>Mcp-Protocol-Version: 2025-11-25</code>，再调用 <code>tools/list</code> 获取当前工具清单。</p>
+<p><code>2026-07-28</code> 无会话路径、<code>server/discover</code> 以及 <code>2025-06-18</code> 已退出支持范围。历史资料见 <a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/docs/mcp-protocol-retirement.md">协议回归与历史来源</a>。</p>
+<h2 id="定位与执行原则">定位与执行原则<a class="heading-anchor" href="#定位与执行原则" aria-label="链接到 定位与执行原则">#</a></h2>
+<p>Authoritative model:</p>
+<ul>
+<li>Saves are directories. <code>latest/</code> is the fixed alias for the current/latest save.</li>
+<li><code>cd latest</code> enters a save; <code>cd</code> or <code>cd ~</code> exits back to <code>/</code>, representing the main menu/root.</li>
+<li>Save contents are structured world files such as <code>map/terrain.oni</code>, <code>buildings/plans.oni</code>, <code>infrastructure/power.oni</code>, and <code>views/power.png</code>.</li>
+<li>There are no action patch files. World changes use <code>world_editor command=edit</code>; prefer one SEARCH/REPLACE block. Multiple blocks require outer <code>allowPartial=true</code> and cannot be transactionally rolled back.</li>
+<li>Reading the same file again is the observation step after an edit.</li>
+</ul>
+<p>Example edit:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>`&lt;&lt;&lt;&lt;&lt;&lt;&lt; SEARCH`
+# observed or empty planning text
+`=======`
+用铜矿连接电池到制氧机
+`&gt;&gt;&gt;&gt;&gt;&gt;&gt; REPLACE`
+</code></pre></div>
+<p><code>world_editor</code> is the default world interaction tool. It treats the loaded save as
+a virtual folder and exposes map views as files:</p>
+<ul>
+<li><code>world_editor command=ls path=/</code></li>
+<li><code>world_editor command=read path=/world/map/text.txt</code></li>
+<li><code>world_editor command=read path=/world/views/power.png</code></li>
+<li><code>world_editor command=search domain=buildings query=&quot;wire&quot;</code></li>
+<li><code>world_editor command=plan plan=&quot;用铜矿连接电池到制氧机&quot;</code></li>
+<li><code>world_editor command=connect plan=&quot;connect battery to oxygen diffuser&quot;</code></li>
+</ul>
+<p>Search, planning, actions, building, orders, navigation, game actions, dupe
+actions, and coordinate fallback are routed through <code>world_editor</code>. The default
+public surface also keeps <code>benchmark</code>, <code>game_control</code>, <code>navigation_control</code>,
+<code>building_control</code>, <code>orders_control</code>, and <code>server_control</code> available for direct
+focused calls. Other former aggregate entrypoints are internal-only virtual-file
+operations and are not callable as MCP tools.</p>
+<p>新工具面按搜索/动作优先设计:</p>
+<ul>
+<li>优先使用 <code>query</code>、<code>target</code>、<code>search</code>、<code>name</code>、<code>id</code>、<code>areaId</code>。</li>
+<li>For dedicated search, use <code>world_editor command=search</code> or the typed <code>/active/ops/search.md</code> workflow. The underlying <code>search_control</code> operation is internal and is not a direct MCP tool.</li>
+<li>Public aggregate tools do not accept raw <code>x/y</code>, <code>x1/y1/x2/y2</code>, <code>dx/dy</code>, <code>points</code>, or <code>anchors</code>. For exact orders, read <code>/active/ops/tools.md</code> and edit <code>/active/ops/orders.md</code>; use only currently public typed files/tools and ignore hidden <code>coordinate_control</code> and <code>/active/ops/coordinate.md</code> compatibility entries.</li>
+<li>面向任务的返回应尽量包含 <code>reachable</code>、<code>executable</code>、失败原因、缺失条件和建议下一步。</li>
+<li>需要定义区域并取得 <code>areaId</code> 时，通过 <code>world_editor</code> 的 typed <code>/active/ops/read.md</code> 工作流完成；底层 <code>read_control</code> 是 internal operation，不应作为 MCP 工具直接调用。</li>
+<li>写入、执行和危险动作应支持 <code>dryRun</code> 或 <code>confirm</code>，并在执行后重新读取状态验证。</li>
+<li>危险或大范围精确操作必须保持 pause -&gt; read/plan -&gt; dry-run -&gt; confirm -&gt; verify。</li>
+</ul>
+<h2 id="核心工具">核心工具<a class="heading-anchor" href="#核心工具" aria-label="链接到 核心工具">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>主要 domain/action</th>
+<th>风险</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>benchmark</code></td>
+<td><code>cases</code>, <code>iterations</code>, <code>tool</code>, <code>includeDetails</code></td>
+<td>read</td>
+<td>固定工具链路基准与诊断，不修改游戏状态</td>
+</tr>
+<tr>
+<td><code>world_editor</code></td>
+<td><code>cd</code>, <code>ls</code>, <code>read</code>, <code>search</code>, <code>edit</code>, <code>plan</code>, <code>connect</code></td>
+<td>read/write/execute</td>
+<td>虚拟文件化世界访问、搜索、规划与受控编辑</td>
+</tr>
+<tr>
+<td><code>server_control</code></td>
+<td><code>catalog</code>, <code>batch</code>, <code>program</code></td>
+<td>read/execute</td>
+<td>健康检查、工具清单、工具搜索、目标指南、批量调用、agent program</td>
+</tr>
+<tr>
+<td><code>game_control</code></td>
+<td><code>launch</code>, <code>speed</code>, <code>state</code>, <code>save</code>, <code>dlc</code>, <code>ui</code></td>
+<td>read/execute/dangerous</td>
+<td>原生新开局、暂停、恢复、调速、存档、DLC、UI 编辑标记</td>
+</tr>
+<tr>
+<td><code>navigation_control</code></td>
+<td><code>camera</code> 或按已知相机 <code>action</code> 推断</td>
+<td>execute</td>
+<td>相机移动、世界切换、覆盖层、聚焦和截图</td>
+</tr>
+<tr>
+<td><code>building_control</code></td>
+<td><code>planning</code>, <code>config</code>, <code>storage</code>, <code>filter</code>, <code>production</code>, <code>side_surface</code>, <code>rocket</code></td>
+<td>read/write/execute</td>
+<td>建造规划、材料检查、蓝图、建筑侧屏配置、储存过滤、生产队列、火箭</td>
+</tr>
+<tr>
+<td><code>orders_control</code></td>
+<td><code>area</code>, <code>priority</code>, <code>designation</code>, <code>conduit</code></td>
+<td>execute/dangerous</td>
+<td>挖掘、清扫、拖地、拆除、优先级、区域订单、线路/管线剪断</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="原生新开局">原生新开局<a class="heading-anchor" href="#原生新开局" aria-label="链接到 原生新开局">#</a></h2>
+<p>使用 <code>game_control domain=launch action=new_game_status</code> 读取当前菜单阶段与可选 <code>choices</code>。在主菜单调用 <code>action=new_game</code>，随后使用 <code>action=new_game_select name=&lt;choice id&gt;</code> 逐步选择；写操作先 <code>dryRun=true</code> 预览，再 <code>confirm=true</code> 执行。每次选择后重新读取状态，等待原生异步切换完成。</p>
+<p>生存模式经典泰拉星路径为 <code>survival</code> → <code>classic</code> → <code>generate_world</code> → 等待 <code>characters</code> → <code>embark</code>。只能选择当前状态广告的选项；生成世界与开始殖民地要求生存模式且沙盒关闭。<code>embark</code> 使用原生生成的三名初始候选，进场后自动暂停；验证 <code>baseAlreadyCreated=true</code>、<code>liveDuplicants=3</code>、<code>isPaused=true</code> 与 <code>pauseAfterStart=ready_paused</code> 后再开始游玩。已有殖民地内不会直接新开局，须先保存并退出到主菜单。</p>
+<p>当前入口提供上述原生流程，不提供候选属性编辑或自定义难度设置。</p>
+<p>打开主菜单或暂停菜单中的加载列表：<code>game_control domain=ui uiDomain=action action=open_load_menu</code>。先 <code>dryRun=true</code>，再 <code>confirm=true</code>；这只打开原生列表，不选择或载入存档，游戏内打开时保持暂停。OniMcp 会忽略迁移时确认缺失的可选 PNG 预览图；存档本体及其他迁移错误仍由游戏原生检查。</p>
+<p><code>active</code> 是原生 <code>KScreen.IsActive()</code> 标志。有模组差异等子弹窗时，列表可见而该标志为 <code>false</code>；应检查当前弹窗，不要因此重复打开菜单。原生加载列表可能整理本地与云端的重叠存档，文件路径可以变化。</p>
+<h2 id="建造规划">建造规划<a class="heading-anchor" href="#建造规划" aria-label="链接到 建造规划">#</a></h2>
+<p><code>building_control domain=planning</code> 是新的建造入口。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>action</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>search_defs</code></td>
+<td>搜索可建建筑定义</td>
+</tr>
+<tr>
+<td><code>materials</code></td>
+<td>查询建筑可用材料和库存</td>
+</tr>
+<tr>
+<td><code>preview</code></td>
+<td>预检一个蓝图锚点，返回可执行性和材料需求</td>
+</tr>
+<tr>
+<td><code>placement_candidates</code></td>
+<td>在区域或目标附近搜索可放置位置</td>
+</tr>
+<tr>
+<td><code>build_area</code></td>
+<td>放置蓝图，线性 utility 支持自动连接</td>
+</tr>
+<tr>
+<td><code>auto_connect</code></td>
+<td>兼容旧流程的显式连接入口，新流程通常不需要单独调用</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="材料返回">材料返回<a class="heading-anchor" href="#材料返回" aria-label="链接到 材料返回">#</a></h3>
+<p>蓝图预检和放置结果应返回材料可行性。旧字段 <code>materialSelection</code> 仍保留兼容，新字段 <code>materials</code> 用于任务级判断:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>{
+  &quot;materials&quot;: {
+    &quot;requirementKnown&quot;: true,
+    &quot;requiredKg&quot;: 200.0,
+    &quot;selectedAvailableKg&quot;: 1240.0,
+    &quot;satisfied&quot;: true,
+    &quot;shortageKg&quot;: 0.0,
+    &quot;availableMaterials&quot;: [
+      { &quot;tag&quot;: &quot;SandStone&quot;, &quot;availableKg&quot;: 1240.0 }
+    ]
+  }
+}
+</code></pre></div>
+<p>调用方应先检查结果及 <code>materials.valid</code> 和 <code>reasonCode</code>；<code>valid=false</code> 必须停止执行。<code>insufficient_material</code> 表示目标世界本地库存不足，<code>invalid_material_requirement</code> 表示配方缺失或无效（包括 NaN/Infinity），两者均返回 <code>materials.satisfied=false</code>。需求无效时 <code>requiredKg=null</code> 不代表可以执行。随后检查 <code>materials.satisfied</code>，为 <code>false</code> 时展示需求、可用材料和已知缺口；为 <code>null</code> 时材料可达性仍未证实。</p>
+<h3 id="线路和管路">线路和管路<a class="heading-anchor" href="#线路和管路" aria-label="链接到 线路和管路">#</a></h3>
+<p><code>build_area</code> 对线性设施支持自动连接:</p>
+<ul>
+<li><code>Wire</code></li>
+<li><code>LogicWire</code></li>
+<li><code>GasConduit</code></li>
+<li><code>LiquidConduit</code></li>
+<li><code>SolidConduit</code></li>
+</ul>
+<p>For semantic building, prefer <code>plan</code>, <code>blueprint</code>, <code>areaId</code>, search results, or semantic calls in <code>/active/ops/build.md</code>. For exact placement, read <code>/active/map/viewport.md</code> (zoom or read <code>symbols/glyphs.md</code> when needed), then edit the map markdown by replacing target empty-cell tokens with <code>建筑名:优先级</code> and optional <code>#材料字</code>. The map route translates these tokens to underlying <code>building_control build_area</code> anchors; <code>/active/ops/build.md</code> does not accept raw coordinates.</p>
+<p>示例:</p>
+<p>Prefer one SEARCH/REPLACE block. Multiple blocks require outer <code>allowPartial=true</code> and cannot be transactionally rolled back. Each operation-file replacement must contain exactly one executable command. Preview with outer <code>world_editor edit</code> <code>dryRun=true</code> and <code>confirm=false</code> (or omitted); execute with a new edit using outer <code>dryRun=false</code>, <code>confirm=true</code>, and non-conflicting command flags, then re-read the map or state.</p>
+<p>This directly creates a continuous line, with no separate follow-up connection step required.</p>
+<h2 id="文件夹式蓝图管理系统-folder-based-blueprints">文件夹式蓝图管理系统 (Folder-based Blueprints)<a class="heading-anchor" href="#文件夹式蓝图管理系统-folder-based-blueprints" aria-label="链接到 文件夹式蓝图管理系统 (Folder-based Blueprints)">#</a></h2>
+<p><code>world_editor command=blueprint</code> 提供了完备的蓝图全生命周期管理，深度集成 Blueprints Expanded v2 格式与原生自动建造回退机制：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>action</th>
+<th>说明</th>
+<th>示例参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list</code> / <code>ls</code></td>
+<td>列出分类文件夹与蓝图文件（支持树状和 JSON 格式）</td>
+<td><code>category: &quot;power&quot;</code>, <code>format: &quot;json&quot;</code></td>
+</tr>
+<tr>
+<td><code>preview</code></td>
+<td>预览蓝图（尺寸、建筑清单、材料用量、网格字符图）</td>
+<td><code>name: &quot;power/spom&quot;</code></td>
+</tr>
+<tr>
+<td><code>create</code> / <code>capture</code></td>
+<td>从纯文本创建或直接<strong>框选地图矩形捕获现存建筑与管路</strong></td>
+<td><code>name: &quot;spom&quot;</code>, <code>category: &quot;power&quot;</code>, <code>x1: 10, y1: 20, x2: 25, y2: 30</code></td>
+</tr>
+<tr>
+<td><code>import</code></td>
+<td>从 JSON、Markdown 或 Base64 分享码导入蓝图</td>
+<td><code>name: &quot;spom&quot;</code>, <code>content: &quot;&lt;json/base64&gt;&quot;</code></td>
+</tr>
+<tr>
+<td><code>export</code></td>
+<td>导出蓝图为 JSON、Markdown 或 Base64 字符串</td>
+<td><code>name: &quot;power/spom&quot;</code>, <code>format: &quot;json&quot;</code></td>
+</tr>
+<tr>
+<td><code>share</code></td>
+<td>将单个蓝图或整个分类打包为分享代码</td>
+<td><code>name: &quot;power/spom&quot;</code> 或 <code>category: &quot;power&quot;</code></td>
+</tr>
+<tr>
+<td><code>rename</code></td>
+<td>重命名或跨目录移动蓝图</td>
+<td><code>from: &quot;test&quot;</code>, <code>to: &quot;power/spom&quot;</code></td>
+</tr>
+<tr>
+<td><code>categorize</code></td>
+<td>将蓝图移动到分类文件夹</td>
+<td><code>name: &quot;spom&quot;</code>, <code>category: &quot;power&quot;</code></td>
+</tr>
+<tr>
+<td><code>replace_materials</code></td>
+<td>批量替换蓝图内的建筑材料</td>
+<td><code>name: &quot;power/spom&quot;</code>, <code>from: &quot;Sandstone&quot;, to: &quot;Granite&quot;</code></td>
+</tr>
+<tr>
+<td><code>place</code> / <code>use</code></td>
+<td>放置蓝图（支持 dryRun 预览、材料动态重定向与原生回退）</td>
+<td><code>name: &quot;power/spom&quot;</code>, <code>x: 15, y: 30, dryRun: false, confirm: true</code></td>
+</tr>
+<tr>
+<td><code>cancel</code></td>
+<td>取消指定区域或指定蓝图范围内的待建工单</td>
+<td><code>name: &quot;power/spom&quot;, x: 15, y: 30</code> 或 <code>x1: 15, y1: 30, x2: 25, y2: 40</code></td>
+</tr>
+<tr>
+<td><code>delete</code></td>
+<td>删除指定蓝图文件或空目录</td>
+<td><code>name: &quot;power/spom&quot;</code></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>视觉反馈</strong>：Agent 进行预览、手持蓝图准备放置、成功放置、捕获、材料替换时，会在玩家鼠标光标附近实时弹出 <code>ToolCallSpeechOverlay</code> 对话气泡（例如 <code>📐 手持蓝图 [ SPOM ] 准备放置于 (15,30) [预览]</code>）。</li>
+</ul>
+<hr />
+<h2 id="存档隔离的文件夹式游戏笔记工具-save-isolated-notes--agentsmd">存档隔离的文件夹式游戏笔记工具 (Save-Isolated Notes &amp; AGENTS.md)<a class="heading-anchor" href="#存档隔离的文件夹式游戏笔记工具-save-isolated-notes--agentsmd" aria-label="链接到 存档隔离的文件夹式游戏笔记工具 (Save-Isolated Notes &amp; AGENTS.md)">#</a></h2>
+<p>虚拟文件系统 <code>/active/notes/</code> 与 <code>/active/ops/colony.md</code> (notes 域) 提供按当前活跃游戏存档物理隔离的笔记管理系统：</p>
+<ul>
+<li><strong>自动生成 <code>AGENTS.md</code></strong>：每个存档的 <code>notes/AGENTS.md</code> 自动初始化为该存档专属的核心背景文档，包含殖民地战略目标、防爆温/防爆管心法、禁忌规则（默认禁用自动消毒、严禁盲目开挖液体蓄水池等）及阶段里程碑。</li>
+<li><strong>子文件夹管理</strong>：支持组织 <code>plans/</code>（工程规划）、<code>milestones/</code>（阶段日志）、<code>issues/</code>（疑难杂症）等目录。</li>
+<li><strong>操作接口</strong>：可通过 <code>/active/ops/colony.md</code> 调度 notes 域动作：
+<ul>
+<li><code>list</code> [folder=&quot;plans&quot;]</li>
+<li><code>read</code> path=&quot;AGENTS.md&quot;</li>
+<li><code>write</code> path=&quot;plans/spom.md&quot; content=&quot;...&quot;</li>
+<li><code>append</code> path=&quot;milestones/cycle-50.md&quot; content=&quot;...&quot;</li>
+<li><code>rename</code> from=&quot;...&quot; to=&quot;...&quot;</li>
+<li><code>delete</code> path=&quot;...&quot;</li>
+<li><code>status</code></li>
+</ul>
+</li>
+<li><strong>虚拟文件系统支持</strong>：可通过 <code>world_editor</code> 读取 <code>/active/notes/AGENTS.md</code> 并通过 <code>SEARCH/REPLACE</code> 直接编辑。</li>
+<li><strong>视觉反馈</strong>：读写、更新 AGENTS.md 或追加里程碑日志时，同样在鼠标光标旁弹出实时气泡提示。</li>
+</ul>
+<hr />
+<h2 id="动态资源体系与异步长耗时通知-dynamic-resources--async-notifications">动态资源体系与异步长耗时通知 (Dynamic Resources &amp; Async Notifications)<a class="heading-anchor" href="#动态资源体系与异步长耗时通知-dynamic-resources--async-notifications" aria-label="链接到 动态资源体系与异步长耗时通知 (Dynamic Resources &amp; Async Notifications)">#</a></h2>
+<p>除了传统的电网与建筑工具，ONI 具备丰富的动态游戏生态状态。OniMcp 将核心状态作为 MCP 原生 <strong>Dynamic Resources (<code>oni://...</code>)</strong> 公开，替代繁重的工具轮询：</p>
+<h3 id="核心殖民地动态资源">核心殖民地动态资源<a class="heading-anchor" href="#核心殖民地动态资源" aria-label="链接到 核心殖民地动态资源">#</a></h3>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>URI</th>
+<th>说明</th>
+<th>内容格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>oni://atmosphere/summary</code></td>
+<td>全图大气质量、氧气占比、主要气体分布与气温统计</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://atmosphere/breathability</code></td>
+<td>复制人可呼吸格子数、氧气储量、CO2 及窒息风险评估</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://fluid/liquid/summary</code></td>
+<td>净水、污水、原油、盐水等液体存量、储液罐与温度分布</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://fluid/gas/summary</code></td>
+<td>世界主要气体储量、储气罐与管道通畅度</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://plumbing/summary</code></td>
+<td>液体/气体管网网格段数、畅通状态及布局统计</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://thermal/summary</code></td>
+<td>世界最高/最低/平均温度场，极端高温与极寒格统计</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://food/summary</code></td>
+<td>全殖民地食物卡路里储备、人均可用天数及断粮预警</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://farming/crops</code></td>
+<td>种植箱与农砖作物数量、成熟可收获数量及生长分布</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://ranching/summary</code></td>
+<td>动物存活总数、按物种分布统计与圈舍拥挤状态</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://dupes/vitals</code></td>
+<td>复制人生理指标：生命、压力、饱食、呼吸、膀胱等</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://dupes/morale</code></td>
+<td>复制人士气值、士气期望值、净士气差额及高压预警</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://geysers/summary</code></td>
+<td>已探明喷孔、类型、喷发元素、温度及坐标</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://research/progress</code></td>
+<td>当前研发科技、已解锁科技总数及各级研究点数</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://resources/stockpile</code></td>
+<td>按分类汇总的矿物、金属、原材料与工业存量</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>oni://notes/{path}</code></td>
+<td>读取当前存档隔离的游戏笔记（如 <code>AGENTS.md</code>）</td>
+<td>Markdown</td>
+</tr>
+<tr>
+<td><code>oni://blueprints/{name}</code></td>
+<td>读取已保存蓝图的完整结构定义</td>
+<td>JSON</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="异步执行与主动通知-method-2-async--dynamic-resources-notification">异步执行与主动通知 (Method 2: Async + Dynamic Resources Notification)<a class="heading-anchor" href="#异步执行与主动通知-method-2-async--dynamic-resources-notification" aria-label="链接到 异步执行与主动通知 (Method 2: Async + Dynamic Resources Notification)">#</a></h3>
+<p>对于长耗时计算（如大范围扫描、生存长跑分诊、高负载蓝图分析）：</p>
+<ol>
+<li><strong>任务提交</strong>：调用操作时附带 <code>async: true</code>，服务器立即返回：<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>{
+  &quot;status&quot;: &quot;submitted&quot;,
+  &quot;taskId&quot;: &quot;task_20261019_...&quot;,
+  &quot;resourceUri&quot;: &quot;oni://reports/task_20261019_...&quot;,
+  &quot;message&quot;: &quot;任务已提交，完成后结果将写入 oni://reports/... 并主动发送 notifications/resources/list_changed 通知。&quot;
+}
+</code></pre></div>
+</li>
+<li><strong>异步执行</strong>：MCP 服务器在 Unity 主线程调度队列或后台任务池中异步执行，不阻塞客户端调用。</li>
+<li><strong>主动通知</strong>：任务结束时，服务器写入该动态报告资源，并通过 SSE 主动广播 <code>notifications/resources/list_changed</code> 与 <code>notifications/resources/updated</code>。</li>
+<li><strong>按需读取</strong>：Agent 接收到通知后，调用 <code>resources/read</code> 读取 <code>oni://reports/task_...</code> 获取完整结果，实现真正的事件驱动与动态资源分离架构。</li>
+</ol>
+<hr />
+<h2 id="订单与剪断">订单与剪断<a class="heading-anchor" href="#订单与剪断" aria-label="链接到 订单与剪断">#</a></h2>
+<p><code>orders_control</code> supports semantic targets and area handles. For an exact rectangle, read <code>/active/ops/tools.md</code>, ignore hidden coordinate compatibility entries, then edit <code>/active/ops/orders.md</code>, for example <code>挖 x1=10 y1=20 x2=18 y2=20 priority=7 dryRun=true</code>. Preview with outer <code>dryRun=true</code> and no confirmation; execute only with a new edit using outer <code>dryRun=false</code>, <code>confirm=true</code>, and non-conflicting command flags.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>{
+  &quot;domain&quot;: &quot;area&quot;,
+  &quot;action&quot;: &quot;dig&quot;,
+  &quot;areaId&quot;: &quot;a1&quot;,
+  &quot;confirm&quot;: true
+}
+</code></pre></div>
+<p>剪断管线和线路时:</p>
+<ul>
+<li><code>cut_conduits type=auto</code> 默认包含气管、液管、固体轨道、电线和逻辑线。</li>
+<li><code>type=wire</code> 只剪电线。</li>
+<li><code>type=logic</code> 只剪逻辑线。</li>
+<li><code>type=all</code> 适合明确需要更大范围时使用。</li>
+</ul>
+<h2 id="相机与视图">相机与视图<a class="heading-anchor" href="#相机与视图" aria-label="链接到 相机与视图">#</a></h2>
+<p><code>navigation_control</code> 仅用于相机、覆盖层和截图。支持的动作包括：</p>
+<ul>
+<li><code>get_view</code>：读取当前相机位置、缩放和激活世界。</li>
+<li><code>set_active_world</code>：切换激活世界并移动相机。</li>
+<li><code>set_view</code> / <code>move</code>：设置或平移相机。</li>
+<li><code>set_zoom zoom=23</code>：保持当前中心缩放，不需要 <code>x/y</code>。<code>zoom</code> 是视野的半高，数值越大看得越远；默认立即生效。</li>
+<li><code>switch_view</code>：切换氧气、电力、管线、温度等覆盖层，可选截图。</li>
+<li><code>focus_cell</code> / <code>focus_dupe</code>：聚焦格子或复制人。</li>
+<li><code>screenshot</code> / <code>coordinate_screenshot</code>：保存普通截图或带坐标网格的区域截图。</li>
+</ul>
+<p>相机动作可直接传对应的 <code>x/y</code>、<code>dx/dy</code> 或截图边界坐标；这不会开放建造、订单等工具的坐标输入。<code>set_view</code> 和 <code>move</code> 省略 <code>zoom</code> 时保持当前缩放，<code>snap=false</code> 同时平滑移动与缩放。随后用 <code>get_view</code> 核对当前 <code>orthographicSize</code> 与原生目标 <code>targetOrthographicSize</code>。<code>world_editor command=zoom ... syncView=true</code> 默认完整取景；显式 <code>focusMode=detail</code> 才使用可能裁切范围的近景模式。</p>
+<p>建造和任务操作应直接使用 <code>building_control</code> 与 <code>orders_control</code>。每次工具调用必填的 <code>task</code> 文本会自动显示在玩家鼠标附近，无需额外定位流程。</p>
+<h2 id="尚未就绪的读数">尚未就绪的读数<a class="heading-anchor" href="#尚未就绪的读数" aria-label="链接到 尚未就绪的读数">#</a></h2>
+<p>电力端口的 <code>networkPending=true</code> 表示电网正在重建、组件电路 ID 与网络不一致，或网络尚不可读。此时 <code>connected</code> 和 <code>circuitId</code> 为 <code>null</code>，不能推断为断电；网络稳定后，<code>circuitId</code> 仍使用字符串，<code>&quot;-1&quot;</code> 表示没有连接。</p>
+<p>建筑配置中的温度传感器需要填满原生八次采样缓冲区并发布平均值。预热期间修改阈值可能提前发布不完整平均值；采样计数达到八次、尚未执行下一次原生发布时也保守返回等待状态。就绪前 <code>samplePending=true</code>，<code>currentValue</code> 和 <code>formattedCurrentValue</code> 为 <code>null</code>；不要把初始零值当成零开尔文。其他阈值组件的有限零值仍有效。读取后等待短暂模拟，再重新查询；这两个标记不会自动恢复游戏。</p>
+<h2 id="常用资源">常用资源<a class="heading-anchor" href="#常用资源" aria-label="链接到 常用资源">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>URI</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>oni://colony/status</code></td>
+<td>周期、复制人数、速度、暂停状态</td>
+</tr>
+<tr>
+<td><code>oni://colony/diagnostics</code></td>
+<td>缺氧、断粮、过热等诊断</td>
+</tr>
+<tr>
+<td><code>oni://colony/alerts</code></td>
+<td>当前警报和通知</td>
+</tr>
+<tr>
+<td><code>oni://colony/summary</code></td>
+<td>面向行动规划的殖民地摘要</td>
+</tr>
+<tr>
+<td><code>oni://resources/inventory</code></td>
+<td>资源库存</td>
+</tr>
+<tr>
+<td><code>oni://resources/food</code></td>
+<td>食物库存和保质信息</td>
+</tr>
+<tr>
+<td><code>oni://dupes</code></td>
+<td>复制人列表</td>
+</tr>
+<tr>
+<td><code>oni://dupes/status-check</code></td>
+<td>复制人位置、差事、需求和疑似被困风险</td>
+</tr>
+<tr>
+<td><code>oni://plumbing/liquid</code></td>
+<td>液体管道回路、流动方向向量、流速与堵塞瓶颈</td>
+</tr>
+<tr>
+<td><code>oni://plumbing/gas</code></td>
+<td>气体管道回路、流动方向向量与气体元素分布</td>
+</tr>
+<tr>
+<td><code>oni://circuits/logic</code></td>
+<td>自动化逻辑信号网络（0/1 电平与 4-bit 线束通道）</td>
+</tr>
+<tr>
+<td><code>oni://circuits/power</code></td>
+<td>电网摘要、回路负载、发电量与过载状态</td>
+</tr>
+<tr>
+<td><code>oni://power/summary</code></td>
+<td>电网摘要和电池状态</td>
+</tr>
+<tr>
+<td><code>oni://power/ports</code></td>
+<td>电力接口格、锚点、接线点和端口是否已有电线</td>
+</tr>
+<tr>
+<td><code>oni://rooms/list</code></td>
+<td>房间系统状态</td>
+</tr>
+<tr>
+<td><code>oni://thermal/overheat-risk</code></td>
+<td>建筑过热风险</td>
+</tr>
+<tr>
+<td><code>oni://world/text-map</code></td>
+<td>文本地图</td>
+</tr>
+<tr>
+<td><code>oni://buildings/defs</code></td>
+<td>可建造建筑定义</td>
+</tr>
+<tr>
+<td><code>oni://tools/manifest</code></td>
+<td>工具清单</td>
+</tr>
+<tr>
+<td><code>oni://tools/guide</code></td>
+<td>按目标推荐工具链</td>
+</tr>
+<tr>
+<td><code>oni://guide/mechanics</code></td>
+<td>机制、公式、边界条件速查</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="代码目录">代码目录<a class="heading-anchor" href="#代码目录" aria-label="链接到 代码目录">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>mods/OniMcp/
+├── ModInfo.cs           # KMod 入口
+├── Config/              # 选项
+├── Core/                # MCP 协议类型
+├── Localization/        # STRINGS
+├── Patches/             # Harmony 补丁与游戏策略
+├── UI/                  # 运行时 Overlay（坐标网格、对话气泡）
+├── Server/              # HTTP/MCP 服务
+├── Support/             # 日志、路径、反射
+└── Tools/
+    ├── Core/            # 工具与资源注册
+    ├── Entry/           # 聚合入口（*Control* / Read / 英文描述）
+    ├── WorldEditor/     # 虚拟世界文件系统
+    ├── Shared/          # 共享辅助
+    └── Impl/            # 各域实现（Build/Dupes/World/...）
+</code></pre></div>
+<p>Prefer extending aggregate entrypoints in <code>Tools/Entry/</code> for new public capabilities. Domain implementations live under <code>Tools/Impl/&lt;Domain&gt;/</code>. Shared search, reachability, and material checks belong in <code>Tools/Shared/</code>; exact spatial operations are routed through typed files under <code>/active/ops/</code>.</p>
+<h2 id="兼容性说明">兼容性说明<a class="heading-anchor" href="#兼容性说明" aria-label="链接到 兼容性说明">#</a></h2>
+<p>客户端按当前会话协议接入：</p>
+<ol>
+<li>以 <code>2025-11-25</code> 调用 <code>initialize</code>，保存响应中的 <code>Mcp-Session-Id</code>。</li>
+<li>后续请求携带该会话 ID 和 <code>Mcp-Protocol-Version: 2025-11-25</code>。</li>
+<li>不要硬编码旧版细粒度工具列表；按当前协议调用 <code>tools/list</code> 或读取运行时 manifest。</li>
+<li>调用 <code>server_control domain=catalog action=search</code> 或读取 <code>oni://tools/guide</code> 查找目标流程。</li>
+<li>优先传语义定位参数。</li>
+<li>对危险动作传 <code>confirm: true</code>。</li>
+<li>执行后读取资源或区域快照验证状态。</li>
+</ol>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/OniMods/blob/53f9396fa0ea1c62c71f6effc45feb59de72c9d5/docs/mcp-tools-reference.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/OniMods">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../OniMods/oni-mcp-cli/"><span class="pagination-label">上一页</span><span class="pagination-title">oni-mcp CLI</span></a><a class="pagination-link next" href="../../OniMods/architecture-and-principles/"><span class="pagination-label">下一页</span><span class="pagination-title">OniMods 架构与核心实现原理</span></a></nav>
+      <footer class="page-footer">
+        <span>OniMods <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#快速开始">快速开始</a></li><li class="toc-level-2"><a href="#定位与执行原则">定位与执行原则</a></li><li class="toc-level-2"><a href="#核心工具">核心工具</a></li><li class="toc-level-2"><a href="#原生新开局">原生新开局</a></li><li class="toc-level-2"><a href="#建造规划">建造规划</a></li><li class="toc-level-3"><a href="#材料返回">材料返回</a></li><li class="toc-level-3"><a href="#线路和管路">线路和管路</a></li><li class="toc-level-2"><a href="#文件夹式蓝图管理系统-folder-based-blueprints">文件夹式蓝图管理系统 (Folder-based Blueprints)</a></li><li class="toc-level-2"><a href="#存档隔离的文件夹式游戏笔记工具-save-isolated-notes--agentsmd">存档隔离的文件夹式游戏笔记工具 (Save-Isolated Notes &amp; AGENTS.md)</a></li><li class="toc-level-2"><a href="#动态资源体系与异步长耗时通知-dynamic-resources--async-notifications">动态资源体系与异步长耗时通知 (Dynamic Resources &amp; Async Notifications)</a></li><li class="toc-level-3"><a href="#核心殖民地动态资源">核心殖民地动态资源</a></li><li class="toc-level-3"><a href="#异步执行与主动通知-method-2-async--dynamic-resources-notification">异步执行与主动通知 (Method 2: Async + Dynamic Resources Notification)</a></li><li class="toc-level-2"><a href="#订单与剪断">订单与剪断</a></li><li class="toc-level-2"><a href="#相机与视图">相机与视图</a></li><li class="toc-level-2"><a href="#尚未就绪的读数">尚未就绪的读数</a></li><li class="toc-level-2"><a href="#常用资源">常用资源</a></li><li class="toc-level-2"><a href="#代码目录">代码目录</a></li><li class="toc-level-2"><a href="#兼容性说明">兼容性说明</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

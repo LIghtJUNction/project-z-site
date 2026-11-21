@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在字节切片中正向或反向查找字节和子串，并返回原始位置。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zscan · Verification and release maintenance · Project Z">
+  <meta property="og:description" content="在字节切片中正向或反向查找字节和子串，并返回原始位置。">
+  <meta property="og:type" content="website">
+  <title>zscan · Verification and release maintenance · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zscan/scripts-readme/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zscan">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zscan" aria-label="zscan 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zscan</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zscan</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/" aria-current="page">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zscan 文档"><div class="nav-group"><p class="nav-label">zscan</p><ul><li><a class="nav-link" href="../../zscan/">概览</a></li><li><a class="nav-link" href="../../zscan/comparison-baseline-notes/">Baseline versions and correctness</a></li><li><a class="nav-link" href="../../zscan/comparison-cases/">Fixed comparison protocol</a></li><li><a class="nav-link" href="../../zscan/comparison-readme/">Independent comparison project</a></li><li><a class="nav-link" href="../../zscan/comparison-results-final-summary/">Recorded search comparison</a></li><li><a class="nav-link" href="../../zscan/comparison-results-round2-after-calibrated-summary/">Recorded search comparison</a></li><li><a class="nav-link" href="../../zscan/comparison-results-round2-review/">Round 2: bounded vector tails and byte scanning</a></li><li><a class="nav-link" href="../../zscan/scripts-readme/" aria-current="page">Verification and release maintenance</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zscan</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/" aria-current="page">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zscan 文档"><div class="nav-group"><p class="nav-label">zscan</p><ul><li><a class="nav-link" href="../../zscan/">概览</a></li><li><a class="nav-link" href="../../zscan/comparison-baseline-notes/">Baseline versions and correctness</a></li><li><a class="nav-link" href="../../zscan/comparison-cases/">Fixed comparison protocol</a></li><li><a class="nav-link" href="../../zscan/comparison-readme/">Independent comparison project</a></li><li><a class="nav-link" href="../../zscan/comparison-results-final-summary/">Recorded search comparison</a></li><li><a class="nav-link" href="../../zscan/comparison-results-round2-after-calibrated-summary/">Recorded search comparison</a></li><li><a class="nav-link" href="../../zscan/comparison-results-round2-review/">Round 2: bounded vector tails and byte scanning</a></li><li><a class="nav-link" href="../../zscan/scripts-readme/" aria-current="page">Verification and release maintenance</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zscan/">zscan 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zscan/">zscan</a><span aria-hidden="true">/</span><span>Verification and release maintenance</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#release">Release</a></li><li class="toc-level-3"><a href="#release-through-a-committed-request">Release through a committed request</a></li><li class="toc-level-3"><a href="#version-commit-checks-and-publication">Version commit, checks, and publication</a></li><li class="toc-level-2"><a href="#action-pins">Action pins</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="verification-and-release-maintenance">Verification and release maintenance</h1>
+<p>The scripts use Python 3.11+ and its standard library. They are excluded from the
+published crate. <code>audit.py</code> reads Cargo metadata, including normal, build, dev,
+optional, and target-specific dependencies; every entry must be absent.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>python3 scripts/audit.py
+python3 -m unittest discover -s scripts -p &#x27;test_*.py&#x27; -v
+python3 scripts/test_backends.py
+</code></pre></div>
+<h2 id="release">Release<a class="heading-anchor" href="#release" aria-label="链接到 Release">#</a></h2>
+<p>Set the repository Secret <code>CARGO_REGISTRY_TOKEN</code>, then open <strong>Actions → Release
+→ Run workflow</strong> on <code>main</code>. Choose one mode:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>current</code></td>
+<td>Release the version already in Cargo.toml; use this for the first release.</td>
+</tr>
+<tr>
+<td><code>patch</code></td>
+<td>For example, 0.1.0 → 0.1.1.</td>
+</tr>
+<tr>
+<td><code>minor</code></td>
+<td>For example, 0.1.3 → 0.2.0.</td>
+</tr>
+<tr>
+<td><code>major</code></td>
+<td>For example, 0.1.3 → 1.0.0.</td>
+</tr>
+<tr>
+<td><code>custom</code></td>
+<td>Set the optional <code>version</code> field to a greater plain X.Y.Z version.</td>
+</tr>
+<tr>
+<td><code>existing-tag</code></td>
+<td>Set <code>tag</code> to an existing vX.Y.Z tag to resume its release.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Leave unused fields empty. Older dispatch clients supplying only <code>tag</code> still
+work. Plain release versions are required; leading zeroes and prerelease
+suffixes are rejected. New release preparation is restricted to <code>main</code>.</p>
+<h3 id="release-through-a-committed-request">Release through a committed request<a class="heading-anchor" href="#release-through-a-committed-request" aria-label="链接到 Release through a committed request">#</a></h3>
+<p>When workflow dispatch is unavailable, commit a deliberate change to
+<code>.github/release-request.json</code> on <code>main</code>. For the first 0.1.0 release:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>{&quot;mode&quot;:&quot;current&quot;,&quot;expected_version&quot;:&quot;0.1.0&quot;}
+</code></pre></div>
+<p>Only changes to this exact file initiate branch-based publication. Ordinary
+source pushes do not. <code>expected_version</code> must match the request commit's
+Cargo.toml, preventing an old request from causing a different bump. The JSON
+accepts only <code>mode</code>, <code>expected_version</code>, optional <code>version</code> or <code>tag</code> as above,
+and an optional <code>request_id</code> of 1–80 letters, digits, dots, underscores or hyphens.
+A fresh <code>request_id</code> allows a deliberate retry commit. Unknown or duplicate
+keys, empty or non-string values, conflicting selectors, symlinks, and requests
+over 4 KiB are rejected. To resume an existing release, for example:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>{&quot;mode&quot;:&quot;existing-tag&quot;,&quot;expected_version&quot;:&quot;0.1.0&quot;,&quot;tag&quot;:&quot;v0.1.0&quot;,&quot;request_id&quot;:&quot;retry-1&quot;}
+</code></pre></div>
+<p>Here <code>expected_version</code> refers to the branch source, even when the selected tag
+is older. Create or edit the request file only when intending to initiate a
+release.</p>
+<h3 id="version-commit-checks-and-publication">Version commit, checks, and publication<a class="heading-anchor" href="#version-commit-checks-and-publication" aria-label="链接到 Version commit, checks, and publication">#</a></h3>
+<p>Preparation updates only <code>Cargo.toml</code>, <code>Cargo.lock</code>, and the path zscan entry in
+<code>comparison/Cargo.lock</code>. It prints the diff and builds a deterministic release
+commit with a fixed bot identity and the source commit's timestamp plus one
+second. <code>current</code> makes an empty release commit so the branch and tag can be
+advanced in one atomic operation. The script checks registry availability before
+changing refs, then performs one non-force atomic push of <code>main</code> and <code>vX.Y.Z</code>.
+Concurrent branch or tag changes cannot partially advance these refs; no tag or
+published version is overwritten. A matching existing release commit/tag can be
+resumed without another push.</p>
+<p>GitHub-token pushes do not launch new Actions runs. This workflow explicitly
+calls the full CI matrix on the resolved commit and then publishes in the same
+run. Direct pushes of existing-commit <code>vX.Y.Z</code> tags remain supported. Every CI
+checkout uses the tag's exact commit. Publication checks the local HEAD, tag,
+remote tag, manifest version, clean tracked files, and archive VCS identity
+again. The publication job starts only after the full CI matrix succeeds, then
+repeats packaging and dry-run before uploading.</p>
+<p>Release packaging and publication use pinned Rust/Cargo <strong>1.99.1</strong>, recorded in
+<code>scripts/release-toolchain.txt</code>. The resolver reads this file from the tagged
+commit, so a manual run from a newer branch still uses the older tag's pin.
+Regular CI continues to check rolling stable and the MSRV. This prevents a later
+stable update from silently changing normalized manifests or archive bytes
+during manual recovery. The publication script checks the actual
+<code>rustc --version --verbose</code> and <code>cargo --version --verbose</code> identities and records
+them in <code>target/release-evidence.json</code>, without credentials. For a previously
+published archive, these identify the current verification tools, not the
+historical publisher's tools. Checksum equality remains mandatory; matching
+source commits alone never establish archive equality.</p>
+<p>Only the publication step receives <code>CARGO_REGISTRY_TOKEN</code>. It invokes
+<code>cargo publish --locked</code> once. A missing Secret, failed check, unavailable registry
+preflight, or conflicting published checksum stops the run. No token is passed in
+arguments or written to a file.</p>
+<p>After an upload error, read-only registry checks determine whether the exact
+archive was published. The workflow does not upload again automatically. If
+confirmation remains unavailable, inspect crates.io before manually rerunning the
+same tag. A rerun recognizes an identical existing archive by SHA256 and proceeds
+without republishing. A different archive or a yanked version requires manual
+investigation. GitHub Release creation happens only after the registry confirms
+the matching crate, version, and checksum.</p>
+<p><code>test_release.py</code> exercises publication failures with isolated mocks.
+<code>test_prepare_release.py</code> checks version changes and uses temporary local Git
+remotes to exercise branch/tag races, atomic pushes and idempotent recovery.
+Neither test suite contacts GitHub or uploads a crate. Configuring this workflow
+or passing its tests is not evidence of a real publication.</p>
+<h2 id="action-pins">Action pins<a class="heading-anchor" href="#action-pins" aria-label="链接到 Action pins">#</a></h2>
+<p>The official tag refs were checked on 2026-11-09:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Tag</th>
+<th>Full commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://api.github.com/repos/actions/checkout/git/ref/tags/v7.0.1">actions/checkout</a></td>
+<td>v7.0.1</td>
+<td><code>3d3c42e5aac5ba805825da76410c181273ba90b1</code></td>
+</tr>
+<tr>
+<td><a href="https://api.github.com/repos/actions/upload-artifact/git/ref/tags/v7.0.2">actions/upload-artifact</a></td>
+<td>v7.0.2</td>
+<td><code>cf430e030ddbb5b0abf93d22962f4752f3646cd9</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>The crates.io version/checksum response schema was checked against its
+<a href="https://github.com/rust-lang/crates.io/blob/main/src/tests/routes/crates/versions/snapshots/integration__routes__crates__versions__read__show_by_crate_name_and_version.snap">official response snapshot</a>.
+Updates should resolve and review a new full commit before changing either pin.
+Hosted-runner benchmark smoke results are observations, not a performance gate.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zscan/blob/c000a84c748d8e090ff662b2aef3858aa4880b09/scripts/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zscan">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zscan/comparison-results-round2-review/"><span class="pagination-label">上一页</span><span class="pagination-title">Round 2: bounded vector tails and byte scanning</span></a></nav>
+      <footer class="page-footer">
+        <span>zscan <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#release">Release</a></li><li class="toc-level-3"><a href="#release-through-a-committed-request">Release through a committed request</a></li><li class="toc-level-3"><a href="#version-commit-checks-and-publication">Version commit, checks, and publication</a></li><li class="toc-level-2"><a href="#action-pins">Action pins</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

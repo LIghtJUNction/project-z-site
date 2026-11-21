@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Linux 原生输入法，在应用中组合拼音、显示候选并提交文字。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ztype · ztype 0.4.2：候选界面与 ztty 输入验收 · Project Z">
+  <meta property="og:description" content="Linux 原生输入法，在应用中组合拼音、显示候选并提交文字。">
+  <meta property="og:type" content="website">
+  <title>ztype · ztype 0.4.2：候选界面与 ztty 输入验收 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ztype/ztty-ui-0-4-2-zh-cn/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ztype">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ztype" aria-label="ztype 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ztype</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ztype</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/" aria-current="page">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ztype 文档"><div class="nav-group"><p class="nav-label">ztype</p><ul><li><a class="nav-link" href="../../ztype/">概览</a></li><li><a class="nav-link" href="../../ztype/readme-en/">ztype</a></li><li><a class="nav-link" href="../../ztype/service-installation/">Native service installation</a></li><li><a class="nav-link" href="../../ztype/interactive-trial-zh-cn/">Ztype 0.2.1 安装与实测记录</a></li><li><a class="nav-link" href="../../ztype/ztty-ui-0-4-2-zh-cn/" aria-current="page">ztype 0.4.2：候选界面与 ztty 输入验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ztype</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/" aria-current="page">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ztype 文档"><div class="nav-group"><p class="nav-label">ztype</p><ul><li><a class="nav-link" href="../../ztype/">概览</a></li><li><a class="nav-link" href="../../ztype/readme-en/">ztype</a></li><li><a class="nav-link" href="../../ztype/service-installation/">Native service installation</a></li><li><a class="nav-link" href="../../ztype/interactive-trial-zh-cn/">Ztype 0.2.1 安装与实测记录</a></li><li><a class="nav-link" href="../../ztype/ztty-ui-0-4-2-zh-cn/" aria-current="page">ztype 0.4.2：候选界面与 ztty 输入验收</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ztype/">ztype 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ztype/">ztype</a><span aria-hidden="true">/</span><span>ztype 0.4.2：候选界面与 ztty 输入验收</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#界面变化">界面变化</a></li><li class="toc-level-2"><a href="#ztty-首字丢失的原因与修复">ztty 首字丢失的原因与修复</a></li><li class="toc-level-2"><a href="#验收范围">验收范围</a></li><li class="toc-level-2"><a href="#复现">复现</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="ztype-042候选界面与-ztty-输入验收">ztype 0.4.2：候选界面与 ztty 输入验收</h1>
+<p>本轮把原生候选界面接到当前 Git 依赖基线，并分别验证 X11/XIM 与原生 Wayland 的 ztty 输入。运行时代码固定于 <code>053eb39eb115decc0cb046e901598cf0bc4645fb</code>；后续测试与文档提交不改变该提交的 Rust 源码及 Cargo 文件。完整文件哈希、二进制哈希和分阶段结果见<a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/evidence/ztty-ui-0.4.2-20261121/summary.json">机器可读验收记录</a>。</p>
+<h2 id="界面变化">界面变化<a class="heading-anchor" href="#界面变化" aria-label="链接到 界面变化">#</a></h2>
+<p>候选正文为 16 px，页内序号为 12 px，预编辑标题为 14 px；面板左右留白为 20 px，候选行高为 40 px。窗口宽度仍限制在 248–640 px，长候选只在显示时省略，提交文本保持完整。选中项同时使用浅蓝背景和加粗正文，数字选词、分页及焦点处理沿用原有行为。</p>
+<p>浅色主题采用 Material 3 的语义颜色角色：表面 <code>#F8FAFD</code>、正文 <code>#1F1F1F</code>、次要文字 <code>#5F6368</code>、选中表面 <code>#D3E3FD</code>、选中文字 <code>#041E49</code>。四组实际文字配色的对比度分别为 15.764、5.786、12.568 和 4.919，均高于小字号文字的 4.5:1 目标。候选像素保持完全不透明，适配 X11 depth-24 与 Wayland surface。</p>
+<p>依据为 Google 的 <a href="https://developer.android.com/develop/ui/compose/designsystems/material3">Material 3 主题、颜色和字体说明</a>及<a href="https://developer.android.com/guide/topics/ui/accessibility/apps">文字对比度指导</a>。具体字号、留白和配色是本项目对原生桌面输入法的选择。本轮覆盖浅色主题、1 倍缩放及记录中的实际画面，不能据此推断所有缩放比例、暗色主题或其他平台均已验收。</p>
+<h2 id="ztty-首字丢失的原因与修复">ztty 首字丢失的原因与修复<a class="heading-anchor" href="#ztty-首字丢失的原因与修复" aria-label="链接到 ztty 首字丢失的原因与修复">#</a></h2>
+<p>原生 Wayland 中，连续输入 <code>nihaoshijie</code> 曾得到 <code>ihaoshijie</code>。协议日志显示，首个 <code>n</code> 已产生预编辑“你”，随后收到 <code>text_change_cause(OTHER)</code> 和 <code>done</code>，组合被清空；余下字母重新组成并作为原文提交。该问题发生在 IME 形成提交文本之前。</p>
+<p>终端更新光标矩形只是在报告位置。修复在即时光标更新和等待确认后的延迟更新中，显式使用 <code>INPUT_METHOD</code> 作为这类批次的原因，避免已有 <code>OTHER</code> 标记再次使输入法丢弃组合。首次启用、真实外部编辑、焦点切换、serial/ack 和 UTF-8 提交逻辑保持原来的语义。</p>
+<p><a href="https://cgit.freedesktop.org/wayland/wayland-protocols/tree/unstable/text-input/text-input-unstable-v3.xml">Wayland text-input-v3 协议</a>规定 change cause 在每次 commit 后恢复默认值。这里记录的是对实际组合中观察到的 OTHER 重用所作的客户端兼容处理；没有把所有合成器归为同一种行为。修复源码与实际使用的 ztty ELF 身份保留在验收记录中。</p>
+<p>修复由 <a href="https://github.com/LIghtJUNction/ztty/pull/23">ztty PR #23</a> 提供，实际验收源码为 <code>076bc6ac8ff9ca17effe25decac7a4dbc4ec0c43</code>。同一连续输入在修复前的两份二进制上均复现首字丢失；修复后的真实 PTY 收到“你好世界”，UTF-8 为 <code>e4bda0e5a5bde4b896e7958c0a</code>（末尾为换行）。最终使用的 ztty ELF SHA-256 为 <code>c5debb5f35d2563e1a3cdf7eeb18bb064439c864ad020fd452f0c730afc61197</code>。</p>
+<h2 id="验收范围">验收范围<a class="heading-anchor" href="#验收范围" aria-label="链接到 验收范围">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>检查</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rust 全目标测试</td>
+<td>72 通过；1 项需单独安装完整词库的测试按原规则跳过</td>
+</tr>
+<tr>
+<td>Clippy 与 release 构建</td>
+<td>通过；记录了实际根 crate 的 clippy-driver 调用和 fresh=false 的编译产物</td>
+</tr>
+<tr>
+<td>日常输入检查</td>
+<td>8 通过，服务管理器使用测试替身</td>
+</tr>
+<tr>
+<td>安装器测试</td>
+<td>15 通过</td>
+</tr>
+<tr>
+<td>X11/XIM 到 ztty</td>
+<td>13/13 通过，使用修复后的同一 ztty ELF</td>
+</tr>
+<tr>
+<td>Wayland GTK 原生输入与候选</td>
+<td>28 通过</td>
+</tr>
+<tr>
+<td>原生 Wayland ztty</td>
+<td>7/7 通过；原生 Wayland 窗口、真实 PTY 收到“你好世界”</td>
+</tr>
+<tr>
+<td>候选窗界面检查</td>
+<td>真实 X11、Wayland 截图；候选文字、编号、选中态和不透明边缘已检查</td>
+</tr>
+</tbody>
+</table></div>
+<p>XIM 验收通过独立 Xvfb、XTEST 和真实 PTY，包含后启动输入服务、多窗口焦点、数字选择、候选窗显示/关闭、服务停止时普通按键及重启重连。ztty 的 XIM 客户端未提供字符 spot 时使用窗口边缘回退位置，本轮不宣称该路径跟随终端内的字符光标。</p>
+<p>Wayland 验收使用独立 Weston headless → Hyprland、私有 socket 和虚拟键盘。ztty 窗口通过 broker 的 Unix peer credential、可执行文件和进程身份绑定，再核对实际 Wayland 窗口、候选状态与 PTY 收据。输入仍为连续的 <code>nihaoshijie → Space → Return</code>，没有添加延时来改变通过条件。测试结束后核对本轮进程清理和二进制哈希。修复前后两份收据的第三个脚本条目覆盖不同；共同的 nested runner 与 ztty helper 哈希完全相同，命令仅改变输出目录和 ztty 二进制路径。具体差异见<a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/evidence/ztty-ui-0.4.2-20261121/receipt-script-coverage.json">收据补充说明</a>，原收据保持原样。</p>
+<p>原生 Wayland ztty 的提交前截图中，终端自己的行内预编辑曾覆盖提示行开头；提交后提示行恢复，中文出现在下一行。测试接收器的就绪标记与终端绘制之间仍存在时序差异，本轮未确定这个视觉偏移的原因。真实 PTY 提交和候选窗检查通过，终端行内预编辑的视觉定位保留为待核对项。</p>
+<p>测试合成器复用了固定哈希的私有 Aquamarine 兼容库，仅用于子进程；系统库保持原样。当前桌面的 Fcitx5、输入法配置及已安装 ztype 不在本轮切换范围内。PNG 和 ELF 留作本地验收产物，Git 只保存源码、文字说明及哈希记录。</p>
+<h2 id="复现">复现<a class="heading-anchor" href="#复现" aria-label="链接到 复现">#</a></h2>
+<p>先准备带 Wayland 支持的 ztty 和本轮 ztype 二进制，在具备测试工具的 Linux 环境运行：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>python3 scripts/test_wayland_nested.py \
+  --binary &quot;$ZTYPE_BINARY&quot; \
+  --ztty-binary &quot;$ZTTY_BINARY&quot; \
+  --output &quot;$ZTYPE_PROOF&quot; \
+  --headless --popup --screenshot --trace-events \
+  --aquamarine-library &quot;$ZTYPE_TEST_AQUAMARINE&quot;
+</code></pre></div>
+<p>测试输出包括整体报告、真实终端收据、协议日志和候选截图。日常安装与输入法服务配置仍见<a href="../../ztype/service-installation/">安装与服务</a>。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/ztty-ui-0.4.2.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztype">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztype/interactive-trial-zh-cn/"><span class="pagination-label">上一页</span><span class="pagination-title">Ztype 0.2.1 安装与实测记录</span></a></nav>
+      <footer class="page-footer">
+        <span>ztype <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#界面变化">界面变化</a></li><li class="toc-level-2"><a href="#ztty-首字丢失的原因与修复">ztty 首字丢失的原因与修复</a></li><li class="toc-level-2"><a href="#验收范围">验收范围</a></li><li class="toc-level-2"><a href="#复现">复现</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

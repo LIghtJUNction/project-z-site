@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="通过授权 MCP 会话调用开发机的命令、文件和原生工具。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ssmcp · 选择中转服务器与固定服务器公钥 · Project Z">
+  <meta property="og:description" content="通过授权 MCP 会话调用开发机的命令、文件和原生工具。">
+  <meta property="og:type" content="website">
+  <title>ssmcp · 选择中转服务器与固定服务器公钥 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ssmcp/client-server/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ssmcp">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ssmcp" aria-label="ssmcp 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ssmcp</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ssmcp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/" aria-current="page">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ssmcp 文档"><div class="nav-group"><p class="nav-label">ssmcp</p><ul><li><a class="nav-link" href="../../ssmcp/">概览</a></li><li><a class="nav-link" href="../../ssmcp/windows-browser-setup/">Windows 客户端与 Zuse CLI</a></li><li><a class="nav-link" href="../../ssmcp/configuration/">客户端连接、账号与授权</a></li><li><a class="nav-link" href="../../ssmcp/client-accounts/">客户端账号、授权与被控设备</a></li><li><a class="nav-link" href="../../ssmcp/client-extension/">可定制客户端、上下文工程与工具 hook</a></li><li><a class="nav-link" href="../../ssmcp/client-input/">客户端输入、引用与本地沟通</a></li><li><a class="nav-link" href="../../ssmcp/client-server/" aria-current="page">选择中转服务器与固定服务器公钥</a></li><li><a class="nav-link" href="../../ssmcp/client-ui/">客户端 UI</a></li><li><a class="nav-link" href="../../ssmcp/commands/">客户端命令与独立任务</a></li><li><a class="nav-link" href="../../ssmcp/browser-existing-session/">用 Zuse 连接已有浏览器</a></li><li><a class="nav-link" href="../../ssmcp/session-control/">客户端会话、重连与输出管理</a></li><li><a class="nav-link" href="../../ssmcp/agent-collaboration/">会话内 Agent 协作</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ssmcp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/" aria-current="page">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ssmcp 文档"><div class="nav-group"><p class="nav-label">ssmcp</p><ul><li><a class="nav-link" href="../../ssmcp/">概览</a></li><li><a class="nav-link" href="../../ssmcp/windows-browser-setup/">Windows 客户端与 Zuse CLI</a></li><li><a class="nav-link" href="../../ssmcp/configuration/">客户端连接、账号与授权</a></li><li><a class="nav-link" href="../../ssmcp/client-accounts/">客户端账号、授权与被控设备</a></li><li><a class="nav-link" href="../../ssmcp/client-extension/">可定制客户端、上下文工程与工具 hook</a></li><li><a class="nav-link" href="../../ssmcp/client-input/">客户端输入、引用与本地沟通</a></li><li><a class="nav-link" href="../../ssmcp/client-server/" aria-current="page">选择中转服务器与固定服务器公钥</a></li><li><a class="nav-link" href="../../ssmcp/client-ui/">客户端 UI</a></li><li><a class="nav-link" href="../../ssmcp/commands/">客户端命令与独立任务</a></li><li><a class="nav-link" href="../../ssmcp/browser-existing-session/">用 Zuse 连接已有浏览器</a></li><li><a class="nav-link" href="../../ssmcp/session-control/">客户端会话、重连与输出管理</a></li><li><a class="nav-link" href="../../ssmcp/agent-collaboration/">会话内 Agent 协作</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ssmcp/">ssmcp 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ssmcp/">ssmcp</a><span aria-hidden="true">/</span><span>选择中转服务器与固定服务器公钥</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#设置回退服务器">设置回退服务器</a></li><li class="toc-level-3"><a href="#直接编辑配置文件">直接编辑配置文件</a></li><li class="toc-level-2"><a href="#信任公钥写到哪里">信任公钥写到哪里</a></li><li class="toc-level-3"><a href="#从可信渠道导入">从可信渠道导入</a></li><li class="toc-level-3"><a href="#直接编辑信任文件">直接编辑信任文件</a></li><li class="toc-level-3"><a href="#连接时怎样校验">连接时怎样校验</a></li><li class="toc-level-2"><a href="#续签换钥与撤销">续签、换钥与撤销</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="选择中转服务器与固定服务器公钥">选择中转服务器与固定服务器公钥</h1>
+<p>客户端把服务器地址和信任配置保存在本机。本文说明原有服务器回退和 HTTPS 公钥固定；命名 context 的优先级及本地／远程切换见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/connection-contexts.md">选择连接目标</a>。登录、远程会话列表和新建 HTTPS / WSS 连接先解析显式目标或 context，再使用这里的服务器回退。每个服务器的账号凭据仍单独保存。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/account.rs">地址选择实现</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/config.rs">配置命令</a></p>
+<h2 id="设置回退服务器">设置回退服务器<a class="heading-anchor" href="#设置回退服务器" aria-label="链接到 设置回退服务器">#</a></h2>
+<p>用命令保存默认地址，再在该服务器登录：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>ssmcp config set server https://relay.example.com
+ssmcp config get server
+ssmcp login --server https://relay.example.com
+ssmcp whoami --server https://relay.example.com
+</code></pre></div>
+<p><code>config set</code> 只修改 <code>[client].server</code>，保留已有 <code>[ui]</code> 设置与注释。<code>config get server</code> 输出原有服务器回退的结果；命名 context 生效时，用 <code>context show</code> 查看新连接的实际选择。<code>config path</code> 输出实际配置文件路径。移除显式设置使用 <code>ssmcp config unset server</code>，随后回退到最后登录的服务器；想明确恢复内置地址，可执行 <code>ssmcp config set server https://ssmcp.lmm.best</code>。</p>
+<p>单次命令可以指定另一个服务器：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>ssmcp login --server https://other.example.com
+ssmcp whoami --server https://other.example.com
+
+# --server 也可以放在账号子命令前。
+ssmcp --server https://other.example.com whoami
+</code></pre></div>
+<p><code>--server</code> 对本次命令生效，不改写 <code>[client].server</code>。<code>login</code> 成功后会更新登录记录中的默认服务器；配置文件里的显式设置仍优先。账号 API 与新建连接都使用实际选中的中继。切换到另一台服务器时，先在该服务器登录，客户端不会借用其他服务器的令牌。</p>
+<h3 id="直接编辑配置文件">直接编辑配置文件<a class="heading-anchor" href="#直接编辑配置文件" aria-label="链接到 直接编辑配置文件">#</a></h3>
+<p>运行 <code>ssmcp config path</code> 找到文件，在现有文件中添加或修改：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>[client]
+server = &quot;https://relay.example.com&quot;
+
+[ui]
+theme = &quot;minimal&quot;
+</code></pre></div>
+<p>已有 <code>[client]</code> 或 <code>[ui]</code> 表时，在原表中修改，保留自己的 UI 选项。地址须为完整 HTTPS origin，也就是协议、主机名和可选端口；例如 <code>https://relay.example.com:8443</code>。不填写 <code>/mcp</code>、其他路径、用户名、密码、查询参数或片段。HTTP 仅用于 <code>127.0.0.1</code>、<code>[::1]</code> 等字面量回环地址的本地测试。</p>
+<p>没有命名 context 或其他显式连接目标时，服务器回退按以下顺序选择：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>来源</th>
+<th>使用方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>当前命令的 <code>--server</code></td>
+<td><code>ssmcp whoami --server https://relay.example.com</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>配置文件的 <code>[client].server</code></td>
+<td>编辑 TOML，或运行 <code>ssmcp config set server URL</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>最后登录的服务器</td>
+<td>由成功的 <code>ssmcp login</code> 更新账号存储中的 <code>default</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>内置地址</td>
+<td><code>https://ssmcp.lmm.best</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>配置文件位置按以下顺序选择：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>环境</th>
+<th>实际路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设置了 <code>SSMCP_CLIENT_CONFIG</code></td>
+<td>该环境变量指定的绝对文件路径</td>
+</tr>
+<tr>
+<td>设置了 <code>XDG_CONFIG_HOME</code></td>
+<td><code>$XDG_CONFIG_HOME/ssmcp/config.toml</code></td>
+</tr>
+<tr>
+<td>Linux / macOS 默认</td>
+<td><code>$HOME/.config/ssmcp/config.toml</code></td>
+</tr>
+<tr>
+<td>Windows 默认</td>
+<td><code>%USERPROFILE%\.config\ssmcp\config.toml</code>；设置了 <code>HOME</code> 时优先使用 <code>HOME</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><code>--ui-config</code> 和 <code>SSMCP_UI_CONFIG</code> 只选择显示配置。要改变服务器设置所用的配置文件，使用 <code>SSMCP_CLIENT_CONFIG</code>。账号凭据目录由 <code>SSMCP_AUTH_HOME</code> 等账号设置管理，详见<a href="../../ssmcp/client-accounts/">账号与凭据</a>。</p>
+<h2 id="信任公钥写到哪里">信任公钥写到哪里<a class="heading-anchor" href="#信任公钥写到哪里" aria-label="链接到 信任公钥写到哪里">#</a></h2>
+<p>服务器公钥写入 <strong><code>trusted-servers.toml</code></strong>，它与 <code>ssmcp config path</code> 输出的配置文件位于同一目录。默认路径为 <code>~/.config/ssmcp/trusted-servers.toml</code>；自定义 <code>SSMCP_CLIENT_CONFIG</code> 后，信任文件也跟随到该文件的目录。用下面的命令查看实际位置和已保存的信任记录：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>ssmcp trust path
+ssmcp trust list
+</code></pre></div>
+<p>这里使用 HTTPS 入口证书中的 <strong>SubjectPublicKeyInfo（SPKI）公钥</strong>。TLS 由 Nginx、Caddy 或 CDN 终止时，应登记该入口向客户端提供的公钥。这些公钥用于 HTTPS / WSS 的 TLS 校验；现行客户端不通过 SSH 连接设备。</p>
+<h3 id="从可信渠道导入">从可信渠道导入<a class="heading-anchor" href="#从可信渠道导入" aria-label="链接到 从可信渠道导入">#</a></h3>
+<p>向服务器管理员取得公钥文件，通过独立可信渠道核对服务器地址和公钥指纹，然后导入：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>ssmcp trust add --server https://relay.example.com --public-key ./server-public.pem
+ssmcp trust list
+ssmcp login --server https://relay.example.com
+</code></pre></div>
+<p><code>server-public.pem</code> 使用 <code>-----BEGIN PUBLIC KEY-----</code> 格式，只包含公开信息。管理员可在 HTTPS 入口所在机器，从实际使用的证书文件提取：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>openssl x509 -in fullchain.pem -pubkey -noout &gt; server-public.pem
+</code></pre></div>
+<p>该命令导出证书的 SPKI 公钥，不读取或输出服务器私钥。<a href="https://docs.openssl.org/master/man1/openssl-x509/#certificate-printing-options">OpenSSL x509 文档</a></p>
+<p>若管理员提供的是公钥指纹，也可用 <code>ssmcp trust add --server URL --pin PIN</code> 导入。指纹格式是 <code>sha256//</code> 加 SPKI DER 字节的 SHA-256 摘要的 Base64 编码。管理员可以从已核验的公钥文件计算：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>openssl pkey -pubin -in server-public.pem -outform DER -out server-public.der
+openssl dgst -sha256 -binary server-public.der | openssl base64 -A
+</code></pre></div>
+<p>在输出前加上 <code>sha256//</code> 即为 <code>--pin</code> 的值。这里计算的是公钥编码的摘要；直接对 PEM 文本或整个证书文件求哈希会得到不同结果。<a href="https://docs.openssl.org/master/man1/openssl-pkey/#output-options">OpenSSL pkey 文档</a></p>
+<p>首次登记的信任来源决定了这层保护的效果。通过管理员控制台、已有可信管理渠道或已核验的签名发布信息取得公钥；遇到公钥不匹配时，先向管理员核对变更原因，再更新本机记录。</p>
+<h3 id="直接编辑信任文件">直接编辑信任文件<a class="heading-anchor" href="#直接编辑信任文件" aria-label="链接到 直接编辑信任文件">#</a></h3>
+<p>每个服务器使用一个 <code>[[servers]]</code> 条目，<code>server</code> 填写与连接地址一致的 HTTPS origin。下例展示一个完整有效的 PEM 格式；<strong>示例公钥只用于说明格式，实际使用时填写自己的服务器公钥</strong>：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>[[servers]]
+server = &quot;https://relay.example.com&quot;
+public_keys = [
+    &quot;&quot;&quot;-----BEGIN PUBLIC KEY-----
+MCowBQYDK2VwAyEA11qYAYKxCrfVS/7TyWQHOg7hcvPapiMlrwIaaPcHURo=
+-----END PUBLIC KEY-----&quot;&quot;&quot;
+]
+</code></pre></div>
+<p>同一个示例公钥也可写成指纹形式。将上面的整个条目替换为：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>[[servers]]
+server = &quot;https://relay.example.com&quot;
+pins = [&quot;sha256//BuP9j9opu2CrWVV95h7bCuzbIxE0vjDnW0Vfjht5L6k=&quot;]
+</code></pre></div>
+<p><code>public_keys</code> 与 <code>pins</code> 可以同时存在，并可各自包含多个值，便于轮换。一个服务器条目至少需要一个有效公钥或指纹。客户端会把地址规范化，按协议、主机名和端口精确匹配；不同服务器的信任记录互不借用。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/trust.rs">信任文件与校验实现</a></p>
+<h3 id="连接时怎样校验">连接时怎样校验<a class="heading-anchor" href="#连接时怎样校验" aria-label="链接到 连接时怎样校验">#</a></h3>
+<p>登记公钥后，客户端会在 TLS 握手阶段同时检查证书链、域名、有效期和公钥。HTTPS 账号 API 与 WSS 会话连接使用相同规则；公钥与保存的所有值都不匹配时，连接失败，不发送该服务器的账号令牌，也不自动退回普通证书校验。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/account.rs">账号 API</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/relay.rs">WSS 传输</a></p>
+<p>未登记公钥的服务器使用正常的 HTTPS 证书校验。公钥固定增加了一条身份条件：即使冒充者获得了该域名的另一张有效证书，仍需持有已登记公钥对应的私钥才能通过握手。它适用于 ssmcp CLI 的 HTTPS / WSS 连接；浏览器和其他 MCP 客户端各自管理连接校验。受信任服务器本身仍负责转发工具调用，应由可信操作者维护。</p>
+<p>CLI 的临时 <code>invite</code> / <code>join</code> 已移除。被控设备使用显式 <code>--allow 用户名@中继服务器</code>；完整流程见<a href="../../ssmcp/client-accounts/">账号与被控设备</a>。</p>
+<h2 id="续签换钥与撤销">续签、换钥与撤销<a class="heading-anchor" href="#续签换钥与撤销" aria-label="链接到 续签、换钥与撤销">#</a></h2>
+<p>证书续签继续使用同一把公钥时，无须修改信任文件。准备更换公钥时，先通过可信渠道分发并添加新公钥，保留旧公钥；服务器切换后验证 <code>ssmcp whoami</code> 和会话连接，再从 <code>trusted-servers.toml</code> 中删除旧值。使用多个 HTTPS 入口或同时提供不同算法证书时，应登记这些入口实际使用的可信公钥。</p>
+<p>要移除某台服务器的全部额外公钥约束：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>ssmcp trust remove --server https://relay.example.com
+</code></pre></div>
+<p>移除后，新连接继续执行普通 HTTPS 证书校验。配置更新作用于随后创建的连接；已有连接需要重新连接，才能采用更新后的信任记录。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/client-server.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ssmcp/client-input/"><span class="pagination-label">上一页</span><span class="pagination-title">客户端输入、引用与本地沟通</span></a><a class="pagination-link next" href="../../ssmcp/client-ui/"><span class="pagination-label">下一页</span><span class="pagination-title">客户端 UI</span></a></nav>
+      <footer class="page-footer">
+        <span>ssmcp <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#设置回退服务器">设置回退服务器</a></li><li class="toc-level-3"><a href="#直接编辑配置文件">直接编辑配置文件</a></li><li class="toc-level-2"><a href="#信任公钥写到哪里">信任公钥写到哪里</a></li><li class="toc-level-3"><a href="#从可信渠道导入">从可信渠道导入</a></li><li class="toc-level-3"><a href="#直接编辑信任文件">直接编辑信任文件</a></li><li class="toc-level-3"><a href="#连接时怎样校验">连接时怎样校验</a></li><li class="toc-level-2"><a href="#续签换钥与撤销">续签、换钥与撤销</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

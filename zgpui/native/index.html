@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="场景与布局核心，可选原生 GPU 与 CPU 窗口后端。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zgpui · Native windows and migration · Project Z">
+  <meta property="og:description" content="场景与布局核心，可选原生 GPU 与 CPU 窗口后端。">
+  <meta property="og:type" content="website">
+  <title>zgpui · Native windows and migration · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zgpui/native/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zgpui">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zgpui" aria-label="zgpui 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zgpui</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zgpui</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/" aria-current="page">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zgpui 文档"><div class="nav-group"><p class="nav-label">zgpui</p><ul><li><a class="nav-link" href="../../zgpui/">概览</a></li><li><a class="nav-link" href="../../zgpui/protocol/">ZUI/1 terminal adapter</a></li><li><a class="nav-link" href="../../zgpui/platforms/">Platform integration</a></li><li><a class="nav-link" href="../../zgpui/materials/">Native materials</a></li><li><a class="nav-link" href="../../zgpui/native/" aria-current="page">Native windows and migration</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zgpui</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/" aria-current="page">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zgpui 文档"><div class="nav-group"><p class="nav-label">zgpui</p><ul><li><a class="nav-link" href="../../zgpui/">概览</a></li><li><a class="nav-link" href="../../zgpui/protocol/">ZUI/1 terminal adapter</a></li><li><a class="nav-link" href="../../zgpui/platforms/">Platform integration</a></li><li><a class="nav-link" href="../../zgpui/materials/">Native materials</a></li><li><a class="nav-link" href="../../zgpui/native/" aria-current="page">Native windows and migration</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zgpui/">zgpui 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zgpui/">zgpui</a><span aria-hidden="true">/</span><span>Native windows and migration</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#choose-a-backend">Choose a backend</a></li><li class="toc-level-2"><a href="#update-a-consumer">Update a consumer</a></li><li class="toc-level-2"><a href="#optional-window-colors-and-fonts">Optional window colors and fonts</a></li><li class="toc-level-2"><a href="#native-build-requirements">Native build requirements</a></li><li class="toc-level-2"><a href="#opengl-mask-storage">OpenGL mask storage</a></li><li class="toc-level-2"><a href="#cpu-frame-lifetime">CPU frame lifetime</a></li><li class="toc-level-2"><a href="#checks">Checks</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="native-windows-and-migration">Native windows and migration</h1>
+<p>zgpui provides the native window and widget implementation formerly shipped as
+<code>zui-native</code>. The implementation now lives in this package under <code>zgpui::native</code>;
+there is no dependency on an old package or a compatibility import alias.</p>
+<h2 id="choose-a-backend">Choose a backend<a class="heading-anchor" href="#choose-a-backend" aria-label="链接到 Choose a backend">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Cargo features</th>
+<th>Platform code</th>
+<th>Rendering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default features, or <code>default-features = false</code></td>
+<td>None</td>
+<td>Host-provided scene renderer</td>
+</tr>
+<tr>
+<td><code>std</code></td>
+<td>None</td>
+<td>The same scene core with the Rust standard library available</td>
+</tr>
+<tr>
+<td><code>native</code></td>
+<td>Linux X11, Windows Win32, macOS AppKit</td>
+<td>OpenGL through the platform API</td>
+</tr>
+<tr>
+<td><code>linux-software</code></td>
+<td>Linux X11</td>
+<td>A CPU framebuffer presented through XPutImage</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>native</code> enables <code>std</code>; <code>linux-software</code> enables <code>native</code>. On other desktop
+platforms <code>linux-software</code> keeps their existing native renderer. Features are
+additive, so a Linux build with all features selects the CPU backend. Validate
+<code>native</code> separately when the application ships the OpenGL backend.</p>
+<p>The default scene core remains <code>no_std + alloc</code>, with zero Cargo dependencies.
+Native builds use a C bridge and system libraries; unsafe FFI is confined to
+the <code>native</code> module. Enabling a native window does not change the ZUI/1 scene
+protocol or implement an application event loop.</p>
+<h2 id="update-a-consumer">Update a consumer<a class="heading-anchor" href="#update-a-consumer" aria-label="链接到 Update a consumer">#</a></h2>
+<p>Replace the old dependency key, package selection and vendor gitlink together:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>[dependencies]
+zgpui = { path = &quot;vendor/zgpui&quot;, version = &quot;=0.1.5&quot;, default-features = false, features = [&quot;native&quot;] }
+</code></pre></div>
+<p>Use the <code>linux-software</code> feature for a Linux application that explicitly chooses
+CPU rendering. An optional application GUI should name <code>dep:zgpui</code> in its own
+feature declaration and mark this dependency <code>optional = true</code>.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,no_run</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 rust,no_run 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code># fn main() -&gt; Result&lt;(), String&gt; {
+# #[cfg(feature = &quot;native&quot;)] {
+use zgpui::native::{Window, colors};
+
+let mut window = Window::new(&quot;example&quot;, 640, 400)?;
+{
+    let mut canvas = window.begin(colors::SURFACE);
+    canvas.text(&quot;Hello&quot;, 20., 20., 18, false, colors::TEXT);
+}
+window.present();
+# }
+# Ok(())
+# }
+</code></pre></div>
+<p>The public native types are <code>Window</code>, <code>Canvas</code>, <code>Event</code>, <code>Rect</code>, <code>Theme</code>, <code>Palette</code>, <code>Ui</code>,
+<code>ButtonStyle</code> and <code>colors</code>. <code>Window</code> stays on its creating thread and the backend
+allows one live window per process. <code>native::Rect</code> belongs to immediate drawing;
+<code>layout::Rect</code> belongs to the portable scene layout. A host implements a
+<code>layout::Renderer</code> adapter when it wants to paint scene nodes in a native window.</p>
+<p>Update <code>.gitmodules</code> to <code>https://github.com/LIghtJUNction/zgpui.git</code>, move the
+source directory to <code>vendor/zgpui</code>, pin the tested commit and regenerate the
+consumer lockfile. Rust calls use <code>zgpui::native</code>; do not retain a <code>zui</code> alias.
+Outer source bundles and installer repositories must update their own pins.</p>
+<h2 id="optional-window-colors-and-fonts">Optional window colors and fonts<a class="heading-anchor" href="#optional-window-colors-and-fonts" aria-label="链接到 Optional window colors and fonts">#</a></h2>
+<p>Version 0.1.3 adds a window-local palette and preferred font family. Existing
+applications that do not call these setters retain their original theme and
+font selection. The default <code>no_std</code> scene core and its dependency list are
+unchanged.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,no_run</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 rust,no_run 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code># fn main() -&gt; Result&lt;(), String&gt; {
+# #[cfg(feature = &quot;native&quot;)] {
+use zgpui::native::{Palette, Theme, Window};
+
+let mut window = Window::new(&quot;example&quot;, 640, 400)?;
+window.set_theme(Theme::Dark);
+let mut ink = Palette::for_theme(Theme::Dark);
+ink.background = 0x161412ff;
+ink.surface = 0x201c18ff;
+ink.text = 0xe8ded2ff;
+ink.accent = 0xd4a373ff;
+ink.on_accent = 0x161412ff;
+window.set_palette(ink);
+window.set_font_family(&quot;JetBrains Mono&quot;)?;
+# }
+# Ok(())
+# }
+</code></pre></div>
+<p>Palette fields use <code>0xRRGGBBAA</code>. The sixteen roles cover background, surface,
+text, muted text, lines, accent, hovered accent, soft accent, hovered surface,
+success and its soft surface, danger and its soft surface, disabled surface,
+disabled text, and text on an accent. Canvas primitives and the existing button
+and input widgets resolve canonical color tokens through the same palette.
+The token's alpha multiplies the selected role's alpha. Other RGB values pass
+through unchanged. Use <code>on_accent</code> for primary-button text; it is already
+resolved and is not interpreted again as a surface token.</p>
+<p>An explicit palette stays active when <code>set_theme</code> changes the built-in theme.
+Call <code>clear_palette</code> to return to that theme. <code>Palette::for_theme</code> initializes
+semantic roles from an existing theme; it groups legacy color aliases into
+their corresponding role. Leaving the palette unset preserves the original
+individual aliases exactly.</p>
+<p><code>set_font_family(&quot;monospace&quot;)</code> selects the platform's fixed-width family.
+A missing named family falls back to that selection, and platform glyph fallback
+remains available for characters outside the chosen font. Linux honors installed
+Fontconfig aliases and language settings, Windows uses its installed family or
+Consolas/Courier New fallback, and macOS uses the requested family or its system
+monospaced font. The setter does not install fonts or change system preferences.</p>
+<p>Names may contain at most 255 UTF-8 bytes and no control characters. Surrounding
+whitespace is removed. An empty name resets the original default; repeating the
+same normalized request does no native work. Native preparation finishes before
+the old family is replaced. Failure returns an error and preserves the previous
+font and text cache. Success invalidates only text masks or textures, leaving
+geometry caches, framebuffer storage and the graphics context intact. Redraw
+the complete frame after a font change.</p>
+<p>Window access remains confined to its creating thread. The native bridge still
+allows only one live window per process; these setters do not introduce concurrent
+multiwindow support. Closing a window releases its font selection, so a later
+window starts with the original defaults. Fontconfig matching uses private
+temporary configurations and does not replace a host's process-wide configuration.</p>
+<h2 id="native-build-requirements">Native build requirements<a class="heading-anchor" href="#native-build-requirements" aria-label="链接到 Native build requirements">#</a></h2>
+<p>Linux needs a C compiler, pkg-config, X11, FreeType and fontconfig development
+files. The <code>native</code> backend also needs OpenGL development files; the
+<code>linux-software</code> backend neither creates a GLX context nor links OpenGL.
+XWayland is required in Wayland sessions. Windows uses MSVC, Win32, WGL and GDI;
+macOS uses the Xcode tools, AppKit, NSOpenGLContext and CoreText.</p>
+<p>The CPU renderer owns one four-byte-per-pixel framebuffer and a bounded text
+mask cache. X11 server storage, fonts and the process runtime consume additional
+memory. This does not establish a whole-application memory limit. The renderer
+requires a compatible RGB X11 visual and bounds its framebuffer allocation.</p>
+<p>Linux releases temporary Fontconfig matching state after opening the required
+FreeType faces. Matching retains system and user aliases and default-language
+settings. Fonts added only to a host's in-memory Fontconfig configuration are
+not inherited by the private matching configuration.</p>
+<h2 id="opengl-mask-storage">OpenGL mask storage<a class="heading-anchor" href="#opengl-mask-storage" aria-label="链接到 OpenGL mask storage">#</a></h2>
+<p>The native GPU renderer uploads text and rounded-corner alpha masks with
+power-of-two storage dimensions, including on legacy OpenGL 1.1 drivers.
+This follows the platform's <a href="https://learn.microsoft.com/en-us/windows/win32/opengl/glteximage2d">texture size contract</a>.
+Texture coordinates select only the populated mask. The renderer reads
+<code>GL_MAX_TEXTURE_SIZE</code> and divides larger text masks into bounded tiles; adjacent
+tiles include neighbour pixels so linear filtering at fractional positions does
+not introduce a seam. Text advance and the original rasterization limits remain
+unchanged.</p>
+<p>The text cache allows at most 96 entries and 2 MiB of uploaded alpha texels,
+counting padding and tile borders. This is an accounting bound on those uploads,
+not a bound on total driver memory, fonts or the application. Rounded masks use
+a separate fixed cache. A failed upload releases all tiles created for that
+entry and does not cache an invalid texture. Closing the window releases both
+texture caches and resets the remembered device limit.</p>
+<h2 id="cpu-frame-lifetime">CPU frame lifetime<a class="heading-anchor" href="#cpu-frame-lifetime" aria-label="链接到 CPU frame lifetime">#</a></h2>
+<p>The Linux CPU backend keeps its framebuffer in a dedicated private anonymous
+mapping. After ordinary XPutImage copies the frame and XFlush drains the Xlib
+output, it releases the mapping's resident pages with MADV_DONTNEED. The virtual
+address remains reserved. This path does not use XShm, a server-side renderer or
+an additional process. See the <a href="https://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html">Xlib image-transfer contract</a>
+and <a href="https://man7.org/linux/man-pages/man2/madvise.2.html">Linux discard semantics</a>.</p>
+<p>A successful Window::begin clears every pixel before drawing. CPU present
+consumes that frame; another present before a new begin is a no-op. Redraw the
+complete frame after Event::Resize, which also represents an X11 Expose event.
+The text-mask cache survives presentation. Drawing cannot write discarded frame
+contents before the next successful begin.</p>
+<p>Resize allocates a replacement mapping before releasing the old one. An
+allocation failure preserves the previous storage and dimensions; a failed begin
+does not expose a stale frame for presentation. Failure to discard pages retains
+memory without changing rendering correctness. If XImage metadata allocation
+fails, presentation retains the prepared frame for a later attempt.</p>
+<p>Drawing still requires the full four-byte-per-pixel surface. At 1120x760 this is
+3,404,800 bytes, rounded to complete pages by the mapping. Report drawing peaks
+separately from idle residency; discarding this surface does not establish a
+whole-application memory limit.</p>
+<h2 id="checks">Checks<a class="heading-anchor" href="#checks" aria-label="链接到 Checks">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>cargo test --locked --lib
+cargo test --locked --lib --features native
+cargo test --locked --lib --features linux-software
+cargo clippy --locked --all-targets --features native -- -D warnings
+cargo clippy --locked --all-targets --features linux-software -- -D warnings
+python3 scripts/test_software.py
+python3 scripts/test_fonts.py -v
+cargo build --release --locked --example window_probe --features linux-software
+xvfb-run -a -s &quot;-screen 0 1280x900x24 -nolisten tcp&quot; python3 scripts/check_x11.py
+</code></pre></div>
+<p>Private X11 checks inspect the actual title, WM_CLASS, minimum size and client
+geometry. Software rasterizer tests exercise clipping, alpha blending, text
+cache lifecycle, discarded-page residency and allocation failures under AddressSanitizer and UBSan. Font
+tests use installed Latin/CJK fonts to check locale matching, face reuse,
+raster stability across sizes and configuration ownership under the same
+sanitizers. Linux window checks also present multilingual regular and bold
+text, reject an empty frame, preserve a PNG and require a clean exit.</p>
+<p>The font checks require scalable Latin and CJK fonts, such as Liberation Sans
+and Noto Sans CJK. The Linux window checks require Xvfb, xauth, xdotool,
+x11-utils and ImageMagick in addition to the native development libraries.
+These are validation requirements, separate from application runtime libraries.
+Native window checks under Xvfb do not measure hardware GPU performance or
+establish a whole-application memory limit.</p>
+<p>The native release gate also runs <code>style_probe</code> on Linux, Windows and macOS.
+It records the actual OpenGL version, renderer, extensions and maximum texture
+size for GPU builds. Pixel checks require glyph foreground and background and
+transparent rounded corners, so a solid text rectangle cannot pass as text.
+It also reads actual pixels for primary-button text, disabled controls,
+input focus and selection, alpha and custom colors. It changes font families,
+checks fixed-width advances, rejects invalid names without changing the active
+font, restores the original frame, and closes/reopens a window to check default
+isolation. PPM frames accompany the result. The Linux sanitizer fixture also
+forces font preparation to fail, verifies that cached text and framebuffer
+storage survive, and repeatedly changes fonts while retaining host Fontconfig
+ownership. These checks exercise rendering and resource lifetimes rather than
+only comparing palette constants.</p>
+<p>The Linux GPU gate additionally exercises a real GL 1.1 context with the NPOT
+extension disabled. A separate fixture constrains texture limits to 256 and 64,
+compares the same complete viewport at fractional text positions and scaling, verifies the
+actual padded-upload budget, and injects an upload failure after the first tile
+to check cleanup and recovery. These cases use a private software GL context;
+they do not establish hardware GPU performance.</p>
+<p>The frozen native import and original file hashes are recorded in
+<a href="https://github.com/LIghtJUNction/zgpui/blob/eeb909e956ed0cff05e14525d4f29f5a78c553ec/docs/native-import.json">native-import.json</a>. Historical source names in that
+receipt identify provenance; current dependency and import names are <code>zgpui</code>.</p>
+<p>The formal native entry point is <code>scripts/check_native.py</code>. It accepts
+<code>--features native</code> or <code>--features linux-software</code>; <code>--window --package</code>
+adds native-window and packaged-source checks. Release jobs use those options.</p>
+<p><a href="https://github.com/LIghtJUNction/zgpui/blob/eeb909e956ed0cff05e14525d4f29f5a78c553ec/docs/native-validation.json">Local validation evidence</a> records the frozen runtime
+source, core and native checks, four real X11 cases per backend, and CPU driver
+dependency inspection. It reports no hardware benchmark or whole-application
+memory target.</p>
+<p>The Linux CPU release gate also compares real window pixels with the pre-discard
+implementation. Its source checkout must contain the frozen baseline commit. This test covers repeated presentation, resize/Expose redraw,
+allocation-failure rollback and an antialiased text/geometry scene under
+AddressSanitizer and UBSan:</p>
+<pre><code>xvfb-run -a -s &quot;-screen 0 1600x1000x24 -nolisten tcp&quot; \
+  python3 scripts/test_software_x11.py \
+  --baseline cb50f2fe554622fdc984ae7fec9bcd844f175d67 \
+  --output /var/tmp/zgpui-framebuffer-x11
+</code></pre>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zgpui/blob/eeb909e956ed0cff05e14525d4f29f5a78c553ec/docs/native.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zgpui">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zgpui/materials/"><span class="pagination-label">上一页</span><span class="pagination-title">Native materials</span></a></nav>
+      <footer class="page-footer">
+        <span>zgpui <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#choose-a-backend">Choose a backend</a></li><li class="toc-level-2"><a href="#update-a-consumer">Update a consumer</a></li><li class="toc-level-2"><a href="#optional-window-colors-and-fonts">Optional window colors and fonts</a></li><li class="toc-level-2"><a href="#native-build-requirements">Native build requirements</a></li><li class="toc-level-2"><a href="#opengl-mask-storage">OpenGL mask storage</a></li><li class="toc-level-2"><a href="#cpu-frame-lifetime">CPU frame lifetime</a></li><li class="toc-level-2"><a href="#checks">Checks</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

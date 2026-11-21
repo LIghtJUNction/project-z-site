@@ -1,0 +1,1520 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 zclap 的 Click 参数语义与 Python 预览绑定。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zclick · Click compatibility · Project Z">
+  <meta property="og:description" content="基于 zclap 的 Click 参数语义与 Python 预览绑定。">
+  <meta property="og:type" content="website">
+  <title>zclick · Click compatibility · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zclick/compatibility/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zclick">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zclick" aria-label="zclick 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zclick</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zclick</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/" aria-current="page">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zclick 文档"><div class="nav-group"><p class="nav-label">zclick</p><ul><li><a class="nav-link" href="../../zclick/">概览</a></li><li><a class="nav-link" href="../../zclick/crates-zclick-core-readme/">zclick-core</a></li><li><a class="nav-link" href="../../zclick/architecture/">Architecture and dependency boundaries</a></li><li><a class="nav-link" href="../../zclick/compatibility/" aria-current="page">Click compatibility</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a2-zh-cn/">zclick 0.1.1a2 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a3-zh-cn/">zclick 0.1.1a3 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-zh-cn/">zclick 0.1.1a1 交付记录</a></li><li><a class="nav-link" href="../../zclick/development/">Build, verify and release</a></li><li><a class="nav-link" href="../../zclick/extensions/">第三方 Click 扩展的迁移边界</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a2/">Measured performance: 0.1.1a2</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a3/">Measured performance: 0.1.1a3</a></li><li><a class="nav-link" href="../../zclick/performance/">Measured performance: 0.1.1a1</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zclick</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/" aria-current="page">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zclick 文档"><div class="nav-group"><p class="nav-label">zclick</p><ul><li><a class="nav-link" href="../../zclick/">概览</a></li><li><a class="nav-link" href="../../zclick/crates-zclick-core-readme/">zclick-core</a></li><li><a class="nav-link" href="../../zclick/architecture/">Architecture and dependency boundaries</a></li><li><a class="nav-link" href="../../zclick/compatibility/" aria-current="page">Click compatibility</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a2-zh-cn/">zclick 0.1.1a2 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a3-zh-cn/">zclick 0.1.1a3 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-zh-cn/">zclick 0.1.1a1 交付记录</a></li><li><a class="nav-link" href="../../zclick/development/">Build, verify and release</a></li><li><a class="nav-link" href="../../zclick/extensions/">第三方 Click 扩展的迁移边界</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a2/">Measured performance: 0.1.1a2</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a3/">Measured performance: 0.1.1a3</a></li><li><a class="nav-link" href="../../zclick/performance/">Measured performance: 0.1.1a1</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zclick/">zclick 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zclick/">zclick</a><span aria-hidden="true">/</span><span>Click compatibility</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#unfinished-compatibility">Unfinished compatibility</a></li><li class="toc-level-2"><a href="#evidence-and-scope">Evidence and scope</a></li><li class="toc-level-2"><a href="#behavior-checklist">Behavior checklist</a></li><li class="toc-level-2"><a href="#migration-and-dynamic-behavior">Migration and dynamic behavior</a></li><li class="toc-level-2"><a href="#zclap-adaptation">zclap adaptation</a></li><li class="toc-level-2"><a href="#public-api-checklist">Public API checklist</a></li><li class="toc-level-2"><a href="#reproduction">Reproduction</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="click-compatibility">Click compatibility</h1>
+<p>The fixed target is <strong>Click 8.5.1</strong>, released 2026-11-06, at commit <code>cf19179e8e2fd54c601378cec9e0d21bb12b6fb1</code>. The target was verified on 2026-11-11 against PyPI and the upstream Git tag.</p>
+<p>The contract covers public object names, call parameters and defaults, return annotations, class members, properties, deprecated imports, exception behavior, CLI output and terminal tools. The generated <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/api-reference.json">API inventory</a> records each declaration and associated upstream test source. The <code>.pyi</code> declarations describe this same fixed target.</p>
+<h2 id="unfinished-compatibility">Unfinished compatibility<a class="heading-anchor" href="#unfinished-compatibility" aria-label="链接到 Unfinished compatibility">#</a></h2>
+<p><strong>Full Click compatibility is not yet complete: 1 known item remains unfinished.</strong> Passing the pinned upstream suite is evidence for that suite, not proof of identical behavior in every interpreter configuration. The release gate blocks stable versions while this list contains unfinished items; an explicitly disclosed prerelease can be published only after the existing test, API, Shell and safety gates pass.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Click target</th>
+<th>zclick behavior</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import and command invocation in Python subinterpreters</td>
+<td>Click 8.5.1 imports and invokes commands in CPython 3.12 isolated and shared-GIL subinterpreters after initialization in the main interpreter.</td>
+<td>zclick requires the main interpreter. Its native module rejects initialization in subinterpreters with ImportError.</td>
+<td><strong>UNFINISHED</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>The machine-readable <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/known-gaps.json">known gap list</a> includes the cause, reproduction command and pinned upstream sources. <code>scripts/check_subinterpreters.py</code> records the Click/zclick difference separately from safe rejection: <code>compatibility_passed</code> remains false even when <code>safe_rejection</code> passes. It checks isolated and shared-GIL configurations, both import orders, and successful use of the main interpreter afterward. No upstream test has been removed, weakened or marked xfail for this limitation.</p>
+<h2 id="evidence-and-scope">Evidence and scope<a class="heading-anchor" href="#evidence-and-scope" aria-label="链接到 Evidence and scope">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Evidence</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public object and member signature audit</td>
+<td>Passed; 196 public objects</td>
+</tr>
+<tr>
+<td>Upstream normal suite on the local interpreter</td>
+<td>2434 passed, 24 skipped, 1 xfailed</td>
+</tr>
+<tr>
+<td>Full upstream coverage recorded locally</td>
+<td>33434 passed, 24 skipped, 1 xfailed; 33,459 unique original cases</td>
+</tr>
+<tr>
+<td>Upstream stress suite</td>
+<td>31,000 passed: 10,000 each for thread pool, logging and GC; 1,000 for pager cleanup; no stress skips</td>
+</tr>
+<tr>
+<td>Cross platform validation</td>
+<td>See the <a href="https://github.com/LIghtJUNction/zclick/actions/workflows/ci.yml">CI runs</a>; a configured runner is not a passing result</td>
+</tr>
+</tbody>
+</table></div>
+<p>These local numbers record development snapshots. The detailed reports retain test IDs and source hashes; they do not assert that every later code change is already validated. The release gate requires fresh reports for the exact immutable release commit, all 33,459 pinned test IDs, the public API audit and real execution of all four Shell runtimes. The final release includes the complete evidence archive and raw performance measurements.</p>
+<p>The normal run preserves the upstream <code>not stress</code> development selection. The release workflow runs all four original stress functions with their original parameter counts, then checks the union of test IDs. It rejects failures, collection errors, missing tests and extra skips. Upstream platform skips and expected failures retain their original conditions; they are reported separately.</p>
+<p>Tests are copied only into <code>.cache/click-migrated</code>, outside the runtime package. The migration changes package imports, module references, monkeypatch import paths, subprocess imports, distribution metadata lookup and four module-qualified object repr patterns. The complete edit log is <code>.cache/click-migrated/namespace-migration.json</code>. Assertions, argument values, expected behavior and skip markers remain intact.</p>
+<p>Before Python 3.12, f-strings are opaque tokenizer strings. The migrator uses AST source positions to rename only package-name expressions inside them, retaining literal output text. Test ID canonicalization also normalizes the three upstream program-name cases built with platform path separators and five exact Enum parameter display IDs whose names differ on Python 3.10. The latter map only complete IDs in the pinned <code>test_choice_default_rendering</code> test; distinct defaults remain distinct, and duplicate canonical IDs within one report are rejected. Test arguments and assertions are unchanged. The fixed count and ID fingerprint are recorded in <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/test-manifest.json">test-manifest.json</a>.</p>
+<h2 id="behavior-checklist">Behavior checklist<a class="heading-anchor" href="#behavior-checklist" aria-label="链接到 Behavior checklist">#</a></h2>
+<p>Each row names the original tests that verify its observable behavior. The API inventory below adds the exact call and member contract for every public object.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Covered behavior</th>
+<th>Upstream test sources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command construction</td>
+<td>Decorators, arbitrary classes, subclass overrides, direct invocation</td>
+<td><code>test_command_decorators.py</code>, <code>test_custom_classes.py</code>, <code>test_commands.py</code></td>
+</tr>
+<tr>
+<td>Command groups</td>
+<td>Nested and chained groups, invocation without subcommand, result callbacks, dynamic and lazy lookup</td>
+<td><code>test_commands.py</code>, <code>test_chain.py</code>, <code>test_custom_classes.py</code></td>
+</tr>
+<tr>
+<td>Context</td>
+<td>Parent propagation, objects, metadata, resources, invoke/forward, resilient parsing</td>
+<td><code>test_context.py</code>, <code>test_commands.py</code></td>
+</tr>
+<tr>
+<td>Options</td>
+<td>Aliases, prefixes, clusters, attached values, optional values, count, dual flags, multiple/nargs, shared flag destinations</td>
+<td><code>test_options.py</code>, <code>test_parser.py</code></td>
+</tr>
+<tr>
+<td>Arguments</td>
+<td>Fixed and variadic arity, negative tokens, <code>--</code>, positional allocation, missing and extra arguments</td>
+<td><code>test_arguments.py</code>, <code>test_parser.py</code></td>
+</tr>
+<tr>
+<td>Defaults and sources</td>
+<td>Callable defaults, default maps, environment variables, automatic prefixes, prompts and ParameterSource</td>
+<td><code>test_defaults.py</code>, <code>test_options.py</code>, <code>test_context.py</code></td>
+</tr>
+<tr>
+<td>Conversion</td>
+<td>Unbounded Python integers, floats, ranges, enum choices, tuples, UUID, dates, paths, files, custom types</td>
+<td><code>test_types/</code>, <code>test_basic.py</code></td>
+</tr>
+<tr>
+<td>Control flow</td>
+<td>Eager options, callbacks, abort, EOF, KeyboardInterrupt, usage exceptions, standalone/nonstandalone exits</td>
+<td><code>test_abort_interrupt.py</code>, <code>test_basic.py</code>, <code>test_exceptions/</code></td>
+</tr>
+<tr>
+<td>Help</td>
+<td>Usage/metavars, command/option ordering, defaults/envvars, hidden/deprecated items, ANSI wrapping and widths</td>
+<td><code>test_formatting.py</code>, <code>test_options.py</code>, <code>test_commands.py</code></td>
+</tr>
+<tr>
+<td>Terminal tools</td>
+<td>Echo, styles, prompting, progress bars, pager lifecycle, editor, launcher, streams and file helpers</td>
+<td><code>test_termui.py</code>, <code>test_utils/</code>, <code>test_compat.py</code></td>
+</tr>
+<tr>
+<td>Completion</td>
+<td>Bash, Zsh, Fish, PowerShell, custom classes, protocol output, context resolution without command callbacks</td>
+<td><code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td>Testing tools</td>
+<td>Result output streams, simulated input, isolated environment/filesystem, exceptions and return values</td>
+<td><code>test_testing.py</code>, <code>test_stream_lifecycle.py</code></td>
+</tr>
+<tr>
+<td>Deprecations</td>
+<td>Available deprecated names, warning categories and triggering attribute access</td>
+<td><code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td>Typing</td>
+<td>Decorator inference, prompts, generic types, paths, callbacks and callable return values</td>
+<td><code>tests/typing/</code> (12 files)</td>
+</tr>
+<tr>
+<td>Resource stress</td>
+<td>10,000 thread-pool, 10,000 logging, 10,000 GC, 1,000 pager cleanup cases</td>
+<td><code>test_stream_lifecycle.py</code>, <code>test_utils/test_echo_via_pager.py</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="migration-and-dynamic-behavior">Migration and dynamic behavior<a class="heading-anchor" href="#migration-and-dynamic-behavior" aria-label="链接到 Migration and dynamic behavior">#</a></h2>
+<p>Use <code>import zclick as click</code> and replace <code>from click.module</code> with <code>from zclick.module</code>. The distribution installs only the <code>zclick</code> namespace and never rewrites <code>sys.modules['click']</code>. An extension that internally imports original Click still uses original Click: module aliasing does not merge class identities across packages. Such extensions need their own import migration and tests.</p>
+<p>Command callbacks, parameter objects and type converters remain Python extension points. Invocation observes changes to <code>command.params</code>, registered commands, callbacks and option attributes. Per-invocation defaults, environment values and context state are not cached. The native parser validates the current definition before reusing its most recent immutable, owned Rust schema; it does not retain borrowed schema references or Python application objects. Warmed-command pickle/deepcopy, alias and arity mutation, method replacement, reentry and original argument identity have explicit regressions.</p>
+<p>The target's own help-option cache is preserved: after its first creation,
+later nonempty help-name settings reuse that object, while empty help names
+disable it for that context. Without an automatic help option, <code>get_params</code>
+returns the existing parameter container. Help-name hashing, parameter reads,
+duplicate-name comparisons and debug-only warnings follow the target's order.
+Paired Click/zclick cases in
+<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/tests/test_command_help_protocols.py"><code>test_command_help_protocols.py</code></a> check
+these container, cache and warning behaviors. Parser action attribute reads
+and equality comparisons are paired in
+<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/tests/test_native_actions.py"><code>test_native_actions.py</code></a>.</p>
+<p><code>CliRunner</code> temporarily changes interpreter-wide streams, environment and working directory, matching Click's isolation model. Concurrent runner invocations in the same process are not a supported thread-safe isolation boundary. Native parsing state is per call; this does not make the testing tools thread-safe.</p>
+<h2 id="zclap-adaptation">zclap adaptation<a class="heading-anchor" href="#zclap-adaptation" aria-label="链接到 zclap adaptation">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>zclap contract</th>
+<th>Click requirement</th>
+<th>Adaptation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Runtime definitions are borrowed</td>
+<td>Python can create and mutate parameter tables</td>
+<td>Retain an owned, immutable Rust schema; verify current definitions before reuse and borrow its data during parsing; no leaked strings or fake static lifetimes</td>
+</tr>
+<tr>
+<td>Option names and values have kernel conventions</td>
+<td>Multiple prefixes, aliases, combined shorts, negative and dash-prefixed values</td>
+<td>Translate current option spellings and use zclap event parsing for recognition; retain original values and error spelling</td>
+</tr>
+<tr>
+<td>Parent/child parsing scope and final validation differ</td>
+<td>Click controls interspersed arguments, chain groups and deferred validation</td>
+<td>A Rust semantic layer controls boundaries and event sequencing around zclap</td>
+</tr>
+<tr>
+<td>Kernel help output has its own layout</td>
+<td>Exact Click help and terminal formatting</td>
+<td>Rust wrapping/ANSI primitives feed the Click-compatible formatter</td>
+</tr>
+<tr>
+<td>Kernel arity rules are lower-level</td>
+<td>Variadics, optional values, callbacks and source precedence</td>
+<td>Rust semantic operations and Python extension hooks preserve target ordering</td>
+</tr>
+</tbody>
+</table></div>
+<p>The core directly depends only on registry <code>zclap = 0.1.4</code> and builds with <code>no_std + alloc</code>. The Python extension also depends on PyO3, uses std, creates Python objects and allocates memory. The published Python package has no third-party Python runtime requirements. Click, pytest, Maturin and type-checking tools are development dependencies.</p>
+<p>The binding supports the main Python interpreter, including its worker threads. Subinterpreter imports are rejected before initializing PyO3's Python-object caches. This is an explicit compatibility limit, not a claim of subinterpreter support.</p>
+<h2 id="public-api-checklist">Public API checklist<a class="heading-anchor" href="#public-api-checklist" aria-label="链接到 Public API checklist">#</a></h2>
+<p><code>Contract passed</code> means availability, positional/keyword parameters and defaults, member availability, member signatures, property mutability and deprecation categories passed introspection. Observable behavior is measured by the associated tests and platform runs above.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Public object</th>
+<th>Declaration source</th>
+<th>Contract</th>
+<th>Behavior test sources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>click.Abort</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_abort_interrupt.py</code>, <code>test_prompt.py</code></td>
+</tr>
+<tr>
+<td><code>click.Argument</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_shell_completion.py</code>, <code>test_options.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.BOOL</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>; +1 in JSON</td>
+</tr>
+<tr>
+<td><code>click.BadArgumentUsage</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.BadOptionUsage</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.BadParameter</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_arguments.py</code>, <code>test_options.py</code>, <code>test_termui.py</code>, <code>test_Path.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.BaseCommand</code></td>
+<td>official-api-reference</td>
+<td>Contract passed</td>
+<td><code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.Choice</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_normalization.py</code>, <code>test_commands.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.ClickException</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_termui.py</code>, <code>test_abort_interrupt.py</code>, <code>test_style.py</code></td>
+</tr>
+<tr>
+<td><code>click.Command</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_parser.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_arguments.py</code>; +12 in JSON</td>
+</tr>
+<tr>
+<td><code>click.CommandCollection</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.Context</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_parser.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_arguments.py</code>; +8 in JSON</td>
+</tr>
+<tr>
+<td><code>click.DateTime</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.FLOAT</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>; +1 in JSON</td>
+</tr>
+<tr>
+<td><code>click.File</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_shell_completion.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.FileError</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_FileError.py</code></td>
+</tr>
+<tr>
+<td><code>click.FloatRange</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_FloatRange.py</code></td>
+</tr>
+<tr>
+<td><code>click.Group</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_commands.py</code>, <code>test_shell_completion.py</code>; +3 in JSON</td>
+</tr>
+<tr>
+<td><code>click.HelpFormatter</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_formatting.py</code>, <code>test_custom_classes.py</code></td>
+</tr>
+<tr>
+<td><code>click.INT</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>; +4 in JSON</td>
+</tr>
+<tr>
+<td><code>click.IntRange</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_options.py</code>, <code>test_termui.py</code>, <code>test_prompt.py</code>; +1 in JSON</td>
+</tr>
+<tr>
+<td><code>click.MissingParameter</code></td>
+<td>top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_arguments.py</code>, <code>test_options.py</code>, <code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.MultiCommand</code></td>
+<td>official-api-reference</td>
+<td>Contract passed</td>
+<td><code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.NoSuchCommand</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.NoSuchOption</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.Option</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_parser.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_commands.py</code>; +8 in JSON</td>
+</tr>
+<tr>
+<td><code>click.OptionParser</code></td>
+<td>official-api-reference</td>
+<td>Contract passed</td>
+<td><code>test_commands.py</code>, <code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.ParamType</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>, <code>test_formatting.py</code>; +4 in JSON</td>
+</tr>
+<tr>
+<td><code>click.Parameter</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>; +3 in JSON</td>
+</tr>
+<tr>
+<td><code>click.ParameterSource</code></td>
+<td>top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_defaults.py</code></td>
+</tr>
+<tr>
+<td><code>click.Path</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_commands.py</code>; +7 in JSON</td>
+</tr>
+<tr>
+<td><code>click.STRING</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>; +2 in JSON</td>
+</tr>
+<tr>
+<td><code>click.Tuple</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>; +1 in JSON</td>
+</tr>
+<tr>
+<td><code>click.UNPROCESSED</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code></td>
+</tr>
+<tr>
+<td><code>click.UUID</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_basic.py</code>, <code>test_convert_type.py</code></td>
+</tr>
+<tr>
+<td><code>click.UsageError</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.__version__</code></td>
+<td>deprecated-public-export</td>
+<td>Contract passed</td>
+<td><code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.argument</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_stream_lifecycle.py</code>; +13 in JSON</td>
+</tr>
+<tr>
+<td><code>click.clear</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_compat.py</code>, <code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.command</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_stream_lifecycle.py</code>; +16 in JSON</td>
+</tr>
+<tr>
+<td><code>click.confirm</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code>, <code>test_confirm.py</code>, <code>test_echo.py</code>, <code>test_prompt.py</code></td>
+</tr>
+<tr>
+<td><code>click.confirmation_option</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.core.Argument</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_shell_completion.py</code>, <code>test_options.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.core.BaseCommand</code></td>
+<td>deprecated-public-export</td>
+<td>Contract passed</td>
+<td><code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.core.Command</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_parser.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_arguments.py</code>; +12 in JSON</td>
+</tr>
+<tr>
+<td><code>click.core.CommandCollection</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.core.Context</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_parser.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_arguments.py</code>; +8 in JSON</td>
+</tr>
+<tr>
+<td><code>click.core.F</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_arguments.py</code>, <code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.core.Group</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_commands.py</code>, <code>test_shell_completion.py</code>; +3 in JSON</td>
+</tr>
+<tr>
+<td><code>click.core.MultiCommand</code></td>
+<td>deprecated-public-export</td>
+<td>Contract passed</td>
+<td><code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.core.Option</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_parser.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_commands.py</code>; +8 in JSON</td>
+</tr>
+<tr>
+<td><code>click.core.Parameter</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>; +3 in JSON</td>
+</tr>
+<tr>
+<td><code>click.core.ParameterSource</code></td>
+<td>official-api-reference, public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_defaults.py</code></td>
+</tr>
+<tr>
+<td><code>click.core.V</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.core.augment_usage_errors</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.core.batch</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.core.iter_params_for_processing</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_commands.py</code></td>
+</tr>
+<tr>
+<td><code>click.custom_version_option</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.decorators.CmdType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.decorators.FC</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.decorators.GrpType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.decorators.R</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.decorators.T</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_options.py</code></td>
+</tr>
+<tr>
+<td><code>click.decorators.argument</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_stream_lifecycle.py</code>; +13 in JSON</td>
+</tr>
+<tr>
+<td><code>click.decorators.command</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_stream_lifecycle.py</code>; +16 in JSON</td>
+</tr>
+<tr>
+<td><code>click.decorators.confirmation_option</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.decorators.custom_version_option</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.decorators.group</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_arguments.py</code>, <code>test_normalization.py</code>, <code>test_commands.py</code>; +8 in JSON</td>
+</tr>
+<tr>
+<td><code>click.decorators.help_option</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_options.py</code>, <code>test_formatting.py</code>, <code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.decorators.make_pass_decorator</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code></td>
+</tr>
+<tr>
+<td><code>click.decorators.option</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_stream_lifecycle.py</code>; +13 in JSON</td>
+</tr>
+<tr>
+<td><code>click.decorators.pass_context</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_context.py</code>, <code>test_arguments.py</code>, <code>test_commands.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.decorators.pass_meta_key</code></td>
+<td>official-api-reference, public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code></td>
+</tr>
+<tr>
+<td><code>click.decorators.pass_obj</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_arguments.py</code></td>
+</tr>
+<tr>
+<td><code>click.decorators.password_option</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.decorators.version_option</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.echo</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_context.py</code>, <code>test_stream_lifecycle.py</code>, <code>test_arguments.py</code>; +16 in JSON</td>
+</tr>
+<tr>
+<td><code>click.echo_via_pager</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_termui.py</code>, <code>test_echo_via_pager.py</code></td>
+</tr>
+<tr>
+<td><code>click.edit</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.exceptions.Abort</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_abort_interrupt.py</code>, <code>test_prompt.py</code></td>
+</tr>
+<tr>
+<td><code>click.exceptions.BadArgumentUsage</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.exceptions.BadOptionUsage</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.exceptions.BadParameter</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_arguments.py</code>, <code>test_options.py</code>, <code>test_termui.py</code>, <code>test_Path.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.exceptions.ClickException</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_termui.py</code>, <code>test_abort_interrupt.py</code>, <code>test_style.py</code></td>
+</tr>
+<tr>
+<td><code>click.exceptions.Exit</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_abort_interrupt.py</code></td>
+</tr>
+<tr>
+<td><code>click.exceptions.FileError</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_FileError.py</code></td>
+</tr>
+<tr>
+<td><code>click.exceptions.MissingParameter</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_arguments.py</code>, <code>test_options.py</code>, <code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.exceptions.NoArgsIsHelpError</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.exceptions.NoSuchCommand</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.exceptions.NoSuchOption</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.exceptions.UsageError</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.format_filename</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_format_filename.py</code></td>
+</tr>
+<tr>
+<td><code>click.formatting.HelpFormatter</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_formatting.py</code>, <code>test_custom_classes.py</code></td>
+</tr>
+<tr>
+<td><code>click.formatting.iter_rows</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.formatting.join_options</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.formatting.measure_table</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.formatting.wrap_text</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_formatting.py</code></td>
+</tr>
+<tr>
+<td><code>click.get_app_dir</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.get_binary_stream</code></td>
+<td>official-api-reference</td>
+<td>Contract passed</td>
+<td><code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.get_current_context</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_defaults.py</code>, <code>test_chain.py</code></td>
+</tr>
+<tr>
+<td><code>click.get_pager_file</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.get_text_stream</code></td>
+<td>official-api-reference</td>
+<td>Contract passed</td>
+<td><code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.getchar</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_termui.py</code>, <code>test_echo.py</code></td>
+</tr>
+<tr>
+<td><code>click.globals.get_current_context</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_defaults.py</code>, <code>test_chain.py</code></td>
+</tr>
+<tr>
+<td><code>click.globals.pop_context</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.globals.push_context</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.globals.resolve_color_default</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.group</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_arguments.py</code>, <code>test_normalization.py</code>, <code>test_commands.py</code>; +8 in JSON</td>
+</tr>
+<tr>
+<td><code>click.help_option</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_options.py</code>, <code>test_formatting.py</code>, <code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.launch</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.make_pass_decorator</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code></td>
+</tr>
+<tr>
+<td><code>click.open_file</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_open_file.py</code></td>
+</tr>
+<tr>
+<td><code>click.option</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_context.py</code>, <code>test_stream_lifecycle.py</code>; +13 in JSON</td>
+</tr>
+<tr>
+<td><code>click.parser.V</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.parser.split_arg_string</code></td>
+<td>deprecated-public-export</td>
+<td>Contract passed</td>
+<td><code>test_parser.py</code>, <code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.pass_context</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_context.py</code>, <code>test_arguments.py</code>, <code>test_commands.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.pass_obj</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_context.py</code>, <code>test_arguments.py</code></td>
+</tr>
+<tr>
+<td><code>click.password_option</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.pause</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_commands.py</code>, <code>test_echo.py</code></td>
+</tr>
+<tr>
+<td><code>click.progressbar</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.prompt</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_stream_lifecycle.py</code>, <code>test_options.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.secho</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_options.py</code>, <code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.shell_completion.BashComplete</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.shell_completion.CompletionItem</code></td>
+<td>official-api-reference, public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.shell_completion.FishComplete</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.shell_completion.PowerShellComplete</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.shell_completion.ShellComplete</code></td>
+<td>official-api-reference, public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.shell_completion.ZshComplete</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.shell_completion.add_completion_class</code></td>
+<td>official-api-reference, public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.shell_completion.get_completion_class</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.shell_completion.shell_complete</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.shell_completion.split_arg_string</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_parser.py</code>, <code>test_deprecations.py</code></td>
+</tr>
+<tr>
+<td><code>click.style</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_compat.py</code>, <code>test_custom_classes.py</code>, <code>test_termui.py</code>; +2 in JSON</td>
+</tr>
+<tr>
+<td><code>click.termui.V</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.clear</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_compat.py</code>, <code>test_shell_completion.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.confirm</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code>, <code>test_confirm.py</code>, <code>test_echo.py</code>, <code>test_prompt.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.echo_via_pager</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_termui.py</code>, <code>test_echo_via_pager.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.edit</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.get_pager_file</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.getchar</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_termui.py</code>, <code>test_echo.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.hidden_prompt_func</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_prompt.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.launch</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.termui.pause</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_commands.py</code>, <code>test_echo.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.progressbar</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.prompt</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_stream_lifecycle.py</code>, <code>test_options.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.termui.raw_terminal</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.termui.secho</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_options.py</code>, <code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.termui.style</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_compat.py</code>, <code>test_custom_classes.py</code>, <code>test_termui.py</code>; +2 in JSON</td>
+</tr>
+<tr>
+<td><code>click.termui.unstyle</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_style.py</code></td>
+</tr>
+<tr>
+<td><code>click.testing.BytesIOCopy</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_stream_lifecycle.py</code></td>
+</tr>
+<tr>
+<td><code>click.testing.CliRunner</code></td>
+<td>official-api-reference, public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_context.py</code>, <code>test_stream_lifecycle.py</code>, <code>test_options.py</code>; +1 in JSON</td>
+</tr>
+<tr>
+<td><code>click.testing.EchoingStdin</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.testing.Result</code></td>
+<td>official-api-reference, public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_options.py</code></td>
+</tr>
+<tr>
+<td><code>click.testing.StreamMixer</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_stream_lifecycle.py</code></td>
+</tr>
+<tr>
+<td><code>click.testing.make_input_stream</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.BOOL</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>; +1 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.BoolParamType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.Choice</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_normalization.py</code>, <code>test_commands.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.ChoiceInfoDict</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.CompositeParamType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.DateTime</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.types.DateTimeInfoDict</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.FLOAT</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>; +1 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.File</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_shell_completion.py</code>; +5 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.FileInfoDict</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.FloatParamType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.FloatRange</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_FloatRange.py</code></td>
+</tr>
+<tr>
+<td><code>click.types.FuncParamType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_convert_type.py</code>, <code>test_FuncParamType.py</code></td>
+</tr>
+<tr>
+<td><code>click.types.FuncParamTypeInfoDict</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.INT</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>; +4 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.IntParamType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.IntRange</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_options.py</code>, <code>test_termui.py</code>, <code>test_prompt.py</code>; +1 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.NumberRangeInfoDict</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.OptionHelpExtra</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.ParamType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>, <code>test_formatting.py</code>; +4 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.ParamTypeInfoDict</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.Path</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_commands.py</code>; +7 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.PathInfoDict</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.STRING</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>; +2 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.StringParamType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.Tuple</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_arguments.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code>; +1 in JSON</td>
+</tr>
+<tr>
+<td><code>click.types.TupleInfoDict</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.UNPROCESSED</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_commands.py</code>, <code>test_defaults.py</code>, <code>test_options.py</code></td>
+</tr>
+<tr>
+<td><code>click.types.UUID</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_info_dict.py</code>, <code>test_basic.py</code>, <code>test_convert_type.py</code></td>
+</tr>
+<tr>
+<td><code>click.types.UUIDParameterType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.UnprocessedParamType</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.types.convert_type</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_convert_type.py</code></td>
+</tr>
+<tr>
+<td><code>click.unstyle</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_style.py</code></td>
+</tr>
+<tr>
+<td><code>click.utils.R</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_termui.py</code></td>
+</tr>
+<tr>
+<td><code>click.utils.echo</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_testing.py</code>, <code>test_context.py</code>, <code>test_stream_lifecycle.py</code>, <code>test_arguments.py</code>; +16 in JSON</td>
+</tr>
+<tr>
+<td><code>click.utils.format_filename</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_format_filename.py</code></td>
+</tr>
+<tr>
+<td><code>click.utils.get_app_dir</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.utils.make_str</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td>Inventory contract; see related public class tests</td>
+</tr>
+<tr>
+<td><code>click.utils.open_file</code></td>
+<td>public-submodule-definition</td>
+<td>Contract passed</td>
+<td><code>test_open_file.py</code></td>
+</tr>
+<tr>
+<td><code>click.version_option</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_basic.py</code></td>
+</tr>
+<tr>
+<td><code>click.wrap_text</code></td>
+<td>official-api-reference, top-level-export</td>
+<td>Contract passed</td>
+<td><code>test_formatting.py</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="reproduction">Reproduction<a class="heading-anchor" href="#reproduction" aria-label="链接到 Reproduction">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>python -m pip install -r requirements-dev.txt
+maturin build --release --locked --out dist
+python -m pip install --no-deps --force-reinstall dist/*.whl
+python scripts/run_compatibility.py --output reports/normal -- -m &#x27;not stress&#x27;
+python scripts/run_stress.py --output reports/stress --workers 4 --batch-size 500
+python scripts/api_inventory.py --source .cache/click-source --output reports/api-reference.json
+python scripts/api_inventory.py --compare reports/api-reference.json --output reports/api.json
+python -m mypy .cache/click-migrated/tests/typing --no-incremental
+python benchmarks/compare.py --candidate-wheel dist/*.whl \
+  --iterations 1000 --repeats 12 --seed 20261111 \
+  --output reports/benchmarks.json
+</code></pre></div>
+<p>Pass the exact candidate wheel path when <code>dist</code> contains more than one wheel.
+The current benchmark driver compares the fixed Click release, the published
+zclick 0.1.1a1 wheel and the candidate in separate environments using the same
+interpreter. See the <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/README.md">measurement protocol</a> for source
+verification, balanced execution order and optional Linux CPU affinity.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/COMPATIBILITY.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zclick">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zclick/architecture/"><span class="pagination-label">上一页</span><span class="pagination-title">Architecture and dependency boundaries</span></a><a class="pagination-link next" href="../../zclick/delivery-0-1-1a2-zh-cn/"><span class="pagination-label">下一页</span><span class="pagination-title">zclick 0.1.1a2 交付记录</span></a></nav>
+      <footer class="page-footer">
+        <span>zclick <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#unfinished-compatibility">Unfinished compatibility</a></li><li class="toc-level-2"><a href="#evidence-and-scope">Evidence and scope</a></li><li class="toc-level-2"><a href="#behavior-checklist">Behavior checklist</a></li><li class="toc-level-2"><a href="#migration-and-dynamic-behavior">Migration and dynamic behavior</a></li><li class="toc-level-2"><a href="#zclap-adaptation">zclap adaptation</a></li><li class="toc-level-2"><a href="#public-api-checklist">Public API checklist</a></li><li class="toc-level-2"><a href="#reproduction">Reproduction</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

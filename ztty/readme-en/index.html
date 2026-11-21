@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ztty · ztty · Project Z">
+  <meta property="og:description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta property="og:type" content="website">
+  <title>ztty · ztty · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ztty/readme-en/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ztty">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ztty" aria-label="ztty 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ztty</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/" aria-current="page">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/" aria-current="page">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ztty/">ztty 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ztty/">ztty</a><span aria-hidden="true">/</span><span>ztty</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install-on-linux">Install on Linux</a></li><li class="toc-level-2"><a href="#build-and-run">Build and run</a></li><li class="toc-level-2"><a href="#what-it-does">What it does</a></li><li class="toc-level-2"><a href="#linux-x11-controls">Linux X11 controls</a></li><li class="toc-level-2"><a href="#shared-sessions-and-mcp-linux">Shared sessions and MCP (Linux)</a></li><li class="toc-level-2"><a href="#ssh-terminal-multiplexing-linux">SSH terminal multiplexing (Linux)</a></li><li class="toc-level-2"><a href="#reload-the-running-executable">Reload the running executable</a></li><li class="toc-level-2"><a href="#appearance">Appearance</a></li><li class="toc-level-2"><a href="#platforms-and-verification">Platforms and verification</a></li><li class="toc-level-2"><a href="#performance-and-development">Performance and development</a></li><li class="toc-level-2"><a href="#reusable-libraries">Reusable libraries</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="ztty">ztty</h1>
+<p><a href="../../ztty/">中文</a> · <a href="../../ztty/readme/">Documentation</a> · <a href="https://github.com/LIghtJUNction/ztty/releases">Releases</a></p>
+<p>ztty is a native terminal for Linux, macOS and Windows. Its terminal core is
+written in Rust without the standard library. On Linux, the same live session
+can be used from a window, the CLI or an MCP client.</p>
+<p>This page documents <strong>0.6.1</strong>. Published binaries and their release notes are
+available on the <a href="https://github.com/LIghtJUNction/ztty/releases/tag/v0.6.1">download page</a>.</p>
+<h2 id="install-on-linux">Install on Linux<a class="heading-anchor" href="#install-on-linux" aria-label="链接到 Install on Linux">#</a></h2>
+<p>On Arch Linux: <code>yay -S ztty</code>. For a published x86_64 or AArch64 binary:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>curl -fsSLO https://github.com/LIghtJUNction/ztty/releases/latest/download/install.sh
+sh install.sh
+ztty
+</code></pre></div>
+<p>The installer verifies the archive and installs to <code>~/.local/bin</code>.
+On Wayland desktops, the X11 backend runs through XWayland. Current source
+uses <code>--backend auto</code>; see <a href="../../ztty/configuration/#native-wayland-experimental">backend selection</a>
+for its initial fallback and session compatibility rules.</p>
+<h2 id="build-and-run">Build and run<a class="heading-anchor" href="#build-and-run" aria-label="链接到 Build and run">#</a></h2>
+<p>Use Rust <strong>1.100.0</strong>, a C compiler and a monospace font. Install the current
+Linux source's native dependencies with the command for your distribution:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code># Arch Linux
+sudo pacman -S --needed base-devel pkgconf libx11 libxft libxrender \
+  fontconfig freetype2 harfbuzz libglvnd ttf-dejavu
+
+# Debian / Ubuntu
+sudo apt install build-essential pkg-config libx11-dev libxft-dev libxrender-dev \
+  libfontconfig1-dev libfreetype-dev libharfbuzz-dev libegl1-mesa-dev \
+  libgles2-mesa-dev fonts-dejavu-core
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>git clone --recurse-submodules https://github.com/LIghtJUNction/ztty.git
+cd ztty
+cargo build --locked --release
+./target/release/ztty --font &#x27;monospace:size=12&#x27; --geometry 100x28
+./target/release/ztty --cwd /path/to/project -e /bin/bash
+sh install.sh --from-binary ./target/release/ztty
+</code></pre></div>
+<p>For an existing clone, run <code>git submodule update --init --recursive</code> before building.</p>
+<p>Linux/macOS use <code>SHELL</code> (falling back to <code>/bin/sh</code>); Windows uses <code>COMSPEC</code>
+(falling back to <code>cmd.exe</code>). <code>-e</code> chooses another program. Installing an update
+leaves existing brokers running their current code; see
+<a href="../../ztty/sessions/#upgrading-a-running-broker">broker upgrades and reload</a>.
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/releasing.md">Native build and packaging details</a> cover macOS and Windows.</p>
+<h2 id="what-it-does">What it does<a class="heading-anchor" href="#what-it-does" aria-label="链接到 What it does">#</a></h2>
+<ul>
+<li>VT sequences, true color, mouse reports, bracketed paste and Kitty keyboard input.</li>
+<li>Unicode grapheme storage, history reflow and copy across wrapped lines.</li>
+<li>Kitty images and Sixel; Linux adds animation, Unicode placeholders and relative placement.</li>
+<li>Linux X11 Kitty file/shared-memory transport and bounded OSC 52 clipboard access.</li>
+<li>Linux shared sessions; X11 tabs, splits, history search and a command palette.</li>
+<li>Linux X11 GPU text shaping, Xft fallback, live configuration and XIM recovery.</li>
+<li>Optional <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/shell/README.md">shell integration</a> and <a href="../../ztty/text-plugins-zh-cn/">trusted text actions</a>.</li>
+</ul>
+<p>The Linux X11 renderer defaults to <code>renderer = auto</code>: hardware EGL when available,
+otherwise Xft. <a href="../../ztty/configuration/">Configuration</a> and the
+<a href="../../ztty/protocols/">protocol reference</a> describe supported modes and limits.</p>
+<h2 id="linux-x11-controls">Linux X11 controls<a class="heading-anchor" href="#linux-x11-controls" aria-label="链接到 Linux X11 controls">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Copy / paste</td>
+<td>Ctrl+Shift+C / V</td>
+</tr>
+<tr>
+<td>Select text inside a mouse-driven TUI</td>
+<td>Shift+drag</td>
+</tr>
+<tr>
+<td>Search history / open command palette</td>
+<td>Ctrl+Shift+F / P</td>
+</tr>
+<tr>
+<td>Switch sessions</td>
+<td>Ctrl+Shift+S</td>
+</tr>
+<tr>
+<td>New tab / split right</td>
+<td>Ctrl+Shift+T / E</td>
+</tr>
+<tr>
+<td>Next / previous tab</td>
+<td>Ctrl+Tab / Ctrl+Shift+Tab</td>
+</tr>
+<tr>
+<td>Increase / decrease / reset font</td>
+<td>Ctrl+Plus / Minus / 0</td>
+</tr>
+<tr>
+<td>Scroll history</td>
+<td>Shift+PageUp / PageDown or mouse wheel</td>
+</tr>
+<tr>
+<td>Open a link</td>
+<td>Ctrl+click</td>
+</tr>
+<tr>
+<td>Reload configuration</td>
+<td>Ctrl+Shift+R</td>
+</tr>
+</tbody>
+</table></div>
+<p>Double-click selects a word; triple-click selects a line. The <strong>Back to live ↓</strong>
+button returns from history to current output.
+<a href="../../ztty/daily-workflow/">Daily workflow</a>, <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/workspaces.md">workspaces</a> and
+<a href="../../ztty/input-compatibility/">input compatibility</a> cover custom bindings and keypad behavior.</p>
+<p><code>Ctrl+Shift+V</code> pastes text. <code>Ctrl+V</code> goes to the foreground application;
+Codex CLI 0.170.0 uses it to attach clipboard images. Since ztty 0.5.1, terminal text paste
+rejects image-only selections. See
+<a href="../../ztty/input-compatibility/#clipboard-images-and-application-paste">image paste and format checks</a>.</p>
+<h2 id="shared-sessions-and-mcp-linux">Shared sessions and MCP (Linux)<a class="heading-anchor" href="#shared-sessions-and-mcp-linux" aria-label="链接到 Shared sessions and MCP (Linux)">#</a></h2>
+<p>Linux X11 and native Wayland windows use the same session broker. Each session
+keeps its own PTY, screen and history. X11 windows also share a display connection
+and font cache.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>ztty --name work -e /bin/bash &amp;
+ztty attach                     # List sessions
+ztty attach work                # Open or raise its window
+ztty attach --observe work      # Read-only view
+ztty mcp                        # MCP over stdio
+ztty mcp --transport http --host 127.0.0.1 --port 8732
+</code></pre></div>
+<p>MCP can create sessions, read output, send input, resize and close PTYs, and
+manage input ownership. MCP-created sessions survive transport disconnects;
+closing an attached view preserves their PTY. HTTP outside loopback needs a token.
+See <a href="../../ztty/sessions/">sessions and MCP</a> for client setup, session identities,
+JSON/SSE replies and command-output reads; <a href="../../ztty/ssmcp-observer/">observer mode</a>
+covers tools such as ssmcp.</p>
+<h2 id="ssh-terminal-multiplexing-linux">SSH terminal multiplexing (Linux)<a class="heading-anchor" href="#ssh-terminal-multiplexing-linux" aria-label="链接到 SSH terminal multiplexing (Linux)">#</a></h2>
+<p>ztty 0.6.1 keeps remote shells in a headless session broker. Closing an SSH
+connection or its window leaves those shells running; reconnecting restores
+their screen and bounded scrollback. Install ztty on both Linux machines, then:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>ztty ssh dev main                         # SSH alias from ~/.ssh/config
+ztty ssh ssh://alice@host:2222 build
+ztty ssh --list dev
+ztty ssh --observe dev build              # Read-only; does not resize the writer
+ztty ssh --terminal dev main              # Attach in the current terminal
+ztty ssh --close dev build                # Explicitly terminate a remote session
+</code></pre></div>
+<p>Ctrl+] detaches. Ctrl+Shift+T and the split shortcuts in an SSH window create
+independent remote sessions on the same host. OpenSSH reuses one authenticated
+connection for these panes and continues to manage keys, SSH config and host-key
+checks. Input has one owner; <code>--takeover</code> explicitly transfers it.</p>
+<p><a href="../../ztty/ssh-sessions/">SSH sessions</a> covers ports, identity/config files, native
+tabs and splits, remote commands, local headless use and the text-view scope.</p>
+<h2 id="reload-the-running-executable">Reload the running executable<a class="heading-anchor" href="#reload-the-running-executable" aria-label="链接到 Reload the running executable">#</a></h2>
+<p>A broker started from ztty 0.5.1 or later can replace its executable on Linux
+X11/XWayland or without windows. Run this inside the session you want to update:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>ztty reload
+ztty reload --binary /absolute/path/to/ztty
+</code></pre></div>
+<p><code>ZTTY_SOCKET</code> selects the broker. The default target is the executable of the CLI
+you invoked; the command does not download an update. It keeps the broker PID,
+existing shells and command PTYs, session identities, queued input, output byte
+cursors, terminal screens and history, and X11 tabs/splits. Windows are rebuilt and may
+briefly disappear. Active native Wayland views block this handover; detached
+native sessions retain their backend for later reattachment. macOS and Windows
+do not support this handover.</p>
+<p>A broker from the published 0.5.0 release safely refuses reload, even when asked
+by a newer CLI. Keep its windows until their work finishes and use a new source-built broker for new
+work; that broker can support later reloads. The
+<a href="../../ztty/sessions/#reload-the-running-broker">reload guide</a> covers validation,
+temporary refusal, display recovery and the one-time transition.
+Ctrl+Shift+R continues to reload configuration only.</p>
+<h2 id="appearance">Appearance<a class="heading-anchor" href="#appearance" aria-label="链接到 Appearance">#</a></h2>
+<p>On Linux, edit <code>~/.config/ztty/ztty.conf</code>; use <code>--config PATH</code> for another file.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">ini</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 ini 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>font = monospace:size=11
+window-padding = 16
+background = #161a23
+foreground = #e1e7f0
+background-opacity = 92
+renderer = auto
+</code></pre></div>
+<p>Linux X11 reloads valid changes in place. <a href="../../ztty/configuration/">Configuration</a>
+covers platform paths, colors, cursor behavior, bindings and renderer selection.</p>
+<h2 id="platforms-and-verification">Platforms and verification<a class="heading-anchor" href="#platforms-and-verification" aria-label="链接到 Platforms and verification">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Current source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux X11/XWayland</td>
+<td>GPU or Xft; shared sessions, tabs/splits, attach and MCP</td>
+</tr>
+<tr>
+<td>Linux native Wayland</td>
+<td>Auto fallback or explicit EGL/GLES; shared sessions, attach/MCP, clipboard and text-input IME</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>Native AppKit/CoreText window and Darwin PTY; local sessions</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Native Win32/GDI and ConPTY; local tabs and splits</td>
+</tr>
+</tbody>
+</table></div>
+<p>macOS runs without X11; Windows runs without WSL. Windows supports font and
+workspace shortcuts; macOS uses Command+C/V or Ctrl+Shift+C/V for copy/paste.
+Shared sessions, attach and MCP are Linux features.
+<a href="../../ztty/protocols/#acceptance-coverage">Platform verification</a> records the tested scope.</p>
+<p>To try the experimental native Wayland backend:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>cargo build --locked --release --features wayland
+./target/release/ztty --backend wayland --name work
+</code></pre></div>
+<p>The official Linux package build enables Wayland. Current source defaults to
+Auto and tries the complete X11/XWayland view before a compatible native fallback.
+Wayland rejects tabs, splits and workspace containers. <a href="../../ztty/configuration/#native-wayland-experimental">Wayland setup</a>
+covers dependencies and the unverified physical GPU, desktop IME and scaling behavior.</p>
+<h2 id="performance-and-development">Performance and development<a class="heading-anchor" href="#performance-and-development" aria-label="链接到 Performance and development">#</a></h2>
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/runtime-iteration-20261120/report.zh-CN.md">runtime iteration report</a>
+records the startup marker and INCR paste fixes, Auto selection, query-safe reload,
+final native checks and installation. In its fixed Xvfb GPU-path test, lazy software
+backing pixmaps save about 3.66 MiB per window of X-server resources; this is not
+a whole-process RSS or hardware VRAM claim. Large-paste ZLE editing time remains.</p>
+<p>After input is fully sent or explicitly cancelled, this source releases an
+input buffer whose allocated capacity exceeds 64 KiB; smaller buffers remain
+available for reuse. The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/input-buffer-memory-20261120/report.zh-CN.md">input-buffer regression</a>
+records an 8 MiB queue retaining 0 bytes after clearing, compared with 8 MiB
+before the change. This measures queue allocation capacity; process RSS/PSS and
+throughput were not measured for this change.</p>
+
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/performance-reload-2026-11-20.md">2026-11-20 performance and reload report</a>
+includes fixed source and executable hashes, every raw sample, and test limits.
+Compared with the retained baseline, software-rendered ASCII/color throughput
+rose from 171.7 to 257.5 MiB/s with one window and from 158.5 to 229.2 MiB/s with
+ten windows. A separate scrolling Unicode test improved by 53.4% using the
+median of three paired ratios. Small negative headless ASCII results are also recorded.</p>
+<p>The three-terminal comparison uses a private Xvfb display and GPU code paths
+under a forced Mesa software-GL environment; ztty reports llvmpipe. Ten windows stay open, with one output producer
+measured at a time. These are logical PTY/DSR timings, not physical frame rates.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Ten-window shared session</th>
+<th style="text-align:right">Application PSS, MiB</th>
+<th style="text-align:right">Output, MiB/s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ztty</td>
+<td style="text-align:right">326.9</td>
+<td style="text-align:right">150.4</td>
+</tr>
+<tr>
+<td>Ghostty</td>
+<td style="text-align:right">809.0</td>
+<td style="text-align:right">140.1</td>
+</tr>
+<tr>
+<td>Kitty</td>
+<td style="text-align:right">354.6</td>
+<td style="text-align:right">53.0</td>
+</tr>
+</tbody>
+</table></div>
+<p><a class="source-image" href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/benchmarks/performance-reload-20261120/final-terminals.svg">Ten-window comparison under Xvfb and llvmpipe ↗</a></p>
+<p>Values are medians of three independent runs. Font metrics, pixel dimensions,
+host memory pressure and renderer choice limit generalization; the report keeps
+all ranges. Single-window ztty/Ghostty throughput overlaps and is not a stable
+ranking. Software and GPU paths also pass the recorded complete-frame tab-switch
+and synchronized-output checks; physical desktop compositors need separate validation.</p>
+
+<p>Run <code>sh tools/check.sh</code> for the local development checks.</p>
+<h2 id="reusable-libraries">Reusable libraries<a class="heading-anchor" href="#reusable-libraries" aria-label="链接到 Reusable libraries">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Role in ztty</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../zgpui/">zgpui</a></td>
+<td>UI scenes and layout</td>
+<td>Published <a href="https://crates.io/crates/zgpui/0.1.5">0.1.5</a></td>
+</tr>
+<tr>
+<td><a href="../../zinput/">zinput</a></td>
+<td>Keyboard, mouse and paste encoding</td>
+<td>Published <a href="https://crates.io/crates/zinput/0.1.3">0.1.3</a></td>
+</tr>
+<tr>
+<td><a href="../../zpty/">zpty</a></td>
+<td>PTY / ConPTY process ownership</td>
+<td>Published <a href="https://crates.io/crates/zpty/0.2.3">0.2.3</a></td>
+</tr>
+<tr>
+<td><a href="../../zgraphics/">zgraphics</a></td>
+<td>Image protocol and placement</td>
+<td>Published <a href="https://crates.io/crates/zgraphics/0.2.0">0.2.0</a></td>
+</tr>
+<tr>
+<td><a href="../../zterm/">zterm</a></td>
+<td>Terminal screen and protocol state</td>
+<td>Published <a href="https://crates.io/crates/zterm/0.5.2">0.5.2</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>These published versions include the terminal checkpoint and PTY handover APIs
+used by ztty 0.5.2. Development builds use the libraries' GitHub default branches,
+with exact source commits recorded in Cargo.lock. Library submodule pins match
+that snapshot for independent checks; the table records published registry versions.
+The application keeps zgpui's <code>std</code> and
+<code>native</code> features disabled.</p>
+<p>The <a href="../../ztty/architecture/">architecture</a> describes the reusable Project Z libraries;
+the <a href="../../ztty/readme/">documentation index</a> links usage guides and verification records.</p>
+<p>MIT © LIghtJUNction</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztty">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztty/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../ztty/configuration/"><span class="pagination-label">下一页</span><span class="pagination-title">Configuration</span></a></nav>
+      <footer class="page-footer">
+        <span>ztty <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install-on-linux">Install on Linux</a></li><li class="toc-level-2"><a href="#build-and-run">Build and run</a></li><li class="toc-level-2"><a href="#what-it-does">What it does</a></li><li class="toc-level-2"><a href="#linux-x11-controls">Linux X11 controls</a></li><li class="toc-level-2"><a href="#shared-sessions-and-mcp-linux">Shared sessions and MCP (Linux)</a></li><li class="toc-level-2"><a href="#ssh-terminal-multiplexing-linux">SSH terminal multiplexing (Linux)</a></li><li class="toc-level-2"><a href="#reload-the-running-executable">Reload the running executable</a></li><li class="toc-level-2"><a href="#appearance">Appearance</a></li><li class="toc-level-2"><a href="#platforms-and-verification">Platforms and verification</a></li><li class="toc-level-2"><a href="#performance-and-development">Performance and development</a></li><li class="toc-level-2"><a href="#reusable-libraries">Reusable libraries</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

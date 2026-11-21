@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ztty · Architecture · Project Z">
+  <meta property="og:description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta property="og:type" content="website">
+  <title>ztty · Architecture · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ztty/architecture/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ztty">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ztty" aria-label="ztty 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ztty</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/" aria-current="page">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/" aria-current="page">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ztty/">ztty 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ztty/">ztty</a><span aria-hidden="true">/</span><span>Architecture</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#shared-process-ownership-linux">Shared process ownership (Linux)</a></li><li class="toc-level-2"><a href="#session-control">Session control</a></li><li class="toc-level-2"><a href="#screen-state">Screen state</a></li><li class="toc-level-2"><a href="#image-lifecycle-and-memory">Image lifecycle and memory</a></li><li class="toc-level-2"><a href="#input-and-output">Input and output</a></li><li class="toc-level-2"><a href="#runtime-boundary">Runtime boundary</a></li><li class="toc-level-2"><a href="#memory-accounting">Memory accounting</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="architecture">Architecture</h1>
+<p>ztty separates terminal state from operating-system integration so its libraries
+can be embedded in other applications. <code>zpty</code> owns a child process and native
+PTY resources, <code>zterm</code> owns text and screen state, <code>zgraphics</code> owns images and
+placements, and <code>zinput</code> encodes events without owning a session. The platform
+frontend supplies native input, cell metrics, window management, and rendering.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">mermaid</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 mermaid 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>flowchart TD
+    A[&quot;Shell or TUI&quot;] &lt;--&gt; B[&quot;zpty: PTY session&quot;]
+    B --&gt; C[&quot;zterm::feed&quot;]
+    C --&gt; D[&quot;zvte: text and VT parsing&quot;]
+    C --&gt; E[&quot;zgraphics: Kitty APC stream&quot;]
+    D --&gt; F[&quot;Text cells and modes&quot;]
+    E --&gt; G[&quot;RGBA images and placements&quot;]
+    F --&gt; H[&quot;Native platform renderer&quot;]
+    G --&gt; H
+    H --&gt; I[&quot;zinput: event encoding&quot;]
+    I --&gt; B
+</code></pre></div>
+<p>Ordinary text and control sequences use <code>zvte</code>. Kitty APC sequences take a bounded
+streaming path into <code>zgraphics</code>; they do not accumulate in the title/OSC buffer.
+Both paths update terminal state, and protocol replies return through the same
+ordered PTY write queue as keyboard input. Source entry points are
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zterm/src/terminal.rs"><code>zterm::Terminal</code></a> and
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zgraphics/src/stream.rs"><code>zgraphics::CommandStream</code></a>.</p>
+<h2 id="shared-process-ownership-linux">Shared process ownership (Linux)<a class="heading-anchor" href="#shared-process-ownership-linux" aria-label="链接到 Shared process ownership (Linux)">#</a></h2>
+<p>On Linux, ordinary launches and MCP servers connect to one session broker for the current
+user. The broker owns the PTYs and terminal state; each foreground launcher
+waits on its session without creating another display or font stack.
+MCP stdio and HTTP listeners remain separate protocol processes and use the
+same broker. <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/src/session.rs">Session implementation</a>,
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/src/broker.rs">local IPC</a> and <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/src/x11.rs">X11 resources</a> define these boundaries.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Owner</th>
+<th>Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broker</td>
+<td>Session registry, event loop and shared read/encoding scratch buffers</td>
+</tr>
+<tr>
+<td>Display connection</td>
+<td>X11 connection, atoms and XIM context, shared by its windows</td>
+</tr>
+<tr>
+<td>Font selection on a display</td>
+<td>Base and fallback Xft fonts and their glyph caches</td>
+</tr>
+<tr>
+<td>Terminal session</td>
+<td>PTY child, screen, history, input queue and retained output</td>
+</tr>
+<tr>
+<td>Visible window</td>
+<td>Xft draw target, pixmap, input context, selection and cursor state</td>
+</tr>
+<tr>
+<td>Launcher</td>
+<td>Caller metadata and foreground completion wait</td>
+</tr>
+</tbody>
+</table></div>
+<p>The broker opens a display only when a window is needed. Windows with the same
+font selection reuse its font set. Closing the last window releases unused
+font sets. The broker keeps its opened X11 connection until it exits, so headless
+MCP sessions can later be attached without rebuilding Xlib state. The per-window
+pixmap and each session's contents remain independent allocations.</p>
+<p>One single-threaded loop polls PTYs, display connections and local IPC peers.
+XIM filters an event before its destination window selects the session.
+Output-heavy sessions have a read budget per iteration so other windows and
+control requests receive service.</p>
+<p>The local protocol uses an abstract Unix socket and checks the connecting
+user with <code>SO_PEERCRED</code>. <code>ZTTY_SOCKET=@name</code> selects an isolated broker
+namespace, which the test tools use. Creator argv, working directory and
+environment are carried with each launch; the first creator's environment
+does not become the default for all later sessions.</p>
+<h2 id="session-control">Session control<a class="heading-anchor" href="#session-control" aria-label="链接到 Session control">#</a></h2>
+<p>An ordinary window owns a local session whose lifetime ends when its window
+closes or its child exits. MCP-created sessions retain their output and exit
+status until explicitly closed; a window can attach to and detach from that
+state. The broker exits after its last session and pending work are gone.
+<a href="../../ztty/sessions/">Sessions and MCP</a> documents the exact names and lifecycle.</p>
+<p>The MCP transports translate six terminal tools into the same broker operations.
+They use bounded <code>no_std</code> JSON handling. Stdio uses newline framing; Streamable
+HTTP uses JSON responses with independent transport sessions. Session reads
+return byte cursors and UTF-8-safe text pages, with retained output bounded
+separately from terminal history.</p>
+<h2 id="screen-state">Screen state<a class="heading-anchor" href="#screen-state" aria-label="链接到 Screen state">#</a></h2>
+<p>A screen is a contiguous array of fixed-size cells. A row origin index maps
+logical rows onto that array. Full-screen upward scrolling changes the origin
+and clears the newly exposed row; it does not move the entire visible screen.
+Partial scrolling regions copy only the affected rows.</p>
+<p>Each cell stores a Unicode scalar, two optional combining scalars, foreground
+and background RGB values, attributes, width, and a hyperlink identity. The
+tested x86_64 layout is 28 bytes. There is no per-cell heap pointer. Wide glyphs
+have a leading width-two cell and a width-zero continuation cell; edits repair
+any pair cut by their boundaries.</p>
+<p>History is lazy and bounded by both the requested number of rows and 8 MiB of
+cell storage. Once the bound is reached, old row allocations are reused. The
+alternate screen is allocated on demand and cached for reuse. Titles, links,
+control strings, and protocol reply queues have explicit finite bounds. These
+properties are implemented in <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zterm/src/terminal.rs"><code>zterm</code></a> and
+covered by its <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zterm/src/tests.rs">core tests</a>.</p>
+<h2 id="image-lifecycle-and-memory">Image lifecycle and memory<a class="heading-anchor" href="#image-lifecycle-and-memory" aria-label="链接到 Image lifecycle and memory">#</a></h2>
+<p>An image transfer is invisible until it completes and validates successfully.
+The APC receiver holds at most a 512-byte header and 4096 encoded bytes, decoding
+larger payloads incrementally. The pending binary transfer has a separate
+16 MiB limit. This accepts both protocol chunks and larger APCs emitted by current
+<code>kitten icat</code> clients without retaining the full base64 representation.</p>
+<p><code>zgraphics</code> converts RGB, RGBA, and PNG input into straight-alpha RGBA8 pixels.
+It validates dimensions, container structure, and PNG checksums before invoking
+<code>zune-png</code>; optional zlib transmission compression uses <code>zune-inflate</code>.
+Nonessential PNG metadata is removed before decoding. An invalid transfer is
+discarded while previously stored images remain usable. The implementation is
+in <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zgraphics/src/decode.rs"><code>decode.rs</code></a>.</p>
+<p>Each screen has its own graphics scene. The default limit is 32 MiB per decoded
+image and 32 MiB of retained decoded storage per scene, counting vector capacity,
+with at most 128 images and 512 placements. Width and height are each limited to
+8192 pixels and must also satisfy the byte limit. A scene allocates no image
+storage until needed. The independent primary and alternate scenes prevent an
+alternate-screen application from showing or deleting primary-screen images.</p>
+<p>Placements store an image identity, a cell anchor, source rectangle, requested
+size, pixel offset, and z-order. Scrolling updates anchors, history trimming
+removes expired placements, and cell-size changes recompute display geometry.
+Draw iteration borrows a sorted placement list and does not allocate or sort a
+new list on each damaged row. Source cropping and aspect-preserving scaling are
+resolved by the scene; the frontend clips each destination to the text viewport.
+The <a href="../../ztty/protocols/#kitty-graphics">protocol scope</a> specifies the supported commands.</p>
+<p>Pixel buffers use <code>Arc&lt;Vec&lt;u8&gt;&gt;</code> so a native graphics API can retain immutable
+pixels until it has finished drawing, even if the terminal deletes or replaces
+the image. The scene revision signals mutations; each image also has a generation
+value so replacement under the same ID invalidates converted pixels. Generations
+are local to a scene, so frontend caches are cleared when switching scenes.
+The Linux Xrender upload cache has a separate 64 MiB bound and releases obsolete
+server resources. macOS retains an <code>Arc</code> through its CoreGraphics data-provider
+release callback; Windows composites from canonical RGBA into its display buffer.</p>
+<p>Quota accounting covers the decoded pixels retained by a scene. It does not
+include decoder temporaries, retained external <code>Arc</code> references, converted
+renderer pixels, or native graphics resources. A host embedding <code>zgraphics</code>
+must release its own references and caches when they are no longer needed.</p>
+<h2 id="input-and-output">Input and output<a class="heading-anchor" href="#input-and-output" aria-label="链接到 Input and output">#</a></h2>
+<p>The platform frontend maps native input into shared event types. Linux uses XIM
+commits, macOS implements AppKit's text-input interface, and Windows receives
+Win32 key and text messages. <code>zinput</code> combines text, key identity, and modifiers
+according to the negotiated protocol. Main and alternate screens have separate
+Kitty keyboard flag stacks; mouse tracking and mouse encoding are independent
+modes.</p>
+<p>PTY writes keep an offset into a bounded queue. Partial writes advance the
+offset; EAGAIN waits for writability. Reads are drained with a per-iteration
+budget so heavy output cannot indefinitely starve window events. Query replies
+share the same ordered write path as keyboard input.</p>
+<p>The platform event loops wait on native readiness mechanisms rather than
+continuously polling the terminal model:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>PTY readiness and input</th>
+<th>Rendering path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/src/platform/linux.rs">Linux</a></td>
+<td><code>poll</code> over X11, PTY and broker IPC descriptors; XIM commits</td>
+<td>Xft text and Xrender images into a retained X pixmap</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/src/platform/macos.rs">macOS</a></td>
+<td>AppKit events and a Core Foundation file-descriptor source for the Darwin PTY</td>
+<td>CoreText text and CoreGraphics images in an AppKit view</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/src/platform/windows.rs">Windows</a></td>
+<td>Win32 messages plus ConPTY output/process events in <code>MsgWaitForMultipleObjectsEx</code></td>
+<td>GDI text and direct RGBA compositing into a retained DIB</td>
+</tr>
+</tbody>
+</table></div>
+<p>Linux Expose events can present the retained pixmap without rebuilding screen
+state. Synchronized output delays drawing until completion, with a 150 ms
+recovery timeout. Cursor blink and synchronization deadlines can wake an
+otherwise idle event loop. Native frontend correctness is a separate question
+from shared-core correctness; <a href="../../ztty/protocols/#acceptance-coverage">acceptance coverage</a>
+records the environments actually exercised.</p>
+<p>Windows ConPTY uses synchronous pipe endpoints. <code>zpty</code> services them with two
+native worker threads and bounded queues, each limited to 1 MiB plus a 16 KiB
+worker buffer. Public reads and writes remain nonblocking with respect to pipe
+I/O, and callers retain unwritten bytes. This is distinct from the descriptor
+readiness model on Linux/macOS. The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/crates/zpty/README.md">PTY API documentation</a>
+also describes platform-specific process shutdown behavior.</p>
+<h2 id="runtime-boundary">Runtime boundary<a class="heading-anchor" href="#runtime-boundary" aria-label="链接到 Runtime boundary">#</a></h2>
+<p>The application and Project Z libraries compile with <code>#![no_std]</code>. <code>alloc</code>
+remains available through the host allocator. The third-party PNG, DEFLATE,
+checksum, and Unicode-width dependencies compile with their <code>no_std</code> features;
+none of the enabled production dependencies requires Rust <code>std</code>. Tests and
+benchmark harnesses use <code>std</code> for orchestration.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Rust dependency</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>zvte 0.1.3</code></td>
+<td>Streaming ANSI/VT parsing</td>
+</tr>
+<tr>
+<td><code>unicode-width 0.2.3</code></td>
+<td>Character-cell width rules</td>
+</tr>
+<tr>
+<td><code>zune-core 0.5.3</code>, <code>zune-png 0.5.2</code></td>
+<td>PNG decoding primitives and decoder</td>
+</tr>
+<tr>
+<td><code>zune-inflate 0.2.54</code></td>
+<td>DEFLATE/zlib decoding</td>
+</tr>
+<tr>
+<td><code>simd-adler32 0.3.10</code></td>
+<td>Transitive checksum implementation</td>
+</tr>
+</tbody>
+</table></div>
+<p>The exact resolved graph is in <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/Cargo.lock"><code>Cargo.lock</code></a>; manifests disable
+default features on direct normal dependencies. The
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/tools/check_no_std.py"><code>no_std</code> audit</a> checks enabled features and crate
+attributes, including conditional <code>no_std</code> declarations. The platform-independent
+libraries can also be checked for <code>x86_64-unknown-none</code>, which has no Rust standard
+library. <code>zgraphics</code> requires pointer-width atomics because it uses <code>Arc</code>.</p>
+<p>The native frontend still links operating-system C ABIs. Linux uses libc/libutil,
+X11, Xft, Xrender, and the compiler unwinder required by the stable Rust <code>alloc</code>
+archive. macOS uses the Darwin runtime and Apple frameworks; Windows uses Win32
+and ConPTY. Panic handling terminates the process. These dependencies belong
+in runtime and memory accounting even though Rust <code>std</code> is absent.</p>
+<p>On Linux and macOS, the PTY library exposes <code>spawn</code> as unsafe because <code>forkpty</code> has
+process-wide safety preconditions. The application prepares argv, environment,
+and PATH resolution before the fork. The child then performs only descriptor
+closure, <code>execve</code>, a bounded error write, and <code>_exit</code>.</p>
+<h2 id="memory-accounting">Memory accounting<a class="heading-anchor" href="#memory-accounting" aria-label="链接到 Memory accounting">#</a></h2>
+<p>Core heap measurements describe one terminal model. The Linux multi-window
+report sums PSS and private memory across the broker and all waiting launchers.
+PSS apportions shared mappings; adding process RSS values would count shared
+pages repeatedly. Code, system libraries, font data and allocator state remain
+part of process memory.</p>
+<p>Decoded image quotas and renderer cache quotas describe retained resources,
+not peak RSS. A large image can temporarily require its compressed bytes,
+decompressed bytes, canonical RGBA, and a native upload at the same time.</p>
+<p>The retained X pixmap and Xrender image uploads belong to the X server and must
+be counted separately. Apple and Windows graphics resources likewise have native
+lifetimes beyond the core heap. Full history, both screens, and image-heavy use
+are different workloads from an empty startup window. The
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/performance.md">performance report</a> distinguishes these measurement boundaries;
+the <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/measurements/graphics-core-overhead-2026-11-18.json">graphics core comparison</a>
+records a local paired benchmark with its own host and compiler metadata.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/architecture.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztty">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztty/configuration/"><span class="pagination-label">上一页</span><span class="pagination-title">Configuration</span></a><a class="pagination-link next" href="../../ztty/sessions/"><span class="pagination-label">下一页</span><span class="pagination-title">Sessions and MCP</span></a></nav>
+      <footer class="page-footer">
+        <span>ztty <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#shared-process-ownership-linux">Shared process ownership (Linux)</a></li><li class="toc-level-2"><a href="#session-control">Session control</a></li><li class="toc-level-2"><a href="#screen-state">Screen state</a></li><li class="toc-level-2"><a href="#image-lifecycle-and-memory">Image lifecycle and memory</a></li><li class="toc-level-2"><a href="#input-and-output">Input and output</a></li><li class="toc-level-2"><a href="#runtime-boundary">Runtime boundary</a></li><li class="toc-level-2"><a href="#memory-accounting">Memory accounting</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="为 Typst 标记、代码和数学内容构建语法树。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zsyn · Measured parser performance · Project Z">
+  <meta property="og:description" content="为 Typst 标记、代码和数学内容构建语法树。">
+  <meta property="og:type" content="website">
+  <title>zsyn · Measured parser performance · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zsyn/performance/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zsyn">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zsyn" aria-label="zsyn 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zsyn</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zsyn</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/" aria-current="page">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zsyn 文档"><div class="nav-group"><p class="nav-label">zsyn</p><ul><li><a class="nav-link" href="../../zsyn/">概览</a></li><li><a class="nav-link" href="../../zsyn/comparison-readme/">Reproducible parser comparison</a></li><li><a class="nav-link" href="../../zsyn/performance/" aria-current="page">Measured parser performance</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zsyn</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/" aria-current="page">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zsyn 文档"><div class="nav-group"><p class="nav-label">zsyn</p><ul><li><a class="nav-link" href="../../zsyn/">概览</a></li><li><a class="nav-link" href="../../zsyn/comparison-readme/">Reproducible parser comparison</a></li><li><a class="nav-link" href="../../zsyn/performance/" aria-current="page">Measured parser performance</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zsyn/">zsyn 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zsyn/">zsyn</a><span aria-hidden="true">/</span><span>Measured parser performance</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#evidence-and-setup">Evidence and setup</a></li><li class="toc-level-2"><a href="#complete-parsing">Complete parsing</a></li><li class="toc-level-2"><a href="#incremental-editing">Incremental editing</a></li><li class="toc-level-2"><a href="#memory">Memory</a></li><li class="toc-level-2"><a href="#implementation-choices-and-performance-limits">Implementation choices and performance limits</a></li><li class="toc-level-2"><a href="#reproduction">Reproduction</a></li><li class="toc-level-2"><a href="#claim-and-evidence-review">Claim and evidence review</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="measured-parser-performance">Measured parser performance</h1>
+<p>The allocation-free parser exceeds <strong>2× typst-syntax 0.15.1 on the code and error corpora in both recorded runs</strong>. Short documents, prose, and math also improve, with smaller gains. The 3× full-parse target remains unmet. The owning convenience interface has separate measurements because it copies the source and allocates storage.</p>
+<p>All results below use source commit <a href="https://github.com/LIghtJUNction/zsyn/tree/3f0fce64cdcac746a547aec03d6e21b5f1974f37"><code>3f0fce64cdcac746a547aec03d6e21b5f1974f37</code></a>. They cover the five fixed documents in this repository, not every possible Typst program or processor. The first frozen-source timing run supplies the main tables; the second run is retained without selecting its fastest cells.</p>
+<h2 id="evidence-and-setup">Evidence and setup<a class="heading-anchor" href="#evidence-and-setup" aria-label="链接到 Evidence and setup">#</a></h2>
+<p>The <a href="https://github.com/LIghtJUNction/zsyn/blob/b1cb68fd61101e98c504a90e47b74e2bccdd0165/comparison/results/2026-11-10-3f0fce64/results.csv">joined results</a>, <a href="https://github.com/LIghtJUNction/zsyn/blob/b1cb68fd61101e98c504a90e47b74e2bccdd0165/comparison/results/2026-11-10-3f0fce64/timing.csv">first timing run</a>, <a href="https://github.com/LIghtJUNction/zsyn/blob/b1cb68fd61101e98c504a90e47b74e2bccdd0165/comparison/results/2026-11-10-3f0fce64/repeat.csv">repeat</a>, <a href="https://github.com/LIghtJUNction/zsyn/blob/b1cb68fd61101e98c504a90e47b74e2bccdd0165/comparison/results/2026-11-10-3f0fce64/memory.csv">separate memory run</a>, and <a href="https://github.com/LIghtJUNction/zsyn/blob/b1cb68fd61101e98c504a90e47b74e2bccdd0165/comparison/results/2026-11-10-3f0fce64/environment.json">environment record</a> contain the raw measurements. Both timing runs use the ordinary Rust allocator with no counting wrapper. A different build collects memory, and the merge script rejects instrumented timing rows or mismatched inputs, node counts, capacities, and reparse ranges.</p>
+<p>The host was Linux x86-64 on an Intel Xeon Platinum 8573C, with the timing process pinned to CPU 8. Rust was <strong>1.99.1</strong>. Both implementations used <code>-C target-cpu=x86-64</code>, optimization level 3, thin LTO, and one codegen unit. No local Miri run shared the timed interval. This was a shared execution host; CPU affinity does not make absolute latency portable to another machine.</p>
+<p>Every corpus passes an exact complete-CST comparison before timing: syntax kind, byte span, and preorder depth match at every node. That also fixes the source text and parent/child hierarchy. Trivia and error nodes are retained, with no token-only comparison or normalization. Canonical comparison records and validation trees are released before timing. Both states of each benchmark edit are checked against complete reparsing. The <a href="../../zsyn/comparison-readme/">methodology</a> and <a href="https://github.com/LIghtJUNction/zsyn/blob/b1cb68fd61101e98c504a90e47b74e2bccdd0165/comparison/src/bin/benchmark.rs">harness</a> specify the gate and workload construction.</p>
+<p>Full parses and hot edits use eight warm-up calls, a batch calibrated to at least 15 ms, and the median of nine batches. <code>black_box</code> surrounds inputs and results. Full-parse result destruction occurs within the timed interval. For first edits, eight independent source trees are created outside timing for each of nine batches; no clone-induced copy-on-write cost is added to the reference.</p>
+<h2 id="complete-parsing">Complete parsing<a class="heading-anchor" href="#complete-parsing" aria-label="链接到 Complete parsing">#</a></h2>
+<p><strong>Run 1, complete syntax-tree construction.</strong> Lower latency and higher speedup are better. The arena buffers are already allocated. The owning interface includes source ownership, buffer allocation, initialization, and destruction.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>Input bytes</th>
+<th>typst-syntax µs</th>
+<th>zsyn arena µs</th>
+<th>Arena speedup</th>
+<th>zsyn owned µs</th>
+<th>Owned speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Short</td>
+<td>90</td>
+<td>3.368</td>
+<td>1.976</td>
+<td>1.704×</td>
+<td>2.220</td>
+<td>1.517×</td>
+</tr>
+<tr>
+<td>Large</td>
+<td>604,160</td>
+<td>9,141.122</td>
+<td>5,894.961</td>
+<td>1.551×</td>
+<td>6,436.449</td>
+<td>1.420×</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>60,416</td>
+<td>3,291.779</td>
+<td>1,626.113</td>
+<td>2.024×</td>
+<td>1,719.680</td>
+<td>1.914×</td>
+</tr>
+<tr>
+<td>Math</td>
+<td>64,000</td>
+<td>5,033.140</td>
+<td>2,606.147</td>
+<td>1.931×</td>
+<td>2,730.119</td>
+<td>1.844×</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>24,832</td>
+<td>1,013.616</td>
+<td>471.239</td>
+<td>2.151×</td>
+<td>523.898</td>
+<td>1.935×</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Full-document throughput from the same run.</strong> One MiB is 1,048,576 bytes.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>typst-syntax MiB/s</th>
+<th>zsyn arena MiB/s</th>
+<th>zsyn owned MiB/s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Short</td>
+<td>25.48</td>
+<td>43.43</td>
+<td>38.65</td>
+</tr>
+<tr>
+<td>Large</td>
+<td>63.03</td>
+<td>97.74</td>
+<td>89.52</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>17.50</td>
+<td>35.43</td>
+<td>33.50</td>
+</tr>
+<tr>
+<td>Math</td>
+<td>12.13</td>
+<td>23.42</td>
+<td>22.36</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>23.36</td>
+<td>50.25</td>
+<td>45.20</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Corroborating run on the identical executable.</strong> These are two observed medians per cell, not confidence intervals or a best-of-run aggregation.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>Arena ratio: run 1</th>
+<th>Arena ratio: run 2</th>
+<th>Owned ratio: run 1</th>
+<th>Owned ratio: run 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Short</td>
+<td>1.704×</td>
+<td>1.640×</td>
+<td>1.517×</td>
+<td>1.424×</td>
+</tr>
+<tr>
+<td>Large</td>
+<td>1.551×</td>
+<td>1.614×</td>
+<td>1.420×</td>
+<td>1.519×</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>2.024×</td>
+<td>2.026×</td>
+<td>1.914×</td>
+<td>1.889×</td>
+</tr>
+<tr>
+<td>Math</td>
+<td>1.931×</td>
+<td>1.798×</td>
+<td>1.844×</td>
+<td>1.766×</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>2.151×</td>
+<td>2.064×</td>
+<td>1.935×</td>
+<td>1.984×</td>
+</tr>
+</tbody>
+</table></div>
+<p>The code corpus is just above the 2× threshold in both runs; the error corpus has a larger margin. The final math measurements remain below 2×. The owning interface remains below 2× across these final measurements. The complete parsing goal is therefore met in two of five measured arena workloads, with the remaining cases and the 3× goal reported explicitly.</p>
+<h2 id="incremental-editing">Incremental editing<a class="heading-anchor" href="#incremental-editing" aria-label="链接到 Incremental editing">#</a></h2>
+<p>These edit measurements exercise <strong>a fixed, equal-width ASCII-letter replacement inside an existing token</strong>. <code>edit-first</code> starts with a newly parsed tree and no previously edited-leaf cache. <code>edit-hot</code> repeatedly toggles the same character at the same location after warm-up. zsyn validates that the token kind and boundaries remain stable, then reuses the existing topology; the processed-byte column is the checked token span.</p>
+<p>The reference is Typst's public <code>Source::edit</code> interface. It also maintains a line index and numbered source spans. zsyn maintains the documented syntax-tree state. The ratios below compare those complete public operations and include this metadata difference; they do not isolate Typst's AST splice cost. Structural insertions, deletions, delimiter edits, and recovery changes have separate correctness tests but are not performance claims from these rows.</p>
+<p><strong>First edit, run 1.</strong> Initial parsing is outside the timed interval.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>typst Source first edit µs</th>
+<th>zsyn first edit µs</th>
+<th>Measured ratio</th>
+<th>Typst reparsed bytes</th>
+<th>zsyn processed bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Short</td>
+<td>1.056</td>
+<td>0.096</td>
+<td>11.056×</td>
+<td>36</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Large</td>
+<td>739.898</td>
+<td>0.891</td>
+<td>829.947×</td>
+<td>144</td>
+<td>130</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>83.029</td>
+<td>0.410</td>
+<td>202.634×</td>
+<td>44</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Math</td>
+<td>82.791</td>
+<td>0.497</td>
+<td>166.707×</td>
+<td>35</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>32.065</td>
+<td>0.867</td>
+<td>36.973×</td>
+<td>53</td>
+<td>41</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Repeated edit at the same location, run 1.</strong> This table describes cursor locality and the existing leaf cache.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>typst Source hot edit µs</th>
+<th>zsyn hot edit µs</th>
+<th>Measured ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Short</td>
+<td>1.034</td>
+<td>0.069</td>
+<td>14.914×</td>
+</tr>
+<tr>
+<td>Large</td>
+<td>655.783</td>
+<td>0.356</td>
+<td>1840.216×</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>58.729</td>
+<td>0.065</td>
+<td>902.159×</td>
+</tr>
+<tr>
+<td>Math</td>
+<td>69.660</td>
+<td>0.066</td>
+<td>1058.165×</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>24.890</td>
+<td>0.576</td>
+<td>43.232×</td>
+</tr>
+</tbody>
+</table></div>
+<p>All measured zsyn edits in this corpus perform zero heap allocations. The repeat file retains the corresponding second-run edit timings. Small edit latencies should be interpreted with their exact workload and host context; the full-parser table is the basis for the 2× parsing claim.</p>
+<h2 id="memory">Memory<a class="heading-anchor" href="#memory" aria-label="链接到 Memory">#</a></h2>
+<p><strong>Requested heap bytes and caller-provided arena storage.</strong> Memory comes from a separate instrumented executable. Allocation counts describe a single complete parse. A core parse makes zero allocation calls while using the arena shown below.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Corpus</th>
+<th>Nodes</th>
+<th>Core initialized arena B</th>
+<th>Core reserved arena B</th>
+<th>Owned peak heap B</th>
+<th>Typst peak heap B</th>
+<th>Owned / Typst allocation calls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Short</td>
+<td>55</td>
+<td>1,320</td>
+<td>3,048</td>
+<td>2,694</td>
+<td>2,983</td>
+<td>3 / 28</td>
+</tr>
+<tr>
+<td>Large</td>
+<td>126,977</td>
+<td>3,047,448</td>
+<td>3,049,176</td>
+<td>4,109,120</td>
+<td>7,049,288</td>
+<td>3 / 67600</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>44,545</td>
+<td>1,069,080</td>
+<td>1,070,808</td>
+<td>1,321,748</td>
+<td>2,154,568</td>
+<td>3 / 33798</td>
+</tr>
+<tr>
+<td>Math</td>
+<td>67,073</td>
+<td>1,609,752</td>
+<td>1,611,480</td>
+<td>2,197,144</td>
+<td>3,317,832</td>
+<td>3 / 30733</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>13,825</td>
+<td>341,016</td>
+<td>342,744</td>
+<td>473,176</td>
+<td>758,088</td>
+<td>3 / 9483</td>
+</tr>
+</tbody>
+</table></div>
+<p>The node representation is 24 bytes. Text stays in the caller's UTF-8 source for the core interface. <code>Core initialized arena</code> counts retained nodes and diagnostics; <code>Core reserved arena</code> also includes the unused space supplied by the benchmark. Owned peak heap includes its source string and buffer capacities. Allocation counts and bytes exclude allocator metadata, rounding, stack, executable pages, and shared runtime state; these are not RSS measurements.</p>
+<p>For the 604,160-byte prose document, the core retains 3,047,448 arena bytes. The owning parser peaks at 4,109,120 requested heap bytes, compared with 7,049,288 for the reference in this memory run. The owning parser uses three allocations on each of the five corpora. Its sparse-markup capacity estimate reduces unused space without adding repeated parse attempts on these workloads.</p>
+<p>The separate giant-input regression parses <strong>16 MiB of plain text into two caller-owned nodes and a zero-length diagnostic buffer</strong>, and rejects the same input when its source-byte budget is lowered below that size. That is a resource test, distinct from the 604,160-byte large benchmark corpus. Miri uses a 4 KiB instance of that same regression to keep interpreter work bounded.</p>
+<h2 id="implementation-choices-and-performance-limits">Implementation choices and performance limits<a class="heading-anchor" href="#implementation-choices-and-performance-limits" aria-label="链接到 Implementation choices and performance limits">#</a></h2>
+<p>The measured implementation uses byte-first ASCII scanning, coalesced text runs, a flat arena, cached lookahead, bounded recovery, and a source-sensitive capacity estimate for the owning interface. Trivia lookahead is reused across the scanned interval. Math attachment updates maintain their tail and avoid repeated traversal of an existing child chain. Work-budget tests cover these paths, so their linear behavior is checked alongside syntax equivalence.</p>
+<p>There is <strong>no explicit SIMD or unsafe implementation path</strong> in these measurements. The crate forbids unsafe code and keeps the portable MSRV 1.74 implementation. Portable <code>core::simd</code> was rejected as unstable by the tested stable compiler; platform intrinsics were not added without a measured complete-parser benefit. Compiler-generated vector instructions in ordinary optimized Rust are not an explicit SIMD API in zsyn.</p>
+<p>Node construction and parser control flow remain substantial work in these corpora: the code document produces 44,545 nodes from 60,416 source bytes, and the math document produces 67,073 nodes from 64,000 bytes. Each result retains a complete hierarchy with byte ranges and parent/sibling links. Plain-text scanning therefore accounts for only part of the complete operation. The owning interface also copies the source and prepares its buffers; its run-1 median exceeds the arena path by 93.568 µs for code, 123.972 µs for math, and 541.488 µs for the large document. These measurements quantify the combined public-interface cost. The report's timing resolution is the complete operation, so it provides no per-instruction attribution.</p>
+<h2 id="reproduction">Reproduction<a class="heading-anchor" href="#reproduction" aria-label="链接到 Reproduction">#</a></h2>
+<p>Use the frozen implementation commit above and the commands in <a href="../../zsyn/comparison-readme/">comparison/README.md</a>. Retain both raw timing runs and the separate memory output. <code>comparison/merge-results.py</code> joins only compatible rows and does not choose the faster timing run. The manual performance workflow performs the same separate timing/memory builds and uploads the raw files.</p>
+<p>The owning API is optional. The published crate's dependency tree remains empty, and the comparison workspace and its pinned reference dependency are excluded from the package. The core MSRV is 1.74; the oracle workspace runs on the current stable compiler recorded in the environment file.</p>
+<h2 id="claim-and-evidence-review">Claim and evidence review<a class="heading-anchor" href="#claim-and-evidence-review" aria-label="链接到 Claim and evidence review">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evidence</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>More than 2× on code and errors</td>
+<td>Both final timing CSVs</td>
+<td>Reused caller arena, fixed corpora, recorded host</td>
+</tr>
+<tr>
+<td>Complete syntax results match</td>
+<td>Harness gate and differential suites</td>
+<td>Every retained kind, byte span, and hierarchy in tested sources</td>
+</tr>
+<tr>
+<td>Core parsing allocates zero times</td>
+<td>Separate allocation-count rows and caller-arena API</td>
+<td>Caller-owned source and buffers</td>
+</tr>
+<tr>
+<td>Stable token edits reuse syntax</td>
+<td>Edit statistics, full-parse checks, and first/hot rows</td>
+<td>Equal-width ASCII replacements used by this benchmark</td>
+</tr>
+<tr>
+<td>Memory use is bounded</td>
+<td>Explicit parser budgets and resource regressions</td>
+<td>Requested limits and caller buffer capacities</td>
+</tr>
+</tbody>
+</table></div>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zsyn/blob/b1cb68fd61101e98c504a90e47b74e2bccdd0165/docs/performance.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zsyn">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zsyn/comparison-readme/"><span class="pagination-label">上一页</span><span class="pagination-title">Reproducible parser comparison</span></a></nav>
+      <footer class="page-footer">
+        <span>zsyn <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#evidence-and-setup">Evidence and setup</a></li><li class="toc-level-2"><a href="#complete-parsing">Complete parsing</a></li><li class="toc-level-2"><a href="#incremental-editing">Incremental editing</a></li><li class="toc-level-2"><a href="#memory">Memory</a></li><li class="toc-level-2"><a href="#implementation-choices-and-performance-limits">Implementation choices and performance limits</a></li><li class="toc-level-2"><a href="#reproduction">Reproduction</a></li><li class="toc-level-2"><a href="#claim-and-evidence-review">Claim and evidence review</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

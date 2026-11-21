@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zuse · iOS through WebDriverAgent · Project Z">
+  <meta property="og:description" content="用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。">
+  <meta property="og:type" content="website">
+  <title>zuse · iOS through WebDriverAgent · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zuse/ios/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zuse">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zuse" aria-label="zuse 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zuse</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zuse</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/" aria-current="page">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zuse 文档"><div class="nav-group"><p class="nav-label">zuse</p><ul><li><a class="nav-link" href="../../zuse/">概览</a></li><li><a class="nav-link" href="../../zuse/readme-en/">zuse</a></li><li><a class="nav-link" href="../../zuse/language/">Flat execution language</a></li><li><a class="nav-link" href="../../zuse/session-protocol/">Zuse 会话协议 v1</a></li><li><a class="nav-link" href="../../zuse/sessions/">持久会话：观察、执行与取消</a></li><li><a class="nav-link" href="../../zuse/platforms/">Platform support and verification</a></li><li><a class="nav-link" href="../../zuse/chatgpt-desktop/">ChatGPT desktop module</a></li><li><a class="nav-link" href="../../zuse/development/">Development and release</a></li><li><a class="nav-link" href="../../zuse/device-io/">Native serial and USB I/O</a></li><li><a class="nav-link" href="../../zuse/drawing/">绘图原语与窗口锚点</a></li><li><a class="nav-link" href="../../zuse/ios/" aria-current="page">iOS through WebDriverAgent</a></li><li><a class="nav-link" href="../../zuse/key-holds/">Bounded key holds</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zuse</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/" aria-current="page">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zuse 文档"><div class="nav-group"><p class="nav-label">zuse</p><ul><li><a class="nav-link" href="../../zuse/">概览</a></li><li><a class="nav-link" href="../../zuse/readme-en/">zuse</a></li><li><a class="nav-link" href="../../zuse/language/">Flat execution language</a></li><li><a class="nav-link" href="../../zuse/session-protocol/">Zuse 会话协议 v1</a></li><li><a class="nav-link" href="../../zuse/sessions/">持久会话：观察、执行与取消</a></li><li><a class="nav-link" href="../../zuse/platforms/">Platform support and verification</a></li><li><a class="nav-link" href="../../zuse/chatgpt-desktop/">ChatGPT desktop module</a></li><li><a class="nav-link" href="../../zuse/development/">Development and release</a></li><li><a class="nav-link" href="../../zuse/device-io/">Native serial and USB I/O</a></li><li><a class="nav-link" href="../../zuse/drawing/">绘图原语与窗口锚点</a></li><li><a class="nav-link" href="../../zuse/ios/" aria-current="page">iOS through WebDriverAgent</a></li><li><a class="nav-link" href="../../zuse/key-holds/">Bounded key holds</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zuse/">zuse 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zuse/">zuse</a><span aria-hidden="true">/</span><span>iOS through WebDriverAgent</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#prepare-the-device-side-service">Prepare the device-side service</a></li><li class="toc-level-3"><a href="#forward-an-already-running-wda-over-usb">Forward an already running WDA over USB</a></li><li class="toc-level-2"><a href="#select-and-check-the-local-endpoint">Select and check the local endpoint</a></li><li class="toc-level-2"><a href="#keep-related-operations-in-one-runtime">Keep related operations in one Runtime</a></li><li class="toc-level-3"><a href="#native-input-and-safari">Native input and Safari</a></li><li class="toc-level-2"><a href="#session-ownership-and-replacement">Session ownership and replacement</a></li><li class="toc-level-2"><a href="#observe-coordinates-and-sensitive-fields">Observe coordinates and sensitive fields</a></li><li class="toc-level-3"><a href="#uikit-points-and-png-pixels">UIKit points and PNG pixels</a></li><li class="toc-level-3"><a href="#default-secure-field-redaction">Default secure-field redaction</a></li><li class="toc-level-2"><a href="#use-the-persistent-mcp-server">Use the persistent MCP server</a></li><li class="toc-level-2"><a href="#verification-and-troubleshooting">Verification and troubleshooting</a></li><li class="toc-level-2"><a href="#fixed-protocol-references">Fixed protocol references</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="ios-through-webdriveragent">iOS through WebDriverAgent</h1>
+<p>zuse controls the native iOS interface through an explicitly selected local <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/README.md">WebDriverAgent (WDA) endpoint</a>. WDA runs the device-side XCTest automation; zuse sends bounded HTTP requests from its Rust client. A running Appium server is not required by the zuse adapter.</p>
+<p>The current iOS acceptance consists of <strong>20 passing isolated protocol tests</strong>, including the actual MCP Engine screenshot path. <strong>No physical Apple device was available for this acceptance.</strong> Device provisioning, USB forwarding and on-device application behavior still need physical iOS validation. See <a href="#verification-and-troubleshooting">Verification</a> for the exact scope.</p>
+<h2 id="prepare-the-device-side-service">Prepare the device-side service<a class="heading-anchor" href="#prepare-the-device-side-service" aria-label="链接到 Prepare the device-side service">#</a></h2>
+<p>The operator must prepare a working WDA service before running the zuse examples. Keep the following information together: the selected device's UDID, the WDA runner build, its device-side HTTP port, and the local forwarding port.</p>
+<ol>
+<li>Use a zuse build whose <code>zuse schema</code> output includes <code>ios.connect</code>. The adapter belongs to the default <code>std</code> build.</li>
+<li>Prepare an Apple development environment that can build, sign, install and run <code>WebDriverAgentRunner</code> on the selected device. For a physical device, the runner needs a valid signing identity and provisioning profile. Follow the <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/README.md">WDA project instructions</a> and <a href="https://github.com/appium/appium-xcuitest-driver/blob/master/docs/getting-started/provisioning-profile/index.md">upstream provisioning guide</a> for that build.</li>
+<li>Pair the device with the development host and complete its trust prompts. Apple documents <a href="https://developer.apple.com/documentation/xcode/managing-your-simulated-and-physical-devices-in-device-hub">device pairing</a> and <a href="https://help.apple.com/xcode/mac/current/en.lproj/dev5a825a1ca.html">running a signed app on a device</a>.</li>
+<li>Enable Developer Mode where required and enable the device's UI Automation setting. See <a href="https://developer.apple.com/documentation/xcode/enabling-developer-mode-on-a-device">Apple's Developer Mode instructions</a> and <a href="https://appium.github.io/appium-xcuitest-driver/12.15/getting-started/device-setup/">upstream device preparation</a>. Keep the device available for the intended UI task.</li>
+<li>Have the operator run the WDA test runner using the prepared development workflow. Record the port on which this particular runner serves HTTP; the examples below use device port <code>8100</code>.</li>
+<li>Arrange a local endpoint that forwards to that exact device and runner. Check its <code>/status</code> response before creating an automation session.</li>
+</ol>
+<p>Signing credentials, provisioning, trust dialogs, WDA installation and WDA startup remain part of the operator's device setup. The zuse connection command checks an existing endpoint. Upstream build preparation can have additional toolchain requirements; the Rust client does not perform those preparation steps.</p>
+<h3 id="forward-an-already-running-wda-over-usb">Forward an already running WDA over USB<a class="heading-anchor" href="#forward-an-already-running-wda-over-usb" aria-label="链接到 Forward an already running WDA over USB">#</a></h3>
+<p>When the selected device and WDA build are reachable through usbmux, an operator-managed <code>iproxy</code> process can expose the service locally. Set <code>IOS_UDID</code> to the selected device's actual UDID, then use the current <a href="https://github.com/libimobiledevice/libusbmuxd/blob/cf4b806dff1003e56b8219367bbb29cb01c3f619/tools/iproxy.c">libusbmuxd <code>iproxy</code> syntax</a>:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>iproxy --udid &quot;${IOS_UDID:?Set IOS_UDID to the selected device UDID}&quot; \
+  --local --source 127.0.0.1 8100:8100
+</code></pre></div>
+<p>The left port is the local listening port; the right port is WDA's device-side port. Leave the forwarding process running while zuse uses it. This command assumes WDA is already running; it does not build, sign or start the runner. Use a forwarding and runner-launch workflow compatible with the actual iOS version and host environment.</p>
+<p>For multiple devices, assign each selected UDID its own local port and use that port in <code>ios.connect</code>. zuse does not discover an iPhone or select the first attached device.</p>
+<h2 id="select-and-check-the-local-endpoint">Select and check the local endpoint<a class="heading-anchor" href="#select-and-check-the-local-endpoint" aria-label="链接到 Select and check the local endpoint">#</a></h2>
+<p>The WDA endpoint must be an explicit <code>http://</code> URL with a nonzero port and a loopback host. Supported examples include <code>http://127.0.0.1:8100</code>, <code>http://localhost:8100</code> and <code>http://[::1]:8100</code>. <code>localhost</code> is mapped to IPv4 loopback; use <code>[::1]</code> explicitly for an IPv6 listener. A plain base-path prefix is supported when the local forwarding service requires one.</p>
+<p>Remote hostnames, non-loopback addresses, embedded credentials, query strings and fragments are rejected for the WDA endpoint. Choose the device in the external forwarding setup and give zuse the resulting loopback URL.</p>
+<p>Check the prepared service:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>curl --fail --silent --show-error http://127.0.0.1:8100/status
+</code></pre></div>
+<p>A usable WDA status has <code>value.ready</code> set to <code>true</code>. The response may also identify an already active session. Treat that session as belonging to its existing owner until an explicit arrangement is made.</p>
+<p>Run an observation-only batch:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>zuse --read-only eval &#x27;ios.connect(endpoint=&quot;http://127.0.0.1:8100&quot;); ios.status(); ios.screen(); ios.snapshot()&#x27;
+</code></pre></div>
+<p><code>ios.connect</code> checks the endpoint and stores it in the current Runtime. It does not create a session or silently adopt the session reported by WDA. Status, screen geometry, native source and screenshots can be requested without creating a session.</p>
+<h2 id="keep-related-operations-in-one-runtime">Keep related operations in one Runtime<a class="heading-anchor" href="#keep-related-operations-in-one-runtime" aria-label="链接到 Keep related operations in one Runtime">#</a></h2>
+<p>Use <code>zuse shell</code> for a persistent interactive workflow:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>zuse shell
+</code></pre></div>
+<p>Enter each complete call on its own line:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>ios.connect(endpoint=&quot;http://127.0.0.1:8100&quot;)
+ios.session_start()
+ios.status()
+ios.open_url(url=&quot;https://example.com&quot;)
+ios.snapshot()
+ios.capture(path=&quot;ios-screen.png&quot;)
+ios.session_end()
+:quit
+</code></pre></div>
+<p>This example creates an owned session only when the endpoint is available under the ownership rules below. It opens the URL through the device's default URL handler, observes the resulting native UI, captures a PNG and explicitly ends the owned session.</p>
+<p>The shell retains the connection and ownership between lines. Each separate <code>zuse eval</code> or <code>zuse run</code> process starts a fresh Runtime. To run a saved batch, save the <code>ios.*</code> calls as <code>ios-task.zuse</code> and use:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>zuse check ios-task.zuse
+zuse run ios-task.zuse
+</code></pre></div>
+<p><code>check</code> validates the complete source without contacting WDA. It checks argument types and bounds, endpoint syntax, source/raw options, supported keys and HTTP/HTTPS URL authority syntax. Reachability, the current active session and device behavior are checked during execution.</p>
+<h3 id="native-input-and-safari">Native input and Safari<a class="heading-anchor" href="#native-input-and-safari" aria-label="链接到 Native input and Safari">#</a></h3>
+<p>After creating or explicitly attaching to a session, the input operations are:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Call shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tap</td>
+<td><code>ios.tap(x=120, y=240)</code></td>
+</tr>
+<tr>
+<td>Swipe</td>
+<td><code>ios.swipe(x1=120, y1=500, x2=120, y2=250, duration=350)</code></td>
+</tr>
+<tr>
+<td>Type text</td>
+<td><code>ios.type(text=&quot;Hello 世界&quot;)</code></td>
+</tr>
+<tr>
+<td>Key or device button</td>
+<td><code>ios.key(key=&quot;Enter&quot;)</code></td>
+</tr>
+<tr>
+<td>Launch an app</td>
+<td><code>ios.launch(bundle=&quot;com.apple.mobilesafari&quot;)</code></td>
+</tr>
+<tr>
+<td>Open a web URL</td>
+<td><code>ios.open_url(url=&quot;https://example.com&quot;)</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Choose coordinates from a current observation of the intended control. The values in the table illustrate syntax. Text is passed as Unicode to WDA's native typing route; the application's focus and keyboard state determine where it is received. Supported key names are <code>Home</code>, <code>VolumeUp</code>, <code>VolumeDown</code>, <code>Enter</code>/<code>Return</code> and <code>Backspace</code>. Swipe duration is movement time in milliseconds, defaults to <code>300</code>, and accepts <code>1..10000</code>.</p>
+<p>Safari can be launched and inspected as a native application. <code>ios.open_url</code> currently sends only the URL to WDA, whose <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBSessionCommands.m">URL route</a> invokes the <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Categories/XCUIDevice%2BFBHelpers.m">device's default URL handler</a> when no application bundle is supplied. It therefore follows the phone's configured default browser. For a Safari-specific workflow, launch Safari and operate its native address field, or prepare Safari as the device's default browser.</p>
+<p>This adapter provides <strong>native Safari UI control</strong>. It exposes no Safari DOM selectors, JavaScript evaluation, Web Inspector connection or browser-context API. The <code>browser.*</code> CDP commands apply to their separately connected browser backend.</p>
+<h2 id="session-ownership-and-replacement">Session ownership and replacement<a class="heading-anchor" href="#session-ownership-and-replacement" aria-label="链接到 Session ownership and replacement">#</a></h2>
+<p>WDA maintains a global active session for an endpoint. Its <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBSessionCommands.m">session-creation handler</a> clears the previous session before validating and creating the new one. zuse checks the current status before sending that request and tracks attached and owned identities separately.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Request or state</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ios.connect(endpoint=&quot;…&quot;)</code></td>
+<td>Connects for observation without adopting the current WDA session.</td>
+</tr>
+<tr>
+<td><code>ios.connect(endpoint=&quot;…&quot;, session=&quot;…&quot;)</code></td>
+<td>Verifies and attaches to the exact supplied session ID. Input is permitted through that ID; ownership stays external.</td>
+</tr>
+<tr>
+<td><code>ios.session_start()</code></td>
+<td>Creates a session when no active session exists, or replaces a session already owned by this same instance.</td>
+</tr>
+<tr>
+<td>Existing external session or unknown active-session identity</td>
+<td><code>session_start</code> refuses unless the caller explicitly supplies <code>replace=true</code>.</td>
+</tr>
+<tr>
+<td><code>ios.session_start(replace=true)</code></td>
+<td>Explicitly permits replacement of the endpoint's current global session.</td>
+</tr>
+<tr>
+<td><code>ios.session_end()</code></td>
+<td>Deletes only a session created by this instance, after checking that its exact ID is still active.</td>
+</tr>
+<tr>
+<td>Reconnect or process exit</td>
+<td>Drops local connection/ownership state. It does not delete the remote session.</td>
+</tr>
+</tbody>
+</table></div>
+<p>A successful session-start result contains the WDA identity at <code>session.sessionId</code> inside the operation's <code>value</code>. <code>ios.status()</code> reports <code>attachedSessionId</code>, <code>owned</code>, <code>activeSessionKnown</code> and <code>activeSessionId</code>. The active identity can change when another client uses the same WDA endpoint.</p>
+<p>To attach to an existing session, obtain its exact ID from its owner or a status response and provide it explicitly. Attaching does not grant deletion rights: <code>ios.session_end()</code> rejects cleanup of an externally owned session. End an owned session before reconnecting or exiting when remote cleanup is intended.</p>
+<p><code>replace=true</code> authorizes the global replacement behavior. A failed creation may already have ended the previous WDA session; zuse clears the old attached input target before sending the creation request. A failed actual reconnect also leaves no old device target for subsequent input.</p>
+<p>WDA provides no atomic compare-and-create session operation. Another client can change the active session between the status check and creation. Assign one coordinator to each WDA endpoint or otherwise serialize session changes with its owner. The local ownership checks do not supply a cross-client lock.</p>
+<h2 id="observe-coordinates-and-sensitive-fields">Observe coordinates and sensitive fields<a class="heading-anchor" href="#observe-coordinates-and-sensitive-fields" aria-label="链接到 Observe coordinates and sensitive fields">#</a></h2>
+<h3 id="uikit-points-and-png-pixels">UIKit points and PNG pixels<a class="heading-anchor" href="#uikit-points-and-png-pixels" aria-label="链接到 UIKit points and PNG pixels">#</a></h3>
+<p>Input coordinates use <strong>UIKit points</strong>. <code>ios.screen()</code> returns WDA's screen geometry with <code>coordinateSpace=&quot;points&quot;</code>. <code>ios.snapshot()</code> includes that geometry alongside the native accessibility tree.</p>
+<p>Screenshot dimensions use <strong>PNG pixels</strong>. <code>ios.capture</code> reports <code>width</code>, <code>height</code>, <code>coordinateSpace=&quot;pixels&quot;</code> and <code>inputCoordinateSpace=&quot;points&quot;</code>. WDA's <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBCustomCommands.m">screen route</a> and <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBScreenshotCommands.m">screenshot route</a> are separate observations.</p>
+<p>For example, if a same-orientation full-screen image is <code>1170 × 2532</code> pixels and the corresponding screen is <code>390 × 844</code> points, an image position of <code>(300, 600)</code> maps to <code>(100, 200)</code> points. This is an illustrative conversion, not a measured device result. Match the current image, geometry and orientation before converting coordinates; do not pass an image's pixel coordinates directly to <code>ios.tap</code>.</p>
+<p>Capture a file in an observation-only batch:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>zuse --read-only eval &#x27;ios.connect(endpoint=&quot;http://127.0.0.1:8100&quot;); ios.capture(path=&quot;ios-screen.png&quot;)&#x27;
+</code></pre></div>
+<p>Successful capture replaces the requested output file. A failed capture preserves an existing destination. On Unix, the adapter creates its temporary image with mode <code>0600</code>, then replaces the destination after receiving and checking the PNG structure.</p>
+<h3 id="default-secure-field-redaction">Default secure-field redaction<a class="heading-anchor" href="#default-secure-field-redaction" aria-label="链接到 Default secure-field redaction">#</a></h3>
+<p>Use these defaults for structured observation:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>ios.snapshot()
+ios.source()
+ios.source(format=&quot;json&quot;)
+</code></pre></div>
+<p>WDA's <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Categories/XCUIApplication%2BFBHelpers.m">JSON tree generator</a> directly includes native values, labels and identifiers. zuse therefore filters structured results before returning them. For a recognized secure/password node and all its descendants, the result keeps only the element type, numeric rectangle, supported boolean state, child structure and <code>redacted=true</code>. Values, labels, names, identifiers, placeholders and unknown content attributes are omitted.</p>
+<p>The filter relies on the application's native secure role or secure flags. A custom widget that presents a secret as ordinary text needs its application to expose the correct accessibility semantics. Screenshot pixels retain the visible screen content.</p>
+<p>XML and description source require an explicit raw option because their sensitive content is not filtered:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>ios.source(format=&quot;xml&quot;, raw=true)
+ios.source(format=&quot;description&quot;, raw=true)
+</code></pre></div>
+<p><code>ios.source(format=&quot;json&quot;, raw=true)</code> also returns the unfiltered WDA tree. Raw output can include sensitive application text and becomes part of the normal CLI/MCP result. The default remains <code>format=&quot;json&quot;, raw=false</code>.</p>
+<h2 id="use-the-persistent-mcp-server">Use the persistent MCP server<a class="heading-anchor" href="#use-the-persistent-mcp-server" aria-label="链接到 Use the persistent MCP server">#</a></h2>
+<p>Start a zuse MCP process and keep related calls on that running server:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>zuse mcp --stdio
+</code></pre></div>
+<p>The server retains the selected iOS connection and owned session across tool calls. Through the MCP client's normal tool-call interface, call <code>zuse.execute</code> with these arguments:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>{
+  &quot;code&quot;: &quot;ios.connect(endpoint=\&quot;http://127.0.0.1:8100\&quot;); ios.session_start(); ios.open_url(url=\&quot;https://example.com\&quot;); ios.snapshot()&quot;
+}
+</code></pre></div>
+<p>Then call <code>zuse.screenshot</code>:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-12" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-12" tabindex="0"><code>{
+  &quot;source&quot;: &quot;ios&quot;
+}
+</code></pre></div>
+<p>The screenshot tool returns both structured capture metadata and a real <code>image/png</code> MCP image block. With no <code>path</code>, it uses and removes its temporary file. Supply <code>path</code> when a retained output file is wanted. The screenshot source enum also includes <code>desktop</code>, <code>browser</code> and <code>android</code>.</p>
+<p>End the owned session through the same running server:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-13" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-13" tabindex="0"><code>{
+  &quot;code&quot;: &quot;ios.session_end()&quot;
+}
+</code></pre></div>
+<p>These are tool argument objects; the MCP client supplies the protocol envelopes. A separately started zuse server has fresh local ownership state.</p>
+<p>For an observation-only server, use:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-14" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-14" tabindex="0"><code>zuse mcp --stdio --read-only
+</code></pre></div>
+<p>This permits connection, status, source and screenshots, including the requested screenshot output file. It rejects device input, app/URL opening and session creation/deletion. A tool request cannot disable the server's read-only setting.</p>
+<p>HTTP and Unix-socket transports retain the same runtime behavior:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-15" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-15" tabindex="0"><code>zuse mcp --host 127.0.0.1 --port 8377
+zuse mcp --socket /tmp/zuse-ios-mcp.sock
+</code></pre></div>
+<p>Run the transport appropriate for the client. Port <code>8377</code> in this example serves zuse's MCP protocol; port <code>8100</code> is the separately prepared WDA endpoint.</p>
+<h2 id="verification-and-troubleshooting">Verification and troubleshooting<a class="heading-anchor" href="#verification-and-troubleshooting" aria-label="链接到 Verification and troubleshooting">#</a></h2>
+<p>The <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/tests/ios/protocol.rs">iOS protocol tests</a> exercise the native client against isolated loopback WDA fixtures. All <strong>20 tests passed</strong> in the integrated local test run. They cover session ownership, explicit replacement, invalidation after failed creation, Unicode/request payloads, HTTP framing and bounds, slow partial responses, secure-field filtering, URL preflight, PNG output preservation, and MCP image delivery/cleanup through the public Engine.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evidence and current scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Native WDA request routes and payloads</td>
+<td>Fixed upstream source review plus isolated protocol tests.</td>
+</tr>
+<tr>
+<td>Owned-session cleanup and replacement rules</td>
+<td>Mocked external sessions, replacement, failed creation and changed active identity.</td>
+</tr>
+<tr>
+<td>Whole-program URL rejection before connection</td>
+<td>Runtime regression checks that the earlier connect sends no request.</td>
+</tr>
+<tr>
+<td>MCP iOS image content and temporary cleanup</td>
+<td>Real Engine path with a WDA fixture, exact PNG base64 and file-removal assertions.</td>
+</tr>
+<tr>
+<td>Physical iPhone/iPad operation, signing and USB forwarding</td>
+<td>Physical Apple-device acceptance is pending.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each public iOS operation uses one absolute <strong>15-second network deadline</strong>, including all requests and partial reads within that operation. This is a per-operation limit; a script with several operations has several such budgets. Inputs and response sizes are also bounded. The client never automatically replays a failed action.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Next step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Endpoint connection fails or WDA is not ready</td>
+<td>Check the selected device, running runner, forwarding process, local port and <code>/status</code> response.</td>
+</tr>
+<tr>
+<td>Another active session exists</td>
+<td>Coordinate with its owner, explicitly attach to its ID, or intentionally authorize replacement.</td>
+</tr>
+<tr>
+<td>Input requires an attached or owned session</td>
+<td>Create a session or attach to the exact agreed session ID in the same Runtime.</td>
+</tr>
+<tr>
+<td>XML/description requires <code>raw=true</code></td>
+<td>Use default JSON for filtered observation, or explicitly choose raw output.</td>
+</tr>
+<tr>
+<td>Action outcome is unknown or could not be confirmed</td>
+<td>Observe the device state before deciding whether another action is appropriate.</td>
+</tr>
+<tr>
+<td>Native input succeeds but the desired UI state is absent</td>
+<td>Re-observe focus, geometry and application state before issuing the next step.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="fixed-protocol-references">Fixed protocol references<a class="heading-anchor" href="#fixed-protocol-references" aria-label="链接到 Fixed protocol references">#</a></h2>
+<p>The implemented WDA contract was reviewed against <code>appium/appium-ios</code> commit <strong><code>9a9092aa35e913a893f6dafddc2bfc13893d1daf</code></strong>, under <code>packages/webdriveragent</code>. The relevant upstream entry points are:</p>
+<ul>
+<li><a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/README.md">Project and XCTest runner overview</a>.</li>
+<li><a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBSessionCommands.m">Session lifecycle, app launch and URL opening</a>.</li>
+<li><a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Routing/FBRoute.m">Session-ID route resolution</a>.</li>
+<li><a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBDebugCommands.m">JSON/XML/description source routes</a> and <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Categories/XCUIApplication%2BFBHelpers.m">native JSON tree generation</a>.</li>
+<li><a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBCustomCommands.m">Screen geometry and device buttons</a>.</li>
+<li><a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBScreenshotCommands.m">PNG screenshot route</a>.</li>
+<li><a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBElementCommands.m">Tap/text routes</a>, <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Commands/FBTouchActionCommands.m">W3C touch actions</a> and <a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Categories/XCUIElement%2BFBTyping.m">native text synthesis</a>.</li>
+<li><a href="https://github.com/appium/appium-ios/blob/9a9092aa35e913a893f6dafddc2bfc13893d1daf/packages/webdriveragent/WebDriverAgentLib/Categories/XCUIDevice%2BFBHelpers.m">Device URL dispatch and default application selection</a>.</li>
+</ul>
+<p>The zuse implementation is <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/src/ios.rs">src/ios.rs</a>; MCP image integration is in <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/src/mcp.rs">src/mcp.rs</a>. Use <code>zuse schema</code> for the command arguments supported by the actual installed build.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/ios.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zuse/drawing/"><span class="pagination-label">上一页</span><span class="pagination-title">绘图原语与窗口锚点</span></a><a class="pagination-link next" href="../../zuse/key-holds/"><span class="pagination-label">下一页</span><span class="pagination-title">Bounded key holds</span></a></nav>
+      <footer class="page-footer">
+        <span>zuse <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#prepare-the-device-side-service">Prepare the device-side service</a></li><li class="toc-level-3"><a href="#forward-an-already-running-wda-over-usb">Forward an already running WDA over USB</a></li><li class="toc-level-2"><a href="#select-and-check-the-local-endpoint">Select and check the local endpoint</a></li><li class="toc-level-2"><a href="#keep-related-operations-in-one-runtime">Keep related operations in one Runtime</a></li><li class="toc-level-3"><a href="#native-input-and-safari">Native input and Safari</a></li><li class="toc-level-2"><a href="#session-ownership-and-replacement">Session ownership and replacement</a></li><li class="toc-level-2"><a href="#observe-coordinates-and-sensitive-fields">Observe coordinates and sensitive fields</a></li><li class="toc-level-3"><a href="#uikit-points-and-png-pixels">UIKit points and PNG pixels</a></li><li class="toc-level-3"><a href="#default-secure-field-redaction">Default secure-field redaction</a></li><li class="toc-level-2"><a href="#use-the-persistent-mcp-server">Use the persistent MCP server</a></li><li class="toc-level-2"><a href="#verification-and-troubleshooting">Verification and troubleshooting</a></li><li class="toc-level-2"><a href="#fixed-protocol-references">Fixed protocol references</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

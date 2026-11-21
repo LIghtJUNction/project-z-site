@@ -1,0 +1,1792 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 zclap 的 Click 参数语义与 Python 预览绑定。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zclick · Measured performance: 0.1.1a2 · Project Z">
+  <meta property="og:description" content="基于 zclap 的 Click 参数语义与 Python 预览绑定。">
+  <meta property="og:type" content="website">
+  <title>zclick · Measured performance: 0.1.1a2 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zclick/performance-0-1-1a2/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zclick">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zclick" aria-label="zclick 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zclick</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zclick</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/" aria-current="page">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zclick 文档"><div class="nav-group"><p class="nav-label">zclick</p><ul><li><a class="nav-link" href="../../zclick/">概览</a></li><li><a class="nav-link" href="../../zclick/crates-zclick-core-readme/">zclick-core</a></li><li><a class="nav-link" href="../../zclick/architecture/">Architecture and dependency boundaries</a></li><li><a class="nav-link" href="../../zclick/compatibility/">Click compatibility</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a2-zh-cn/">zclick 0.1.1a2 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a3-zh-cn/">zclick 0.1.1a3 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-zh-cn/">zclick 0.1.1a1 交付记录</a></li><li><a class="nav-link" href="../../zclick/development/">Build, verify and release</a></li><li><a class="nav-link" href="../../zclick/extensions/">第三方 Click 扩展的迁移边界</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a2/" aria-current="page">Measured performance: 0.1.1a2</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a3/">Measured performance: 0.1.1a3</a></li><li><a class="nav-link" href="../../zclick/performance/">Measured performance: 0.1.1a1</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zclick</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/" aria-current="page">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zclick 文档"><div class="nav-group"><p class="nav-label">zclick</p><ul><li><a class="nav-link" href="../../zclick/">概览</a></li><li><a class="nav-link" href="../../zclick/crates-zclick-core-readme/">zclick-core</a></li><li><a class="nav-link" href="../../zclick/architecture/">Architecture and dependency boundaries</a></li><li><a class="nav-link" href="../../zclick/compatibility/">Click compatibility</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a2-zh-cn/">zclick 0.1.1a2 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-0-1-1a3-zh-cn/">zclick 0.1.1a3 交付记录</a></li><li><a class="nav-link" href="../../zclick/delivery-zh-cn/">zclick 0.1.1a1 交付记录</a></li><li><a class="nav-link" href="../../zclick/development/">Build, verify and release</a></li><li><a class="nav-link" href="../../zclick/extensions/">第三方 Click 扩展的迁移边界</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a2/" aria-current="page">Measured performance: 0.1.1a2</a></li><li><a class="nav-link" href="../../zclick/performance-0-1-1a3/">Measured performance: 0.1.1a3</a></li><li><a class="nav-link" href="../../zclick/performance/">Measured performance: 0.1.1a1</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zclick/">zclick 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zclick/">zclick</a><span aria-hidden="true">/</span><span>Measured performance: 0.1.1a2</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#local-source-distributions-and-environment">Local source, distributions and environment</a></li><li class="toc-level-2"><a href="#local-complete-warm-measurements">Local complete warm measurements</a></li><li class="toc-level-3"><a href="#process-cpu-time">Process CPU time</a></li><li class="toc-level-2"><a href="#local-complete-fresh-process-measurements">Local complete fresh-process measurements</a></li><li class="toc-level-3"><a href="#import-only-startup">Import-only startup</a></li><li class="toc-level-2"><a href="#local-python-allocation-observations-and-process-rss">Local Python allocation observations and process RSS</a></li><li class="toc-level-2"><a href="#local-variability-and-limits-of-the-comparison">Local variability and limits of the comparison</a></li><li class="toc-level-2"><a href="#independent-release-ci-measurement">Independent release-CI measurement</a></li><li class="toc-level-3"><a href="#ci-source-and-distribution-identity">CI source and distribution identity</a></li><li class="toc-level-3"><a href="#all-eighteen-ci-warm-workloads">All eighteen CI warm workloads</a></li><li class="toc-level-3"><a href="#all-eight-ci-fresh-process-workloads">All eight CI fresh-process workloads</a></li><li class="toc-level-3"><a href="#ci-memory-and-variability">CI memory and variability</a></li><li class="toc-level-2"><a href="#reusing-parser-structure">Reusing parser structure</a></li><li class="toc-level-2"><a href="#input-ownership-and-python-adapter-work">Input ownership and Python adapter work</a></li><li class="toc-level-2"><a href="#what-the-benchmark-measures">What the benchmark measures</a></li><li class="toc-level-2"><a href="#reproducing-a-formal-comparison">Reproducing a formal comparison</a></li><li class="toc-level-2"><a href="#claim-and-evidence-record">Claim and evidence record</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="measured-performance-011a2">Measured performance: 0.1.1a2</h1>
+<p>Two independently recorded Linux hosts show a large improvement over published
+zclick 0.1.1a1 in reused parsing: the 1,000-option median ratios are <strong>2.535×</strong>
+locally and <strong>2.354×</strong> in release CI. Complete warm invocation at that size
+measured <strong>1.771×</strong> and <strong>2.017×</strong> relative to Click 8.5.1. Its improvement over
+a1 is much smaller: <strong>1.042×</strong> locally and <strong>1.050×</strong> in CI.</p>
+<p>The parser comparison with Click differs between hosts. The local
+1,000-option ratio of <strong>1.236×</strong> was <strong>not reproduced</strong> in CI, which measured
+<strong>0.975×</strong>. Parsing with 1, 10 and 100 options, the one-option warm invocation
+and the nested-command case remained slower than Click on both hosts.
+Unicode/ANSI wrapping measured <strong>7.404×</strong> locally and <strong>9.314×</strong> in CI relative
+to Click. These are workload comparisons, not a universal application speedup.</p>
+<p>The <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/results/cpython312-linux-c949d30.json">local schema-2 report</a>
+and <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/results/cpython314-linux-7e3d597.json">release-CI schema-2 report</a>
+preserve all samples and distribution identities. Their results are presented
+separately below; neither replaces the other. The published a1 wheel was
+measured again alongside the candidate in each run. The
+<a href="../../zclick/performance/">0.1.1a1 report</a> retains its original historical measurements.</p>
+<p><a class="source-image" href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/docs/assets/performance-0.1.1a2.svg">All eighteen warm workloads on both hosts, showing reference median divided by candidate median ↗</a></p>
+<p>The chart shows all eighteen warm workloads from both reports. A ratio above
+one means lower a2 latency. Its source is
+<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/plot_results.py"><code>plot_results.py</code></a>; exact values and boundaries
+remain in the tables below.</p>
+<h2 id="local-source-distributions-and-environment">Local source, distributions and environment<a class="heading-anchor" href="#local-source-distributions-and-environment" aria-label="链接到 Local source, distributions and environment">#</a></h2>
+<ul>
+<li>Measured source: <a href="https://github.com/LIghtJUNction/zclick/commit/c949d301f815c882acce9a96fe2a0c3b8da9bded"><code>c949d301f815c882acce9a96fe2a0c3b8da9bded</code></a>, version 0.1.1a2. The working tree was clean before and after measurement.</li>
+<li>Reference: Click 8.5.1 at the <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/target.json">fixed target</a>; published baseline: zclick 0.1.1a1 from commit <code>3281e18f215dec976c3ce0c4b5dd933ad4d62616</code>.</li>
+<li>Time: 2026-11-11, 15:41:54–15:42:47 UTC; approximately 53.31 seconds for the complete run.</li>
+<li>Interpreter: CPython 3.12.14, built with Clang 22.1.3; ordinary GIL build.</li>
+<li>Host: Linux 6.18.57 x86-64, glibc 2.41, AMD EPYC 9V74 80-Core Processor. Nine logical CPUs were available to the process; the orchestrator and every recorded warm worker used CPU affinity <code>[0]</code>.</li>
+<li>Method: twelve rounds, two complete blocks of all six implementation orders, seed <code>20261111</code>, five warmup calls per case and normal garbage collection enabled.</li>
+<li>Build dependencies: Rust 1.99.1 / Edition 2024, registry zclap 0.1.4 and PyO3 0.30.1. The raw report retains Cargo.lock and native-file hashes.</li>
+</ul>
+<p>The published baseline is a <code>manylinux_2_17</code> wheel; the candidate was built on
+this host as <code>manylinux_2_34</code>. Python, measurement host and execution ordering
+were controlled, while the wheel build environments were not identical.
+<strong>This is a comparison of these distributions; their entire difference cannot
+be attributed to source changes alone.</strong> The separate release-CI section below
+uses the distribution build environment and keeps this local result intact.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Distribution</th>
+<th>Wheel SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Click 8.5.1, <code>py3-none-any</code></td>
+<td><code>8bb5376d2006950386f8c6427613334a2acadc5f559cb80e638d00b4df957e37</code></td>
+</tr>
+<tr>
+<td>zclick 0.1.1a1, <code>cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64</code></td>
+<td><code>457e6d01343ccc39cc925ac86ab0e43b6c85e45a165af14e06f37c827ee13a98</code></td>
+</tr>
+<tr>
+<td>zclick 0.1.1a2, <code>cp310-abi3-manylinux_2_34_x86_64</code></td>
+<td><code>c4ca0d46e04d23647f9798c823bd65464a2a46312bed650f13bebc30ef39aaa2</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="local-complete-warm-measurements">Local complete warm measurements<a class="heading-anchor" href="#local-complete-warm-measurements" aria-label="链接到 Local complete warm measurements">#</a></h2>
+<p>Times are median <strong>microseconds per call</strong> across the twelve rounds. Ratios are
+reference median divided by a2 median: <strong>above one means lower a2 latency</strong>.
+The last two columns compare a2 separately with Click and the published a1
+wheel. Each sample is a batch average; 1,000 base iterations are scaled to 100
+for 100 options and 10 for 1,000 options. Help uses one fifth as many iterations,
+with a minimum of five.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Workload (options)</th>
+<th style="text-align:right">Click µs</th>
+<th style="text-align:right">0.1.1a1 µs</th>
+<th style="text-align:right">0.1.1a2 µs</th>
+<th style="text-align:right">Click / a2</th>
+<th style="text-align:right">a1 / a2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construct (1)</td>
+<td style="text-align:right">3.531</td>
+<td style="text-align:right">4.019</td>
+<td style="text-align:right">3.461</td>
+<td style="text-align:right">1.020×</td>
+<td style="text-align:right">1.161×</td>
+</tr>
+<tr>
+<td>Reuse parser (1)</td>
+<td style="text-align:right">1.615</td>
+<td style="text-align:right">3.676</td>
+<td style="text-align:right">2.986</td>
+<td style="text-align:right">0.541×</td>
+<td style="text-align:right">1.231×</td>
+</tr>
+<tr>
+<td>Command.main (1)</td>
+<td style="text-align:right">26.360</td>
+<td style="text-align:right">27.416</td>
+<td style="text-align:right">27.102</td>
+<td style="text-align:right">0.973×</td>
+<td style="text-align:right">1.012×</td>
+</tr>
+<tr>
+<td>Render help (1)</td>
+<td style="text-align:right">57.060</td>
+<td style="text-align:right">27.218</td>
+<td style="text-align:right">24.339</td>
+<td style="text-align:right">2.344×</td>
+<td style="text-align:right">1.118×</td>
+</tr>
+<tr>
+<td>Construct (10)</td>
+<td style="text-align:right">30.168</td>
+<td style="text-align:right">33.534</td>
+<td style="text-align:right">29.397</td>
+<td style="text-align:right">1.026×</td>
+<td style="text-align:right">1.141×</td>
+</tr>
+<tr>
+<td>Reuse parser (10)</td>
+<td style="text-align:right">6.454</td>
+<td style="text-align:right">14.951</td>
+<td style="text-align:right">8.531</td>
+<td style="text-align:right">0.757×</td>
+<td style="text-align:right">1.753×</td>
+</tr>
+<tr>
+<td>Command.main (10)</td>
+<td style="text-align:right">76.794</td>
+<td style="text-align:right">79.324</td>
+<td style="text-align:right">66.191</td>
+<td style="text-align:right">1.160×</td>
+<td style="text-align:right">1.198×</td>
+</tr>
+<tr>
+<td>Render help (10)</td>
+<td style="text-align:right">105.197</td>
+<td style="text-align:right">71.652</td>
+<td style="text-align:right">55.817</td>
+<td style="text-align:right">1.885×</td>
+<td style="text-align:right">1.284×</td>
+</tr>
+<tr>
+<td>Construct (100)</td>
+<td style="text-align:right">310.082</td>
+<td style="text-align:right">338.752</td>
+<td style="text-align:right">297.633</td>
+<td style="text-align:right">1.042×</td>
+<td style="text-align:right">1.138×</td>
+</tr>
+<tr>
+<td>Reuse parser (100)</td>
+<td style="text-align:right">56.213</td>
+<td style="text-align:right">153.455</td>
+<td style="text-align:right">64.755</td>
+<td style="text-align:right">0.868×</td>
+<td style="text-align:right">2.370×</td>
+</tr>
+<tr>
+<td>Command.main (100)</td>
+<td style="text-align:right">591.708</td>
+<td style="text-align:right">581.755</td>
+<td style="text-align:right">495.180</td>
+<td style="text-align:right">1.195×</td>
+<td style="text-align:right">1.175×</td>
+</tr>
+<tr>
+<td>Render help (100)</td>
+<td style="text-align:right">519.249</td>
+<td style="text-align:right">473.968</td>
+<td style="text-align:right">385.705</td>
+<td style="text-align:right">1.346×</td>
+<td style="text-align:right">1.229×</td>
+</tr>
+<tr>
+<td>Construct (1,000)</td>
+<td style="text-align:right">3,709.103</td>
+<td style="text-align:right">3,544.436</td>
+<td style="text-align:right">3,263.086</td>
+<td style="text-align:right">1.137×</td>
+<td style="text-align:right">1.086×</td>
+</tr>
+<tr>
+<td>Reuse parser (1,000)</td>
+<td style="text-align:right">781.337</td>
+<td style="text-align:right">1,602.245</td>
+<td style="text-align:right">632.171</td>
+<td style="text-align:right">1.236×</td>
+<td style="text-align:right">2.535×</td>
+</tr>
+<tr>
+<td>Command.main (1,000)</td>
+<td style="text-align:right">9,990.399</td>
+<td style="text-align:right">5,877.708</td>
+<td style="text-align:right">5,642.273</td>
+<td style="text-align:right">1.771×</td>
+<td style="text-align:right">1.042×</td>
+</tr>
+<tr>
+<td>Render help (1,000)</td>
+<td style="text-align:right">4,412.628</td>
+<td style="text-align:right">4,663.276</td>
+<td style="text-align:right">3,634.296</td>
+<td style="text-align:right">1.214×</td>
+<td style="text-align:right">1.283×</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">43.626</td>
+<td style="text-align:right">53.976</td>
+<td style="text-align:right">49.233</td>
+<td style="text-align:right">0.886×</td>
+<td style="text-align:right">1.096×</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrapping</td>
+<td style="text-align:right">444.634</td>
+<td style="text-align:right">66.823</td>
+<td style="text-align:right">60.056</td>
+<td style="text-align:right">7.404×</td>
+<td style="text-align:right">1.113×</td>
+</tr>
+</tbody>
+</table></div>
+<p>The parser improvement grows with command size. Its median ratio against a1
+ranges from 1.231× at one option to 2.535× at 1,000 options. At 100 options, the
+2.370× version improvement still leaves a2 behind Click: 64.755 µs versus
+56.213 µs. Reusing an owned schema removes repeated setup, while validation,
+Python object creation and the current parser actions remain part of the call.
+The measurement does not assign a separate time to each of those costs.</p>
+<p>Complete invocation includes more than parsing. With 1,000 options, a2 took
+5.642 ms, compared with 9.990 ms for Click and 5.878 ms for a1. Context creation,
+parameter processing, conversion and callbacks remain timed. The 1.042× a1/a2
+ratio is considerably smaller than the parser-only ratio, and its paired round
+ratios range from 0.861 to 1.424. It is not evidence of a large new improvement
+in complete invocation over the previous release.</p>
+<p>Small differences need the same restraint. One-option construction measured
+1.020× relative to Click; one-option invocation measured 0.973× relative to
+Click and 1.012× relative to a1. Their sample ranges overlap substantially.
+The nested-command median remains slower than Click at 0.886×, despite a
+1.096× ratio relative to a1.</p>
+<h3 id="process-cpu-time">Process CPU time<a class="heading-anchor" href="#process-cpu-time" aria-label="链接到 Process CPU time">#</a></h3>
+<p>The driver also records process CPU time in <strong>microseconds per call</strong>, with the
+same workload boundaries. These medians track the wall-time results closely;
+all eighteen rows are retained here.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Workload (options)</th>
+<th style="text-align:right">Click CPU µs</th>
+<th style="text-align:right">a1 CPU µs</th>
+<th style="text-align:right">a2 CPU µs</th>
+<th style="text-align:right">Click / a2</th>
+<th style="text-align:right">a1 / a2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construct (1)</td>
+<td style="text-align:right">3.538</td>
+<td style="text-align:right">4.026</td>
+<td style="text-align:right">3.463</td>
+<td style="text-align:right">1.022×</td>
+<td style="text-align:right">1.163×</td>
+</tr>
+<tr>
+<td>Reuse parser (1)</td>
+<td style="text-align:right">1.620</td>
+<td style="text-align:right">3.681</td>
+<td style="text-align:right">2.991</td>
+<td style="text-align:right">0.542×</td>
+<td style="text-align:right">1.231×</td>
+</tr>
+<tr>
+<td>Command.main (1)</td>
+<td style="text-align:right">26.367</td>
+<td style="text-align:right">27.422</td>
+<td style="text-align:right">27.109</td>
+<td style="text-align:right">0.973×</td>
+<td style="text-align:right">1.012×</td>
+</tr>
+<tr>
+<td>Render help (1)</td>
+<td style="text-align:right">57.078</td>
+<td style="text-align:right">27.240</td>
+<td style="text-align:right">24.365</td>
+<td style="text-align:right">2.343×</td>
+<td style="text-align:right">1.118×</td>
+</tr>
+<tr>
+<td>Construct (10)</td>
+<td style="text-align:right">30.175</td>
+<td style="text-align:right">33.544</td>
+<td style="text-align:right">29.406</td>
+<td style="text-align:right">1.026×</td>
+<td style="text-align:right">1.141×</td>
+</tr>
+<tr>
+<td>Reuse parser (10)</td>
+<td style="text-align:right">6.462</td>
+<td style="text-align:right">14.960</td>
+<td style="text-align:right">8.511</td>
+<td style="text-align:right">0.759×</td>
+<td style="text-align:right">1.758×</td>
+</tr>
+<tr>
+<td>Command.main (10)</td>
+<td style="text-align:right">76.802</td>
+<td style="text-align:right">79.327</td>
+<td style="text-align:right">66.194</td>
+<td style="text-align:right">1.160×</td>
+<td style="text-align:right">1.198×</td>
+</tr>
+<tr>
+<td>Render help (10)</td>
+<td style="text-align:right">105.216</td>
+<td style="text-align:right">71.680</td>
+<td style="text-align:right">55.844</td>
+<td style="text-align:right">1.884×</td>
+<td style="text-align:right">1.284×</td>
+</tr>
+<tr>
+<td>Construct (100)</td>
+<td style="text-align:right">309.918</td>
+<td style="text-align:right">338.803</td>
+<td style="text-align:right">297.408</td>
+<td style="text-align:right">1.042×</td>
+<td style="text-align:right">1.139×</td>
+</tr>
+<tr>
+<td>Reuse parser (100)</td>
+<td style="text-align:right">56.276</td>
+<td style="text-align:right">153.522</td>
+<td style="text-align:right">64.817</td>
+<td style="text-align:right">0.868×</td>
+<td style="text-align:right">2.369×</td>
+</tr>
+<tr>
+<td>Command.main (100)</td>
+<td style="text-align:right">591.787</td>
+<td style="text-align:right">581.840</td>
+<td style="text-align:right">494.410</td>
+<td style="text-align:right">1.197×</td>
+<td style="text-align:right">1.177×</td>
+</tr>
+<tr>
+<td>Render help (100)</td>
+<td style="text-align:right">519.532</td>
+<td style="text-align:right">473.453</td>
+<td style="text-align:right">386.014</td>
+<td style="text-align:right">1.346×</td>
+<td style="text-align:right">1.227×</td>
+</tr>
+<tr>
+<td>Construct (1,000)</td>
+<td style="text-align:right">3,710.012</td>
+<td style="text-align:right">3,542.843</td>
+<td style="text-align:right">3,264.220</td>
+<td style="text-align:right">1.137×</td>
+<td style="text-align:right">1.085×</td>
+</tr>
+<tr>
+<td>Reuse parser (1,000)</td>
+<td style="text-align:right">781.994</td>
+<td style="text-align:right">1,603.135</td>
+<td style="text-align:right">631.543</td>
+<td style="text-align:right">1.238×</td>
+<td style="text-align:right">2.538×</td>
+</tr>
+<tr>
+<td>Command.main (1,000)</td>
+<td style="text-align:right">9,990.811</td>
+<td style="text-align:right">5,878.642</td>
+<td style="text-align:right">5,641.594</td>
+<td style="text-align:right">1.771×</td>
+<td style="text-align:right">1.042×</td>
+</tr>
+<tr>
+<td>Render help (1,000)</td>
+<td style="text-align:right">4,413.623</td>
+<td style="text-align:right">4,664.611</td>
+<td style="text-align:right">3,635.874</td>
+<td style="text-align:right">1.214×</td>
+<td style="text-align:right">1.283×</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">43.632</td>
+<td style="text-align:right">53.973</td>
+<td style="text-align:right">49.198</td>
+<td style="text-align:right">0.887×</td>
+<td style="text-align:right">1.097×</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrapping</td>
+<td style="text-align:right">444.235</td>
+<td style="text-align:right">66.835</td>
+<td style="text-align:right">60.049</td>
+<td style="text-align:right">7.398×</td>
+<td style="text-align:right">1.113×</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="local-complete-fresh-process-measurements">Local complete fresh-process measurements<a class="heading-anchor" href="#local-complete-fresh-process-measurements" aria-label="链接到 Local complete fresh-process measurements">#</a></h2>
+<p>These median <strong>milliseconds per process</strong> include interpreter startup, package
+import, public command construction, invocation or help, output capture and
+process exit. Each row uses twelve fresh processes per implementation. These
+boundaries describe a CLI that runs once rather than a reused command object.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Fresh-process workload (options)</th>
+<th style="text-align:right">Click ms</th>
+<th style="text-align:right">a1 ms</th>
+<th style="text-align:right">a2 ms</th>
+<th style="text-align:right">Click / a2</th>
+<th style="text-align:right">a1 / a2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command (1)</td>
+<td style="text-align:right">38.774</td>
+<td style="text-align:right">37.379</td>
+<td style="text-align:right">31.020</td>
+<td style="text-align:right">1.250×</td>
+<td style="text-align:right">1.205×</td>
+</tr>
+<tr>
+<td>Render help (1)</td>
+<td style="text-align:right">41.239</td>
+<td style="text-align:right">39.253</td>
+<td style="text-align:right">32.284</td>
+<td style="text-align:right">1.277×</td>
+<td style="text-align:right">1.216×</td>
+</tr>
+<tr>
+<td>Command (10)</td>
+<td style="text-align:right">37.475</td>
+<td style="text-align:right">35.875</td>
+<td style="text-align:right">29.753</td>
+<td style="text-align:right">1.260×</td>
+<td style="text-align:right">1.206×</td>
+</tr>
+<tr>
+<td>Render help (10)</td>
+<td style="text-align:right">40.367</td>
+<td style="text-align:right">39.830</td>
+<td style="text-align:right">31.178</td>
+<td style="text-align:right">1.295×</td>
+<td style="text-align:right">1.277×</td>
+</tr>
+<tr>
+<td>Command (100)</td>
+<td style="text-align:right">38.340</td>
+<td style="text-align:right">38.440</td>
+<td style="text-align:right">31.303</td>
+<td style="text-align:right">1.225×</td>
+<td style="text-align:right">1.228×</td>
+</tr>
+<tr>
+<td>Render help (100)</td>
+<td style="text-align:right">44.410</td>
+<td style="text-align:right">40.902</td>
+<td style="text-align:right">33.707</td>
+<td style="text-align:right">1.318×</td>
+<td style="text-align:right">1.213×</td>
+</tr>
+<tr>
+<td>Command (1,000)</td>
+<td style="text-align:right">58.250</td>
+<td style="text-align:right">57.386</td>
+<td style="text-align:right">43.584</td>
+<td style="text-align:right">1.336×</td>
+<td style="text-align:right">1.317×</td>
+</tr>
+<tr>
+<td>Render help (1,000)</td>
+<td style="text-align:right">58.043</td>
+<td style="text-align:right">56.828</td>
+<td style="text-align:right">45.922</td>
+<td style="text-align:right">1.264×</td>
+<td style="text-align:right">1.238×</td>
+</tr>
+</tbody>
+</table></div>
+<p>All eight a2 medians are lower than both references in this run. The
+1,000-option command measured 43.584 ms versus 58.250 ms for Click and 57.386 ms
+for a1; the corresponding help process measured 45.922 ms versus 58.043 ms and
+56.828 ms. Individual runs varied substantially, as shown below, so these
+medians do not imply that every startup is faster.</p>
+<h3 id="import-only-startup">Import-only startup<a class="heading-anchor" href="#import-only-startup" aria-label="链接到 Import-only startup">#</a></h3>
+<p>The import interval starts immediately before importing the package; only
+<code>time</code> is imported beforehand. The whole-process interval additionally includes
+interpreter startup, reporting the timing and process exit.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Boundary</th>
+<th style="text-align:right">Click ms</th>
+<th style="text-align:right">a1 ms</th>
+<th style="text-align:right">a2 ms</th>
+<th style="text-align:right">Click / a2</th>
+<th style="text-align:right">a1 / a2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import interval</td>
+<td style="text-align:right">21.830</td>
+<td style="text-align:right">21.980</td>
+<td style="text-align:right">15.776</td>
+<td style="text-align:right">1.384×</td>
+<td style="text-align:right">1.393×</td>
+</tr>
+<tr>
+<td>Whole import-only process</td>
+<td style="text-align:right">37.732</td>
+<td style="text-align:right">38.169</td>
+<td style="text-align:right">29.158</td>
+<td style="text-align:right">1.294×</td>
+<td style="text-align:right">1.309×</td>
+</tr>
+</tbody>
+</table></div>
+<p>The a2 import interval ranged from 13.826 to 19.960 ms, compared with
+18.742–27.341 ms for Click and 18.355–26.606 ms for a1. Whole import-only process
+ranges were 25.148–38.470 ms, 32.285–45.852 ms and 31.643–51.145 ms respectively.
+Operating-system caches were not flushed.</p>
+<h2 id="local-python-allocation-observations-and-process-rss">Local Python allocation observations and process RSS<a class="heading-anchor" href="#local-python-allocation-observations-and-process-rss" aria-label="链接到 Local Python allocation observations and process RSS">#</a></h2>
+<p>Each cell below is <strong>current / peak Python-managed bytes</strong>, taking the median
+of the twelve observations. <code>tracemalloc</code> starts after a collection, observes
+one call and keeps its returned value alive for the current-byte reading.
+It does not count all Rust allocations or all memory in a retained schema.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Workload (options)</th>
+<th style="text-align:right">Click bytes</th>
+<th style="text-align:right">a1 bytes</th>
+<th style="text-align:right">a2 bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construct (1)</td>
+<td style="text-align:right">3,250 / 3,290</td>
+<td style="text-align:right">3,418 / 3,458</td>
+<td style="text-align:right">3,370 / 3,410</td>
+</tr>
+<tr>
+<td>Reuse parser (1)</td>
+<td style="text-align:right">720 / 2,488</td>
+<td style="text-align:right">1,030 / 1,330</td>
+<td style="text-align:right">1,059 / 1,327</td>
+</tr>
+<tr>
+<td>Command.main (1)</td>
+<td style="text-align:right">3,208 / 7,274</td>
+<td style="text-align:right">3,558 / 7,160</td>
+<td style="text-align:right">3,597 / 7,274</td>
+</tr>
+<tr>
+<td>Render help (1)</td>
+<td style="text-align:right">1,830 / 5,288</td>
+<td style="text-align:right">1,414 / 2,996</td>
+<td style="text-align:right">1,414 / 2,996</td>
+</tr>
+<tr>
+<td>Construct (10)</td>
+<td style="text-align:right">20,212 / 20,252</td>
+<td style="text-align:right">20,380 / 20,420</td>
+<td style="text-align:right">20,332 / 20,372</td>
+</tr>
+<tr>
+<td>Reuse parser (10)</td>
+<td style="text-align:right">1,024 / 2,792</td>
+<td style="text-align:right">2,054 / 2,522</td>
+<td style="text-align:right">1,340 / 1,680</td>
+</tr>
+<tr>
+<td>Command.main (10)</td>
+<td style="text-align:right">5,456 / 14,857</td>
+<td style="text-align:right">5,478 / 14,891</td>
+<td style="text-align:right">5,275 / 14,606</td>
+</tr>
+<tr>
+<td>Render help (10)</td>
+<td style="text-align:right">2,394 / 7,102</td>
+<td style="text-align:right">2,098 / 4,850</td>
+<td style="text-align:right">2,098 / 4,850</td>
+</tr>
+<tr>
+<td>Construct (100)</td>
+<td style="text-align:right">189,788 / 189,828</td>
+<td style="text-align:right">189,956 / 189,996</td>
+<td style="text-align:right">189,908 / 189,948</td>
+</tr>
+<tr>
+<td>Reuse parser (100)</td>
+<td style="text-align:right">4,816 / 6,584</td>
+<td style="text-align:right">13,046 / 16,362</td>
+<td style="text-align:right">5,065 / 7,517</td>
+</tr>
+<tr>
+<td>Command.main (100)</td>
+<td style="text-align:right">20,900 / 93,387</td>
+<td style="text-align:right">14,370 / 98,577</td>
+<td style="text-align:right">12,092 / 96,297</td>
+</tr>
+<tr>
+<td>Render help (100)</td>
+<td style="text-align:right">9,325 / 25,999</td>
+<td style="text-align:right">9,029 / 23,729</td>
+<td style="text-align:right">9,029 / 23,729</td>
+</tr>
+<tr>
+<td>Construct (1,000)</td>
+<td style="text-align:right">1,887,924 / 1,887,972</td>
+<td style="text-align:right">1,888,092 / 1,888,140</td>
+<td style="text-align:right">1,888,044 / 1,888,084</td>
+</tr>
+<tr>
+<td>Reuse parser (1,000)</td>
+<td style="text-align:right">35,456 / 54,560</td>
+<td style="text-align:right">115,686 / 163,850</td>
+<td style="text-align:right">35,749 / 54,281</td>
+</tr>
+<tr>
+<td>Command.main (1,000)</td>
+<td style="text-align:right">71,300 / 780,943</td>
+<td style="text-align:right">86,418 / 919,413</td>
+<td style="text-align:right">6,682 / 832,314</td>
+</tr>
+<tr>
+<td>Render help (1,000)</td>
+<td style="text-align:right">79,526 / 215,608</td>
+<td style="text-align:right">79,230 / 213,339</td>
+<td style="text-align:right">79,230 / 213,339</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">3,680 / 9,810</td>
+<td style="text-align:right">4,838 / 10,007</td>
+<td style="text-align:right">5,024 / 10,254</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrapping</td>
+<td style="text-align:right">5,576 / 42,128</td>
+<td style="text-align:right">5,120 / 8,126</td>
+<td style="text-align:right">5,056 / 8,062</td>
+</tr>
+</tbody>
+</table></div>
+<p>At 1,000 options, reused parsing recorded a Python peak of 54,281 bytes for a2,
+compared with 163,850 for a1 and 54,560 for Click. Complete invocation recorded
+832,314 bytes for a2, below a1's 919,413 and above Click's 780,943. These are
+Python allocation observations for the stated calls, not total native memory
+or a zero-allocation result.</p>
+<p>Peak RSS measures the <strong>whole worker process</strong>, including imports, package
+hash verification, <code>tracemalloc</code> and the full workload sequence. It cannot be
+attributed to one parser call. Values below use MiB, where 1 MiB is 1,048,576
+bytes.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Implementation</th>
+<th style="text-align:right">Median peak RSS MiB</th>
+<th style="text-align:right">Observed range MiB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Click 8.5.1</td>
+<td style="text-align:right">24.059</td>
+<td style="text-align:right">24.000–24.066</td>
+</tr>
+<tr>
+<td>zclick 0.1.1a1</td>
+<td style="text-align:right">25.107</td>
+<td style="text-align:right">25.004–25.199</td>
+</tr>
+<tr>
+<td>zclick 0.1.1a2</td>
+<td style="text-align:right">25.492</td>
+<td style="text-align:right">25.438–25.527</td>
+</tr>
+</tbody>
+</table></div>
+<p>The candidate's median worker peak RSS was higher than both references:
+25.492 MiB versus 24.059 MiB for Click and 25.107 MiB for a1. The lower Python
+allocation readings in some rows therefore do not establish lower overall
+process memory use.</p>
+<h2 id="local-variability-and-limits-of-the-comparison">Local variability and limits of the comparison<a class="heading-anchor" href="#local-variability-and-limits-of-the-comparison" aria-label="链接到 Local variability and limits of the comparison">#</a></h2>
+<p>The following ranges preserve all twelve warm samples for representative
+large, small and regressing workloads. Paired ratios divide a1 by a2 within
+each round; they differ from the ratio of the two overall medians.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Warm workload</th>
+<th style="text-align:right">Click range µs</th>
+<th style="text-align:right">a1 range µs</th>
+<th style="text-align:right">a2 range µs</th>
+<th style="text-align:right">Paired a1/a2 range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construct (1)</td>
+<td style="text-align:right">3.393–4.923</td>
+<td style="text-align:right">3.626–4.206</td>
+<td style="text-align:right">3.267–4.110</td>
+<td style="text-align:right">0.882–1.287</td>
+</tr>
+<tr>
+<td>Command.main (1)</td>
+<td style="text-align:right">23.133–31.486</td>
+<td style="text-align:right">24.549–37.098</td>
+<td style="text-align:right">24.214–32.051</td>
+<td style="text-align:right">0.784–1.194</td>
+</tr>
+<tr>
+<td>Reuse parser (1,000)</td>
+<td style="text-align:right">721.620–1,068.995</td>
+<td style="text-align:right">1,526.422–2,164.517</td>
+<td style="text-align:right">581.890–1,009.144</td>
+<td style="text-align:right">1.705–3.720</td>
+</tr>
+<tr>
+<td>Command.main (1,000)</td>
+<td style="text-align:right">8,865.453–11,015.180</td>
+<td style="text-align:right">5,360.613–8,106.337</td>
+<td style="text-align:right">5,219.943–6,946.573</td>
+<td style="text-align:right">0.861–1.424</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">40.973–53.011</td>
+<td style="text-align:right">50.487–66.509</td>
+<td style="text-align:right">44.592–61.140</td>
+<td style="text-align:right">0.868–1.373</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrapping</td>
+<td style="text-align:right">408.196–465.175</td>
+<td style="text-align:right">61.677–75.341</td>
+<td style="text-align:right">56.728–66.192</td>
+<td style="text-align:right">0.952–1.254</td>
+</tr>
+</tbody>
+</table></div>
+<p>For the 1,000-option reused parser, every paired a1/a2 round ratio exceeded one,
+with a range of 1.705–3.720. Against Click, paired ratios ranged from
+0.756–1.555 despite the 1.236× overall median ratio. Wrapping's paired
+Click/a2 ratios ranged from 6.370–8.094. These observations support the stated
+workload comparisons while retaining their variability; they are not confidence
+intervals or guarantees for another machine.</p>
+<p>Fresh-process samples show larger outliers. The table includes every cold
+workload's observed range in milliseconds and a2's coefficient of variation
+(CV: sample standard deviation divided by the sample mean).</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Fresh-process workload</th>
+<th style="text-align:right">Click range ms</th>
+<th style="text-align:right">a1 range ms</th>
+<th style="text-align:right">a2 range ms</th>
+<th style="text-align:right">a2 CV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command (1)</td>
+<td style="text-align:right">34.661–131.940</td>
+<td style="text-align:right">32.859–46.649</td>
+<td style="text-align:right">26.805–42.308</td>
+<td style="text-align:right">13.79%</td>
+</tr>
+<tr>
+<td>Render help (1)</td>
+<td style="text-align:right">36.208–51.935</td>
+<td style="text-align:right">35.062–47.180</td>
+<td style="text-align:right">28.003–63.983</td>
+<td style="text-align:right">27.98%</td>
+</tr>
+<tr>
+<td>Command (10)</td>
+<td style="text-align:right">34.135–52.948</td>
+<td style="text-align:right">32.928–44.715</td>
+<td style="text-align:right">26.693–36.993</td>
+<td style="text-align:right">9.83%</td>
+</tr>
+<tr>
+<td>Render help (10)</td>
+<td style="text-align:right">35.674–45.786</td>
+<td style="text-align:right">34.832–45.513</td>
+<td style="text-align:right">28.775–36.114</td>
+<td style="text-align:right">8.00%</td>
+</tr>
+<tr>
+<td>Command (100)</td>
+<td style="text-align:right">33.506–47.887</td>
+<td style="text-align:right">32.786–184.678</td>
+<td style="text-align:right">27.871–70.480</td>
+<td style="text-align:right">34.33%</td>
+</tr>
+<tr>
+<td>Render help (100)</td>
+<td style="text-align:right">37.362–59.717</td>
+<td style="text-align:right">35.515–48.203</td>
+<td style="text-align:right">27.842–149.031</td>
+<td style="text-align:right">78.43%</td>
+</tr>
+<tr>
+<td>Command (1,000)</td>
+<td style="text-align:right">50.130–85.201</td>
+<td style="text-align:right">44.417–92.699</td>
+<td style="text-align:right">40.450–48.855</td>
+<td style="text-align:right">6.10%</td>
+</tr>
+<tr>
+<td>Render help (1,000)</td>
+<td style="text-align:right">51.308–66.934</td>
+<td style="text-align:right">48.063–66.654</td>
+<td style="text-align:right">41.193–51.773</td>
+<td style="text-align:right">6.94%</td>
+</tr>
+</tbody>
+</table></div>
+<p>The a2 100-option help process had a 33.707 ms median and a 149.031 ms maximum,
+with a CV of 78.43%. Click's one-option command reached 131.940 ms and a1's
+100-option command reached 184.678 ms. These samples were retained. A claim that
+every invocation or cold start is faster would conflict with the recorded data.</p>
+<p>Affinity kept the measured workers on CPU 0, but frequency was not locked and
+no frequency readings were available. The host's one-minute load observation
+rose from about 0.46 to 1.33. Shared-host activity, scheduling, file caches and
+GC can affect the run; balanced implementation order reduces one source of
+bias without removing those conditions. Hash seeds also vary across isolated
+Python processes. No statistical significance claim is made for the small
+median differences above.</p>
+<p>The build-target difference is another attribution limit. Comparing the
+published a1 <code>manylinux_2_17</code> wheel with a host-built a2 <code>manylinux_2_34</code> wheel
+measures their delivered behavior under this interpreter, including build
+differences. Component-level attribution and portability require their own
+comparisons. The historical report and this local run remain intact alongside
+the separate release-CI result below.</p>
+<h2 id="independent-release-ci-measurement">Independent release-CI measurement<a class="heading-anchor" href="#independent-release-ci-measurement" aria-label="链接到 Independent release-CI measurement">#</a></h2>
+<p>The second run used the release build environment and a different host and
+Python version. It confirms the direction of the large parser improvement
+over a1, the large full-invocation advantage over Click, and faster wrapping.
+It <strong>does not reproduce the local 1,000-option parser advantage over Click</strong>:
+the CI median ratio is 0.975×, versus 1.236× locally. The two runs are retained
+separately because a change of processor, interpreter and build environment
+prevents attributing that difference to any one factor.</p>
+<h3 id="ci-source-and-distribution-identity">CI source and distribution identity<a class="heading-anchor" href="#ci-source-and-distribution-identity" aria-label="链接到 CI source and distribution identity">#</a></h3>
+<ul>
+<li>Source: <a href="https://github.com/LIghtJUNction/zclick/commit/7e3d597873b737bbfc8c2df090773aad56d9bd73"><code>7e3d597873b737bbfc8c2df090773aad56d9bd73</code></a>, version 0.1.1a2, from <a href="https://github.com/LIghtJUNction/zclick/actions/runs/43052475382">Release run 43052475382</a>. The tree was clean before and after timing.</li>
+<li>Time: 2026-11-11, 15:54:30–15:55:42 UTC, approximately 72.64 seconds for the complete run.</li>
+<li>Host: AMD EPYC 7763 64-Core Processor, Linux 7.0.0-1019-azure x86-64, glibc 2.43; four logical CPUs were available and all recorded measurement workers used CPU 0.</li>
+<li>Interpreter: ordinary-GIL CPython 3.14.10, built with GCC 15.2.0. The same interpreter was used for Click, the published a1 wheel and a2.</li>
+<li>Build: pinned Maturin 1.16.0 and Rust 1.99.1 through the release's manylinux build configuration. Both zclick distributions use <code>cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64</code> wheels.</li>
+<li>Protocol: the same twelve rounds, two balanced order blocks, seed <code>20261111</code>, five warmup calls, normal GC and separately ordered fresh-process boundaries as the local run.</li>
+<li>Raw evidence: <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/results/cpython314-linux-7e3d597.json">complete CI JSON</a>, SHA-256 <code>4e6fcaddeae2e2c0c3d932b000d649e622408f64261b895d0b81c31a7505afbd</code>.</li>
+</ul>
+<p>The independently built benchmark wheel and release Linux GNU wheel have
+different archive hashes. Their <strong>18 Python and native runtime files have
+identical content</strong>, including the native binary. This connects the measured
+runtime to the release artifact without claiming byte-identical wheel archives.
+The <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/releases/0.1.1a2-benchmark-payload.json">file-by-file comparison</a>
+retains every matched runtime hash and the comparison scope. It does not by
+itself establish publication or performance on another architecture.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CI benchmark wheel</td>
+<td><code>3d1834c08c5072faafa23e6e172404ce8fab90e0dbd0120eb1398aec14c539c4</code></td>
+</tr>
+<tr>
+<td>Release Linux GNU wheel archive</td>
+<td><code>dd69bc1b014559a0c77319f52334811951e49fb134f916a3e76f5b7abd493a0c</code></td>
+</tr>
+<tr>
+<td>Native binary in both wheels</td>
+<td><code>c87443a4805193f89d243f87c21bdc92480a79cee796899c47591851c0131746</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="all-eighteen-ci-warm-workloads">All eighteen CI warm workloads<a class="heading-anchor" href="#all-eighteen-ci-warm-workloads" aria-label="链接到 All eighteen CI warm workloads">#</a></h3>
+<p>These are median <strong>microseconds per call</strong>, with the same workload boundaries
+and iteration scaling as the local table. Both reference ratios use the CI
+medians; no values are mixed between hosts.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Workload (options)</th>
+<th style="text-align:right">Click µs</th>
+<th style="text-align:right">a1 µs</th>
+<th style="text-align:right">a2 µs</th>
+<th style="text-align:right">Click / a2</th>
+<th style="text-align:right">a1 / a2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construct (1)</td>
+<td style="text-align:right">6.199</td>
+<td style="text-align:right">6.847</td>
+<td style="text-align:right">5.981</td>
+<td style="text-align:right">1.036×</td>
+<td style="text-align:right">1.145×</td>
+</tr>
+<tr>
+<td>Reuse parser (1)</td>
+<td style="text-align:right">2.907</td>
+<td style="text-align:right">5.987</td>
+<td style="text-align:right">4.711</td>
+<td style="text-align:right">0.617×</td>
+<td style="text-align:right">1.271×</td>
+</tr>
+<tr>
+<td>Command.main (1)</td>
+<td style="text-align:right">68.058</td>
+<td style="text-align:right">73.169</td>
+<td style="text-align:right">69.487</td>
+<td style="text-align:right">0.979×</td>
+<td style="text-align:right">1.053×</td>
+</tr>
+<tr>
+<td>Render help (1)</td>
+<td style="text-align:right">160.319</td>
+<td style="text-align:right">69.845</td>
+<td style="text-align:right">57.461</td>
+<td style="text-align:right">2.790×</td>
+<td style="text-align:right">1.216×</td>
+</tr>
+<tr>
+<td>Construct (10)</td>
+<td style="text-align:right">51.102</td>
+<td style="text-align:right">56.406</td>
+<td style="text-align:right">48.681</td>
+<td style="text-align:right">1.050×</td>
+<td style="text-align:right">1.159×</td>
+</tr>
+<tr>
+<td>Reuse parser (10)</td>
+<td style="text-align:right">8.576</td>
+<td style="text-align:right">22.096</td>
+<td style="text-align:right">13.192</td>
+<td style="text-align:right">0.650×</td>
+<td style="text-align:right">1.675×</td>
+</tr>
+<tr>
+<td>Command.main (10)</td>
+<td style="text-align:right">147.040</td>
+<td style="text-align:right">144.753</td>
+<td style="text-align:right">129.905</td>
+<td style="text-align:right">1.132×</td>
+<td style="text-align:right">1.114×</td>
+</tr>
+<tr>
+<td>Render help (10)</td>
+<td style="text-align:right">232.380</td>
+<td style="text-align:right">138.535</td>
+<td style="text-align:right">111.570</td>
+<td style="text-align:right">2.083×</td>
+<td style="text-align:right">1.242×</td>
+</tr>
+<tr>
+<td>Construct (100)</td>
+<td style="text-align:right">509.940</td>
+<td style="text-align:right">561.699</td>
+<td style="text-align:right">487.971</td>
+<td style="text-align:right">1.045×</td>
+<td style="text-align:right">1.151×</td>
+</tr>
+<tr>
+<td>Reuse parser (100)</td>
+<td style="text-align:right">68.096</td>
+<td style="text-align:right">200.341</td>
+<td style="text-align:right">92.697</td>
+<td style="text-align:right">0.735×</td>
+<td style="text-align:right">2.161×</td>
+</tr>
+<tr>
+<td>Command.main (100)</td>
+<td style="text-align:right">928.616</td>
+<td style="text-align:right">803.018</td>
+<td style="text-align:right">720.583</td>
+<td style="text-align:right">1.289×</td>
+<td style="text-align:right">1.114×</td>
+</tr>
+<tr>
+<td>Render help (100)</td>
+<td style="text-align:right">896.932</td>
+<td style="text-align:right">788.245</td>
+<td style="text-align:right">611.180</td>
+<td style="text-align:right">1.468×</td>
+<td style="text-align:right">1.290×</td>
+</tr>
+<tr>
+<td>Construct (1,000)</td>
+<td style="text-align:right">5,273.717</td>
+<td style="text-align:right">5,711.841</td>
+<td style="text-align:right">4,959.468</td>
+<td style="text-align:right">1.063×</td>
+<td style="text-align:right">1.152×</td>
+</tr>
+<tr>
+<td>Reuse parser (1,000)</td>
+<td style="text-align:right">836.866</td>
+<td style="text-align:right">2,019.259</td>
+<td style="text-align:right">857.956</td>
+<td style="text-align:right">0.975×</td>
+<td style="text-align:right">2.354×</td>
+</tr>
+<tr>
+<td>Command.main (1,000)</td>
+<td style="text-align:right">14,169.504</td>
+<td style="text-align:right">7,377.726</td>
+<td style="text-align:right">7,023.316</td>
+<td style="text-align:right">2.017×</td>
+<td style="text-align:right">1.050×</td>
+</tr>
+<tr>
+<td>Render help (1,000)</td>
+<td style="text-align:right">7,243.400</td>
+<td style="text-align:right">7,158.829</td>
+<td style="text-align:right">5,486.346</td>
+<td style="text-align:right">1.320×</td>
+<td style="text-align:right">1.305×</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">119.839</td>
+<td style="text-align:right">135.448</td>
+<td style="text-align:right">131.907</td>
+<td style="text-align:right">0.909×</td>
+<td style="text-align:right">1.027×</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrapping</td>
+<td style="text-align:right">650.213</td>
+<td style="text-align:right">72.940</td>
+<td style="text-align:right">69.811</td>
+<td style="text-align:right">9.314×</td>
+<td style="text-align:right">1.045×</td>
+</tr>
+</tbody>
+</table></div>
+<p>At 1,000 options, the parser improved from 2,019.259 µs in a1 to 857.956 µs in
+a2, a 2.354× ratio. Click took 836.866 µs, so a2's parser median was slightly
+higher. Complete invocation took 7,023.316 µs versus Click's 14,169.504 µs and
+a1's 7,377.726 µs: 2.017× relative to Click, but only 1.050× over a1. Reducing
+one part of invocation does not give the complete command the same ratio.</p>
+<p>All four parser sizes, the one-option invocation and the nested-command case
+remain slower than Click in this CI run. Help and wrapping retain lower
+medians: wrapping took 69.811 µs versus Click's 650.213 µs, a 9.314× ratio. Its
+ratio over a1 is 1.045×, which separates the project's existing advantage over
+Click from this version's smaller additional change.</p>
+<p>The process-CPU measurements use the same <strong>microseconds per call</strong> boundary:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Workload (options)</th>
+<th style="text-align:right">Click CPU µs</th>
+<th style="text-align:right">a1 CPU µs</th>
+<th style="text-align:right">a2 CPU µs</th>
+<th style="text-align:right">Click / a2</th>
+<th style="text-align:right">a1 / a2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Construct (1)</td>
+<td style="text-align:right">6.205</td>
+<td style="text-align:right">6.853</td>
+<td style="text-align:right">5.988</td>
+<td style="text-align:right">1.036×</td>
+<td style="text-align:right">1.144×</td>
+</tr>
+<tr>
+<td>Reuse parser (1)</td>
+<td style="text-align:right">2.911</td>
+<td style="text-align:right">5.994</td>
+<td style="text-align:right">4.718</td>
+<td style="text-align:right">0.617×</td>
+<td style="text-align:right">1.270×</td>
+</tr>
+<tr>
+<td>Command.main (1)</td>
+<td style="text-align:right">68.059</td>
+<td style="text-align:right">73.175</td>
+<td style="text-align:right">69.492</td>
+<td style="text-align:right">0.979×</td>
+<td style="text-align:right">1.053×</td>
+</tr>
+<tr>
+<td>Render help (1)</td>
+<td style="text-align:right">160.315</td>
+<td style="text-align:right">69.872</td>
+<td style="text-align:right">57.480</td>
+<td style="text-align:right">2.789×</td>
+<td style="text-align:right">1.216×</td>
+</tr>
+<tr>
+<td>Construct (10)</td>
+<td style="text-align:right">50.993</td>
+<td style="text-align:right">56.421</td>
+<td style="text-align:right">48.687</td>
+<td style="text-align:right">1.047×</td>
+<td style="text-align:right">1.159×</td>
+</tr>
+<tr>
+<td>Reuse parser (10)</td>
+<td style="text-align:right">8.581</td>
+<td style="text-align:right">22.101</td>
+<td style="text-align:right">13.195</td>
+<td style="text-align:right">0.650×</td>
+<td style="text-align:right">1.675×</td>
+</tr>
+<tr>
+<td>Command.main (10)</td>
+<td style="text-align:right">147.035</td>
+<td style="text-align:right">144.759</td>
+<td style="text-align:right">129.907</td>
+<td style="text-align:right">1.132×</td>
+<td style="text-align:right">1.114×</td>
+</tr>
+<tr>
+<td>Render help (10)</td>
+<td style="text-align:right">232.399</td>
+<td style="text-align:right">138.558</td>
+<td style="text-align:right">111.594</td>
+<td style="text-align:right">2.083×</td>
+<td style="text-align:right">1.242×</td>
+</tr>
+<tr>
+<td>Construct (100)</td>
+<td style="text-align:right">509.984</td>
+<td style="text-align:right">561.756</td>
+<td style="text-align:right">487.978</td>
+<td style="text-align:right">1.045×</td>
+<td style="text-align:right">1.151×</td>
+</tr>
+<tr>
+<td>Reuse parser (100)</td>
+<td style="text-align:right">68.132</td>
+<td style="text-align:right">200.388</td>
+<td style="text-align:right">92.737</td>
+<td style="text-align:right">0.735×</td>
+<td style="text-align:right">2.161×</td>
+</tr>
+<tr>
+<td>Command.main (100)</td>
+<td style="text-align:right">928.631</td>
+<td style="text-align:right">803.069</td>
+<td style="text-align:right">720.598</td>
+<td style="text-align:right">1.289×</td>
+<td style="text-align:right">1.114×</td>
+</tr>
+<tr>
+<td>Render help (100)</td>
+<td style="text-align:right">897.150</td>
+<td style="text-align:right">788.537</td>
+<td style="text-align:right">611.386</td>
+<td style="text-align:right">1.467×</td>
+<td style="text-align:right">1.290×</td>
+</tr>
+<tr>
+<td>Construct (1,000)</td>
+<td style="text-align:right">5,273.917</td>
+<td style="text-align:right">5,712.415</td>
+<td style="text-align:right">4,960.191</td>
+<td style="text-align:right">1.063×</td>
+<td style="text-align:right">1.152×</td>
+</tr>
+<tr>
+<td>Reuse parser (1,000)</td>
+<td style="text-align:right">836.913</td>
+<td style="text-align:right">2,019.739</td>
+<td style="text-align:right">858.365</td>
+<td style="text-align:right">0.975×</td>
+<td style="text-align:right">2.353×</td>
+</tr>
+<tr>
+<td>Command.main (1,000)</td>
+<td style="text-align:right">14,145.645</td>
+<td style="text-align:right">7,378.331</td>
+<td style="text-align:right">7,021.754</td>
+<td style="text-align:right">2.015×</td>
+<td style="text-align:right">1.051×</td>
+</tr>
+<tr>
+<td>Render help (1,000)</td>
+<td style="text-align:right">7,243.795</td>
+<td style="text-align:right">7,159.815</td>
+<td style="text-align:right">5,487.554</td>
+<td style="text-align:right">1.320×</td>
+<td style="text-align:right">1.305×</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">119.835</td>
+<td style="text-align:right">135.441</td>
+<td style="text-align:right">131.909</td>
+<td style="text-align:right">0.908×</td>
+<td style="text-align:right">1.027×</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrapping</td>
+<td style="text-align:right">650.206</td>
+<td style="text-align:right">72.948</td>
+<td style="text-align:right">69.812</td>
+<td style="text-align:right">9.314×</td>
+<td style="text-align:right">1.045×</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="all-eight-ci-fresh-process-workloads">All eight CI fresh-process workloads<a class="heading-anchor" href="#all-eight-ci-fresh-process-workloads" aria-label="链接到 All eight CI fresh-process workloads">#</a></h3>
+<p>Values are median <strong>milliseconds per process</strong>, including startup, import,
+construction, command or help execution, output capture and exit.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Fresh-process workload (options)</th>
+<th style="text-align:right">Click ms</th>
+<th style="text-align:right">a1 ms</th>
+<th style="text-align:right">a2 ms</th>
+<th style="text-align:right">Click / a2</th>
+<th style="text-align:right">a1 / a2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command (1)</td>
+<td style="text-align:right">47.971</td>
+<td style="text-align:right">46.302</td>
+<td style="text-align:right">39.650</td>
+<td style="text-align:right">1.210×</td>
+<td style="text-align:right">1.168×</td>
+</tr>
+<tr>
+<td>Render help (1)</td>
+<td style="text-align:right">54.821</td>
+<td style="text-align:right">51.443</td>
+<td style="text-align:right">45.123</td>
+<td style="text-align:right">1.215×</td>
+<td style="text-align:right">1.140×</td>
+</tr>
+<tr>
+<td>Command (10)</td>
+<td style="text-align:right">48.305</td>
+<td style="text-align:right">47.054</td>
+<td style="text-align:right">39.811</td>
+<td style="text-align:right">1.213×</td>
+<td style="text-align:right">1.182×</td>
+</tr>
+<tr>
+<td>Render help (10)</td>
+<td style="text-align:right">55.592</td>
+<td style="text-align:right">51.767</td>
+<td style="text-align:right">45.297</td>
+<td style="text-align:right">1.227×</td>
+<td style="text-align:right">1.143×</td>
+</tr>
+<tr>
+<td>Command (100)</td>
+<td style="text-align:right">49.844</td>
+<td style="text-align:right">48.244</td>
+<td style="text-align:right">41.480</td>
+<td style="text-align:right">1.202×</td>
+<td style="text-align:right">1.163×</td>
+</tr>
+<tr>
+<td>Render help (100)</td>
+<td style="text-align:right">56.866</td>
+<td style="text-align:right">53.410</td>
+<td style="text-align:right">46.616</td>
+<td style="text-align:right">1.220×</td>
+<td style="text-align:right">1.146×</td>
+</tr>
+<tr>
+<td>Command (1,000)</td>
+<td style="text-align:right">74.481</td>
+<td style="text-align:right">65.616</td>
+<td style="text-align:right">57.698</td>
+<td style="text-align:right">1.291×</td>
+<td style="text-align:right">1.137×</td>
+</tr>
+<tr>
+<td>Render help (1,000)</td>
+<td style="text-align:right">74.790</td>
+<td style="text-align:right">74.878</td>
+<td style="text-align:right">65.037</td>
+<td style="text-align:right">1.150×</td>
+<td style="text-align:right">1.151×</td>
+</tr>
+</tbody>
+</table></div>
+<p>All eight medians were lower than both references. The 1,000-option command
+ratio against Click was 1.291×; the corresponding help ratio was 1.150×.
+For a2, those observed ranges were 56.739–63.557 ms and 63.850–67.351 ms.
+These ranges describe the retained samples, not a guarantee for every startup.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Import boundary</th>
+<th style="text-align:right">Click ms</th>
+<th style="text-align:right">a1 ms</th>
+<th style="text-align:right">a2 ms</th>
+<th style="text-align:right">Click / a2</th>
+<th style="text-align:right">a1 / a2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import interval</td>
+<td style="text-align:right">28.171</td>
+<td style="text-align:right">27.430</td>
+<td style="text-align:right">21.891</td>
+<td style="text-align:right">1.287×</td>
+<td style="text-align:right">1.253×</td>
+</tr>
+<tr>
+<td>Whole import-only process</td>
+<td style="text-align:right">46.214</td>
+<td style="text-align:right">45.181</td>
+<td style="text-align:right">38.873</td>
+<td style="text-align:right">1.189×</td>
+<td style="text-align:right">1.162×</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ci-memory-and-variability">CI memory and variability<a class="heading-anchor" href="#ci-memory-and-variability" aria-label="链接到 CI memory and variability">#</a></h3>
+<p>Whole-worker peak RSS includes imports, package hash validation, the complete
+workload sequence and <code>tracemalloc</code>. It is not the memory cost of one parser
+call. Median a2 RSS remained above Click's; the a2 and a1 observed ranges
+overlap. Cross-host absolute RSS values are not directly comparable because
+the interpreter and environment differ.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Implementation</th>
+<th style="text-align:right">Median peak RSS MiB</th>
+<th style="text-align:right">Observed range MiB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Click 8.5.1</td>
+<td style="text-align:right">32.039</td>
+<td style="text-align:right">31.957–32.082</td>
+</tr>
+<tr>
+<td>zclick 0.1.1a1</td>
+<td style="text-align:right">33.287</td>
+<td style="text-align:right">33.066–33.355</td>
+</tr>
+<tr>
+<td>zclick 0.1.1a2</td>
+<td style="text-align:right">33.324</td>
+<td style="text-align:right">33.102–34.270</td>
+</tr>
+</tbody>
+</table></div>
+<p>For the 1,000-option parser, median Python peak allocation was <strong>54,355 bytes</strong>
+for a2, <strong>175,010 bytes</strong> for a1 and <strong>54,552 bytes</strong> for Click. Complete
+invocation instead recorded <strong>840,650.5</strong>, <strong>941,589</strong> and <strong>797,559 bytes</strong>
+respectively; the fractional median comes from averaging the middle two
+observations. The report retains all eighteen current/peak observations.
+<code>tracemalloc</code> does not account for all Rust allocation or total process memory.</p>
+<p>The table below gives a2's observed warm ranges and coefficient of variation,
+and each reference's within-round ratio range. The much smaller dispersion in
+this CI run does not erase the local outliers or turn two hosts into a general
+performance guarantee.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Warm workload</th>
+<th style="text-align:right">a2 range µs</th>
+<th style="text-align:right">a2 CV</th>
+<th style="text-align:right">Paired Click/a2 range</th>
+<th style="text-align:right">Paired a1/a2 range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reuse parser (1)</td>
+<td style="text-align:right">4.543–4.847</td>
+<td style="text-align:right">1.99%</td>
+<td style="text-align:right">0.602–0.659</td>
+<td style="text-align:right">1.228–1.334</td>
+</tr>
+<tr>
+<td>Reuse parser (1,000)</td>
+<td style="text-align:right">830.166–895.415</td>
+<td style="text-align:right">2.04%</td>
+<td style="text-align:right">0.938–1.065</td>
+<td style="text-align:right">2.240–2.463</td>
+</tr>
+<tr>
+<td>Command.main (1)</td>
+<td style="text-align:right">68.330–71.134</td>
+<td style="text-align:right">1.19%</td>
+<td style="text-align:right">0.957–1.028</td>
+<td style="text-align:right">1.015–1.083</td>
+</tr>
+<tr>
+<td>Command.main (1,000)</td>
+<td style="text-align:right">7,000.795–7,101.010</td>
+<td style="text-align:right">0.53%</td>
+<td style="text-align:right">1.955–2.111</td>
+<td style="text-align:right">1.034–1.075</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td style="text-align:right">128.380–135.708</td>
+<td style="text-align:right">1.57%</td>
+<td style="text-align:right">0.880–0.954</td>
+<td style="text-align:right">1.005–1.062</td>
+</tr>
+<tr>
+<td>Unicode/ANSI wrapping</td>
+<td style="text-align:right">68.172–72.966</td>
+<td style="text-align:right">1.97%</td>
+<td style="text-align:right">8.884–10.063</td>
+<td style="text-align:right">0.999–1.110</td>
+</tr>
+</tbody>
+</table></div>
+<p>The CI 1,000-option parser's paired Click/a2 ratios cross one, from 0.938 to
+1.065. Every paired a1/a2 ratio for that parser remained above one, from
+2.240 to 2.463. The full-invocation a1/a2 ratios were 1.034–1.075, a modest
+change alongside the larger Click comparison. These are observed ranges, not
+confidence intervals.</p>
+<p>Affinity selected CPU 0; frequency was not locked and no frequency readings
+were available. One-minute host load changed from about 1.53 to 1.40. Isolated
+process hash seeds, GC, scheduling and file caches still affect measurement.
+Both hosts support faster reused parsing than a1 and faster large full
+invocation than Click for these workloads. They do not establish uniformly
+faster parsing than Click, lower process memory, or a speedup for all existing
+Click applications.</p>
+<h2 id="reusing-parser-structure">Reusing parser structure<a class="heading-anchor" href="#reusing-parser-structure" aria-label="链接到 Reusing parser structure">#</a></h2>
+<p>A parser schema is the Rust representation of option spellings and argument
+consumption rules. Each command or parser retains at most its most recent owned
+schema. Before reuse, the binding reads the current definitions and compares
+their structural fields. Matching definitions reuse the schema; changed
+definitions produce a replacement. This removes repeated construction of the
+same owned names and lookup tables while keeping definition validation inside
+each measured invocation. The implementation is in
+<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/crates/zclick-python/src/plan.rs"><code>plan.rs</code></a>.</p>
+<p>The following diagram shows the schema decision within one invocation. Both
+branches use fresh parsing state.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">mermaid</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 mermaid 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>flowchart TD
+    A[&quot;Current parameter definitions&quot;] --&gt; B{&quot;Match retained schema?&quot;}
+    B --&gt;|Yes| C[&quot;Reuse owned schema&quot;]
+    B --&gt;|No| D[&quot;Build replacement schema&quot;]
+    C --&gt; E[&quot;Parse with fresh call state&quot;]
+    D --&gt; E
+</code></pre></div>
+<p>The retained schema contains Rust structural data. Defaults, environment
+values, contexts, callback results and Python application objects remain
+outside it. Parameter registration, parser actions, conversion and callbacks
+continue through the current Python methods. These boundaries let an
+application change an alias, arity, callback or type method between invocations
+without reusing an earlier result. Reentry creates separate invocation state.
+The <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/tests/test_native_plan.py">schema tests</a> and
+<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/tests/test_cached_command_semantics.py">command mutation tests</a> exercise
+these distinctions, including copying and pickling a warmed command.</p>
+<p>Parameter ordering retains the same live Python behavior at its extension
+points. For exact lists containing at least 512 declared parameters, ordinary
+CPython objects may use a guarded Rust ordering operation. It records each
+parameter's first invocation position in a lookup table, then performs a stable
+sort. This avoids repeated linear <code>list.index</code> searches; the complete operation
+is not claimed to be linear, since sorting can require O(n log n) work. Smaller lists,
+custom protocols and PyPy use Python's <code>sorted</code> and <code>index</code> operations. The
+<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/tests/test_native_ordering.py">ordering regressions</a> cover repeated object
+identities, equality, eager getters and custom containers. This selection is
+part of the timed invocation rather than an excluded preparation step.</p>
+<h2 id="input-ownership-and-python-adapter-work">Input ownership and Python adapter work<a class="heading-anchor" href="#input-ownership-and-python-adapter-work" aria-label="链接到 Input ownership and Python adapter work">#</a></h2>
+<p>The native binding borrows an ordinary argument's interpreter-provided UTF-8
+buffer for the duration of the call. It retains the Python owner and records
+argument indices so that an existing argument can be returned with its original
+identity. Strings containing surrogate code points use a reversible
+<code>surrogatepass</code> representation. Preparing an interpreter's UTF-8 representation,
+handling surrogate strings and creating Python results can still allocate.
+The <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/tests/test_native_kernel.py">native boundary tests</a> cover Unicode,
+surrogates and distinct empty string subclasses.</p>
+<p>The Python adapters also avoid work whose result is already known. Built-in
+type selection uses identity checks and reads the current public type singleton
+on each call. An exact string can pass through string conversion unchanged;
+string subclasses continue through their Python conversion methods. Plain text
+width and ANSI removal avoid a native call when their guarded conditions hold,
+and formatting wrappers retain observation of replaced native functions. These
+changes are covered by <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/tests/test_surface_fast_paths.py">surface regressions</a>.</p>
+<p>Help preparation keeps its common single-line path small. It imports
+<code>inspect</code> only when the running standard library is needed to determine the
+result, including the whitespace behavior that differs between Python 3.12 and
+3.13. Styling and help-table assembly reduce temporary helper objects while
+preserving output and callback evaluation order. Integer conversion continues
+to use Python integers, with the same arbitrary precision and current custom
+conversion methods described in the <a href="../../zclick/architecture/">architecture</a>.</p>
+<p>These mechanisms explain which work changed. A complete version comparison
+measures their combined effect together with parsing, binding and Python
+execution. Assigning a measured percentage to one mechanism would require a
+separate component comparison.</p>
+<h2 id="what-the-benchmark-measures">What the benchmark measures<a class="heading-anchor" href="#what-the-benchmark-measures" aria-label="链接到 What the benchmark measures">#</a></h2>
+<p>Every workload uses the same public Python entry point and checks its result
+across all three implementations. The driver retains construction, repeated
+use and fresh-process execution as distinct boundaries. The full workload
+definitions are in <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/compare.py"><code>compare.py</code></a>.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Boundary</th>
+<th>Sizes</th>
+<th>Work inside the measurement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command construction</td>
+<td>1, 10, 100 and 1,000 options</td>
+<td>Public <code>Option</code> and <code>Command</code> construction</td>
+</tr>
+<tr>
+<td>Reused parser</td>
+<td>All four sizes</td>
+<td><code>parse_args</code>, a fresh argument-list copy, definition validation, parsing and parser actions</td>
+</tr>
+<tr>
+<td>Warm command invocation</td>
+<td>All four sizes</td>
+<td><code>Command.main</code>, context creation, parser setup, conversion and the command callback</td>
+</tr>
+<tr>
+<td>Warm help rendering</td>
+<td>All four sizes</td>
+<td><code>get_help</code>, help assembly, widths and wrapping</td>
+</tr>
+<tr>
+<td>Nested command</td>
+<td>One parent and child</td>
+<td>Group resolution, child invocation and result handling</td>
+</tr>
+<tr>
+<td>Unicode and ANSI wrapping</td>
+<td>One fixed paragraph</td>
+<td>Public <code>wrap_text</code> on the same text and width</td>
+</tr>
+<tr>
+<td>Fresh-process import</td>
+<td>Each implementation</td>
+<td>Import interval and whole-process elapsed time, reported separately</td>
+</tr>
+<tr>
+<td>Fresh-process command and help</td>
+<td>All four sizes</td>
+<td>Interpreter startup, import, command construction, invocation or help, output capture and exit</td>
+</tr>
+</tbody>
+</table></div>
+<p>The warm invocation reuses an already-created command. Its schema validation
+and Python hooks remain timed; command construction has its own row.
+Fresh-process rows include construction and startup, so they also show whether
+a change helps a CLI that runs once and exits. The fixed command callbacks sum
+converted integer values. Application-specific I/O, interactive prompts and
+expensive business callbacks need additional application measurements.</p>
+<h2 id="reproducing-a-formal-comparison">Reproducing a formal comparison<a class="heading-anchor" href="#reproducing-a-formal-comparison" aria-label="链接到 Reproducing a formal comparison">#</a></h2>
+<p>Build the candidate from a frozen checkout. The following Linux example reproduces the protocol and uses
+a dedicated output directory so that the wheel argument identifies the intended
+candidate:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>maturin build --release --locked --out dist/benchmark-candidate
+python benchmarks/compare.py \
+  --candidate-wheel dist/benchmark-candidate/*.whl \
+  --iterations 1000 --repeats 12 --seed 20261111 --affinity auto \
+  --output reports/benchmarks-0.1.1a2.json
+</code></pre></div>
+<p>Use the exact wheel filename if the directory contains more than one wheel.
+Omit <code>--affinity auto</code> on platforms without Linux affinity control. The driver
+selects the first allowed CPU when that option is used and records the original
+and selected affinity. Frequency and shared-host activity remain observed
+conditions rather than controlled constants.</p>
+<p>The driver installs the published baseline and candidate into separate
+environments using the same interpreter and Click wheel. It verifies the
+published wheel hashes and installed package contents. Formal runs also require
+the candidate version and Python source files to match the checkout. Reports
+retain the source commit, native-file hashes, Cargo.lock hash, benchmark source
+hashes and environment observations. See the
+<a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/benchmarks/README.md">measurement protocol</a> for the complete provenance
+checks and the separate harness diagnostic mode.</p>
+<p>Each of the twelve rounds uses a fresh isolated worker for each implementation.
+Within every six-round block, all six implementation orders occur once, in a
+seeded order. Each cold workload has its own seeded schedule. The driver checks
+results before warm timing and compares complete help and wrapping output
+hashes. It records all wall-time and process-CPU samples, keeps normal garbage
+collection enabled and verifies the package snapshots again after measurement.</p>
+<p>The worker processes run outside the source checkout with isolated Python.
+Operating-system caches are not flushed, and the order of workloads inside a
+worker remains fixed. The report records these conditions. A quiet local
+measurement interval excludes concurrent project builds and tests, while the
+retained host observations describe activity outside the project's control.</p>
+<h2 id="claim-and-evidence-record">Claim and evidence record<a class="heading-anchor" href="#claim-and-evidence-record" aria-label="链接到 Claim and evidence record">#</a></h2>
+<p>The measurement establishes performance only for the recorded workload,
+distributions, interpreter and host. The following mapping separates the
+mechanism evidence from the numerical conclusions.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evidence</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current definitions are checked before an owned schema is reused</td>
+<td><code>plan.rs</code>, <code>test_native_plan.py</code>, <code>test_cached_command_semantics.py</code></td>
+<td>Implemented mechanism and focused regression cases</td>
+</tr>
+<tr>
+<td>Python callbacks, comparisons and conversion changes remain observable</td>
+<td><code>test_dynamic_semantics.py</code>, <code>test_native_ordering.py</code>, <code>test_native_parameter_hooks.py</code>, <code>test_native_parameter_guard_edges.py</code></td>
+<td>Specific covered behaviors; release verification is tied to its source commit</td>
+</tr>
+<tr>
+<td>Input handling preserves surrogate data and argument identity</td>
+<td><code>test_native_kernel.py</code>, <code>test_native_plan.py</code></td>
+<td>Covered native-boundary cases</td>
+</tr>
+<tr>
+<td>Reused parsing at 1,000 options improved relative to the published a1 wheel</td>
+<td>Local <code>parse/1000</code>: 1,602.245 µs to 632.171 µs, 2.535×; CI: 2,019.259 µs to 857.956 µs, 2.354×</td>
+<td>All paired a1/a2 rounds favored a2 on both recorded hosts</td>
+</tr>
+<tr>
+<td>Warm invocation at 1,000 options has a lower median than Click</td>
+<td>Local <code>invoke/1000</code>: 1.771×; CI: 2.017×</td>
+<td>The change over a1 is much smaller, at 1.042× locally and 1.050× in CI</td>
+</tr>
+<tr>
+<td>Reused parsing at 1,000 options is consistently faster than Click</td>
+<td>Local <code>parse/1000</code>: 1.236×; CI: 0.975×</td>
+<td>Unsupported across these two hosts; the local advantage did not reproduce</td>
+</tr>
+<tr>
+<td>The measured CI runtime corresponds to the release GNU wheel</td>
+<td>File-by-file comparison of all 18 Python/native runtime files</td>
+<td>Identical runtime contents; different wheel archive SHA-256 values</td>
+</tr>
+<tr>
+<td>Every Click application becomes substantially faster</td>
+<td>Small parser, one-option invocation and nested-command results; cold outliers</td>
+<td>Unsupported; no universal speedup is claimed</td>
+</tr>
+</tbody>
+</table></div>
+<p>Performance conclusions remain separate from compatibility completion.
+The <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/known-gaps.json">subinterpreter compatibility gap</a> remains
+open, so 0.1.1a2 is a prerelease. The release completed its full validation
+workflow and is available on
+<a href="https://github.com/LIghtJUNction/zclick/releases/tag/v0.1.1a2">GitHub</a> and
+<a href="https://pypi.org/project/zclick/0.1.1a2/">PyPI</a>, with tag <code>v0.1.1a2</code> fixed to
+<code>7e3d597873b737bbfc8c2df090773aad56d9bd73</code>.
+The <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/releases/0.1.1a2.json">release validation record</a> records
+the fixed upstream inventory, API contracts, original platform skips and
+actual shell checks. The <a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/compatibility/releases/0.1.1a2-pypi.json">publication verification</a>
+records the 12 wheels and source archive, their matching PyPI/GitHub hashes,
+and an isolated PyPI installation. Passing these checks does not close the
+disclosed subinterpreter gap or expand the performance conclusions beyond
+the measured workloads.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zclick/blob/c437230dcf9467b9d1decaf0142215ea054bcf07/docs/performance-0.1.1a2.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zclick">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zclick/extensions/"><span class="pagination-label">上一页</span><span class="pagination-title">第三方 Click 扩展的迁移边界</span></a><a class="pagination-link next" href="../../zclick/performance-0-1-1a3/"><span class="pagination-label">下一页</span><span class="pagination-title">Measured performance: 0.1.1a3</span></a></nav>
+      <footer class="page-footer">
+        <span>zclick <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#local-source-distributions-and-environment">Local source, distributions and environment</a></li><li class="toc-level-2"><a href="#local-complete-warm-measurements">Local complete warm measurements</a></li><li class="toc-level-3"><a href="#process-cpu-time">Process CPU time</a></li><li class="toc-level-2"><a href="#local-complete-fresh-process-measurements">Local complete fresh-process measurements</a></li><li class="toc-level-3"><a href="#import-only-startup">Import-only startup</a></li><li class="toc-level-2"><a href="#local-python-allocation-observations-and-process-rss">Local Python allocation observations and process RSS</a></li><li class="toc-level-2"><a href="#local-variability-and-limits-of-the-comparison">Local variability and limits of the comparison</a></li><li class="toc-level-2"><a href="#independent-release-ci-measurement">Independent release-CI measurement</a></li><li class="toc-level-3"><a href="#ci-source-and-distribution-identity">CI source and distribution identity</a></li><li class="toc-level-3"><a href="#all-eighteen-ci-warm-workloads">All eighteen CI warm workloads</a></li><li class="toc-level-3"><a href="#all-eight-ci-fresh-process-workloads">All eight CI fresh-process workloads</a></li><li class="toc-level-3"><a href="#ci-memory-and-variability">CI memory and variability</a></li><li class="toc-level-2"><a href="#reusing-parser-structure">Reusing parser structure</a></li><li class="toc-level-2"><a href="#input-ownership-and-python-adapter-work">Input ownership and Python adapter work</a></li><li class="toc-level-2"><a href="#what-the-benchmark-measures">What the benchmark measures</a></li><li class="toc-level-2"><a href="#reproducing-a-formal-comparison">Reproducing a formal comparison</a></li><li class="toc-level-2"><a href="#claim-and-evidence-record">Claim and evidence record</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

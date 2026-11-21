@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="输入法组合、候选状态与原生输入事件编解码。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zinput · 概览 · Project Z">
+  <meta property="og:description" content="输入法组合、候选状态与原生输入事件编解码。">
+  <meta property="og:type" content="website">
+  <title>zinput · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zinput/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zinput">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zinput" aria-label="zinput 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zinput</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zinput</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/" aria-current="page">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zinput 文档"><div class="nav-group"><p class="nav-label">zinput</p><ul><li><a class="nav-link" href="../zinput/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zinput</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/" aria-current="page">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zinput 文档"><div class="nav-group"><p class="nav-label">zinput</p><ul><li><a class="nav-link" href="../zinput/" aria-current="page">概览</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zinput/">zinput 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zinput/">zinput</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install">Install</a></li><li class="toc-level-2"><a href="#composition-lifecycle">Composition lifecycle</a></li><li class="toc-level-2"><a href="#input-engine-plugins">Input engine plugins</a></li><li class="toc-level-2"><a href="#native-linux-event-boundary">Native Linux event boundary</a></li><li class="toc-level-2"><a href="#encode-keyboard-input">Encode keyboard input</a></li><li class="toc-level-2"><a href="#reuse-a-buffer">Reuse a buffer</a></li><li class="toc-level-2"><a href="#protocol-coverage">Protocol coverage</a></li><li class="toc-level-2"><a href="#integration-contract">Integration contract</a></li><li class="toc-level-2"><a href="#verification">Verification</a></li><li class="toc-level-2"><a href="#protocol-references">Protocol references</a></li><li class="toc-level-2"><a href="#license">License</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zinput">zinput</h1><p class="project-intro">输入法组合、候选状态与原生输入事件编解码。</p>
+<p>Reusable input-method state, native Linux event decoding, and terminal input
+encoding in Rust. The portable library remains <code>#![no_std]</code>; its default
+feature set has no external dependencies. The composition and evdev paths use
+caller-owned or fixed storage without allocating during event processing.
+Existing terminal encoding APIs use <code>alloc</code> for returned or reusable byte buffers.</p>
+<p>The optional <code>plugins</code> feature adds a shared input-engine trait and a generated
+native ABI through <code>zplugin</code>. System library loading is centralized in <code>zsys</code>.
+Desktop input-method registration, keyboard-layout mapping and text delivery are
+provided by application frontends. The separate <a href="https://github.com/LIghtJUNction/zinput/blob/da22743e1ad16bedb79751c8e8bb71e63c45d197/native/wayland">zinput-wayland</a>
+package supplies a Linux input-method-v2 adapter with compositor keyboard grabs,
+XKB layout mapping, preedit/commit delivery and paired virtual-keyboard forwarding.
+It is optional and does not change the core library's default feature set.</p>
+<p>With <code>plugins</code> enabled, the runtime dependency chain is <code>zinput → zplugin → zsys</code>. Generating the typed interface also builds <code>zplugin-macros</code>, which uses
+<code>proc-macro2</code>, <code>quote</code>, <code>syn</code> and <code>unicode-ident</code>. Those build dependencies are
+not part of the default feature set; this is not a claim that the plugin build
+has no third-party packages.</p>
+<h2 id="install">Install<a class="heading-anchor" href="#install" aria-label="链接到 Install">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>[dependencies]
+zinput = &quot;0.1.3&quot;
+</code></pre></div>
+<h2 id="composition-lifecycle">Composition lifecycle<a class="heading-anchor" href="#composition-lifecycle" aria-label="链接到 Composition lifecycle">#</a></h2>
+<p>The <code>ime</code> module keeps one focused input context and one composition in a caller
+buffer. A composition is the text being edited before the user accepts it;
+<code>preedit</code> exposes that provisional text. An accepted commit copies complete
+UTF-8 to a caller buffer and ends the composition.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>use zinput::ime::{Composition, ContextId, Selection};
+
+let mut preedit = [0; 128];
+let mut committed = [0; 128];
+let mut state = Composition::new(&amp;mut preedit);
+state.set_focus(Some(ContextId::new(7).unwrap()));
+
+let token = state.begin().unwrap();
+let token = state.set_preedit(token, &quot;你好&quot;, Selection::caret(6)).unwrap();
+assert_eq!(state.preedit(), &quot;你好&quot;);
+let result = state.commit_preedit(token, &amp;mut committed).unwrap();
+assert_eq!(&amp;committed[..result.bytes_written], &quot;你好&quot;.as_bytes());
+assert_eq!(result.context.get(), 7);
+assert_eq!(state.preedit(), &quot;&quot;);
+</code></pre></div>
+<p>Every accepted preedit update returns a new revision token. <code>CandidatePage</code>
+borrows a slice of candidate strings and carries the token that produced them;
+<code>commit_candidate</code> rejects an older page after another update or a focus change.
+Tokens belong to the same <code>Composition</code> instance and must not be exchanged
+between instances. Changing focus or blurring cancels the old composition;
+reporting the same focus again preserves it.</p>
+<p>Buffer and selection failures leave state and output unchanged. Selection
+endpoints are UTF-8 byte offsets at character boundaries; grapheme navigation
+belongs to the engine. Commit, cancel, a shorter preedit, focus change and drop
+clear the retained text bytes that are no longer used. This ordinary memory
+clearing is not a guarantee against compiler elimination or process-memory
+inspection. The revision counter returns an error at exhaustion and never wraps.</p>
+<p><code>TextTarget</code> is the delivery boundary for applications. Its <code>commit_text</code> method
+receives an explicit context and a complete string. The frontend must confirm
+that context still identifies the intended target before delivery. A delivery
+error can follow partial platform output, so the platform adapter owns retry
+semantics; the composition core cannot roll back external application input.</p>
+<h2 id="input-engine-plugins">Input engine plugins<a class="heading-anchor" href="#input-engine-plugins" aria-label="链接到 Input engine plugins">#</a></h2>
+<p>Enable <code>plugins</code> to use one shared Rust trait and its generated native ABI:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>[dependencies]
+zinput = { version = &quot;0.1.3&quot;, features = [&quot;plugins&quot;] }
+</code></pre></div>
+<p>Built-in engines implement <code>engine::InputEngine</code> directly. Separately compiled
+engines export <code>InputEngineExport&lt;T&gt;</code> using <code>zplugin::export!</code>; hosts use
+<code>InputEngineApi</code> and its generated proxy. The service ID is
+<code>dev.project-z.zinput.engine</code>, version 1. <code>EngineSelection</code> has its own explicit
+ABI type ID and uses 64-bit byte offsets, independent of the host pointer width.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Engine call</th>
+<th>Contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reset(context)</code></td>
+<td>Establish one context; zero means blur. Discard old preedit and pending commit.</td>
+</tr>
+<tr>
+<td><code>process(phase, key, modifiers, text)</code></td>
+<td>Consume a logical key after keyboard-layout mapping. Return <code>change</code> flags; zero leaves the event to the frontend.</td>
+</tr>
+<tr>
+<td><code>preedit(output)</code>, <code>selection()</code></td>
+<td>Read complete provisional text and valid UTF-8 selection offsets.</td>
+</tr>
+<tr>
+<td><code>candidate_count()</code>, <code>candidate(index, output)</code></td>
+<td>Read a bounded candidate page without returning pointers into plugin memory.</td>
+</tr>
+<tr>
+<td><code>select(index)</code></td>
+<td>Accept a candidate and report the resulting change flags.</td>
+</tr>
+<tr>
+<td><code>commit(output)</code></td>
+<td>Drain a pending commit only after complete copying succeeds.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Phases and logical keys are constants in <code>engine::phase</code> and <code>engine::key</code>.
+Modifier bits match <code>Modifiers</code>. Calls that write strings return their UTF-8
+byte length. A short buffer returns <code>zplugin::Error::BufferTooSmall</code> without
+partial output or a consumed commit. An engine must return <code>Busy</code> rather than
+overwrite undrained committed text. Hosts drain commits before processing the
+next producing event and fetch changed preedit/candidates according to the flags.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">no_run</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 no_run 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code># #[cfg(feature = &quot;plugins&quot;)]
+# fn load_reference_engine() -&gt; Result&lt;(), zinput::engine::zplugin::Error&gt; {
+use zinput::engine::{InputEngineApi, key, phase, zplugin::Plugin};
+
+// SAFETY: This path must identify reviewed, trusted native plugin code.
+let library = unsafe { Plugin::load(c&quot;/absolute/path/libime_engine.so&quot;)? };
+let mut engine = InputEngineApi::create(&amp;library)?;
+engine.reset(7)?;
+engine.process(phase::PRESS, key::TEXT, 0, &quot;ni&quot;)?;
+let mut candidate = [0; 64];
+let used = engine.candidate(0, &amp;mut candidate)?;
+assert_eq!(&amp;candidate[..used as usize], &quot;你&quot;.as_bytes());
+# Ok(())
+# }
+</code></pre></div>
+<p>The example <code>ime_engine</code> implements a bounded reference engine: arbitrary UTF-8
+composition, scalar backspace, and two candidates for <code>ni</code>. It is a protocol and
+lifecycle example, not a full language dictionary. Its constructor allocates the
+plugin object through <code>zplugin</code>; its event methods use fixed buffers. Native
+plugins execute trusted code in the host process. Library loading comes from
+<code>zplugin</code> through <code>zsys</code>; <code>zinput</code> adds no independent system FFI or loader.</p>
+<h2 id="native-linux-event-boundary">Native Linux event boundary<a class="heading-anchor" href="#native-linux-event-boundary" aria-label="链接到 Native Linux event boundary">#</a></h2>
+<p><code>linux::EvdevDecoder</code> accepts bytes from Linux <code>input_event</code> records and emits
+key presses, repeats, releases and synchronization events. The decoder supports
+explicit 16-byte and 24-byte timestamp layouts, little and big endian records,
+and fragments split at any byte. On 64-bit Linux, <code>EvdevDecoder::native()</code> selects
+the native layout. Device access and keyboard-layout translation remain in the
+platform adapter; keycodes from evdev are physical codes, not Unicode text.</p>
+<p>After <code>SYN_DROPPED</code>, the decoder suppresses events until it observes <code>SYN_REPORT</code>
+and the host calls <code>resynchronized()</code>. The host must first query current device
+state through its system layer, as required by the <a href="https://www.kernel.org/doc/html/latest/input/event-codes.html">Linux input event
+protocol</a>. This
+explicit acknowledgement prevents records from an unsynchronized stream from
+being mistaken for valid keystrokes. The callback executes synchronously without
+an allocated event queue.</p>
+<p>This library does not register a desktop input method, read a keyboard device,
+install a shortcut, or select a target application. Its portable state and plugin
+contract can be used by Linux, Windows and macOS frontends. A working desktop
+frontend still needs its platform's input-method and text-delivery integration.
+Neither the core nor the reference engine depends on Fcitx5.</p>
+<h2 id="encode-keyboard-input">Encode keyboard input<a class="heading-anchor" href="#encode-keyboard-input" aria-label="链接到 Encode keyboard input">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>use zinput::{encode_key, Key, KeyEvent, Modes, Modifiers};
+
+let legacy = Modes::default();
+assert_eq!(
+    encode_key(Key::Up, Modifiers(0), KeyEvent::Press, &quot;&quot;, &amp;legacy),
+    b&quot;\x1b[A&quot;,
+);
+
+let kitty = Modes { kitty_keyboard: 1, ..Modes::default() };
+assert_eq!(
+    encode_key(
+        Key::Character(&#x27;c&#x27;), Modifiers(Modifiers::CTRL),
+        KeyEvent::Press, &quot;\u{3}&quot;, &amp;kitty,
+    ),
+    b&quot;\x1b[99;5u&quot;,
+);
+</code></pre></div>
+<p><code>Key::Character</code> identifies the <strong>unshifted</strong> key. The <code>text</code> argument is the
+complete UTF-8 text committed by the platform. Pass <code>Key::Unidentified</code> or use
+<code>encode_text</code> when an input method commits text without a physical key identity.
+Multi-character commits are retained.</p>
+<p>The modifier bit values are Shift=1, Alt=2, Ctrl=4, Super=8, Hyper=16, Meta=32,
+Caps Lock=64 and Num Lock=128. The encoder adds the protocol's modifier offset.
+For a modifier key's own event, supply its state after the transition, including
+any other physical key that keeps the same modifier active.</p>
+<h2 id="reuse-a-buffer">Reuse a buffer<a class="heading-anchor" href="#reuse-a-buffer" aria-label="链接到 Reuse a buffer">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>extern crate alloc;
+
+use alloc::vec::Vec;
+use zinput::{encode_key_into, Key, KeyEvent, Modes, Modifiers};
+
+let modes = Modes::default();
+let mut bytes = Vec::with_capacity(128);
+encode_key_into(Key::Enter, Modifiers(0), KeyEvent::Press, &quot;\r&quot;, &amp;modes, &amp;mut bytes);
+assert_eq!(bytes, b&quot;\r&quot;);
+
+// After the transport accepts these bytes, clear and reuse the same allocation.
+bytes.clear();
+encode_key_into(Key::Left, Modifiers(0), KeyEvent::Press, &quot;&quot;, &amp;modes, &amp;mut bytes);
+assert_eq!(bytes, b&quot;\x1b[D&quot;);
+</code></pre></div>
+<p>The <code>_into</code> functions append to the supplied buffer. They avoid further buffer
+allocation while its existing capacity is sufficient. The convenience functions
+return a new <code>Vec&lt;u8&gt;</code>.</p>
+<h2 id="protocol-coverage">Protocol coverage<a class="heading-anchor" href="#protocol-coverage" aria-label="链接到 Protocol coverage">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legacy keyboard</td>
+<td>UTF-8 text, Control/Alt combinations, distinct Ctrl+Shift character shortcuts, application cursor and keypad modes, function keys and modifiers</td>
+</tr>
+<tr>
+<td>Kitty keyboard</td>
+<td>Progressive enhancement flags 1/2/4/8/16, press/repeat/release, alternate keys, modifier keys, keypad identity and associated text</td>
+</tr>
+<tr>
+<td>Mouse</td>
+<td>Tracking modes 9/1000/1002/1003, SGR 1006 and legacy encoding, modifiers, vertical/horizontal wheel and xterm buttons 1–11</td>
+</tr>
+<tr>
+<td>Paste</td>
+<td>Optional bracketed-paste delimiters; tabs and line endings preserved; other control characters removed</td>
+</tr>
+<tr>
+<td>Focus</td>
+<td>Focus-in/out sequences when focus reporting is enabled</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kitty alternate-key reporting can infer a shifted character from committed text.
+Use <code>encode_key_with_alternates</code> with <code>KeyAlternates</code> when the platform also knows
+the standard-layout key identity. A pure input-method commit uses key 0 with
+associated text when flags 8 and 16 are both enabled; otherwise it is emitted as
+UTF-8 to preserve input that has no physical key event.</p>
+<p>Enter, Tab and Backspace retain their legacy behavior until Kitty flag 8 is
+enabled. Function key F3 uses <code>CSI 13~</code> in enhanced mode to avoid cursor-report
+ambiguity. Modifier-key events require flag 8, and release reports require
+flag 2.</p>
+<p>In legacy mode, Ctrl+Shift character shortcuts retain the Shift distinction
+using CSI-u, as in Kitty and Ghostty. Ctrl+Shift+Space keeps the legacy NUL
+exception. Lock state remains absent from legacy sequences. Ctrl+tilde emits
+the documented ASCII control value 30.</p>
+<p>Mouse positions are zero-based at the API boundary. The encoder converts them
+to one-based protocol coordinates. Buttons are 0=left, 1=middle, 2=right,
+3/4=vertical wheel, 5/6=horizontal wheel and 7–10=extra buttons. These are
+zero-based xterm/X11 button numbers; platform frontends must normalize their
+native button order. Wheel releases and wheel-button motion are ignored.
+Extra-button releases identify their button in SGR and use the common release
+code in legacy encoding. Motion with an extra button follows mode 1002/1003.
+Mode 9 reports only left/middle/right presses and omits modifiers.
+SGR encoding alone does not enable tracking. Legacy coordinates beyond its
+representable range produce no event. The host should suppress mouse motion
+that remains inside the same character cell.</p>
+<p>Clipboard encoding removes Escape, DEL and C0/C1 controls other than Tab, CR and
+LF. Consequently clipboard contents cannot inject a bracketed-paste end marker.</p>
+<h2 id="integration-contract">Integration contract<a class="heading-anchor" href="#integration-contract" aria-label="链接到 Integration contract">#</a></h2>
+<p>The host is responsible for input-mode negotiation, keyboard layout, native input-method protocols and text delivery, clipboard access, transport backpressure and delivery order. Report
+only modes that are connected to the host's actual event path. The codec owns no
+window or operating-system resources and performs no I/O.</p>
+<h2 id="verification">Verification<a class="heading-anchor" href="#verification" aria-label="链接到 Verification">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>cargo test --all-features
+python tools/test_native_plugin.py
+cargo check --lib --no-default-features --target x86_64-unknown-none
+cargo check --lib --all-features --target x86_64-unknown-none
+cargo bench --bench ime
+</code></pre></div>
+<p>The native plugin driver builds a separate dynamic library, locates Cargo's
+reported artifact and runs the explicit ABI integration test against that file.
+Generic <code>cargo test</code> leaves this one test ignored so missing plugin artifacts
+cannot become silent passes. The CI workflow is configured to run this driver on Linux, Windows and macOS.</p>
+<p>Core tests cover multilingual commits, UTF-8 selection boundaries, caller
+capacity, stale candidates and focus changes. Linux tests cover both event
+layouts and byte orders, fragmented records and loss/resynchronization. On
+64-bit Linux they compile a small C fixture against <code>&lt;linux/input.h&gt;</code> and decode
+the actual native records it emits. This fixture needs a C compiler and Linux
+development headers; it never opens an input device.</p>
+<p>The benchmark performs one million bounded composition lifecycles and one
+million evdev records. It reports elapsed time, buffer sizes and allocation
+counts, and asserts zero allocator calls inside each measured loop. Timing
+results describe that build and machine; they are not a comparison against
+other input frameworks or a desktop latency guarantee.</p>
+<p>Existing codec tests cover all 32 keyboard flag combinations for reset-key
+behavior, alternate-key and release-text boundaries, multi-character commits,
+xterm button ranges, mouse tracking and coordinate limits, clipboard delimiter
+injection, focus reporting and buffer reuse. Test tooling uses Rust's normal
+test harness; the published library remains <code>no_std</code>.</p>
+<h2 id="protocol-references">Protocol references<a class="heading-anchor" href="#protocol-references" aria-label="链接到 Protocol references">#</a></h2>
+<ul>
+<li><a href="https://sw.kovidgoyal.net/kitty/keyboard-protocol/">Kitty keyboard protocol</a></li>
+<li><a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html">XTerm control sequences</a></li>
+<li><a href="https://lib.ghostty.org/vt/guide-input.html">Ghostty input guide</a></li>
+<li><a href="https://github.com/ghostty-org/ghostty/blob/main/src/input/key_encode.zig">Ghostty keyboard encoder</a></li>
+<li><a href="https://github.com/ghostty-org/ghostty/blob/main/src/input/mouse_encode.zig">Ghostty mouse encoder</a></li>
+</ul>
+<h2 id="license">License<a class="heading-anchor" href="#license" aria-label="链接到 License">#</a></h2>
+<p>MIT. Part of <a href="https://github.com/LIghtJUNction/project-z">Project Z</a>. Source and releases: <a href="../zinput/">zinput</a>.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zinput/blob/da22743e1ad16bedb79751c8e8bb71e63c45d197/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zinput">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"></nav>
+      <footer class="page-footer">
+        <span>zinput <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install">Install</a></li><li class="toc-level-2"><a href="#composition-lifecycle">Composition lifecycle</a></li><li class="toc-level-2"><a href="#input-engine-plugins">Input engine plugins</a></li><li class="toc-level-2"><a href="#native-linux-event-boundary">Native Linux event boundary</a></li><li class="toc-level-2"><a href="#encode-keyboard-input">Encode keyboard input</a></li><li class="toc-level-2"><a href="#reuse-a-buffer">Reuse a buffer</a></li><li class="toc-level-2"><a href="#protocol-coverage">Protocol coverage</a></li><li class="toc-level-2"><a href="#integration-contract">Integration contract</a></li><li class="toc-level-2"><a href="#verification">Verification</a></li><li class="toc-level-2"><a href="#protocol-references">Protocol references</a></li><li class="toc-level-2"><a href="#license">License</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="组合编辑器与终端工具的原生配置，供 zdot 预览和部署。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zrc · 概览 · Project Z">
+  <meta property="og:description" content="组合编辑器与终端工具的原生配置，供 zdot 预览和部署。">
+  <meta property="og:type" content="website">
+  <title>zrc · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zrc/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zrc">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zrc" aria-label="zrc 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zrc</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zrc</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/" aria-current="page">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zrc 文档"><div class="nav-group"><p class="nav-label">zrc</p><ul><li><a class="nav-link" href="../zrc/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zrc/performance/">Local measurements</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zrc</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/" aria-current="page">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zrc 文档"><div class="nav-group"><p class="nav-label">zrc</p><ul><li><a class="nav-link" href="../zrc/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zrc/performance/">Local measurements</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zrc/">zrc 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zrc/">zrc</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install-and-compose">Install and compose</a></li><li class="toc-level-2"><a href="#modules">Modules</a></li><li class="toc-level-2"><a href="#neovim">Neovim</a></li><li class="toc-level-3"><a href="#local-extensions">Local extensions</a></li><li class="toc-level-2"><a href="#activating-optional-tools">Activating optional tools</a></li><li class="toc-level-2"><a href="#extension-contract">Extension contract</a></li><li class="toc-level-2"><a href="#local-verification">Local verification</a></li><li class="toc-level-2"><a href="#references">References</a></li><li class="toc-level-2"><a href="#library">Library</a></li><li class="toc-level-2"><a href="#releasing">Releasing</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zrc">zrc</h1><p class="project-intro">组合编辑器与终端工具的原生配置，供 zdot 预览和部署。</p>
+<p>A small configuration framework for <strong>oh-my-ztty</strong>. One warm palette, native application settings, and one reviewable <a href="../zdot/">zdot</a> deployment.</p>
+<p>zrc gives Neovim a complete editing environment and applies the same Ink colors to terminals and command-line tools. Applications read their own configuration formats. There is no configuration daemon, startup download, or additional plugin manager.</p>
+<h2 id="install-and-compose">Install and compose<a class="heading-anchor" href="#install-and-compose" aria-label="链接到 Install and compose">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo install zrc --version 0.1.2 --locked
+zrc --list
+zrc --list --json
+zrc --modules nvim,fzf,bat,ripgrep,git,shell --output /path/to/new-profile
+</code></pre></div>
+<p>The parent directory must already exist, and the output directory must be new. The installed Rust executable contains all reviewed configuration assets, including hidden <code>.config</code> directories. It can compose from any working directory without Python, a source checkout, or a network connection. Installing the crate does not deploy configuration or install the applications listed below.</p>
+<p>For a source checkout, <code>cargo install --path . --locked</code> builds the same executable. Cargo needs Rust 1.100 or newer. The Python entry remains available as <code>python3 scripts/compose.py</code> with the same selection and output arguments.</p>
+<h2 id="modules">Modules<a class="heading-anchor" href="#modules" aria-label="链接到 Modules">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Neovim 0.11+</td>
+<td>Ink colors, welcome page, native fuzzy picker, status line, search, LSP, local extensions</td>
+</tr>
+<tr>
+<td>Kitty, Foot, Ghostty</td>
+<td>Warm palette, spacing and cursor</td>
+</tr>
+<tr>
+<td>tmux</td>
+<td>Compact status line and low-contrast dividers</td>
+</tr>
+<tr>
+<td>fzf</td>
+<td>Matching native finder colors</td>
+</tr>
+<tr>
+<td>bat</td>
+<td>ANSI theme that inherits the terminal palette</td>
+</tr>
+<tr>
+<td>ripgrep</td>
+<td>Smart-case search and warm match colors</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>Display-only include, with no identity or signing settings</td>
+</tr>
+<tr>
+<td>Shell</td>
+<td>Builtin environment assignments for editor and tool defaults</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>registry.json</code> is the module catalog. <code>profiles/ink/profile.zdot</code> is the complete static profile. Choose a subset by composing a new profile directory:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>zrc --modules nvim,fzf,bat,ripgrep,git,shell \
+  --output /path/to/new-profile
+
+zdot plan --root /path/to/new-profile --target &quot;$HOME&quot; --json
+zdot apply --root /path/to/new-profile --target &quot;$HOME&quot; --backup
+</code></pre></div>
+<p>Review the plan before deployment. <code>--backup</code> lets zdot preserve replaced settings. Use <code>zdot remove</code> with the same root to restore them. Compose into a new, stable directory: moving a deployed profile breaks its links.</p>
+<p>The native CLI composes profiles without an interpreter. Python is needed only for the optional source entry and development checks. Neither entry is part of shell or editor startup. zdot owns deployment, backup and rollback; zrc does not duplicate those mechanisms.</p>
+<h2 id="neovim">Neovim<a class="heading-anchor" href="#neovim" aria-label="链接到 Neovim">#</a></h2>
+<p>Open Neovim with no file to see the welcome page. Space is the leader key.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Space f f</td>
+<td>Find files with a native floating fuzzy picker</td>
+</tr>
+<tr>
+<td>Space f g</td>
+<td>Search project text and open quickfix results</td>
+</tr>
+<tr>
+<td>Space f r</td>
+<td>Recent files</td>
+</tr>
+<tr>
+<td>Space b b</td>
+<td>Open buffers</td>
+</tr>
+<tr>
+<td>Space e</td>
+<td>Native file explorer</td>
+</tr>
+<tr>
+<td>Space w</td>
+<td>Save</td>
+</tr>
+<tr>
+<td>Space c a / c r / c f</td>
+<td>Code action / rename / format</td>
+</tr>
+<tr>
+<td>Space d</td>
+<td>Line diagnostics</td>
+</tr>
+<tr>
+<td>Space a c</td>
+<td>Show local editor context as JSON</td>
+</tr>
+<tr>
+<td>Space a s</td>
+<td>Start ssmcp explicitly in a terminal split</td>
+</tr>
+<tr>
+<td>Space ?</td>
+<td>Search the shortcut list</td>
+</tr>
+<tr>
+<td>Ctrl-Space</td>
+<td>Native completion</td>
+</tr>
+</tbody>
+</table></div>
+<p>The picker starts one ripgrep process when opened, then filters in memory. It does not run a new process for each keystroke. File results are bounded to 4,000 entries and 512 KiB; text search uses a 2 MiB output bound and 1,000 quickfix entries. Truncated results are labelled. Each search has a five-second deadline. Searches use the current project and respect ignore files; no indexer runs at startup. When started from the home or filesystem root, the finder asks for a project directory before scanning.</p>
+<p>LSP starts when a matching file is opened in a recognized project and its language server is already installed. Rust, C/C++, Go, Python, Lua, shell, JavaScript and TypeScript have native adapters. Existing executables in Neovim's <code>stdpath(&quot;data&quot;)/mason/bin</code> are reused when absent from PATH. zrc does not install servers or launch one for a loose file without a project root. <code>:ZrcHealth</code> shows optional executables.</p>
+<p>Files over 1 MiB enter large-file mode before reading: persistent undo, syntax highlighting, Treesitter and LSP are skipped for that buffer. Buffers over 20,000 lines also skip highlighting after reading. Swap-file recovery stays at Neovim's normal setting. These limits can be adjusted.</p>
+<h3 id="local-extensions">Local extensions<a class="heading-anchor" href="#local-extensions" aria-label="链接到 Local extensions">#</a></h3>
+<p>Put local settings in <code>~/.config/zrc/nvim.lua</code>, outside the managed Neovim directory:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">lua</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 lua 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>return {
+  large_file_bytes = 2 * 1024 * 1024,
+  max_files = 4000,
+  lsp = true,
+  extensions = {
+    {
+      event = &quot;InsertEnter&quot;,
+      setup = function()
+        -- Use an already installed optional native package.
+        -- vim.cmd.packadd(&quot;my-local-package&quot;)
+      end,
+    },
+  },
+}
+</code></pre></div>
+<p>An extension may specify <code>event</code>, <code>pattern</code>, <code>once</code> and <code>setup</code>. Its setup runs through <code>pcall</code>, so one failing extension does not abort editor startup. Use Neovim's native packages for local plugins; no registry or lockfile is downloaded.</p>
+<p><code>:ZrcContext</code> displays only the current file path, cursor, file type, working directory, modified flag and diagnostic counts. It does not send anything or read buffer contents. <code>:ZrcConnect</code> starts the already installed ssmcp only when invoked.</p>
+<h2 id="activating-optional-tools">Activating optional tools<a class="heading-anchor" href="#activating-optional-tools" aria-label="链接到 Activating optional tools">#</a></h2>
+<p>The suite sources <code>~/.config/zrc/shell.zsh</code> for fzf, bat, ripgrep and editor defaults. Standalone users can source that file from their interactive zsh configuration.</p>
+<p>Git's module is an include file. Add its path once after reviewing existing includes:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>git config --global --add include.path ~/.config/zrc/git.inc
+</code></pre></div>
+<p>It changes color output only. Existing identity, credentials, signing, transport, hooks and repositories are not copied into zrc. The tmux profile is ready for tmux when installed; composition never installs packages.</p>
+<h2 id="extension-contract">Extension contract<a class="heading-anchor" href="#extension-contract" aria-label="链接到 Extension contract">#</a></h2>
+<p>The <a href="https://github.com/LIghtJUNction/zrc/blob/31f37e9bb8f5c5adcf195f68692c47ec7ea26705/schema/registry.schema.json">registry schema</a> defines module IDs, required executables, optional activation guidance and source-to-destination mappings. Source paths are repository-relative; destinations are target-relative.</p>
+<p>Modules must own disjoint destinations. The crate build rejects source symlinks and special files before embedding assets; the Python entry checks sources when composing. Registry validation rejects path traversal and overlapping destinations. Both entries reject unknown modules, existing outputs (including dangling links), missing parents and symlink parents. Repeated module names keep their first position. Composition finishes in a staging directory beside the output, then renames it into place. The result contains <code>files/</code>, <code>profile.zdot</code> and <code>zrc-profile.json</code> for one zdot deployment.</p>
+<p>Add native configuration under <code>profiles/ink/files</code>, register disjoint destinations, update the static profile, and validate the application parser before publishing. No application binary, personal configuration, secret, or device identifier belongs in this repository.</p>
+<h2 id="local-verification">Local verification<a class="heading-anchor" href="#local-verification" aria-label="链接到 Local verification">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>python3 scripts/check.py
+python3 scripts/check_cargo.py --package
+python3 scripts/benchmark.py --runs 30
+</code></pre></div>
+<p>Checks use isolated XDG directories. They exercise profile safety, Neovim's palette, picker, welcome page, large-file behavior and LSP selection, plus configuration parsers for installed applications. Missing optional application validators are separate from successful checks.</p>
+<p>The Cargo gate checks formatting, strict Clippy and Rust tests; compares every module and generated metadata against Python; verifies crate asset inclusion; and installs the extracted crate offline into a temporary directory. It runs that installed binary outside the checkout with an empty PATH. It also checks preserved existing outputs, unknown modules, parent-directory rules and argument errors. Development and release scripts use Python 3.11 or newer.</p>
+<p><a href="../zrc/performance/">Measurements</a> record commands, versions and limitations. They describe a particular machine and workload; zrc makes no unmeasured ranking claim against other configurations.</p>
+<h2 id="references">References<a class="heading-anchor" href="#references" aria-label="链接到 References">#</a></h2>
+<ul>
+<li><a href="https://neovim.io/doc/user/lsp/">Neovim LSP</a> and <a href="https://neovim.io/doc/user/lua/">Lua API</a></li>
+<li><a href="https://sw.kovidgoyal.net/kitty/conf/">Kitty configuration</a></li>
+<li><a href="https://ghostty.org/docs/config/reference">Ghostty configuration</a></li>
+<li><a href="../zdot/design/">zdot design and recovery</a></li>
+</ul>
+<p>MIT license.</p>
+<h2 id="library">Library<a class="heading-anchor" href="#library" aria-label="链接到 Library">#</a></h2>
+<p>The crate exposes <code>zrc::registry()</code> for validated module metadata and <code>zrc::compose(&amp;[&quot;nvim&quot;, &quot;git&quot;], output)</code> for the same staging and output rules as the CLI. JSON parsing and string escaping use the published Project Z library <a href="../zconv/">zconv</a>. Configuration bytes stay embedded in the crate; neither API deploys to HOME or invokes an external program.</p>
+<h2 id="releasing">Releasing<a class="heading-anchor" href="#releasing" aria-label="链接到 Releasing">#</a></h2>
+<p><code>python3 scripts/bump.py patch</code> updates <code>VERSION</code>, <code>registry.json</code>, <code>Cargo.toml</code> and the zrc entry in <code>Cargo.lock</code> together. <code>--publish</code> runs the local Python and Cargo checks, then commits, tags and atomically pushes from main. A tag starts the existing archive-and-checksum workflow; ordinary pushes do not start CI.</p>
+<p>Crates.io publication is a separate, explicit local step using the maintainer's existing Cargo login. <a href="https://github.com/LIghtJUNction/zrc/blob/31f37e9bb8f5c5adcf195f68692c47ec7ea26705/docs/releasing.md">Release instructions</a> cover the exact-commit dry run, full package/install gate, publication and registry verification. A GitHub archive alone is not evidence that <code>cargo install zrc</code> is available.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zrc/blob/31f37e9bb8f5c5adcf195f68692c47ec7ea26705/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zrc">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../zrc/performance/"><span class="pagination-label">下一页</span><span class="pagination-title">Local measurements</span></a></nav>
+      <footer class="page-footer">
+        <span>zrc <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#install-and-compose">Install and compose</a></li><li class="toc-level-2"><a href="#modules">Modules</a></li><li class="toc-level-2"><a href="#neovim">Neovim</a></li><li class="toc-level-3"><a href="#local-extensions">Local extensions</a></li><li class="toc-level-2"><a href="#activating-optional-tools">Activating optional tools</a></li><li class="toc-level-2"><a href="#extension-contract">Extension contract</a></li><li class="toc-level-2"><a href="#local-verification">Local verification</a></li><li class="toc-level-2"><a href="#references">References</a></li><li class="toc-level-2"><a href="#library">Library</a></li><li class="toc-level-2"><a href="#releasing">Releasing</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

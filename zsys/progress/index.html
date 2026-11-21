@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="按需采集 Linux 的处理器、内存、进程与存储状态，提供可借用的数据视图。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zsys · 开发与验收进展 · Project Z">
+  <meta property="og:description" content="按需采集 Linux 的处理器、内存、进程与存储状态，提供可借用的数据视图。">
+  <meta property="og:type" content="website">
+  <title>zsys · 开发与验收进展 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zsys/progress/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zsys">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zsys" aria-label="zsys 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zsys</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zsys</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/" aria-current="page">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zsys 文档"><div class="nav-group"><p class="nav-label">zsys</p><ul><li><a class="nav-link" href="../../zsys/">概览</a></li><li><a class="nav-link" href="../../zsys/architecture/">架构与可验证的设计</a></li><li><a class="nav-link" href="../../zsys/platforms/">Platform support</a></li><li><a class="nav-link" href="../../zsys/progress/" aria-current="page">开发与验收进展</a></li><li><a class="nav-link" href="../../zsys/semantics/">采样语义与 API</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zsys</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/" aria-current="page">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zsys 文档"><div class="nav-group"><p class="nav-label">zsys</p><ul><li><a class="nav-link" href="../../zsys/">概览</a></li><li><a class="nav-link" href="../../zsys/architecture/">架构与可验证的设计</a></li><li><a class="nav-link" href="../../zsys/platforms/">Platform support</a></li><li><a class="nav-link" href="../../zsys/progress/" aria-current="page">开发与验收进展</a></li><li><a class="nav-link" href="../../zsys/semantics/">采样语义与 API</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zsys/">zsys 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zsys/">zsys</a><span aria-hidden="true">/</span><span>开发与验收进展</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#已完成的工程里程碑">已完成的工程里程碑</a></li><li class="toc-level-2"><a href="#已核验的执行证据">已核验的执行证据</a></li><li class="toc-level-2"><a href="#尚未完成或尚待验收">尚未完成或尚待验收</a></li><li class="toc-level-2"><a href="#性能判断的范围">性能判断的范围</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="开发与验收进展">开发与验收进展</h1>
+<p>更新日期：2026-11-12（UTC）。当前版本为 <strong>0.1.0 发布候选</strong>；Linux 实现、测试、本地与独立 GitHub 基准已形成可核验交付，<a href="https://github.com/LIghtJUNction/zsys/pull/1">PR #1</a> 已合并。两次发布尝试都通过完整测试和打包，但 crates.io 均拒绝所选 token 的认证；第二次日志确认使用 <code>CARGO_REGISTY_TOKEN</code>，发布尚未完成。完整证据与限制见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/docs/acceptance-report.zh-CN.md">中文验收报告</a>。</p>
+<p>机器可读发布状态与恢复入口见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/docs/release-status.json">release-status.json</a>。</p>
+<h2 id="已完成的工程里程碑">已完成的工程里程碑<a class="heading-anchor" href="#已完成的工程里程碑" aria-label="链接到 已完成的工程里程碑">#</a></h2>
+<ul>
+<li>[x] Core、procfs 解析器、时间戳、差分、PID 身份与调用者驱动的采样间隔；核心可在无 <code>std</code>、无分配器环境编译。</li>
+<li>[x] Linux CPU、Memory、Process、Disk 和 Network 独立采集器，以及延迟初始化的 <code>System</code> 组合 API。</li>
+<li>[x] 进程全表／单 PID 刷新、生命周期与失败状态、<code>statm</code> RSS、按需 executable／cmdline／UID／GID；保留缓冲与状态。</li>
+<li>[x] <code>getdents64</code> 与标准库枚举路径、固定 PID 目录的多文件读取、原生 ABI 校验。</li>
+<li>[x] 磁盘容量、挂载发现与块 I/O；网络计数器、IPv4／IPv6、MAC、MTU、接口状态、可用链路速率和受限 netlink 环境的后备路径。</li>
+<li>[x] 可选 DMI、thermal／hwmon 与 DRM／驱动 sysfs 硬件信息；缺失值有明确状态。</li>
+<li>[x] 单元、fixture、边界、并发、权限、PID 复用、快速创建退出、资源持续运行测试。</li>
+<li>[x] Ubuntu 22.04／24.04、Linux aarch64、Debian/glibc、Alpine/musl、Windows/macOS core、MSRV、bare-metal／WASM core 和 benchmark 构建的 CI。</li>
+<li>[x] 固定 sysinfo <code>=0.40.3</code> 的独立 benchmark、采集范围验证、原始延迟与分配记录、保留堆与峰值 RSS、100／500／1,000／5,000 实际进程规模。</li>
+<li>[x] README、可编译示例、<a href="../../zsys/semantics/">语义</a>、<a href="../../zsys/platforms/">平台</a>、<a href="../../zsys/architecture/">架构</a>、基准与验收文档。</li>
+<li>[x] 自动版本 bump、两个 lockfile 同步、候选提交完整测试、crates.io 校验与 GitHub Release 工作流；兼容两种 token 名称。</li>
+<li>[x] 独立 GitHub runner 完成基准并保留产物；核验 165 个原始数据文件、80,300 条样本，完整网络与 <code>full</code> 的范围验证通过。</li>
+<li>[x] PR #1 合并到 <code>main</code>；首次发布运行的 11 个验证 job 及 <code>cargo package</code> 成功。</li>
+</ul>
+<h2 id="已核验的执行证据">已核验的执行证据<a class="heading-anchor" href="#已核验的执行证据" aria-label="链接到 已核验的执行证据">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+<th>对应证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原生代码提交</td>
+<td><code>89e6c6c020869f3e6b37ea393bfc1040bd336d71</code></td>
+<td><a href="https://github.com/LIghtJUNction/zsys/commit/89e6c6c020869f3e6b37ea393bfc1040bd336d71">网络身份／计数器基线修复</a></td>
+</tr>
+<tr>
+<td>分支 CI</td>
+<td>11 个 job 全部成功</td>
+<td><a href="https://github.com/LIghtJUNction/zsys/actions/runs/43198501256">运行 43198501256</a></td>
+</tr>
+<tr>
+<td>PR 测试合并 CI</td>
+<td>11 个 job 全部成功；测试合并 SHA <code>4a012c3132f0b948de901821e4f25b2b986d06fd</code></td>
+<td><a href="https://github.com/LIghtJUNction/zsys/actions/runs/43198509342">运行 43198509342</a></td>
+</tr>
+<tr>
+<td>Linux 全功能测试</td>
+<td>22 个单元测试＋33 个集成测试通过，另 2 个文档测试通过</td>
+<td><a href="https://github.com/LIghtJUNction/zsys/actions/runs/43198509342/job/131115536770">Ubuntu 24.04 日志</a></td>
+</tr>
+<tr>
+<td>核心测试</td>
+<td><code>no-default-features</code> 的 15 个单元测试与 2 个文档测试通过</td>
+<td>同上；跨目标编译见 CI</td>
+</tr>
+<tr>
+<td>连续资源测试</td>
+<td>60.003 秒／3,968,000 次与 60.006 秒／4,514,816 次；两次热路径分配、保留字节增长、FD 增长均为 0</td>
+<td><a href="https://github.com/LIghtJUNction/zsys/actions/runs/43198501256/job/131115508106">分支运行</a>、<a href="https://github.com/LIghtJUNction/zsys/actions/runs/43198509342/job/131115536207">PR 运行</a></td>
+</tr>
+<tr>
+<td>本地最终基准</td>
+<td>公平 <code>statm</code> RSS 路径；真实进程数与采样范围记录完整</td>
+<td><a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/benchmarks/evidence/overview.json">overview.json</a>、<a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/benchmarks/evidence/final-table.csv">final-table.csv</a>、<a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/benchmarks/evidence/final-raw.tar.gz">原始数据</a></td>
+</tr>
+<tr>
+<td>独立远端基准</td>
+<td>工作流成功；network／full 可比；失败 repeat 与 PID 数漂移单独保留</td>
+<td><a href="https://github.com/LIghtJUNction/zsys/actions/runs/43198501217">运行 43198501217</a>、<a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/benchmarks/evidence/github-89e6c6c-summary.json">汇总</a>、<a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/benchmarks/evidence/github-89e6c6c.zip">原始 ZIP</a></td>
+</tr>
+<tr>
+<td>合并</td>
+<td>PR #1 已合并到 <code>main</code></td>
+<td><a href="https://github.com/LIghtJUNction/zsys/commit/4a137a3b6918c9307056dbba674345733be84acb">4a137a3b6918c9307056dbba674345733be84acb</a></td>
+</tr>
+<tr>
+<td>首次发布尝试</td>
+<td>11 个验证 job 与打包通过；crates.io 返回 <code>403 Forbidden: authentication failed</code></td>
+<td><a href="https://github.com/LIghtJUNction/zsys/actions/runs/43201351434">运行 43201351434</a>、<a href="https://github.com/LIghtJUNction/zsys/actions/runs/43201351434/job/131126071886">publish 日志</a></td>
+</tr>
+<tr>
+<td>凭据选择修复</td>
+<td>优先 <code>CARGO_REGISTY_TOKEN</code>，fallback <code>CARGO_REGISTRY_TOKEN</code>，传给 Cargo 使用标准环境变量</td>
+<td><a href="https://github.com/LIghtJUNction/zsys/commit/6a6f450670ea88353e48c72b7b9bf4a35eab30eb">6a6f450670ea88353e48c72b7b9bf4a35eab30eb</a></td>
+</tr>
+<tr>
+<td>第二次发布尝试</td>
+<td>11 个验证 job 与打包再次通过；确认选择 <code>CARGO_REGISTY_TOKEN</code> 后上传仍被 403 认证拒绝</td>
+<td><a href="https://github.com/LIghtJUNction/zsys/actions/runs/43201957205">运行 43201957205</a>、<a href="https://github.com/LIghtJUNction/zsys/actions/runs/43201957205/job/131128028423">publish 日志</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>CI 结论对应表中指定的提交，不自动代表未来变更。资源测试只覆盖稳定单 PID 的持续刷新及反复创建销毁；它没有证明所有模块在任意工作负载下永不泄漏。</p>
+<h2 id="尚未完成或尚待验收">尚未完成或尚待验收<a class="heading-anchor" href="#尚未完成或尚待验收" aria-label="链接到 尚未完成或尚待验收">#</a></h2>
+<ul>
+<li>[ ] 在仓库 Actions secrets 中更新有效的 <code>CARGO_REGISTY_TOKEN</code>，重跑 <a href="https://github.com/LIghtJUNction/zsys/actions/runs/43201957205">43201957205</a> 的失败 publish job，保持候选 SHA <code>6a6f450</code>；随后确认 <a href="https://crates.io/crates/zsys/0.1.0">crates.io <code>zsys/0.1.0</code></a> 发布、索引与校验和匹配。</li>
+<li>[ ] 确认对应 Git Tag 与 <a href="https://github.com/LIghtJUNction/zsys/releases">GitHub Release</a> 创建成功；两次运行中这些步骤均因上传失败而跳过。</li>
+<li>[ ] 本地完整网络与所有模块组合的同范围对比：sysinfo 在当前受限 namespace 返回空接口，公平性门禁阻止生成速度倍率。</li>
+<li>[ ] 补充进程数完全匹配的远端 5,000／10,000 规模结果：运行已完成，但背景进程变化使双方采样数量范围不同，当前不报速度倍率。请求 100 的远端组实际为 164，不标为 100 进程结果。</li>
+<li>[ ] 调查远端 <code>cold_basic</code> 的一次部分扫描失败并复测；成功工作流不表示每个重复都成功。</li>
+<li>[ ] 进一步优化未达目标的 CPU、Memory、块 I/O、500 个及以上全进程刷新和 P99 延迟。</li>
+<li>[ ] Windows、macOS、FreeBSD、Android、iOS 原生后端；当前这些平台的 core 可编译能力不等于原生采集完成。</li>
+</ul>
+<h2 id="性能判断的范围">性能判断的范围<a class="heading-anchor" href="#性能判断的范围" aria-label="链接到 性能判断的范围">#</a></h2>
+<p>本地同范围数据表明，zsys 在内存、进程与限定挂载容量等多条路径上降低了中位延迟，并在已测稳定热路径中消除了 Rust 分配请求。CPU 的真实间隔采样中位数较低，但 P99 为 <strong>514.797 μs</strong>，高于 sysinfo 的 <strong>231.166 μs</strong>。5,000 进程全刷新中位数为 <strong>43.247 ms</strong>，仍远高于 1 ms 目标。CPU／Memory 的保留缓冲也比对应 sysinfo 路径大。因此当前结果不能概括为“所有路径更快、更省内存”，更不能宣布用户的最终发布验收已经全部完成。</p>
+<p>独立 AMD EPYC runner 上，完整网络中位延迟为 917.941／1,191.003 μs，完整组合为 3.646／6.383 ms（zsys／sysinfo），有效中位比值分别为 1.30×／1.75×；网络仍未达 30 μs，组合仍未达 1 ms。网络分配次数更少，但请求字节和保留堆更多。数字、采样范围与原始证据见 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/docs/acceptance-report.zh-CN.md">验收报告</a> 和 <a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/BENCHMARKS.md">BENCHMARKS.md</a>。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zsys/blob/808fcfdb73584ca7ca122e20b76f0209f56ab0f7/docs/progress.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zsys">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zsys/platforms/"><span class="pagination-label">上一页</span><span class="pagination-title">Platform support</span></a><a class="pagination-link next" href="../../zsys/semantics/"><span class="pagination-label">下一页</span><span class="pagination-title">采样语义与 API</span></a></nav>
+      <footer class="page-footer">
+        <span>zsys <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#已完成的工程里程碑">已完成的工程里程碑</a></li><li class="toc-level-2"><a href="#已核验的执行证据">已核验的执行证据</a></li><li class="toc-level-2"><a href="#尚未完成或尚待验收">尚未完成或尚待验收</a></li><li class="toc-level-2"><a href="#性能判断的范围">性能判断的范围</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MCP 客户端与服务端原语，连接工具调用和宿主传输。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zmcpio · HTTP and SSE integration · Project Z">
+  <meta property="og:description" content="MCP 客户端与服务端原语，连接工具调用和宿主传输。">
+  <meta property="og:type" content="website">
+  <title>zmcpio · HTTP and SSE integration · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zmcpio/http/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zmcpio">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zmcpio" aria-label="zmcpio 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zmcpio</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zmcpio</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/" aria-current="page">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zmcpio 文档"><div class="nav-group"><p class="nav-label">zmcpio</p><ul><li><a class="nav-link" href="../../zmcpio/">概览</a></li><li><a class="nav-link" href="../../zmcpio/client/">MCP client and zcall integration</a></li><li><a class="nav-link" href="../../zmcpio/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zmcpio/extensions/">Explicit MCP extension boundaries</a></li><li><a class="nav-link" href="../../zmcpio/http/" aria-current="page">HTTP and SSE integration</a></li><li><a class="nav-link" href="../../zmcpio/mcp/">MCP protocol boundaries</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zmcpio</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/" aria-current="page">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zmcpio 文档"><div class="nav-group"><p class="nav-label">zmcpio</p><ul><li><a class="nav-link" href="../../zmcpio/">概览</a></li><li><a class="nav-link" href="../../zmcpio/client/">MCP client and zcall integration</a></li><li><a class="nav-link" href="../../zmcpio/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zmcpio/extensions/">Explicit MCP extension boundaries</a></li><li><a class="nav-link" href="../../zmcpio/http/" aria-current="page">HTTP and SSE integration</a></li><li><a class="nav-link" href="../../zmcpio/mcp/">MCP protocol boundaries</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zmcpio/">zmcpio 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zmcpio/">zmcpio</a><span aria-hidden="true">/</span><span>HTTP and SSE integration</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#choose-the-negotiated-transport-not-merely-sse">Choose the negotiated transport, not merely “SSE”</a></li><li class="toc-level-2"><a href="#runnable-client-and-server">Runnable client and server</a></li><li class="toc-level-2"><a href="#client-integration">Client integration</a></li><li class="toc-level-2"><a href="#server-integration">Server integration</a></li><li class="toc-level-2"><a href="#legacy-batches-2025-03-26-only">Legacy batches (2025-03-26 only)</a></li><li class="toc-level-2"><a href="#incremental-sse-and-bounded-memory">Incremental SSE and bounded memory</a></li><li class="toc-level-2"><a href="#optional-blocking-io">Optional blocking I/O</a></li><li class="toc-level-2"><a href="#older-endpoint-resolution">Older endpoint resolution</a></li><li class="toc-level-2"><a href="#references-and-tests">References and tests</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="http-and-sse-integration">HTTP and SSE integration</h1>
+<p>The default crate handles protocol bytes without sockets, allocation or a runtime.
+Enable <code>std</code> for bounded blocking HTTP/1.1 framing over a caller-supplied
+<code>BufRead</code>/<code>Write</code> stream. A verified TLS stream can use the same interface; TLS,
+DNS, OAuth, connection pooling and async scheduling remain application choices.</p>
+<h2 id="choose-the-negotiated-transport-not-merely-sse">Choose the negotiated transport, not merely “SSE”<a class="heading-anchor" href="#choose-the-negotiated-transport-not-merely-sse" aria-label="链接到 Choose the negotiated transport, not merely “SSE”">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Profile</th>
+<th>Requests and replies</th>
+<th>Session and stream lifetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-07-28 Streamable HTTP</td>
+<td>POST; request returns JSON or SSE, accepted notification returns empty 202</td>
+<td>Stateless binding; no legacy GET/DELETE, session header or Last-Event-ID behavior. Closing the response stream cancels that request.</td>
+</tr>
+<tr>
+<td>2025-03-26, 2025-06-18, 2025-11-25 Streamable HTTP</td>
+<td>POST; request returns JSON or SSE, accepted notification/response returns empty 202; optional GET SSE and DELETE</td>
+<td>Optional server-issued sessions. GET with Last-Event-ID supports host-managed resumption. Disconnection alone does not cancel a request.</td>
+</tr>
+<tr>
+<td>2024-11-05 HTTP+SSE</td>
+<td>A long-lived GET receives an endpoint event and JSON-RPC messages; separate POSTs send messages and return 202</td>
+<td>Two channels share one legacy MCP lifecycle. A POST acknowledgment is not the JSON-RPC result.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Legacy negotiation covers the four listed revisions. JSON-RPC batch arrays are
+supported only for 2025-03-26 using the explicit bounded batch API below; other
+revisions require single messages.
+The transport does not invent a session or silently switch protocol versions.
+For 2025-03-26, a missing version header is accepted only by an explicitly
+configured matching server; later legacy versions validate it after initialization.</p>
+<p>The version selection is deliberate: modern Tasks use get/update/cancel and
+per-request extension capabilities, while legacy Tasks use their own negotiated
+methods and result shape. Treating all revisions as one protocol loses semantics.</p>
+<h2 id="runnable-client-and-server">Runnable client and server<a class="heading-anchor" href="#runnable-client-and-server" aria-label="链接到 Runnable client and server">#</a></h2>
+<p>Run these commands in separate terminals from the source checkout:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo run --locked --features std --example mcp_http -- server 8080 sse
+cargo run --locked --features std --example mcp_http -- client 127.0.0.1:8080
+</code></pre></div>
+<p>Change <code>sse</code> to <code>json</code> for a single JSON response. The example binds only to
+127.0.0.1, has socket deadlines and exposes only a fixed echo tool. It is not an
+authenticated production daemon. It supports the Expect: 100-continue exchange;
+unknown expectations are rejected without waiting for their body. Its client
+skips a bounded number of informational responses and rejects protocol upgrades.</p>
+<p><code>tests/legacy_sse_network.rs</code> demonstrates the older dual-connection exchange
+using actual TCP: persistent GET, endpoint negotiation, separate keepalive POSTs,
+initialization and a tool call. Responses arrive only through GET. A duplicate
+tool reply is rejected without another POST or another tool execution.</p>
+<h2 id="client-integration">Client integration<a class="heading-anchor" href="#client-integration" aria-label="链接到 Client integration">#</a></h2>
+<ol>
+<li>Choose <code>http::Version</code> and create <code>ClientSession</code> with caller-owned session
+storage. Use a matching <code>client::Client</code> era and explicit legacy negotiation.</li>
+<li>Encode the MCP request into a bounded buffer. Use <code>ClientSession::post_headers</code>
+to generate standard headers. Modern routing names are the tool/prompt name,
+resource URI or task ID, depending on the method.</li>
+<li>For tools with <code>x-mcp-header</code> annotations, call <code>http::parameters</code> on the
+selected input schema and arguments, then <code>write_parameter_headers</code>. Append
+these headers using your HTTP stack. Add authentication separately.</li>
+<li>Send exactly once. With <code>http_io</code>, use <code>write_request</code> or
+<code>write_request_with(..., Connection::KeepAlive)</code>; set deadlines on the stream
+before I/O. Use <code>read_response_head</code> for a bounded informational-head loop.</li>
+<li>Interpret the final status and Content-Type with <code>response_mode</code>. Read JSON
+into a bounded message buffer, or feed decoded HTTP body chunks to
+<code>sse::Decoder</code>. Pass complete JSON-RPC payloads to <code>Client::receive</code>.</li>
+<li>For a legacy initialized session, retain a valid server-issued ID with
+<code>set_session_id</code>. Validate its ownership server-side. <code>observe_status(404)</code>
+clears local session state; it does not repeat the failed tool call.</li>
+</ol>
+<p>A transport write failure is ambiguous: the peer might already have executed the
+tool. Neither reconnecting nor obtaining a new session proves a retry is safe.
+Applications must decide from operation semantics, idempotency controls and
+their own execution records. No helper automatically repeats a tool request.</p>
+<p><code>tests/http_session_network.rs</code> exercises an actual truncated tool POST followed
+by explicit GET recovery, DELETE and expired-session cleanup. It asserts one tool
+execution, one replayed final result and no second tool POST.</p>
+<p>For legacy recovery, generate GET headers with <code>get_headers(last_event_id)</code>
+and let the host select and replay previously stored events. Event storage,
+retention, unique event IDs and ownership checks are not provided by this crate.
+Use <code>delete_headers</code> only where session termination is supported.</p>
+<h2 id="server-integration">Server integration<a class="heading-anchor" href="#server-integration" aria-label="链接到 Server integration">#</a></h2>
+<p>Parse and bound the HTTP head/body before dispatch. Copy header views into a
+caller-owned slot array if needed; values remain borrowed. Construct
+<code>Incoming { method, headers, message }</code>, then call
+<code>ServerConfig::validate</code> with an application-defined <code>SecurityPolicy</code>.</p>
+<p>That policy has three separate checks: allowed Origin, authorization and session
+ownership. A session identifier is not a credential. The core validates media
+types, version-specific methods, standard singleton headers and modern
+header/body mirroring before returning a message/listen/terminate action.
+Header/body mismatch takes precedence over an unsupported modern version.</p>
+<p>For a selected tool schema, additionally call <code>parameters</code> and
+<code>validate_parameter_headers</code> before performing side effects. Standard validation
+cannot discover tool-specific annotations without that schema. Validate schemas
+before publishing tools over HTTP; do not advertise an invalid header annotation.</p>
+<p>Only then call <code>mcp::Server::handle</code>, check application permissions, perform the
+requested work and encode a result. An <code>Action::CallTool</code> or
+<code>Action::Extension</code> is a description of work, not execution. For legacy HTTP,
+retain the same Server across the logical session, not one Server per POST.</p>
+<p>Map <code>HttpError</code> through <code>status</code>/<code>write_rpc</code>; use <code>rpc_error_status</code> when
+mapping a protocol error reply. Send an Allow header with a 405 response.
+Accepted notifications and accepted legacy response messages receive empty 202.
+Keep JSON-RPC parse/invalid-request errors distinct from tool execution errors.</p>
+<h2 id="legacy-batches-2025-03-26-only">Legacy batches (2025-03-26 only)<a class="heading-anchor" href="#legacy-batches-2025-03-26-only" aria-label="链接到 Legacy batches (2025-03-26 only)">#</a></h2>
+<p>Parse the complete JSON array into a caller-owned token tape, then call
+<code>batch::Batch::parse(root, version, max_items)</code> before any dispatch. Empty or
+oversized arrays, initialization inside an array, modern per-request metadata
+and mixed request/response categories are rejected before effects. Valid
+request siblings are retained when individual items are malformed.</p>
+<p>For HTTP, call <code>ServerConfig::validate_batch</code> once for the POST. It applies
+shared security, media, version and session checks and returns a BodyKind:
+requests (including invalid request items needing errors), notifications-only,
+or responses-only. Batch initialization is forbidden, so batch requests never
+receive the initialization exception to a required session ID.</p>
+<p>Iterate <code>entries()</code> explicitly. Each entry contains its borrowed raw JSON and
+parsed message or error. Pass valid request item bytes to <code>Server::handle</code> and
+valid response item bytes to <code>Client::receive</code>, using suitable scratch tokens.
+Return id:null/-32600 for invalid request entries; malformed response entries are
+local errors and must not trigger response-to-response messages. The host owns
+duplicate-ID policy, per-item authorization, lifecycle order and execution.</p>
+<p><code>encode_requests</code> joins already encoded request/notification values.
+<code>encode_responses</code> takes optional response values; None denotes no response.
+Both preflight the entire output and leave it unchanged on failure. A batch with
+no replies emits zero bytes, never an empty array. Notification-only and
+response-only HTTP POSTs receive empty 202. Retain completed results for a larger
+output buffer; never re-execute tools after a serialization failure. Client
+requests already encoded before a failed batch encoding retain their pending
+slots: retry serialization or explicitly abandon unsent IDs.</p>
+<p>The single-message <code>rpc::parse</code> contract remains strict; no modern request can
+silently acquire batch semantics. See <code>tests/batch.rs</code> and
+<code>tests/http_batch.rs</code> for roundtrips and shared-envelope validation.</p>
+<h2 id="incremental-sse-and-bounded-memory">Incremental SSE and bounded memory<a class="heading-anchor" href="#incremental-sse-and-bounded-memory" aria-label="链接到 Incremental SSE and bounded memory">#</a></h2>
+<p><code>Decoder::new</code> receives separate buffers for a line, joined data, event name and
+event ID, plus a maximum raw event-block size. Reuse them across events.
+<code>feed</code> reports exactly how many input bytes were consumed; keep the remainder.
+On Ready, handle <code>event()</code> before <code>consume()</code>. A pending event applies
+backpressure rather than overwriting data.</p>
+<p>On NeedCapacity, use the reported buffer and size with <code>replace_buffer</code>, then
+retry the unconsumed bytes. No complete event is delivered until a blank line.
+<code>finish</code> discards an incomplete trailing event; it does not turn a disconnected
+tool request into success. Comment heartbeats, CR/LF/CRLF, a leading BOM,
+multiline data and UTF-8 replacement are handled across arbitrary chunk splits.</p>
+<p>Event IDs are per block, not automatically inherited. Commit a legacy resume
+checkpoint only after accepting the complete block according to application
+policy; retain the checkpoint outside the decoder. Metadata-only blocks may
+carry IDs or retry hints without a JSON-RPC payload. <code>retry_hint()</code> can expose a
+complete retry field before the final delimiter. Modern HTTP ignores these
+legacy resumption mechanisms.</p>
+<p><code>write_event</code> and <code>write_comment</code> preflight output capacity. Event data must be
+UTF-8 and cannot contain CR; LF is encoded as multiple data lines. The JSON
+encoder already escapes embedded string controls, avoiding field injection.</p>
+<h2 id="optional-blocking-io">Optional blocking I/O<a class="heading-anchor" href="#optional-blocking-io" aria-label="链接到 Optional blocking I/O">#</a></h2>
+<p><code>http_io</code> supports Content-Length, chunked and close-delimited response bodies,
+bounded trailers, short-read/write handling, Interrupted retries and sequential
+keepalive reuse. Supply a buffered reader/writer to avoid one syscall per field.
+Consume the entire framed body before reusing a connection.</p>
+<p>It rejects ambiguous CL+TE, duplicate security/framing headers, folded headers,
+bare LF, HTTP/1.0 transfer coding, unsupported compression and malformed chunks.
+A framing/capacity failure poisons BodyReader; a partial write/flush failure
+poisons ChunkWriter. Close the connection after either error. ChunkWriter flushes
+each event and emits the final zero chunk only on explicit successful finish.</p>
+<p>This is an MCP-oriented HTTP/1.1 adapter, not a general browser stack. It does not
+implement HTTP/2 or HTTP/3 framing, CONNECT, upgrades, automatic redirects,
+compression, certificate verification or credential acquisition. Use the
+no-std protocol layer with an existing verified stack when those are required.
+The stream's timer, executor and connection policy belong to its owner.</p>
+<h2 id="older-endpoint-resolution">Older endpoint resolution<a class="heading-anchor" href="#older-endpoint-resolution" aria-label="链接到 Older endpoint resolution">#</a></h2>
+<p><code>legacy_sse::Session</code> accepts the endpoint event before message events and
+resolves same-origin relative/absolute endpoints into caller storage. It rejects
+cross-origin endpoints, userinfo, fragments, control characters, backslashes,
+encoded dot segments and ambiguous repeated slashes. It does not forward a token
+or open the destination itself. This conservative URI resolver is not a browser
+URL implementation; rejected unusual URLs require an explicit host decision.</p>
+<h2 id="references-and-tests">References and tests<a class="heading-anchor" href="#references-and-tests" aria-label="链接到 References and tests">#</a></h2>
+<p>Normative sources checked on 2026-11-11:</p>
+<ul>
+<li>https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http</li>
+<li>https://modelcontextprotocol.io/specification/2025-11-25/basic/transports</li>
+<li>https://modelcontextprotocol.io/specification/2025-03-26/basic/transports</li>
+<li>https://modelcontextprotocol.io/specification/2024-11-05/basic/transports</li>
+<li>https://html.spec.whatwg.org/multipage/server-sent-events.html</li>
+<li>https://www.rfc-editor.org/rfc/rfc9112</li>
+</ul>
+<p>See <code>tests/http.rs</code>, <code>tests/sse.rs</code>, <code>tests/http_io*.rs</code>,
+<code>tests/http_network.rs</code>, <code>tests/legacy_sse*.rs</code> and
+<code>scripts/http_smoke.py</code>. The Python peer independently checks the executable
+Rust server and also runs the Rust client; it is not an official conformance
+suite. Reproduction commands and measurement scope are in <a href="https://github.com/LIghtJUNction/zmcpio/blob/89a247ac274bcd96b760dd9e7dcb0d4d924a901e/docs/VALIDATION.md">VALIDATION.md</a>.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmcpio/blob/89a247ac274bcd96b760dd9e7dcb0d4d924a901e/docs/HTTP.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmcpio">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zmcpio/extensions/"><span class="pagination-label">上一页</span><span class="pagination-title">Explicit MCP extension boundaries</span></a><a class="pagination-link next" href="../../zmcpio/mcp/"><span class="pagination-label">下一页</span><span class="pagination-title">MCP protocol boundaries</span></a></nav>
+      <footer class="page-footer">
+        <span>zmcpio <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#choose-the-negotiated-transport-not-merely-sse">Choose the negotiated transport, not merely “SSE”</a></li><li class="toc-level-2"><a href="#runnable-client-and-server">Runnable client and server</a></li><li class="toc-level-2"><a href="#client-integration">Client integration</a></li><li class="toc-level-2"><a href="#server-integration">Server integration</a></li><li class="toc-level-2"><a href="#legacy-batches-2025-03-26-only">Legacy batches (2025-03-26 only)</a></li><li class="toc-level-2"><a href="#incremental-sse-and-bounded-memory">Incremental SSE and bounded memory</a></li><li class="toc-level-2"><a href="#optional-blocking-io">Optional blocking I/O</a></li><li class="toc-level-2"><a href="#older-endpoint-resolution">Older endpoint resolution</a></li><li class="toc-level-2"><a href="#references-and-tests">References and tests</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

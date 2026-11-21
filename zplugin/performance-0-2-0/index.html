@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生插件 ABI、动态库加载与可选 Wasm 沙箱。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zplugin · Performance evidence: 0.2.0 extensions · Project Z">
+  <meta property="og:description" content="原生插件 ABI、动态库加载与可选 Wasm 沙箱。">
+  <meta property="og:type" content="website">
+  <title>zplugin · Performance evidence: 0.2.0 extensions · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zplugin/performance-0-2-0/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zplugin">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zplugin" aria-label="zplugin 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zplugin</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zplugin</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/" aria-current="page">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zplugin 文档"><div class="nav-group"><p class="nav-label">zplugin</p><ul><li><a class="nav-link" href="../../zplugin/">概览</a></li><li><a class="nav-link" href="../../zplugin/zplugin-0-3-0-delivery/">zplugin 0.3.0：不可信 Wasm 插件交付报告</a></li><li><a class="nav-link" href="../../zplugin/examples-foreign-readme/">C, C++, and Zig plugins</a></li><li><a class="nav-link" href="../../zplugin/examples-readme/">Run the independent native plugin example</a></li><li><a class="nav-link" href="../../zplugin/abi/">ABI v1 and ownership</a></li><li><a class="nav-link" href="../../zplugin/extensions/">Stable values, tasks, resources and callbacks</a></li><li><a class="nav-link" href="../../zplugin/performance-0-2-0/" aria-current="page">Performance evidence: 0.2.0 extensions</a></li><li><a class="nav-link" href="../../zplugin/performance-0-3-0/">zplugin 0.3.0 Wasm measurements</a></li><li><a class="nav-link" href="../../zplugin/wasm/">Untrusted Wasm plugins</a></li><li><a class="nav-link" href="../../zplugin/zplugin-0-2-0-delivery/">zplugin 0.2.0 交付报告</a></li><li><a class="nav-link" href="../../zplugin/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zplugin</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/" aria-current="page">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zplugin 文档"><div class="nav-group"><p class="nav-label">zplugin</p><ul><li><a class="nav-link" href="../../zplugin/">概览</a></li><li><a class="nav-link" href="../../zplugin/zplugin-0-3-0-delivery/">zplugin 0.3.0：不可信 Wasm 插件交付报告</a></li><li><a class="nav-link" href="../../zplugin/examples-foreign-readme/">C, C++, and Zig plugins</a></li><li><a class="nav-link" href="../../zplugin/examples-readme/">Run the independent native plugin example</a></li><li><a class="nav-link" href="../../zplugin/abi/">ABI v1 and ownership</a></li><li><a class="nav-link" href="../../zplugin/extensions/">Stable values, tasks, resources and callbacks</a></li><li><a class="nav-link" href="../../zplugin/performance-0-2-0/" aria-current="page">Performance evidence: 0.2.0 extensions</a></li><li><a class="nav-link" href="../../zplugin/performance-0-3-0/">zplugin 0.3.0 Wasm measurements</a></li><li><a class="nav-link" href="../../zplugin/wasm/">Untrusted Wasm plugins</a></li><li><a class="nav-link" href="../../zplugin/zplugin-0-2-0-delivery/">zplugin 0.2.0 交付报告</a></li><li><a class="nav-link" href="../../zplugin/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zplugin/">zplugin 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zplugin/">zplugin</a><span aria-hidden="true">/</span><span>Performance evidence: 0.2.0 extensions</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#results">Results</a></li><li class="toc-level-2"><a href="#reproduction-and-measurement-scope">Reproduction and measurement scope</a></li><li class="toc-level-2"><a href="#synchronous-dispatch-and-data-transfer">Synchronous dispatch and data transfer</a></li><li class="toc-level-2"><a href="#cross-library-tasks">Cross-library tasks</a></li><li class="toc-level-2"><a href="#loading-ownership-switching-and-memory">Loading, ownership, switching, and memory</a></li><li class="toc-level-2"><a href="#single-call-timing-and-limits">Single-call timing and limits</a></li><li class="toc-level-2"><a href="#evidence-and-review">Evidence and review</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="performance-evidence-020-extensions">Performance evidence: 0.2.0 extensions</h1>
+<p>Measured on 2026-11-13 (Asia/Taipei), Linux x86-64. This report separates
+steady-state dispatch, task initialization, changed wakers, and worker shutdown.
+It makes no macOS/Windows timing or universal speedup claim.</p>
+<h2 id="results">Results<a class="heading-anchor" href="#results" aria-label="链接到 Results">#</a></h2>
+<p>The typed synchronous proxy measured <strong>3.474 ns/call</strong> for the scalar fixture
+(about 287.9 million calls/second). A warmed pending task measured <strong>14.018 ns/poll</strong>
+through <code>Task::poll_raw</code>, versus <strong>12.216 ns/poll</strong> through its cached C function
+pointer. Both paths recorded zero host and plugin Rust heap allocations.
+The separate Rust <code>Future::poll</code> adapter measured <strong>14.740 ns/poll</strong>, also with
+zero allocations while the same waker was reused.</p>
+<p>Task creation and waker replacement are not allocation-free. The example's ready
+task requests 56 plugin bytes on creation. First polling creates the needed
+waker bridges; changing a C waker requests another 40 bytes, while changing a
+Rust executor waker requests 40 bytes on each side. The optimization is reuse
+of already-created bridges, not an assertion that every asynchronous operation
+requires no memory.</p>
+<h2 id="reproduction-and-measurement-scope">Reproduction and measurement scope<a class="heading-anchor" href="#reproduction-and-measurement-scope" aria-label="链接到 Reproduction and measurement scope">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>python3 tools/bench/run.py docs/benchmarks/v0.2.0
+python3 tools/bench/extensions.py
+</code></pre></div>
+<p>The two runners build instrumented real <code>cdylib</code> plugins and run three fresh
+processes, pinned to CPU 0. Measurements were not run concurrently with this
+task's compiler jobs. The machine is a shared <strong>AMD EPYC 9V74 80-Core Processor</strong>,
+Linux 6.18.57, glibc 2.41. Rust is <strong>1.100.0</strong> (<code>0ef1bc386</code>, LLVM 23.1.5), target
+<code>x86_64-unknown-linux-gnu</code>; release settings are <code>opt-level=3</code>, thin LTO,
+<code>codegen-units=1</code>, <code>panic=unwind</code>, with no extra <code>RUSTFLAGS</code>.</p>
+<p>The runtime enables <code>std</code>, <code>macros</code>, and <code>hot-reload</code>. <code>libloading 0.8.9</code> is a
+dependency only of the unpublished comparison tool. Compiler, CPU, build flags,
+sample counts, and allocator observations are retained in the raw CSVs.
+Extension CSVs additionally record the pre-commit source and dirty-file list:
+the changes are the benchmark and CI/toolchain updates committed with this
+report, not an unreported alternative runtime. The old 0.1.0 measurements remain
+unchanged in <a href="../../zplugin/performance/">the historical report</a>.
+Measurements precede the version-only release bump; the runtime and example
+functional source was not replaced after measurement.</p>
+<p>Each table below uses the <strong>median of three run medians</strong>. Ordinary CSV p50,
+p95, and p99 values are quantiles of <strong>batch means</strong>, not single-call latency
+percentiles. <code>black_box</code>, observed outputs, and object counters prevent the
+work from being optimized away. Counting allocators add atomic operations to
+allocation/free paths and therefore affect their absolute timings.</p>
+<h2 id="synchronous-dispatch-and-data-transfer">Synchronous dispatch and data transfer<a class="heading-anchor" href="#synchronous-dispatch-and-data-transfer" aria-label="链接到 Synchronous dispatch and data transfer">#</a></h2>
+<p>All paths execute the same scalar arithmetic or ASCII uppercase transformation
+into a reused caller-owned output buffer. Scalar, 64 B and 4 KiB columns use
+nanoseconds; 1 MiB uses microseconds.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Path</th>
+<th style="text-align:right">Scalar ns ↓</th>
+<th style="text-align:right">64 B ns ↓</th>
+<th style="text-align:right">4 KiB ns ↓</th>
+<th style="text-align:right">1 MiB µs ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static inline</td>
+<td style="text-align:right">1.370</td>
+<td style="text-align:right">3.761</td>
+<td style="text-align:right">166.118</td>
+<td style="text-align:right">38.375</td>
+</tr>
+<tr>
+<td>Static noinline</td>
+<td style="text-align:right">1.680</td>
+<td style="text-align:right">3.906</td>
+<td style="text-align:right">163.431</td>
+<td style="text-align:right">38.723</td>
+</tr>
+<tr>
+<td>Cached thin extern-C</td>
+<td style="text-align:right">2.558</td>
+<td style="text-align:right">5.740</td>
+<td style="text-align:right">166.341</td>
+<td style="text-align:right">38.687</td>
+</tr>
+<tr>
+<td>Cached generated C adapter</td>
+<td style="text-align:right">3.668</td>
+<td style="text-align:right">13.225</td>
+<td style="text-align:right">135.139</td>
+<td style="text-align:right">38.142</td>
+</tr>
+<tr>
+<td>libloading, cached symbol</td>
+<td style="text-align:right">3.725</td>
+<td style="text-align:right">13.683</td>
+<td style="text-align:right">167.928</td>
+<td style="text-align:right">35.448</td>
+</tr>
+<tr>
+<td>zplugin typed proxy</td>
+<td style="text-align:right">3.474</td>
+<td style="text-align:right">13.370</td>
+<td style="text-align:right">174.716</td>
+<td style="text-align:right">38.279</td>
+</tr>
+</tbody>
+</table></div>
+<p>Static calls and the thin C pointer are lower-bound controls: they omit plugin
+validation, panic containment, and instance guards. The final three paths call
+the same generated adapter with matching object ownership, creating-thread
+rules, argument packing, and live library ownership. Symbol resolution is outside
+timing. Baseline order rotates across the three processes.</p>
+<p>Every measured scalar/buffer path recorded <strong>zero host and plugin allocations</strong>.
+The proxy scalar run medians ranged 3.473–3.546 ns. Its 4 KiB run medians ranged
+141.310–177.432 ns, and its 1 MiB medians ranged 30.803–38.727 µs. Variation is
+large enough that the ordering of the same-adapter buffer controls does not
+establish a general performance ranking. No slower sample has been discarded.</p>
+<p>There are 41 samples per row: 200,000 scalar calls, 100,000 64 B calls, 4,000
+4 KiB calls, or 16 1 MiB calls per sample. Up to 1,024 operations warm each row.</p>
+<h2 id="cross-library-tasks">Cross-library tasks<a class="heading-anchor" href="#cross-library-tasks" aria-label="链接到 Cross-library tasks">#</a></h2>
+<p>The cached C and proxy C controls use the same stateless C waker, retained
+library lifetime, and pending worker implementation. That worker is blocked on
+a condition variable; its poll takes the same plugin-side mutex in both paths.
+The Rust Future rows separately measure the executor-waker bridge. Task/waker
+setup is outside warmed poll timing; each poll row receives 32,000 warmup polls.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th style="text-align:right">Median ns/op ↓</th>
+<th style="text-align:right">Three p50 range ns</th>
+<th style="text-align:right">Host allocs/op</th>
+<th style="text-align:right">Plugin allocs/op</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ready task: create + drop</td>
+<td style="text-align:right">20.741</td>
+<td style="text-align:right">20.431–23.055</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>Ready task: create + C poll + drop</td>
+<td style="text-align:right">64.367</td>
+<td style="text-align:right">62.484–70.836</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>Ready task: create + Future poll + drop</td>
+<td style="text-align:right">77.246</td>
+<td style="text-align:right">75.404–83.747</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>Pending: cached C poll</td>
+<td style="text-align:right">12.216</td>
+<td style="text-align:right">12.111–12.230</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Pending: proxy C poll</td>
+<td style="text-align:right">14.018</td>
+<td style="text-align:right">13.948–14.097</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Pending: Rust Future poll</td>
+<td style="text-align:right">14.740</td>
+<td style="text-align:right">14.739–14.777</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Pending: replace C waker each poll</td>
+<td style="text-align:right">45.153</td>
+<td style="text-align:right">44.424–45.169</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>Pending: replace Rust waker each poll</td>
+<td style="text-align:right">73.983</td>
+<td style="text-align:right">73.477–74.272</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>Worker: create + cancel + join + drop</td>
+<td style="text-align:right">8,663.000</td>
+<td style="text-align:right">8,477.500–14,241.500</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td>Worker: create + signal + complete + join + drop</td>
+<td style="text-align:right">8,197.500</td>
+<td style="text-align:right">7,972.000–29,054.000</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">8</td>
+</tr>
+</tbody>
+</table></div>
+<p>The measured proxy-C delta is <strong>1.802 ns/poll</strong> over cached C in this fixture.
+This is a local dispatch comparison, not an I/O throughput or executor benchmark.
+The worker lifecycle rows include actual thread creation, scheduling, and joining;
+their broad run ranges are not a portable cancellation-latency guarantee.</p>
+<p>Each row has 101 samples. Pending rows use 10,000 operations per sample, ready
+lifecycle rows use 1,000, and worker lifecycle rows use two. The median of the
+three batch-p99 values is 22.781 ns for proxy C polling and 24.270 ns for Future
+polling; these remain <strong>batch-mean quantiles</strong>, not per-task tail latency.</p>
+<p>Ready create/drop requests 56 bytes; first C poll plus lifecycle requests 96;
+first Rust Future poll plus lifecycle requests 136. C-waker replacement requests
+40 bytes and Rust-waker replacement 80 total. The worker lifecycle requests
+327 plugin bytes across eight Rust allocations. Native OS/thread/loader
+allocations are outside these counters. Every row has zero net live-byte change,
+and final plugin live bytes return to zero after all objects, tasks, and workers
+exit. The benchmark then verifies successful cooperative close.</p>
+<h2 id="loading-ownership-switching-and-memory">Loading, ownership, switching, and memory<a class="heading-anchor" href="#loading-ownership-switching-and-memory" aria-label="链接到 Loading, ownership, switching, and memory">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th style="text-align:right">Median ns/op ↓</th>
+<th style="text-align:right">Three p50 range ns</th>
+<th style="text-align:right">Rust allocations/op</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Remap load + drop, warm filesystem cache</td>
+<td style="text-align:right">33,399.230</td>
+<td style="text-align:right">30,032.050–37,288.600</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>Already-mapped std path load + drop</td>
+<td style="text-align:right">3,123.810</td>
+<td style="text-align:right">3,113.790–3,185.500</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td>Already-mapped core C-string load + drop</td>
+<td style="text-align:right">160.540</td>
+<td style="text-align:right">160.340–161.140</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Interface bind</td>
+<td style="text-align:right">29.612</td>
+<td style="text-align:right">29.564–29.686</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Object create + drop</td>
+<td style="text-align:right">19.127</td>
+<td style="text-align:right">17.770–19.456</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>Owned 64 B result create + release</td>
+<td style="text-align:right">41.649</td>
+<td style="text-align:right">41.536–53.604</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>Request library lease</td>
+<td style="text-align:right">0.706</td>
+<td style="text-align:right">0.706–0.706</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Reused-session scalar call</td>
+<td style="text-align:right">3.435</td>
+<td style="text-align:right">3.312–3.446</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>Hot switch: load + bind + create + collect</td>
+<td style="text-align:right">26,385.800</td>
+<td style="text-align:right">24,940.600–36,099.400</td>
+<td style="text-align:right">3 host</td>
+</tr>
+</tbody>
+</table></div>
+<p>The std load helper canonicalizes a path; the core control reuses an existing
+NUL-terminated path. Their allocation difference is not a difference in plugin
+ABI. Load rows use 100 operations/sample, bind/create/owned-result rows 10,000,
+and hot-switch rows 20. The hot test pre-copies two independent library files,
+uses an old-generation limit of two, and excludes file copying from timing.
+Hot rows count host allocations only because copied plugin images have separate
+allocators. A successful OS close releases our loader reference, not a guarantee
+that all external references or mapped pages disappear.</p>
+<p>On this feature/target build, Rust-side <code>Plugin</code>, <code>Binding</code>, <code>Instance</code>, and the
+eight-method demo proxy occupy 32, 64, 72, and 136 stack bytes. These are observed
+Rust layouts, not public ABI guarantees. A borrowed demo object adds zero host
+heap bytes and 16 plugin bytes; 1,024 objects add exactly 16,384 plugin bytes and
+return to the preceding live-byte count after destruction. Preallocated host
+vector storage and allocator bookkeeping are excluded from that delta.</p>
+<p>The first load in each fresh process took 91.828, 88.854, and 124.007 µs. Linux
+RSS increased by 224, 184, and 208 KiB respectively. RSS includes code pages,
+loader/runtime state, and OS paging; it is not the runtime's per-object memory
+requirement and is not a cold-storage result.</p>
+<h2 id="single-call-timing-and-limits">Single-call timing and limits<a class="heading-anchor" href="#single-call-timing-and-limits" aria-label="链接到 Single-call timing and limits">#</a></h2>
+<p>The synchronous suite also measures 20,001 individual scalar calls per process.
+All three runs recorded proxy p50/p95/p99 of 21/30/31 ns, while the timer-floor
+p50 was 20 ns. Maximum observations were 44,066, 151, and 2,083 ns. Timer cost
+dominates this tiny operation; do not subtract quantiles to manufacture a
+single-call tail-latency claim. Use batch measurements for dispatch cost.</p>
+<p>No production I/O workload, external async executor, cancellation deadline,
+macOS/Windows timing, or other-CPU result is claimed. Different business methods
+can allocate or block independently of the boundary. Physical unloading still
+requires the documented join/drain contract; a benchmark cannot enforce that
+promise for arbitrary native plugins.</p>
+<h2 id="evidence-and-review">Evidence and review<a class="heading-anchor" href="#evidence-and-review" aria-label="链接到 Evidence and review">#</a></h2>
+<p>Raw synchronous data: <a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/benchmarks/v0.2.0/linux-x86_64-run1.csv">run 1</a>,
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/benchmarks/v0.2.0/linux-x86_64-run2.csv">run 2</a>,
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/benchmarks/v0.2.0/linux-x86_64-run3.csv">run 3</a>.
+Raw task data: <a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/benchmarks/v0.2.0/extensions-linux-x86_64-run1.csv">run 1</a>,
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/benchmarks/v0.2.0/extensions-linux-x86_64-run2.csv">run 2</a>,
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/benchmarks/v0.2.0/extensions-linux-x86_64-run3.csv">run 3</a>.
+Implementations: <a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/tools/bench/src/main.rs">sync benchmark</a>,
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/tools/bench/src/bin/extensions.rs">task benchmark</a>,
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/examples/plugin/src/measurements.rs">counting allocator</a>.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evidence</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warm borrowed sync calls and reused-waker polls require no Rust allocations in these fixtures</td>
+<td>Both allocators, all three raw runs</td>
+<td>Measured</td>
+</tr>
+<tr>
+<td>Task setup and waker replacement allocate</td>
+<td>Separate lifecycle/replacement rows and byte counts</td>
+<td>Measured, not hidden in warm rows</td>
+</tr>
+<tr>
+<td>Task wrappers retain and release their originating image</td>
+<td>Real-library lifecycle tests and final live-byte/close assertions</td>
+<td>Implemented and tested</td>
+</tr>
+<tr>
+<td>Similar dispatch cost to equivalent cached C calls</td>
+<td>Same-adapter sync controls and same-waker pending controls</td>
+<td>Workload-specific observation</td>
+</tr>
+<tr>
+<td>General cross-platform speedup</td>
+<td>Not measured</td>
+<td>No claim</td>
+</tr>
+</tbody>
+</table></div>
+<p>Five-dimension review: the contribution is typed ABI/lifetime management, not a
+new executor; terminology separates a call, a poll and a whole worker lifecycle;
+all numbers map to preserved samples; evaluation covers dispatch, buffers,
+allocation, memory, initialization, switching and cancellation; design limits
+retain the native-code trust and cooperative shutdown obligations. Shared-host
+variance and missing production/cross-platform timing remain explicit.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/performance-0.2.0.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zplugin">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zplugin/extensions/"><span class="pagination-label">上一页</span><span class="pagination-title">Stable values, tasks, resources and callbacks</span></a><a class="pagination-link next" href="../../zplugin/performance-0-3-0/"><span class="pagination-label">下一页</span><span class="pagination-title">zplugin 0.3.0 Wasm measurements</span></a></nav>
+      <footer class="page-footer">
+        <span>zplugin <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#results">Results</a></li><li class="toc-level-2"><a href="#reproduction-and-measurement-scope">Reproduction and measurement scope</a></li><li class="toc-level-2"><a href="#synchronous-dispatch-and-data-transfer">Synchronous dispatch and data transfer</a></li><li class="toc-level-2"><a href="#cross-library-tasks">Cross-library tasks</a></li><li class="toc-level-2"><a href="#loading-ownership-switching-and-memory">Loading, ownership, switching, and memory</a></li><li class="toc-level-2"><a href="#single-call-timing-and-limits">Single-call timing and limits</a></li><li class="toc-level-2"><a href="#evidence-and-review">Evidence and review</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="ztty · Configuration · Project Z">
+  <meta property="og:description" content="原生终端应用，在 Linux 上支持窗口、命令行与 MCP 共用会话。">
+  <meta property="og:type" content="website">
+  <title>ztty · Configuration · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/ztty/configuration/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="ztty">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/ztty" aria-label="ztty 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">ztty</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/" aria-current="page">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/" aria-current="page">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="ztty 文档"><div class="nav-group"><p class="nav-label">ztty</p><ul><li><a class="nav-link" href="../../ztty/">概览</a></li><li><a class="nav-link" href="../../ztty/readme-en/">ztty</a></li><li><a class="nav-link" href="../../ztty/configuration/" aria-current="page">Configuration</a></li><li><a class="nav-link" href="../../ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../ztty/sessions/">Sessions and MCP</a></li><li><a class="nav-link" href="../../ztty/ssh-sessions/">SSH sessions</a></li><li><a class="nav-link" href="../../ztty/protocols/">Protocol scope</a></li><li><a class="nav-link" href="../../ztty/text-plugins-zh-cn/">文本扩展：用 zplugin 处理选区并复制</a></li><li><a class="nav-link" href="../../ztty/input-compatibility/">Input protocol compatibility</a></li><li><a class="nav-link" href="../../ztty/daily-workflow/">Daily workflow on Linux</a></li><li><a class="nav-link" href="../../ztty/readme/">Documentation</a></li><li><a class="nav-link" href="../../ztty/ssmcp-observer/">ssmcp observation on Linux</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../ztty/">ztty 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ztty/">ztty</a><span aria-hidden="true">/</span><span>Configuration</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#file-locations">File locations</a></li><li class="toc-level-2"><a href="#fonts-colors-and-cursor">Fonts, colors and cursor</a></li><li class="toc-level-2"><a href="#linux-x11-renderer">Linux X11 renderer</a></li><li class="toc-level-2"><a href="#native-wayland-experimental">Native Wayland (experimental)</a></li><li class="toc-level-2"><a href="#key-and-mouse-bindings">Key and mouse bindings</a></li><li class="toc-level-2"><a href="#text-actions-on-linux-x11">Text actions on Linux X11</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="configuration">Configuration</h1>
+<p>ztty reads a UTF-8 file with one <code>key = value</code> per line.
+Lines beginning with <code>#</code> are comments. Omitted keys use built-in defaults.</p>
+<h2 id="file-locations">File locations<a class="heading-anchor" href="#file-locations" aria-label="链接到 File locations">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Default path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td><code>~/.config/ztty/ztty.conf</code></td>
+</tr>
+<tr>
+<td>macOS</td>
+<td><code>~/Library/Application Support/ztty/ztty.conf</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>%APPDATA%\ztty\ztty.conf</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>On Linux and macOS, setting <code>XDG_CONFIG_HOME</code> selects
+<code>$XDG_CONFIG_HOME/ztty/ztty.conf</code>. <code>ztty --config PATH</code> selects a file explicitly.
+<code>--font</code> overrides the configured font.</p>
+<p>The Linux X11 backend reloads the file when it changes, including atomic saves.
+Ctrl+Shift+R reloads it manually. Invalid changes leave the previous configuration
+active and show a temporary error. macOS and Windows read settings at startup.</p>
+<h2 id="fonts-colors-and-cursor">Fonts, colors and cursor<a class="heading-anchor" href="#fonts-colors-and-cursor" aria-label="链接到 Fonts, colors and cursor">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">ini</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 ini 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>font = monospace:size=11
+window-padding = 16
+background = #161a23
+foreground = #e1e7f0
+background-opacity = 92
+background-blur = true
+cursor-shape = underline
+cursor-color = #b1ccff
+cursor-blink = true
+cursor-blink-interval = 500
+selection-foreground = #f0f4fa
+selection-background = #394969
+palette = 1=#e06c75
+palette = 4=#61afef
+</code></pre></div>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>window-padding</code></td>
+<td>0–128 pixels</td>
+</tr>
+<tr>
+<td><code>background-opacity</code></td>
+<td>0–100 percent</td>
+</tr>
+<tr>
+<td><code>background-blur</code></td>
+<td><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td><code>cursor-shape</code></td>
+<td><code>block</code>, <code>underline</code>, <code>bar</code></td>
+</tr>
+<tr>
+<td><code>cursor-blink</code></td>
+<td><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td><code>cursor-blink-interval</code></td>
+<td>100–5000 ms per phase</td>
+</tr>
+<tr>
+<td><code>palette</code></td>
+<td><code>INDEX=#RRGGBB</code>, with index 0–15</td>
+</tr>
+</tbody>
+</table></div>
+<p>Terminal applications can change the active cursor through DECSCUSR and
+DEC private mode 12.</p>
+<p>On Linux X11, opacity applies to the default background; explicit ANSI backgrounds,
+selection and glyph colors retain their own opacity. Blur is supplied by the
+compositor. <code>background-blur</code> sends the KWin-compatible X11 request; Hyprland
+uses its own window rules. Set opacity to 100 for an opaque window.</p>
+<p>macOS uses a native visual-effect view for blur. Windows uses an opaque GDI
+surface. The platform backends implement these settings through different
+native APIs.</p>
+<h2 id="linux-x11-renderer">Linux X11 renderer<a class="heading-anchor" href="#linux-x11-renderer" aria-label="链接到 Linux X11 renderer">#</a></h2>
+<p>The current source supports these values:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>renderer = auto</code></td>
+<td>Default; try hardware EGL, use Xft when only software GL is available</td>
+</tr>
+<tr>
+<td><code>renderer = gpu</code></td>
+<td>Use EGL/GLES, including software GL drivers</td>
+</tr>
+<tr>
+<td><code>renderer = software</code></td>
+<td>Use Xft/XRender</td>
+</tr>
+</tbody>
+</table></div>
+<p>The GPU path uses HarfBuzz for shaping and FreeType/Fontconfig for fonts.
+Linux X11 can switch renderer through a configuration reload while keeping its
+window and PTY. A GPU failure schedules a complete software redraw.
+See the <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/x11-gpu-20261119/report.zh-CN.md">renderer verification</a>
+for tested text and frame behavior.</p>
+<h2 id="native-wayland-experimental">Native Wayland (experimental)<a class="heading-anchor" href="#native-wayland-experimental" aria-label="链接到 Native Wayland (experimental)">#</a></h2>
+<p>This section describes the backend included in ztty 0.5.2; its published
+artifacts and acceptance are recorded in the
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/releases/0.5.2/report.zh-CN.md">release report</a>.</p>
+<p>Native Wayland uses xdg-shell, EGL/GLES and XKB, with the same Linux session
+broker and PTY ownership as X11. Enable the Cargo feature when building from
+source. The official Linux package build enables it. Current development builds
+default to <code>--backend auto</code>: they initialize the complete X11 view first, which
+retains tabs, splits and executable reload on X11 and XWayland desktops. If X11
+initialization fails, Auto can initialize a native Wayland view before starting
+the command. This selects the best supported path; it is not a claim that one
+backend is faster on every machine.</p>
+<p>Automatic native fallback is allowed for a new broker or a pool that already
+has a native Wayland view. It is refused for an existing pool of only X11 or
+headless sessions, because adding a Wayland view would remove executable reload
+from that pool. Workspace launches require X11 and validate their target before
+starting a child. Explicit <code>--backend x11</code> and <code>--backend wayland</code> do not fall
+back. Neither a later display failure nor a request timeout replays the command.</p>
+<p><code>ztty attach</code> also defaults to Auto and keeps an existing view's backend. Each
+session remembers its last successfully attached backend across detach. Auto
+reattaches that backend to the same PTY, including restoring the last native
+Wayland view when no X11 display is available. It does not migrate a known view
+to another backend after an initialization failure; an explicit backend can
+request that change. A headless session that has never had a view still uses
+the new-view selection and compatibility checks above.</p>
+<p>New clients use a concrete backend name plus an optional Auto flag on the
+broker protocol; an older broker retains its legacy concrete-backend behavior
+until it is updated. The optional <code>last_view_backend</code> checkpoint field preserves
+detached-view provenance across executable reload. Older checkpoints without
+this field infer X11 only from an attached X11 view; detached provenance stays
+unknown. Reload of active native Wayland views remains unsupported. The default
+Cargo feature set remains unchanged.</p>
+<p>Install these dependencies in addition to the Linux build dependencies in the
+<a href="../../ztty/readme-en/#build-and-run">README</a>:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code># Arch Linux
+sudo pacman -S --needed wayland wayland-protocols libxkbcommon
+
+# Debian / Ubuntu
+sudo apt install libwayland-dev libwayland-bin wayland-protocols libxkbcommon-dev
+</code></pre></div>
+<p>A separate configuration such as <code>wayland.conf</code> can select the renderer:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">ini</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 ini 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>font = monospace:pixelsize=16
+renderer = gpu
+window-padding = 8
+background-opacity = 100
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>cargo build --locked --release --features wayland
+./target/release/ztty --backend wayland --config ./wayland.conf --name work
+./target/release/ztty attach --backend wayland --observe work
+./target/release/ztty attach --backend wayland work
+</code></pre></div>
+<p>Each session has its own PTY. Detach and reattach preserve the session;
+X11 and Wayland views can coexist on one broker. MCP retains the existing
+input ownership checks. Tabs, splits and workspace containers are rejected
+on Wayland; open separate session windows instead.</p>
+<p>Clipboard and primary selection use bounded asynchronous transfers.
+Text-input-v3 handles focus, cursor position, visible preedit and UTF-8 commits.
+The terminal does not own the shell's editable buffer, so it does not invent
+surrounding text or turn IME deletion requests into arbitrary backspaces.</p>
+<p>Both <code>renderer = auto</code> and <code>gpu</code> use EGL/GLES on Wayland; <code>software</code> is rejected.
+Mesa software GL still uses that EGL/GLES path. Renderer selection is a
+configuration setting, not a <code>--renderer</code> command-line option.</p>
+<p>The <a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/native-wayland-shared-20261119/README.zh-CN.md">shared Wayland report</a>
+records the earlier feature-owner candidate. The
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/releases/0.5.2/report.zh-CN.md">0.5.2 release report</a> records 65 Wayland checks
+for each released Linux architecture, bound to its own source and ELF. Those
+checks use headless Sway/software EGL and an IME protocol peer.
+Physical GPU behavior and real desktop IME combinations remain unverified.
+Output-scale and fractional-scale protocol handling are not implemented;
+HiDPI and cross-monitor scale changes are therefore not accepted features.
+Active native Wayland views remain outside the supported <code>ztty reload</code> handover
+scope. Detached native sessions preserve their backend provenance across a
+supported handover and can then reattach to the same PTY.</p>
+<h2 id="key-and-mouse-bindings">Key and mouse bindings<a class="heading-anchor" href="#key-and-mouse-bindings" aria-label="链接到 Key and mouse bindings">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">ini</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 ini 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>keybind = ctrl+shift+x = search
+keybind = alt+f12 = sessions
+keybind = ctrl+shift+t = none
+mousebind = ctrl+button3 = palette
+</code></pre></div>
+<p>A custom binding takes priority over the default for that chord.
+<code>none</code> consumes the chord. Supported modifiers are <code>ctrl</code>, <code>shift</code>,
+<code>alt</code> and <code>super</code>; the command palette shows active shortcuts.
+See <a href="../../ztty/daily-workflow/#custom-keys-and-mouse-buttons">binding names and input rules</a>.</p>
+<h2 id="text-actions-on-linux-x11">Text actions on Linux X11<a class="heading-anchor" href="#text-actions-on-linux-x11" aria-label="链接到 Text actions on Linux X11">#</a></h2>
+<p><code>ztty-plugin-api</code> 0.1.0 is published; the
+<a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/reports/plugin-api-registry-20261120/README.md">registry verification record</a>
+records the archive and independent consumer checks. The host and shared API
+both use <a href="https://crates.io/crates/zplugin/0.3.1">zplugin 0.3.1</a>;
+the locked graph includes <a href="https://crates.io/crates/zsys/0.1.1">zsys 0.1.1</a>.
+These library releases are separate from the ztty application release.</p>
+<p>Register a trusted native library with:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">ini</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 ini 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>text-plugin = dedent=/absolute/path/libdedent.so
+</code></pre></div>
+<p>Open Ctrl+Shift+P and choose <strong>Copy using dedent</strong>. The action transforms the
+selection, or the visible text when there is no selection, and copies the result.
+The <a href="../../ztty/text-plugins-zh-cn/">text extension guide</a> documents the interface,
+worker limits and an independently buildable example.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztty/blob/c0f195d9b93065040b4efef35f3615831db11b38/docs/configuration.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztty">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztty/readme-en/"><span class="pagination-label">上一页</span><span class="pagination-title">ztty</span></a><a class="pagination-link next" href="../../ztty/architecture/"><span class="pagination-label">下一页</span><span class="pagination-title">Architecture</span></a></nav>
+      <footer class="page-footer">
+        <span>ztty <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#file-locations">File locations</a></li><li class="toc-level-2"><a href="#fonts-colors-and-cursor">Fonts, colors and cursor</a></li><li class="toc-level-2"><a href="#linux-x11-renderer">Linux X11 renderer</a></li><li class="toc-level-2"><a href="#native-wayland-experimental">Native Wayland (experimental)</a></li><li class="toc-level-2"><a href="#key-and-mouse-bindings">Key and mouse bindings</a></li><li class="toc-level-2"><a href="#text-actions-on-linux-x11">Text actions on Linux X11</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

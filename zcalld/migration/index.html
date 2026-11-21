@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zcalld · Migrate from Magpie · Project Z">
+  <meta property="og:description" content="本地模型网关，集中管理提供方、路由规则与模型调用。">
+  <meta property="og:type" content="website">
+  <title>zcalld · Migrate from Magpie · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zcalld/migration/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zcalld">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zcalld" aria-label="zcalld 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zcalld</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/" aria-current="page">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zcalld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/" aria-current="page">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zcalld 文档"><div class="nav-group"><p class="nav-label">zcalld</p><ul><li><a class="nav-link" href="../../zcalld/">概览</a></li><li><a class="nav-link" href="../../zcalld/usage/">Native usage records</a></li><li><a class="nav-link" href="../../zcalld/plugins/">Native plugins</a></li><li><a class="nav-link" href="../../zcalld/codex/">Native Codex metadata</a></li><li><a class="nav-link" href="../../zcalld/codex-transport/">Codex transport negotiation</a></li><li><a class="nav-link" href="../../zcalld/desktop/">Optional desktop events</a></li><li><a class="nav-link" href="../../zcalld/keys/">Caller API keys</a></li><li><a class="nav-link" href="../../zcalld/library/">Agent library</a></li><li><a class="nav-link" href="../../zcalld/magpie-parity/">Magpie alignment and remaining acceptance</a></li><li><a class="nav-link" href="../../zcalld/mcp/">Community plugin tools over MCP</a></li><li><a class="nav-link" href="../../zcalld/migration/" aria-current="page">Migrate from Magpie</a></li><li><a class="nav-link" href="../../zcalld/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zcalld/">zcalld 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zcalld/">zcalld</a><span aria-hidden="true">/</span><span>Migrate from Magpie</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#1-install-the-candidate-and-create-a-private-copy">1. Install the candidate and create a private copy</a></li><li class="toc-level-2"><a href="#2-prepare-the-recovery-journal">2. Prepare the recovery journal</a></li><li class="toc-level-2"><a href="#3-apply-the-handover">3. Apply the handover</a></li><li class="toc-level-2"><a href="#privacy-history-during-handover">Privacy history during handover</a></li><li class="toc-level-2"><a href="#credential-refresh-ownership">Credential refresh ownership</a></li><li class="toc-level-2"><a href="#4-roll-back-while-preserving-new-state">4. Roll back while preserving new state</a></li><li class="toc-level-2"><a href="#verification-and-scope">Verification and scope</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="migrate-from-magpie">Migrate from Magpie</h1>
+<p>The migration keeps the original Magpie installation available while zcalld takes over its local gateway address. It preserves public model IDs, full catalog metadata, configured routes, community packages, caller keys, privacy state and history. The service transaction is separate from copying the configuration: a prepared copy does not own the live port or refresh the original accounts.</p>
+<p>The Linux handover uses <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/scripts/cutover.py">scripts/cutover.py</a>. It requires a user systemd session, Python 3.9 or newer with Linux pidfd support, a libc/filesystem providing renameat2, the packaged zcalld user unit, and the compatibility helper. The configuration importer and gateway support other platforms; this transaction script is specifically for Linux and systemd.</p>
+<p>Advanced time, text, agent and folder conditions are preserved and validated during planning. See <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/ROUTING.md">Routing rules and trusted workspaces</a> for the condition syntax, compatibility helper requirement and verified workspace bindings. A rejected condition remains a compatibility gap until corrected; migration does not silently drop it.</p>
+<h2 id="1-install-the-candidate-and-create-a-private-copy">1. Install the candidate and create a private copy<a class="heading-anchor" href="#1-install-the-candidate-and-create-a-private-copy" aria-label="链接到 1. Install the candidate and create a private copy">#</a></h2>
+<p>Install the core and compatibility packages before preparing the transaction. Their installed paths are:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Installed path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gateway</td>
+<td>/usr/bin/zcalld</td>
+</tr>
+<tr>
+<td>Compatibility helper</td>
+<td>/usr/lib/zcalld-compat/zcalld-pluginctl</td>
+</tr>
+<tr>
+<td>Privacy worker</td>
+<td>/usr/lib/zcalld-compat/zcalld-privacy</td>
+</tr>
+<tr>
+<td>User service</td>
+<td>zcalld.service</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keep the original Magpie package and executable installed. Do not start the new user service yet, and do not rewrite existing agent configurations to perform this handover. Existing callers can continue using TCP port 3425; zcalld's own local clients prefer its private Unix socket.</p>
+<p>First inspect the importer report:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>zcalld migrate magpie --json
+</code></pre></div>
+<p>For a complete copy of the currently visible catalog, save Magpie's local metadata response in a private directory. This is a GET request and does not ask a provider to generate a response:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>umask 077
+zcalld_migration_files=&quot;$HOME/.local/state/zcalld/migration-input&quot;
+mkdir -p &quot;$zcalld_migration_files&quot;
+curl --fail --silent --show-error \
+  http://127.0.0.1:3425/v1/models \
+  &gt; &quot;$zcalld_migration_files/live-models.json&quot;
+
+zcalld migrate magpie \
+  --source &quot;$HOME/.config/magpie&quot; \
+  --catalog &quot;$zcalld_migration_files/live-models.json&quot; \
+  --config &quot;$HOME/.config/zcalld/config.conf&quot; \
+  --apply --json
+</code></pre></div>
+<p>The destination must be new. The importer refuses to replace an existing configuration; keep an existing staged migration and review it rather than running another import over it. If the original providers, plugins, caller keys or relevant privacy settings have changed since the copy, create a fresh candidate before preparing the service transaction.</p>
+<p>Import planning rejects mapped upstream model IDs that are empty, contain control characters or exceed 512 UTF-8 bytes. Catalog and plugin model values remain literal strings when written to INI: quotes, backslashes and surrounding spaces are preserved, so reloading the imported configuration selects the same upstream model.</p>
+<p>Inspect the report and check the actual configuration:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>zcalld migrate verify --config &quot;$HOME/.config/zcalld/config.conf&quot; --json
+zcalld check --config &quot;$HOME/.config/zcalld/config.conf&quot; --json
+</code></pre></div>
+<p>The service transaction requires zero unresolved models and zero reported compatibility limitations. A successful configuration check validates configuration and native plugin loading. It does not establish that every remote account can currently generate a response.</p>
+<p>The copied privacy configuration must refer to the installed worker, and its key must remain the same as the original key. The community host configuration must reference existing Bun, host and Pi files. The importer materializes its runtime modules under the new configuration's extensions directory. A candidate created with a development helper may still point its privacy worker at a source checkout; update that path to the installed worker before preparation.</p>
+<p>Google installed-application OAuth credentials, when required by an existing login, belong in the private migration input. They are not embedded in the public repository. An account without its matching OAuth client configuration needs that configuration before it can refresh.</p>
+<p>The importer also copies library metadata and the complete instruction-set, instruction and skill bodies under the original library directory. Internal file and directory links are materialized as ordinary private files; links outside the library and directory cycles stop the import. Helper scripts keep owner-only execution permission, but migration never runs them. The copied data therefore remains available after the original application is removed.</p>
+<p>Original MCP OAuth sign-in state is preserved in the private snapshot and in migration-archive/mcp-signins.json when present. Retaining that state does not activate an MCP authorization flow or claim that a new MCP host is already connected.</p>
+<p>On Arch Linux, compatibility executables and their bundled resources live in
+<code>/usr/lib/zcalld-compat</code>. The older libexec layout is still recognized. A saved
+privacy or routing worker path is redirected only when it exactly names the old
+default, that path is absent, and the new installed helper is executable. This
+lookup does not rewrite private configuration or completed recovery journals;
+custom paths and existing filesystem nodes remain authoritative.</p>
+<h2 id="2-prepare-the-recovery-journal">2. Prepare the recovery journal<a class="heading-anchor" href="#2-prepare-the-recovery-journal" aria-label="链接到 2. Prepare the recovery journal">#</a></h2>
+<p>Run the script as the desktop user who owns Magpie, without sudo. Choose the actual Magpie main PID that owns port 3425. The script checks the executable, UID, process start identity and open listening socket; it does not select a process merely by its name.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>magpie_main_pid=REPLACE_WITH_VERIFIED_MAIN_PID
+zcalld_cutover_state=&quot;$HOME/.local/state/zcalld/cutover-$(date +%Y%m%d-%H%M%S)&quot;
+
+python3 scripts/cutover.py prepare \
+  --source &quot;$HOME/.config/magpie&quot; \
+  --config &quot;$HOME/.config/zcalld/config.conf&quot; \
+  --binary /usr/bin/zcalld \
+  --pluginctl /usr/lib/zcalld-compat/zcalld-pluginctl \
+  --magpie-pid &quot;$magpie_main_pid&quot; \
+  --state &quot;$zcalld_cutover_state&quot;
+</code></pre></div>
+<p>The state directory must not exist yet. Preparation creates it with mode 0700 and writes journal files with mode 0600. It also saves a complete executable recovery.py copy with mode 0700 and records its SHA256 in the journal; moving or removing the source checkout does not remove the recovery program. It records the original launch, process identity, binary hashes, service state, catalog and credential fingerprints. When an enabled, assigned library entry uses Magpie's exact local /mcp/magpie/tools endpoint on port 3425, it also saves the negotiated MCP protocol and complete tool definitions in private expected-mcp.json. An empty tool directory is a valid baseline. The original launch environment can contain secrets: keep the whole journal private and do not commit it or attach it to a public issue.</p>
+<p>If Magpie is already managed by a user service, add its exact unit with --old-unit. If a private native Codex owner manifest has been recorded, add --external-owners with its absolute path. That manifest identifies independent processes by boot ID, PID and start time. They are excluded from the old gateway subtree and are not stopped by the transaction.</p>
+<p>Preparation checks all of the following:</p>
+<ul>
+<li>The source and destination are separate, and the candidate records the expected source and migration snapshot.</li>
+<li>The new user service is installed and inactive.</li>
+<li>The candidate preserves TCP port 3425, explicitly trusts local callers and enables a Unix socket.</li>
+<li>The live Magpie catalog and candidate catalog contain identical complete model objects, including metadata fields.</li>
+<li>Source topology, including the MCP library, and relevant privacy settings still match the copied snapshot.</li>
+<li>An assigned Magpie MCP entry completes initialization, ping and tool listing against the still-running original service. Other URLs, ports and paths are not probed or rebound.</li>
+<li>Candidate community credentials have not been used or changed since import.</li>
+<li>The candidate privacy history still matches its snapshot, its effective history path is private and expected, and active privacy key identities match.</li>
+<li>Runtime files and installed binaries exist, and the configuration check succeeds.</li>
+</ul>
+<p>Preparation writes the private journal and performs local checks. It leaves Magpie running and does not start a candidate daemon or compatibility worker. If preparation fails, correct the reported condition and use a new state directory; a failed preparation has not switched the service.</p>
+<p>Review the state before proceeding:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>python3 &quot;$zcalld_cutover_state/recovery.py&quot; status --state &quot;$zcalld_cutover_state&quot;
+</code></pre></div>
+<p>The phase must be prepared. A binary or configuration update after this point requires a fresh preparation, because apply verifies the recorded hashes again.</p>
+<h2 id="3-apply-the-handover">3. Apply the handover<a class="heading-anchor" href="#3-apply-the-handover" aria-label="链接到 3. Apply the handover">#</a></h2>
+<p>The apply command performs the authorized service switch:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>python3 &quot;$zcalld_cutover_state/recovery.py&quot; apply --state &quot;$zcalld_cutover_state&quot;
+</code></pre></div>
+<p>It records each transition before making the corresponding change:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pausing_old</td>
+<td>Back up the original autostart entry, install a reversible Hidden=true override, and disable an explicitly supplied old unit. Send SIGTERM only to the verified Magpie main process.</td>
+</tr>
+<tr>
+<td>old_stopped</td>
+<td>Wait for the recorded gateway subtree, including its credential worker, to exit. Confirm that TCP 3425 is free.</td>
+</tr>
+<tr>
+<td>synchronized</td>
+<td>Copy the final privacy audit history, community authentication state and usage tail; run a fresh, local import-builtin using the installed helper.</td>
+</tr>
+<tr>
+<td>starting_new</td>
+<td>Add a reversible user-service drop-in for the chosen binary and configuration, then start zcalld.</td>
+</tr>
+<tr>
+<td>active</td>
+<td>Verify TCP and Unix health, socket ownership and mode 0600, every model object's full metadata and, when retained, the MCP protocol and complete tool definitions over both transports; then enable the user service and mark the migration complete.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The wait is bounded, with a default of 90 seconds and an optional preparation --timeout from 60 through 600 seconds. The script does not send a forced kill to the recorded gateway or credential workers. Its service drop-in uses KillMode=mixed, a 60-second stop timeout and SendSIGKILL=no so an incomplete drain remains visible.</p>
+<p>There is a short interruption between releasing and rebinding port 3425. Requests already in progress depend on the old application's shutdown behavior. The transaction does not replay them or send a test generation request. Its verification requests are limited to local health, model metadata and the retained MCP endpoint's initialization, initialized notification, ping and tools/list. They never execute tools/call. The MCP check follows session headers and catalog pagination, accepts empty catalogs and compares every tool definition independently of list order. It currently requires finite JSON metadata responses; an incompatible response, rejection, protocol change or tool metadata mismatch fails activation and enters rollback.</p>
+<p>A failed apply attempts rollback automatically. An interrupted apply is recovered with the explicit rollback command below; do not start a second transaction against the same partially switched state.</p>
+<h2 id="privacy-history-during-handover">Privacy history during handover<a class="heading-anchor" href="#privacy-history-during-handover" aria-label="链接到 Privacy history during handover">#</a></h2>
+<p>Privacy history is an audit record, not the dictionary that restores placeholders. Magpie stores placeholder metadata in daily files; original values and surrounding request text remain in process memory. The active <code>redact.key</code> makes placeholder labels stable. Copying history cannot reconstruct values that an exited process held only in memory. These distinctions follow the upstream <a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/maskrec/maskrec.go">record format and writer</a>.</p>
+<p>The compatibility worker's optional <code>history_dir</code> must resolve to the candidate's <code>privacy/history</code>. When the setting is absent or empty, it is derived from the directory containing its settings file. Preparation checks that effective path and records the worker binding's fingerprint. Continuing audit collection requires a compatibility worker with audit support; the older 0.1.2 worker preserved the imported archive but did not produce new records.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Entry</th>
+<th>Transaction handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>YYYY-MM-DD.jsonl</code></td>
+<td>Preserve complete JSON-object lines and their original byte order. Record keys can be out of order when concurrent requests finish in a different order.</td>
+</tr>
+<tr>
+<td><code>checked-YYYY-MM-DD.json</code></td>
+<td>Preserve the whole counter object. These files are replaced atomically, rather than appended.</td>
+</tr>
+<tr>
+<td>A historical <code>redact.key</code> inside the history directory</td>
+<td>Preserve and fingerprint it as an immutable, opaque file. It is separate from the candidate's active <code>privacy/redact.key</code>.</td>
+</tr>
+<tr>
+<td>A stable sibling lock, such as <code>privacy/.history.zcalld-audit.lock</code></td>
+<td>Validate it and acquire it without blocking. It stays outside the exchanged directory and is never part of the copied history.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The original application can append a completed request, create a new day, prune an old day or clear and recreate a day. Its <a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/maskrec/checked.go">checked counters</a> use a timer and whole-file replacement. The transaction therefore compares complete file manifests; it does not concatenate every file or rewrite records into a guessed common schema.</p>
+<p>Preparation requires the candidate history to match the migration snapshot, and the source, snapshot and active candidate key to match. The original application may continue updating its own history while it runs. After its recorded processes have drained, apply captures the final complete history and publishes it to the candidate. It rejects a candidate that changed under another writer.</p>
+<p>Rollback uses that final handover history as its base. After the new worker drains, it captures the candidate's complete final history. The original directory must still equal the recorded base, or already equal the result of this same interrupted rollback. If both applications' copies changed independently, the script stops for review instead of overwriting one side or guessing a merge. Accepted single-owner changes include appended records, new days, whole-day pruning or clearing, and checked-counter replacement.</p>
+<p>After drain, synchronization creates a private sibling lock when needed and holds both source and destination locks through staging, exchange, post-checks and the durable journal update. A writer that opened the lock before an exchange and a writer opening it afterwards therefore contend on the same inode. Preparation only checks existing locks and creates no source state.</p>
+<p>Publication uses Linux <code>renameat2</code>: a complete private staging directory is exchanged atomically with an existing history directory, or published without replacement when no directory existed. The journal is saved before the exchange. The displaced directory remains a private recovery copy, so an interruption does not leave a half-copied live history. A retry recognizes the before/after fingerprints and does not append the same records again. Recovery copies normally stay inside the transaction directory; if that directory is on a different filesystem, an adjacent private directory is recorded in the journal to keep the exchange atomic. Retain those recorded recovery directories together with the journal.</p>
+<p>Unknown entries, symlinks, hard links, non-private files, incomplete JSONL, an active writer lock or a changed key stop the operation. The parser is bounded to 4,096 files, 512 MiB in total, 16 MiB per JSONL record and 8 MiB per checked-counter file. No history contents or key bytes are printed.</p>
+<p>The transaction can preserve only state that the original application wrote to disk. Magpie's in-flight records and timer-held counters may not be persisted when it exits; waiting for process termination does not reconstruct those in-memory values.</p>
+<h2 id="credential-refresh-ownership">Credential refresh ownership<a class="heading-anchor" href="#credential-refresh-ownership" aria-label="链接到 Credential refresh ownership">#</a></h2>
+<p>A refresh token may change when it is used. Two independently refreshing copies can leave one application with an invalid token, so account ownership is part of the handover.</p>
+<p>Community and gateway-owned builtin accounts are copied again only after the original gateway and its recorded worker have exited. The final builtin import uses the installed helper, so its embedded adapters match the compatibility package.</p>
+<p>An existing native Codex login remains externally managed. Its adapter reads the current native auth file for each request and does not refresh that account independently. Existing native Codex sessions keep running, and their default provider and model settings are unchanged. They do not block installation or the gateway switch.</p>
+<p>Externally managed ownership is an explicit delivered state. If its current access token expires, the original native owner must refresh it, or ownership must be handed over deliberately after those owners exit. The gateway does not automatically claim ownership in the background.</p>
+<p>The separate handoff command requires the account selector and its private owner manifest:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>/usr/lib/zcalld-compat/zcalld-pluginctl \
+  --root &quot;$HOME/.config/zcalld/extensions&quot; \
+  handoff --account &#x27;builtin:codex#ACCOUNT_SLOT&#x27; \
+  --owners /absolute/private/codex-owner-manifest.json \
+  --json
+</code></pre></div>
+<p>Replace the selector with the actual imported key. Handoff checks the source account, reads the latest native authentication state and verifies that the recorded processes have exited using their full process identities. The transaction itself does not invoke handoff. Automatic rollback also skips externally managed Codex accounts.</p>
+<h2 id="4-roll-back-while-preserving-new-state">4. Roll back while preserving new state<a class="heading-anchor" href="#4-roll-back-while-preserving-new-state" aria-label="链接到 4. Roll back while preserving new state">#</a></h2>
+<p>Keep the journal for as long as rollback may be needed:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>python3 &quot;$zcalld_cutover_state/recovery.py&quot; rollback --state &quot;$zcalld_cutover_state&quot;
+</code></pre></div>
+<p>Rollback first stops zcalld and waits for the service's recorded processes and credential worker to drain. Only then does it synchronize credentials and history, restore the original launch files and service enablement, and restart Magpie.</p>
+<p>The rollback data handling is deliberate:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Rollback behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gateway-owned builtin authentication</td>
+<td>The helper validates source fingerprints and writes back the current compatible tokens.</td>
+</tr>
+<tr>
+<td>Externally managed native Codex authentication</td>
+<td>Skipped; the native auth file and owner remain unchanged.</td>
+</tr>
+<tr>
+<td>Community authentication</td>
+<td>Copy current account values back only if the source fingerprint is still the one recorded at handover, or already equals the desired value from an interrupted rollback.</td>
+</tr>
+<tr>
+<td>Privacy keys</td>
+<td>Keep their recorded identities; a changed active or archived fallback key requires review. No key is regenerated or overwritten.</td>
+</tr>
+<tr>
+<td>Privacy audit history</td>
+<td>Publish the new worker's final complete history only while the original still matches the handover base or this rollback's already-applied result. Preserve the displaced tree as a private recovery copy.</td>
+</tr>
+<tr>
+<td>Existing usage</td>
+<td>Preserve the original imported JSONL prefix byte for byte.</td>
+</tr>
+<tr>
+<td>Usage recorded by zcalld</td>
+<td>Append converted Magpie rows using t, in, out and ms, retaining the complete original row under zcalld_record and a transaction/offset marker. Unknown cache accounting stays explicit.</td>
+</tr>
+<tr>
+<td>Autostart and unit overrides</td>
+<td>Restore the saved files only if their current content still matches the transaction's own replacement.</td>
+</tr>
+<tr>
+<td>Original executable</td>
+<td>Verify that its contents still match the recorded binary before launching it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Restoring an old directory snapshot alone is insufficient after token rotation: that snapshot may contain an expired refresh token. Rollback therefore synchronizes current credentials before restarting the original application. Keep original packages installed until the migration has been accepted.</p>
+<p>For an original desktop launch, the script restores the recorded executable, arguments, working directory and environment through a temporary user systemd unit. It also restores the autostart file for future logins. For an explicitly supplied old unit, it restores that unit's enablement and starts it again.</p>
+<p>Rollback is resumable. If a credential or privacy-history source changed under another owner, a key changed, a process did not drain, a usage ledger no longer has the expected prefix, or a launch file was edited independently, the script records recovery_required and stops before the conflicting overwrite or restart. Inspect the private journal and commands.log, resolve that specific conflict, and rerun rollback with the same state directory. Do not replace current account files with their stale snapshots.</p>
+<p>A completed rollback reports rolled_back. Repeating it is a no-op.</p>
+<h2 id="verification-and-scope">Verification and scope<a class="heading-anchor" href="#verification-and-scope" aria-label="链接到 Verification and scope">#</a></h2>
+<p>Run the isolated transaction tests with:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>python3 scripts/test-cutover.py
+</code></pre></div>
+<p>These tests use temporary files, a fake service controller and temporary loopback/Unix HTTP servers. They cover final source-state synchronization, a failed activation with automatic rollback, credential changes completed during drain, external Codex preservation, concurrent source changes, interrupted rollback recovery, credential changes while acquiring the handover lock, a private recovery copy, launch-file conflict detection and complete catalog comparisons. MCP fixtures cover preparation without starting the candidate, TCP/Unix parity with an empty catalog, full tool metadata and protocol mismatches, HTTP/JSON-RPC rejection with rollback, private baseline drift, session propagation, pagination, reply IDs and duplicate tool names. Privacy fixtures additionally cover the observed 947-byte JSONL tail, final writes during drain, checked counters, whole-day clearing and pruning, active and fallback keys, unsafe nodes, held writer locks, a writer racing an atomic exchange, failed activation with new audit rows, and process interruption both during private copying and immediately after exchange. Repeated rollback must preserve each row exactly once. These tests do not stop a real service, access a real account or execute a tool.</p>
+<p>The migration implementation is in <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/src/migration.rs">src/migration.rs</a>; the packaged service definition is in <a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/packaging/systemd/user/zcalld.service">packaging/systemd/user/zcalld.service</a>. The service transaction can validate local startup, permissions and catalog equivalence without exercising a remote provider. Record real provider availability separately when it has actually been checked.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zcalld/blob/8e52d791c305a3730d2ea876b8dffb6be2e2c04c/docs/MIGRATION.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zcalld">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zcalld/mcp/"><span class="pagination-label">上一页</span><span class="pagination-title">Community plugin tools over MCP</span></a><a class="pagination-link next" href="../../zcalld/performance/"><span class="pagination-label">下一页</span><span class="pagination-title">Performance evidence</span></a></nav>
+      <footer class="page-footer">
+        <span>zcalld <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#1-install-the-candidate-and-create-a-private-copy">1. Install the candidate and create a private copy</a></li><li class="toc-level-2"><a href="#2-prepare-the-recovery-journal">2. Prepare the recovery journal</a></li><li class="toc-level-2"><a href="#3-apply-the-handover">3. Apply the handover</a></li><li class="toc-level-2"><a href="#privacy-history-during-handover">Privacy history during handover</a></li><li class="toc-level-2"><a href="#credential-refresh-ownership">Credential refresh ownership</a></li><li class="toc-level-2"><a href="#4-roll-back-while-preserving-new-state">4. Roll back while preserving new state</a></li><li class="toc-level-2"><a href="#verification-and-scope">Verification and scope</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

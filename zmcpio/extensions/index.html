@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MCP 客户端与服务端原语，连接工具调用和宿主传输。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zmcpio · Explicit MCP extension boundaries · Project Z">
+  <meta property="og:description" content="MCP 客户端与服务端原语，连接工具调用和宿主传输。">
+  <meta property="og:type" content="website">
+  <title>zmcpio · Explicit MCP extension boundaries · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zmcpio/extensions/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zmcpio">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zmcpio" aria-label="zmcpio 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zmcpio</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zmcpio</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/" aria-current="page">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zmcpio 文档"><div class="nav-group"><p class="nav-label">zmcpio</p><ul><li><a class="nav-link" href="../../zmcpio/">概览</a></li><li><a class="nav-link" href="../../zmcpio/client/">MCP client and zcall integration</a></li><li><a class="nav-link" href="../../zmcpio/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zmcpio/extensions/" aria-current="page">Explicit MCP extension boundaries</a></li><li><a class="nav-link" href="../../zmcpio/http/">HTTP and SSE integration</a></li><li><a class="nav-link" href="../../zmcpio/mcp/">MCP protocol boundaries</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zmcpio</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/" aria-current="page">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zmcpio 文档"><div class="nav-group"><p class="nav-label">zmcpio</p><ul><li><a class="nav-link" href="../../zmcpio/">概览</a></li><li><a class="nav-link" href="../../zmcpio/client/">MCP client and zcall integration</a></li><li><a class="nav-link" href="../../zmcpio/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zmcpio/extensions/" aria-current="page">Explicit MCP extension boundaries</a></li><li><a class="nav-link" href="../../zmcpio/http/">HTTP and SSE integration</a></li><li><a class="nav-link" href="../../zmcpio/mcp/">MCP protocol boundaries</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zmcpio/">zmcpio 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zmcpio/">zmcpio</a><span aria-hidden="true">/</span><span>Explicit MCP extension boundaries</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#method-and-result-support">Method and result support</a></li><li class="toc-level-2"><a href="#request-and-server-dispatch">Request and server dispatch</a></li><li class="toc-level-2"><a href="#capabilities-callbacks-and-mrtr">Capabilities, callbacks and MRTR</a></li><li class="toc-level-2"><a href="#modern-tasks">Modern Tasks</a></li><li class="toc-level-2"><a href="#legacy-tasks">Legacy Tasks</a></li><li class="toc-level-2"><a href="#subscriptions">Subscriptions</a></li><li class="toc-level-2"><a href="#validation-scope-and-evidence">Validation scope and evidence</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="explicit-mcp-extension-boundaries">Explicit MCP extension boundaries</h1>
+<p>The crate provides a bounded wire boundary for optional MCP methods. The host
+implements resources, prompts, models, user interaction, subscriptions and tasks.
+Only enable methods your application actually serves; a capability is not an
+authorization decision.</p>
+<h2 id="method-and-result-support">Method and result support<a class="heading-anchor" href="#method-and-result-support" aria-label="链接到 Method and result support">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Entry point</th>
+<th>Application responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resources</td>
+<td>list, templates/list, read; legacy subscribe/unsubscribe</td>
+<td>URI authorization, content lookup, template/schema semantics and change delivery</td>
+</tr>
+<tr>
+<td>Prompts</td>
+<td>list/get</td>
+<td>Prompt lookup, argument rules and permission checks</td>
+</tr>
+<tr>
+<td>Completion</td>
+<td>completion/complete</td>
+<td>Generate values, limits and schema semantics</td>
+</tr>
+<tr>
+<td>Legacy logging</td>
+<td>logging/setLevel</td>
+<td>Configure host logging and deliver permitted notices</td>
+</tr>
+<tr>
+<td>Legacy callbacks</td>
+<td>roots/list, sampling/createMessage, elicitation/create</td>
+<td>Correlate callback IDs, obtain consent, run the model/UI and return a result</td>
+</tr>
+<tr>
+<td>Modern MRTR</td>
+<td>input_required, requestState, inputRequests/inputResponses</td>
+<td>Protect opaque state, authorize each requested input, explicitly continue with a new request ID</td>
+</tr>
+<tr>
+<td>Modern subscriptions</td>
+<td>subscriptions/listen and Subscription</td>
+<td>Own the long-lived stream, emit acknowledgments/notifications, bind it to authentication</td>
+</tr>
+<tr>
+<td>Modern Tasks extension</td>
+<td>task handle, tasks/get, tasks/update, tasks/cancel</td>
+<td>Durable task state, ownership, expiry, scheduler and lifecycle transitions</td>
+</tr>
+<tr>
+<td>Legacy 2025-11-25 Tasks</td>
+<td>nested task handle, tasks/get/result/list/cancel</td>
+<td>Legacy task storage and execution, negotiated task-augmented calls</td>
+</tr>
+</tbody>
+</table></div>
+<p>Generic result views preserve the full borrowed JSON rather than copying into a
+partial model. Required container shapes, discriminators, IDs, supported versions
+and capability gates are checked. This is not full JSON Schema validation of
+every nested resource, prompt, sampling or elicitation result.</p>
+<h2 id="request-and-server-dispatch">Request and server dispatch<a class="heading-anchor" href="#request-and-server-dispatch" aria-label="链接到 Request and server dispatch">#</a></h2>
+<p>Enable server routes with <code>Server::with_extensions(&amp;[Method::...])</code>.
+<code>Client::request(method, params, output)</code> validates the method's wire fields,
+reserves a bounded pending slot only after successful serialization and adds
+modern request-scoped metadata while preserving non-reserved application metadata.
+It rejects caller attempts to replace reserved protocol/capability/clientInfo keys.</p>
+<p><code>Server::handle</code> returns <code>Action::Extension { context, method }</code>. The application
+authorizes and performs the operation, then calls <code>Server::extension_result</code>.
+Disabled/unknown methods remain method-not-found; enabling resources does not
+quietly enable filesystem access or callbacks. <code>Client::receive</code> returns a
+borrowed <code>Event::ExtensionResult</code> for the correlated request.</p>
+<p>Run the public-API example:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo run --locked --example mcp_extensions
+</code></pre></div>
+<p>It performs an in-memory resource exchange, returns a modern task handle, and
+explicitly polls a completed fixture. The fixture is not a task scheduler.</p>
+<h2 id="capabilities-callbacks-and-mrtr">Capabilities, callbacks and MRTR<a class="heading-anchor" href="#capabilities-callbacks-and-mrtr" aria-label="链接到 Capabilities, callbacks and MRTR">#</a></h2>
+<p>Client capabilities default to empty. Use <code>with_client_capabilities</code> with a
+retained parsed object to opt in. Sampling tools/context and elicitation form/URL
+sub-capabilities are checked independently. URL permission does not grant form
+permission; a toolChoice requires the sampling tools capability. Capability
+objects are type-checked rather than treating arbitrary truthy values as consent.</p>
+<p>Legacy <code>callback_request</code> encodes an authorized server-to-client request. The
+application owns the callback ID registry, deadlines and returned result
+validation. Modern callbacks instead appear inside MRTR input requests; they are
+not unsolicited nested JSON-RPC exchanges on the HTTP response stream.</p>
+<p>For modern tools/call, resources/read and prompts/get,
+<code>Server::input_required</code> can return opaque requestState and/or inputRequests.
+The client validates requested callbacks against its declared capabilities before
+releasing the pending slot. It does not execute them or automatically retry the
+operation. After explicit approval and input handling, use <code>Client::request</code>
+with inputResponses and the original opaque requestState; a new RPC ID is
+allocated. Keep state integrity, ownership, expiry and one-time continuation
+policy in the host.</p>
+<h2 id="modern-tasks">Modern Tasks<a class="heading-anchor" href="#modern-tasks" aria-label="链接到 Modern Tasks">#</a></h2>
+<p>Opt in with this client capability object:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>{&quot;extensions&quot;:{&quot;io.modelcontextprotocol/tasks&quot;:{}}}
+</code></pre></div>
+<p>A server advertises modern Tasks when get, update and cancel handlers are all
+enabled. The host must create and authenticate-bind the task before calling
+<code>Server::task_result</code>. The result is a flat <code>resultType: &quot;task&quot;</code> handle,
+reported to the client as <code>Event::TaskCreated</code>; it is not a completed tool result.</p>
+<p>Poll using tasks/get, supply inputs using tasks/update and request cancellation
+using tasks/cancel. There is no modern tasks/list or tasks/result. Poll results
+carry detailed state: completed output, failure information or pending inputs.
+<code>TaskView</code> checks status-specific wire containers and nonnegative integer
+millisecond fields. The host enforces timestamp formatting, expiry and legal
+state transitions and checks the returned taskId against its retained task ID.</p>
+<p>No automatic polling, scheduling, state database, generated task ID, callback
+execution or task ownership policy is included. In particular, do not run
+tools/call again to “poll” a task.</p>
+<h2 id="legacy-tasks">Legacy Tasks<a class="heading-anchor" href="#legacy-tasks" aria-label="链接到 Legacy Tasks">#</a></h2>
+<p>Legacy Tasks require the negotiated 2025-11-25 profile and the server's advertised
+tasks.requests.tools.call support. Use an explicit params.task for task-augmented
+tools/call. A successful creation contains a nested task object; later result
+retrieval uses tasks/result rather than the modern inline get result. Older
+legacy profiles reject these methods before allocating a pending slot.</p>
+<p>Task TTL and polling interval field names differ by era. The codec keeps those
+distinctions; it does not manufacture a modern task from a legacy response.</p>
+<h2 id="subscriptions">Subscriptions<a class="heading-anchor" href="#subscriptions" aria-label="链接到 Subscriptions">#</a></h2>
+<p>Keep the request's filter and the acknowledgment input/token storage alive while
+using <code>Subscription</code>. Notifications must carry the matching subscriptionId.
+The acknowledgment must precede data and cannot broaden the requested filters;
+the final response must also carry the matching ID. Duplicate acknowledgments,
+unrequested notification classes and wrong IDs are rejected.</p>
+<p>Resource updates match exact URIs by default. Use
+<code>observe_with_resource_match</code> only with an explicit, authorized URI-aware
+subresource rule; naive string prefixes are not a safe resource policy.
+Task subscriptions require the Tasks capability and accept only requested task
+IDs with valid detailed task states.</p>
+<p>The host chooses stream lifetime, cancellation, delivery queues and notification
+authorization. The library does not open a background connection or retain an
+unbounded notification queue.</p>
+<h2 id="validation-scope-and-evidence">Validation scope and evidence<a class="heading-anchor" href="#validation-scope-and-evidence" aria-label="链接到 Validation scope and evidence">#</a></h2>
+<p>Capacity failures do not consume a pending request ID or slot. Malformed or
+uncorrelated replies do not complete outstanding work. Tests cover resource
+roundtrips, callback sub-capabilities, MRTR continuation with new IDs, task-era
+differences, task input validation, subscription acknowledgment order, filter
+subsets and final-response correlation.</p>
+<p>Results beyond checked wire fields remain application data. This crate neither
+claims to implement every future/vendor extension nor passes unrecognized
+requests through to an executor. JSON-RPC batches use a separate bounded API and
+are accepted only for 2025-03-26; they do not expand method availability.</p>
+<p>Sources checked 2026-11-11:</p>
+<ul>
+<li>https://modelcontextprotocol.io/specification/2026-07-28</li>
+<li>https://modelcontextprotocol.io/specification/2025-11-25</li>
+<li>https://modelcontextprotocol.io/extensions/tasks/overview</li>
+<li>https://github.com/modelcontextprotocol/ext-tasks/blob/main/schema/2026-07-28/schema.ts</li>
+</ul>
+<p>See <code>tests/extensions.rs</code>, <code>tests/client.rs</code> and
+<code>examples/mcp_extensions.rs</code> for executable contracts.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmcpio/blob/89a247ac274bcd96b760dd9e7dcb0d4d924a901e/docs/EXTENSIONS.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmcpio">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zmcpio/architecture/"><span class="pagination-label">上一页</span><span class="pagination-title">Architecture</span></a><a class="pagination-link next" href="../../zmcpio/http/"><span class="pagination-label">下一页</span><span class="pagination-title">HTTP and SSE integration</span></a></nav>
+      <footer class="page-footer">
+        <span>zmcpio <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#method-and-result-support">Method and result support</a></li><li class="toc-level-2"><a href="#request-and-server-dispatch">Request and server dispatch</a></li><li class="toc-level-2"><a href="#capabilities-callbacks-and-mrtr">Capabilities, callbacks and MRTR</a></li><li class="toc-level-2"><a href="#modern-tasks">Modern Tasks</a></li><li class="toc-level-2"><a href="#legacy-tasks">Legacy Tasks</a></li><li class="toc-level-2"><a href="#subscriptions">Subscriptions</a></li><li class="toc-level-2"><a href="#validation-scope-and-evidence">Validation scope and evidence</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

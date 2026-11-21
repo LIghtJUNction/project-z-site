@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="组合终端、shell、应用配置与内存管理，提供 Linux 工作环境。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="oh-my-ztty · Installation · Project Z">
+  <meta property="og:description" content="组合终端、shell、应用配置与内存管理，提供 Linux 工作环境。">
+  <meta property="og:type" content="website">
+  <title>oh-my-ztty · Installation · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/oh-my-ztty/installation/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="oh-my-ztty">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/oh-my-ztty" aria-label="oh-my-ztty 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">oh-my-ztty</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>oh-my-ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/" aria-current="page">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="oh-my-ztty 文档"><div class="nav-group"><p class="nav-label">oh-my-ztty</p><ul><li><a class="nav-link" href="../../oh-my-ztty/">概览</a></li><li><a class="nav-link" href="../../oh-my-ztty/readme-en/">oh-my-ztty</a></li><li><a class="nav-link" href="../../oh-my-ztty/installation/" aria-current="page">Installation</a></li><li><a class="nav-link" href="../../oh-my-ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../oh-my-ztty/shell/">Shell, PATH and environment</a></li><li><a class="nav-link" href="../../oh-my-ztty/memory/">Memory and Swap</a></li><li><a class="nav-link" href="../../oh-my-ztty/plugins/">Plugins</a></li><li><a class="nav-link" href="../../oh-my-ztty/ai/">AI integration</a></li><li><a class="nav-link" href="../../oh-my-ztty/dotfiles/">Dotfiles</a></li><li><a class="nav-link" href="../../oh-my-ztty/performance/">Performance</a></li><li><a class="nav-link" href="../../oh-my-ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../oh-my-ztty/development/">Development</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>oh-my-ztty</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/" aria-current="page">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="oh-my-ztty 文档"><div class="nav-group"><p class="nav-label">oh-my-ztty</p><ul><li><a class="nav-link" href="../../oh-my-ztty/">概览</a></li><li><a class="nav-link" href="../../oh-my-ztty/readme-en/">oh-my-ztty</a></li><li><a class="nav-link" href="../../oh-my-ztty/installation/" aria-current="page">Installation</a></li><li><a class="nav-link" href="../../oh-my-ztty/configuration/">Configuration</a></li><li><a class="nav-link" href="../../oh-my-ztty/shell/">Shell, PATH and environment</a></li><li><a class="nav-link" href="../../oh-my-ztty/memory/">Memory and Swap</a></li><li><a class="nav-link" href="../../oh-my-ztty/plugins/">Plugins</a></li><li><a class="nav-link" href="../../oh-my-ztty/ai/">AI integration</a></li><li><a class="nav-link" href="../../oh-my-ztty/dotfiles/">Dotfiles</a></li><li><a class="nav-link" href="../../oh-my-ztty/performance/">Performance</a></li><li><a class="nav-link" href="../../oh-my-ztty/architecture/">Architecture</a></li><li><a class="nav-link" href="../../oh-my-ztty/development/">Development</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../oh-my-ztty/">oh-my-ztty 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../oh-my-ztty/">oh-my-ztty</a><span aria-hidden="true">/</span><span>Installation</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#requirements">Requirements</a></li><li class="toc-level-2"><a href="#arch-linux-aur">Arch Linux (AUR)</a></li><li class="toc-level-2"><a href="#install-a-release">Install a release</a></li><li class="toc-level-2"><a href="#system-memory-manager">System memory manager</a></li><li class="toc-level-2"><a href="#start-the-environment">Start the environment</a></li><li class="toc-level-2"><a href="#set-up-your-own-shell-settings">Set up your own shell settings</a></li><li class="toc-level-2"><a href="#adopt-the-default-workspace">Adopt the default workspace</a></li><li class="toc-level-2"><a href="#system-overview">System overview</a></li><li class="toc-level-2"><a href="#install-options">Install options</a></li><li class="toc-level-2"><a href="#offline-installation">Offline installation</a></li><li class="toc-level-2"><a href="#update-or-reinstall">Update or reinstall</a></li><li class="toc-level-2"><a href="#uninstall">Uninstall</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="installation">Installation</h1>
+<p>Choose a per-user release installation or the Arch Linux package. Both provide the same suite commands; use the matching update and removal instructions below.</p>
+<p>The bundle includes the terminal, shell framework and configuration tools. You need system zsh and the libraries listed below. Installing a release and managing its configuration require neither Rust nor Python.</p>
+<h2 id="requirements">Requirements<a class="heading-anchor" href="#requirements" aria-label="链接到 Requirements">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Supported configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating system</td>
+<td>Linux x86_64 or ARM64</td>
+</tr>
+<tr>
+<td>Shell</td>
+<td>System zsh 5.9 or newer</td>
+</tr>
+<tr>
+<td>Default memory manager</td>
+<td>Linux cgroup v2, systemd, util-linux and administrator access; Btrfs also uses btrfs-progs</td>
+</tr>
+<tr>
+<td>Optional editor profile</td>
+<td>Neovim 0.11 or newer, installed separately</td>
+</tr>
+<tr>
+<td>Private GitHub profile sync</td>
+<td>Git and the optional GitHub CLI (<code>gh</code>)</td>
+</tr>
+<tr>
+<td>Graphical terminal session</td>
+<td>X11 or XWayland</td>
+</tr>
+<tr>
+<td>Graphics libraries</td>
+<td>X11, Xrender, Xft, Fontconfig, Wayland, xkbcommon, FreeType, HarfBuzz, EGL and GLES</td>
+</tr>
+<tr>
+<td>Binary ABI</td>
+<td>glibc 2.34 or newer and libgcc for ztty and ssmcp</td>
+</tr>
+</tbody>
+</table></div>
+<p>The ztty 0.5.2 binary needs the listed graphics libraries even when you select the X11 backend. The release workflow targets Ubuntu 24.04 for both architectures. Other distributions also need compatible libraries.</p>
+<p>Install Neovim, other applications and language servers separately when you want to use their profiles.</p>
+<p>On Ubuntu 24.04, install the basic dependencies with:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>sudo apt-get install zsh git curl libx11-6 libxrender1 libxft2 libfontconfig1 \
+  libwayland-client0 libwayland-egl1 libwayland-cursor0 libxkbcommon0 \
+  libfreetype6 libharfbuzz0b libegl1 libgles2 libgcc-s1
+</code></pre></div>
+<h2 id="arch-linux-aur">Arch Linux (AUR)<a class="heading-anchor" href="#arch-linux-aur" aria-label="链接到 Arch Linux (AUR)">#</a></h2>
+<p>Install the <a href="https://aur.archlinux.org/packages/oh-my-ztty-bin">oh-my-ztty-bin package</a> with an AUR helper:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>yay -S oh-my-ztty-bin
+omztty doctor
+omztty shell
+</code></pre></div>
+<p>With Git and Arch's <code>base-devel</code> tools installed, the package can also be built directly:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>git clone https://aur.archlinux.org/oh-my-ztty-bin.git
+cd oh-my-ztty-bin
+makepkg -si
+</code></pre></div>
+<p>The package installs prebuilt release binaries under <code>/usr/lib/oh-my-ztty</code> and provides <code>/usr/bin/omztty</code>. Update it through your AUR helper:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>yay -Syu oh-my-ztty-bin
+</code></pre></div>
+<p>If you adopted the application profile, run <code>omztty config refresh</code> after upgrading. This updates defaults you have not changed. Use the package manager to remove the runtime; <code>omztty update</code> and <code>omztty uninstall</code> are for per-user installations.</p>
+<p>If an older per-user installation is also on your PATH, use <code>/usr/bin/omztty</code> to select the package explicitly.</p>
+<p>Restore adopted configurations before removing the package:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>omztty config remove
+sudo pacman -R oh-my-ztty-bin
+</code></pre></div>
+<h2 id="install-a-release">Install a release<a class="heading-anchor" href="#install-a-release" aria-label="链接到 Install a release">#</a></h2>
+<p>Use the installer to keep the suite under your own account. Download it as a file, then run it:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>curl -fLO https://github.com/LIghtJUNction/oh-my-ztty/releases/latest/download/install.sh
+sh install.sh
+~/.local/bin/omztty doctor
+</code></pre></div>
+<p>The installer downloads the archive for your architecture, verifies its SHA-256 and file manifest, then installs under <code>${XDG_DATA_HOME:-$HOME/.local/share}/oh-my-ztty</code>.</p>
+<p>Commands go into <code>~/.local/bin</code> by default. You can use the absolute launcher path to initialize configuration and save its PATH entry:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>~/.local/bin/omztty setup --local
+~/.local/bin/omztty path add &quot;$HOME/.local/bin&quot;
+~/.local/bin/omztty rc install
+</code></pre></div>
+<p>Open a new zsh session to load it. For the current shell, add the directory once:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>export PATH=&quot;$HOME/.local/bin:$PATH&quot;
+</code></pre></div>
+<p>An unrelated existing <code>omztty</code> executable stops installation. Existing tools with other names are preserved; the <code>omztty</code> launcher selects its bundled components explicitly.</p>
+<h2 id="system-memory-manager">System memory manager<a class="heading-anchor" href="#system-memory-manager" aria-label="链接到 System memory manager">#</a></h2>
+<p>The release installer enables zmem by default using sudo. zmem adopts existing Swap, installs a root-owned executable at <code>/usr/local/bin/zmem</code>, and keeps the system policy in <code>/etc/zmem/zmem.conf</code>. Existing configuration is preserved during upgrades.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>omztty memory status --json --processes
+omztty memory plan --json
+omztty memory run --class background -- cargo build
+</code></pre></div>
+<p>For a per-user-only install or a machine without systemd, run <code>sh install.sh --no-memory-manager</code>. This skips system setup and remembers the choice on subsequent updates. It leaves an existing manager running. <code>omztty memory setup</code> enables the bundled zmem immediately; <code>omztty update --memory-manager</code> also records the choice for future updates.</p>
+<p>Use <code>omztty memory rollback</code> to restore the previous managers and configuration. The system service remains installed when the per-user terminal suite is removed; its independent recovery command is <code>sudo /usr/local/bin/zmem rollback</code>.</p>
+<p>See <a href="../../oh-my-ztty/memory/">memory policy and recovery</a> for defaults, workload classes and AI output.</p>
+<h2 id="start-the-environment">Start the environment<a class="heading-anchor" href="#start-the-environment" aria-label="链接到 Start the environment">#</a></h2>
+<p>Open a configured zsh session in your current terminal:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>omztty shell
+</code></pre></div>
+<p>Type <code>exit</code> to return to your previous shell. To open the same setup in a new ztty window:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>omztty terminal
+</code></pre></div>
+<p>Both commands use the suite's configuration for that session. Adopt the application profile below to link its settings into your home directory. Your account's login shell is unchanged.</p>
+<h2 id="set-up-your-own-shell-settings">Set up your own shell settings<a class="heading-anchor" href="#set-up-your-own-shell-settings" aria-label="链接到 Set up your own shell settings">#</a></h2>
+<p>Run the setup wizard after installation:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-12" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-12" tabindex="0"><code>omztty setup
+</code></pre></div>
+<p>It prepares the standard profile, offers to connect your ordinary zsh startup file and can create a private GitHub dotfiles repository under your signed-in account. The remote step is optional; <code>omztty setup --local</code> prepares local configuration without it.</p>
+<p>Manage settings directly from the command line:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-13" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-13" tabindex="0"><code>omztty env set EDITOR nvim --shared
+omztty path add &quot;$HOME/.local/bin&quot;
+omztty rc add aliases
+omztty rc edit aliases
+omztty rc check
+</code></pre></div>
+<p>The <a href="../../oh-my-ztty/shell/">shell guide</a> explains the values, file paths, manual editing and version history. The <a href="../../oh-my-ztty/dotfiles/#synchronize-the-suite-profile">dotfiles guide</a> covers private synchronization and restoring configuration on another machine.</p>
+<p>Once the profile has its own Git repository, shared shell changes made by these commands become local commits. Run <code>omztty sync history</code> to inspect them and <code>omztty sync push</code> when you want to upload them. Git mode stops new file snapshots; machine-specific values and the home rc startup block remain local.</p>
+<h2 id="adopt-the-default-workspace">Adopt the default workspace<a class="heading-anchor" href="#adopt-the-default-workspace" aria-label="链接到 Adopt the default workspace">#</a></h2>
+<p>The optional profile adds the suite's zsh, terminal and editor defaults to your home configuration. Create it, inspect the planned changes, then apply it:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-14" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-14" tabindex="0"><code>omztty config init
+omztty config plan --json
+omztty config apply --backup
+omztty config status
+</code></pre></div>
+<p><code>--backup</code> saves existing files before replacing them with managed links. <code>omztty config remove</code> restores those originals. The <a href="../../oh-my-ztty/configuration/">configuration guide</a> explains each profile, personal settings and the optional Git display include.</p>
+<p>Open a new zsh session after adoption. Editable files live under <code>${XDG_CONFIG_HOME:-$HOME/.config}/oh-my-ztty/profile</code>. The journal and backups live under <code>${XDG_STATE_HOME:-$HOME/.local/state}/zdot/oh-my-ztty</code>. HOME adoption requires an absolute <code>XDG_CONFIG_HOME</code> within HOME; roots outside HOME are rejected.</p>
+<p>Suite upgrades preserve the editable profile. Run <code>omztty config refresh</code> after upgrading to update files that still match their shipped defaults. Custom edits, added files and deliberately removed files are preserved.</p>
+<p>Personal completion files belong in <code>${XDG_CONFIG_HOME:-$HOME/.config}/oh-my-ztty/completions/</code>. The preset registers that directory for on-demand loading. It stays outside the runtime and survives updates and uninstallation.</p>
+<h2 id="system-overview">System overview<a class="heading-anchor" href="#system-overview" aria-label="链接到 System overview">#</a></h2>
+<p>Run <code>omztty info</code> to display system information through the bundled zfetch utility. <code>omztty zfetch</code> invokes the same tool directly. The shell does not run it automatically.</p>
+<h2 id="install-options">Install options<a class="heading-anchor" href="#install-options" aria-label="链接到 Install options">#</a></h2>
+<p>Choose another absolute command directory or omit the desktop entry:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-15" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-15" tabindex="0"><code>sh install.sh --bin-dir &quot;$HOME/bin&quot; --no-desktop
+</code></pre></div>
+<p>A new installation creates a desktop entry by default. <code>--no-desktop</code> disables it; <code>--desktop</code> enables it again. When neither option is supplied, repeat installations and updates preserve the last successful choice.</p>
+<p>Disabling an existing installation removes only desktop links that still point to this suite. Replacement files and foreign links are preserved. Enabling the entry stops if an unrelated file or link already occupies its path.</p>
+<p>Personal shell configuration belongs outside the release directory. See <a href="../../oh-my-ztty/configuration/">configuration</a> before adding aliases, themes or plugins.</p>
+<h2 id="offline-installation">Offline installation<a class="heading-anchor" href="#offline-installation" aria-label="链接到 Offline installation">#</a></h2>
+<p>Download an archive and its matching <code>.sha256</code> file from the same published release. The following example uses the x86_64 archive for <a href="https://github.com/LIghtJUNction/oh-my-ztty/releases/tag/v0.2.7">v0.2.6</a> once that release is published.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-16" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-16" tabindex="0"><code>sh install.sh --from ./oh-my-ztty-0.2.7-linux-x86_64.tar.gz
+</code></pre></div>
+<p>Use the aarch64 archive on ARM64. If you have already obtained the digest from the release record, the installer's <code>--sha256</code> option can supply it instead of a sidecar file.</p>
+<h2 id="update-or-reinstall">Update or reinstall<a class="heading-anchor" href="#update-or-reinstall" aria-label="链接到 Update or reinstall">#</a></h2>
+<p>For a per-user installation:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-17" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-17" tabindex="0"><code>omztty update
+</code></pre></div>
+<p>To update the profile from your own configured Git repository, select a configuration update explicitly:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-18" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-18" tabindex="0"><code>omztty update --config-only
+omztty update --with-config
+</code></pre></div>
+<p><code>--config-only</code> pulls the profile without changing the runtime. <code>--with-config</code> updates a per-user suite and pulls its profile. The profile must have a clean Git working tree and a fast-forward update available. Use <code>omztty sync status</code> to inspect local edits first.</p>
+<p>If you adopted a home profile, run <code>omztty config refresh</code> after updating to receive changes to unmodified shipped defaults. Upgrade the AUR runtime through your AUR helper; its profile can still be updated with <code>omztty update --config-only</code>.</p>
+<p>To change the desktop entry choice during an update, select one option:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-19" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-19" tabindex="0"><code>omztty update --no-desktop
+omztty update --desktop
+</code></pre></div>
+<p>Updates retain the desktop-entry choice saved by your last successful installation. Either option above changes that choice after the update succeeds.</p>
+<p>Each version has its own directory. A <code>current</code> link selects the active version, and completion caches are separated by release.</p>
+<p>Before activation, the installer prepares an audited completion cache. A failed preparation leaves the previous version active. Reinstalling the same archive verifies the existing files; it preserves and reports an installed version that has been modified.</p>
+<h2 id="uninstall">Uninstall<a class="heading-anchor" href="#uninstall" aria-label="链接到 Uninstall">#</a></h2>
+<p>For a per-user installation:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-20" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-20" tabindex="0"><code>omztty uninstall
+</code></pre></div>
+<p>Uninstallation restores the adopted <code>omztty config</code> home profile before removing the runtime. Failed restoration or inconsistent deployment records preserve the installation for recovery. After restoration, suite-owned installation files and links are removed; personal profiles, additions, completion files and history are retained.</p>
+<p>Independent repositories deployed through <code>omztty dot</code> have a separate lifecycle. Use <a href="../../oh-my-ztty/dotfiles/#remove-a-deployment">zdot remove</a> first if you also want to restore those deployments.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/site/content/installation.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/oh-my-ztty">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../oh-my-ztty/readme-en/"><span class="pagination-label">上一页</span><span class="pagination-title">oh-my-ztty</span></a><a class="pagination-link next" href="../../oh-my-ztty/configuration/"><span class="pagination-label">下一页</span><span class="pagination-title">Configuration</span></a></nav>
+      <footer class="page-footer">
+        <span>oh-my-ztty <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#requirements">Requirements</a></li><li class="toc-level-2"><a href="#arch-linux-aur">Arch Linux (AUR)</a></li><li class="toc-level-2"><a href="#install-a-release">Install a release</a></li><li class="toc-level-2"><a href="#system-memory-manager">System memory manager</a></li><li class="toc-level-2"><a href="#start-the-environment">Start the environment</a></li><li class="toc-level-2"><a href="#set-up-your-own-shell-settings">Set up your own shell settings</a></li><li class="toc-level-2"><a href="#adopt-the-default-workspace">Adopt the default workspace</a></li><li class="toc-level-2"><a href="#system-overview">System overview</a></li><li class="toc-level-2"><a href="#install-options">Install options</a></li><li class="toc-level-2"><a href="#offline-installation">Offline installation</a></li><li class="toc-level-2"><a href="#update-or-reinstall">Update or reinstall</a></li><li class="toc-level-2"><a href="#uninstall">Uninstall</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zuse · Zuse 会话协议 v1 · Project Z">
+  <meta property="og:description" content="用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。">
+  <meta property="og:type" content="website">
+  <title>zuse · Zuse 会话协议 v1 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zuse/session-protocol/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zuse">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zuse" aria-label="zuse 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zuse</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zuse</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/" aria-current="page">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zuse 文档"><div class="nav-group"><p class="nav-label">zuse</p><ul><li><a class="nav-link" href="../../zuse/">概览</a></li><li><a class="nav-link" href="../../zuse/readme-en/">zuse</a></li><li><a class="nav-link" href="../../zuse/language/">Flat execution language</a></li><li><a class="nav-link" href="../../zuse/session-protocol/" aria-current="page">Zuse 会话协议 v1</a></li><li><a class="nav-link" href="../../zuse/sessions/">持久会话：观察、执行与取消</a></li><li><a class="nav-link" href="../../zuse/platforms/">Platform support and verification</a></li><li><a class="nav-link" href="../../zuse/chatgpt-desktop/">ChatGPT desktop module</a></li><li><a class="nav-link" href="../../zuse/development/">Development and release</a></li><li><a class="nav-link" href="../../zuse/device-io/">Native serial and USB I/O</a></li><li><a class="nav-link" href="../../zuse/drawing/">绘图原语与窗口锚点</a></li><li><a class="nav-link" href="../../zuse/ios/">iOS through WebDriverAgent</a></li><li><a class="nav-link" href="../../zuse/key-holds/">Bounded key holds</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zuse</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/" aria-current="page">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zuse 文档"><div class="nav-group"><p class="nav-label">zuse</p><ul><li><a class="nav-link" href="../../zuse/">概览</a></li><li><a class="nav-link" href="../../zuse/readme-en/">zuse</a></li><li><a class="nav-link" href="../../zuse/language/">Flat execution language</a></li><li><a class="nav-link" href="../../zuse/session-protocol/" aria-current="page">Zuse 会话协议 v1</a></li><li><a class="nav-link" href="../../zuse/sessions/">持久会话：观察、执行与取消</a></li><li><a class="nav-link" href="../../zuse/platforms/">Platform support and verification</a></li><li><a class="nav-link" href="../../zuse/chatgpt-desktop/">ChatGPT desktop module</a></li><li><a class="nav-link" href="../../zuse/development/">Development and release</a></li><li><a class="nav-link" href="../../zuse/device-io/">Native serial and USB I/O</a></li><li><a class="nav-link" href="../../zuse/drawing/">绘图原语与窗口锚点</a></li><li><a class="nav-link" href="../../zuse/ios/">iOS through WebDriverAgent</a></li><li><a class="nav-link" href="../../zuse/key-holds/">Bounded key holds</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zuse/">zuse 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zuse/">zuse</a><span aria-hidden="true">/</span><span>Zuse 会话协议 v1</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#三个标识">三个标识</a></li><li class="toc-level-2"><a href="#请求">请求</a></li><li class="toc-level-2"><a href="#响应">响应</a></li><li class="toc-level-2"><a href="#状态和并发">状态和并发</a></li><li class="toc-level-2"><a href="#重试与去重">重试与去重</a></li><li class="toc-level-2"><a href="#错误">错误</a></li><li class="toc-level-2"><a href="#限额与生命周期">限额与生命周期</a></li><li class="toc-level-2"><a href="#外部控制循环">外部控制循环</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zuse-会话协议-v1">Zuse 会话协议 v1</h1>
+<p>本协议让外部控制器向一个持续存在的 Zuse Runtime 提交源码、查询状态和取消工作。
+连接端点由 <code>zuse session start NAME</code> 的 <code>socket</code> 字段给出。服务在本机 Unix domain socket
+上交换 UTF-8 JSON-lines：每个请求和响应各占一行，以 <code>\n</code> 结束；源码中的换行必须进行 JSON 转义。
+原生观察返回的嵌套 JSON 会去除结构空白后传输，字符串内的转义和结果对象类型保持不变。
+同一连接可依次发送多个请求，服务也允许其他客户端读取状态。
+连接闲置或一个未完成帧达到 5 秒会关闭连接；需要时重新连接同一 socket，已有会话与作业仍保留。
+超长帧返回 <code>frame_too_large</code> 后断开；不完整、非 UTF-8 或超时帧返回 <code>invalid_request</code> 后断开。</p>
+<h2 id="三个标识">三个标识<a class="heading-anchor" href="#三个标识" aria-label="链接到 三个标识">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>request_id</code></td>
+<td>控制器给这次请求分配的字符串标识，用于响应关联和有界重试去重。</td>
+</tr>
+<tr>
+<td><code>job_id</code></td>
+<td>服务接收脚本后分配的整数作业标识，用于查询执行结果。</td>
+</tr>
+<tr>
+<td><code>state_revision</code></td>
+<td>会话状态变化计数，初始为 1；用于拒绝依据旧状态提交的动作。</td>
+</tr>
+</tbody>
+</table></div>
+<p>不同操作使用不同 <code>request_id</code>。只有同一次请求的重试才复用原 ID 和完整帧内容。
+ID 必须为 1–128 个 UTF-8 字节，不能包含控制字符。
+<code>request_id</code> 不是认证凭证；能访问私有 socket 的本地进程可以控制会话。</p>
+<h2 id="请求">请求<a class="heading-anchor" href="#请求" aria-label="链接到 请求">#</a></h2>
+<p>所有请求都包含 <code>version: 1</code>、<code>request_id</code> 和 <code>op</code>。例如：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>{&quot;version&quot;:1,&quot;request_id&quot;:&quot;status-001&quot;,&quot;op&quot;:&quot;status&quot;}
+</code></pre></div>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th><code>op</code></th>
+<th>额外字段</th>
+<th>行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>status</code></td>
+<td>无</td>
+<td>查询状态及当前、最近作业。</td>
+</tr>
+<tr>
+<td><code>script</code></td>
+<td><code>source</code>；可选 <code>base</code>、<code>options</code>、<code>expected_revision</code></td>
+<td>提交完整 Zuse 程序。</td>
+</tr>
+<tr>
+<td><code>observe</code></td>
+<td>同 <code>script</code></td>
+<td>提交强制只读程序。</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td>可选整数 <code>job_id</code></td>
+<td>查询指定或最近作业。</td>
+</tr>
+<tr>
+<td><code>cancel</code></td>
+<td>可选 <code>expected_revision</code></td>
+<td>请求取消当前作业。</td>
+</tr>
+<tr>
+<td><code>close</code></td>
+<td>可选 <code>expected_revision</code></td>
+<td>清理运行时并关闭会话。</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>source</code> 是 UTF-8 源码字符串。<code>base</code> 如提供，必须是绝对目录，用于解析相对模块路径。
+原始协议省略 <code>base</code> 时，使用服务启动时冻结的工作目录；CLI 自动传入本次控制命令的工作目录。
+请求对象和 <code>options</code> 对象拒绝重复或未知字段；字段也必须用于表中允许的操作。
+<code>options</code> 是可选对象，包含以下执行设置：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>read_only</code></td>
+<td>布尔</td>
+<td><code>false</code>；<code>observe</code> 始终强制为 <code>true</code>。</td>
+</tr>
+<tr>
+<td><code>dry_run</code></td>
+<td>布尔</td>
+<td><code>false</code>。</td>
+</tr>
+<tr>
+<td><code>max_steps</code></td>
+<td>整数，1–65536</td>
+<td>256。</td>
+</tr>
+<tr>
+<td><code>max_wait_ms</code></td>
+<td>整数，0–86400000</td>
+<td>60000。</td>
+</tr>
+</tbody>
+</table></div>
+<p>例如提交纯 Zuse 等待程序，并要求状态仍与之前观察一致：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">json</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 json 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>{&quot;version&quot;:1,&quot;request_id&quot;:&quot;script-001&quot;,&quot;op&quot;:&quot;script&quot;,&quot;expected_revision&quot;:1,&quot;source&quot;:&quot;fn inspect(){timer.status()} inspect()&quot;,&quot;options&quot;:{&quot;max_steps&quot;:256,&quot;max_wait_ms&quot;:60000}}
+</code></pre></div>
+<p><code>expected_revision</code> 是可选整数。匹配当前状态修订号才接受相应动作；不匹配返回 <code>stale_revision</code>，
+不会执行源码。它保护从观察到决策之间的状态关联，不是整个外部应用界面的事务锁。</p>
+<h2 id="响应">响应<a class="heading-anchor" href="#响应" aria-label="链接到 响应">#</a></h2>
+<p>响应包含以下公共字段：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>version</code></td>
+<td>响应协议版本，当前为 1。</td>
+</tr>
+<tr>
+<td><code>request_id</code></td>
+<td>对应请求标识；无法读取有效标识的帧错误为 <code>null</code>。</td>
+</tr>
+<tr>
+<td><code>ok</code></td>
+<td>请求是否被协议层成功处理。</td>
+</tr>
+<tr>
+<td><code>session</code></td>
+<td>会话名。</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>idle</code>、<code>running</code>、<code>cancelling</code> 或 <code>closing</code>。</td>
+</tr>
+<tr>
+<td><code>state_revision</code></td>
+<td>该回执所记录的状态修订号。</td>
+</tr>
+</tbody>
+</table></div>
+<p>成功响应另外包含 <code>status</code> 和操作相关字段。脚本提交响应使用
+<code>status: &quot;accepted&quot;</code> 并返回整数 <code>job_id</code>。这只表示收到作业，不能作为动作已完成的证据。</p>
+<p><code>status</code> 操作使用 <code>status: &quot;ready&quot;</code>，包含 <code>pid</code>、<code>socket</code>、<code>active_job_id</code>、
+<code>last_job_id</code> 和 <code>last_status</code>。状态修订号在接受作业、首次取消、完成和进入关闭状态时递增；
+单纯 <code>status</code> / <code>result</code> 查询不会递增它。
+<code>active_job_id</code> 在空闲时为 <code>null</code>；<code>last_job_id</code> / <code>last_status</code> 指最近结束的作业，没有时为 <code>null</code>。
+省略 <code>result.job_id</code> 时优先查询当前作业，否则查询最近结束的作业。</p>
+<p><code>result</code> 操作的 <code>status</code> 为：</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>running</code></td>
+<td>作业尚未结束。</td>
+</tr>
+<tr>
+<td><code>completed</code></td>
+<td>作业已结束，读取 <code>result</code> 中的 Runtime 回执。</td>
+</tr>
+<tr>
+<td><code>failed</code></td>
+<td>准备或执行失败，读取结果中的错误与已完成步骤。</td>
+</tr>
+<tr>
+<td><code>cancelled</code></td>
+<td>作业因取消结束；读取内部回执中的清理信息和错误。</td>
+</tr>
+<tr>
+<td><code>empty</code></td>
+<td>没有可返回的作业结果。</td>
+</tr>
+</tbody>
+</table></div>
+<p>终态结果包含 <code>job_id</code> 和 <code>result</code>，后者保留 Zuse 原执行回执。
+同时返回 <code>elapsed_ms</code>、<code>result_bytes</code> 与 <code>result_truncated</code>。超过 512 KiB 的回执不保留正文：
+<code>status</code> 为 <code>failed</code>、<code>result</code> 为 <code>null</code>、<code>result_truncated</code> 为 <code>true</code>，<code>result_bytes</code> 记录原大小。
+这表示结果超限，不能推断操作未发生；应重新观察应用，不因缺少正文而自动重复输入。
+<code>dry_run</code> 的作业也会结束，但其内部回执是检查计划，不表示输入发生。
+<code>ok: true</code> 与 <code>status: &quot;failed&quot;</code> 可以同时出现：前者说明结果查询成功，后者说明被查询的作业失败。</p>
+<h2 id="状态和并发">状态和并发<a class="heading-anchor" href="#状态和并发" aria-label="链接到 状态和并发">#</a></h2>
+<p>一个会话同一时刻只运行一个作业，<code>script</code> 和 <code>observe</code> 都需要 <code>idle</code>。
+运行中仍可发送 <code>status</code>、<code>result</code>、<code>cancel</code> 和 <code>close</code>。
+取消请求进入 <code>cancelling</code>，清理完成后回到 <code>idle</code>；关闭进入 <code>closing</code>，清理完成后返回 <code>closed</code> 并断开服务。
+取消响应含 <code>cleanup_complete</code>：有作业时为 <code>false</code>，已经空闲时返回 <code>status: &quot;idle&quot;</code> 和 <code>true</code>。
+<code>cancelling</code> 只确认取消标志已设置并唤醒等待；不代表正在执行的原生输入派发已经返回。
+关闭响应含 <code>resources_released</code>。等待清理超过 10 秒时可返回 <code>status: &quot;closing&quot;</code> 和 <code>false</code>；
+只有 <code>status: &quot;closed&quot;</code> 和 <code>true</code> 才确认运行时及原 socket 已清理。
+当前协议不提供暂停、恢复执行位置或回滚已经送达应用的动作。</p>
+<p>作业使用保留的 Runtime 执行 flat 程序。数值程序先展开成原语；函数和 Runtime 字段可以跨作业保留。
+当前通道不执行 scoped mouse 程序；其 <code>dry_run</code> 可以检查计划，但不创建跨作业 scoped 设备。</p>
+<h2 id="重试与去重">重试与去重<a class="heading-anchor" href="#重试与去重" aria-label="链接到 重试与去重">#</a></h2>
+<p>服务对 <code>script</code>、<code>observe</code>、<code>cancel</code>、<code>close</code> 保存有界去重记录。
+服务仍可响应且缓存命中时，相同 <code>request_id</code> 和相同帧内容返回原回执，并附加 <code>replayed: true</code>，不会再次执行。
+同一个已缓存 ID 对应不同帧内容时返回 <code>request_id_conflict</code>。帧比较不包含末尾换行，但包含 JSON 字段顺序和空白。
+重试应重发原帧，不重新排列、修改或重建其中的状态条件。</p>
+<p>动作的拒绝回执也会缓存，包括 <code>busy</code> 和 <code>stale_revision</code>。收到确定拒绝后，新的提交尝试必须用新 ID；
+通信结果不确定时才用原 ID 和原帧找回原回执。<code>status</code> / <code>result</code> 不占去重缓存，读取请求可以复用 ID。</p>
+<p>去重检查先于旧 <code>expected_revision</code> 的重新判定。因此已接收作业完成后，重发其原请求仍返回原作业 ID。
+重放的是历史回执，其中 <code>state</code> 和 <code>state_revision</code> 不代表当前状态；后续决策先读取新的 <code>status</code> 或 <code>result</code>。
+缓存最多保留 64 条且总数据最多 8 MiB，淘汰或会话重启后不保证同 ID 仍能去重。
+保存并重发原 <code>expected_revision</code> 可使已淘汰的旧动作在状态变化后被拒绝。
+会话重启后修订号重新计数；同名会话或相同修订号不表示原来的进程，应重新观察后再提交。</p>
+<h2 id="错误">错误<a class="heading-anchor" href="#错误" aria-label="链接到 错误">#</a></h2>
+<p>协议错误使用 <code>ok: false</code>，并包含 <code>error: {&quot;code&quot;: &quot;...&quot;, &quot;message&quot;: &quot;...&quot;}</code>。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th><code>code</code></th>
+<th>处理方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>busy</code></td>
+<td>当前作业尚未结束；查询结果或显式取消，新的提交尝试使用新 ID。</td>
+</tr>
+<tr>
+<td><code>stale_revision</code></td>
+<td>重新观察并取得当前修订号，再以新 ID 提交新的决定。</td>
+</tr>
+<tr>
+<td><code>request_id_conflict</code></td>
+<td>为新请求换新 ID；原请求重试保持原帧。</td>
+</tr>
+<tr>
+<td><code>invalid_request</code></td>
+<td>修正请求字段、操作名、参数或源码大小。</td>
+</tr>
+<tr>
+<td><code>invalid_result</code></td>
+<td>运行时结果无法编码为合法协议 JSON；重新观察状态，避免盲目重放输入。</td>
+</tr>
+<tr>
+<td><code>unsupported_version</code></td>
+<td>使用已支持的协议版本。</td>
+</tr>
+<tr>
+<td><code>job_not_found</code></td>
+<td>核对作业 ID；结果可能已超出保留窗口。</td>
+</tr>
+<tr>
+<td><code>session_closing</code></td>
+<td>停止提交，等待关闭完成。</td>
+</tr>
+<tr>
+<td><code>frame_too_large</code></td>
+<td>缩小单帧，勿继续发送超限帧。</td>
+</tr>
+<tr>
+<td><code>request_pending</code></td>
+<td>同 ID 的原请求仍在完成；稍后重发原帧。</td>
+</tr>
+<tr>
+<td><code>worker_unavailable</code></td>
+<td>会话执行线程不可用；读取现有结果并关闭或重新建立会话。</td>
+</tr>
+</tbody>
+</table></div>
+<p>连接错误、EOF 或客户端超时不能证明作业未执行。先用原请求 ID 重试或查询已知作业 ID，
+避免盲目创建新请求而重复输入。Zuse CLI 对协议请求错误返回非零退出码；查询一个失败作业本身仍可成功退出。</p>
+<h2 id="限额与生命周期">限额与生命周期<a class="heading-anchor" href="#限额与生命周期" aria-label="链接到 限额与生命周期">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align:right">限额</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单次源码</td>
+<td style="text-align:right">256 KiB UTF-8 字节</td>
+</tr>
+<tr>
+<td>单个协议帧</td>
+<td style="text-align:right">2 MiB</td>
+</tr>
+<tr>
+<td>单条保留结果</td>
+<td style="text-align:right">512 KiB</td>
+</tr>
+<tr>
+<td>保留作业结果</td>
+<td style="text-align:right">32 条</td>
+</tr>
+<tr>
+<td>请求去重记录</td>
+<td style="text-align:right">64 条，合计最多 8 MiB</td>
+</tr>
+<tr>
+<td>同时连接</td>
+<td style="text-align:right">16 条</td>
+</tr>
+<tr>
+<td>完整帧接收或连接空闲期限</td>
+<td style="text-align:right">5 秒</td>
+</tr>
+<tr>
+<td>响应写入超时</td>
+<td style="text-align:right">2 秒</td>
+</tr>
+<tr>
+<td>单次关闭等待</td>
+<td style="text-align:right">10 秒</td>
+</tr>
+</tbody>
+</table></div>
+<p>这些限额之外，脚本仍受自己的步数、等待、模块、展开和绘图点数预算约束。
+服务的默认空闲超时是 900000 ms；有效控制请求续期，运行中的作业不计为空闲。
+未完成帧和静默连接不会无限保持会话。关闭或超时会释放 Runtime，客户端不能假定函数与设备在重启后仍存在。
+服务每 100 ms 检查读取状态；会话超时清理不等待未完成帧耗尽其 5 秒期限。
+运行目录权限为 <code>0700</code>，socket 权限为 <code>0600</code>，两者均检查当前有效用户身份。</p>
+<h2 id="外部控制循环">外部控制循环<a class="heading-anchor" href="#外部控制循环" aria-label="链接到 外部控制循环">#</a></h2>
+<ol>
+<li>启动或连接明确的会话，用 <code>status</code> 确认它空闲。</li>
+<li>用 <code>observe</code> 提交观察源码，保存 <code>job_id</code>，查询到终态。</li>
+<li>根据返回的应用状态，由程序逻辑或模型选择下一步。服务不调用外部模型。</li>
+<li>将下一步写为 Zuse 源码，以新 <code>request_id</code> 和最近 <code>state_revision</code> 提交 <code>script</code>。</li>
+<li>查询执行结果并再次观察。发生 <code>stale_revision</code> 时回到观察；通信中断时优先重发原帧或查询原作业。</li>
+</ol>
+<p>打地鼠、下棋或其他交互任务可以使用同一循环；目标选择与策略属于控制器，
+坐标计算、时序和实际输入留在提交的 Zuse 程序里。接口不包含专用游戏逻辑或 JEV 集成。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/session-protocol.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zuse/language/"><span class="pagination-label">上一页</span><span class="pagination-title">Flat execution language</span></a><a class="pagination-link next" href="../../zuse/sessions/"><span class="pagination-label">下一页</span><span class="pagination-title">持久会话：观察、执行与取消</span></a></nav>
+      <footer class="page-footer">
+        <span>zuse <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#三个标识">三个标识</a></li><li class="toc-level-2"><a href="#请求">请求</a></li><li class="toc-level-2"><a href="#响应">响应</a></li><li class="toc-level-2"><a href="#状态和并发">状态和并发</a></li><li class="toc-level-2"><a href="#重试与去重">重试与去重</a></li><li class="toc-level-2"><a href="#错误">错误</a></li><li class="toc-level-2"><a href="#限额与生命周期">限额与生命周期</a></li><li class="toc-level-2"><a href="#外部控制循环">外部控制循环</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

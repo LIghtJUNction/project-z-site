@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="原生插件 ABI、动态库加载与可选 Wasm 沙箱。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zplugin · zplugin 0.3.0：不可信 Wasm 插件交付报告 · Project Z">
+  <meta property="og:description" content="原生插件 ABI、动态库加载与可选 Wasm 沙箱。">
+  <meta property="og:type" content="website">
+  <title>zplugin · zplugin 0.3.0：不可信 Wasm 插件交付报告 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zplugin/zplugin-0-3-0-delivery/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zplugin">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zplugin" aria-label="zplugin 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zplugin</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zplugin</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/" aria-current="page">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zplugin 文档"><div class="nav-group"><p class="nav-label">zplugin</p><ul><li><a class="nav-link" href="../../zplugin/">概览</a></li><li><a class="nav-link" href="../../zplugin/zplugin-0-3-0-delivery/" aria-current="page">zplugin 0.3.0：不可信 Wasm 插件交付报告</a></li><li><a class="nav-link" href="../../zplugin/examples-foreign-readme/">C, C++, and Zig plugins</a></li><li><a class="nav-link" href="../../zplugin/examples-readme/">Run the independent native plugin example</a></li><li><a class="nav-link" href="../../zplugin/abi/">ABI v1 and ownership</a></li><li><a class="nav-link" href="../../zplugin/extensions/">Stable values, tasks, resources and callbacks</a></li><li><a class="nav-link" href="../../zplugin/performance-0-2-0/">Performance evidence: 0.2.0 extensions</a></li><li><a class="nav-link" href="../../zplugin/performance-0-3-0/">zplugin 0.3.0 Wasm measurements</a></li><li><a class="nav-link" href="../../zplugin/wasm/">Untrusted Wasm plugins</a></li><li><a class="nav-link" href="../../zplugin/zplugin-0-2-0-delivery/">zplugin 0.2.0 交付报告</a></li><li><a class="nav-link" href="../../zplugin/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zplugin</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/" aria-current="page">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zplugin 文档"><div class="nav-group"><p class="nav-label">zplugin</p><ul><li><a class="nav-link" href="../../zplugin/">概览</a></li><li><a class="nav-link" href="../../zplugin/zplugin-0-3-0-delivery/" aria-current="page">zplugin 0.3.0：不可信 Wasm 插件交付报告</a></li><li><a class="nav-link" href="../../zplugin/examples-foreign-readme/">C, C++, and Zig plugins</a></li><li><a class="nav-link" href="../../zplugin/examples-readme/">Run the independent native plugin example</a></li><li><a class="nav-link" href="../../zplugin/abi/">ABI v1 and ownership</a></li><li><a class="nav-link" href="../../zplugin/extensions/">Stable values, tasks, resources and callbacks</a></li><li><a class="nav-link" href="../../zplugin/performance-0-2-0/">Performance evidence: 0.2.0 extensions</a></li><li><a class="nav-link" href="../../zplugin/performance-0-3-0/">zplugin 0.3.0 Wasm measurements</a></li><li><a class="nav-link" href="../../zplugin/wasm/">Untrusted Wasm plugins</a></li><li><a class="nav-link" href="../../zplugin/zplugin-0-2-0-delivery/">zplugin 0.2.0 交付报告</a></li><li><a class="nav-link" href="../../zplugin/performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zplugin/">zplugin 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zplugin/">zplugin</a><span aria-hidden="true">/</span><span>zplugin 0.3.0：不可信 Wasm 插件交付报告</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#结论与范围">结论与范围</a></li><li class="toc-level-2"><a href="#使用">使用</a></li><li class="toc-level-2"><a href="#限制和错误处理">限制和错误处理</a></li><li class="toc-level-2"><a href="#测试证据">测试证据</a></li><li class="toc-level-2"><a href="#实测性能">实测性能</a></li><li class="toc-level-2"><a href="#发布与归档">发布与归档</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zplugin-030不可信-wasm-插件交付报告">zplugin 0.3.0：不可信 Wasm 插件交付报告</h1>
+<p>日期：2026-11-13，Asia/Taipei。</p>
+<h2 id="结论与范围">结论与范围<a class="heading-anchor" href="#结论与范围" aria-label="链接到 结论与范围">#</a></h2>
+<p><strong>zplugin 0.3.0 和 zplugin-macros 0.3.0 已发布到 crates.io，并通过公开包的独立安装验收。</strong>
+本轮增加可选的 Wasm 沙箱加载后端，用于运行不可信插件；原生动态库加载仍只适用于可信代码。
+发布提交为 <a href="https://github.com/LIghtJUNction/zplugin/commit/d10e9082495c8dafa2b0b0f3d19810cf5926ef02"><code>d10e9082495c8dafa2b0b0f3d19810cf5926ef02</code></a>，
+同一提交经过验证、打包、创建 tag 和发布，没有跳过发布门禁。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>路径</th>
+<th>适用插件</th>
+<th>本轮交付与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原生动态库</td>
+<td>可信 Rust、C、C++、Zig 插件</td>
+<td>保留既有同步、异步任务、稳定值、资源和回调；不提供恶意代码隔离</td>
+</tr>
+<tr>
+<td>可选 Wasm</td>
+<td>遵循 zplugin Wasm v1 协议的核心 Wasm32 二进制</td>
+<td>校验模块、拒绝全部导入和 start section、限制执行预算和客体资源；安全的宿主加载 API</td>
+</tr>
+<tr>
+<td>任意 Wasm 应用</td>
+<td>WASI、依赖 JavaScript 的 wasm-bindgen、Component Model 等</td>
+<td>本版不支持；文件扩展名为 <code>.wasm</code> 不等于协议兼容</td>
+</tr>
+</tbody>
+</table></div>
+<p>Wasm 边界只传操作码和字节缓冲，不向客体暴露宿主地址、分配器、函数指针或 Rust 布局。
+没有链接文件、网络、环境变量、时钟、进程或 WASI 能力。各实例拥有独立状态，宿主类型
+为 <code>!Send + !Sync</code>，通过可变借用串行调用。插件可以保留自己收到的数据；不同租户或
+机密会话应使用新实例，不能把实例复用理解为数据遗忘。</p>
+<h2 id="使用">使用<a class="heading-anchor" href="#使用" aria-label="链接到 使用">#</a></h2>
+<p>宿主显式启用沙箱：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>[dependencies]
+zplugin = { version = &quot;0.3.0&quot;, features = [&quot;wasm&quot;] }
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,ignore</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 rust,ignore 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>use zplugin::wasm::{Interface, Limits, Plugin};
+
+let interface = Interface { id: 0x7a70_6c75_6769_6e01, version: 1 };
+let mut plugin = Plugin::new(&amp;bytes, interface, Limits::default())?;
+let mut output = [0; 64];
+let written = plugin.call(1, b&quot;hello&quot;, &amp;mut output)?;
+assert_eq!(&amp;output[..written], b&quot;HELLO&quot;);
+# Ok::&lt;(), zplugin::wasm::Error&gt;(())
+</code></pre></div>
+<p>这里的 <code>bytes</code> 是已按模块大小上限读取的二进制。操作 <code>1</code> 是示例插件的转大写方法，
+不是库内置的业务功能。完整<a href="https://github.com/LIghtJUNction/zplugin/blob/v0.3.0/examples/wasm/guest.rs">客体实现</a>
+使用 <code>wasm_guest::Guest</code> 和 <code>export_wasm!</code>，无需分配器；
+<a href="https://github.com/LIghtJUNction/zplugin/blob/v0.3.0/examples/wasm_host.rs">宿主示例</a>包含有界文件读取与失败用例。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>rustup target add wasm32-unknown-unknown
+python3 scripts/wasm.py
+</code></pre></div>
+<p>默认/core 与原生运行时仍是 <code>no_std</code>、零第三方运行时依赖，MSRV 为 Rust <strong>1.85</strong>。
+可选 <code>wasm</code> 宿主需要 Rust <strong>1.86</strong>，隐式启用 <code>alloc</code>、不隐式启用 <code>std</code>，增加 Wasmi
+2.0.0 及其依赖共 <strong>8 个第三方运行时包</strong>。开发与稳定版 CI 使用 Rust <strong>1.100.0</strong>、edition <strong>2024</strong>。
+编译期宏依赖与运行时依赖继续分开，不将“默认零依赖”宣传成“所有功能零依赖”。</p>
+<h2 id="限制和错误处理">限制和错误处理<a class="heading-anchor" href="#限制和错误处理" aria-label="链接到 限制和错误处理">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>资源</th>
+<th style="text-align:right">默认上限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模块二进制</td>
+<td style="text-align:right">4 MiB，解析前检查</td>
+</tr>
+<tr>
+<td>客体线性内存</td>
+<td style="text-align:right">16 MiB，最多一个 memory</td>
+</tr>
+<tr>
+<td>表元素</td>
+<td style="text-align:right">4,096，最多一个 table</td>
+</tr>
+<tr>
+<td>输入、输出协商容量</td>
+<td style="text-align:right">各 1 MiB</td>
+</tr>
+<tr>
+<td>执行预算</td>
+<td style="text-align:right">10,000,000 fuel；所有元数据查询共享一次预算，每次业务调用重新赋予预算</td>
+</tr>
+<tr>
+<td>解释器值栈、调用深度</td>
+<td style="text-align:right">64 KiB、128 层</td>
+</tr>
+</tbody>
+</table></div>
+<p>内存偏移、长度、缓冲区重叠、接口 ID/版本及输出长度都经过检查。调用前清零允许写入的
+客体输出区；仅在成功且长度合法后复制回宿主。任何错误都保持调用者输出不变。
+业务错误不自动作废实例；trap、预算耗尽或非法成功长度会将实例永久标记为 <code>Poisoned</code>。
+释放实例不执行客体析构代码。超限 <code>memory.grow</code>/<code>table.grow</code> 返回 Wasm 的正常失败值，
+允许客体自行处理。</p>
+<p>这是依赖 Wasmi 正确性的<strong>进程内沙箱</strong>，不是操作系统进程隔离。客体内存上限不是整个宿主
+RSS 上限；fuel 不限制解析/编译的墙钟时间，也不消除引擎漏洞、宿主 OOM 或硬件侧信道。
+高风险多租户服务仍应叠加独立进程/容器与系统资源策略，并限制并发实例和编译请求数量。
+没有声称此适配层或 Wasmi 2.0 经过独立安全审计。</p>
+<p>Wasm 当前是同步字节缓冲协议。既有原生异步任务、waker、资源句柄、回调和 trait 代理
+<strong>不会自动跨入沙箱</strong>；也未提供 WASI 授权或宿主调用桥。任何语言只要生成相同协议可兼容，
+但本轮实际交付的 Wasm SDK 和独立编译示例是 Rust。现有 C/C++/Zig 生成器仍面向原生 ABI。</p>
+<h2 id="测试证据">测试证据<a class="heading-anchor" href="#测试证据" aria-label="链接到 测试证据">#</a></h2>
+<p><a href="https://github.com/LIghtJUNction/zplugin/actions/runs/43382342689">正式发布工作流 43382342689</a>
+的计划、8 个验证作业和发布作业，合计 <strong>10 个作业全部成功</strong>。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>验证</th>
+<th>实际结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wasm 契约与对抗输入</td>
+<td>30 项通过：畸形模块、类型错误、导入/start 拒绝、ABI/偏移/长度、fuel、栈、memory/table、trap、状态隔离及变异输入</td>
+</tr>
+<tr>
+<td>Cargo feature 合并</td>
+<td>显式启用引擎 <code>memory64</code> 后，适配层仍拒绝 memory64；回归测试通过</td>
+</tr>
+<tr>
+<td>真实 Rust Wasm 插件</td>
+<td>每个平台执行 8 组自检，含空、64 B、4 KiB、1 MiB、状态、错误、无限循环和 trap</td>
+</tr>
+<tr>
+<td>独立 Rust 编译</td>
+<td>客体/宿主 1.86 与 1.100 的四种组合全部通过</td>
+</tr>
+<tr>
+<td>原生回归</td>
+<td>三平台原生同步/异步插件、C11/C++17/Zig、旧版 ABI 兼容及打包门禁通过</td>
+</tr>
+<tr>
+<td>编译器与特性</td>
+<td>原生 MSRV 1.85 的 8 种组合，稳定版的 12 种组合；36 个编译失败诊断案例通过</td>
+</tr>
+<tr>
+<td>常规质量门禁</td>
+<td>fmt、Clippy、单元/集成/文档测试、严格 rustdoc、27 项 Python 工具测试通过</td>
+</tr>
+<tr>
+<td>no_std</td>
+<td>core 在 thumb/wasm32 编译；可选 Wasm 宿主的 <code>no_std + alloc</code> 在 thumb、Rust 1.86 编译通过</td>
+</tr>
+</tbody>
+</table></div>
+<p>不同版本重复执行同一测试不会相加宣传为额外独立案例。编译通过的嵌入式目标不代表已在
+真机执行沙箱，更不代表这些目标能加载 <code>.so</code>/<code>.dll</code>。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>实际宿主 target</th>
+<th>系统</th>
+<th>原生 Rust 1.85 / 1.100</th>
+<th>Rust 1.100 执行 Wasm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x86_64-unknown-linux-gnu</code></td>
+<td>Linux，glibc 2.43</td>
+<td>通过 / 通过</td>
+<td>8 组通过</td>
+</tr>
+<tr>
+<td><code>aarch64-apple-darwin</code></td>
+<td>macOS 26.7.2 arm64</td>
+<td>通过 / 通过</td>
+<td>8 组通过</td>
+</tr>
+<tr>
+<td><code>x86_64-pc-windows-msvc</code></td>
+<td>Windows Server 2025</td>
+<td>通过 / 通过</td>
+<td>8 组通过</td>
+</tr>
+</tbody>
+</table></div>
+<p>发布后又建立两个独立 Cargo 工作区，锁定公开 registry 的 <code>zplugin = &quot;=0.3.0&quot;</code>，没有
+path 替代。客体只依赖 zplugin；宿主解析到上述 8 个引擎包。两端 fmt、Clippy、release
+构建以及真实调用的 <strong>8 组自检全部通过</strong>，耗时 35.477 秒（含构建，不是调用延迟）。
+锁文件中的 zplugin 校验值与发布包一致。独立验收包使用普通 Cargo 客体栈配置，其模块
+为 1,016 B；它不是性能报告中设置 64 KiB 客体栈的 993 B 模块，两者不能混用测量数据。</p>
+<p>完整 CI 元数据、下载工件的校验值、发布清单和独立安装记录见
+<a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/evidence/0.3.0.json">机器可读证据</a>。</p>
+<h2 id="实测性能">实测性能<a class="heading-anchor" href="#实测性能" aria-label="链接到 实测性能">#</a></h2>
+<p>Linux x86-64、AMD EPYC 9V74，Rust 1.100，优化级别 3、thin LTO、单 codegen unit，
+固定 CPU 0。三次独立进程，每项 31 个批次；下表为三个进程的批次平均耗时 p50 的中位数，
+<strong>不是单次调用 P99 或实时保证</strong>。对照使用相同 Wasmi 引擎、预算、缓冲清零、复制和生命周期。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:right">zplugin</th>
+<th style="text-align:right">缓存 Wasmi 函数对照</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>加载、校验、绑定、释放</td>
+<td style="text-align:right">44.196 µs</td>
+<td style="text-align:right">43.098 µs</td>
+</tr>
+<tr>
+<td>空调用</td>
+<td style="text-align:right">145.229 ns</td>
+<td style="text-align:right">139.701 ns</td>
+</tr>
+<tr>
+<td>64 B 往返</td>
+<td style="text-align:right">176.627 ns</td>
+<td style="text-align:right">164.530 ns</td>
+</tr>
+<tr>
+<td>4 KiB 往返</td>
+<td style="text-align:right">321.324 ns</td>
+<td style="text-align:right">299.942 ns</td>
+</tr>
+<tr>
+<td>1 MiB 往返</td>
+<td style="text-align:right">78.186 µs</td>
+<td style="text-align:right">81.052 µs</td>
+</tr>
+</tbody>
+</table></div>
+<p>表中预热后的复用缓冲调用均记录到 <strong>0 次 Rust 堆分配</strong>；加载/释放每轮为 121 次分配。
+示例预留两个 1 MiB 缓冲，实际客体线性内存 <strong>2,228,224 B</strong>，绑定后保留的请求分配字节
+<strong>2,247,430 B</strong>。这些不是进程 RSS，也不是任意插件的最低内存或零分配承诺。
+边界有复制；较大缓冲结果受机器噪声影响，不宣称比底层引擎普遍更快。</p>
+<p><a href="../../zplugin/performance-0-3-0/">完整性能报告</a>提供不可变测量提交、样本量、分配计数范围、
+全部原始 CSV、误差范围及复现命令。原生调用性能继续引用独立的 0.2.0 报告，不混用
+原生无隔离调用和 Wasm 沙箱的安全语义。</p>
+<h2 id="发布与归档">发布与归档<a class="heading-anchor" href="#发布与归档" aria-label="链接到 发布与归档">#</a></h2>
+<p>发布时间：<strong>2026-11-13 15:05:38（Asia/Taipei）</strong>。</p>
+<ul>
+<li><a href="https://github.com/LIghtJUNction/zplugin/commit/554878b61a2a67d2f879294db0aa55f069cfe4ee">功能提交 554878b</a>，<a href="https://github.com/LIghtJUNction/zplugin/commit/e957b45e6f9a071a8ce3030fd75d3ca34334c71b">示例栈优化 e957b45</a>，<a href="https://github.com/LIghtJUNction/zplugin/commit/63e0334c0814b87714777e23a44edcab8f28c6de">实测文档 63e0334</a>。</li>
+<li><a href="https://github.com/LIghtJUNction/zplugin/commit/d10e9082495c8dafa2b0b0f3d19810cf5926ef02">发布提交 d10e908</a>，<a href="https://github.com/LIghtJUNction/zplugin/tree/v0.3.0">tag v0.3.0</a>，<a href="https://github.com/LIghtJUNction/zplugin/releases/tag/v0.3.0">GitHub Release</a>。</li>
+<li>crates.io：<a href="https://crates.io/crates/zplugin/0.3.0">zplugin 0.3.0</a>、<a href="https://crates.io/crates/zplugin-macros/0.3.0">zplugin-macros 0.3.0</a>。</li>
+<li><a href="https://drive.google.com/drive/folders/1LBJZoXa6T7_x_JcR3bOaA_KgWxAQfzx2">Google Drive 交付目录</a>：协议、性能报告、全部原始 CSV、最终证据和可复现的 registry 安装验收包。</li>
+</ul>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>公开包</th>
+<th>SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zplugin 0.3.0</td>
+<td><code>ea2485a9c61ce94d77f52baf55dcad088a151a7c742125f7a7c1cfee6bd07b4e</code></td>
+</tr>
+<tr>
+<td>zplugin-macros 0.3.0</td>
+<td><code>87b3be200d7786220b9993f3c78fb40d2a255e4fb46b6c8451ddd01fc285725b</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>发布工作流保留 patch/minor/major/custom、dry-run、并发互斥、已发布版本检查及部分
+失败恢复路径。Token 只注入实际发布步骤；此次未读取或持久化凭据。发布后报告是独立
+文档提交，不修改已发布 tag 或包内容。</p>
+<p>文档按照 Research-Paper-Writing-Skills 的结论—方法—证据原则组织，将实现能力、实测
+结果和支持边界分开；未把未实施的异步 Wasm、WASI 授权或进程级隔离写成现有能力。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zplugin/blob/592a1be623b81a775026c470e6f0efe91fcf78f3/docs/zplugin-0.3.0-delivery.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zplugin">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zplugin/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../zplugin/examples-foreign-readme/"><span class="pagination-label">下一页</span><span class="pagination-title">C, C++, and Zig plugins</span></a></nav>
+      <footer class="page-footer">
+        <span>zplugin <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#结论与范围">结论与范围</a></li><li class="toc-level-2"><a href="#使用">使用</a></li><li class="toc-level-2"><a href="#限制和错误处理">限制和错误处理</a></li><li class="toc-level-2"><a href="#测试证据">测试证据</a></li><li class="toc-level-2"><a href="#实测性能">实测性能</a></li><li class="toc-level-2"><a href="#发布与归档">发布与归档</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="查询模型服务商预设、本地软件状态、账号模型目录与余额。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="lmm · LMM CLI Setup · Project Z">
+  <meta property="og:description" content="查询模型服务商预设、本地软件状态、账号模型目录与余额。">
+  <meta property="og:type" content="website">
+  <title>lmm · LMM CLI Setup · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/lmm/requirements-zh-cn/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="lmm">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/TokenNotIncluded/lmm" aria-label="lmm 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">lmm</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>lmm</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/" aria-current="page">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="lmm 文档"><div class="nav-group"><p class="nav-label">lmm</p><ul><li><a class="nav-link" href="../../lmm/">概览</a></li><li><a class="nav-link" href="../../lmm/readme-en/">LMM CLI</a></li><li><a class="nav-link" href="../../lmm/usage/">Usage guide</a></li><li><a class="nav-link" href="../../lmm/usage-zh-cn/">使用指南</a></li><li><a class="nav-link" href="../../lmm/i18n/">Translations</a></li><li><a class="nav-link" href="../../lmm/magpie-parity/">Magpie 功能对照</a></li><li><a class="nav-link" href="../../lmm/managed-distributions/">CC Switch 受管发行包</a></li><li><a class="nav-link" href="../../lmm/requirements-zh-cn/" aria-current="page">LMM CLI Setup</a></li><li><a class="nav-link" href="../../lmm/third-party-magpie-notice/">Magpie provider presets</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>lmm</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/" aria-current="page">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="lmm 文档"><div class="nav-group"><p class="nav-label">lmm</p><ul><li><a class="nav-link" href="../../lmm/">概览</a></li><li><a class="nav-link" href="../../lmm/readme-en/">LMM CLI</a></li><li><a class="nav-link" href="../../lmm/usage/">Usage guide</a></li><li><a class="nav-link" href="../../lmm/usage-zh-cn/">使用指南</a></li><li><a class="nav-link" href="../../lmm/i18n/">Translations</a></li><li><a class="nav-link" href="../../lmm/magpie-parity/">Magpie 功能对照</a></li><li><a class="nav-link" href="../../lmm/managed-distributions/">CC Switch 受管发行包</a></li><li><a class="nav-link" href="../../lmm/requirements-zh-cn/" aria-current="page">LMM CLI Setup</a></li><li><a class="nav-link" href="../../lmm/third-party-magpie-notice/">Magpie provider presets</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../lmm/">lmm 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../lmm/">lmm</a><span aria-hidden="true">/</span><span>LMM CLI Setup</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#一产品定位与目标">一、产品定位与目标</a></li><li class="toc-level-2"><a href="#二支持范围">二、支持范围</a></li><li class="toc-level-3"><a href="#跨平台与运行环境">跨平台与运行环境</a></li><li class="toc-level-3"><a href="#软件目录">软件目录</a></li><li class="toc-level-2"><a href="#三核心流程与默认行为">三、核心流程与默认行为</a></li><li class="toc-level-3"><a href="#1-发现环境">1. 发现环境</a></li><li class="toc-level-3"><a href="#2-选择目标">2. 选择目标</a></li><li class="toc-level-3"><a href="#3-展示操作计划">3. 展示操作计划</a></li><li class="toc-level-3"><a href="#4-区分添加与启用">4. 区分添加与启用</a></li><li class="toc-level-3"><a href="#5-执行与完成">5. 执行与完成</a></li><li class="toc-level-3"><a href="#批量与无人值守行为">批量与无人值守行为</a></li><li class="toc-level-2"><a href="#四下载安装组件与更新">四、下载安装、组件与更新</a></li><li class="toc-level-3"><a href="#安装行为">安装行为</a></li><li class="toc-level-3"><a href="#管理关系">管理关系</a></li><li class="toc-level-3"><a href="#provider-与插件">Provider 与插件</a></li><li class="toc-level-3"><a href="#更新行为">更新行为</a></li><li class="toc-level-2"><a href="#五登录应用授权与费用">五、登录、应用授权与费用</a></li><li class="toc-level-3"><a href="#登录与持续使用">登录与持续使用</a></li><li class="toc-level-3"><a href="#应用级授权">应用级授权</a></li><li class="toc-level-3"><a href="#账号切换">账号切换</a></li><li class="toc-level-3"><a href="#费用确认">费用确认</a></li><li class="toc-level-2"><a href="#六模型选择与同步">六、模型选择与同步</a></li><li class="toc-level-2"><a href="#七astrbot-快速接入">七、AstrBot 快速接入</a></li><li class="toc-level-3"><a href="#接入目标">接入目标</a></li><li class="toc-level-3"><a href="#实例与授权">实例与授权</a></li><li class="toc-level-3"><a href="#配置生效范围">配置生效范围</a></li><li class="toc-level-3"><a href="#验证与交付">验证与交付</a></li><li class="toc-level-2"><a href="#八cc-switch-兼容">八、CC Switch 兼容</a></li><li class="toc-level-3"><a href="#接入原则">接入原则</a></li><li class="toc-level-3"><a href="#普通切换与本地路由">普通切换与本地路由</a></li><li class="toc-level-3"><a href="#配置与授权更新">配置与授权更新</a></li><li class="toc-level-2"><a href="#九状态验证与诊断">九、状态、验证与诊断</a></li><li class="toc-level-3"><a href="#状态应分别展示">状态应分别展示</a></li><li class="toc-level-3"><a href="#分清验证层次">分清验证层次</a></li><li class="toc-level-3"><a href="#诊断与修复">诊断与修复</a></li><li class="toc-level-2"><a href="#十配置保护恢复与退出">十、配置保护、恢复与退出</a></li><li class="toc-level-3"><a href="#变更记录与保护">变更记录与保护</a></li><li class="toc-level-3"><a href="#恢复">恢复</a></li><li class="toc-level-3"><a href="#退出解除接入与卸载">退出、解除接入与卸载</a></li><li class="toc-level-2"><a href="#十一重复执行安全与隐私">十一、重复执行、安全与隐私</a></li><li class="toc-level-2"><a href="#十二命令约定">十二、命令约定</a></li><li class="toc-level-2"><a href="#十三验收标准">十三、验收标准</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="lmm-cli-setup">LMM CLI Setup</h1>
+<h2 id="一产品定位与目标">一、产品定位与目标<a class="heading-anchor" href="#一产品定位与目标" aria-label="链接到 一、产品定位与目标">#</a></h2>
+<p>LMM CLI 是 LMM 生态的统一安装与接入工具，将软件下载、环境准备、账号授权、模型配置和可用性验证整合为一次完整操作。</p>
+<p>用户运行：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">bash</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 bash 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>lmm setup
+</code></pre></div>
+<p>选择需要的软件，完成必要授权并确认操作后，即可通过原软件使用 LMM。用户无需自行创建 API Key、复制服务地址、查找模型编号或编辑配置文件。</p>
+<p>产品复用现有 LMM OAuth 登录能力，使用 Rust 开发。支持用户已有的软件和配置管理方式，不替代 AI 客户端，不要求用户放弃 CC Switch，也不另建充值、计费或聊天系统。</p>
+<p><strong>核心目标：把选定的软件准备到可以实际使用 LMM，并让接入过程可检查、可维护、可撤销。</strong></p>
+<p>“一键”意味着将可以自动完成的工作合并处理，不意味着跳过账号授权、费用确认、系统权限或必要的软件许可确认。</p>
+<h2 id="二支持范围">二、支持范围<a class="heading-anchor" href="#二支持范围" aria-label="链接到 二、支持范围">#</a></h2>
+<h3 id="跨平台与运行环境">跨平台与运行环境<a class="heading-anchor" href="#跨平台与运行环境" aria-label="链接到 跨平台与运行环境">#</a></h3>
+<p>LMM CLI 支持 Windows、macOS、Linux，覆盖 x86_64 和 ARM64 架构。相同任务应使用相同命令，安装方式和环境差异由 LMM 处理。</p>
+<p>提供适合普通用户的 LMM CLI 安装方式，不要求用户先安装 Rust 或准备开发环境。</p>
+<p>支持有浏览器的桌面设备，以及无图形界面的服务器。服务器用户应能够在另一台设备上完成登录授权，无需手动配置 LMM API Key。</p>
+<p>本机、Windows 中的 Linux 环境、容器和远程实例必须分别识别。一个环境中已经安装软件，不代表另一个环境也已安装；配置一个环境，也不得顺带修改其他环境。</p>
+<h3 id="软件目录">软件目录<a class="heading-anchor" href="#软件目录" aria-label="链接到 软件目录">#</a></h3>
+<p>软件目录覆盖 AI 编程工具、Agent 工具、编辑器扩展、桌面客户端，以及 AstrBot、CC Switch 等目标集成对象。</p>
+<p>用户能够搜索软件，并查看用途、项目来源、支持平台、兼容版本、必要组件和接入能力。每个条目必须对应明确的项目，不能以含糊名称指向不同软件。</p>
+<p>目录必须分别说明：</p>
+<ul>
+<li><strong>安装能力</strong>：能否自动下载、安装和启动。</li>
+<li><strong>接入能力</strong>：能否自动连接 LMM，是否需要额外确认或组件。</li>
+<li><strong>维护能力</strong>：能否检查、更新、修复和恢复。</li>
+</ul>
+<p>“可以下载”不能等同于“完整支持”。同一软件的命令行版、桌面版和编辑器扩展也不能默认视为同一项兼容能力。</p>
+<p>每项兼容声明都应对应经过验证的软件版本、系统环境和使用场景。未经验证的组合应明确标记，不得通过模糊的“兼容所有版本”掩盖限制。</p>
+<h2 id="三核心流程与默认行为">三、核心流程与默认行为<a class="heading-anchor" href="#三核心流程与默认行为" aria-label="链接到 三、核心流程与默认行为">#</a></h2>
+<h3 id="1-发现环境">1. 发现环境<a class="heading-anchor" href="#1-发现环境" aria-label="链接到 1. 发现环境">#</a></h3>
+<p><code>lmm setup</code> 首先识别当前运行环境、已安装软件、现有配置、LMM 登录状态，以及软件是否由 CC Switch 等工具管理。</p>
+<p>检测范围默认限于当前用户有权访问的本机环境。远程实例由用户明确指定，不自动扫描局域网或其他设备。</p>
+<p>无法读取配置时，应显示“无法确认”，不能直接判定为“未安装”或“未配置”。</p>
+<h3 id="2-选择目标">2. 选择目标<a class="heading-anchor" href="#2-选择目标" aria-label="链接到 2. 选择目标">#</a></h3>
+<p>未指定软件时，展示已发现的软件和适合当前环境的可安装软件，由用户选择。</p>
+<p>指定软件时，直接进入该软件的接入流程：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">bash</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 bash 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>lmm setup astrbot
+lmm setup cc-switch
+</code></pre></div>
+<p>存在多个安装位置、用户配置或运行实例时，应让用户选择目标。后续操作始终围绕该目标进行。</p>
+<p>默认只修改当前用户选定的软件和配置范围，不修改其他用户、其他项目或系统级设置。发现项目设置覆盖通用设置时，应说明实际生效范围。</p>
+<h3 id="3-展示操作计划">3. 展示操作计划<a class="heading-anchor" href="#3-展示操作计划" aria-label="链接到 3. 展示操作计划">#</a></h3>
+<p>修改前集中展示本次计划，说明将安装或更新的对象、使用的账号、修改范围、是否启用 LMM、是否切换模型，以及是否需要重启或付费测试。</p>
+<p>用户应能直接使用合理默认值，只在涉及真实选择或风险时确认，不必逐项回答可以自动判断的技术问题。</p>
+<p>计划确认后，如果发现新的重大影响，例如需要额外权限、安装其他组件或重启正在运行的服务，应重新确认变化部分。</p>
+<h3 id="4-区分添加与启用">4. 区分添加与启用<a class="heading-anchor" href="#4-区分添加与启用" aria-label="链接到 4. 区分添加与启用">#</a></h3>
+<p>新安装且尚未配置模型服务的软件，在用户确认接入计划后，默认启用 LMM。</p>
+<p>已有其他服务商的软件，默认保留当前选择，提供“仅添加 LMM”和“添加并切换到 LMM”两种结果。</p>
+<p>已经接入 LMM、但用户后来切换到其他服务商的软件，再次执行 <code>setup</code> 时必须尊重用户当前选择。</p>
+<p><strong>重复执行、模型同步、软件更新和故障修复，都不能成为强行切回 LMM 的理由。</strong></p>
+<h3 id="5-执行与完成">5. 执行与完成<a class="heading-anchor" href="#5-执行与完成" aria-label="链接到 5. 执行与完成">#</a></h3>
+<p>执行过程中显示当前操作和进度，允许取消。独立的软件任务应分别完成，单个失败不应阻止其他任务继续。</p>
+<p>结束后逐项说明已完成内容、实际启用状态、验证范围和待处理事项。需要打开管理页面、重新启动软件或继续授权时，给出直接入口或下一步命令。</p>
+<p>不得用一个总的“成功”掩盖部分软件尚未完成。</p>
+<h3 id="批量与无人值守行为">批量与无人值守行为<a class="heading-anchor" href="#批量与无人值守行为" aria-label="链接到 批量与无人值守行为">#</a></h3>
+<p><code>lmm setup --all</code> 仅为当前环境中已安装且受支持的软件批量规划接入，不安装整个软件目录，也不自动包含远程实例。</p>
+<p>无人值守模式应要求事先明确目标和授权范围。缺少授权、发生冲突或出现未批准的费用时，应结束相关操作并返回原因，而不是无限等待或默认同意。</p>
+<h2 id="四下载安装组件与更新">四、下载安装、组件与更新<a class="heading-anchor" href="#四下载安装组件与更新" aria-label="链接到 四、下载安装、组件与更新">#</a></h2>
+<h3 id="安装行为">安装行为<a class="heading-anchor" href="#安装行为" aria-label="链接到 安装行为">#</a></h3>
+<p>单独安装软件不应要求先登录 LMM；连接模型服务和执行 LMM 调用时才需要授权。</p>
+<p>LMM 自动选择适用版本，完成下载、安装和必要依赖准备。默认安装已确认兼容的稳定版本，不为追求最新版本而引入未经验证的变化。</p>
+<p>下载来源必须明确可信。安装前检查必要条件，避免明知不兼容仍继续执行。不得夹带无关软件，或通过关闭系统安全保护完成安装。</p>
+<p>已有软件优先复用。原有版本不兼容时，说明可选择的处理方式，不擅自降级、重装或另装一份。</p>
+<h3 id="管理关系">管理关系<a class="heading-anchor" href="#管理关系" aria-label="链接到 管理关系">#</a></h3>
+<p>软件的安装管理者与配置管理者应分别识别。例如，软件可以由系统的软件包管理器安装，同时由 CC Switch 管理模型配置。</p>
+<p>对外部安装的软件，默认只完成用户授权的接入操作。纳入 LMM 的批量更新或卸载范围，需要明确确认。</p>
+<h3 id="provider-与插件">Provider 与插件<a class="heading-anchor" href="#provider-与插件" aria-label="链接到 Provider 与插件">#</a></h3>
+<p>需要专门 Provider，即模型服务接入组件，或插件时，自动安装与目标版本匹配的必要组件。</p>
+<p>已有兼容组件应复用。不应仅为接入 LMM 安装与本次任务无关的插件、MCP 工具或其他扩展。</p>
+<p>若集成需要辅助组件持续运行，应在安装前说明，并将其纳入启动、检查和卸载管理。正常使用不得依赖 <code>setup</code> 的终端一直保持开启。</p>
+<h3 id="更新行为">更新行为<a class="heading-anchor" href="#更新行为" aria-label="链接到 更新行为">#</a></h3>
+<p>更新前展示可更新对象、兼容性变化和影响，由用户确认后执行。允许用户保留正常工作的版本，不强制更新。</p>
+<p>服务重启、配置迁移或可能影响数据的更新，应单独说明。更新后重新检查 LMM 接入，不能仅凭软件版本变化报告完成。</p>
+<p>下载或更新失败时，保留能够继续使用的原环境，并支持重试。</p>
+<h2 id="五登录应用授权与费用">五、登录、应用授权与费用<a class="heading-anchor" href="#五登录应用授权与费用" aria-label="链接到 五、登录、应用授权与费用">#</a></h2>
+<h3 id="登录与持续使用">登录与持续使用<a class="heading-anchor" href="#登录与持续使用" aria-label="链接到 登录与持续使用">#</a></h3>
+<p>复用现有 OAuth 登录状态，不要求用户在每个软件中重复登录 LMM。</p>
+<p>登录过期与应用授权失效应明确区分。需要重新授权时，保留已经完成的安装和配置，并在授权完成后继续。</p>
+<p>AstrBot 等持续运行的应用，在关闭安装终端后仍应能正常调用 LMM。</p>
+<h3 id="应用级授权">应用级授权<a class="heading-anchor" href="#应用级授权" aria-label="链接到 应用级授权">#</a></h3>
+<p>用户应能识别每份授权对应的软件、设备或实例，查看其使用范围，并单独撤销。</p>
+<p>不同应用不得默认获得修改账户、安全设置或其他应用配置的权限。重复配置同一目标时，应复用或更新原授权，不不断创建新的授权记录。</p>
+<p>支持为应用设置模型使用范围和消费限制。限制必须在 LMM 账户侧实际生效，包括后台运行和从原软件直接启动的情况，不能仅在 CLI 中显示提示。</p>
+<p>用户主动撤销授权后，<code>setup</code>、同步和修复不得在未经确认的情况下重新授予权限。</p>
+<h3 id="账号切换">账号切换<a class="heading-anchor" href="#账号切换" aria-label="链接到 账号切换">#</a></h3>
+<p>切换 CLI 登录账号不应自动迁移所有应用。</p>
+<p>需要将某个应用改为使用新账号时，应明确展示受影响对象、新的费用承担账号，以及原授权如何处理。</p>
+<h3 id="费用确认">费用确认<a class="heading-anchor" href="#费用确认" aria-label="链接到 费用确认">#</a></h3>
+<p>默认模型和付费测试应展示计费信息，单位清楚，不要求用户自行换算不明倍率。</p>
+<p><code>setup</code> 中的付费验证可以合并进操作计划一次确认，但应说明测试范围和消费上限。无法确定或约束费用时，不自动执行付费测试。</p>
+<p>额度不足时，保留已完成的安装和配置，标记等待处理。不得自动充值、切换其他账号或换用未经确认的收费模型。</p>
+<h2 id="六模型选择与同步">六、模型选择与同步<a class="heading-anchor" href="#六模型选择与同步" aria-label="链接到 六、模型选择与同步">#</a></h2>
+<p>按目标软件的用途和必要能力，展示当前账号有权使用的兼容模型，避免让用户从整个模型目录中自行判断。</p>
+<p>默认建议应说明实际模型名称、主要用途、必要能力和价格，允许按软件或实例分别选择。</p>
+<p>模型同步负责更新可用信息，不默认改变用户已选择的模型。新增模型不应自动替换现有模型；模型下线、权限变化或不再兼容时，应说明影响并提供替代选择。</p>
+<p>模型别名应能查看当前对应的实际模型。同步或别名变化导致实际模型改变时，应让用户可见，不得把“名称没变”当作“配置没变”。</p>
+<p>仅维护 LMM 相关模型和服务项，不覆盖其他服务商，也不把全部模型无差别添加到每个软件。</p>
+<h2 id="七astrbot-快速接入">七、AstrBot 快速接入<a class="heading-anchor" href="#七astrbot-快速接入" aria-label="链接到 七、AstrBot 快速接入">#</a></h2>
+<h3 id="接入目标">接入目标<a class="heading-anchor" href="#接入目标" aria-label="链接到 接入目标">#</a></h3>
+<p>通过 <code>lmm setup astrbot</code>，使指定 AstrBot 实例中的目标配置能够实际使用 LMM。</p>
+<p>AstrBot 的模型接入包含添加提供商、启用模型，以及在目标配置中选择对话模型。因此，不能只完成服务商添加就报告接入完成。</p>
+<h3 id="实例与授权">实例与授权<a class="heading-anchor" href="#实例与授权" aria-label="链接到 实例与授权">#</a></h3>
+<p>支持本机部署、Docker 部署，以及用户指定并授权管理的远程实例。</p>
+<p>已有实例优先接入，不另建一套。新安装实例应完成必要的运行准备，并明确后续启动和访问入口。</p>
+<p>LMM 账号授权与 AstrBot 管理授权分别处理。不能因为用户登录了 LMM，就假定其有权修改任意 AstrBot 实例。</p>
+<p>新部署不得为了方便接入而默认将管理后台开放到公网，或绕过必要的管理账号初始化。</p>
+<h3 id="配置生效范围">配置生效范围<a class="heading-anchor" href="#配置生效范围" aria-label="链接到 配置生效范围">#</a></h3>
+<p>自动新增或更新 LMM 服务项，获取并启用用户选择的模型，再按确认范围设置目标配置。</p>
+<p>AstrBot 的聊天界面可以分别选择配置、服务商与模型，部分情况下还存在会话独立选择。因此，改变默认配置不能被视为所有会话都会同步改变。</p>
+<p>接入时应说明影响的是哪套配置，以及既有会话是否会继续保留原模型。不应默认修改所有机器人和所有会话。</p>
+<p>保留消息平台连接、插件、人格设置、其他服务商和历史数据。</p>
+<h3 id="验证与交付">验证与交付<a class="heading-anchor" href="#验证与交付" aria-label="链接到 验证与交付">#</a></h3>
+<p>验证必须以选定实例的运行环境和目标配置为准，确认请求实际通过 LMM 完成。</p>
+<p>仅由安装电脑调用 LMM 成功，不算 AstrBot 验证通过。使用其他服务商自动接替后取得回复，也不能算 LMM 接入验证通过。</p>
+<p>需要重新加载或重启时，说明影响并取得确认。尚未生效的配置标记为“等待生效”。</p>
+<p>完成后展示实例、目标配置、实际模型和验证结果，并提供打开 AstrBot 的入口。</p>
+<p><strong>模型接入完成不等于消息平台机器人已经上线。</strong> 验证不得向真实群聊或联系人自动发送消息，不自动执行用户已有的机器人任务。</p>
+<h2 id="八cc-switch-兼容">八、CC Switch 兼容<a class="heading-anchor" href="#八cc-switch-兼容" aria-label="链接到 八、CC Switch 兼容">#</a></h2>
+<h3 id="接入原则">接入原则<a class="heading-anchor" href="#接入原则" aria-label="链接到 接入原则">#</a></h3>
+<p>CC Switch 已提供服务商导入、配置和切换能力。LMM 的目标是在其中添加可用的 LMM 服务项，而不是接管或替代这些能力。</p>
+<p>检测到 CC Switch 时，按目标软件分别判断管理关系。不能因为安装了 CC Switch，就假定所有软件都由它管理。</p>
+<p>由 CC Switch 管理的配置，必须通过兼容方式维护，不同时从其他位置覆盖。</p>
+<h3 id="普通切换与本地路由">普通切换与本地路由<a class="heading-anchor" href="#普通切换与本地路由" aria-label="链接到 普通切换与本地路由">#</a></h3>
+<p>兼容普通服务商切换，以及 CC Switch 本地路由启用时的工作方式。</p>
+<p>CC Switch 的本地路由会将应用请求转交给当前启用的服务商，因此不能仅凭应用中保存的服务地址判断实际使用对象。</p>
+<p>LMM 的状态检查应区分“LMM 已添加”“当前选择 LMM”和“本次调用实际经过 LMM”。无法确认实际路径时，应明确说明。</p>
+<p>用户切换到其他服务商后，同步、更新和修复不得切回 LMM，也不得改变原有自动切换顺序或其他服务商设置。</p>
+<h3 id="配置与授权更新">配置与授权更新<a class="heading-anchor" href="#配置与授权更新" aria-label="链接到 配置与授权更新">#</a></h3>
+<p>重复添加同一目标时，应更新已有 LMM 条目，不产生重复服务商。</p>
+<p>需要在 CC Switch 中确认导入、启用或重启时，应引导完成，并显示“等待操作”，不能提前报告成功。</p>
+<p>授权变化只更新对应 LMM 接入信息，不改变当前选中的服务商，不覆盖 MCP、Skills、提示词或其他无关设置。</p>
+<p>CC Switch 支持跨设备同步配置。LMM 应区分“配置已经同步”和“当前设备已经完成授权”，不能将两者视为相同状态。可分享的配置模板不得包含 LMM 账户的长期登录凭据。</p>
+<h2 id="九状态验证与诊断">九、状态、验证与诊断<a class="heading-anchor" href="#九状态验证与诊断" aria-label="链接到 九、状态、验证与诊断">#</a></h2>
+<h3 id="状态应分别展示">状态应分别展示<a class="heading-anchor" href="#状态应分别展示" aria-label="链接到 状态应分别展示">#</a></h3>
+<p>软件安装状态、LMM 接入状态和验证状态必须分别显示，至少让用户知道：</p>
+<ul>
+<li>软件是否安装，目标环境是什么，由谁管理安装和配置。</li>
+<li>LMM 是否已添加、已授权、已启用，当前服务商和模型是什么。</li>
+<li>最近检查的时间、检查范围，以及哪些内容尚未验证。</li>
+</ul>
+<p>用户主动使用其他服务商，不应被标记为故障。没有权限读取、网络暂时不可用或尚未检查，也不能被误报为正常。</p>
+<p>状态查询不得触发付费模型调用。历史验证通过应显示检查时间；配置、模型或软件版本变化后，应提示需要重新验证。</p>
+<h3 id="分清验证层次">分清验证层次<a class="heading-anchor" href="#分清验证层次" aria-label="链接到 分清验证层次">#</a></h3>
+<p>验证结果至少区分配置检查、LMM 连通性验证和目标软件实际调用验证。</p>
+<p><strong>只有目标软件在所选使用场景下验证通过，才能标记该场景“已可使用”。</strong></p>
+<p>对于声明支持编程工作流的软件，验证不应止于一次简单文本回复，还应覆盖所承诺的流式输出、工具调用和必要的多轮交互。额外能力未验证时，应单独标记，不得概括为全部兼容。</p>
+<p>验证应使用专门的测试内容和临时环境，不读取真实项目、不修改用户代码、不调用具有真实外部影响的工具。</p>
+<p>选择“仅添加但不启用”时，不得为了测试擅自切换当前服务商。</p>
+<h3 id="诊断与修复">诊断与修复<a class="heading-anchor" href="#诊断与修复" aria-label="链接到 诊断与修复">#</a></h3>
+<p><code>lmm doctor</code> 默认只检查，不修改配置，也不触发未经确认的付费测试。</p>
+<p>问题应指出出错位置、影响和下一步，例如登录失效、余额不足、模型无权限、目标配置未生效、必要组件未运行或网络连接失败。</p>
+<p><code>lmm doctor --fix</code> 只修复明确属于 LMM、且已获允许的内容。涉及重装、重启、账号切换、服务商切换或覆盖用户修改时，仍需确认。</p>
+<p>不能通过反复重置本地配置来处理 LMM 服务端或上游故障。重试必须有明确终止条件，不得无限重试或反复产生费用。</p>
+<p>支持生成经脱敏的诊断摘要，供用户主动分享。摘要应包含必要的环境和错误信息，不包含完整凭据、对话内容或项目代码。</p>
+<h2 id="十配置保护恢复与退出">十、配置保护、恢复与退出<a class="heading-anchor" href="#十配置保护恢复与退出" aria-label="链接到 十、配置保护、恢复与退出">#</a></h2>
+<h3 id="变更记录与保护">变更记录与保护<a class="heading-anchor" href="#变更记录与保护" aria-label="链接到 变更记录与保护">#</a></h3>
+<p>修改前保存可恢复的原状态，并记录本次修改的对象、范围和结果。用户能够知道某次操作影响了什么。</p>
+<p>执行期间，如果用户或其他管理工具修改了相同内容，应暂停冲突部分并重新确认，不能覆盖刚产生的新设置。</p>
+<p>配置失败时，仅撤销该目标本次未完成的修改，不影响其他已经成功的软件。依赖同一组件的任务，应准确标记受到的影响。</p>
+<h3 id="恢复">恢复<a class="heading-anchor" href="#恢复" aria-label="链接到 恢复">#</a></h3>
+<p><code>lmm restore</code> 用于撤销用户选定的 LMM 配置修改，而不是用旧备份覆盖整个环境。</p>
+<p>用户在接入后新增或修改的设置应保留。存在冲突时，展示差异并允许选择。无法完整恢复的内容，应在执行前说明。</p>
+<p>恢复旧配置不得重新激活已经撤销的授权。配置能够恢复，不代表旧授权仍然有效。</p>
+<h3 id="退出解除接入与卸载">退出、解除接入与卸载<a class="heading-anchor" href="#退出解除接入与卸载" aria-label="链接到 退出、解除接入与卸载">#</a></h3>
+<p>这几种操作必须明确区分：</p>
+<p><strong>退出登录</strong>：退出当前 CLI 登录状态，默认不终止持续运行应用的独立授权，并明确告知仍有效的应用。</p>
+<p><strong>解除接入</strong>：撤销指定应用或实例的 LMM 授权，移除其 LMM 接入信息，保留软件及其他服务商。正在使用 LMM 时，应先说明影响，让用户决定是否切换到已有的其他服务商。</p>
+<p><strong>恢复配置</strong>：撤销特定配置变更，不自动删除软件或历史数据。</p>
+<p><strong>卸载软件</strong>：删除用户确认的目标软件，默认保留用户数据，不误删共享组件，也不卸载仅被发现但未获管理授权的软件。</p>
+<p>卸载 LMM CLI 本身时，应说明哪些应用仍可独立运行、哪些依赖 LMM 组件，以及尚未撤销的授权。不能留下用户不知道的持续授权或运行依赖。</p>
+<p>网络不可用时，应区分“本地信息已移除”和“服务端授权已撤销”，不能将尚未确认的撤销报告为完成。</p>
+<h2 id="十一重复执行安全与隐私">十一、重复执行、安全与隐私<a class="heading-anchor" href="#十一重复执行安全与隐私" aria-label="链接到 十一、重复执行、安全与隐私">#</a></h2>
+<p>所有安装、配置、同步、更新和修复操作都应支持重复执行。有效的已有状态应复用，不新增重复服务商、插件、授权或软件副本。</p>
+<p>中断后应能够继续未完成部分。用户取消后，停止发起新的修改，并说明哪些内容已经完成、哪些需要恢复。</p>
+<p>不得在普通输出、诊断报告、分享模板或更新日志中暴露完整凭据。包含敏感信息的配置备份应受到保护，不能作为普通日志自动上传。</p>
+<p>默认不采集用户对话、代码或与环境诊断无关的数据。问题报告、使用统计或错误上传均应让用户知情并可控制。</p>
+<p><code>--all</code> 只扩大操作对象范围，不代表允许忽略权限、覆盖冲突、删除数据或跳过费用确认。</p>
+<h2 id="十二命令约定">十二、命令约定<a class="heading-anchor" href="#十二命令约定" aria-label="链接到 十二、命令约定">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>预期行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lmm setup [软件]</code></td>
+<td>完整接入入口。发现环境，按需安装，完成授权、配置和验证。未指定软件时提供选择。</td>
+</tr>
+<tr>
+<td><code>lmm setup --all</code></td>
+<td>为当前环境中已安装且受支持的软件批量规划接入，确认后执行。</td>
+</tr>
+<tr>
+<td><code>lmm install [软件]</code></td>
+<td>安装软件及必要运行组件，不要求先登录，也不自动切换模型服务商。</td>
+</tr>
+<tr>
+<td><code>lmm login</code></td>
+<td>登录或切换 CLI 账号；应用账号变更需要另行确认。</td>
+</tr>
+<tr>
+<td><code>lmm logout</code></td>
+<td>退出 CLI，明确展示仍有效的应用授权。</td>
+</tr>
+<tr>
+<td><code>lmm status [软件]</code></td>
+<td>查看安装、管理关系、接入和最近验证状态，不触发付费调用。</td>
+</tr>
+<tr>
+<td><code>lmm sync [软件]</code></td>
+<td>更新 LMM 模型和接入信息，不擅自切换服务商或默认模型。</td>
+</tr>
+<tr>
+<td><code>lmm update [软件]</code></td>
+<td>检查并确认更新；<code>--all</code> 只包含已授权纳入管理的对象。</td>
+</tr>
+<tr>
+<td><code>lmm doctor [软件]</code></td>
+<td>检查问题；增加 <code>--fix</code> 后执行允许的修复。</td>
+</tr>
+<tr>
+<td><code>lmm restore [软件]</code></td>
+<td>选择并撤销 LMM 的配置变更，保留无关内容和用户后续修改。</td>
+</tr>
+<tr>
+<td><code>lmm disconnect &lt;软件&gt;</code></td>
+<td>解除指定软件或实例的 LMM 接入，处理其应用授权。</td>
+</tr>
+<tr>
+<td><code>lmm uninstall &lt;软件&gt;</code></td>
+<td>确认后卸载指定软件，默认保留数据和共享依赖。</td>
+</tr>
+<tr>
+<td><code>lmm run &lt;软件&gt;</code></td>
+<td>按当前有效配置启动；未安装时，确认后完成安装和接入。</td>
+</tr>
+</tbody>
+</table></div>
+<p>涉及多个实例的命令都应允许指定实例。未能唯一确定目标时，不得默认操作全部实例。</p>
+<p>用户完成接入后，也应能通过原软件的命令或图标启动，不强制要求始终使用 <code>lmm run</code>。</p>
+<h2 id="十三验收标准">十三、验收标准<a class="heading-anchor" href="#十三验收标准" aria-label="链接到 十三、验收标准">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>通过条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全新设备</td>
+<td>通过一次 <code>setup</code> 完成所选软件的安装、授权、配置和实际调用验证，无需手动填写模型服务配置。</td>
+</tr>
+<tr>
+<td>仅安装软件</td>
+<td>未登录 LMM 也能完成安装，不产生模型授权或付费调用。</td>
+</tr>
+<tr>
+<td>已有其他服务商</td>
+<td>能添加 LMM，并按用户选择决定是否启用；原服务商和无关配置保持不变。</td>
+</tr>
+<tr>
+<td>多环境、多实例</td>
+<td>只修改明确选定的环境和实例，其他环境、项目和用户配置不受影响。</td>
+</tr>
+<tr>
+<td>AstrBot 接入</td>
+<td>指定实例和目标配置实际通过 LMM 完成调用；原有机器人设置及数据保留，不向真实聊天对象发送测试消息。</td>
+</tr>
+<tr>
+<td>CC Switch 共存</td>
+<td>普通切换和本地路由场景均能准确识别状态；用户切换离开 LMM 后，不被同步或修复强行切回。</td>
+</tr>
+<tr>
+<td>能力验证</td>
+<td>简单文本成功但必要的工具调用或流式输出失败时，不标记对应编程场景完整可用。</td>
+</tr>
+<tr>
+<td>费用与额度</td>
+<td>未授权不进行付费测试；测试遵守已确认限制，余额不足不自动充值或换用其他收费方案。</td>
+</tr>
+<tr>
+<td>授权撤销</td>
+<td>只影响选定应用或实例；撤销确认后，不再接受使用该授权发起的新调用，已开始的调用与费用另行说明。</td>
+</tr>
+<tr>
+<td>重复执行</td>
+<td>同一目标连续执行三次 <code>setup</code>，不产生重复软件、服务商、插件或多余授权。</td>
+</tr>
+<tr>
+<td>中断与部分失败</td>
+<td>再次执行能够继续；单个目标失败不破坏其他成功项，未完成内容有明确说明。</td>
+</tr>
+<tr>
+<td>并发修改</td>
+<td>用户或 CC Switch 在执行期间修改同一设置时，LMM 不覆盖最新内容，而是停止冲突操作并提示。</td>
+</tr>
+<tr>
+<td>更新与恢复</td>
+<td>更新后重新检查接入；恢复不会丢失用户后续修改，也不会重新激活已撤销授权。</td>
+</tr>
+<tr>
+<td>状态真实性</td>
+<td>未检查、未启用、等待操作、历史验证通过和当前故障均可区分，不以笼统“成功”掩盖差异。</td>
+</tr>
+<tr>
+<td>隐私与卸载</td>
+<td>可分享报告不泄露凭据；解除接入和卸载不误删用户数据，并清楚交代剩余授权与运行依赖。</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>最终交付：用户可以放心安装、实际使用、持续维护，并随时退出的 LMM 接入环境。</strong></p>
+</article>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm/blob/b97b5c26b0304d4ffe5a668027149b42347999b1/docs/requirements.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm/managed-distributions/"><span class="pagination-label">上一页</span><span class="pagination-title">CC Switch 受管发行包</span></a><a class="pagination-link next" href="../../lmm/third-party-magpie-notice/"><span class="pagination-label">下一页</span><span class="pagination-title">Magpie provider presets</span></a></nav>
+      <footer class="page-footer">
+        <span>lmm <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#一产品定位与目标">一、产品定位与目标</a></li><li class="toc-level-2"><a href="#二支持范围">二、支持范围</a></li><li class="toc-level-3"><a href="#跨平台与运行环境">跨平台与运行环境</a></li><li class="toc-level-3"><a href="#软件目录">软件目录</a></li><li class="toc-level-2"><a href="#三核心流程与默认行为">三、核心流程与默认行为</a></li><li class="toc-level-3"><a href="#1-发现环境">1. 发现环境</a></li><li class="toc-level-3"><a href="#2-选择目标">2. 选择目标</a></li><li class="toc-level-3"><a href="#3-展示操作计划">3. 展示操作计划</a></li><li class="toc-level-3"><a href="#4-区分添加与启用">4. 区分添加与启用</a></li><li class="toc-level-3"><a href="#5-执行与完成">5. 执行与完成</a></li><li class="toc-level-3"><a href="#批量与无人值守行为">批量与无人值守行为</a></li><li class="toc-level-2"><a href="#四下载安装组件与更新">四、下载安装、组件与更新</a></li><li class="toc-level-3"><a href="#安装行为">安装行为</a></li><li class="toc-level-3"><a href="#管理关系">管理关系</a></li><li class="toc-level-3"><a href="#provider-与插件">Provider 与插件</a></li><li class="toc-level-3"><a href="#更新行为">更新行为</a></li><li class="toc-level-2"><a href="#五登录应用授权与费用">五、登录、应用授权与费用</a></li><li class="toc-level-3"><a href="#登录与持续使用">登录与持续使用</a></li><li class="toc-level-3"><a href="#应用级授权">应用级授权</a></li><li class="toc-level-3"><a href="#账号切换">账号切换</a></li><li class="toc-level-3"><a href="#费用确认">费用确认</a></li><li class="toc-level-2"><a href="#六模型选择与同步">六、模型选择与同步</a></li><li class="toc-level-2"><a href="#七astrbot-快速接入">七、AstrBot 快速接入</a></li><li class="toc-level-3"><a href="#接入目标">接入目标</a></li><li class="toc-level-3"><a href="#实例与授权">实例与授权</a></li><li class="toc-level-3"><a href="#配置生效范围">配置生效范围</a></li><li class="toc-level-3"><a href="#验证与交付">验证与交付</a></li><li class="toc-level-2"><a href="#八cc-switch-兼容">八、CC Switch 兼容</a></li><li class="toc-level-3"><a href="#接入原则">接入原则</a></li><li class="toc-level-3"><a href="#普通切换与本地路由">普通切换与本地路由</a></li><li class="toc-level-3"><a href="#配置与授权更新">配置与授权更新</a></li><li class="toc-level-2"><a href="#九状态验证与诊断">九、状态、验证与诊断</a></li><li class="toc-level-3"><a href="#状态应分别展示">状态应分别展示</a></li><li class="toc-level-3"><a href="#分清验证层次">分清验证层次</a></li><li class="toc-level-3"><a href="#诊断与修复">诊断与修复</a></li><li class="toc-level-2"><a href="#十配置保护恢复与退出">十、配置保护、恢复与退出</a></li><li class="toc-level-3"><a href="#变更记录与保护">变更记录与保护</a></li><li class="toc-level-3"><a href="#恢复">恢复</a></li><li class="toc-level-3"><a href="#退出解除接入与卸载">退出、解除接入与卸载</a></li><li class="toc-level-2"><a href="#十一重复执行安全与隐私">十一、重复执行、安全与隐私</a></li><li class="toc-level-2"><a href="#十二命令约定">十二、命令约定</a></li><li class="toc-level-2"><a href="#十三验收标准">十三、验收标准</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

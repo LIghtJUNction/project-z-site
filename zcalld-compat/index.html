@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="为 zcalld 提供独立的兼容与扩展适配。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zcalld-compat · 概览 · Project Z">
+  <meta property="og:description" content="为 zcalld 提供独立的兼容与扩展适配。">
+  <meta property="og:type" content="website">
+  <title>zcalld-compat · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zcalld-compat/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="zcalld-compat">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zcalld-compat" aria-label="zcalld-compat 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zcalld-compat</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zcalld-compat</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/" aria-current="page">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zcalld-compat 文档"><div class="nav-group"><p class="nav-label">zcalld-compat</p><ul><li><a class="nav-link" href="../zcalld-compat/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zcalld-compat/quotas/">Explicit quota updates</a></li><li><a class="nav-link" href="../zcalld-compat/notice-mcp/">Community tools MCP compatibility</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zcalld-compat</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/" aria-current="page">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zobs/">zobs</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zcalld-compat 文档"><div class="nav-group"><p class="nav-label">zcalld-compat</p><ul><li><a class="nav-link" href="../zcalld-compat/" aria-current="page">概览</a></li><li><a class="nav-link" href="../zcalld-compat/quotas/">Explicit quota updates</a></li><li><a class="nav-link" href="../zcalld-compat/notice-mcp/">Community tools MCP compatibility</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../zcalld-compat/">zcalld-compat 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../zcalld-compat/">zcalld-compat</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#components">Components</a></li><li class="toc-level-2"><a href="#build">Build</a></li><li class="toc-level-2"><a href="#manage-packages">Manage packages</a></li><li class="toc-level-2"><a href="#preserve-a-magpie-setup">Preserve a Magpie setup</a></li><li class="toc-level-2"><a href="#privacy-behavior">Privacy behavior</a></li><li class="toc-level-3"><a href="#detection-history">Detection history</a></li><li class="toc-level-2"><a href="#public-plugin-operations">Public plugin operations</a></li><li class="toc-level-2"><a href="#validation-scope">Validation scope</a></li><li class="toc-level-2"><a href="#releases-and-packaging">Releases and packaging</a></li><li class="toc-level-2"><a href="#manage-active-accounts">Manage active accounts</a></li><li class="toc-level-2"><a href="#codex-response-handling">Codex response handling</a></li><li class="toc-level-2"><a href="#community-tools-mcp">Community tools MCP</a></li><li class="toc-level-2"><a href="#explicit-quota-updates">Explicit quota updates</a></li><li class="toc-level-2"><a href="#optional-native-codex-metadata">Optional native Codex metadata</a></li><li class="toc-level-3"><a href="#codex-subscription-credit-policy">Codex subscription-credit policy</a></li><li class="toc-level-3"><a href="#optional-claude-code-maintenance">Optional Claude Code maintenance</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="zcalld-compatibility-component">zcalld compatibility component</h1><p class="project-intro">为 zcalld 提供独立的兼容与扩展适配。</p>
+<p>This optional component preserves the interfaces used by Magpie community plugins and the local privacy engine. It starts no Magpie gateway, opens no network listener of its own, and contains no GUI. The native zcalld core does not link the Go runtime or Bun.</p>
+<p>The imported code is fixed at Magpie commit <a href="https://github.com/yetone/magpie/tree/1e174f8f9f613a920203a4658d259456fcab5d0d">1e174f8f9f613a920203a4658d259456fcab5d0d</a>. <a href="https://github.com/LIghtJUNction/zcalld-compat/blob/56a15b330384531b3a6c444190f53b6d3720bd5e/UPSTREAM.json">UPSTREAM.json</a>, <a href="https://github.com/LIghtJUNction/zcalld-compat/blob/56a15b330384531b3a6c444190f53b6d3720bd5e/NOTICE">NOTICE</a>, and <a href="https://github.com/LIghtJUNction/zcalld-compat/blob/56a15b330384531b3a6c444190f53b6d3720bd5e/LICENSE">LICENSE</a> record its provenance and modifications.</p>
+<h2 id="components">Components<a class="heading-anchor" href="#components" aria-label="链接到 Components">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Process and purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>zcalld-privacy</code></td>
+<td>Private stdio worker for masking, local AstrLink Guard inference, and reversible JSON/SSE restoration. One worker is shared by the enabled native privacy plugin.</td>
+</tr>
+<tr>
+<td><code>zcalld-pluginctl</code></td>
+<td>Short-lived CLI helper for installation, registry changes, private migration, provider metadata, and public plugin RPC.</td>
+</tr>
+<tr>
+<td><code>community/vendor/host.js</code></td>
+<td>Pinned upstream OpenCode v1 and pi host. The native community plugin starts one Bun process lazily and uses its byte-credit and cancellation protocol.</td>
+</tr>
+<tr>
+<td><code>internal/redact</code></td>
+<td>Original rule engine, stable keyed placeholders, JSON field selection, known-value masking, and split-event restoration.</td>
+</tr>
+<tr>
+<td><code>internal/pii/guard</code></td>
+<td>Original AstrLink Guard tokenizer and CPU implementation. Model weights are not included.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Native libraries and JavaScript packages are trusted code with the user's privileges. A revision or checksum identifies code; it does not sandbox it. New installations start disabled. Import explicitly preserves the enabled state of the user's existing plugins.</p>
+<h2 id="build">Build<a class="heading-anchor" href="#build" aria-label="链接到 Build">#</a></h2>
+<p>The compatibility worker is built separately from the Rust gateway.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>go build -o bin/zcalld-privacy ./cmd/zcalld-privacy
+go build -o bin/zcalld-pluginctl ./cmd/zcalld-pluginctl
+go test ./privacy ./community ./internal/redact ./internal/lazyre ./internal/pii/guard
+</code></pre></div>
+<p>The parent zcalld workspace builds the native <code>redact</code> and <code>community</code> adapters through zplugin. Arch packages place helpers in <code>/usr/lib/zcalld-compat</code> with CLI links in <code>/usr/bin</code>; portable archives use <code>/usr/libexec/zcalld</code>. Native plugins are supplied by the core in <code>/usr/lib/zcalld/plugins</code>. Bun is needed only for JavaScript plugins; Git is needed only for Git installation sources.</p>
+<h2 id="manage-packages">Manage packages<a class="heading-anchor" href="#manage-packages" aria-label="链接到 Manage packages">#</a></h2>
+<p>Every command takes <code>--root /absolute/config-directory/extensions</code>. The parent CLI supplies that argument.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>zcalld-pluginctl --root &quot;$PWD/example/extensions&quot; list --json
+zcalld-pluginctl --root &quot;$PWD/example/extensions&quot; install /absolute/plugin.mjs --name sample --json
+zcalld-pluginctl --root &quot;$PWD/example/extensions&quot; install npm:package-name@1.2.3 --json
+zcalld-pluginctl --root &quot;$PWD/example/extensions&quot; install github:owner/repo --revision FULL_COMMIT_HASH --json
+zcalld-pluginctl --root &quot;$PWD/example/extensions&quot; enable sample --json
+zcalld-pluginctl --root &quot;$PWD/example/extensions&quot; config sample --file /absolute/options.json --json
+zcalld-pluginctl --root &quot;$PWD/example/extensions&quot; disable sample --json
+zcalld-pluginctl --root &quot;$PWD/example/extensions&quot; remove sample --json
+</code></pre></div>
+<p>Git sources require a full immutable commit. npm sources require an exact version. Local sources are copied and hashed. A supplied <code>--sha256</code> must match; native libraries are checked again before activation and loading. Bun package lifecycle scripts are disabled. Local source trees reject symlinks and special files. Installed generations remain separate so an update does not overwrite code serving an existing stream.</p>
+<p>Public results include names, paths, kinds, versions, revisions, checksums, and enabled state. They omit options, authentication, and private settings. Configuration files and copied authentication use private permissions and atomic replacement.</p>
+<h2 id="preserve-a-magpie-setup">Preserve a Magpie setup<a class="heading-anchor" href="#preserve-a-magpie-setup" aria-label="链接到 Preserve a Magpie setup">#</a></h2>
+<p>Import into a fresh candidate directory before changing a running service:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>zcalld-pluginctl --root /absolute/candidate/extensions import-magpie \
+  --source /absolute/magpie-config \
+  --privacy-root /absolute/candidate/privacy \
+  --model-root /absolute/magpie-cache --json
+</code></pre></div>
+<p>The importer copies installed npm packages and dependencies, package options, plugin authentication, the provider cache, privacy settings, the existing <code>redact.key</code>, masking history, and installed model files. It never starts plugins or refreshes a token during import. It reports counts and generated configuration paths. Existing destination state is rejected. Local/Git plugin specifications that cannot be resolved from the installed npm tree require explicit installation; failure is reported.</p>
+<p>The built-in account adapters are separate from the imported community authentication. The import result states <code>builtin_oauth_imported: false</code>; the parent migration command handles those accounts.</p>
+<p>The generated paths are absolute. Moving a candidate requires rewriting them. Keep the original application active until the parent migration checks and cutover complete; copied rotating credentials should not be refreshed by two gateways concurrently.</p>
+<h2 id="privacy-behavior">Privacy behavior<a class="heading-anchor" href="#privacy-behavior" aria-label="链接到 Privacy behavior">#</a></h2>
+<p>The worker reads the settings file for every request. It preserves the Magpie <code>redact*</code> flags, custom words and rules, kind actions, allowlist, threshold map, and model selection. <code>zcalldEnabled: false</code> disables masking without deleting those settings. Absence of that override honors the imported flags.</p>
+<p>The importer retains existing masking history. The worker does not write original values or request bodies to disk; its reversible value map lives in memory. A durable private key keeps placeholders stable. Replies are restored after the gateway converts protocols, including placeholder fragments split between SSE events and tool arguments. Block actions stop egress. An explicitly selected but unavailable model holds requests back; automatic model selection may use rules while model files are absent, matching the upstream request-time fallback. This adapter does not download missing model weights automatically.</p>
+<p>The local model adapter currently runs AstrLink Guard. It was tested against the installed pinned 7216b6a3b897 model, including tokenizer and classifier fixtures. Privacy Filter selections are reported as unavailable and fail closed; this component never silently substitutes a different model for an explicit selection.</p>
+<h3 id="detection-history">Detection history<a class="heading-anchor" href="#detection-history" aria-label="链接到 Detection history">#</a></h3>
+<p>The worker now appends detection events to <code>history_dir/YYYY-MM-DD.jsonl</code>. An
+omitted <code>history_dir</code> resolves to <code>history</code> beside the settings file, so an older
+imported binding continues to use its migrated history. New imports write the
+explicit absolute path. The day uses local time; each record also includes its
+RFC 3339 timestamp.</p>
+<p>The format follows <a href="https://github.com/yetone/magpie/blob/1e174f8f9f613a920203a4658d259456fcab5d0d/internal/maskrec/maskrec.go">Magpie maskrec at the pinned revision</a>:
+<code>key</code>, <code>t</code>, <code>what</code>, optional <code>agent</code> and <code>session</code>, <code>n</code>, <code>values</code>, and
+optional <code>blocked</code>. Each value has <code>p</code> (placeholder), <code>k</code> (kind), <code>b</code> (finder),
+<code>l</code> (character length), <code>n</code> (occurrences), optional <code>h</code> (the upstream first
+character or key-prefix hint), and optional <code>a</code> (warn/block action).
+Repeated placeholders are merged. Original complete values, request bodies,
+surrounding text, response content, and restoration mappings are never stored.
+Hints intentionally reveal the same small prefix as upstream; the history is
+private data.</p>
+<p>An event records detection during <code>Mask</code>. It does <strong>not</strong> assert that a provider
+received the request or completed a generation. This worker cannot reliably
+know the final provider, model, trace route, or generation outcome, so those
+fields remain absent. Response restoration does not create another event.
+A no-hit request creates no JSONL event. Warn and block findings do create one.</p>
+<p>Daily <code>checked-YYYY-MM-DD.json</code> files retain the upstream
+<code>agent -&gt; {looked, masked, whole}</code> shape. Every enabled request with actual
+content increments <code>looked</code>; any finding also increments <code>masked</code>. These are
+request counts, not value counts. Imported <code>whole</code> counts are preserved;
+this adapter has no per-model unmasked exception that would increment them.
+An empty activation probe and <code>zcalldEnabled: false</code> increment nothing.
+Counters merge with existing files under a process lock, normally write within
+five seconds, and flush on normal stdin EOF.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Worker operation or field</th>
+<th>Contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mask.context</code></td>
+<td>Optional or null; string <code>agent</code> &lt;=512 bytes, <code>session</code> &lt;=1024, <code>what</code> &lt;=2048. Supplied by the gateway's existing whitelist.</td>
+</tr>
+<tr>
+<td><code>mask.result.audit_error</code></td>
+<td>Optional fixed string <code>privacy audit history is unavailable</code>; no paths or request values. The masked result remains valid.</td>
+</tr>
+<tr>
+<td><code>flush</code></td>
+<td>Returns <code>result: true</code> after pending counters are persisted, or the fixed audit error. It leaves the engine usable.</td>
+</tr>
+<tr>
+<td>stdin EOF</td>
+<td>Stops the timer and flushes remaining counters; failure gives a nonzero exit status.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each event retains at most 4,096 distinct values and encodes to at most 1 MiB.
+<code>omitted_hits</code> explicitly counts finding metadata omitted by those bounds;
+the total masking count and the protected request are unchanged. Each day's
+counter map keeps at most 1,024 agent identities plus <code>other</code>; further
+identities add to <code>other</code>. Counter files are limited to 1 MiB. Old history is
+pruned by whole day: 30 days, and a 100 MiB JSONL retention target checked
+hourly while events are written. Checked files have their own 30-day retention.
+No daily file is partially truncated.</p>
+<p>Directories and files receive private permissions, including a protected DACL
+on Windows. The stable lock is a sibling of the history directory:
+<code>privacy/.history.zcalld-audit.lock</code> for <code>privacy/history</code>. It coordinates
+multiple workers and cutover without moving with a history-directory exchange.
+The lock contains only an integer key allocator and is not history payload.
+A new worker reconstructs the maximum key from bounded retained metadata when
+needed; history copying does not require copying the lock.</p>
+<p>JSONL appends close the file immediately, following upstream's best-effort
+audit behavior; they do not claim power-loss durability. Counter snapshots
+use a synced temporary file and atomic replacement. Audit storage failure
+never disables masking or reveals original values. The RPC error field and
+explicit flush acknowledgement let the native adapter report a static
+diagnostic even when worker stderr is not attached to a journal. An abruptly
+killed worker can lose counter increments still within the five-second window.</p>
+<h2 id="public-plugin-operations">Public plugin operations<a class="heading-anchor" href="#public-plugin-operations" aria-label="链接到 Public plugin operations">#</a></h2>
+<p><code>invoke PROVIDER EVENT --input-file /absolute/request.json</code> calls an allowlisted public host method. Raw authentication exporters and loader results are unavailable through this command. Public results remove credential fields.</p>
+<p>OAuth callbacks must run in the same host as authorization. <code>session</code> keeps that host alive and accepts JSON lines with <code>id</code>, <code>method</code>, and <code>params</code> on stdin, returning a corresponding sanitized result. It supports authorization, callback, prompts, validation, usage, check-in, account checks, tools, and search. End stdin to stop that helper and its host.</p>
+<h2 id="validation-scope">Validation scope<a class="heading-anchor" href="#validation-scope" aria-label="链接到 Validation scope">#</a></h2>
+<p>The privacy wrapper tests cover block behavior, setting reloads, the reversible disable switch, explicit-model failure, actual local-model classification, JSON tool arguments, and split SSE placeholders. Manager tests cover lifecycle changes, immutable Git pins, checksum tampering, copy boundaries, and suppressed package scripts. Parent gateway tests exercise real native libraries and Bun against loopback mock providers.</p>
+<p>The model evaluation now replays both checked-in upstream prediction corpora in the default test suite, using the pinned model thresholds without a downloader, network, or user cache. The original full-runtime recapture driver is retained as the reference-only text fixture <code>internal/redact/testdata/upstream-model-eval.go.txt</code>; running that driver requires Magpie's full model registry and installed model files. It is not compiled into this package. No test uses a paid inference endpoint or the user's live accounts.</p>
+<h2 id="releases-and-packaging">Releases and packaging<a class="heading-anchor" href="#releases-and-packaging" aria-label="链接到 Releases and packaging">#</a></h2>
+<p><code>make check</code> runs the local Go and builtin-provider mock gates. Ordinary commits
+and pull requests do not start CI. The workflows are manual validation, manual
+bump, and version-tag release. <code>python3 scripts/bump.py patch</code> edits VERSION;
+<code>--release</code> checks, commits, tags and pushes it. <code>make release</code> releases the
+current committed version. In GitHub, <strong>Bump and release</strong> accepts patch, minor,
+or major and dispatches the release workflow explicitly.</p>
+<p><code>make dist</code> builds Linux x86_64/aarch64, Windows x86_64, and macOS
+x86_64/aarch64 packages with Go 1.26.8 and CGO disabled. Guard inference uses the
+CPU implementation. The local gate executes Linux helpers; cross compilation
+alone does not establish runtime coverage on Windows or macOS. Each archive
+contains all three helpers (<code>zcalld-pluginctl</code>, <code>zcalld-privacy</code>, and
+<code>zcalld-claude-tui</code>), host scripts, builtin provider modules/catalog, licenses,
+and build metadata. Source and generated AUR recipes are separate assets;
+SHA256SUMS covers every archive. Source staging requires a clean, committed tree.</p>
+<p>The source AUR package is <code>zcalld-compat</code>. It installs helpers and JavaScript
+resources below <code>/usr/lib/zcalld-compat</code> with CLI links in <code>/usr/bin</code>, notices below <code>/usr/share/doc/zcalld-compat</code>,
+and licenses below <code>/usr/share/licenses/zcalld-compat</code>. Bun and Git are optional
+runtime dependencies for JavaScript and pinned Git packages. The parent core
+package supplies the native adapters. Installing this package starts no service.</p>
+<p>The release workflow can publish the reviewed AUR recipe when its dedicated
+<code>AUR_SSH_PRIVATE_KEY</code> and pinned <code>AUR_KNOWN_HOSTS</code> secrets are configured. It does
+not replace published release assets. A failed draft may be completed on retry.</p>
+<p>Builtin credentials use <code>import-builtin --source MAGPIE_CONFIG</code>. The explicit
+rollback helper is <code>sync-auth --to-magpie MAGPIE_CONFIG</code>; it checks original
+account fingerprints before writing refreshed credentials back. Imported Google
+OAuth client metadata belongs in the private <code>builtin-oauth-clients.json</code> file,
+not in the repository. Missing client setup is reported before refresh.</p>
+<h2 id="manage-active-accounts">Manage active accounts<a class="heading-anchor" href="#manage-active-accounts" aria-label="链接到 Manage active accounts">#</a></h2>
+<p><code>accounts list</code> reads the host's actual private auth file and returns IDs,
+providers, labels, enabled/selected flags and credential presence. It never
+returns tokens. <code>accounts import --provider ID --file /absolute/auth.json</code>
+accepts an SDK auth record (api/key or oauth/access/refresh); optional <code>--label</code>
+and <code>--account</code> choose metadata and a new stable ID. Existing IDs are not
+silently overwritten. Vendor-native files are handled by the builtin importer
+or the provider's public import/authorization session.</p>
+<p><code>accounts use ID</code>, <code>enable ID</code>, <code>disable ID</code> and <code>remove ID</code> update the live
+registry and auth state. A numeric index from the current list is accepted.
+Disabling does not move credentials: a refresh already in flight can still save
+its rotated token. New provider calls check the enabled flag before egress.
+Account metadata alone does not restart Bun. Unbound providers use the selected
+default; the parent CLI updates explicit local bindings and reports any needed
+configuration reload. Removal deletes the credential from the actual host file.</p>
+<p><code>accounts session</code> keeps authorization and callbacks in one host. Native Codex
+credentials with an active external owner stay read-only to this component.
+The explicit <code>handoff --account KEY --owners /absolute/owners.json</code> operation
+verifies recorded Linux process identities have exited, re-reads the newest
+credential, and changes refresh ownership without a network request. Other
+platforms retain external ownership until equivalent verification is available.</p>
+<h2 id="codex-response-handling">Codex response handling<a class="heading-anchor" href="#codex-response-handling" aria-label="链接到 Codex response handling">#</a></h2>
+<p>The Codex adapter requests the subscription endpoint's SSE format for both
+client modes. Streaming clients receive the original event bytes; nonstreaming
+clients receive the complete final response object, including tool output,
+usage, and extension fields.</p>
+<p>A successful response without a Content-Type is accepted only after a complete
+first Responses SSE event is validated within a 64 KiB probe. The adapter then
+sets text/event-stream and replays the buffered bytes without changing them.
+An explicit incompatible Content-Type, malformed first event, or exhausted
+probe limit rejects the response and cancels its body. The 64 KiB limit applies
+to first-event detection, not to the whole response or network traffic.
+<a href="https://github.com/LIghtJUNction/zcalld-compat/blob/56a15b330384531b3a6c444190f53b6d3720bd5e/community/builtin/tests/codex-mime.test.mjs">Focused mock tests</a> cover fragmented
+UTF-8, BOM/CRLF framing, rejection, cancellation, and byte preservation.</p>
+<p>The subscription request adapter removes unsupported max_output_tokens and
+max_completion_tokens fields. Those fields do not provide a hard generation
+token cap for this provider. Gateway deadlines and response-byte limits still
+bound how long the local request is held and how much output it accepts.</p>
+<h2 id="community-tools-mcp">Community tools MCP<a class="heading-anchor" href="#community-tools-mcp" aria-label="链接到 Community tools MCP">#</a></h2>
+<p>The native zcalld community extension serves installed plugins' tool exports at
+<code>/mcp/zcalld/tools</code> and preserves <code>/mcp/magpie/tools</code> for migrated agents. It
+reuses the existing lazy Bun host and does not open another listener. The helper
+embeds the host, pi, and MCP modules as one immutable script bundle.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>zcalld-pluginctl --root /absolute/extensions runtime configure
+zcalld-pluginctl --root /absolute/extensions mcp show
+zcalld-pluginctl --root /absolute/extensions mcp enable
+zcalld-pluginctl --root /absolute/extensions mcp disable
+zcalld-pluginctl --root /absolute/extensions import-mcp --source /absolute/magpie-config
+</code></pre></div>
+<p><code>runtime configure</code> writes the private host binding and refreshes the paths and
+checksums of already registered, helper-owned builtin plugins to the current
+embedded bundle. It preserves account selections, enabled flags, plugin options,
+unknown registry fields, and community plugins. It does not add builtin entries,
+read Magpie state, start plugins, or refresh accounts. Run it after upgrading
+this package, then restart the native gateway; older bundles remain available
+to running workers.</p>
+<p>The registry is replaced atomically after the new bundle and host binding are
+prepared. These files are not one transaction: a later write failure can leave
+a new cache or host binding, while the existing registry remains intact. The
+<a href="https://github.com/LIghtJUNction/zcalld-compat/blob/56a15b330384531b3a6c444190f53b6d3720bd5e/community/runtime_test.go">upgrade tests</a> cover selection, preserved state,
+idempotence, and validation failures.</p>
+<p><code>import-magpie</code> includes MCP state automatically; <code>import-mcp</code>
+updates an existing staged registry. Only permission metadata is copied into the
+derived MCP map, never gateway credentials. Unknown or unsupported nonempty
+budgets are refused rather than relaxed. Tool grants, issuer intersections,
+readonly/off/expiry, and FIFO concurrency restrictions are preserved.</p>
+<p>See <a href="../zcalld-compat/notice-mcp/">NOTICE_MCP.md</a> for the pinned upstream contract and licensing,
+and the <a href="../zcalld/mcp/">zcalld MCP guide</a>
+for endpoint behavior and native integration tests. <code>make check</code> includes both
+MCP and routing worker tests. No fixture uses a live account or provider.</p>
+<h2 id="explicit-quota-updates">Explicit quota updates<a class="heading-anchor" href="#explicit-quota-updates" aria-label="链接到 Explicit quota updates">#</a></h2>
+<p><code>zcalld plugins quota list --json</code> reads local capabilities and cached allowance windows only.
+<code>zcalld plugins quota refresh --account ACCOUNT_ID --json</code> explicitly updates one supported, enabled community account through its existing usage and renewal hooks. Credentials stay in the helper; imported quota files are preserved. Unsupported or externally managed accounts are not offered an invented refresh capability. See <a href="../zcalld-compat/quotas/">the quota contract</a> for cancellation, private caching and JSON output.</p>
+<h2 id="optional-native-codex-metadata">Optional native Codex metadata<a class="heading-anchor" href="#optional-native-codex-metadata" aria-label="链接到 Optional native Codex metadata">#</a></h2>
+<p>With zcalld 0.4.0 and this component 0.2.0 or newer, the native community
+extension can serve Codex 0.170's read-only model catalog, usage, account
+bootstrap and config bundle requests. This is disabled by default and reuses
+the lazy host. It requires an explicit local provider/account binding; remote
+callers also require a verified caller-key binding.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>zcalld-pluginctl --root /absolute/extensions codex configure --file /absolute/bindings.json
+zcalld-pluginctl --root /absolute/extensions runtime configure
+zcalld-pluginctl --root /absolute/extensions codex show
+zcalld-pluginctl --root /absolute/extensions codex disable
+</code></pre></div>
+<p>The binding object has <code>enabled</code>, optional <code>loopback</code>, and optional <code>callers</code>
+fields. Each binding contains an existing local <code>provider</code> ID and nonempty
+<code>routes</code> list. Caller entries use gateway caller-key IDs, never their secrets.
+Configuration is bounded, validated and saved atomically; invalid input leaves
+the registry unchanged. These commands do not start Bun, refresh accounts or
+restart the gateway.</p>
+<p>The metadata hook uses a fixed official origin and four read-only operations.
+It does not invoke loaders, generation or token refresh. External credentials
+remain read-only. Instructions come from the bound account's upstream catalog;
+only explicit static route-to-slug aliases are exposed. Validated raw usage,
+bootstrap and config JSON is preserved. A request deadline includes shared
+initialization; canceling one request does not terminate the shared host.
+Native initialization fails closed if an enabled plugin cannot load; the
+management CLI retains partial-load diagnostics.</p>
+<p>See <a href="../zcalld/codex/">the gateway configuration and endpoint contract</a>.
+Tests use synthetic credentials. The ordinary Responses adapter also retains
+opaque compaction IDs and encrypted content, with plaintext privacy processing
+still enabled.</p>
+<h3 id="codex-subscription-credit-policy">Codex subscription-credit policy<a class="heading-anchor" href="#codex-subscription-credit-policy" aria-label="链接到 Codex subscription-credit policy">#</a></h3>
+<p><code>zcalld plugins codex policy plan --source ABS_MAGPIE_CONFIG --json</code> reads the
+current source's <code>codexNoCredits</code> identities and matches only proven imported
+accounts. It reports counts and a plan hash without writing files. Apply the
+reviewed plan with <code>codex policy sync --source ABS_MAGPIE_CONFIG --expect-plan HASH --json</code>. Changed or unmapped identities stop the operation.
+The command modifies only private registry <code>account_policies</code>; credentials,
+refresh ownership, and credential rollback fingerprints are untouched.</p>
+<p>The native host resolves the actual account first and rereads its policy on each
+generation request, even with cached loaders. An explicit <code>codex_no_credits: true</code> policy checks the fixed official account-usage endpoint with an eight-second
+ceiling, a 64 KiB bound, no redirects, and cancellation shared only while another
+caller still needs the lookup. A one-second bounded cache is keyed by the
+official account identity. Exhausted subscription windows return 429 before
+generation, and unverified availability returns 503. Existing group fallback
+can select another account; the blocked account is not retried using credits.
+Malformed present policy is an error. Unrestricted accounts add no usage query.</p>
+<p>The source can acquire new policies after migration; synchronization remains
+explicit and does not reimport auth. There is no server-side guarantee that
+credits can never be charged: another client or the current generation can cross
+a window after the check. See the <a href="../zcalld/codex/#subscription-credit-policy">core contract and usage guide</a>
+for the exact scope. These changes require the updated native host as declared
+by the package dependency; installing a helper alone does not rewrite an older
+materialized builtin bundle.</p>
+<h3 id="optional-claude-code-maintenance">Optional Claude Code maintenance<a class="heading-anchor" href="#optional-claude-code-maintenance" aria-label="链接到 Optional Claude Code maintenance">#</a></h3>
+<p>The <a href="https://github.com/LIghtJUNction/zcalld-compat/blob/56a15b330384531b3a6c444190f53b6d3720bd5e/docs/CLAUDE-MAINTENANCE.md">Claude maintenance guide</a> covers explicit
+current or saved native-profile bindings, off/week/all schedules, multiple local
+clock times, imported warmup history, and manual single/all-account warmup.
+The native Claude CLI owns its credentials; zcalld does not copy its OAuth tokens
+or call Anthropic's OAuth endpoints itself. The bundled <code>zcalld-claude-tui</code> runs
+a real PTY/ConPTY session and does not silently fall back to print mode.</p>
+<p>Installation and plan/apply leave scheduling disabled. A warmup can consume
+subscription allowance; the no-extra setting and configured extra-usage caps
+are checked before sending. Native CLI startup can itself have effects, so an
+uncertain outcome stays pending for review and is never blindly replayed.
+Claude reset-card operations are unsupported. Maintenance is separate from the
+gateway provider adapter and does not register a provider route by itself.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zcalld-compat/blob/56a15b330384531b3a6c444190f53b6d3720bd5e/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zcalld-compat">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../zcalld-compat/quotas/"><span class="pagination-label">下一页</span><span class="pagination-title">Explicit quota updates</span></a></nav>
+      <footer class="page-footer">
+        <span>zcalld-compat <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#components">Components</a></li><li class="toc-level-2"><a href="#build">Build</a></li><li class="toc-level-2"><a href="#manage-packages">Manage packages</a></li><li class="toc-level-2"><a href="#preserve-a-magpie-setup">Preserve a Magpie setup</a></li><li class="toc-level-2"><a href="#privacy-behavior">Privacy behavior</a></li><li class="toc-level-3"><a href="#detection-history">Detection history</a></li><li class="toc-level-2"><a href="#public-plugin-operations">Public plugin operations</a></li><li class="toc-level-2"><a href="#validation-scope">Validation scope</a></li><li class="toc-level-2"><a href="#releases-and-packaging">Releases and packaging</a></li><li class="toc-level-2"><a href="#manage-active-accounts">Manage active accounts</a></li><li class="toc-level-2"><a href="#codex-response-handling">Codex response handling</a></li><li class="toc-level-2"><a href="#community-tools-mcp">Community tools MCP</a></li><li class="toc-level-2"><a href="#explicit-quota-updates">Explicit quota updates</a></li><li class="toc-level-2"><a href="#optional-native-codex-metadata">Optional native Codex metadata</a></li><li class="toc-level-3"><a href="#codex-subscription-credit-policy">Codex subscription-credit policy</a></li><li class="toc-level-3"><a href="#optional-claude-code-maintenance">Optional Claude Code maintenance</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

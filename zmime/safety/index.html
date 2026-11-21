@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="解析 MIME 消息、头部与正文，并按需解码内容。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zmime · Safety and resource model · Project Z">
+  <meta property="og:description" content="解析 MIME 消息、头部与正文，并按需解码内容。">
+  <meta property="og:type" content="website">
+  <title>zmime · Safety and resource model · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zmime/safety/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zmime">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zmime" aria-label="zmime 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zmime</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zmime</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/" aria-current="page">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zmime 文档"><div class="nav-group"><p class="nav-label">zmime</p><ul><li><a class="nav-link" href="../../zmime/">概览</a></li><li><a class="nav-link" href="../../zmime/comparison-readme/">Reproducible comparison with mail-parser</a></li><li><a class="nav-link" href="../../zmime/comparison-results/">Measured performance against mail-parser 1.0.1</a></li><li><a class="nav-link" href="../../zmime/safety/" aria-current="page">Safety and resource model</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zmime</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/" aria-current="page">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zmime 文档"><div class="nav-group"><p class="nav-label">zmime</p><ul><li><a class="nav-link" href="../../zmime/">概览</a></li><li><a class="nav-link" href="../../zmime/comparison-readme/">Reproducible comparison with mail-parser</a></li><li><a class="nav-link" href="../../zmime/comparison-results/">Measured performance against mail-parser 1.0.1</a></li><li><a class="nav-link" href="../../zmime/safety/" aria-current="page">Safety and resource model</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zmime/">zmime 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zmime/">zmime</a><span aria-hidden="true">/</span><span>Safety and resource model</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#ownership-and-bounded-work">Ownership and bounded work</a></li><li class="toc-level-2"><a href="#instruction-selection-and-shared-state">Instruction selection and shared state</a></li><li class="toc-level-2"><a href="#unsafe-access-arguments">Unsafe access arguments</a></li><li class="toc-level-2"><a href="#evidence-and-reproduction">Evidence and reproduction</a></li><li class="toc-level-2"><a href="#interpretation-boundaries">Interpretation boundaries</a></li><li class="toc-level-2"><a href="#claimevidence-review">Claim–evidence review</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="safety-and-resource-model">Safety and resource model</h1>
+<p><code>zmime</code> parses untrusted mail into borrowed slices and caller-owned metadata. Its public API is safe Rust; the published crate unconditionally uses <code>#![no_std]</code>, imports only <code>core</code>, and declares Rust 1.74 as its minimum supported version. The root manifest has no normal, development, build, optional, or target-specific dependencies. The independent <code>comparison/</code> workspace uses its own toolchain and dependencies. These boundaries are checked by <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/scripts/check_contract.py">check_contract.py</a> and the <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/.github/workflows/ci.yml">CI workflow</a>.</p>
+<h2 id="ownership-and-bounded-work">Ownership and bounded work<a class="heading-anchor" href="#ownership-and-bounded-work" aria-label="链接到 Ownership and bounded work">#</a></h2>
+<p>The input, part array, and decoding output belong to the caller. <code>Message::parse</code> fills the supplied <code>&amp;mut [Part]</code>; a successful <code>Message</code> borrows both that storage and the original <code>&amp;[u8]</code>. Raw headers, bodies, attachments, preambles, and epilogues retain slices of the original input. Decoding writes only to the output slice supplied for that call. See <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/src/message.rs">message.rs</a> and <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/src/decode.rs">decode.rs</a>.</p>
+<p>MIME nesting uses parent indices and an iterative state machine. Every parent index refers to an earlier part, so walking toward the root terminates. Descending consumes a workspace entry and checks the depth and part budgets first. Boundary scanning advances through the body; each candidate is compared with open multipart ancestors. The worst-case work is proportional to input length times permitted depth, and nesting introduces no recursive call frames. Ancestor boundaries also take precedence while a child header block is read, including delimiter strings that resemble ordinary fields. <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/tests/adversarial.rs">adversarial.rs</a> exercises these cases and the <a href="https://www.rfc-editor.org/rfc/rfc2046#section-5.1.2">RFC 2046 nesting rules</a>.</p>
+<p><code>Limits</code> bounds the amount of input the parser accepts before it consumes additional storage or scans an unbroken header line. Applications can lower the defaults to match their ingress limits. The header-byte budget includes the terminating separator; the physical-line budget excludes CRLF or LF.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th style="text-align:right">Default</th>
+<th>Enforcement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Complete message</td>
+<td style="text-align:right">64 MiB</td>
+<td>Checked before parsing</td>
+</tr>
+<tr>
+<td>Header block per part</td>
+<td style="text-align:right">256 KiB</td>
+<td>Bounds the scanner's search window</td>
+</tr>
+<tr>
+<td>Logical fields per part</td>
+<td style="text-align:right">256</td>
+<td>Continuation lines retain their original field</td>
+</tr>
+<tr>
+<td>Physical header line</td>
+<td style="text-align:right">64 KiB</td>
+<td>Bounds each line search; set 998 for the RFC 5322 line-length restriction</td>
+</tr>
+<tr>
+<td>Tree nodes</td>
+<td style="text-align:right">1,024</td>
+<td>Includes containers and the root</td>
+</tr>
+<tr>
+<td>Tree depth</td>
+<td style="text-align:right">32</td>
+<td>Root depth is zero</td>
+</tr>
+<tr>
+<td>Nested comments</td>
+<td style="text-align:right">16</td>
+<td>Fixed iterative limit</td>
+</tr>
+<tr>
+<td>Multipart boundary</td>
+<td style="text-align:right">70 bytes</td>
+<td>Fixed storage and syntax validation</td>
+</tr>
+</tbody>
+</table></div>
+<p>The supplied workspace and output slices are additional hard bounds. Insufficient part capacity returns <code>WorkspaceTooSmall</code>; decoding and unfolding return their documented output-capacity errors. A failed tree parse can leave partial metadata in the workspace, and a failed decoder can leave an output prefix. Use decoded bytes only after <code>Ok</code>; header unfolding and parameter unescaping additionally preserve output when capacity is insufficient. These behaviors are tested at exact and undersized capacities in <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/tests/headers.rs">headers.rs</a>, <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/tests/mime.rs">mime.rs</a>, and <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/tests/decode.rs">decode.rs</a>.</p>
+<h2 id="instruction-selection-and-shared-state">Instruction selection and shared state<a class="heading-anchor" href="#instruction-selection-and-shared-state" aria-label="链接到 Instruction selection and shared state">#</a></h2>
+<p>SIMD is an optional, default-enabled optimization. x86_64 uses its baseline SSE2 scanners and detects additional capabilities before selecting SSSE3 or AVX2 code. AVX2 selection checks both processor support and the operating system's enabled XMM/YMM state. AArch64 kernels require the target's NEON guarantee. Other targets and <code>default-features = false</code> use portable kernels. Rust requires the features used by an executed function to be supported by its platform; see the <a href="https://doc.rust-lang.org/reference/behavior-considered-undefined.html">Rust Reference</a>.</p>
+<p>The portable library also declares <code>forbid(unsafe_code)</code> at compile time. This
+makes the safe-Rust fallback an enforced source constraint. Test-only allocation
+instrumentation belongs to its separate integration-test crate.</p>
+<p>The x86 capability cache in <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/src/cpu.rs">cpu.rs</a> is a single <code>AtomicU8</code>. It contains only instruction-capability bits and an initialization bit, with no pointers, mail data, output buffers, or parser state. Relaxed ordering suffices because no associated data is published with those bits; concurrent first calls can repeat feature detection and install an independently valid result. Each message's mutable parsing state remains in its own caller-provided workspace.</p>
+<h2 id="unsafe-access-arguments">Unsafe access arguments<a class="heading-anchor" href="#unsafe-access-arguments" aria-label="链接到 Unsafe access arguments">#</a></h2>
+<p>Unsafe code is confined to CPU detection and private instruction kernels. Every unsafe site includes its local preconditions. The memory-access arguments below apply independently of whether an input is well-formed mail; malformed octets return to the scalar validator without relaxing those bounds.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Kernel</th>
+<th>Preconditions and exact access bounds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSE2 / NEON byte search</td>
+<td>A vector load requires 16 remaining input bytes. A group of four loads requires 64. Loads are unaligned, read-only, and originate from the live input slice. The tail uses safe portable code.</td>
+</tr>
+<tr>
+<td>SSE2 / NEON header-control scan</td>
+<td>Each vector load is guarded by 16 remaining input bytes. It returns the first forbidden byte and never writes memory.</td>
+</tr>
+<tr>
+<td>AVX2 byte/control scan</td>
+<td>Each load requires 32 available bytes; the byte-search group of four loads requires 128. Runtime detection establishes AVX2 and OS state support before the kernel is called. Both scanners are read-only and use bounded portable tails.</td>
+</tr>
+<tr>
+<td>SSSE3 Base64</td>
+<td>Each vector read requires 16 input bytes and capacity for 12 output bytes. A fully valid block writes exactly eight plus four bytes. A prefix of three complete validated quartets writes exactly eight plus one byte, within the same 12-byte capacity guard. Other partial prefixes use a fixed 16-byte local array and a bounded slice copy.</td>
+</tr>
+<tr>
+<td>AVX2 Base64</td>
+<td>Each vector read requires 32 input bytes and capacity for 24 output bytes. A fully valid block writes exactly 16 plus eight bytes. A prefix of three complete validated quartets writes exactly eight plus one byte, within the same 24-byte capacity guard. Other partial prefixes use a fixed 32-byte local array and copy only complete decoded quartets. Constant-table loads read complete 16-byte arrays.</td>
+</tr>
+<tr>
+<td>NEON Base64</td>
+<td>Each interleaved load requires 64 input bytes and capacity for 48 output bytes. A fully valid block writes exactly 48 bytes; a partial prefix is packed into a fixed 48-byte local array and copied using bounded slices. The validity mask occupies a fixed 16-byte local array.</td>
+</tr>
+<tr>
+<td>SSE2 / NEON quoted-printable literal scan</td>
+<td>Each read requires 16 available bytes. Only printable literal runs are returned; escapes, line endings, and tails stay in the scalar decoder.</td>
+</tr>
+<tr>
+<td>CPU detection</td>
+<td>CPUID is available on x86_64. XGETBV is called only after OSXSAVE and AVX are advertised; AVX2 additionally requires XCR0 to enable XMM/YMM state and the AVX2 capability bit. These operations read processor state and do not access message memory.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Input and output cannot overlap through these safe APIs because the decoder holds an immutable input slice and an exclusive mutable output slice simultaneously. SIMD emits only complete validated quartets, including valid prefixes before a fold, and may skip permitted MIME whitespace between those prefixes. Separate input-consumed and output-written counters keep whitespace from being counted as decoded data. Split quartets, padding, malformed bytes, and short tails return to the scalar state machine. Base64 padding bits are checked, and a short output receives an explicit capacity error. The implementation is in <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/src/scan.rs">scan.rs</a> and <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/src/decode_simd.rs">decode_simd.rs</a>.</p>
+<p>UTF-8 and ASCII text decoding can use these same bounded Base64 stores because
+their decoded byte length is unchanged. Each produced prefix is passed through
+the character validator before decoding continues. UTF-8 continuation state
+survives vector boundaries and MIME folds. If output capacity is exhausted,
+the scalar path still validates the remaining decoded text and counts the exact
+required length. Latin-1 conversion uses the scalar sink because its UTF-8 output
+can expand. Quoted-printable's hexadecimal lookup and eight-byte literal copies
+use checked Rust array and slice operations; they add no unsafe sites.</p>
+<h2 id="evidence-and-reproduction">Evidence and reproduction<a class="heading-anchor" href="#evidence-and-reproduction" aria-label="链接到 Evidence and reproduction">#</a></h2>
+<p>The following instruction paths have been executed under Miri during development. Miri checks the Rust memory and intrinsic rules along the tested paths; finite test coverage complements the local bounds arguments. Its scope is described in the <a href="https://github.com/rust-lang/miri">Miri documentation</a>.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Observed validation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portable parsing and decoding</td>
+<td>All 64 tests passed under strict-provenance Miri on the reviewed implementation, including headers, nested/adversarial input, decoding, and zero-allocation checks</td>
+</tr>
+<tr>
+<td>SSE2 scanner</td>
+<td>Reference-comparison tests passed under Miri on x86_64</td>
+</tr>
+<tr>
+<td>NEON scanner</td>
+<td>All three scanner reference tests passed under strict-provenance Miri targeting aarch64</td>
+</tr>
+<tr>
+<td>AVX2 scanner</td>
+<td>Three reference-comparison tests passed under strict-provenance Miri with <code>+avx2</code></td>
+</tr>
+<tr>
+<td>SSSE3 Base64</td>
+<td>All seven <code>base64_</code> tests passed with Miri configured for <code>+ssse3,-avx2</code></td>
+</tr>
+<tr>
+<td>AVX2 Base64</td>
+<td>All seven <code>base64_</code> tests passed with Miri configured for <code>+avx2</code></td>
+</tr>
+<tr>
+<td>NEON Base64</td>
+<td>Two vector tests and the MIME whitespace/line-length test passed under aarch64 Miri</td>
+</tr>
+<tr>
+<td>SIMD text validation</td>
+<td>All five <code>body_text_</code> tests passed under strict-provenance Miri for SSSE3, AVX2, and aarch64 NEON, including malformed text after output exhaustion</td>
+</tr>
+<tr>
+<td>SSE2 / NEON QP scan</td>
+<td>All byte values at each position 0–31 passed under Miri on both targets</td>
+</tr>
+<tr>
+<td>CPU detection</td>
+<td>Native calls exercise CPUID/XGETBV and the atomic cache. Miri selects capabilities from its target-feature configuration; it does not execute the host-detection path.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The scanner tests compare every result with a scalar reference across lengths and alignments. Native header-control tests exhaust all 256 byte values; Miri uses control, whitespace, DEL, and high-bit boundary classes to bound interpreter time. Codec tests cover exact output bounds, tails, alignment, every byte in vector positions, deterministic generated data, malformed encodings, and truncation. <code>comparison/</code> independently checks the supported semantic subset against its pinned mail-parser version. <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/.github/workflows/ci.yml">ci.yml</a> runs the portable, native, differential, and Miri gates.</p>
+<p>Reproduce the principal safety checks from the repository root:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo +1.74.0 test --locked --all-targets
+cargo test --locked --all-targets --no-default-features
+cargo test --locked --manifest-path comparison/Cargo.toml
+MIRIFLAGS=-Zmiri-strict-provenance cargo +nightly miri test --locked --lib --tests --no-default-features
+MIRIFLAGS=-Zmiri-strict-provenance cargo +nightly miri test --locked --lib --target aarch64-unknown-linux-gnu scan::tests
+RUSTFLAGS=&#x27;-C target-feature=+avx2&#x27; MIRIFLAGS=-Zmiri-strict-provenance cargo +nightly miri test --locked --lib scan::tests
+RUSTFLAGS=&#x27;-C target-feature=+ssse3,-avx2&#x27; cargo +nightly miri test --locked --test decode base64_
+RUSTFLAGS=&#x27;-C target-feature=+avx2&#x27; cargo +nightly miri test --locked --test decode base64_
+cargo +nightly miri test --locked --test decode --target aarch64-unknown-linux-gnu base64_
+</code></pre></div>
+<p>Native runtime dispatch selects the available host backend. Setting compiler flags to <code>+ssse3,-avx2</code> does not force native dispatch to ignore an AVX2-capable CPU; the Miri configuration above explicitly selects SSSE3 for interpretation.</p>
+<h2 id="interpretation-boundaries">Interpretation boundaries<a class="heading-anchor" href="#interpretation-boundaries" aria-label="链接到 Interpretation boundaries">#</a></h2>
+<p>Structure parsing is lazy: it validates framing and MIME metadata while retaining encoded body slices. <code>Part::decode_body</code> performs transfer decoding on request; <code>Part::text</code> additionally converts UTF-8, US-ASCII, or ISO-8859-1. Other character sets return <code>UnsupportedCharset</code>. RFC 2047 B/Q words use the same explicit charset policy. Tests verify that an unread invalid Base64 attachment does not force decoding during tree construction.</p>
+<p>The supported header subset preserves arbitrary field names and raw values without interpreting address lists or dates. RFC 2231 extended parameter bytes remain accessible, and requesting their decoded interpretation returns <code>Unsupported</code>. Transfer-encoded message containers require an explicit decode into a separate caller buffer before parsing that buffer; transfer-encoded multipart containers return an explicit error. These boundaries also constrain performance claims: the <a href="../../zmime/comparison-readme/">comparison methodology</a> defines equivalent work for each reported mode.</p>
+<h2 id="claimevidence-review">Claim–evidence review<a class="heading-anchor" href="#claimevidence-review" aria-label="链接到 Claim–evidence review">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evidence</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The published core requires no allocator or third-party dependency</td>
+<td>Manifest, <code>#![no_std]</code>, source imports, <a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/tests/zero_alloc.rs">allocation-counting test</a>, package/dependency contract check, embedded target build gate</td>
+<td>Enforced by source and CI checks</td>
+</tr>
+<tr>
+<td>Input cannot create recursive stack growth or unbounded metadata allocation</td>
+<td>Iterative parent chain, caller workspace, explicit budgets, depth/workspace regression tests</td>
+<td>Implemented and tested</td>
+</tr>
+<tr>
+<td>SIMD reads and writes stay within the caller's slices</td>
+<td>Per-site access proofs, exact-capacity tests, scalar comparisons, Miri runs listed above</td>
+<td>Supported for the exercised kernels</td>
+</tr>
+<tr>
+<td>Unsupported character sets are explicit</td>
+<td>Charset dispatch and unsupported-charset regressions</td>
+<td>Implemented and tested</td>
+</tr>
+<tr>
+<td>Full MIME/charset equivalence is outside the stated subset</td>
+<td>Explicit unsupported cases and mode-specific comparison eligibility</td>
+<td>Scope documented</td>
+</tr>
+</tbody>
+</table></div>
+<p>Maintenance review: <strong>contribution</strong>—does the change improve this bounded parsing API? <strong>clarity</strong>—are ownership, offsets, and error behavior still explicit? <strong>experimental strength</strong>—does an optimization have reproducible measurements? <strong>coverage</strong>—were all affected backends and malformed tails exercised? <strong>design soundness</strong>—do every feature and memory-access precondition still hold? The relevant tests and bounds arguments must change with the implementation.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmime/blob/2d5930955ed8086e12a6ab6cd3dd5caa837e1a42/docs/safety.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmime">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zmime/comparison-results/"><span class="pagination-label">上一页</span><span class="pagination-title">Measured performance against mail-parser 1.0.1</span></a></nav>
+      <footer class="page-footer">
+        <span>zmime <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#ownership-and-bounded-work">Ownership and bounded work</a></li><li class="toc-level-2"><a href="#instruction-selection-and-shared-state">Instruction selection and shared state</a></li><li class="toc-level-2"><a href="#unsafe-access-arguments">Unsafe access arguments</a></li><li class="toc-level-2"><a href="#evidence-and-reproduction">Evidence and reproduction</a></li><li class="toc-level-2"><a href="#interpretation-boundaries">Interpretation boundaries</a></li><li class="toc-level-2"><a href="#claimevidence-review">Claim–evidence review</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

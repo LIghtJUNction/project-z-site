@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在字节数据与十六进制文本之间转换，写入调用方缓冲区。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zhex · Second optimization pass: measured gains and limits · Project Z">
+  <meta property="og:description" content="在字节数据与十六进制文本之间转换，写入调用方缓冲区。">
+  <meta property="og:type" content="website">
+  <title>zhex · Second optimization pass: measured gains and limits · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zhex/comparison-acceleration/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zhex">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zhex" aria-label="zhex 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zhex</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zhex</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/" aria-current="page">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zhex 文档"><div class="nav-group"><p class="nav-label">zhex</p><ul><li><a class="nav-link" href="../../zhex/">概览</a></li><li><a class="nav-link" href="../../zhex/comparison-acceleration/" aria-current="page">Second optimization pass: measured gains and limits</a></li><li><a class="nav-link" href="../../zhex/comparison-performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zhex</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/" aria-current="page">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zhex 文档"><div class="nav-group"><p class="nav-label">zhex</p><ul><li><a class="nav-link" href="../../zhex/">概览</a></li><li><a class="nav-link" href="../../zhex/comparison-acceleration/" aria-current="page">Second optimization pass: measured gains and limits</a></li><li><a class="nav-link" href="../../zhex/comparison-performance/">Performance evidence</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zhex/">zhex 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zhex/">zhex</a><span aria-hidden="true">/</span><span>Second optimization pass: measured gains and limits</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#what-changed-and-why">What changed and why</a></li><li class="toc-level-2"><a href="#fixed-workload-and-environment">Fixed workload and environment</a></li><li class="toc-level-2"><a href="#the-unchanged-primary-score">The unchanged primary score</a></li><li class="toc-level-2"><a href="#short-inputs-gains-latency-and-retained-regressions">Short inputs: gains, latency and retained regressions</a></li><li class="toc-level-2"><a href="#large-input-throughput">Large-input throughput</a></li><li class="toc-level-2"><a href="#invalid-input-and-error-cost">Invalid input and error cost</a></li><li class="toc-level-2"><a href="#scalar-simd-dispatch-and-fallback-evidence">Scalar, SIMD, dispatch and fallback evidence</a></li><li class="toc-level-2"><a href="#rejected-experiments-remain-available">Rejected experiments remain available</a></li><li class="toc-level-2"><a href="#artifacts-and-reproduction">Artifacts and reproduction</a></li><li class="toc-level-3"><a href="#evidence-review">Evidence review</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="second-optimization-pass-measured-gains-and-limits">Second optimization pass: measured gains and limits</h1>
+<p>On the measured Intel Xeon Platinum 8573C, this pass improves the geometric mean
+of all 0–64-byte cases against the preceding implementation by <strong>1.278–1.305× in
+the generic build</strong> and <strong>1.360–1.386× in the native build</strong>, depending on the
+operation. The unchanged 96-case primary target remains <strong>unmet</strong>: against the
+fastest eligible external library for each case, the scores are <strong>0.783× generic</strong>
+and <strong>0.794× native</strong>, with <strong>zero primary cases reaching 2×</strong>. Short-tail gains
+do not establish leadership over the strongest competitors.</p>
+<p>These conclusions use the four committed-source runs at
+<code>f69459e8e58db7d761099a00bb161da34ef638ee</code>. The historical self-comparison is frozen
+at <code>86f569aa72b945073187877323f4a20a6b4f12f6</code> and runs in the same executable.
+Only module import paths and its crate-level attribute were adapted; its codec
+logic and error semantics were preserved. Every slower case remains in the raw
+results. The <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/validation/acceleration-audit.json">independent audit</a> checks
+coverage, timing arithmetic, medians, both scorecards, archived source and binary
+provenance. The <a href="../../zhex/comparison-performance/">first-pass report</a> remains available separately.</p>
+<h2 id="what-changed-and-why">What changed and why<a class="heading-anchor" href="#what-changed-and-why" aria-label="链接到 What changed and why">#</a></h2>
+<p><strong>Bounded overlapping tails.</strong> Encoding and decoding used to finish incomplete
+vector chunks with scalar work. The new path processes a final full vector
+ending exactly at the end of the slice. It rereads an already processed prefix,
+then handles the remaining bytes. Every read and write stays within the caller's
+slices; there is no padding assumption. Encoding writes identical values over
+its overlap. Decoding first validates the whole vector, and the overlapped
+prefix was already valid, so the first invalid index remains the original input
+position. No output from a failing vector is stored.</p>
+<p><strong>A shorter encoding entry.</strong> On supported x86 CPUs, AVX2 encoding begins at
+16 input bytes. A widening operation maps 16 input bytes into 32 nibble positions
+and one table shuffle emits their text. The earlier 32-byte main loop is retained
+for bulk input. An experiment using the widening path throughout the bulk loop
+did not produce a consistent gain and was rejected.</p>
+<p><strong>SSE2 short decoding and two-table AVX2 decoding.</strong> Targets that guarantee SSE2
+use its checked 16-character decoder for short input. AVX2 handles 64-character
+groups using a subtract-one hash and two delta tables. Subtracting one places
+<code>0</code>, <code>1</code>–<code>9</code>, <code>A</code>–<code>F</code> and <code>a</code>–<code>f</code> in four useful high-nibble buckets. One table
+marks invalid bytes; the other yields nibble values. The two vector check masks
+are combined before stores. On failure, the first vector mask is examined first,
+then the second, preserving source order without rescanning the whole input.</p>
+<p>The tables follow Daniel Lemire's <a href="https://github.com/lemire/Code-used-on-Daniel-Lemire-s-blog/blob/23fa12e7a1f705d3e6fa9589b6d573b078c30618/2023/07/27/src/base16.c">public-domain base16 example</a>
+and <a href="https://lemire.me/blog/2023/07/27/decoding-base16-sequences-quickly/">article</a>.
+Its provenance is recorded in the source and <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/LICENSE">LICENSE</a>. The Rust
+slice boundaries, dispatch, group error handling and tails are implemented here.</p>
+<p>The scalar algorithms, public API, validation rules, MSRV and dependency policy
+are unchanged. Rust 1.70.0 release tests, stable generic/native release tests,
+rustfmt and Clippy passed after the final code change. The local logs are
+<a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-msrv.log">MSRV</a>, <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-stable.log">stable</a>,
+<a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-native.log">native</a> and <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-clippy.log">Clippy</a>.
+These runs cover 14 reference-based integration tests, concurrent dispatch,
+unit checks and the documentation example; target-specific unit-test counts vary
+when native features make runtime detection unnecessary.</p>
+<h2 id="fixed-workload-and-environment">Fixed workload and environment<a class="heading-anchor" href="#fixed-workload-and-environment" aria-label="链接到 Fixed workload and environment">#</a></h2>
+<p>The <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/PLAN.md">protocol</a> retains the original eight primary payload sizes
+(16, 32, 64, 256, 4,096, 65,536, 1,048,576 and 8,388,608 bytes), three successful
+operations and four input/output offsets: <code>(0,0)</code>, <code>(1,3)</code>, <code>(7,15)</code>, <code>(31,1)</code>.
+That is 96 primary cases. The full sweep still includes every size 0–64, all
+specified vector-boundary neighbors, large inputs and first/middle/last invalid
+bytes. No workload or validity requirement was removed to improve the score.</p>
+<p>Hardware and software are recorded in each <code>metadata.json</code>: Intel Xeon Platinum
+8573C; Linux 6.18.57, glibc 2.41; x86-64; Rust 1.99.1 (LLVM 23.1.1); CPU affinity
+<code>[0]</code>. Both builds use optimization level 3, fat LTO, one codegen unit and abort
+on panic. Generic has empty <code>RUSTFLAGS</code>; native has <code>-C target-cpu=native</code> for
+all linked libraries. The published crate still supports Rust 1.70.0; comparison
+dependencies are built only in their separate workspace with the recorded newer
+toolchain.</p>
+<p>All adapters use checked, preallocated slice APIs. Input generation, allocation,
+output poisoning and reference checks happen outside timing. A fixed seed,
+at least 1 ms of warmup, calibrated 2 ms samples, seven unfiltered samples,
+rotating implementation order and <code>black_box</code> are used. CPU feature caches are
+warm; the first CPUID discovery is not timed. Buffers are reused and warm.
+<code>const-hex</code>'s prefix extension is rejected by its adapter; libraries without an
+error position are scanned only after their checked decoder returns an error.
+The adapter suite independently checks all 65,536 two-character byte pairs.</p>
+<p>The <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-registry-check.json">official registry recheck</a> at
+2026-11-09 16:37:40 UTC confirms the same latest stable versions: hex 0.4.3,
+faster-hex 1.0.0, const-hex 1.19.3, hex-simd 0.8.0, better-hex 1.0.1,
+fashex 0.1.1 and hex-turbo 0.4.0. <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/registry.json">Registry provenance</a>
+records their checksums, licenses and published VCS commits. The final comparison
+retains each library's normal dispatch on this CPU. <code>hex</code> lacks a nonallocating
+uppercase slice API; its 328 unsupported combinations are explicitly retained
+per full run.</p>
+<h2 id="the-unchanged-primary-score">The unchanged primary score<a class="heading-anchor" href="#the-unchanged-primary-score" aria-label="链接到 The unchanged primary score">#</a></h2>
+<p>A speedup is <code>baseline median ns / zhex median ns</code>. A ratio below 1 is slower
+for zhex. The external score chooses the fastest eligible competitor separately
+for every case. The previous implementation and internal kernels are excluded.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Build</th>
+<th style="text-align:right">Fastest external GM</th>
+<th style="text-align:right">External losses</th>
+<th style="text-align:right">External cases ≥2×</th>
+<th style="text-align:right">Previous-zhex GM</th>
+<th style="text-align:right">Previous losses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generic</td>
+<td style="text-align:right">0.783×</td>
+<td style="text-align:right">86/96</td>
+<td style="text-align:right">0/96</td>
+<td style="text-align:right">1.012×</td>
+<td style="text-align:right">39/96</td>
+</tr>
+<tr>
+<td>native</td>
+<td style="text-align:right">0.794×</td>
+<td style="text-align:right">80/96</td>
+<td style="text-align:right">0/96</td>
+<td style="text-align:right">1.055×</td>
+<td style="text-align:right">40/96</td>
+</tr>
+</tbody>
+</table></div>
+<p>The generic competitive range is 0.251–1.080×; native is 0.326–1.804×. Full
+case-by-case results are <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-generic/fastest.csv">generic fastest</a>,
+<a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-native/fastest.csv">native fastest</a>,
+<a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-generic/previous.csv">generic previous</a> and
+<a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-native/previous.csv">native previous</a>. The primary results
+by operation are:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th style="text-align:right">Generic external</th>
+<th style="text-align:right">Generic previous</th>
+<th style="text-align:right">Native external</th>
+<th style="text-align:right">Native previous</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lower encode</td>
+<td style="text-align:right">0.794×</td>
+<td style="text-align:right">0.934×</td>
+<td style="text-align:right">0.862×</td>
+<td style="text-align:right">1.068×</td>
+</tr>
+<tr>
+<td>Upper encode</td>
+<td style="text-align:right">0.844×</td>
+<td style="text-align:right">0.987×</td>
+<td style="text-align:right">0.801×</td>
+<td style="text-align:right">0.997×</td>
+</tr>
+<tr>
+<td>Mixed decode</td>
+<td style="text-align:right">0.716×</td>
+<td style="text-align:right">1.123×</td>
+<td style="text-align:right">0.724×</td>
+<td style="text-align:right">1.103×</td>
+</tr>
+</tbody>
+</table></div>
+<p>This is a modest aggregate primary improvement over the prior implementation,
+with regressions in both builds. Generic lower encoding is 0.934× against its
+predecessor, despite using the same bulk vector operations. Its 4 KiB cases are
+0.717× in aggregate; the corresponding native result is 0.948×. Upper encoding
+is 0.828× at generic 4 KiB and 1.083× at native 4 KiB. These losses remain in the
+score. Inspection found no register spills or extra bulk vector operations, but
+LLVM selected indexed stores where the older generic loop used incremented
+pointers. The separate pointer experiment below did not justify a production
+change. Neither timing variation nor that compiler difference is proven to
+explain every regression.</p>
+<p>The fastest baseline varies by case. In generic, hex-turbo wins 24 cases,
+fashex 23, hex-simd 22, better-hex 12, faster-hex 10 and const-hex 5. In native,
+hex-turbo wins 25, better-hex 21, fashex 18, faster-hex 14, hex-simd 10 and
+const-hex 8. The reported target does not use the slower <code>hex</code> result as a proxy
+for the strongest implementation.</p>
+<h2 id="short-inputs-gains-latency-and-retained-regressions">Short inputs: gains, latency and retained regressions<a class="heading-anchor" href="#short-inputs-gains-latency-and-retained-regressions" aria-label="链接到 Short inputs: gains, latency and retained regressions">#</a></h2>
+<p>The following uses <strong>all 260 valid cases per operation</strong> at payload lengths
+0–64 and all four offsets, compared in the same process with previous-zhex.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Build</th>
+<th style="text-align:right">Operation</th>
+<th style="text-align:right">Previous/new GM</th>
+<th style="text-align:right">Cases below parity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generic</td>
+<td style="text-align:right">Lower encode</td>
+<td style="text-align:right">1.278×</td>
+<td style="text-align:right">53/260</td>
+</tr>
+<tr>
+<td>generic</td>
+<td style="text-align:right">Upper encode</td>
+<td style="text-align:right">1.301×</td>
+<td style="text-align:right">47/260</td>
+</tr>
+<tr>
+<td>generic</td>
+<td style="text-align:right">Mixed decode</td>
+<td style="text-align:right">1.305×</td>
+<td style="text-align:right">34/260</td>
+</tr>
+<tr>
+<td>native</td>
+<td style="text-align:right">Lower encode</td>
+<td style="text-align:right">1.386×</td>
+<td style="text-align:right">58/260</td>
+</tr>
+<tr>
+<td>native</td>
+<td style="text-align:right">Upper encode</td>
+<td style="text-align:right">1.360×</td>
+<td style="text-align:right">58/260</td>
+</tr>
+<tr>
+<td>native</td>
+<td style="text-align:right">Mixed decode</td>
+<td style="text-align:right">1.386×</td>
+<td style="text-align:right">34/260</td>
+</tr>
+</tbody>
+</table></div>
+<p>The tail mechanism's effect is visible when lengths are grouped around the
+vector boundaries. These are additional coverage results, not replacements for
+the fixed primary score:</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Payload bytes</th>
+<th style="text-align:right">Generic lower</th>
+<th style="text-align:right">Generic upper</th>
+<th style="text-align:right">Generic decode</th>
+<th style="text-align:right">Native lower</th>
+<th style="text-align:right">Native upper</th>
+<th style="text-align:right">Native decode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–7</td>
+<td style="text-align:right">0.989×</td>
+<td style="text-align:right">1.028×</td>
+<td style="text-align:right">1.069×</td>
+<td style="text-align:right">1.083×</td>
+<td style="text-align:right">1.095×</td>
+<td style="text-align:right">1.093×</td>
+</tr>
+<tr>
+<td>8–15</td>
+<td style="text-align:right">0.983×</td>
+<td style="text-align:right">1.062×</td>
+<td style="text-align:right">1.227×</td>
+<td style="text-align:right">1.038×</td>
+<td style="text-align:right">1.042×</td>
+<td style="text-align:right">1.403×</td>
+</tr>
+<tr>
+<td>16–31</td>
+<td style="text-align:right">1.292×</td>
+<td style="text-align:right">1.349×</td>
+<td style="text-align:right">1.372×</td>
+<td style="text-align:right">1.453×</td>
+<td style="text-align:right">1.460×</td>
+<td style="text-align:right">1.507×</td>
+</tr>
+<tr>
+<td>32–47</td>
+<td style="text-align:right">1.364×</td>
+<td style="text-align:right">1.377×</td>
+<td style="text-align:right">1.314×</td>
+<td style="text-align:right">1.571×</td>
+<td style="text-align:right">1.404×</td>
+<td style="text-align:right">1.488×</td>
+</tr>
+<tr>
+<td>48–63</td>
+<td style="text-align:right">1.552×</td>
+<td style="text-align:right">1.482×</td>
+<td style="text-align:right">1.417×</td>
+<td style="text-align:right">1.558×</td>
+<td style="text-align:right">1.591×</td>
+<td style="text-align:right">1.346×</td>
+</tr>
+</tbody>
+</table></div>
+<p>For absolute latency, the following cells show <strong>ns/op ranges of the four
+per-offset medians</strong> for current zhex. They are not confidence intervals; every
+raw sample and the per-case minimum/maximum is preserved in <code>summary.csv</code>.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Payload bytes</th>
+<th style="text-align:right">Generic lower</th>
+<th style="text-align:right">Generic upper</th>
+<th style="text-align:right">Generic decode</th>
+<th style="text-align:right">Native lower</th>
+<th style="text-align:right">Native upper</th>
+<th style="text-align:right">Native decode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td style="text-align:right">7.52–8.90</td>
+<td style="text-align:right">7.78–8.59</td>
+<td style="text-align:right">7.75–8.84</td>
+<td style="text-align:right">7.39–8.23</td>
+<td style="text-align:right">7.18–7.88</td>
+<td style="text-align:right">6.89–8.04</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:right">8.73–11.85</td>
+<td style="text-align:right">8.52–14.19</td>
+<td style="text-align:right">12.78–15.83</td>
+<td style="text-align:right">8.76–10.58</td>
+<td style="text-align:right">8.48–9.84</td>
+<td style="text-align:right">8.93–9.88</td>
+</tr>
+<tr>
+<td>15</td>
+<td style="text-align:right">12.57–13.85</td>
+<td style="text-align:right">13.18–13.86</td>
+<td style="text-align:right">11.08–14.00</td>
+<td style="text-align:right">17.94–28.28</td>
+<td style="text-align:right">10.81–24.36</td>
+<td style="text-align:right">9.41–18.68</td>
+</tr>
+<tr>
+<td>16</td>
+<td style="text-align:right">8.54–10.14</td>
+<td style="text-align:right">8.36–9.68</td>
+<td style="text-align:right">9.42–18.63</td>
+<td style="text-align:right">7.58–9.50</td>
+<td style="text-align:right">7.04–16.70</td>
+<td style="text-align:right">8.39–21.39</td>
+</tr>
+<tr>
+<td>31</td>
+<td style="text-align:right">9.06–9.44</td>
+<td style="text-align:right">9.05–10.55</td>
+<td style="text-align:right">10.32–11.99</td>
+<td style="text-align:right">7.24–20.58</td>
+<td style="text-align:right">7.70–17.37</td>
+<td style="text-align:right">8.08–10.57</td>
+</tr>
+<tr>
+<td>32</td>
+<td style="text-align:right">9.55–15.08</td>
+<td style="text-align:right">9.42–11.57</td>
+<td style="text-align:right">9.32–12.08</td>
+<td style="text-align:right">7.11–9.56</td>
+<td style="text-align:right">8.71–16.52</td>
+<td style="text-align:right">7.53–13.15</td>
+</tr>
+<tr>
+<td>63</td>
+<td style="text-align:right">10.68–11.31</td>
+<td style="text-align:right">10.62–17.26</td>
+<td style="text-align:right">12.04–17.25</td>
+<td style="text-align:right">9.14–9.53</td>
+<td style="text-align:right">8.77–10.83</td>
+<td style="text-align:right">10.62–11.95</td>
+</tr>
+<tr>
+<td>64</td>
+<td style="text-align:right">10.70–12.73</td>
+<td style="text-align:right">10.13–13.31</td>
+<td style="text-align:right">11.45–15.88</td>
+<td style="text-align:right">8.98–9.74</td>
+<td style="text-align:right">8.71–10.48</td>
+<td style="text-align:right">9.61–11.24</td>
+</tr>
+</tbody>
+</table></div>
+<p>The unchanged code on some tiny paths also moves in these measurements. That,
+along with wide sample ranges, limits interpretation of small differences on
+this shared cloud host. The consistent broad short-tail gains are the supported
+result; a universal improvement at every length or alignment is not established.</p>
+<h2 id="large-input-throughput">Large-input throughput<a class="heading-anchor" href="#large-input-throughput" aria-label="链接到 Large-input throughput">#</a></h2>
+<p>All throughput uses <strong>payload GiB/s</strong>: original byte input for encode, decoded
+byte output for decode. A successful operation transfers three times that many
+bytes when its reads and writes are added. The following cells show ranges of
+per-offset median rates for current zhex, with the same denominator throughout.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Payload bytes</th>
+<th style="text-align:right">Generic lower</th>
+<th style="text-align:right">Generic upper</th>
+<th style="text-align:right">Generic decode</th>
+<th style="text-align:right">Native lower</th>
+<th style="text-align:right">Native upper</th>
+<th style="text-align:right">Native decode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 KiB</td>
+<td style="text-align:right">8.67–22.94</td>
+<td style="text-align:right">10.30–25.54</td>
+<td style="text-align:right">8.06–13.18</td>
+<td style="text-align:right">18.81–21.95</td>
+<td style="text-align:right">11.68–23.81</td>
+<td style="text-align:right">6.34–12.89</td>
+</tr>
+<tr>
+<td>64 KiB</td>
+<td style="text-align:right">14.53–19.80</td>
+<td style="text-align:right">14.78–17.65</td>
+<td style="text-align:right">2.82–11.42</td>
+<td style="text-align:right">15.53–18.15</td>
+<td style="text-align:right">15.57–18.54</td>
+<td style="text-align:right">9.45–11.17</td>
+</tr>
+<tr>
+<td>1 MiB</td>
+<td style="text-align:right">7.07–9.14</td>
+<td style="text-align:right">4.16–9.15</td>
+<td style="text-align:right">8.06–9.35</td>
+<td style="text-align:right">8.13–9.59</td>
+<td style="text-align:right">7.40–8.46</td>
+<td style="text-align:right">6.61–7.98</td>
+</tr>
+<tr>
+<td>8 MiB</td>
+<td style="text-align:right">7.03–8.25</td>
+<td style="text-align:right">6.36–7.95</td>
+<td style="text-align:right">6.54–8.03</td>
+<td style="text-align:right">6.00–8.09</td>
+<td style="text-align:right">6.26–7.54</td>
+<td style="text-align:right">6.12–7.67</td>
+</tr>
+</tbody>
+</table></div>
+<p>Across the 16 primary decode cases at 4 KiB and above, generic old/new GM is
+1.138× with one case below parity; native is 1.030× with five below parity.
+No independent bandwidth-ceiling experiment was performed, so these results do
+not establish memory-bandwidth saturation. They also provide no ARM throughput
+claim; AArch64 runner timing is only a functional smoke test.</p>
+<h2 id="invalid-input-and-error-cost">Invalid input and error cost<a class="heading-anchor" href="#invalid-input-and-error-cost" aria-label="链接到 Invalid input and error cost">#</a></h2>
+<p>Length and capacity errors still return before writing. Each vector group's
+validity is checked before its output stores. The first invalid byte is reported
+in original input coordinates; earlier valid groups may already have written
+output. Invalid-input cases remain outside the successful-throughput score.
+The following old/new GMs cover all eight primary sizes and four offsets.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Invalid position</th>
+<th style="text-align:right">Generic ratio</th>
+<th style="text-align:right">Generic losses</th>
+<th style="text-align:right">Native ratio</th>
+<th style="text-align:right">Native losses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First invalid</td>
+<td style="text-align:right">0.863×</td>
+<td style="text-align:right">28/32</td>
+<td style="text-align:right">0.969×</td>
+<td style="text-align:right">11/32</td>
+</tr>
+<tr>
+<td>Middle invalid</td>
+<td style="text-align:right">0.997×</td>
+<td style="text-align:right">16/32</td>
+<td style="text-align:right">1.096×</td>
+<td style="text-align:right">9/32</td>
+</tr>
+<tr>
+<td>Last invalid</td>
+<td style="text-align:right">1.067×</td>
+<td style="text-align:right">12/32</td>
+<td style="text-align:right">1.199×</td>
+<td style="text-align:right">6/32</td>
+</tr>
+</tbody>
+</table></div>
+<p>Early invalid input is a recorded tradeoff: generic first-invalid GM is 0.863×,
+with 28 of 32 cases slower. The larger validated group can do more work before
+rejecting its first byte. Invalid timing uses ns/op only, since the number of
+successfully decoded bytes is not the nominal payload length. All absolute
+invalid latencies are in the linked full <code>summary.csv</code> files.</p>
+<h2 id="scalar-simd-dispatch-and-fallback-evidence">Scalar, SIMD, dispatch and fallback evidence<a class="heading-anchor" href="#scalar-simd-dispatch-and-fallback-evidence" aria-label="链接到 Scalar, SIMD, dispatch and fallback evidence">#</a></h2>
+<p>The kernel ablation uses the exact production source through checked wrappers.
+It preserves capacity, CPU/OS and invalid-byte checks. The following ratio is
+<code>internal scalar median / public median</code> on the 32 primary cases per operation;
+it measures benefit over this library's own scalar implementation.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Build</th>
+<th style="text-align:right">Operation</th>
+<th style="text-align:right">Scalar/public GM</th>
+<th style="text-align:right">Public losses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>generic</td>
+<td style="text-align:right">Lower encode</td>
+<td style="text-align:right">1.944×</td>
+<td style="text-align:right">1/32</td>
+</tr>
+<tr>
+<td>generic</td>
+<td style="text-align:right">Upper encode</td>
+<td style="text-align:right">1.899×</td>
+<td style="text-align:right">0/32</td>
+</tr>
+<tr>
+<td>generic</td>
+<td style="text-align:right">Mixed decode</td>
+<td style="text-align:right">5.131×</td>
+<td style="text-align:right">0/32</td>
+</tr>
+<tr>
+<td>native</td>
+<td style="text-align:right">Lower encode</td>
+<td style="text-align:right">1.118×</td>
+<td style="text-align:right">6/32</td>
+</tr>
+<tr>
+<td>native</td>
+<td style="text-align:right">Upper encode</td>
+<td style="text-align:right">1.079×</td>
+<td style="text-align:right">9/32</td>
+</tr>
+<tr>
+<td>native</td>
+<td style="text-align:right">Mixed decode</td>
+<td style="text-align:right">5.377×</td>
+<td style="text-align:right">0/32</td>
+</tr>
+</tbody>
+</table></div>
+<p>On generic payloads 0–15, bypassing the unconditional AVX2 entry gives public
+speedups of 1.368× lower encode, 1.354× upper encode and 1.064× decode. Across
+all 192 such cases the GM is 1.254×, with 20 cases below parity. The source's
+short cutoff is therefore retained. Native folds feature detection away and
+also changes compiler optimization; its differences are not attributed solely
+to dispatch.</p>
+<p>The scalar implementation did not change, so the previous full force-scalar
+measurement is preserved in <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/final-scalar">final-scalar</a>, with its older
+source commit clearly identified. The new kernel runs measure the current
+scalar against the current public path. Fallback routing remains explicit:
+on x86 without runtime AVX2, encoding uses scalar; decoding can use compile-target
+SSE2, otherwise scalar. AArch64 uses NEON only when the target guarantees it;
+other targets, <code>force-scalar</code>, Miri and SGX exclusion take scalar paths. CI tests
+and compile checks verify those routes separately from host timing. No physical
+non-AVX2 or ARM performance result is inferred from this AVX2 host.</p>
+<h2 id="rejected-experiments-remain-available">Rejected experiments remain available<a class="heading-anchor" href="#rejected-experiments-remain-available" aria-label="链接到 Rejected experiments remain available">#</a></h2>
+<ul>
+<li><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-sse2-short">Initial SSE2 short experiment</a>: decoding at 8–15
+payload bytes improved by 1.253× over the previous implementation. Encoding
+had no consistent gain, so its proposed SSE2 encoder was removed.</li>
+<li><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-expanded128-primary">Expanded encoder and arithmetic 128-character decode group</a>:
+valid primary ratios were 0.978× lower, 0.949× upper and 1.001× decode. Scalar
+recovery on a failed 128-character group made late errors particularly slow.
+This design was rejected. Emitted code also showed register pressure and
+repeated constant loads in that arithmetic batch.</li>
+<li><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-table64-primary">Two-table 64-character exploration</a> and
+<a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-table64-short">short sweep</a> supported the simpler group and
+bounded tails. The final encoder restores the original 32-byte bulk loop.
+<a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-overlap-kernels-short">Short kernel ablation</a> supported moving
+its AVX2 entry to 16 bytes; final full runs test that actual public cutoff.</li>
+<li><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-pointer-ab">Pointer-induction A/B</a> was fixed after the four
+final runs to investigate the concrete indexed-address difference. It keeps
+the production preflight and AVX2 checks and changes only the benchmark copy's
+encoder loop induction. Across 64 primary encoding cases its indexed/pointer
+GM is <strong>0.997×</strong>, with 29 cases slower using the candidate: 1.047× lower but
+0.949× upper. Short results are 0.989× lower and 1.017× upper. LLVM emitted
+indexed stores in both versions; <a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-pointer-ab">both assembly extracts</a>
+and all 15,120 samples are saved. The candidate is rejected and production
+remains at the measured <code>f69459e8</code> source.</li>
+</ul>
+<p>Exploratory results explain choices. The four committed-source final runs supply
+the delivery performance conclusions; none of the rejected samples is deleted.</p>
+<h2 id="artifacts-and-reproduction">Artifacts and reproduction<a class="heading-anchor" href="#artifacts-and-reproduction" aria-label="链接到 Artifacts and reproduction">#</a></h2>
+<p>The four final runs contain <strong>158,200 timed samples</strong> plus <strong>656 explicit
+unsupported rows</strong>. Each full external/self sweep has 65,744 samples and
+328 unsupported combinations; full generic kernels have 22,680 samples; native
+primary kernels have 4,032. The six second-pass exploratory runs retain another
+60,480 samples. These counts exclude validation calls outside the timer.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Run</th>
+<th>Scope</th>
+<th>Main evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-generic">Generic</a></td>
+<td>All 82 sizes, four offsets, seven competitors and previous-zhex</td>
+<td>raw.csv.gz, summary.csv, fastest.csv, previous.csv, metadata.json, source.tar.gz</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-native">Native</a></td>
+<td>Identical full matrix, native flags</td>
+<td>Same complete evidence set</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-kernels">Generic kernels</a></td>
+<td>Full 82-size scalar/SIMD/public ablation</td>
+<td>raw.csv.gz, summary.csv, metadata.json, source.tar.gz</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/results/round2-final-native-kernels">Native kernels</a></td>
+<td>Original primary sizes and invalid positions</td>
+<td>raw.csv.gz, summary.csv, metadata.json, source.tar.gz</td>
+</tr>
+</tbody>
+</table></div>
+<p>Use the exact measured commit, or extract one of its benchmark source snapshots
+into a fresh directory. With Rust 1.99.1 on the path, from the repository root:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>taskset -c 0 comparison/run.sh generic comparison/results/reproduce-generic
+taskset -c 0 comparison/run.sh native comparison/results/reproduce-native
+taskset -c 0 comparison/run.sh generic comparison/results/reproduce-kernels --kernels
+taskset -c 0 comparison/run.sh native comparison/results/reproduce-native-kernels --kernels --primary
+</code></pre></div>
+<p>Use an available logical CPU on another host and record that change. The runner
+refuses existing evidence directories, snapshots its source before building,
+checks it did not drift during compilation, records the exact executable hash
+and executes that binary. Generic and native executable SHA-256 values are
+<code>ab80d24f65497d7bc3e574009615888771e2e08f227925e18577084c014b0f5e</code> and
+<code>fef2f37ceb8cf88cd9319d95762f32dfd129bc4db40cf3d1eb4c5eb2147feb50</code> respectively. The comparison
+workspace, dependencies, research copies and artifacts remain excluded from the
+published crate.</p>
+<h3 id="evidence-review">Evidence review<a class="heading-anchor" href="#evidence-review" aria-label="链接到 Evidence review">#</a></h3>
+<ol>
+<li><strong>Question:</strong> the fixed fastest-baseline target and the separate historical
+self-comparison answer different, explicitly labeled questions.</li>
+<li><strong>Correctness:</strong> independent references, complete byte-pair tests, poisoned
+outputs and exact invalid positions precede timing; no validity work is dropped.</li>
+<li><strong>Controls:</strong> same buffers, offsets, allocation policy, compiler settings and
+throughput denominator are used for every eligible library.</li>
+<li><strong>Reproducibility:</strong> immutable commits, source archives, lockfiles, registry
+checks, binary hashes, every sample and independent recomputation are retained.</li>
+<li><strong>Limits:</strong> shared-host variation, all regressions, early-error cost, the
+unmet 2× target and unmeasured hardware/bandwidth claims are stated directly.</li>
+</ol>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zhex/blob/9fc8de3901b2726e650537f4a6330355e8a965e7/comparison/ACCELERATION.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zhex">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zhex/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../zhex/comparison-performance/"><span class="pagination-label">下一页</span><span class="pagination-title">Performance evidence</span></a></nav>
+      <footer class="page-footer">
+        <span>zhex <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#what-changed-and-why">What changed and why</a></li><li class="toc-level-2"><a href="#fixed-workload-and-environment">Fixed workload and environment</a></li><li class="toc-level-2"><a href="#the-unchanged-primary-score">The unchanged primary score</a></li><li class="toc-level-2"><a href="#short-inputs-gains-latency-and-retained-regressions">Short inputs: gains, latency and retained regressions</a></li><li class="toc-level-2"><a href="#large-input-throughput">Large-input throughput</a></li><li class="toc-level-2"><a href="#invalid-input-and-error-cost">Invalid input and error cost</a></li><li class="toc-level-2"><a href="#scalar-simd-dispatch-and-fallback-evidence">Scalar, SIMD, dispatch and fallback evidence</a></li><li class="toc-level-2"><a href="#rejected-experiments-remain-available">Rejected experiments remain available</a></li><li class="toc-level-2"><a href="#artifacts-and-reproduction">Artifacts and reproduction</a></li><li class="toc-level-3"><a href="#evidence-review">Evidence review</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

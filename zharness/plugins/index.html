@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="复用上下文、工具循环、hook 与协作执行原语。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zharness · Native and Wasm plugin primitives · Project Z">
+  <meta property="og:description" content="复用上下文、工具循环、hook 与协作执行原语。">
+  <meta property="og:type" content="website">
+  <title>zharness · Native and Wasm plugin primitives · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zharness/plugins/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zharness">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zharness" aria-label="zharness 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zharness</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zharness</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/" aria-current="page">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zharness 文档"><div class="nav-group"><p class="nav-label">zharness</p><ul><li><a class="nav-link" href="../../zharness/">概览</a></li><li><a class="nav-link" href="../../zharness/commands/">Command execution hooks</a></li><li><a class="nav-link" href="../../zharness/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zharness/plugins/" aria-current="page">Native and Wasm plugin primitives</a></li><li><a class="nav-link" href="../../zharness/context/">Context management</a></li><li><a class="nav-link" href="../../zharness/guardrails/">Native security guardrails</a></li><li><a class="nav-link" href="../../zharness/harness/">Model/tool loop primitives</a></li><li><a class="nav-link" href="../../zharness/hooks/">Hook systems and boundaries</a></li><li><a class="nav-link" href="../../zharness/lifecycle/">Typed Harness Lifecycle API</a></li><li><a class="nav-link" href="../../zharness/output/">Tool output processing</a></li><li><a class="nav-link" href="../../zharness/performance/">Performance methodology</a></li><li><a class="nav-link" href="../../zharness/skills/">Skills</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zharness</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/" aria-current="page">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zharness 文档"><div class="nav-group"><p class="nav-label">zharness</p><ul><li><a class="nav-link" href="../../zharness/">概览</a></li><li><a class="nav-link" href="../../zharness/commands/">Command execution hooks</a></li><li><a class="nav-link" href="../../zharness/architecture/">Architecture</a></li><li><a class="nav-link" href="../../zharness/plugins/" aria-current="page">Native and Wasm plugin primitives</a></li><li><a class="nav-link" href="../../zharness/context/">Context management</a></li><li><a class="nav-link" href="../../zharness/guardrails/">Native security guardrails</a></li><li><a class="nav-link" href="../../zharness/harness/">Model/tool loop primitives</a></li><li><a class="nav-link" href="../../zharness/hooks/">Hook systems and boundaries</a></li><li><a class="nav-link" href="../../zharness/lifecycle/">Typed Harness Lifecycle API</a></li><li><a class="nav-link" href="../../zharness/output/">Tool output processing</a></li><li><a class="nav-link" href="../../zharness/performance/">Performance methodology</a></li><li><a class="nav-link" href="../../zharness/skills/">Skills</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zharness/">zharness 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zharness/">zharness</a><span aria-hidden="true">/</span><span>Native and Wasm plugin primitives</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#load-bind-and-call">Load, bind and call</a></li><li class="toc-level-2"><a href="#the-interface-contract">The interface contract</a></li><li class="toc-level-2"><a href="#export-a-rust-plugin">Export a Rust plugin</a></li><li class="toc-level-2"><a href="#use-the-existing-tool-boundary">Use the existing tool boundary</a></li><li class="toc-level-2"><a href="#load-untrusted-wasm-operations">Load untrusted Wasm operations</a></li><li class="toc-level-2"><a href="#compose-disable-and-replace-plugin-executors">Compose, disable and replace plugin executors</a></li><li class="toc-level-2"><a href="#wasm-trust-and-resource-policy">Wasm trust and resource policy</a></li><li class="toc-level-2"><a href="#errors-ownership-and-unloading">Errors, ownership and unloading</a></li><li class="toc-level-2"><a href="#dependencies-and-performance-scope">Dependencies and performance scope</a></li><li class="toc-level-2"><a href="#references">References</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="native-and-wasm-plugin-primitives">Native and Wasm plugin primitives</h1>
+<p>The <code>plugin</code> module connects zharness to zplugin 0.3.0. Trusted native libraries
+use the frozen Extension v1 interface; optional untrusted Wasm modules use a
+separate bounded byte-buffer protocol. Both adapt to the existing <code>Executor</code>
+boundary and caller-owned routes. A plugin implements its operations; the host
+chooses files, interface versions, operation maps, tool metadata and permissions.</p>
+<p>The module is available in the <code>no_std</code> core. The default <code>std</code> feature forwards
+to <code>zplugin/std</code> for native path handling and plugin-side panic containment.
+Loading trusted native code remains an explicit unsafe host operation. Binding
+and normal calls then use zplugin's generated safe proxy.</p>
+<h2 id="load-bind-and-call">Load, bind and call<a class="heading-anchor" href="#load-bind-and-call" aria-label="链接到 Load, bind and call">#</a></h2>
+<p>This example loads a library whose <code>echo</code> operation returns its input. The
+filename is chosen by the host; zharness does not scan plugin directories.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,no_run</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 rust,no_run 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code># #[cfg(feature = &quot;std&quot;)]
+# fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+use zharness::plugin::{ExtensionApi, Plugin, UnloadPolicy};
+
+// SAFETY: the selected file and its dependencies are trusted native code
+// implementing zplugin ABI v1 and the Extension contract below.
+let library = unsafe {
+    Plugin::load_path(&quot;./libnative_plugin.so&quot;, UnloadPolicy::Pinned)?
+};
+let mut extension = ExtensionApi::create(&amp;library)?;
+let mut output = [0; 256];
+let bytes = extension.call_bytes(&quot;echo&quot;, b&quot;hello&quot;, &amp;mut output)?;
+assert_eq!(bytes, b&quot;hello&quot;);
+let text = extension.call_text(&quot;echo&quot;, b&quot;hello&quot;, &amp;mut output)?;
+assert_eq!(text, &quot;hello&quot;);
+# Ok(())
+# }
+# #[cfg(not(feature = &quot;std&quot;))]
+# fn main() {}
+</code></pre></div>
+<p><code>Plugin</code> and <code>UnloadPolicy</code> are the actual zplugin types re-exported by zharness.
+<code>load_path</code> uses the platform's native path representation, including Unicode
+Windows paths. Use <code>.so</code> on Linux, <code>.dylib</code> on macOS and <code>.dll</code> on Windows.
+Without <code>std</code>, <code>unsafe Plugin::load(&amp;CStr)</code> uses the platform loader and pins the
+image. Windows also provides the allocator-free UTF-16 <code>load_wide</code> entry point.</p>
+<p><code>ExtensionApi::create</code> checks the interface ID, version and complete method
+signature before creating an instance. The returned <code>ExtensionProxy</code> borrows
+the library. Bind once and reuse it for steady calls; do not load a library or
+look up a symbol for every operation.</p>
+<h2 id="the-interface-contract">The interface contract<a class="heading-anchor" href="#the-interface-contract" aria-label="链接到 The interface contract">#</a></h2>
+<p>The v1 contract has ID <code>dev.project-z.zharness.extension</code> and one method:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 rust 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>use zharness::plugin::Extension;
+
+struct Echo;
+impl Extension for Echo {
+    fn call(
+        &amp;mut self,
+        operation: &amp;str,
+        input: &amp;[u8],
+        output: &amp;mut [u8],
+    ) -&gt; Result&lt;u64, zplugin::Error&gt; {
+        if operation != &quot;echo&quot; {
+            return Err(zplugin::Error::Unsupported);
+        }
+        if output.len() &lt; input.len() {
+            return Err(zplugin::Error::BufferTooSmall);
+        }
+        output[..input.len()].copy_from_slice(input);
+        Ok(input.len() as u64)
+    }
+}
+</code></pre></div>
+<p><code>operation</code> and <code>input</code> are borrowed for one call. <code>output</code> is writable only for
+that call. The success value is the number of output bytes initialized by the
+plugin. The operation namespace and byte encoding belong to the application;
+the crate adds no JSON envelope, tool-discovery protocol, permission convention
+or result-status bit packing.</p>
+<p>The zplugin macro generates <code>ExtensionApi</code>, <code>ExtensionBinding</code>,
+<code>ExtensionProxy</code> and <code>ExtensionExport&lt;T&gt;</code>. <code>ExtensionApi::SPEC</code> exposes the fixed
+interface specification. The interface version must change if its method name,
+order, receiver or boundary types change. Plugin package versions, application
+payload versions and this interface version are separate contracts.</p>
+<p><code>ExtensionProxy::call</code> is the generated low-level typed call and returns <code>u64</code>.
+Use <code>call_bytes</code> to validate that the returned count fits <code>usize</code> and the output
+buffer, then borrow exactly those bytes. <code>call_text</code> additionally validates UTF-8.
+Neither helper allocates, copies the completed output or retries the plugin.</p>
+<h2 id="export-a-rust-plugin">Export a Rust plugin<a class="heading-anchor" href="#export-a-rust-plugin" aria-label="链接到 Export a Rust plugin">#</a></h2>
+<p>The plugin is a separate <code>cdylib</code>. Depend on zharness for the shared interface
+and on the same zplugin version for its export macro. Cargo unifies the zplugin
+dependency; this does not create a second runtime copy inside one crate graph.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>[lib]
+crate-type = [&quot;cdylib&quot;]
+
+[dependencies]
+zharness = &quot;=0.4.0&quot;
+zplugin = { version = &quot;=0.3.0&quot;, default-features = false, features = [&quot;std&quot;, &quot;macros&quot;] }
+</code></pre></div>
+<p>The following complete export uses the pinned lifetime policy:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,no_run</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 rust,no_run 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code># #[cfg(feature = &quot;std&quot;)]
+# mod plugin_example {
+use zharness::plugin::{Extension, ExtensionExport};
+
+struct Echo;
+impl Extension for Echo {
+    fn call(
+        &amp;mut self,
+        operation: &amp;str,
+        input: &amp;[u8],
+        output: &amp;mut [u8],
+    ) -&gt; Result&lt;u64, zplugin::Error&gt; {
+        if operation != &quot;echo&quot; {
+            return Err(zplugin::Error::Unsupported);
+        }
+        if output.len() &lt; input.len() {
+            return Err(zplugin::Error::BufferTooSmall);
+        }
+        output[..input.len()].copy_from_slice(input);
+        Ok(input.len() as u64)
+    }
+}
+
+fn create() -&gt; zplugin::Result&lt;Echo&gt; {
+    Ok(Echo)
+}
+
+zplugin::export!(ExtensionExport&lt;Echo&gt;,
+    constructor = create, version = (1, 0, 0), unload = pinned);
+# }
+# fn main() {}
+</code></pre></div>
+<p>The repository's <code>native_plugin</code> example supplies <code>echo</code> and <code>uppercase</code>, and
+<code>plugin_host</code> loads it through the same public interface. The example's operation
+implementations are sample application logic, not behavior hidden in zharness.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>cargo build --locked --example native_plugin
+cargo run --locked --example plugin_host -- target/debug/examples/libnative_plugin.so
+</code></pre></div>
+<p>On macOS use <code>libnative_plugin.dylib</code>; on Windows use <code>native_plugin.dll</code>.
+<code>python scripts/examples.py</code> locates Cargo's actual platform artifact and runs
+the host with that path, alongside the other standalone examples.</p>
+<h2 id="use-the-existing-tool-boundary">Use the existing tool boundary<a class="heading-anchor" href="#use-the-existing-tool-boundary" aria-label="链接到 Use the existing tool boundary">#</a></h2>
+<p><code>ExtensionProxy</code> implements <code>Executor</code>. A validated tool name becomes the
+operation name, and the existing JSON argument bytes become the input. A valid
+UTF-8 success result becomes <code>ToolOutput::success</code>. A nonzero native status stays
+an execution error; application-specific business failures and their <code>is_error</code>
+mapping remain the host's policy.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,no_run</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 rust,no_run 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code># #[cfg(feature = &quot;std&quot;)]
+# fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+use zharness::{Invocation, Tool, ToolSet};
+use zharness::hooks::{HookResult, NoHooks};
+use zharness::plugin::{ExtensionApi, Plugin, UnloadPolicy};
+use zharness::validation::ArgumentLimits;
+use zharness::zcall::v1::TokenStorage;
+
+// SAFETY: this is the host-approved plugin and implements the expected ABI.
+let library = unsafe {
+    Plugin::load_path(&quot;./libnative_plugin.so&quot;, UnloadPolicy::Pinned)?
+};
+let mut extension = ExtensionApi::create(&amp;library)?;
+let tools = [Tool::new(&quot;echo&quot;, &quot;Echo input&quot;, r#&quot;{&quot;type&quot;:&quot;object&quot;}&quot;#)];
+let registry = ToolSet::new(&amp;tools)?;
+let invocation = Invocation {
+    signature: None,
+    call_id: &quot;call-1&quot;,
+    name: &quot;echo&quot;,
+    arguments: br#&quot;{&quot;message&quot;:&quot;hello&quot;}&quot;#,
+};
+let mut tokens = TokenStorage::&lt;16&gt;::new();
+let prepared = invocation.prepare(&amp;registry, &amp;mut tokens, ArgumentLimits::default())?;
+let mut output = [0; 256];
+let HookResult::Applied(completion) = prepared.execute_with_hooks(
+    &amp;mut extension, &amp;mut output, &amp;mut NoHooks,
+)? else {
+    unreachable!(&quot;NoHooks always allows&quot;);
+};
+assert_eq!(completion.call_id, &quot;call-1&quot;);
+assert_eq!(completion.text, r#&quot;{&quot;message&quot;:&quot;hello&quot;}&quot;#);
+# Ok(())
+# }
+# #[cfg(not(feature = &quot;std&quot;))]
+# fn main() {}
+</code></pre></div>
+<p>The host supplies <code>ToolSet</code> and hooks. Existing pause/deny decisions happen before
+the plugin's actual call; completion/error observers keep their current timing.
+Calling <code>call_bytes</code> directly intentionally bypasses that tool boundary, so the
+host must place any desired policy or lifecycle wrapper around the direct call.
+Nothing automatically registers plugin operations as model-visible tools.</p>
+<h2 id="load-untrusted-wasm-operations">Load untrusted Wasm operations<a class="heading-anchor" href="#load-untrusted-wasm-operations" aria-label="链接到 Load untrusted Wasm operations">#</a></h2>
+<p>Enable the explicit <code>wasm</code> feature. It forwards to <code>zplugin/wasm</code>, implies an
+allocator and does not enable <code>std</code>. <code>WasmExtension</code> owns one sandbox and borrows
+a host-approved operation map. The map translates names used by Executor to the
+numeric operation codes defined by the plugin interface; application arguments
+remain the original bytes, with no additional serialization envelope.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">rust,no_run</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 rust,no_run 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code># #[cfg(feature = &quot;wasm&quot;)]
+fn load(module: &amp;[u8]) -&gt; Result&lt;zharness::plugin::wasm::WasmExtension&lt;&#x27;static&gt;,
+                               zharness::plugin::wasm::LoadError&gt; {
+    use zharness::plugin::wasm::{Interface, Limits, Operation, WasmExtension};
+    static OPERATIONS: [Operation&lt;&#x27;static&gt;; 2] = [
+        Operation::new(&quot;echo&quot;, 0),
+        Operation::new(&quot;uppercase&quot;, 1),
+    ];
+    WasmExtension::load(
+        module,
+        Interface { id: 0x7a6861726e657373, version: 1 },
+        &amp;OPERATIONS,
+        Limits::default(),
+    )
+}
+</code></pre></div>
+<p>Names obey the same bounded ASCII rules as tool names. Duplicate names fail
+before module parsing; numeric aliases are permitted explicitly. Unknown names
+return <code>UnknownTool</code> without executing guest code. The map is an allowlist of
+callable entry points, not a grant of host capabilities or proof of module
+identity. Model-visible tool metadata still comes from the caller's Registry.</p>
+<p><code>call_bytes</code> returns a checked prefix of caller storage. <code>call_text</code> and Executor
+also validate UTF-8. Engine errors leave host output unchanged; invalid UTF-8 is
+a host text-contract error after a successful byte copy, so discard that output.
+Business errors preserve their guest status and do not automatically poison the
+instance. Traps, fuel exhaustion and invalid success lengths invalidate it.</p>
+<p><code>zharness::Error</code> remains <code>Copy</code>. Execution hooks receive <code>Error::Wasm(Fault)</code>
+with a bounded classification and status/length details. <code>last_error()</code> borrows
+the original zplugin diagnostic, including trap text; it is cleared before each
+call attempt and after successful replacement. Constructor <code>LoadError</code> preserves
+the full validation/interface error, separate from invalid host configuration.</p>
+<p><code>reload(module, limits)</code> constructs a new instance with the same interface before
+replacing the active one. A failed load keeps the old instance and diagnostic;
+success resets guest state and drops the old sandbox without running guest
+destructors. For business-specific initialization or state migration, load and
+test a separate candidate first, then replace its Router slot. No retry, state
+migration, background task or unbounded old-generation list is created.</p>
+<p>The <a href="https://github.com/LIghtJUNction/zharness/blob/8907262ce6c8494f2849f8e5abd84f7a3da2e405/examples/wasm/guest.rs">guest</a> uses the core SDK re-exported by zharness,
+const state and fixed scratch buffers. It is independently compiled for
+<code>wasm32-unknown-unknown</code>, with <code>panic=abort</code> and no allocator. Its operations are
+examples, not built-in harness tools. The <a href="https://github.com/LIghtJUNction/zharness/blob/8907262ce6c8494f2849f8e5abd84f7a3da2e405/examples/wasm_host.rs">sandbox host</a>
+bounds file reads before loading. Run it and the mixed-backend host with:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>rustup target add wasm32-unknown-unknown
+python3 scripts/wasm.py
+</code></pre></div>
+<h2 id="compose-disable-and-replace-plugin-executors">Compose, disable and replace plugin executors<a class="heading-anchor" href="#compose-disable-and-replace-plugin-executors" aria-label="链接到 Compose, disable and replace plugin executors">#</a></h2>
+<p><code>Route::new(public_name, slot_index, backend_operation)</code> and <code>Slot::new(executor)</code>
+describe caller-owned routing. <code>Router::new(&amp;routes, &amp;mut slots)</code> validates all
+names, duplicate public names and target indices before construction. The Router
+borrows existing native proxies, Wasm instances or application executors, so their
+resources outlive routed calls. It does not load files or infer trust from suffixes.</p>
+<p><code>set_enabled(index, false)</code> makes all routes to that slot return <code>Denied</code> without
+touching output or invoking the plugin. <code>replace(index, candidate)</code> returns the
+old executor borrow and preserves the slot's enabled state. Invalid indices do
+not change an existing slot. Configure aliases by adding routes to the same slot;
+there is no catch-all route, automatic fallback or retry after failure.</p>
+<p>Execution hooks observe and authorize the public tool name before mapping, while
+the target receives its backend operation name. Original arguments, call IDs,
+business-result flags and errors retain the existing Executor contract. A direct
+<code>Router::execute</code> call is an application-level call and bypasses Prepared hooks.
+The <a href="https://github.com/LIghtJUNction/zharness/blob/8907262ce6c8494f2849f8e5abd84f7a3da2e405/examples/mixed_plugin_host.rs">mixed host</a> exercises both plugin backends,
+explicit disabling and request-boundary routing.</p>
+<h2 id="wasm-trust-and-resource-policy">Wasm trust and resource policy<a class="heading-anchor" href="#wasm-trust-and-resource-policy" aria-label="链接到 Wasm trust and resource policy">#</a></h2>
+<p>The sandbox accepts zplugin's core Wasm32 v1 protocol and rejects all imports,
+start sections, shared/memory64/multiple memories and incompatible interfaces.
+No WASI, filesystem, network, environment, clock, process or host callback API is
+linked. Default limits are 4 MiB module bytes, 16 MiB guest linear memory,
+4,096 table elements, 1 MiB input/output capacities, 10 million fuel per call,
+64 KiB interpreter value stack and 128 call depth. Hosts can choose tighter limits.</p>
+<p>Limits cover guest resources, not total process RSS or compilation wall time.
+The engine, parser, allocator and application remain trusted components. Add OS
+process/container limits for stronger multi-tenant isolation. Bound file reads,
+compilation rate and resident instance counts. Instances retain prior inputs;
+use separate instances for distinct tenants or confidential sessions. Dropping an
+instance releases allocations without secure-erasure guarantees.</p>
+<p>Wasm calls are synchronous. zplugin's native async tasks, callbacks and owned
+resources remain available through the re-exported native APIs, but do not cross
+this sandbox protocol. Arbitrary WASI programs, JavaScript-importing wasm-bindgen
+modules and Component Model binaries are not accepted. Both native proxies and
+Wasm adapters use exclusive calls and remain <code>!Send + !Sync</code>.</p>
+<h2 id="errors-ownership-and-unloading">Errors, ownership and unloading<a class="heading-anchor" href="#errors-ownership-and-unloading" aria-label="链接到 Errors, ownership and unloading">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Boundary</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Native file loading or interface binding fails</td>
+<td>Original <code>zplugin::Error</code></td>
+</tr>
+<tr>
+<td>Native call fails</td>
+<td><code>zharness::Error::Plugin(original_error)</code></td>
+</tr>
+<tr>
+<td>Returned count overflows <code>usize</code> or exceeds output capacity</td>
+<td><code>zharness::Error::InvalidOutput</code></td>
+</tr>
+<tr>
+<td><code>call_text</code> or executor receives invalid UTF-8</td>
+<td><code>zharness::Error::InvalidOutput</code></td>
+</tr>
+<tr>
+<td>Existing execution hook pauses or denies</td>
+<td>Plugin is not called</td>
+</tr>
+<tr>
+<td>Invalid Wasm operation map</td>
+<td><code>plugin::wasm::LoadError::Configuration</code></td>
+</tr>
+<tr>
+<td>Wasm loading/compatibility failure</td>
+<td>Original error in <code>LoadError::Sandbox</code></td>
+</tr>
+<tr>
+<td>Wasm call fails</td>
+<td>Copy <code>Error::Wasm(Fault)</code> plus original <code>last_error()</code></td>
+</tr>
+<tr>
+<td>Unknown route or disabled slot</td>
+<td><code>UnknownTool</code> or <code>Denied</code>, with no backend call</td>
+</tr>
+</tbody>
+</table></div>
+<p>An error can follow partial output writes or external side effects. Discard the
+output for that failed call and decide recovery in the application. Increasing
+capacity and blindly replaying an operation can repeat its effects; the adapter
+never retries automatically.</p>
+<p>Library, instance and proxy lifetimes remain zplugin-owned. Proxies are neither
+<code>Send</code> nor <code>Sync</code>; calls require mutable access. The borrow prevents dropping a
+library while its proxy remains usable:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">compile_fail</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 compile_fail 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>use zharness::plugin::{ExtensionApi, Plugin};
+
+fn invalid_order(library: Plugin) {
+    let mut extension = ExtensionApi::create(&amp;library).unwrap();
+    drop(library);
+    let mut output = [0; 16];
+    extension.call_bytes(&quot;echo&quot;, b&quot;hello&quot;, &amp;mut output).unwrap();
+}
+</code></pre></div>
+<p>Pinned loading keeps the native image resident until process exit. Cooperative
+unloading requires a plugin that explicitly implements zplugin's <code>UnloadSafe</code>
+contract and a host that chooses <code>UnloadPolicy::Cooperative</code>. Drop all proxies
+first, then call <code>Plugin::try_close</code>. A busy result returns ownership of the
+library so the host can retain it and retry closing later. zharness adds no forced
+unload, timer, reload watcher or migration policy.</p>
+<p>Native code runs with the host's privileges. Metadata and length checks do not
+sandbox a malicious library. Under zplugin <code>std</code> with an unwind-enabled plugin,
+generated adapters contain Rust panics and poison the instance; <code>panic=abort</code>,
+native faults and foreign exceptions retain their process-level behavior.</p>
+<h2 id="dependencies-and-performance-scope">Dependencies and performance scope<a class="heading-anchor" href="#dependencies-and-performance-scope" aria-label="链接到 Dependencies and performance scope">#</a></h2>
+<p>The direct runtime dependencies are the pinned Project Z crates <code>zcall</code> and
+<code>zplugin</code>; zcall pins zconv 0.3.0. zplugin's official interface macro adds <code>zplugin-macros</code>, <code>syn</code>, <code>quote</code>,
+<code>proc-macro2</code> and <code>unicode-ident</code> to the compilation dependency graph. These macro
+dependencies are not additional runtime libraries. The handwritten zharness crate
+keeps <code>#![forbid(unsafe_code)]</code>; the generated FFI and zplugin's loader contain
+their own unsafe implementation, and the host explicitly accepts native loading.</p>
+<p>With <code>wasm</code>, the runtime graph additionally contains Wasmi 2.0.0, wasmi_core,
+wasmi_ir, wasmi_collections, wasmparser 0.228.0, spin 0.9.9, libm 0.2.16 and
+bitflags 2.13.2. Default/native and optional Wasm graphs are audited separately.
+The lockfile uses the latest compatible versions: newer incompatible syn,
+wasmparser and spin release lines are not forced through upstream requirements.</p>
+<p>The native call path uses a cached function table and caller storage. Host-side output
+checking and UTF-8 validation do not allocate. Plugin initialization, a plugin's
+own operation implementation and the platform loader may allocate independently.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>cargo bench --locked --bench plugins
+ZHARNESS_BENCH_SMOKE=1 cargo bench --locked --bench plugins
+</code></pre></div>
+<p>The benchmark builds and loads an actual native plugin before timing. For 64 B,
+1 KiB and 4 KiB payloads it measures the generated call, checked byte view,
+prepared executor and executor with two hooks. Fixture construction, library
+loading, interface creation, JSON argument preparation and buffers are outside
+timing; the plugin's echo operation and output copy remain inside it.</p>
+<p>Each measured case asserts zero <strong>host</strong> <code>alloc</code>, <code>alloc_zeroed</code> and <code>realloc</code>
+calls. A separately linked dynamic library has its own allocator; this counter
+does not measure arbitrary plugin allocations. <code>proxy_state_bytes</code> is the Rust
+proxy value's size, excluding its plugin object, library image, loader state and
+caller buffer. Percentiles include per-operation clock overhead, while <code>mean_ns</code>
+is a batch average. The benchmark does not measure loading latency, process RSS
+or model inference, and does not promise a fixed latency on every platform.</p>
+<p>The separate <a href="https://github.com/LIghtJUNction/zharness/blob/8907262ce6c8494f2849f8e5abd84f7a3da2e405/docs/WASM-PERFORMANCE-2026-11-13.md">Wasm adapter report</a> compares
+the same guest through direct zplugin, named byte calls, checked text calls,
+Executor and Router. It measures load/drop separately and records allocator
+requests, not RSS. Every warmed batch asserts zero allocations. Its percentiles
+describe batch averages, unlike the native benchmark's instrumented individual
+calls, so the two reports must not be divided into a cross-backend speed ratio.</p>
+<h2 id="references">References<a class="heading-anchor" href="#references" aria-label="链接到 References">#</a></h2>
+<ul>
+<li><a href="https://github.com/LIghtJUNction/zplugin/tree/v0.3.0">zplugin 0.3.0 public API</a></li>
+<li><a href="https://github.com/LIghtJUNction/zplugin/blob/v0.3.0/docs/abi.md">zplugin ABI and ownership contract</a></li>
+<li><a href="https://github.com/LIghtJUNction/zplugin/blob/v0.3.0/docs/wasm.md">zplugin Wasm protocol and limits</a></li>
+<li><a href="https://github.com/LIghtJUNction/zharness/blob/8907262ce6c8494f2849f8e5abd84f7a3da2e405/examples/native_plugin.rs">Runnable native plugin example</a></li>
+<li><a href="https://github.com/LIghtJUNction/zharness/blob/8907262ce6c8494f2849f8e5abd84f7a3da2e405/examples/plugin_host.rs">Runnable host example</a></li>
+</ul>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zharness/blob/8907262ce6c8494f2849f8e5abd84f7a3da2e405/PLUGINS.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zharness">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zharness/architecture/"><span class="pagination-label">上一页</span><span class="pagination-title">Architecture</span></a><a class="pagination-link next" href="../../zharness/context/"><span class="pagination-label">下一页</span><span class="pagination-title">Context management</span></a></nav>
+      <footer class="page-footer">
+        <span>zharness <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#load-bind-and-call">Load, bind and call</a></li><li class="toc-level-2"><a href="#the-interface-contract">The interface contract</a></li><li class="toc-level-2"><a href="#export-a-rust-plugin">Export a Rust plugin</a></li><li class="toc-level-2"><a href="#use-the-existing-tool-boundary">Use the existing tool boundary</a></li><li class="toc-level-2"><a href="#load-untrusted-wasm-operations">Load untrusted Wasm operations</a></li><li class="toc-level-2"><a href="#compose-disable-and-replace-plugin-executors">Compose, disable and replace plugin executors</a></li><li class="toc-level-2"><a href="#wasm-trust-and-resource-policy">Wasm trust and resource policy</a></li><li class="toc-level-2"><a href="#errors-ownership-and-unloading">Errors, ownership and unloading</a></li><li class="toc-level-2"><a href="#dependencies-and-performance-scope">Dependencies and performance scope</a></li><li class="toc-level-2"><a href="#references">References</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

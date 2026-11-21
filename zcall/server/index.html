@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="协议无关的模型调用内核，由宿主提供传输与缓冲区。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zcall · Optional HTTP and Unix gateway · Project Z">
+  <meta property="og:description" content="协议无关的模型调用内核，由宿主提供传输与缓冲区。">
+  <meta property="og:type" content="website">
+  <title>zcall · Optional HTTP and Unix gateway · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zcall/server/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zcall">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zcall" aria-label="zcall 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zcall</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zcall</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/" aria-current="page">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zcall 文档"><div class="nav-group"><p class="nav-label">zcall</p><ul><li><a class="nav-link" href="../../zcall/">概览</a></li><li><a class="nav-link" href="../../zcall/contract/">v1 semantic contract</a></li><li><a class="nav-link" href="../../zcall/endpoints/">Endpoints and protocol discovery</a></li><li><a class="nav-link" href="../../zcall/performance/">Performance and memory measurements</a></li><li><a class="nav-link" href="../../zcall/resources/">Resource ownership and recovery</a></li><li><a class="nav-link" href="../../zcall/server/" aria-current="page">Optional HTTP and Unix gateway</a></li><li><a class="nav-link" href="../../zcall/support/">Supported operations and boundaries</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zcall</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/" aria-current="page">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zcall 文档"><div class="nav-group"><p class="nav-label">zcall</p><ul><li><a class="nav-link" href="../../zcall/">概览</a></li><li><a class="nav-link" href="../../zcall/contract/">v1 semantic contract</a></li><li><a class="nav-link" href="../../zcall/endpoints/">Endpoints and protocol discovery</a></li><li><a class="nav-link" href="../../zcall/performance/">Performance and memory measurements</a></li><li><a class="nav-link" href="../../zcall/resources/">Resource ownership and recovery</a></li><li><a class="nav-link" href="../../zcall/server/" aria-current="page">Optional HTTP and Unix gateway</a></li><li><a class="nav-link" href="../../zcall/support/">Supported operations and boundaries</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zcall/">zcall 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zcall/">zcall</a><span aria-hidden="true">/</span><span>Optional HTTP and Unix gateway</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#responsibilities">Responsibilities</a></li><li class="toc-level-2"><a href="#run-a-real-local-example">Run a real local example</a></li><li class="toc-level-2"><a href="#protocol-and-http-boundaries">Protocol and HTTP boundaries</a></li><li class="toc-level-2"><a href="#unix-sockets-and-peer-identity">Unix sockets and peer identity</a></li><li class="toc-level-2"><a href="#admission-and-shutdown">Admission and shutdown</a></li><li class="toc-level-2"><a href="#caller-keys">Caller keys</a></li><li class="toc-level-2"><a href="#host-integration-and-evidence">Host integration and evidence</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="optional-http-and-unix-gateway">Optional HTTP and Unix gateway</h1>
+<p>The default build remains the allocation-free, safe Rust, <code>no_std</code> call kernel.
+The <code>server</code> feature enables <code>std</code> and adds a bounded HTTP server, Unix socket
+ownership, caller-key management and a gateway for the six registered
+conversation protocols. Both feature graphs contain only zcall and zconv.</p>
+<h2 id="responsibilities">Responsibilities<a class="heading-anchor" href="#responsibilities" aria-label="链接到 Responsibilities">#</a></h2>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Library responsibility</th>
+<th>Host responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Server</code></td>
+<td>Fixed workers, bounded admission, cancellation and shutdown reports</td>
+<td>Process/service lifecycle and optional native accept loop</td>
+</tr>
+<tr>
+<td><code>transport::Listener</code></td>
+<td>TCP accept; private, owned Unix socket binding and cleanup</td>
+<td>Verified UID and optional native stale-socket probe</td>
+</tr>
+<tr>
+<td><code>Handler</code></td>
+<td>Extension point for any HTTP path or additional format</td>
+<td>Route semantics and application policy</td>
+</tr>
+<tr>
+<td><code>gateway::Gateway</code></td>
+<td>Authentication, model-route callback, registered JSON/SSE conversion</td>
+<td>Upstream transport, TLS and provider credentials</td>
+</tr>
+<tr>
+<td><code>server::auth</code></td>
+<td>Private key schema, metadata, insertion, rotation and revocation</td>
+<td>Secure randomness, atomic persistence and synchronization</td>
+</tr>
+<tr>
+<td><code>Connection</code> / <code>PeerInspector</code></td>
+<td>Timeout, cancellation, half-close and peer-hook contracts</td>
+<td>Native peer credentials and trusted locality</td>
+</tr>
+</tbody>
+</table></div>
+<p>Enable <code>features = [&quot;server&quot;]</code> on the versioned dependency. The feature adds
+heap buffers and threads; the default kernel does not. It adds no HTTP/TLS or
+serialization crate. OS networking and filesystem calls come from Rust's
+standard library. This is not a claim that a native binary has no OS libraries.</p>
+<h2 id="run-a-real-local-example">Run a real local example<a class="heading-anchor" href="#run-a-real-local-example" aria-label="链接到 Run a real local example">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo run --features server --example server -- --check
+cargo run --release --features server --example server
+</code></pre></div>
+<p>The first command opens an ephemeral loopback listener, sends real HTTP
+requests in all six registered formats and verifies the fake upstream's replies.
+The second serves at <code>127.0.0.1:9416</code> until Enter is pressed. Its upstream is an
+in-process fixture: it never contacts a provider or reads an account.</p>
+<p>For an application, construct <code>Gateway::new(router, transport)</code>, pass it to
+<code>Server::new(config, handler)</code>, then call <code>listen(Listener::bind_tcp(...))</code>.
+<code>Router</code> chooses the upstream protocol/model and explicit provider headers.
+<code>Transport::execute</code> returns an owned response reader and must honor the given
+cancellation/deadline. <code>UpstreamBody::cancel</code> is called when the response is
+dropped, including a downstream error; it must be nonblocking and idempotent.
+A host can retain its existing TLS client or use Unix upstream transport.</p>
+<p>A custom <code>Handler</code> can own additional paths or new protocols. The server does
+not install health, management, model-list, plugin or CORS routes. <code>Gateway</code>
+rejects unknown conversation endpoints instead of pretending to convert them.</p>
+<h2 id="protocol-and-http-boundaries">Protocol and HTTP boundaries<a class="heading-anchor" href="#protocol-and-http-boundaries" aria-label="链接到 Protocol and HTTP boundaries">#</a></h2>
+<p>The registered conversation formats are OpenAI Completions, Chat Completions
+and Responses, Anthropic Messages, Gemini GenerateContent and Gemini
+Interactions. The gateway tests exercise all 36 source/target combinations for
+common text and usage semantics over real local TCP. This does not mean every
+provider-specific field has an equivalent in every target. A response message
+identity with no target representation, for example, produces <code>ForbiddenLoss</code>;
+it is not silently discarded. JSON and fragmented SSE use the same strict
+zconv-backed conversion as the standalone kernel.</p>
+<p>Inbound caller credentials, Cookie and arbitrary request headers are never
+forwarded upstream. Provider credentials must be supplied explicitly in the
+selected <code>Target</code>. Successful finite responses require JSON; streaming requests
+require an SSE media type. Body and response limits apply during reads/writes,
+and owned upstream bodies are cancelled on error.</p>
+<p><code>http::read_request</code> defaults to JSON API clients and rejects browser Origin
+headers and encoded bodies. <code>read_request_with_policy</code> lets the host explicitly
+permit Origin, opaque encoded bytes or another request media type. Duplicate
+fields, ambiguous length/transfer framing, size limits and deadlines remain
+strict. <code>Expect</code> negotiation and request trailers are unsupported.</p>
+<p>A well-formed HTTP/1.1 GET WebSocket handshake receives <code>426 Upgrade Required</code>
+with a message to use HTTP/SSE. This is a transport fallback signal, not a
+WebSocket connection: no <code>101</code> response or WebSocket framing is implemented.
+Malformed or other Upgrade requests remain <code>400</code>; Origin, Expect and duplicate
+header checks retain their earlier priority. The decision does not depend on
+an application path.</p>
+<p>Response headers are validated before output. Early rejection writes the
+response, closes the write half, then discards at most 64 KiB of input for at
+most 200 ms. HEAD replies omit the body. A streaming callback that panics after
+writing cannot append a second HTTP response to the partial stream.</p>
+<p><code>read_request_with_decoder</code> accepts an optional host <code>BodyDecoder</code>; a complete
+<code>Server</code> accepts the same hook through <code>Server::with_hooks</code>. Without that hook,
+encoded bodies are rejected with 415 unless the host explicitly requests opaque
+encoded bytes. The decoder receives the normalized encoding name, bounded wire
+bytes, decoded-byte limit and the original absolute read deadline. The library
+checks cancellation and that deadline before and after decoding, validates the
+returned size, removes transfer/content encoding and replaces Content-Length
+with the decoded length. Both wire and decoded bodies have independent bounds.</p>
+<p>A host decoder must also bound its codec window and temporary allocations, and
+cooperate with cancellation and the supplied deadline. These checks cannot
+preempt an arbitrary callback. zcall contains no native decompressor or unsafe
+codec binding; a host can supply its existing implementation.</p>
+<h2 id="unix-sockets-and-peer-identity">Unix sockets and peer identity<a class="heading-anchor" href="#unix-sockets-and-peer-identity" aria-label="链接到 Unix sockets and peer identity">#</a></h2>
+<p><code>Listener::bind_unix(path, verified_uid)</code> requires an absolute path with real
+directory ancestors and an existing private parent owned by that UID. It does
+not trust an environment variable for identity or create parent directories.
+The socket and stable lock use mode <code>0600</code>. Non-socket nodes, symlinks, an
+untrusted owner or an unsafe lock are rejected without replacement.</p>
+<p>The default bind operation refuses an existing socket. A host may use
+<code>bind_unix_with_probe</code> with its bounded native liveness probe to confirm a stale
+owned socket. Rust's standard library has no Unix connect timeout, so the
+library does not hide an unbounded connection probe in the default path.</p>
+<p>The ownership guard is shared by the listener and accepted stream clones.
+Cleanup waits for the last guard and checks the socket's device/inode before
+unlinking it. A replacement node is preserved. The stable lock file remains
+for later binds, preventing old and new waiters from locking different inodes.</p>
+<p>A local socket location is not an OS UID/PID assertion. <code>PeerInspector</code> can read
+native peer credentials through a borrowed <code>SocketRef</code>. Hosts using their own
+accept loop submit an already verified <code>Peer</code>; request headers never supply it.</p>
+<h2 id="admission-and-shutdown">Admission and shutdown<a class="heading-anchor" href="#admission-and-shutdown" aria-label="链接到 Admission and shutdown">#</a></h2>
+<p><code>ServerConfig</code> fixes worker count, queue size, request/response limits and
+read/write/request deadlines. The built-in acceptors block in the OS and idle
+workers wait on a condition variable. There is no listener polling timer.
+Queue saturation produces a bounded <code>503</code> response. A native host can omit
+<code>listen</code> and use <code>submit(connection, peer)</code> or <code>submit_boxed</code> with any
+<code>Connection + Send</code> implementation.</p>
+<p><code>shutdown(budget)</code> stops admission, cancels active work, discards queued work
+on tracked workers and uses one shared deadline. It returns the counts of
+remaining workers, acceptors and wake helpers. A user handler, upstream reader
+or connection destructor that does not cooperate is reported rather than
+forcibly killed. A later call can reap it after it finishes. The tests include
+both an uncooperative handler and a blocked queued connection destructor.</p>
+<p>The built-in <code>Handler</code> is shared and requires <code>Send + Sync</code>. It is not a
+worker-local factory for application types that are <code>!Send</code>. zcalld therefore
+retains its thread-local plugin/curl orchestration while sharing the HTTP,
+protocol, auth and connection primitives.</p>
+<h2 id="caller-keys">Caller keys<a class="heading-anchor" href="#caller-keys" aria-label="链接到 Caller keys">#</a></h2>
+<p><code>CallerKeys::from_json</code> and <code>auth::load</code> retain the existing private JSON array:
+<code>id</code>, <code>name</code>, <code>secret</code>, <code>lan</code> and <code>workspace</code>, including anonymous legacy items.
+The parser rejects ambiguous identities/secrets, unknown fields, invalid types,
+excessive entries and oversized files. On Unix, <code>load</code> requires a regular file
+without group or other permission bits.</p>
+<p><code>entries()</code> exposes metadata only. <code>ApiKey</code>, <code>CallerKeys</code>, provider <code>Target</code>
+and outbound request types do not implement secret-printing Debug output.
+Authentication checks valid keys before loopback trust so a verified key keeps
+its server-owned workspace. Remote peers require a key with <code>lan</code> permission.</p>
+<p>Insertion and rotation validate before mutation. Revocation applies to later
+authentication; it does not cancel accepted requests. <code>to_json</code> returns a
+secret-bearing buffer for the host's private atomic writer. The library does
+not generate weak random keys or force a file-format migration.
+<code>KeyAuthenticator</code> can share <code>Arc&lt;RwLock&lt;CallerKeys&gt;&gt;</code> for in-process updates.</p>
+<h2 id="host-integration-and-evidence">Host integration and evidence<a class="heading-anchor" href="#host-integration-and-evidence" aria-label="链接到 Host integration and evidence">#</a></h2>
+<p>The HTTP/protocol extraction starts from MIT-licensed zcalld source
+<code>226764bd980419bfd123bf297b891e09ccdc94c1</code>, retaining its protocol and staged-close
+regressions. zcalld can re-export <code>server::http</code> and <code>server::protocol</code>, delegate
+caller-key parsing to <code>server::auth</code>, and implement <code>Connection</code> on its existing
+stream. Its cancellation flag and JSON error name remain host choices.</p>
+<p>Signals, systemd, provider/plugin policy, privacy, migration and account storage
+remain application responsibilities. Local tests use only buffers, private
+temporary paths, loopback TCP and Unix sockets. The formal workflow runs the
+server feature on five native targets and separately checks the default
+no_std kernel on WebAssembly, ARM Linux and Cortex-M.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zcall/blob/aaac54236f7ce0f4e1559c6e3b78d680d9dabf41/docs/SERVER.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zcall">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zcall/resources/"><span class="pagination-label">上一页</span><span class="pagination-title">Resource ownership and recovery</span></a><a class="pagination-link next" href="../../zcall/support/"><span class="pagination-label">下一页</span><span class="pagination-title">Supported operations and boundaries</span></a></nav>
+      <footer class="page-footer">
+        <span>zcall <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#responsibilities">Responsibilities</a></li><li class="toc-level-2"><a href="#run-a-real-local-example">Run a real local example</a></li><li class="toc-level-2"><a href="#protocol-and-http-boundaries">Protocol and HTTP boundaries</a></li><li class="toc-level-2"><a href="#unix-sockets-and-peer-identity">Unix sockets and peer identity</a></li><li class="toc-level-2"><a href="#admission-and-shutdown">Admission and shutdown</a></li><li class="toc-level-2"><a href="#caller-keys">Caller keys</a></li><li class="toc-level-2"><a href="#host-integration-and-evidence">Host integration and evidence</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

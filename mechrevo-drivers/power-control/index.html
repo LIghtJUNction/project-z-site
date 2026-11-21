@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="机械革命笔记本的 Linux 平台驱动与设备控制台，按机型提供功能。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="mechrevo-drivers · CPU 长期功耗上限 · Project Z">
+  <meta property="og:description" content="机械革命笔记本的 Linux 平台驱动与设备控制台，按机型提供功能。">
+  <meta property="og:type" content="website">
+  <title>mechrevo-drivers · CPU 长期功耗上限 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/mechrevo-drivers/power-control/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="mechrevo-drivers">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/mechrevo-drivers" aria-label="mechrevo-drivers 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">mechrevo-drivers</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>mechrevo-drivers</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/" aria-current="page">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="mechrevo-drivers 文档"><div class="nav-group"><p class="nav-label">mechrevo-drivers</p><ul><li><a class="nav-link" href="../../mechrevo-drivers/">概览</a></li><li><a class="nav-link" href="../../mechrevo-drivers/aur/">Arch Linux / AUR 打包</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-gm6bg0q/">蛟龙 16K GM6BG0Q 本机记录</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-gm6px0x/">旷世 16 Pro GM6PX0X 本机验证</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-native-kernel-controls/">复用 Linux 已加载的原生驱动</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-other-models/">其他机械革命机型</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-wujie-hpt-p916f/">无界 15 Pro HPT 与星耀 P916F HPT-R</a></li><li><a class="nav-link" href="../../mechrevo-drivers/mechrevo-console/">Rust 双端控制台</a></li><li><a class="nav-link" href="../../mechrevo-drivers/mechrevo/">机械革命支持范围</a></li><li><a class="nav-link" href="../../mechrevo-drivers/power-control/" aria-current="page">CPU 长期功耗上限</a></li><li><a class="nav-link" href="../../mechrevo-drivers/packaging-arch-mechrevo-console-readme/">Arch / AUR 控制台包</a></li><li><a class="nav-link" href="../../mechrevo-drivers/console-design/">界面设计</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>mechrevo-drivers</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/" aria-current="page">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="mechrevo-drivers 文档"><div class="nav-group"><p class="nav-label">mechrevo-drivers</p><ul><li><a class="nav-link" href="../../mechrevo-drivers/">概览</a></li><li><a class="nav-link" href="../../mechrevo-drivers/aur/">Arch Linux / AUR 打包</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-gm6bg0q/">蛟龙 16K GM6BG0Q 本机记录</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-gm6px0x/">旷世 16 Pro GM6PX0X 本机验证</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-native-kernel-controls/">复用 Linux 已加载的原生驱动</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-other-models/">其他机械革命机型</a></li><li><a class="nav-link" href="../../mechrevo-drivers/hardware-wujie-hpt-p916f/">无界 15 Pro HPT 与星耀 P916F HPT-R</a></li><li><a class="nav-link" href="../../mechrevo-drivers/mechrevo-console/">Rust 双端控制台</a></li><li><a class="nav-link" href="../../mechrevo-drivers/mechrevo/">机械革命支持范围</a></li><li><a class="nav-link" href="../../mechrevo-drivers/power-control/" aria-current="page">CPU 长期功耗上限</a></li><li><a class="nav-link" href="../../mechrevo-drivers/packaging-arch-mechrevo-console-readme/">Arch / AUR 控制台包</a></li><li><a class="nav-link" href="../../mechrevo-drivers/console-design/">界面设计</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../mechrevo-drivers/">mechrevo-drivers 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../mechrevo-drivers/">mechrevo-drivers</a><span aria-hidden="true">/</span><span>CPU 长期功耗上限</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#使用">使用</a></li><li class="toc-level-2"><a href="#提前软件降温">提前软件降温</a></li><li class="toc-level-2"><a href="#本地打包">本地打包</a></li><li class="toc-level-2"><a href="#实现和边界">实现和边界</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="cpu-长期功耗上限">CPU 长期功耗上限</h1>
+<p><code>mechrevo-power-control</code> 是独立、可选的用户态工具。它配置本机的 Intel RAPL
+长期功耗约束（PL1），由原生 <code>thermald</code> 继续温控，也可显式提前 CPU 软件降温阈值。
+它不开放 MECHREVO EC TDP
+接口，也不提供 GPU、风扇或整机总功耗调节。</p>
+<p>目前只允许以下组合：MECHREVO 旷世 16 Pro <code>GM6PX0X</code>、BIOS <code>N.1.09MRO07</code>、
+Intel Core i9-12900HX、<code>thermald 2.5.13</code>，并且本机必须满足程序检查的固件、
+RAPL 和服务配置条件。其他型号、BIOS、PPCC 或自适应温控平台会拒绝应用。
+本次还固定已核对的发行版二进制 SHA-256；更新 <code>thermald</code> 后需要重新核验，不能仅凭版本相同放行。
+命令下限为 35 W，上限不超过首次配置时保存的长期限值。55 W 的热设计参考值
+用于核对本机身份，不是 RAPL 最低可写功率。35／45 W 的原生温控范围已通过源码回归，
+包括继续降限、解除降温限制后回到用户上限，以及升级到下一降温设备。
+各目标值的实机结果另见硬件记录；命令接受不等于厂商额定安全值或性能最佳值。</p>
+<h2 id="使用">使用<a class="heading-anchor" href="#使用" aria-label="链接到 使用">#</a></h2>
+<p>安装独立工具包后：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>sudo mechrevo-power status
+sudo mechrevo-power set 55
+sudo mechrevo-power set 55 --target-celsius 90 --polling-seconds 1
+sudo mechrevo-power status
+sudo mechrevo-power clear
+</code></pre></div>
+<p><code>status</code> 同时报告请求值和两套实际长期限值。只存在配置文件不代表设置已生效。
+<code>holding_scope=cpu_package_pl1</code> 明确 <code>holding_now</code> 只验证 PL1；<code>pl2_managed=false</code>，
+<code>rapl_constraints</code> 独立显示两套 PL1/PL2 和平均窗口。诊断缺失显示 <code>null</code> / <code>available=false</code>，
+记入 <code>diagnostic_errors</code>，不能把缺失解释成零或宣称 PL2 已受管。
+<code>package_temperature</code> 独立报告唯一 <code>x86_pkg_temp</code> 传感器的一次实际读数：
+<code>millicelsius</code> 是毫摄氏度（例如 <code>95000</code> 为 95°C），<code>sensor_identity</code> 保留解析到
+<code>/sys/devices</code> 内的传感器及文件身份，<code>read_window_ns</code> 是涵盖发现、读取和身份复核的
+<code>CLOCK_MONOTONIC</code> 窗口。允许的 <code>0..125000</code> 只是诊断值范围。它与
+<code>temperature_target</code> 的 TCC 激活参考、软件目标是不同字段，一次采样不能证明温度受控。
+传感器缺失、多重、数值无效或身份改变时，读数显示不可用，原因仅进入
+<code>diagnostic_errors</code>，不改变 PL1 的 <code>holding_now</code> 或退出码；未配置时的读数也不代表硬件已通过资格验证。
+状态检查发现错误（包括损坏的状态、未完成事务或上限未保持）时，仍输出 JSON，
+但退出码为 1；正常的未配置状态退出码为 0，<code>holding_now</code> 为 false。
+缺少状态文件但托管 XML 或服务 drop-in 仍存在时（包括断开的符号链接），也报告错误并返回 1，
+保留原文件供恢复核对。<code>status</code> 是一次只读观察；配置并发修改时可能读到中间状态，
+不能作为跨文件的原子快照。
+状态及其嵌套的事务、初始快照和应用收据必须通过类型及一致性检查，不能将字符串
+<code>&quot;false&quot;</code> 当作应用成功。损坏状态会阻止 set/apply/clear/recover 写入，保留原文件及运行中的温控；
+应保留并核对恢复材料后修复，不能把手工删除 state 当作正常撤销或恢复流程。
+<code>set</code> 设置 CPU package 的长期功耗上限，温控可以使用更低的值。未带温度参数时，
+保留原生温控区、温度阈值及其他降温设备；短暂重启 <code>thermald</code> 以读取配置。
+<code>clear</code> 撤销本工具配置并重启原来的温控策略；恢复后功耗限值继续由该策略决定，
+不是固定写回某个旧的高限值。</p>
+<p>程序拒绝覆盖已有的其他温控配置、其他服务覆盖文件或被外部修改的托管文件。
+新恢复材料统一放在 <code>/home/lightjunction/Backups/projects/mechrevo-drivers/</code>。
+发生应用失败时应查看命令错误和 <code>status</code>，不能只看退出前打印的目标值。
+卸载工具前先运行 <code>clear</code>，确认温控服务仍 active，再移除工具包。</p>
+<p>若命令被强制终止或断电，<code>status</code> 显示未完成事务，可运行 <code>sudo mechrevo-power recover</code>。
+恢复命令确认原事务进程已退出、受管文件仍属于本工具后，撤销配置并恢复原温控策略；
+原命令仍在运行时会拒绝恢复。不要通过手工删除 state 文件绕过这项检查。</p>
+<h2 id="提前软件降温">提前软件降温<a class="heading-anchor" href="#提前软件降温" aria-label="链接到 提前软件降温">#</a></h2>
+<p>本机经过 CPU 型号、偏移位宽与能力位确认的只读探测显示 TjMAX 为 100°C。
+本轮不同只读检查分别读到 TCC offset 5°C 和 15°C，对应触发阈值 95°C 和 85°C。
+阈值会变化，修改者尚未确认，不能据此归因 thermald 或推断实体散热原因。
+本轮源码与安装实例复核进一步缩小了候选范围：当前 thermald 命令没有
+<code>--adaptive</code> 或 <code>--workaround-enabled</code>，本机相关 TCC sysfs 节点也不存在，
+因此已检查的两条显式 TCC 设置路径不满足当前执行条件；这不排除间接固件行为。
+TCC 的两个 ODM worker 虽有定时周期，<code>onWork</code> 为空，不能据周期推断它们不断抢写；
+电源状态、所选 profile 或配置刷新仍可能触发 <code>onStart</code> 重新应用。
+已核对的安装 ASAR 与部分构建 JS 一致，但守护进程内嵌的 V8 字节码尚未证明源码等价。</p>
+<p>运行中的 nvidia-powerd 持有可读写 MSR 文件描述符，静态 ELF 也存在通用 MSR 写入函数，
+但这些只证明能力。已识别的目标寄存器读取和遥测路径不是写入证据，
+尚未闭合它实际写入 <code>0x1a2</code> 的调用链，不能将它认定为阈值修改者。</p>
+<p>随后一次独立、限时的私有 tracefs 实机检查成功启用并清理了专属实例；
+20 秒窗口内 195 次 CPU0 参考读取保持 TCC offset 15°C／触发参考 85°C，
+未捕获匹配 <code>msr/write_msr</code> 的 <code>0x1a2</code> 写入事件。195 为在线累计检查数，
+只保存末 16 组参考明细。全局追踪控制与受保护配置未变，
+CPU buffer 统计没有丢失记录。此前两个候选均在启用事件前拒绝，失败材料保留。
+这只是一次 Linux wrapper 追踪窗口，未覆盖 SMM、固件及绕过 wrapper 的直接汇编；
+未捕获不能证明没有修改者，也不能据此确认是固件。IRQ／远程 IPI 里的 PID／comm
+只代表执行现场，不能直接当作发起写入的用户进程。实验工具尚未加入安装包。</p>
+<p>寄存器语义参考 <a href="https://edc.intel.com/content/www/us/en/design/ipla/software-development-platforms/client/platforms/alder-lake-desktop/12th-generation-intel-core-processors-datasheet-volume-1-of-2/011/adaptive-thermal-monitor/">Intel Adaptive Thermal Monitor</a>
+及固定版本 <a href="https://github.com/torvalds/linux/blob/v6.12/tools/power/x86/turbostat/turbostat.c#L6766-L6777">Linux v6.12 turbostat 解码</a>，
+Alder Lake 的 6 位偏移见该版本 <a href="https://github.com/torvalds/linux/blob/v6.12/tools/power/x86/turbostat/turbostat.c#L688-L700">adl_features</a>。
+这些链接是本诊断的固定解码依据，不表示当前最新内核实现。
+此前冻结的 thermald 2.5.13 默认 CPU PASSIVE 计算曾得到 95°C，不能当作当前硬件阈值。
+<code>--target-celsius 90</code> 是显式的 Linux 软件策略；只有硬件阈值为 95°C 时，数值上才低 5°C。
+读到硬件阈值 85°C 时，90°C 软件目标并不早于该保护点。
+它不是原厂档位、额定温度或保证永不超过 90°C 的硬上限。
+新增源码中的 <code>status.temperature_target</code> 是可选的 CPU0 瞬时参考诊断，不调整 TCC。
+<code>available</code> 为真时，<code>tjmax_celsius</code>、<code>tcc_offset_celsius</code>、<code>tcc_activation_celsius</code>
+分别给出参考最高温、偏移及相减得到的硬件触发参考；不保证该阈值之后保持不变。
+<code>software_target_celsius</code> 是受管软件目标；<code>software_precedes_hardware</code> 只比较两者数值，
+不是响应速度或散热效果证明。未设置软件目标时比较值为 null。
+仅在精确硬件与能力检查通过、已有内建 MSR 支持和 CPU0 设备可只读访问时提供硬件值；
+不加载模块、不提权重试。权限不足或资格/读取检查失败时 <code>available=false</code>，硬件值为 null，
+原因进入 <code>diagnostic_errors</code>，不改变 <code>holding_scope=cpu_package_pl1</code>、PL1 成功判断或命令退出码。
+这是新增源码接口，已安装包是否包含它须分别核验。</p>
+<p>当前只支持本机验证范围内的 90°C。此选项用有效的 <code>x86_pkg_temp</code> 传感器替换 CPU PASSIVE
+控制点，并按冻结源码保留完整默认降温手段及顺序：<code>rapl_controller</code>、<code>intel_pstate</code>、
+<code>intel_powerclamp</code>、<code>cpufreq</code>、<code>Processor</code>；实际不存在的设备与原生路径一样跳过。
+不使用缺失传感器的错误分支来更新阈值，不改硬件 TCC、风扇表或 D-Bus 控制权限。
+存在其他原生 CPU 传感器、自定义降温顺序或外来用户温度覆盖时拒绝启用，避免悄悄改变其语义。</p>
+<p>该 90°C 控制点使用 3000m°C（3°C）滞回：达到 90°C 后可以进入降温，封装温度需回落到
+87°C 以下才释放这次热限制。此前滞回为零时，1 秒轮询会在 90°C 附近反复切换 55W 与
+27.5W，造成不必要的功耗和性能抖动；滞回只改变释放条件，不改变 90°C 目标、55W 上限或
+硬件 TCC。实际温度尖峰和满载散热仍须通过独立观测确认。</p>
+<p>温度目标与 XML、服务配置一起进入原有事务，包含备份、失败回滚、恢复和损坏状态检查。
+<code>status</code> 的 <code>desired_temperature_celsius</code> 只是受管目标；实际温度与控制效果仍须观测。
+启用目标时服务额外使用 <code>--loglevel=info</code>，便于从真实启动日志核对 CPU trip 和降温绑定；
+不修改日志轮转或开放 D-Bus。更早降低功耗/频率可能影响性能。</p>
+<p><code>--polling-seconds 1</code> 必须同时指定 90°C 目标，将匹配平台的基础轮询缩为每秒一次。
+本机原生冷态每 4 秒检查，超过 81°C 的轮询控制点后热态本来已每秒检查；
+缩短基础轮询主要针对冷态突然升温的首次介入。原生降温设备的防抖和降限递进不变，
+不能保证消除短时尖峰。省略此参数保持原生轮询，也保留旧版 90°C 状态的字节兼容。</p>
+<p>连续降限还受原生降温设备默认两秒防抖控制：源码比较使用 <code>&lt;= 2</code>，每秒检查时实际约每三秒
+才推进一次。可显式使用快速 RAPL 递进，仅支持已核验的 90°C／每秒轮询组合：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>sudo mechrevo-power set 55 --target-celsius 90 --polling-seconds 1 --rapl-debounce-seconds 0
+</code></pre></div>
+<p>此选项仅将 CPU trip 使用的 <code>rapl_controller</code> 的 <code>DebouncePeriod</code> 设为0，保留原生功耗范围、
+递进公式、频率限制后备顺序与低温释放；不改MMIO控制器的防抖。同秒重复观察仍不连续降限。
+状态字段 <code>desired_rapl_debounce_seconds</code> 只是配置目标，实际动作仍需核对日志。
+省略此参数恢复原生防抖，旧版XML及状态保持兼容；更快限制功耗可能影响短时性能，
+软件延迟、温度缓存与风扇响应仍可能造成超温，不能视为硬温度上限。</p>
+<p>恢复每秒检查但撤销快速递进：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>sudo mechrevo-power set 55 --target-celsius 90 --polling-seconds 1
+</code></pre></div>
+<p>恢复原生温度阈值而保留 55 W 长期上限：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>sudo mechrevo-power set 55
+</code></pre></div>
+<p><code>set</code> 不带温度参数会明确恢复原生温度策略，不会默默继承上一次的 90°C。
+<code>clear</code> 则撤销整套工具配置。轮询、执行延迟和毫秒级突发仍可能造成温度尖峰。</p>
+<h2 id="本地打包">本地打包<a class="heading-anchor" href="#本地打包" aria-label="链接到 本地打包">#</a></h2>
+<p>需要记录温度、PL1／PL2 和故障前样本时，可使用同包的
+<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/THERMAL-OBSERVATION.md"><code>mechrevo-thermal</code></a>。该命令只读，GPU 已失联时拒绝开始采样，
+新增 Xid／不可纠正 PCIe 错误时会停止并标记结果无效。</p>
+<p>配方在 <code>packaging/arch/mechrevo-power-control/</code>，只安装命令和说明，安装本身不会
+启用功耗上限。它没有加入现有 DKMS 包，也没有作为新包发布到 AUR。
+使用配方指定的源码提交构建；本地验证可以将来源切换为同一提交的本地 Git 仓库：</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>cd packaging/arch/mechrevo-power-control
+MECHREVO_POWER_SOURCE=file:///absolute/path/to/mechrevo-drivers \
+MECHREVO_POWER_COMMIT=&lt;full-source-commit&gt; makepkg --cleanbuild
+</code></pre></div>
+<p>不要把包含未提交更改的目录当作已经冻结的发布源码。</p>
+<h2 id="实现和边界">实现和边界<a class="heading-anchor" href="#实现和边界" aria-label="链接到 实现和边界">#</a></h2>
+<p>本机原来传给 <code>thermald</code> 的命令含 <code>--adaptive</code>，但没有可用的 INT3400 接口，
+实际回退为 default engine。工具启用时明确选择 default engine 并指定独立 XML；
+撤销时恢复原服务命令。没有替换 <code>thermald</code> 的二进制程序，也不开放其 D-Bus 控制权限。</p>
+<p>XML 对 MSR 与 MMIO 两个 RAPL cooling device 同时设置范围：最高功耗为用户上限，
+最低功耗按 <code>thermald 2.5.13</code> 自身的 50% 算法从该上限计算。
+这里的 <code>MinState</code> 表示“最少降温、最高功耗”，<code>MaxState</code> 表示“最多降温、最低功耗”。
+只修改前者可能弄反范围，使温控无法继续升级到其他降温设备，因此必须成对设置。
+保留原步长后，控制状态的变化顺序会改变；这是一份带用户上限的原生温控配置，
+不是原热控功率序列完全不变的承诺。</p>
+<p>XML 本身只修改控制器缓存，不保证冷机时立即写入硬件。服务启动后的事件回调
+检查两套长期约束，对高于上限的值各执行一次降限；已有更低值保持。
+没有反复抢写功耗的后台循环。回调失败不会停止温控服务，但必须视为上限应用失败。</p>
+<p><code>thermald</code> 正常退出会恢复自身的启动快照。因此服务重启期间可能短暂回到原限值，
+启动回调完成后再应用上限。服务停止期间、固件接管以及其他控制器写入不属于
+持续保持保证。sysfs 没有原子比较后写入机制，初始化时也不能排除同时写入的竞争。
+机器重启、睡眠恢复和 BIOS 更新需要另行验收。</p>
+<p>这里只限制长期平均 CPU package 功耗。PL2 仍保留原策略，短时功耗可以高于 PL1；
+平均窗口和能量采样也不能当成瞬时整机功耗。55 W 来自本机热设计参考值，
+不是已验证的整机最大安全功耗。</p>
+<p>需要临时验证 PL2 影响时，使用有独立恢复回执的
+<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/PEAK-LIMIT-TRIAL.md"><code>mechrevo-peak-trial</code></a>，不能把 <code>clear</code> 当作 PL2 恢复命令。</p>
+<p>源码和测试依据为 Intel 官方 <code>thermal_daemon</code> 的
+<a href="https://github.com/intel/thermal_daemon/tree/v2.5.13"><code>v2.5.13</code></a>，
+冻结提交 <code>5fdc5bbca7f8c3f5bb2ad6540e8211a159a88a3a</code>。
+实机结果单独记录在 <a href="../../mechrevo-drivers/hardware-gm6px0x/">GM6PX0X 验证记录</a>，未验收项目不能由代码测试代替。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/POWER-CONTROL.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../mechrevo-drivers/mechrevo/"><span class="pagination-label">上一页</span><span class="pagination-title">机械革命支持范围</span></a><a class="pagination-link next" href="../../mechrevo-drivers/packaging-arch-mechrevo-console-readme/"><span class="pagination-label">下一页</span><span class="pagination-title">Arch / AUR 控制台包</span></a></nav>
+      <footer class="page-footer">
+        <span>mechrevo-drivers <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#使用">使用</a></li><li class="toc-level-2"><a href="#提前软件降温">提前软件降温</a></li><li class="toc-level-2"><a href="#本地打包">本地打包</a></li><li class="toc-level-2"><a href="#实现和边界">实现和边界</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>
