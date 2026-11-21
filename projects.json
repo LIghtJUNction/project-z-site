@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-21T22:17:29.793042Z",
+  "generated_at": "2026-11-21T22:53:47.242904Z",
   "projects": [
     {
       "id": "lmm",
@@ -34,7 +34,7 @@
       "summary": "组合终端、shell、应用配置与内存管理，提供 Linux 工作环境。",
       "category": "tools",
       "repository": "https://github.com/LIghtJUNction/oh-my-ztty",
-      "commit": "69771be7940818548d851dc1038424ac2c614638",
+      "commit": "dbb909b78d152f21a0c270724a1b958b843d0388",
       "url": "oh-my-ztty/",
       "pages": 12
     },
@@ -286,7 +286,7 @@
       "summary": "观测 Linux 内存压力，管理 Swap 并约束后台任务的内存预算。",
       "category": "system",
       "repository": "https://github.com/LIghtJUNction/zmem",
-      "commit": "57deca203bf6e1aab33b3e96e4c7abdcd2fbd0b6",
+      "commit": "df778e868b916dddb13a629c19f0f7d66f54825c",
       "url": "zmem/",
       "pages": 1
     },

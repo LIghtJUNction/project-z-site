@@ -80,8 +80,8 @@
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="oh-my-ztty">oh-my-ztty</h1><p class="project-intro">组合终端、shell、应用配置与内存管理，提供 Linux 工作环境。</p>
 <p>基于 Project Z 的 Linux 工作环境：<strong>ztty + zshard + zrc + zdot + zfetch + ssmcp + zmem</strong>。系统 zsh 负责执行命令，套件统一终端、编辑器和常用工具的配置。</p>
-<p><a href="https://lightjunction.github.io/oh-my-ztty/">官网</a> · <a href="../oh-my-ztty/readme-en/">English</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/installation.md">安装说明</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/configuration.md">配置与恢复</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/performance.md">性能记录</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/reports/workspace-0.2.1.md">0.2.1 实机报告</a></p>
-<p>原生 Tab 补全覆盖套件组件、Codex／Claude／Gemini／OpenCode／pi／Amp、Go／Rust／Node 开发命令，以及 Project Z 等自研 CLI；Git、uv、Cargo 等复用已安装的系统补全。支持多级命令、参数取值与中文路径，个人补全规则优先。详见<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/configuration.md#native-completion">补全说明</a>与<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/completions.md">覆盖清单</a>。</p>
+<p><a href="https://lightjunction.github.io/oh-my-ztty/">官网</a> · <a href="../oh-my-ztty/readme-en/">English</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/installation.md">安装说明</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/configuration.md">配置与恢复</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/performance.md">性能记录</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/reports/workspace-0.2.1.md">0.2.1 实机报告</a></p>
+<p>原生 Tab 补全覆盖套件组件、Codex／Claude／Gemini／OpenCode／pi／Amp、Go／Rust／Node 开发命令，以及 Project Z 等自研 CLI；Git、uv、Cargo 等复用已安装的系统补全。支持多级命令、参数取值与中文路径，个人补全规则优先。详见<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/configuration.md#native-completion">补全说明</a>与<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/completions.md">覆盖清单</a>。</p>
 <h2 id="安装">安装<a class="heading-anchor" href="#安装" aria-label="链接到 安装">#</a></h2>
 <h3 id="用户级发行包">用户级发行包<a class="heading-anchor" href="#用户级发行包" aria-label="链接到 用户级发行包">#</a></h3>
 <p>先下载并查看安装脚本，再执行：</p>
@@ -95,7 +95,7 @@ sh install.sh
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>yay -S oh-my-ztty-bin
 omztty doctor
 </code></pre></div>
-<p>系统软件包通过 AUR 助手更新，配置采用仍需执行下方命令。卸载软件包前，先运行 <code>omztty config remove</code> 恢复原配置，再通过包管理器移除软件包。未使用 AUR 助手时，可按<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/installation.md#arch-linux-aur">安装说明</a>使用 <code>makepkg</code> 安装。</p>
+<p>系统软件包通过 AUR 助手更新，配置采用仍需执行下方命令。卸载软件包前，先运行 <code>omztty config remove</code> 恢复原配置，再通过包管理器移除软件包。未使用 AUR 助手时，可按<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/installation.md#arch-linux-aur">安装说明</a>使用 <code>makepkg</code> 安装。</p>
 <h2 id="七个独立项目">七个独立项目<a class="heading-anchor" href="#七个独立项目" aria-label="链接到 七个独立项目">#</a></h2>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
 <thead>
@@ -135,7 +135,7 @@ omztty doctor
 </tr>
 </tbody>
 </table></div>
-<p>开发时同步各组件默认分支的最新源码，Git 子模块与 <code>dependencies.lock.json</code> 共同记录本次构建选用的提交。<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/reports/0.2.6/release.zh-CN.md">0.2.6 发布记录</a>保留该已发布版本的组件组合与验收结果。zsh、Neovim 等系统应用需单独安装。进入 shell 后，可按需查看系统概况或启动 AI 连接。zfetch 的 Arch Linux 包名为 <code>zfetch-project-z</code> 与 <code>zfetch-project-z-bin</code>，发布状态见其仓库说明。</p>
+<p>开发时同步各组件默认分支的最新源码，Git 子模块与 <code>dependencies.lock.json</code> 共同记录本次构建选用的提交。<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/reports/0.2.6/release.zh-CN.md">0.2.6 发布记录</a>保留该已发布版本的组件组合与验收结果。zsh、Neovim 等系统应用需单独安装。进入 shell 后，可按需查看系统概况或启动 AI 连接。zfetch 的 Arch Linux 包名为 <code>zfetch-project-z</code> 与 <code>zfetch-project-z-bin</code>，发布状态见其仓库说明。</p>
 <h2 id="默认内存管理">默认内存管理<a class="heading-anchor" href="#默认内存管理" aria-label="链接到 默认内存管理">#</a></h2>
 <p>安装器默认启用 zmem 系统服务，接管现有 Swap，把初始方案保存到 <code>/etc/zmem/zmem.conf</code>，后续升级保留本机配置。查看状态和策略，或把编译任务纳入后台管理：</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>omztty memory status --json --processes
@@ -144,8 +144,8 @@ omztty memory run --class background -- cargo build
 </code></pre></div>
 <p><code>omztty memory setup</code> 可在跳过初次设置后启用 zmem；<code>omztty memory rollback</code> 恢复接管前记录的管理器与配置。系统服务运行 root 所有的 <code>/usr/local/bin/zmem</code>，独立于用户目录中的套件。卸载终端套件会保留系统内存服务；已卸载后仍可用 <code>sudo /usr/local/bin/zmem rollback</code> 恢复。默认参数和命令见<a href="../oh-my-ztty/memory/">内存管理说明</a>。</p>
 <h2 id="ink-默认外观">Ink 默认外观<a class="heading-anchor" href="#ink-默认外观" aria-label="链接到 Ink 默认外观">#</a></h2>
-<p>暖石墨背景、亚麻白文字、铜色重点、28 px 内边距与两行提示符，把路径、Git 分支和输入区分开。Neovim 与终端工具沿用同一套配色。提示符使用 zsh 内置能力；字体通过 Fontconfig 回退，不强制安装图标字体。<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/installation.md#ink-appearance">自定义预设</a>。</p>
-<p><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/reports/workspace-0.2.1.md">实机报告</a>记录了 Ink 配置、桌面启动链、broker 复用、恢复步骤与验收范围。</p>
+<p>暖石墨背景、亚麻白文字、铜色重点、28 px 内边距与两行提示符，把路径、Git 分支和输入区分开。Neovim 与终端工具沿用同一套配色。提示符使用 zsh 内置能力；字体通过 Fontconfig 回退，不强制安装图标字体。<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/installation.md#ink-appearance">自定义预设</a>。</p>
+<p><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/reports/workspace-0.2.1.md">实机报告</a>记录了 Ink 配置、桌面启动链、broker 复用、恢复步骤与验收范围。</p>
 <h2 id="设为默认工作环境">设为默认工作环境<a class="heading-anchor" href="#设为默认工作环境" aria-label="链接到 设为默认工作环境">#</a></h2>
 <h3 id="shell环境变量与-path">Shell、环境变量与 PATH<a class="heading-anchor" href="#shell环境变量与-path" aria-label="链接到 Shell、环境变量与 PATH">#</a></h3>
 <p><code>omztty setup</code> 引导初始化、接入现有 zsh rc，并按选择在本人 GitHub 账号下创建私有 dotfiles 仓库。也可以先只在本机使用：</p>
@@ -180,7 +180,7 @@ omztty config status
 </code></pre></div>
 <p>统一配置覆盖 zsh、ztty、Neovim、Kitty、Foot、Ghostty、tmux、fzf、bat、ripgrep 和 Git 显示设置；应用程序本身单独安装。Git 配色通过配置说明中的显式 include 启用。采用配置后重新打开终端，账户的登录 shell 记录保持原值。</p>
 <p>编辑源文件位于 <code>~/.config/oh-my-ztty/profile/</code>，个人 shell 片段放在 <code>profile/shell/rc.d/</code>，个人补全放在 <code>~/.config/oh-my-ztty/completions/</code>；已有的 <code>local.zsh</code> 仍会加载。对应 XDG 配置可改变这些位置；HOME 配置部署要求 <code>XDG_CONFIG_HOME</code> 位于 HOME 内。</p>
-<p>升级后运行 <code>omztty config refresh</code>，即可更新尚未自行修改的默认文件；个人编辑、新增文件和主动删除的文件会保留。<code>omztty config remove</code> 恢复采用配置前保存的文件。用户级安装的 <code>omztty uninstall</code> 会先恢复这个受管理的 profile；恢复失败时保留运行程序供修复。通过 <code>omztty dot</code> 部署的其他仓库独立管理。完整位置与恢复步骤见<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/configuration.md">配置说明</a>。</p>
+<p>升级后运行 <code>omztty config refresh</code>，即可更新尚未自行修改的默认文件；个人编辑、新增文件和主动删除的文件会保留。<code>omztty config remove</code> 恢复采用配置前保存的文件。用户级安装的 <code>omztty uninstall</code> 会先恢复这个受管理的 profile；恢复失败时保留运行程序供修复。通过 <code>omztty dot</code> 部署的其他仓库独立管理。完整位置与恢复步骤见<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/configuration.md">配置说明</a>。</p>
 <h2 id="常用命令">常用命令<a class="heading-anchor" href="#常用命令" aria-label="链接到 常用命令">#</a></h2>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>omztty terminal        # 用 ztty 打开预设 shell
 omztty shell           # 在当前终端体验
@@ -208,9 +208,9 @@ python3 scripts/workspace.py check
 python3 scripts/build_bundle.py
 </code></pre></div>
 <p><code>sync</code> 默认获取七个组件的最新默认分支，并在 schema 2 源码锁中记录提交与观测时间。旧锁首次升级需要完整同步；此后可用 <code>sync zshard</code> 单独更新一个组件。打包时通过 Cargo <code>--locked</code> 从记录的源码编译五个原生程序，沿用已有的共享构建目录配置。</p>
-<p>开发、测试和显式发布步骤见 <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/CONTRIBUTING.md">CONTRIBUTING.md</a>。性能数字与测量范围见<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/docs/performance.md">性能记录</a>。项目采用 MIT 许可证。</p>
+<p>开发、测试和显式发布步骤见 <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/CONTRIBUTING.md">CONTRIBUTING.md</a>。性能数字与测量范围见<a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/performance.md">性能记录</a>。项目采用 MIT 许可证。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/69771be7940818548d851dc1038424ac2c614638/README.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/oh-my-ztty">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/README.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/oh-my-ztty">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../oh-my-ztty/readme-en/"><span class="pagination-label">下一页</span><span class="pagination-title">oh-my-ztty</span></a></nav>
       <footer class="page-footer">
         <span>oh-my-ztty <span class="footer-separator">/</span> Project Z</span>

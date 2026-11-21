@@ -80,7 +80,7 @@
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="zmem">zmem</h1><p class="project-intro">观测 Linux 内存压力，管理 Swap 并约束后台任务的内存预算。</p>
 <p><strong>Memory, with room to work.</strong> A small Linux memory and Swap controller from <a href="https://github.com/LIghtJUNction/project-z">Project Z</a>.</p>
-<p><a href="https://lightjunction.github.io/zmem/">Website</a> · <a href="https://github.com/LIghtJUNction/zmem/releases">Releases</a> · <a href="https://crates.io/crates/zmem-manager">crates.io</a> · <a href="https://docs.rs/zmem-manager">Rust API</a> · <a href="https://github.com/LIghtJUNction/zmem/blob/57deca203bf6e1aab33b3e96e4c7abdcd2fbd0b6/docs/acceptance-0.1.1.md">Host acceptance</a></p>
+<p><a href="https://lightjunction.github.io/zmem/">Website</a> · <a href="https://github.com/LIghtJUNction/zmem/releases">Releases</a> · <a href="https://crates.io/crates/zmem-manager">crates.io</a> · <a href="https://docs.rs/zmem-manager">Rust API</a> · <a href="https://github.com/LIghtJUNction/zmem/blob/df778e868b916dddb13a629c19f0f7d66f54825c/docs/acceptance-0.1.1.md">Host acceptance</a></p>
 <p>zmem observes memory pressure, preserves headroom for interactive work, and gives managed background jobs a bounded memory budget. It brings zram setup, dynamic disk swap, pressure policy and structured inspection into one tool. The Rust implementation has no third-party crate dependencies; the policy library uses <code>no_std</code> and makes no heap allocations.</p>
 <h2 id="what-it-does">What it does<a class="heading-anchor" href="#what-it-does" aria-label="链接到 What it does">#</a></h2>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
@@ -166,6 +166,7 @@ zmem run --class disposable --max-memory 2048 -- YOUR_BATCH_COMMAND
 <p>The <code>--max-memory</code> value is in MiB. The disposable class is for work that can be restarted if it exceeds its explicit budget. Starting a job inside a cgroup gives the kernel a consistent accounting boundary for the job's allocations.</p>
 <h2 id="policy-and-resource-limits">Policy and resource limits<a class="heading-anchor" href="#policy-and-resource-limits" aria-label="链接到 Policy and resource limits">#</a></h2>
 <p>The policy core is a deterministic state machine. It receives a snapshot and a monotonic timestamp, then produces a bounded decision. The Linux adapter checks real ownership, kernel state, disk capacity and operation results before acting.</p>
+<p>While the daemon is running, zmem owns the aggregate <code>memory.high</code> policy of its dedicated <code>zmem.slice/zmem-background.slice</code>, including the corresponding slice below a user manager. systemd can reset that slice to <code>max</code> when a new scope starts. If the original baseline was unlimited and the cgroup is still the same object, zmem reapplies its policy and records a <code>managed_background_limit_reapplied</code> event. A manual <code>max</code> write to this dedicated slice is therefore temporary. Finite external limits, finite original baselines, other cgroups and <code>memory.low</code> retain the normal external-change protection. Run jobs outside the background class when another tool should own their limits.</p>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
 <thead>
 <tr>
@@ -236,7 +237,7 @@ python3 scripts/bump.py patch --release
 </ul>
 <p>The website uses the warm graphite, linen and copper direction of <a href="https://lightjunction.github.io/oh-my-ztty/">oh-my-ztty</a>. MIT licensed.</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmem/blob/57deca203bf6e1aab33b3e96e4c7abdcd2fbd0b6/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmem">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmem/blob/df778e868b916dddb13a629c19f0f7d66f54825c/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmem">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"></nav>
       <footer class="page-footer">
         <span>zmem <span class="footer-separator">/</span> Project Z</span>
