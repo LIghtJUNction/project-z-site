@@ -203,7 +203,7 @@ Alder Lake 的 6 位偏移见该版本 <a href="https://github.com/torvalds/linu
 <code>clear</code> 则撤销整套工具配置。轮询、执行延迟和毫秒级突发仍可能造成温度尖峰。</p>
 <h2 id="本地打包">本地打包<a class="heading-anchor" href="#本地打包" aria-label="链接到 本地打包">#</a></h2>
 <p>需要记录温度、PL1／PL2 和故障前样本时，可使用同包的
-<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/THERMAL-OBSERVATION.md"><code>mechrevo-thermal</code></a>。该命令只读，GPU 已失联时拒绝开始采样，
+<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/THERMAL-OBSERVATION.md"><code>mechrevo-thermal</code></a>。该命令只读，GPU 已失联时拒绝开始采样，
 新增 Xid／不可纠正 PCIe 错误时会停止并标记结果无效。</p>
 <p>配方在 <code>packaging/arch/mechrevo-power-control/</code>，只安装命令和说明，安装本身不会
 启用功耗上限。它没有加入现有 DKMS 包，也没有作为新包发布到 AUR。
@@ -234,13 +234,13 @@ MECHREVO_POWER_COMMIT=&lt;full-source-commit&gt; makepkg --cleanbuild
 平均窗口和能量采样也不能当成瞬时整机功耗。55 W 来自本机热设计参考值，
 不是已验证的整机最大安全功耗。</p>
 <p>需要临时验证 PL2 影响时，使用有独立恢复回执的
-<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/PEAK-LIMIT-TRIAL.md"><code>mechrevo-peak-trial</code></a>，不能把 <code>clear</code> 当作 PL2 恢复命令。</p>
+<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/PEAK-LIMIT-TRIAL.md"><code>mechrevo-peak-trial</code></a>，不能把 <code>clear</code> 当作 PL2 恢复命令。</p>
 <p>源码和测试依据为 Intel 官方 <code>thermal_daemon</code> 的
 <a href="https://github.com/intel/thermal_daemon/tree/v2.5.13"><code>v2.5.13</code></a>，
 冻结提交 <code>5fdc5bbca7f8c3f5bb2ad6540e8211a159a88a3a</code>。
 实机结果单独记录在 <a href="../../mechrevo-drivers/hardware-gm6px0x/">GM6PX0X 验证记录</a>，未验收项目不能由代码测试代替。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/POWER-CONTROL.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/POWER-CONTROL.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../mechrevo-drivers/mechrevo/"><span class="pagination-label">上一页</span><span class="pagination-title">机械革命支持范围</span></a><a class="pagination-link next" href="../../mechrevo-drivers/packaging-arch-mechrevo-console-readme/"><span class="pagination-label">下一页</span><span class="pagination-title">Arch / AUR 控制台包</span></a></nav>
       <footer class="page-footer">
         <span>mechrevo-drivers <span class="footer-separator">/</span> Project Z</span>

@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#设备工作台与五档性能控制2026-11-02">设备工作台与五档性能控制（2026-11-02）</a></li><li class="toc-level-2"><a href="#无-tccd-的-ec-only-模式键2026-11-07">无 tccd 的 EC-only 模式键（2026-11-07）</a></li><li class="toc-level-3"><a href="#触控板熄屏恢复">触控板熄屏/恢复</a></li><li class="toc-level-2"><a href="#r160-历史安装基线2026-10-18">r160 历史安装基线（2026-10-18）</a></li><li class="toc-level-2"><a href="#r158-历史安装基线2026-10-18">r158 历史安装基线（2026-10-18）</a></li><li class="toc-level-2"><a href="#linux-oem-控制">Linux OEM 控制</a></li><li class="toc-level-2"><a href="#型号与证据">型号与证据</a></li><li class="toc-level-2"><a href="#系统功能">系统功能</a></li><li class="toc-level-2"><a href="#cli-json-与采集时间">CLI JSON 与采集时间</a></li><li class="toc-level-2"><a href="#本地验证">本地验证</a></li><li class="toc-level-2"><a href="#设计边界">设计边界</a></li><li class="toc-level-2"><a href="#石墨界面改版验收2026-10-18">石墨界面改版验收（2026-10-18）</a></li><li class="toc-level-2"><a href="#010-初版开发候选验收2026-10-18">0.1.0 初版开发候选验收（2026-10-18）</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="rust-双端控制台">Rust 双端控制台</h1>
-<p>源码位于 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/README.md">console</a>，与内核驱动和 TCC 分开构建。CLI 和原生图形界面使用同一 Rust 核心。Windows 和 Linux 各有系统后端；实际功能以运行时能力结果为准。</p>
+<p>源码位于 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/README.md">console</a>，与内核驱动和 TCC 分开构建。CLI 和原生图形界面使用同一 Rust 核心。Windows 和 Linux 各有系统后端；实际功能以运行时能力结果为准。</p>
 <h2 id="设备工作台与五档性能控制2026-11-02">设备工作台与五档性能控制（2026-11-02）<a class="heading-anchor" href="#设备工作台与五档性能控制2026-11-02" aria-label="链接到 设备工作台与五档性能控制（2026-11-02）">#</a></h2>
 <p>原生前端改为宽屏侧栏／窄屏顶部导航，采用石墨橄榄与象牙白两套语义配色。首页优先显示五档性能选择、真实温度趋势、电池保养、亮度与常用控制入口；请求目标与实际运行值分开，选择不立即写入，仍需预览与显式应用。详细布局及权限边界见 <a href="../../mechrevo-drivers/console-design/">界面设计</a>。</p>
 <p>新增 <code>mechrevo-performance-profile</code> OEM 控制，仅开放给 <code>MECHREVO / GM6PX0X</code> 的已安装可信控制器和本机保存的 tccd 配置。支持办公、游戏低噪、游戏平衡、狂暴、强冷五档，不新增寄存器或推测的功率参数，也不覆盖用户已保存的参数。缺失、重复或不可信配置不会生成可执行计划；预览绑定当前配置、守护进程身份和控制程序，应用前变化会拒绝旧计划。</p>
@@ -137,7 +137,7 @@ mechrevo-control touchpad status     # 查看 i2c 绑定状态
 <h2 id="r160-历史安装基线2026-10-18">r160 历史安装基线（2026-10-18）<a class="heading-anchor" href="#r160-历史安装基线2026-10-18" aria-label="链接到 r160 历史安装基线（2026-10-18）">#</a></h2>
 <p><code>mechrevo-console 0.1.0.r160.g5542b9d-1</code> 已从固定提交 <code>5542b9d66eb3bb95b2edd07e4f2fe94afc36ea60</code> 构建并通过 pacman 安装。CLI、GUI、受限 OEM helper 与授权策略已落盘；21 个包文件零改动，9 个正规载荷的字节、权限及 root 归属逐项一致。release 的 31 份输入与通过 146 项 Rust、95 项 Python 检查的快照相同；release 与早期 debug 候选的二进制摘要分别保留。</p>
 <p>安装版普通用户 CLI 的版本、状态和 OEM 枚举通过，策略注册可见。另用普通用户已安装 CLI 生成新预览，再由 root 经 <code>pkexec</code> 调用固定已安装 helper，完成两次 Fn 切换／恢复；四项控制独立回读恢复，运行保护状态保持不变。这证明已安装路径可执行，不证明普通用户管理员认证弹窗或 GUI 应用流程已验收；其余三项控制没有在这次 release 验收中写入。</p>
-<p>安装版 GUI 在独立 headless compositor 中持续运行约 25.58 秒，1280×720 的概览、四个 OEM 选择项及 Fn 当前值面板已人工复核。没有访问其他三个面板、预览或应用，也没有通过 GUI 写硬件；自有进程均已结束。来源、包摘要、恢复材料与跟踪缺口见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/verification/deployment-console-r160.json">r160 部署收据</a>。</p>
+<p>安装版 GUI 在独立 headless compositor 中持续运行约 25.58 秒，1280×720 的概览、四个 OEM 选择项及 Fn 当前值面板已人工复核。没有访问其他三个面板、预览或应用，也没有通过 GUI 写硬件；自有进程均已结束。来源、包摘要、恢复材料与跟踪缺口见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/verification/deployment-console-r160.json">r160 部署收据</a>。</p>
 <p>本次只更新控制台，没有更改 EFI、TCC、风扇或功耗配置，没有重载驱动或重启。磁盘驱动仍为 r158，运行中仍为 r106。Windows OEM 与 Windows 实机验收未完成；没有发布 AUR。本轮源码已在本地提交，远端推送因系统密钥环锁定待完成。</p>
 <h2 id="r158-历史安装基线2026-10-18">r158 历史安装基线（2026-10-18）<a class="heading-anchor" href="#r158-历史安装基线2026-10-18" aria-label="链接到 r158 历史安装基线（2026-10-18）">#</a></h2>
 <p><code>mechrevo-console 0.1.0.r158.ga190455-1</code> 已通过 pacman 安装，固定源码为
@@ -150,13 +150,13 @@ mechrevo-control touchpad status     # 查看 i2c 绑定状态
 mechrevo-console status --json
 </code></pre></div>
 <p>本机安装配方见 <a href="../../mechrevo-drivers/packaging-arch-mechrevo-console-readme/">Arch 打包说明</a>，
-来源、安装及验证范围见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/verification/deployment-r158.json">部署收据</a>。
+来源、安装及验证范围见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/verification/deployment-r158.json">部署收据</a>。
 这次安装未新增常驻服务或替换 stock TCC，没有改变现有风扇／功耗配置。
 同期安装的 r158 内核驱动仍待重启激活；控制台已安装不等于新版驱动已经运行。
 未发布 AUR，Windows 仍只有编译检查和开发产物，没有 Windows 实机验收。
 后文各次候选验收保留当时的范围，不能将其中“未安装”理解为当前安装状态。</p>
 <h2 id="linux-oem-控制">Linux OEM 控制<a class="heading-anchor" href="#linux-oem-控制" aria-label="链接到 Linux OEM 控制">#</a></h2>
-<p>本轮源码已通过 146 项 Rust 测试、95 项 Python 检查、格式、Clippy 和 Windows 编译检查。本机四项控制完成 11 次可逆写入及 7 次写前拒绝，独立回读确认全部恢复原值，配置、服务与加载模块保持不变；候选原生窗口的概览和控制页已人工复核。<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/verification/oem-controls.json">OEM 验收收据</a>记录源码指纹、二进制摘要及具体边界。这些是 r160 构建前 debug 候选验收，18 次事务与已安装 release 的两次 Fn 验收分别记录；r158 历史基线不含这些新控制，当前 r160 已安装。完整 Windows／Linux 目标继续以 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/OEM-FEATURE-COVERAGE.md">OEM 功能覆盖</a> 为准。</p>
+<p>本轮源码已通过 146 项 Rust 测试、95 项 Python 检查、格式、Clippy 和 Windows 编译检查。本机四项控制完成 11 次可逆写入及 7 次写前拒绝，独立回读确认全部恢复原值，配置、服务与加载模块保持不变；候选原生窗口的概览和控制页已人工复核。<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/verification/oem-controls.json">OEM 验收收据</a>记录源码指纹、二进制摘要及具体边界。这些是 r160 构建前 debug 候选验收，18 次事务与已安装 release 的两次 Fn 验收分别记录；r158 历史基线不含这些新控制，当前 r160 已安装。完整 Windows／Linux 目标继续以 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/OEM-FEATURE-COVERAGE.md">OEM 功能覆盖</a> 为准。</p>
 <p>核心、CLI 和 GUI 共用 OEM 后端。它接入已加载 <code>tuxedo_keyboard</code> 驱动实际暴露并通过绑定校验的固定 sysfs 接口；2026-10-29 源码另增加原生 <code>uniwill_laptop</code> / <code>bitland_mifs_wmi</code> 的<a href="../../mechrevo-drivers/hardware-native-kernel-controls/">有限接入</a>，尚未安装或实机验收。不从相似型号推测寄存器。状态文档的 <code>oem_controls</code> 逐项保留 ID、类型、当前值、允许范围、来源、驱动绑定、可写状态及 <code>readback_scope</code>。没有接口就不生成控制项，接口无效或权限不足也不伪造可用状态。原生 Uniwill 布尔控制 ID 含模块与实例后缀，CLI 使用枚举给出的完整 ID；充电档位与 RGB 不在原生接入范围内。</p>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
 <thead>
@@ -268,7 +268,7 @@ python -B scripts/verify_console.py --output .local-tests/console-result.json
 <p>电源与亮度保留预览、应用、回读、必要恢复及写事务结束后关窗的流程。有限 OEM 驱动控制与五档性能桥接沿用同一事务框架，具体失败和回读边界见前文。任意风扇曲线编辑、MUX、水冷及 Windows OEM 控制仍待完成；历史界面验收不自动覆盖新功能，也不增加 Windows 实机写入结论。</p>
 <h2 id="石墨界面改版验收2026-10-18">石墨界面改版验收（2026-10-18）<a class="heading-anchor" href="#石墨界面改版验收2026-10-18" aria-label="链接到 石墨界面改版验收（2026-10-18）">#</a></h2>
 <p>改版后的全工作区 67 项 Rust 测试通过，80 组布局场景通过；格式、Clippy 和 Windows 目标检查通过。展开全部传感器来源也执行真实宽度与末尾可达性检查。Linux 原生截图复核了滑轨、双风扇、长名称和来源展示，Windows 仍未实机运行。</p>
-<p>新版开发包已分别链接并校验归档成员，源码摘要和产物摘要见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/verification/console-ui-redesign.json">改版验收记录</a>。<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/FAN-AUDIO-DIAGNOSTICS.md">声音诊断工具</a>另外通过 25 项音频回归与 16 项验收 runner 回归；它只分析已有本地录音，不是 GUI 风扇控制功能。以下保留初版的历史验收范围。</p>
+<p>新版开发包已分别链接并校验归档成员，源码摘要和产物摘要见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/verification/console-ui-redesign.json">改版验收记录</a>。<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/FAN-AUDIO-DIAGNOSTICS.md">声音诊断工具</a>另外通过 25 项音频回归与 16 项验收 runner 回归；它只分析已有本地录音，不是 GUI 风扇控制功能。以下保留初版的历史验收范围。</p>
 <h2 id="010-初版开发候选验收2026-10-18">0.1.0 初版开发候选验收（2026-10-18）<a class="heading-anchor" href="#010-初版开发候选验收2026-10-18" aria-label="链接到 0.1.0 初版开发候选验收（2026-10-18）">#</a></h2>
 <p>以下为初版开发候选当时的记录：该阶段未安装、未发布 AUR，也未完成全系列或双端实机验收。GUI 依赖 Rust 1.95 以上；该轮使用 Rust 1.97。</p>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
@@ -310,9 +310,9 @@ python -B scripts/verify_console.py --output .local-tests/console-result.json
 </tbody>
 </table></div>
 <p>本机没有暴露 ACPI <code>platform_profile</code>，普通用户也没有 backlight 写权限。这两项实际返回不可用；没有自动提权、改服务或绕过驱动。两端亮度与电源策略的成功、失败、过期计划和恢复路径由离线回归覆盖，不能据此宣称本机写入已生效。</p>
-<p>同一份源码构建出 Linux <code>tar.gz</code> 和 Windows <code>zip</code> 开发包，归档成员逐字节校验，附 SHA-256 与来源清单。源码摘要及检查摘要见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/verification/console-0.1.0.json">验收记录</a>；机器原始数据、分析载荷与构建中间文件保留在本地。</p>
+<p>同一份源码构建出 Linux <code>tar.gz</code> 和 Windows <code>zip</code> 开发包，归档成员逐字节校验，附 SHA-256 与来源清单。源码摘要及检查摘要见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/verification/console-0.1.0.json">验收记录</a>；机器原始数据、分析载荷与构建中间文件保留在本地。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/MECHREVO-CONSOLE.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/MECHREVO-CONSOLE.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../mechrevo-drivers/hardware-wujie-hpt-p916f/"><span class="pagination-label">上一页</span><span class="pagination-title">无界 15 Pro HPT 与星耀 P916F HPT-R</span></a><a class="pagination-link next" href="../../mechrevo-drivers/mechrevo/"><span class="pagination-label">下一页</span><span class="pagination-title">机械革命支持范围</span></a></nav>
       <footer class="page-footer">
         <span>mechrevo-drivers <span class="footer-separator">/</span> Project Z</span>

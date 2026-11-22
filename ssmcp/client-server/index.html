@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#设置回退服务器">设置回退服务器</a></li><li class="toc-level-3"><a href="#直接编辑配置文件">直接编辑配置文件</a></li><li class="toc-level-2"><a href="#信任公钥写到哪里">信任公钥写到哪里</a></li><li class="toc-level-3"><a href="#从可信渠道导入">从可信渠道导入</a></li><li class="toc-level-3"><a href="#直接编辑信任文件">直接编辑信任文件</a></li><li class="toc-level-3"><a href="#连接时怎样校验">连接时怎样校验</a></li><li class="toc-level-2"><a href="#续签换钥与撤销">续签、换钥与撤销</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="选择中转服务器与固定服务器公钥">选择中转服务器与固定服务器公钥</h1>
-<p>客户端把服务器地址和信任配置保存在本机。本文说明原有服务器回退和 HTTPS 公钥固定；命名 context 的优先级及本地／远程切换见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/connection-contexts.md">选择连接目标</a>。登录、远程会话列表和新建 HTTPS / WSS 连接先解析显式目标或 context，再使用这里的服务器回退。每个服务器的账号凭据仍单独保存。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/account.rs">地址选择实现</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/config.rs">配置命令</a></p>
+<p>客户端把服务器地址和信任配置保存在本机。本文说明原有服务器回退和 HTTPS 公钥固定；命名 context 的优先级及本地／远程切换见<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/connection-contexts.md">选择连接目标</a>。登录、远程会话列表和新建 HTTPS / WSS 连接先解析显式目标或 context，再使用这里的服务器回退。每个服务器的账号凭据仍单独保存。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client/account.rs">地址选择实现</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client/config.rs">配置命令</a></p>
 <h2 id="设置回退服务器">设置回退服务器<a class="heading-anchor" href="#设置回退服务器" aria-label="链接到 设置回退服务器">#</a></h2>
 <p>用命令保存默认地址，再在该服务器登录：</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>ssmcp config set server https://relay.example.com
@@ -202,9 +202,9 @@ MCowBQYDK2VwAyEA11qYAYKxCrfVS/7TyWQHOg7hcvPapiMlrwIaaPcHURo=
 server = &quot;https://relay.example.com&quot;
 pins = [&quot;sha256//BuP9j9opu2CrWVV95h7bCuzbIxE0vjDnW0Vfjht5L6k=&quot;]
 </code></pre></div>
-<p><code>public_keys</code> 与 <code>pins</code> 可以同时存在，并可各自包含多个值，便于轮换。一个服务器条目至少需要一个有效公钥或指纹。客户端会把地址规范化，按协议、主机名和端口精确匹配；不同服务器的信任记录互不借用。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/trust.rs">信任文件与校验实现</a></p>
+<p><code>public_keys</code> 与 <code>pins</code> 可以同时存在，并可各自包含多个值，便于轮换。一个服务器条目至少需要一个有效公钥或指纹。客户端会把地址规范化，按协议、主机名和端口精确匹配；不同服务器的信任记录互不借用。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client/trust.rs">信任文件与校验实现</a></p>
 <h3 id="连接时怎样校验">连接时怎样校验<a class="heading-anchor" href="#连接时怎样校验" aria-label="链接到 连接时怎样校验">#</a></h3>
-<p>登记公钥后，客户端会在 TLS 握手阶段同时检查证书链、域名、有效期和公钥。HTTPS 账号 API 与 WSS 会话连接使用相同规则；公钥与保存的所有值都不匹配时，连接失败，不发送该服务器的账号令牌，也不自动退回普通证书校验。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/account.rs">账号 API</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/relay.rs">WSS 传输</a></p>
+<p>登记公钥后，客户端会在 TLS 握手阶段同时检查证书链、域名、有效期和公钥。HTTPS 账号 API 与 WSS 会话连接使用相同规则；公钥与保存的所有值都不匹配时，连接失败，不发送该服务器的账号令牌，也不自动退回普通证书校验。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client/account.rs">账号 API</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client/relay.rs">WSS 传输</a></p>
 <p>未登记公钥的服务器使用正常的 HTTPS 证书校验。公钥固定增加了一条身份条件：即使冒充者获得了该域名的另一张有效证书，仍需持有已登记公钥对应的私钥才能通过握手。它适用于 ssmcp CLI 的 HTTPS / WSS 连接；浏览器和其他 MCP 客户端各自管理连接校验。受信任服务器本身仍负责转发工具调用，应由可信操作者维护。</p>
 <p>CLI 的临时 <code>invite</code> / <code>join</code> 已移除。被控设备使用显式 <code>--allow 用户名@中继服务器</code>；完整流程见<a href="../../ssmcp/client-accounts/">账号与被控设备</a>。</p>
 <h2 id="续签换钥与撤销">续签、换钥与撤销<a class="heading-anchor" href="#续签换钥与撤销" aria-label="链接到 续签、换钥与撤销">#</a></h2>
@@ -214,7 +214,7 @@ pins = [&quot;sha256//BuP9j9opu2CrWVV95h7bCuzbIxE0vjDnW0Vfjht5L6k=&quot;]
 </code></pre></div>
 <p>移除后，新连接继续执行普通 HTTPS 证书校验。配置更新作用于随后创建的连接；已有连接需要重新连接，才能采用更新后的信任记录。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/client-server.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/client-server.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ssmcp/client-input/"><span class="pagination-label">上一页</span><span class="pagination-title">客户端输入、引用与本地沟通</span></a><a class="pagination-link next" href="../../ssmcp/client-ui/"><span class="pagination-label">下一页</span><span class="pagination-title">客户端 UI</span></a></nav>
       <footer class="page-footer">
         <span>ssmcp <span class="footer-separator">/</span> Project Z</span>

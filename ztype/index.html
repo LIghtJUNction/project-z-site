@@ -79,11 +79,11 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#构建并安装">构建并安装</a></li><li class="toc-level-2"><a href="#启动与应用连接">启动与应用连接</a></li><li class="toc-level-2"><a href="#日常操作">日常操作</a></li><li class="toc-level-2"><a href="#配置与词库">配置与词库</a></li><li class="toc-level-2"><a href="#框架与平台范围">框架与平台范围</a></li><li class="toc-level-2"><a href="#其他引擎和开发检查">其他引擎和开发检查</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="ztype">ztype</h1><p class="project-intro">Linux 原生输入法，在应用中组合拼音、显示候选并提交文字。</p>
-<p><a href="../ztype/readme-en/">English</a> · <a href="../ztype/service-installation/">安装与服务</a> · <a href="../ztype/ztty-ui-0-4-2-zh-cn/">本轮验收</a> · <a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/verification.md">历史记录</a></p>
+<p><a href="../ztype/readme-en/">English</a> · <a href="../ztype/service-installation/">安装与服务</a> · <a href="../ztype/ztty-ui-0-4-2-zh-cn/">本轮验收</a> · <a href="https://github.com/LIghtJUNction/ztype/blob/5d245e5b0633b5ce0f9479fec9741fb23b7b5b80/docs/verification.md">历史记录</a></p>
 <p><strong>基于 zinput 的 Linux 原生输入法。</strong> Ztype 0.4.2 提供 X11/XWayland XIM 和 Wayland input-method-v2 两条输入路径。按键在当前应用中组合，独立候选窗显示拼音、当前页和候选，确认后通过输入法协议提交文字。日常输入不需要打开独立演示面板。</p>
 <p>0.4.2 为原生候选窗调整文字层级、20 px 左右留白与 Material 3 浅色配色。ztty 的 XIM 与原生 Wayland 两条路径均完成真实终端输入验收；Wayland 路径使用 <a href="https://github.com/LIghtJUNction/ztty/pull/23">ztty PR #23</a> 的光标更新兼容修复，具体源码和二进制身份见<a href="../ztype/ztty-ui-0-4-2-zh-cn/">本轮记录</a>。</p>
 <p>词库、候选页大小、初始中英文模式、标点和 Enter 行为均可配置。拼音支持外部加权词库、多词库合并、词语组合、隔音符号和可选的用户选词学习。语言数据与程序分开安装，Ztype 运行时不依赖 Rime 或 Fcitx5 服务。</p>
-<p><a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/evidence-archive-20261120.md">完整词库在真实 Wayland 输入框中的候选窗</a></p>
+<p><a href="https://github.com/LIghtJUNction/ztype/blob/5d245e5b0633b5ce0f9479fec9741fb23b7b5b80/docs/evidence-archive-20261120.md">完整词库在真实 Wayland 输入框中的候选窗</a></p>
 <h2 id="构建并安装">构建并安装<a class="heading-anchor" href="#构建并安装" aria-label="链接到 构建并安装">#</a></h2>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>git clone --recurse-submodules https://github.com/LIghtJUNction/ztype.git
 cd ztype
@@ -264,11 +264,11 @@ cargo clippy --all-targets --locked -- -D warnings
 python3 scripts/test_install.py
 python3 scripts/test_daily_input.py --binary target/release/ztype
 </code></pre></div>
-<p>真实输入验收同时检查应用收到的 UTF-8、候选窗实际像素、焦点与进程清理，不能只以服务处于 running 状态判断可用。本轮证据、命令、依赖版本和剩余限制记录在<a href="../ztype/ztty-ui-0-4-2-zh-cn/">日常输入验收</a>，早期结果保留在<a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/verification.md">历史验证</a>。</p>
-<p><a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/daily-input-2026-11-20.zh-CN.md">0.4.0 日常输入记录</a>保留此前的依赖和应用基线。</p>
+<p>真实输入验收同时检查应用收到的 UTF-8、候选窗实际像素、焦点与进程清理，不能只以服务处于 running 状态判断可用。本轮证据、命令、依赖版本和剩余限制记录在<a href="../ztype/ztty-ui-0-4-2-zh-cn/">日常输入验收</a>，早期结果保留在<a href="https://github.com/LIghtJUNction/ztype/blob/5d245e5b0633b5ce0f9479fec9741fb23b7b5b80/docs/verification.md">历史验证</a>。</p>
+<p><a href="https://github.com/LIghtJUNction/ztype/blob/5d245e5b0633b5ce0f9479fec9741fb23b7b5b80/docs/daily-input-2026-11-20.zh-CN.md">0.4.0 日常输入记录</a>保留此前的依赖和应用基线。</p>
 <p><a href="../ztype/interactive-trial-zh-cn/">0.2.1 交互试用记录</a>作为历史验收保留。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/README.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztype">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztype/blob/5d245e5b0633b5ce0f9479fec9741fb23b7b5b80/README.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztype">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../ztype/readme-en/"><span class="pagination-label">下一页</span><span class="pagination-title">ztype</span></a></nav>
       <footer class="page-footer">
         <span>ztype <span class="footer-separator">/</span> Project Z</span>

@@ -101,18 +101,18 @@
 <tbody>
 <tr>
 <td>用户协议与服务条款</td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/legal/templates/zh-CN/user-agreement.md">中文</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/legal/templates/en/user-agreement.md">English</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/legal/templates/zh-CN/user-agreement.md">中文</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/legal/templates/en/user-agreement.md">English</a></td>
 </tr>
 <tr>
 <td>隐私政策</td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/legal/templates/zh-CN/privacy-policy.md">中文</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/legal/templates/en/privacy-policy.md">English</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/legal/templates/zh-CN/privacy-policy.md">中文</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/legal/templates/en/privacy-policy.md">English</a></td>
 </tr>
 <tr>
 <td>退款政策</td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/legal/templates/zh-CN/refund-policy.md">中文</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/legal/templates/en/refund-policy.md">English</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/legal/templates/zh-CN/refund-policy.md">中文</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/legal/templates/en/refund-policy.md">English</a></td>
 </tr>
 </tbody>
 </table></div>
@@ -147,7 +147,7 @@
 <p>反向代理只把上述三个精确公共路径转给扩展；不要向浏览器开放 <code>/extensions/v1/</code>，也不要下发宿主服务凭证。旧 <code>/legal/terms.html</code>、<code>/legal/privacy.html</code> 和 <code>/legal/safety-review.html</code> 只保留本站页面跳转，不再携带写死的运营政策。</p>
 <p>Docker 可追加 <code>deployment/docker/compose.legal.yml</code>，以只读挂载提供审查后的 TOML 和明确的模板根目录。<code>LMM_LEGAL_DIRECTORY</code> 等 Compose 插值变量只用于构造挂载，不是进程读取的运行配置；以当前 Compose 文件的明确契约为准。后续每次扩展更新都要保留此覆盖文件。模板随程序升级，运营方已发布的配置不会被覆盖。旧 <code>site.json</code> 与 <code>LMM_LEGAL_CONFIG_FILE</code> 属于旧版本流程，不能直接传给新的 TOML 解析器。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/legal/README.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/legal/README.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/filesystem-layout/"><span class="pagination-label">上一页</span><span class="pagination-title">配置与文件路径</span></a><a class="pagination-link next" href="../../lmm-api-source/progress/"><span class="pagination-label">下一页</span><span class="pagination-title">新架构进度</span></a></nav>
       <footer class="page-footer">
         <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>

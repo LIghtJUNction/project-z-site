@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#load-and-inspect-the-functions">Load and inspect the functions</a></li><li class="toc-level-2"><a href="#check-the-target-and-empty-draft-before-writing">Check the target and empty draft before writing</a></li><li class="toc-level-2"><a href="#conditional-native-edits">Conditional native edits</a></li><li class="toc-level-2"><a href="#keep-sending-separate">Keep sending separate</a></li><li class="toc-level-2"><a href="#validation">Validation</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="chatgpt-desktop-module">ChatGPT desktop module</h1>
-<p><a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/skills/zuse/assets/chatgpt-desktop.zuse"><code>chatgpt-desktop.zuse</code></a> provides
+<p><a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/skills/zuse/assets/chatgpt-desktop.zuse"><code>chatgpt-desktop.zuse</code></a> provides
 importable native desktop helpers for inspecting a conversation, preparing a
 draft, and invoking a separately authorized send action. Importing the module
 registers its functions without observing or changing an application. The
@@ -240,7 +240,7 @@ not run:</p>
 an already compiled integration-test harness. The launcher creates its own X
 display and accessibility bus; the fixture is a local test application, not a
 ChatGPT installation. Both native checks passed on the developer machine for
-0.5.0; see the <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/validation-0.5.0.md#native-accessibility">validation record</a>.</p>
+0.5.0; see the <a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/validation-0.5.0.md#native-accessibility">validation record</a>.</p>
 <p>Those checks do not exercise a live ChatGPT desktop installation. Native
 acceptance needs an actual application exposing the required accessibility
 nodes, a uniquely identified dedicated conversation, an empty editor, and
@@ -248,7 +248,7 @@ explicitly authorized draft text. Sending needs separate explicit authority.
 Record the observed draft and application result only for actions actually
 performed; no private conversation content belongs in the repository.</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/chatgpt-desktop.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/chatgpt-desktop.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zuse/platforms/"><span class="pagination-label">上一页</span><span class="pagination-title">Platform support and verification</span></a><a class="pagination-link next" href="../../zuse/development/"><span class="pagination-label">下一页</span><span class="pagination-title">Development and release</span></a></nav>
       <footer class="page-footer">
         <span>zuse <span class="footer-separator">/</span> Project Z</span>

@@ -155,17 +155,17 @@
 使用一致事务边界；上游调用和流式响应不持有长数据库事务。重试、结算和退款引用
 原操作，不重新选择付款方或价格。</p>
 <p>模型流式输出先保存证据再发送；缺最终用量时保留预留款并等待恢复，不按零用量结算。
-缺授权、计费依赖不可用或计价维度未受支持时明确拒绝。合同见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/model-billing.md">模型与计费</a>。
+缺授权、计费依赖不可用或计价维度未受支持时明确拒绝。合同见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/model-billing.md">模型与计费</a>。
 供应商成功是外部事件，Core 验证证据并生成账本回执后才确认入账；Go 保存订单、
-回调和恢复任务，不直接改 Core 余额。详见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/payment-gateways.md">支付网关</a>和<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/wallet-history.md">钱包历史</a>。</p>
+回调和恢复任务，不直接改 Core 余额。详见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/payment-gateways.md">支付网关</a>和<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/wallet-history.md">钱包历史</a>。</p>
 <h2 id="go-的存储与-rpc-边界">Go 的存储与 RPC 边界<a class="heading-anchor" href="#go-的存储与-rpc-边界" aria-label="链接到 Go 的存储与 RPC 边界">#</a></h2>
 <p>持久化扩展使用各自的独立数据库、受限角色和窄存储接口，不访问 Core 库，不向模块
 传入共享全局数据库对象。身份、购买、支付及模型委托通过对应 RPC；宿主凭证不
 替代用户凭证或扩展 RPC 权限。模块由配置显式装配，缺 Core 权限、存储或适配器时
 拒绝受影响操作，不能免费放行。</p>
 <p>公开协议读取 TOML 指定的只读文档快照，无需服务凭证或 Core。配置见
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/core.example.toml">Core 模板</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/extensions.example.toml">Extensions 模板</a>，
-分库授权见 <a href="../../lmm-api-source/deployment-postgres-readme/">PostgreSQL 指南</a>，协议见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/contracts"><code>contracts/</code></a>。</p>
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/core.example.toml">Core 模板</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/extensions.example.toml">Extensions 模板</a>，
+分库授权见 <a href="../../lmm-api-source/deployment-postgres-readme/">PostgreSQL 指南</a>，协议见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/contracts"><code>contracts/</code></a>。</p>
 <h2 id="独立启动与资源">独立启动与资源<a class="heading-anchor" href="#独立启动与资源" aria-label="链接到 独立启动与资源">#</a></h2>
 <p>Core 无需 Go、前端或扩展数据库，身份和账户仍依赖 PostgreSQL。模型与可选业务
 默认关闭；<code>/health/ready</code> 可在已配置组件通过时返回 200，同时声明模型或支付关闭；
@@ -224,12 +224,12 @@
 <tr>
 <td>独立 Core 容器内存上限</td>
 <td>384 MiB</td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/deployment/docker/compose.core.yml">compose.core.yml</a>，可显式覆盖</td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/deployment/docker/compose.core.yml">compose.core.yml</a>，可显式覆盖</td>
 </tr>
 </tbody>
 </table></div>
-<p>参数由 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/core/src/config.rs"><code>config.rs</code></a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/core/src/main.rs"><code>main.rs</code></a>
-和 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/core.example.toml">配置模板</a>定义。Argon2id 保留 19,456 KiB、两次迭代及
+<p>参数由 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/core/src/config.rs"><code>config.rs</code></a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/core/src/main.rs"><code>main.rs</code></a>
+和 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/core.example.toml">配置模板</a>定义。Argon2id 保留 19,456 KiB、两次迭代及
 原校验规则。连接等待和 <code>check-db</code> 总期限独立于 SQL 的 5 秒、事务空闲的 10 秒及
 资金操作期限；TOML 不接受环境覆盖。旧测试模式使用
 <code>LMM_CORE_DB_ACQUIRE_TIMEOUT_SECONDS</code>；<code>LMM_CORE_DB_CHECK_TIMEOUT_SECONDS</code> 是内部映射，
@@ -239,7 +239,7 @@
 Core 私密目录和持久状态不向扩展共享。可恢复 API Key 使用独立持久的 32 字节
 <code>identity.api_key_encryption_key_file</code>，不借用 Web refresh key；当前无 keyring 迁移，
 直接更换主密钥会使旧密文揭示失败。</p>
-<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/packaging/linux/README.md">原生预览包</a>通过 systemd/OpenRC 传入
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/packaging/linux/README.md">原生预览包</a>通过 systemd/OpenRC 传入
 <code>--config /etc/lmm.conf.d/core.toml</code>，不自动初始化、授权或启动。操作者准备服务账户、
 凭据和限制，日志默认进入 journal。配置和 owner/runtime 分离见<a href="../../lmm-api-source/development/#%E6%A0%B8%E5%BF%83%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93">开发指南</a>。</p>
 <p>资源调优前，在已完成授权及启动验证的隔离机器测量空闲 5 分钟 RSS/PSS、8/16 并发、
@@ -252,7 +252,7 @@ mise exec -- docker --host unix:///var/run/docker.sock inspect --format &#x27;{{
 模块和数据库挤进同一台小主机后套用这些预算；独立部署也不保证单节点更新不断流。
 历史资源与身份迁移结果见<a href="../../lmm-api-source/archive/">归档</a>，不作为当前候选的容量或完成状态。</p>
 <h2 id="安装权限与结构升级">安装、权限与结构升级<a class="heading-anchor" href="#安装权限与结构升级" aria-label="链接到 安装、权限与结构升级">#</a></h2>
-<p>结构合同以待运行二进制的 <code>schema-manifest</code> 和 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/core/src/core_schema.rs"><code>core_schema.rs</code></a>
+<p>结构合同以待运行二进制的 <code>schema-manifest</code> 和 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/core/src/core_schema.rs"><code>core_schema.rs</code></a>
 为准。指纹按编译时执行的完整 SQL 字节计算，可能包含多个片段，不能只散列单文件。
 结构安装建立数据合同，业务仍须配置、权限和依赖就绪。</p>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
@@ -290,37 +290,38 @@ mise exec -- docker --host unix:///var/run/docker.sock inspect --format &#x27;{{
 </tbody>
 </table></div>
 <p>普通启动不创建角色、授权、执行 DDL 或自动升级。命令语义以
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/core/src/main.rs"><code>main.rs</code></a>和二进制帮助为准；安装顺序见
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/archlinux-install-update.md">Arch Linux 指南</a>，路径见<a href="../../lmm-api-source/filesystem-layout/">文件布局</a>。</p>
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/core/src/main.rs"><code>main.rs</code></a>和二进制帮助为准；安装顺序见
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/archlinux-install-update.md">Arch Linux 指南</a>，路径见<a href="../../lmm-api-source/filesystem-layout/">文件布局</a>。</p>
 <p>离线升级绑定 PostgreSQL 前置结构、目标实例、角色、catalog、行和序列，保留原
 请求身份恢复。历史升级使用匹配的已保留执行器；新二进制不自动适用于所有旧库。
 更新源码、重启服务不代替升级，也不得清空或重新初始化已有原生库来绕过它。</p>
 <h2 id="旧数据迁移与证据">旧数据迁移与证据<a class="heading-anchor" href="#旧数据迁移与证据" aria-label="链接到 旧数据迁移与证据">#</a></h2>
 <p>从只读备份恢复的隔离副本读旧数据，写入另一个隔离目标库。
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/scripts/migrate-legacy-snapshot.py"><code>migrate-legacy-snapshot.py</code></a>默认预览；身份迁移
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/scripts/migrate-legacy-snapshot.py"><code>migrate-legacy-snapshot.py</code></a>默认预览；身份迁移
 只处理账号与受控密码验证信息，API Key、会话、余额、订阅和历史各有受控导入、
 对账过程，无法确认的权限及登录方式保持关闭。</p>
 <p>实际写入绑定来源、目标和结构凭据，验证原子事务、原键重放及冲突拒绝；生产数据、
 映射、预览和连接信息不进仓库。<code>--source-rights-preview</code> 只核对冻结经济权利，
-不生成导入授权或代表资金迁移完成，见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/legacy-financial-opening.md#%E5%85%88%E5%AE%9A%E4%BD%8D%E5%BE%85%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%8F%E6%B5%8E%E6%9D%83%E5%88%A9">历史余额导入</a>。</p>
+不生成导入授权或代表资金迁移完成，见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/legacy-financial-opening.md#%E5%85%88%E5%AE%9A%E4%BD%8D%E5%BE%85%E5%A4%84%E7%90%86%E7%9A%84%E7%BB%8F%E6%B5%8E%E6%9D%83%E5%88%A9">历史余额导入</a>。
+旧邀请码的精确86升级、源预览及离线导入条件见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/legacy-affiliate-aliases.md">旧邀请码保留</a>。</p>
 <p>早期身份、公告、HTTP 和 Web 批次见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/0eae39f10ce8a1d80744ad44e88807e01facfda5/docs/core-migration.md">固定历史版本</a>。
 新候选绑定自己的源码、命令、退出码和日志，区分单元、模拟渠道、数据库、进程、
 浏览器和供应商证据；U1–U15 结构整理及其未完成验收保留在<a href="../../lmm-api-source/archive/">归档</a>。</p>
 <h2 id="来源与许可">来源与许可<a class="heading-anchor" href="#来源与许可" aria-label="链接到 来源与许可">#</a></h2>
 <p>LMM API 是 <a href="https://github.com/QuantumNous/new-api">QuantumNous/new-api</a> 的维护分支，保留
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/LICENSE">AGPLv3 LICENSE</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/NOTICE">NOTICE</a>及<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/THIRD-PARTY-LICENSES.md">第三方许可</a>。
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/LICENSE">AGPLv3 LICENSE</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/NOTICE">NOTICE</a>及<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/THIRD-PARTY-LICENSES.md">第三方许可</a>。
 界面保留 NOTICE 要求的可见原项目链接与署名，前端源码保留上游头部及单独的
 <code>Copyright (C) 2026 LIghtJUNction</code> 修改声明。</p>
 <p>历史 Go 快照为 <code>ba2e9287bb7a8002116c03daa4c457a330054871</code>（2026-08-29），
 已审查上游提交为 <code>7aa3531ef4c247ad4891c06cc8ed9d0ffb73fecc</code>（2026-10-08）；
 选择、延期和拒绝移植的原因见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/fork.md">固定 fork 记录</a>。
-当前扩展模块路径以 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/extensions/go.mod"><code>go.mod</code></a> 为准。后续更新固定并审查
+当前扩展模块路径以 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/extensions/go.mod"><code>go.mod</code></a> 为准。后续更新固定并审查
 来源，保留品牌补丁、兼容标识及本地资金合同，按受影响行为验证。</p>
 <p>TypeSafe Jev 的历史 Go 原生实现来自 Apache-2.0 的 <code>QuantumNous/new-api-plugins</code>
 <code>97a16e9a8d98b73ffb76e1c5a00b4d0f855f4d0a</code>（TypeSafe 1.0.0），未引入 JS task host。
-当前 Rust System One 协议、配置和验收边界见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/text-request-and-native-models.md#system-one">Jev 原生接入</a>。</p>
+当前 Rust System One 协议、配置和验收边界见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/text-request-and-native-models.md#system-one">Jev 原生接入</a>。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/core-migration.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/core-migration.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/archive/"><span class="pagination-label">上一页</span><span class="pagination-title">历史资料索引</span></a><a class="pagination-link next" href="../../lmm-api-source/development/"><span class="pagination-label">下一页</span><span class="pagination-title">开发与测试</span></a></nav>
       <footer class="page-footer">
         <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>

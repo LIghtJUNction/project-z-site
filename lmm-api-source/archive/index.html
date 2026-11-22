@@ -79,10 +79,10 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#2026-11-08-文档整理">2026-11-08 文档整理</a></li><li class="toc-level-2"><a href="#审计与证据边界">审计与证据边界</a></li><li class="toc-level-2"><a href="#旧部署和数据维护">旧部署和数据维护</a></li><li class="toc-level-2"><a href="#旧接口和设计">旧接口和设计</a></li><li class="toc-level-2"><a href="#前端专题">前端专题</a></li><li class="toc-level-2"><a href="#资金和权限专题">资金和权限专题</a></li><li class="toc-level-2"><a href="#旧商店专题">旧商店专题</a></li><li class="toc-level-2"><a href="#保留的历史记录">保留的历史记录</a></li><li class="toc-level-2"><a href="#合并专题2026-11-12">合并专题（2026-11-12）</a></li><li class="toc-level-2"><a href="#过期状态快照2026-11-13">过期状态快照（2026-11-13）</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="历史资料索引">历史资料索引</h1>
-<p>本页集中保存已移除专题的固定 Git 原文，不再为每个旧文件保留占位页。当前安装、架构和测试从<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/README.md">文档目录</a>开始；仍有效的前端、资金和商店边界分别合入<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/apps/web/DESIGN.md">前端规范</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/payment-money-contract.md">资金契约</a>及<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/extensions/internal/modules/store/README.md">商店模块</a>。</p>
+<p>本页集中保存已移除专题的固定 Git 原文，不再为每个旧文件保留占位页。当前安装、架构和测试从<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/README.md">文档目录</a>开始；仍有效的前端、资金和商店边界分别合入<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/apps/web/DESIGN.md">前端规范</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/payment-money-contract.md">资金契约</a>及<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/extensions/internal/modules/store/README.md">商店模块</a>。</p>
 <p>历史命令和接口只适用于对应提交，不是本分支的安装、迁移或生产恢复步骤。旧部署工具、数据库转换、writer gate 和财务恢复流程不得据此重新启用；历史付款、退款和提货义务仍须保存原始证据，未知结果不能当作失败重放。</p>
 <h2 id="2026-11-08-文档整理">2026-11-08 文档整理<a class="heading-anchor" href="#2026-11-08-文档整理" aria-label="链接到 2026-11-08 文档整理">#</a></h2>
-<p>当前动态状态只维护在<a href="../../lmm-api-source/progress/">新架构进度</a>。<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/history/architecture-parity-audit-2026-11-08.md">新旧架构审计</a>保留为固定证据快照；旧任务表不再继续填写。以下原文保存在不可变提交中，删除当前副本不删除其来源、失败证据或有效产品要求。</p>
+<p>当前动态状态只维护在<a href="../../lmm-api-source/progress/">新架构进度</a>。<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/history/architecture-parity-audit-2026-11-08.md">新旧架构审计</a>保留为固定证据快照；旧任务表不再继续填写。以下原文保存在不可变提交中，删除当前副本不删除其来源、失败证据或有效产品要求。</p>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
 <thead>
 <tr>
@@ -121,7 +121,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>供应商计费、钱包历史和 Extore 的稳定说明分别迁入 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/model-billing.md">model-billing.md</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/wallet-history.md">wallet-history.md</a>、<a href="../../lmm-api-source/extore/">extore.md</a>。完整要求由<a href="https://github.com/TokenNotIncluded/lmm-api/blob/main/recipes/lmm-api/PRODUCT_REQUIREMENTS.md">配方产品要求</a>维护，历史实现不能自动变成新架构已完成。</p>
+<p>供应商计费、钱包历史和 Extore 的稳定说明分别迁入 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/model-billing.md">model-billing.md</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/wallet-history.md">wallet-history.md</a>、<a href="../../lmm-api-source/extore/">extore.md</a>。完整要求由<a href="https://github.com/TokenNotIncluded/lmm-api/blob/main/recipes/lmm-api/PRODUCT_REQUIREMENTS.md">配方产品要求</a>维护，历史实现不能自动变成新架构已完成。</p>
 <h2 id="审计与证据边界">审计与证据边界<a class="heading-anchor" href="#审计与证据边界" aria-label="链接到 审计与证据边界">#</a></h2>
 <p>以下审计包含部分完成、受阻和未通过验收的项目。原始记录只证明对应基线和检查范围，不证明当前账本、真实业务兼容或生产部署通过。</p>
 <ul>
@@ -248,10 +248,10 @@
 </ul>
 <h2 id="保留的历史记录">保留的历史记录<a class="heading-anchor" href="#保留的历史记录" aria-label="链接到 保留的历史记录">#</a></h2>
 <ul>
-<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/pi-remote-control-api.md">Pi 远程控制 v1</a>：2026-11-17 归档，保留退役协议与当时的 WIP 限制；LMM 和 Pi 插件已移除该功能，远程控制由独立 ssmcp 项目提供。</li>
-<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/history/changelog.md">旧合并式 Changelog</a>：保留原文，不定义当前版本和发布状态。</li>
-<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/deployment-research.md">部署研究</a>：已移除实验的结论、原始来源和未接入项。</li>
-<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/incidents/2026-09-20-recovery-retirement.md">恢复事故</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/assistant-feedback-audit.md">助手反馈审计</a>和<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/security/assistant-registration-guard.md">注册安全边界</a>：保留事故、安全结论与原始限制。</li>
+<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/pi-remote-control-api.md">Pi 远程控制 v1</a>：2026-11-17 归档，保留退役协议与当时的 WIP 限制；LMM 和 Pi 插件已移除该功能，远程控制由独立 ssmcp 项目提供。</li>
+<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/history/changelog.md">旧合并式 Changelog</a>：保留原文，不定义当前版本和发布状态。</li>
+<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/deployment-research.md">部署研究</a>：已移除实验的结论、原始来源和未接入项。</li>
+<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/incidents/2026-09-20-recovery-retirement.md">恢复事故</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/assistant-feedback-audit.md">助手反馈审计</a>和<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/security/assistant-registration-guard.md">注册安全边界</a>：保留事故、安全结论与原始限制。</li>
 </ul>
 <p>其余尚保留的供应商、支付和兼容性专题需结合当前源码阅读；前端存在某个界面不代表新后端已接入。许可证、来源归属和法律协议继续保留。</p>
 <h2 id="合并专题2026-11-12">合并专题（2026-11-12）<a class="heading-anchor" href="#合并专题2026-11-12" aria-label="链接到 合并专题（2026-11-12）">#</a></h2>
@@ -266,19 +266,19 @@
 <tbody>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/product-terminology.md">product-terminology.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/product.md#terminology">product.md#terminology</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/product.md#terminology">product.md#terminology</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/brand-design.md">brand-design.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/product.md#brand">product.md#brand</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/product.md#brand">product.md#brand</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/translation-glossary.fr.md">translation-glossary.fr.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/translation-glossary.md#french">translation-glossary.md#french</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/translation-glossary.md#french">translation-glossary.md#french</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/translation-glossary.ru.md">translation-glossary.ru.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/translation-glossary.md#russian">translation-glossary.md#russian</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/translation-glossary.md#russian">translation-glossary.md#russian</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/legal/privacy-policy.md">legal/privacy-policy.md</a></td>
@@ -322,60 +322,60 @@
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/codewhale-provider.md">codewhale-provider.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/text-request-and-native-models.md#codewhale">text-request-and-native-models.md#codewhale</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/text-request-and-native-models.md#codewhale">text-request-and-native-models.md#codewhale</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/opencode-provider.md">opencode-provider.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/text-request-and-native-models.md#opencode">text-request-and-native-models.md#opencode</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/text-request-and-native-models.md#opencode">text-request-and-native-models.md#opencode</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/ollama-chat-transport.md">ollama-chat-transport.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/text-request-and-native-models.md#ollama-%E5%8E%86%E5%8F%B2%E4%BC%A0%E8%BE%93">text-request-and-native-models.md#ollama-历史传输</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/text-request-and-native-models.md#ollama-%E5%8E%86%E5%8F%B2%E4%BC%A0%E8%BE%93">text-request-and-native-models.md#ollama-历史传输</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/jev-native-relay.md">jev-native-relay.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/text-request-and-native-models.md#system-one">text-request-and-native-models.md#system-one</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/text-request-and-native-models.md#system-one">text-request-and-native-models.md#system-one</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/responses-tool-compatibility.md">responses-tool-compatibility.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/text-request-and-native-models.md#responses-%E5%8E%86%E5%8F%B2%E5%B7%A5%E5%85%B7%E8%BD%AC%E6%8D%A2">text-request-and-native-models.md#responses-历史工具转换</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/text-request-and-native-models.md#responses-%E5%8E%86%E5%8F%B2%E5%B7%A5%E5%85%B7%E8%BD%AC%E6%8D%A2">text-request-and-native-models.md#responses-历史工具转换</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/core-input-count.md">core-input-count.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/model-billing.md#%E8%BE%93%E5%85%A5%E9%A2%84%E7%95%99%E4%B8%8E%E7%B2%BE%E7%A1%AE%E8%AE%A1%E6%95%B0">model-billing.md#输入预留与精确计数</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/model-billing.md#%E8%BE%93%E5%85%A5%E9%A2%84%E7%95%99%E4%B8%8E%E7%B2%BE%E7%A1%AE%E8%AE%A1%E6%95%B0">model-billing.md#输入预留与精确计数</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/responses-missing-usage.md">responses-missing-usage.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/model-billing.md#responses-%E5%8E%86%E5%8F%B2%E7%BC%BA%E5%A4%B1%E7%94%A8%E9%87%8F">model-billing.md#responses-历史缺失用量</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/model-billing.md#responses-%E5%8E%86%E5%8F%B2%E7%BC%BA%E5%A4%B1%E7%94%A8%E9%87%8F">model-billing.md#responses-历史缺失用量</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/claude-refusal-billing.md">claude-refusal-billing.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/model-billing.md#claude-%E5%8E%86%E5%8F%B2%E6%97%A0%E8%BE%93%E5%87%BA%E6%8B%92%E7%BB%9D">model-billing.md#claude-历史无输出拒绝</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/model-billing.md#claude-%E5%8E%86%E5%8F%B2%E6%97%A0%E8%BE%93%E5%87%BA%E6%8B%92%E7%BB%9D">model-billing.md#claude-历史无输出拒绝</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/core-oauth2.md">core-oauth2.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/core-identity.md#%E5%AE%A2%E6%88%B7%E7%AB%AF-oauth2-%E6%8E%88%E6%9D%83">core-identity.md#客户端-oauth2-授权</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/core-identity.md#%E5%AE%A2%E6%88%B7%E7%AB%AF-oauth2-%E6%8E%88%E6%9D%83">core-identity.md#客户端-oauth2-授权</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/oauth-grant-management.md">oauth-grant-management.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/core-identity.md#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8E%88%E6%9D%83%E7%AE%A1%E7%90%86">core-identity.md#浏览器授权管理</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/core-identity.md#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8E%88%E6%9D%83%E7%AE%A1%E7%90%86">core-identity.md#浏览器授权管理</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/oidc-settings-save.md">oidc-settings-save.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/core-identity.md#oidc-%E8%AE%BE%E7%BD%AE%E4%BF%9D%E5%AD%98">core-identity.md#oidc-设置保存</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/core-identity.md#oidc-%E8%AE%BE%E7%BD%AE%E4%BF%9D%E5%AD%98">core-identity.md#oidc-设置保存</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/8e92080aa3e9cb180103e73cb42e78b87621a31e/docs/account-appeals.md">account-appeals.md</a></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/core-identity.md#%E8%B4%A6%E5%8F%B7%E5%81%9C%E7%94%A8%E4%B8%8E%E7%94%B3%E8%AF%89">core-identity.md#账号停用与申诉</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/core-identity.md#%E8%B4%A6%E5%8F%B7%E5%81%9C%E7%94%A8%E4%B8%8E%E7%94%B3%E8%AF%89">core-identity.md#账号停用与申诉</a></td>
 </tr>
 </tbody>
 </table></div>
 <h2 id="过期状态快照2026-11-13">过期状态快照（2026-11-13）<a class="heading-anchor" href="#过期状态快照2026-11-13" aria-label="链接到 过期状态快照（2026-11-13）">#</a></h2>
 <ul>
-<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/5696aafe8bba500265e3fd1f3617dfffc25bbe44/docs/core-cutover-preflight.md#local-wip-fresh-install-contract-2026-11-04">Core cutover preflight 的 49 组件 WIP 合同与 2026-10-24 ArchDmit 记录</a>：只证明对应日期的组件合同和主机观察，不描述当前 66 组件演练，也不构成切流批准。当前状态与阻塞只看<a href="../../lmm-api-source/progress/">新架构进度</a>，稳定预检规则见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/core-cutover-preflight.md">当前预检文档</a>。</li>
+<li><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/5696aafe8bba500265e3fd1f3617dfffc25bbe44/docs/core-cutover-preflight.md#local-wip-fresh-install-contract-2026-11-04">Core cutover preflight 的 49 组件 WIP 合同与 2026-10-24 ArchDmit 记录</a>：只证明对应日期的组件合同和主机观察，不描述当前 66 组件演练，也不构成切流批准。当前状态与阻塞只看<a href="../../lmm-api-source/progress/">新架构进度</a>，稳定预检规则见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/core-cutover-preflight.md">当前预检文档</a>。</li>
 </ul>
 </article>
-      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/archive.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/archive.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/agent-workflows/"><span class="pagination-label">上一页</span><span class="pagination-title">Agent 工作指南</span></a><a class="pagination-link next" href="../../lmm-api-source/core-migration/"><span class="pagination-label">下一页</span><span class="pagination-title">Core 与 Extensions 架构</span></a></nav>
       <footer class="page-footer">
         <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>

@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#先确认接口与目标">先确认接口与目标</a></li><li class="toc-level-2"><a href="#保持会话与实际结果">保持会话与实际结果</a></li><li class="toc-level-2"><a href="#登录与外部工具">登录与外部工具</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="用-zuse-连接已有浏览器">用 Zuse 连接已有浏览器</h1>
-<p>用户指定现有 Chrome 或其他浏览器时，先确认那一个进程与会话是否能通过所选 Zuse CLI 的真实接口访问。SSMCP 负责运行 CLI 和返回结果；不再提供 <code>ssmcp.browser.discover</code>、内置 CDP 控制或 Playwright 专用桥。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/browser-desktop.md">当前边界</a></p>
+<p>用户指定现有 Chrome 或其他浏览器时，先确认那一个进程与会话是否能通过所选 Zuse CLI 的真实接口访问。SSMCP 负责运行 CLI 和返回结果；不再提供 <code>ssmcp.browser.discover</code>、内置 CDP 控制或 Playwright 专用桥。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/browser-desktop.md">当前边界</a></p>
 <h2 id="先确认接口与目标">先确认接口与目标<a class="heading-anchor" href="#先确认接口与目标" aria-label="链接到 先确认接口与目标">#</a></h2>
 <ol>
 <li>用 <code>ssmcp computer version --json</code> 或 <code>computer.version(clientId)</code> 读取实际 CLI 版本与路径。</li>
@@ -89,14 +89,14 @@
 </ol>
 <p><a href="https://github.com/LIghtJUNction/zuse#background-browser">Zuse 当前文档</a> 中，<code>browser.launch</code> 创建隔离的临时 profile；<code>browser.connect</code> 连接明确的 loopback 调试端点并创建一个新页面；<code>browser.tabs</code> 与 <code>browser.select</code> 用于发现并选择已有页面。这些是 <strong>Zuse 程序里的操作名</strong>，不是 SSMCP 的 JavaScript helper。执行前以已安装版本的 schema 为准，并把连接本身可能创建页面的行为纳入操作范围。</p>
 <h2 id="保持会话与实际结果">保持会话与实际结果<a class="heading-anchor" href="#保持会话与实际结果" aria-label="链接到 保持会话与实际结果">#</a></h2>
-<p>需要多轮观察和操作时，使用 Zuse 文档提供的持久模式，并保留承载该进程的 exec job。一次性 CLI 退出后，不应假定下一次调用仍拥有相同浏览器会话。相关步骤按顺序执行，输出从该任务的 stdout/stderr 和实际产物读取。<a href="https://github.com/LIghtJUNction/zuse#readme">Zuse 进程状态</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/code-mode.md#exec">exec 生命周期</a></p>
+<p>需要多轮观察和操作时，使用 Zuse 文档提供的持久模式，并保留承载该进程的 exec job。一次性 CLI 退出后，不应假定下一次调用仍拥有相同浏览器会话。相关步骤按顺序执行，输出从该任务的 stdout/stderr 和实际产物读取。<a href="https://github.com/LIghtJUNction/zuse#readme">Zuse 进程状态</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/code-mode.md#exec">exec 生命周期</a></p>
 <p>取消 exec job 后，先核实进程状态，再重新观察浏览器。进程退出不等于页面变更被撤销；不要仅因响应未返回而重复点击、提交或支付。保留真实错误与部分结果，不把缺失接口包装成成功。</p>
 <h2 id="登录与外部工具">登录与外部工具<a class="heading-anchor" href="#登录与外部工具" aria-label="链接到 登录与外部工具">#</a></h2>
 <p>SSMCP 的账号登录仍可打开浏览器授权页；<code>--no-browser</code> 仍用于不自动打开图形浏览器的登录流程。这与自动化接口相互独立。</p>
 <p>调用方应用的 Browser 插件，以及已授权外部 MCP 的通用转发，继续由各自真实目录、会话和审批机制约束。SSMCP 不从扩展安装文件推断可用连接，也不恢复已撤去的专用浏览器适配器。指定通过 SSMCP 执行的桌面与浏览器任务，应直接使用 Zuse CLI。</p>
 <p>过去的现场清单和验证记录保留在历史报告中，不代表当前客户端仍提供那些旧工具。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/browser-existing-session.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/browser-existing-session.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ssmcp/commands/"><span class="pagination-label">上一页</span><span class="pagination-title">客户端命令与独立任务</span></a><a class="pagination-link next" href="../../ssmcp/session-control/"><span class="pagination-label">下一页</span><span class="pagination-title">客户端会话、重连与输出管理</span></a></nav>
       <footer class="page-footer">
         <span>ssmcp <span class="footer-separator">/</span> Project Z</span>

@@ -76,7 +76,7 @@
       <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../ssmcp/">ssmcp</a><span aria-hidden="true">/</span><span>客户端命令与独立任务</span></div>
       <details class="mobile-toc">
         <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
-        <ul class="toc-list"><li class="toc-level-2"><a href="#连接账号与设备列表">连接、账号与设备列表</a></li><li class="toc-level-2"><a href="#更新客户端">更新客户端</a></li><li class="toc-level-2"><a href="#管理独立-zuse-cli">管理独立 Zuse CLI</a></li><li class="toc-level-2"><a href="#前台观察与终端输入">前台观察与终端输入</a></li><li class="toc-level-2"><a href="#查看-openai-调用标识和打开-chatgpt">查看 OpenAI 调用标识和打开 ChatGPT</a></li><li class="toc-level-2"><a href="#独立命令接口">独立命令接口</a></li><li class="toc-level-2"><a href="#运行一次命令">运行一次命令</a></li><li class="toc-level-2"><a href="#启动后台任务再继续等待">启动后台任务，再继续等待</a></li><li class="toc-level-2"><a href="#并行执行">并行执行</a></li><li class="toc-level-2"><a href="#rtk-的异步错误处理">RTK 的异步错误处理</a></li><li class="toc-level-2"><a href="#读取完整输出">读取完整输出</a></li><li class="toc-level-2"><a href="#重载与故障恢复">重载与故障恢复</a></li></ul>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#连接账号与设备列表">连接、账号与设备列表</a></li><li class="toc-level-2"><a href="#查询本地路径">查询本地路径</a></li><li class="toc-level-2"><a href="#更新客户端">更新客户端</a></li><li class="toc-level-2"><a href="#管理独立-zuse-cli">管理独立 Zuse CLI</a></li><li class="toc-level-2"><a href="#远程任务池">远程任务池</a></li><li class="toc-level-2"><a href="#前台观察与终端输入">前台观察与终端输入</a></li><li class="toc-level-2"><a href="#查看-openai-调用标识和打开-chatgpt">查看 OpenAI 调用标识和打开 ChatGPT</a></li><li class="toc-level-2"><a href="#独立命令接口">独立命令接口</a></li><li class="toc-level-2"><a href="#运行一次命令">运行一次命令</a></li><li class="toc-level-2"><a href="#启动后台任务再继续等待">启动后台任务，再继续等待</a></li><li class="toc-level-2"><a href="#并行执行">并行执行</a></li><li class="toc-level-2"><a href="#rtk-的异步错误处理">RTK 的异步错误处理</a></li><li class="toc-level-2"><a href="#读取完整输出">读取完整输出</a></li><li class="toc-level-2"><a href="#重载与故障恢复">重载与故障恢复</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="客户端命令与独立任务">客户端命令与独立任务</h1>
 <h2 id="连接账号与设备列表">连接、账号与设备列表<a class="heading-anchor" href="#连接账号与设备列表" aria-label="链接到 连接、账号与设备列表">#</a></h2>
@@ -130,11 +130,18 @@ ssmcp -i --server https://relay.example --client SESSION_ID
 </tr>
 </tbody>
 </table></div>
-<p>用户名采用 3–32 个 ASCII 字符，首字符为字母、末字符为字母或数字，中间还可使用 <code>_</code> 或 <code>-</code>。名单中的用户名须已在目标服务器注册，并与本次连接的服务器匹配。凭据按服务器隔离；已登录设备省略名单时只允许自己，显式名单只授权其中的账号。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/named-accounts.md">用户名</a> · <a href="../../ssmcp/client-accounts/">完整账号与设备流程</a></p>
-<p>看门狗默认开启，<code>--no-watchdog</code> 可禁用；显式停止后不会继续恢复。CLI 的 <code>invite</code> / <code>join</code> 与 MCP 的 <code>invite</code> 已移除，设备授权使用 <code>--allow 用户名@服务器</code>；会话内 agent 登记继续使用 <code>collab.join</code>。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/onboarding.md">首次连接</a></p>
+<p>用户名采用 3–32 个 ASCII 字符，首字符为字母、末字符为字母或数字，中间还可使用 <code>_</code> 或 <code>-</code>。名单中的用户名须已在目标服务器注册，并与本次连接的服务器匹配。凭据按服务器隔离；已登录设备省略名单时只允许自己，显式名单只授权其中的账号。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/named-accounts.md">用户名</a> · <a href="../../ssmcp/client-accounts/">完整账号与设备流程</a></p>
+<p>看门狗默认开启，<code>--no-watchdog</code> 可禁用；显式停止后不会继续恢复。CLI 的 <code>invite</code> / <code>join</code> 与 MCP 的 <code>invite</code> 已移除，设备授权使用 <code>--allow 用户名@服务器</code>；会话内 agent 登记继续使用 <code>collab.join</code>。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/onboarding.md">首次连接</a></p>
+<h2 id="查询本地路径">查询本地路径<a class="heading-anchor" href="#查询本地路径" aria-label="链接到 查询本地路径">#</a></h2>
+<p><code>ssmcp paths</code> 枚举实际配置、凭据目录、工具仓库和本地状态的位置。它在连接与配置加载之前返回，不读取文件内容、不创建目录。可组合选择名称，按给定顺序输出；不指定名称时列出全部十项。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>ssmcp paths --list
+ssmcp paths config history --plain
+ssmcp paths history config --json
+</code></pre></div>
+<p>默认每行输出 <code>名称&lt;TAB&gt;路径</code>，<code>--plain</code> 只输出路径，<code>--json</code> 输出名称到路径的对象。<code>--list</code> 只枚举名称与说明，不解析环境；<code>--help</code> 显示用法。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/paths.md">名称、环境优先级与组合示例</a></p>
 <h2 id="更新客户端">更新客户端<a class="heading-anchor" href="#更新客户端" aria-label="链接到 更新客户端">#</a></h2>
 <p><code>ssmcp update</code> 将手动安装的客户端更新到官方 GitHub Release 中的最新稳定版。它是独立本地命令，不建立服务器会话，也不加载 harness。</p>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>ssmcp update --check
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>ssmcp update --check
 ssmcp update
 </code></pre></div>
 <p><code>--check</code> 只读取发布元数据并显示是否有新版本，不下载安装包或修改安装文件。版本按主版本、次版本和修订号比较；已是最新版时直接结束，当前源码版本比发布版新时保留当前程序。</p>
@@ -173,10 +180,16 @@ ssmcp update
 </tr>
 </tbody>
 </table></div>
-<p>不指定下载版本时选择最新稳定版；显式版本接受 <code>MAJOR.MINOR.PATCH</code> 或带 <code>v</code> 的同一格式。使用前一次结果中的真实 ID。<code>--json</code> 输出完整原生 MCP 结果；默认输出其结构化正文。安装不修改 PATH，也不覆盖或卸载外部 Zuse。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/computer_control.rs">真实参数解析</a></p>
-<p>实际桌面与浏览器程序直接交给所选 Zuse CLI，经下方 exec 接口运行。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/computer-use.md">完整管理边界与示例</a></p>
+<p>不指定下载版本时选择最新稳定版；显式版本接受 <code>MAJOR.MINOR.PATCH</code> 或带 <code>v</code> 的同一格式。使用前一次结果中的真实 ID。<code>--json</code> 输出完整原生 MCP 结果；默认输出其结构化正文。安装不修改 PATH，也不覆盖或卸载外部 Zuse。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client/computer_control.rs">真实参数解析</a></p>
+<p>实际桌面与浏览器程序直接交给所选 Zuse CLI，经下方 exec 接口运行。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/computer-use.md">完整管理边界与示例</a></p>
+<h2 id="远程任务池">远程任务池<a class="heading-anchor" href="#远程任务池" aria-label="链接到 远程任务池">#</a></h2>
+<p>只接收远程 agent 分配的任务时，运行 <code>ssmcp --worker N</code>。默认远程模式不启动本地模型或 harness，也不要求设置 <code>--agent</code>、<code>--input</code>。终端显示每个 worker 的空闲／工作／离线状态与可滚动日志，没有聊天输入框。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>ssmcp --worker 2
+ssmcp --worker 2 --daemon
+</code></pre></div>
+<p>主 Agent 通过 <code>ssmcp.worker.attach</code> 绑定自己的 worker 池，使用 <code>submit</code>、<code>tasks</code>、<code>result</code>、<code>cancel</code> 管理任务，并通过 <code>stop</code> 停止接单。管理权来自经过认证的会话线程；其他已授权执行者通过 <code>wait</code>／<code>claim</code> 领取任务并提交实际完成回执。忙满时进入有界队列；停止中的在途任务仍占槽，直到原执行者确认。后台模式自动禁用聊天输入。显式本地执行器和其 Linux 资源限额属于高级选项，见<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/workers.md">Worker 模式、领取回执和资源边界</a>。普通 <code>ssmcp</code> 继续提供聊天界面。</p>
 <h2 id="前台观察与终端输入">前台观察与终端输入<a class="heading-anchor" href="#前台观察与终端输入" aria-label="链接到 前台观察与终端输入">#</a></h2>
-<p>前台默认使用 <code>dark</code> 主题和 <code>chat</code> 布局，连续显示执行记录，底部输入框用于追加用户要求。Enter 提交到队列；<code>/queue</code> 管理待交付项，<code>/agents</code> 选择接收成员，<code>/audit</code> 打开源码审计。Tab 切换输入与内容焦点，滚轮或 PgUp/PgDn 直接浏览当前内容；<code>/filter 文本</code> 搜索日志，F9 切换类别。<a href="../../ssmcp/client-ui/">客户端 UI 与队列原子接口</a></p>
+<p>前台默认使用 <code>dark</code> 主题和 <code>chat</code> 布局，连续显示执行记录，底部输入框用于追加用户要求。最左侧是统计页，展示会话进程 ID、已绑定主 Agent 的会话线程 ID、OS PID 和实际计数。Enter 提交到队列；<code>/queue</code> 管理待交付项，<code>/sessions</code> 或 <code>/message</code> 显式选择收件人，<code>/audit</code> 打开源码审计。<code>/agents</code> 与旧的默认 Agent 页已移除。Tab 切换输入与内容焦点，滚轮或 PgUp/PgDn 直接浏览当前内容；<code>/filter 文本</code> 搜索日志，F9 切换类别。<a href="../../ssmcp/client-ui/">客户端 UI 与队列原子接口</a></p>
 <p>输入框要求通过支持协议 v7 的连接附加到下一次符合目标的 <code>code_mode</code> 响应，已交付不代表模型已阅读或执行。需要直接终端输入时，在另一个终端运行 <code>ssmcp -i</code>；自定义前端使用 <code>terminal.read/write/resize</code>。<code>ssmcp attach NAME</code> 用于观察本地后台会话，目前不转发 attach 输入框的要求队列；后台连接可通过 <code>ssmcp.ui.queue</code> 管理要求。独立命令继续使用下方的 <code>exec.*</code>。</p>
 <h2 id="查看-openai-调用标识和打开-chatgpt">查看 OpenAI 调用标识和打开 ChatGPT<a class="heading-anchor" href="#查看-openai-调用标识和打开-chatgpt" aria-label="链接到 查看 OpenAI 调用标识和打开 ChatGPT">#</a></h2>
 <p>在当前已保存的对话中输入 <code>/openai</code>，可以查看最近观察到的 <code>openai/session</code> 和 <code>openai/subject</code>。只看其中一项时用 <code>/openai-session</code> 或 <code>/openai-subject</code>。面板会标明来源、字段缺失状态和最后观察时间。字段来自当前 MCP 工具请求的 <code>_meta</code>，并且只由支持此能力的中继和客户端在已验证的调用线程上记录。客户端、请求或线程没有提供这些条件时，出现“未观察到”属正常情况。<a href="https://developers.openai.com/plugins/reference">OpenAI Plugins 参考</a></p>
@@ -214,9 +227,9 @@ ssmcp update
 <p>切换或恢复历史时只切换对应的本地数据。浏览器和剪贴板操作只在显式命令发出时执行，启动浏览器程序后仍由浏览器处理加载和登录。</p>
 <h2 id="独立命令接口">独立命令接口<a class="heading-anchor" href="#独立命令接口" aria-label="链接到 独立命令接口">#</a></h2>
 <p><code>exec</code> 在选定客户端启动独立进程，并用任务 ID 保存状态。每个任务有自己的工作目录、退出码和 stdout/stderr。它适合构建、测试、开发服务器等可由 argv 表达的命令。需要持续交互、终端控制或修改同一 Shell 状态时，使用 <code>terminal.*</code>。</p>
-<p>这些助手在服务端 <code>code_mode</code> 中提供，最终调用客户端的 <code>ssmcp.exec.*</code> 工具。先通过 <code>list</code> 选择客户端，并用 <code>list({client_id})</code> 确认新版能力已上线。客户端和服务端都需要升级；仅更新其中一端不会增加另一端缺失的接口。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/backend/shell.rs">实现</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/code_mode.js">JavaScript 助手</a></p>
+<p>这些助手在服务端 <code>code_mode</code> 中提供，最终调用客户端的 <code>ssmcp.exec.*</code> 工具。先通过 <code>list</code> 选择客户端，并用 <code>list({client_id})</code> 确认新版能力已上线。客户端和服务端都需要升级；仅更新其中一端不会增加另一端缺失的接口。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/backend/shell.rs">实现</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/code_mode.js">JavaScript 助手</a></p>
 <h2 id="运行一次命令">运行一次命令<a class="heading-anchor" href="#运行一次命令" aria-label="链接到 运行一次命令">#</a></h2>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>const client = clients.find(c =&gt; c.name === &quot;dev&quot;);
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>const client = clients.find(c =&gt; c.name === &quot;dev&quot;);
 if (!client) throw new Error(&quot;dev is offline&quot;);
 return await exec.run(client.id, {
   command: [&quot;git&quot;, &quot;status&quot;, &quot;--short&quot;],
@@ -229,13 +242,13 @@ return await exec.run(client.id, {
 <p><code>cwd</code> 可指定现有绝对目录，省略时使用客户端启动目录；<code>env</code> 只覆盖所列环境变量，其他值继承客户端环境。每个任务独立，某次命令中的 <code>cd</code> 不会改变其他命令的工作目录。</p>
 <h2 id="启动后台任务再继续等待">启动后台任务，再继续等待<a class="heading-anchor" href="#启动后台任务再继续等待" aria-label="链接到 启动后台任务，再继续等待">#</a></h2>
 <p>第一次调用启动任务并保存返回的 <code>job_id</code>：</p>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>return await exec.start(clientId, {
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>return await exec.start(clientId, {
   command: [&quot;cargo&quot;, &quot;test&quot;, &quot;--locked&quot;],
   timeout_ms: 600000
 });
 </code></pre></div>
 <p>随后在新的 <code>code_mode</code> 调用中使用同一客户端 ID 和任务 ID：</p>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>return await exec.wait(clientId, jobId, { wait_ms: 5000 });
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>return await exec.wait(clientId, jobId, { wait_ms: 5000 });
 </code></pre></div>
 <p><code>wait_ms</code> 控制这次请求等待多久，取值 0–60000 毫秒，默认 5000。到期仍在运行时，返回 <code>running: true</code> 和 <code>wait_timed_out: true</code>，任务继续执行。不要为了继续等待重新启动命令；再次调用 <code>wait</code> 或 <code>read</code>。</p>
 <p><code>timeout_ms</code> 是进程的执行期限，取值 0–900000 毫秒。默认 0 表示没有执行期限；非零期限到达后停止受管理的进程树，并记录 <code>timed_out</code>。服务端 <code>code_mode</code> 的 <code>timeout_ms</code> 是另一层编排预算：编排结束不代表此前启动的本机进程结束。为单次长等待预留足够的编排预算，或者使用多次短等待。</p>
@@ -282,7 +295,7 @@ return await exec.run(client.id, {
 </tbody>
 </table></div>
 <p>以上六个按任务 ID 操作的接口（<code>status/wait/read/write/cancel/forget</code>）也接受与原生 schema 相同的对象参数：</p>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>return await exec.read(clientId, {
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>return await exec.read(clientId, {
   job_id: jobId,
   stdout_cursor: savedStdoutCursor,
   stderr_cursor: savedStderrCursor,
@@ -292,7 +305,7 @@ return await exec.run(client.id, {
 <p>对象形式需要含非空字符串 <code>job_id</code>，所有选项写在同一个对象中；同时提供第三参数会在调用前报错。原有 <code>exec.read(clientId, jobId, options)</code> 继续可用，第三参数中的 <code>job_id</code> 仍由第二参数确定的任务 ID 覆盖。参数对象不会被修改，其余字段继续由客户端原生 schema 验证；原生失败保留原错误且不自动重试。对象形式需要更新服务端的 JavaScript 助手，已有原生命令接口的客户端可以直接使用。</p>
 <p>任务在当前 <code>code_mode</code> 完成后继续存在，但属于这条客户端连接。退出、断开清理或 <code>reload</code> 会停止其后台工作；任务 ID 不能迁移到重连后的新客户端。</p>
 <h2 id="并行执行">并行执行<a class="heading-anchor" href="#并行执行" aria-label="链接到 并行执行">#</a></h2>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>return await exec.parallel(clientId, [
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>return await exec.parallel(clientId, [
   { command: [&quot;git&quot;, &quot;status&quot;, &quot;--short&quot;] },
   { command: [&quot;git&quot;, &quot;log&quot;, &quot;-5&quot;, &quot;--oneline&quot;] },
   { command: [&quot;git&quot;, &quot;diff&quot;, &quot;--stat&quot;] }
@@ -305,7 +318,7 @@ return await exec.run(client.id, {
 <p><code>parallel</code> 默认每个流只读取 2048 字节，控制汇总大小；单项可用 <code>max_bytes</code> 覆盖。长输出按需分页，避免把多份完整构建日志放进一次响应。</p>
 <h2 id="rtk-的异步错误处理">RTK 的异步错误处理<a class="heading-anchor" href="#rtk-的异步错误处理" aria-label="链接到 RTK 的异步错误处理">#</a></h2>
 <p><code>rtk.start</code> 和 <code>rtk.run</code> 始终返回 Promise，本地参数错误也可由 <code>.catch(...)</code> 或混合的 <code>Promise.allSettled(...)</code> 处理。例如，下面的第二项用空命令演示本地参数错误：</p>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>const results = await Promise.allSettled([
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>const results = await Promise.allSettled([
   rtk.run(clientId, { command: [&quot;git&quot;, &quot;status&quot;, &quot;--short&quot;] }),
   rtk.start(clientId, { command: [] }),
   exec.run(clientId, { command: [&quot;git&quot;, &quot;diff&quot;, &quot;--stat&quot;] })
@@ -317,7 +330,7 @@ return results.map(result =&gt; result.status === &quot;fulfilled&quot;
 <p>每项分别返回 fulfilled 或 rejected；已经启动的合法项保留独立结果，不因其他项的参数错误而丢失。助手不自动重试命令。</p>
 <h2 id="读取完整输出">读取完整输出<a class="heading-anchor" href="#读取完整输出" aria-label="链接到 读取完整输出">#</a></h2>
 <p><code>read</code> 默认从偏移 0 开始，每个流最多返回 16384 字节，可设为 1–32768。两个流的游标分别推进：</p>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>return await exec.read(clientId, jobId, {
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>return await exec.read(clientId, jobId, {
   stdout_cursor: savedStdoutCursor,
   stderr_cursor: savedStderrCursor,
   max_bytes: 16384,
@@ -326,7 +339,7 @@ return results.map(result =&gt; result.status === &quot;fulfilled&quot;
 </code></pre></div>
 <p>下次沿用返回的 <code>stdout_cursor</code>、<code>stderr_cursor</code>。<code>stdout_base64</code> / <code>stderr_base64</code> 保留精确字节，文本字段便于阅读；UTF-8 字符可能横跨字节页，要求精确还原时拼接 base64 解码后的字节再解码文本。未来游标会报错，避免悄悄跳过尚未产生的内容。</p>
 <p>运行中的每个流在内存保留最近 64 KiB。此时游标落后于保留范围，<code>stdout_truncated</code> 或 <code>stderr_truncated</code> 为 true，并从可读尾部继续返回。流成功结束且捕获完整后会释放重复尾部；后续 <code>exec.read</code> 按游标读取完整 capture，小输出可保留一份内存捕获，较大输出从归档读取。归档缺失或缩短会返回错误，捕获失败仍保留尾部和错误信息。输出超过 32 KiB 或 500 行后保存转储文件；从 <code>snapshot.stdout.artifact</code> 或 <code>snapshot.stderr.artifact</code> 取得 ID，也可用 <code>outputs.read</code> 读取已捕获的完整前缀：</p>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>return await outputs.read(clientId, {
+<div class="code-block"><div class="code-toolbar"><span class="code-language">javascript</span><button class="copy-button" type="button" data-copy="code-12" aria-label="复制 javascript 代码" hidden>复制</button></div><pre id="code-12" tabindex="0"><code>return await outputs.read(clientId, {
   id: artifactId,
   offset: savedOffset,
   max_bytes: 16384
@@ -339,7 +352,7 @@ return results.map(result =&gt; result.status === &quot;fulfilled&quot;
 <p>安装新版二进制后，在 <code>code_mode</code> 中调用 <code>return await reload(clientId)</code>。客户端确认重载请求、等待服务端确认，再停止后台任务、原生工具和转发，重新启动原入口。调用 <code>list</code> 找到新的客户端 ID，再用一个无副作用的状态请求确认连接可用。<a href="../../ssmcp/session-control/">重载协议</a></p>
 <p>命令启动成功后若等待或读取失败，助手错误信息会携带已启动的任务 ID。先用 <code>exec.status</code>、<code>exec.read</code> 或 <code>exec.list</code> 检查已有工作，再决定是否重试。<code>exec.*</code> 管理命令进程，<code>jobs.*</code> 管理 rsync 同步；两类任务使用不同接口。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/commands.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/commands.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ssmcp/client-ui/"><span class="pagination-label">上一页</span><span class="pagination-title">客户端 UI</span></a><a class="pagination-link next" href="../../ssmcp/browser-existing-session/"><span class="pagination-label">下一页</span><span class="pagination-title">用 Zuse 连接已有浏览器</span></a></nav>
       <footer class="page-footer">
         <span>ssmcp <span class="footer-separator">/</span> Project Z</span>
@@ -349,7 +362,7 @@ return results.map(result =&gt; result.status === &quot;fulfilled&quot;
     <aside class="page-outline" aria-label="本页内容">
       <div class="outline-inner">
         <p class="outline-label">本页内容</p>
-        <ul class="toc-list"><li class="toc-level-2"><a href="#连接账号与设备列表">连接、账号与设备列表</a></li><li class="toc-level-2"><a href="#更新客户端">更新客户端</a></li><li class="toc-level-2"><a href="#管理独立-zuse-cli">管理独立 Zuse CLI</a></li><li class="toc-level-2"><a href="#前台观察与终端输入">前台观察与终端输入</a></li><li class="toc-level-2"><a href="#查看-openai-调用标识和打开-chatgpt">查看 OpenAI 调用标识和打开 ChatGPT</a></li><li class="toc-level-2"><a href="#独立命令接口">独立命令接口</a></li><li class="toc-level-2"><a href="#运行一次命令">运行一次命令</a></li><li class="toc-level-2"><a href="#启动后台任务再继续等待">启动后台任务，再继续等待</a></li><li class="toc-level-2"><a href="#并行执行">并行执行</a></li><li class="toc-level-2"><a href="#rtk-的异步错误处理">RTK 的异步错误处理</a></li><li class="toc-level-2"><a href="#读取完整输出">读取完整输出</a></li><li class="toc-level-2"><a href="#重载与故障恢复">重载与故障恢复</a></li></ul>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#连接账号与设备列表">连接、账号与设备列表</a></li><li class="toc-level-2"><a href="#查询本地路径">查询本地路径</a></li><li class="toc-level-2"><a href="#更新客户端">更新客户端</a></li><li class="toc-level-2"><a href="#管理独立-zuse-cli">管理独立 Zuse CLI</a></li><li class="toc-level-2"><a href="#远程任务池">远程任务池</a></li><li class="toc-level-2"><a href="#前台观察与终端输入">前台观察与终端输入</a></li><li class="toc-level-2"><a href="#查看-openai-调用标识和打开-chatgpt">查看 OpenAI 调用标识和打开 ChatGPT</a></li><li class="toc-level-2"><a href="#独立命令接口">独立命令接口</a></li><li class="toc-level-2"><a href="#运行一次命令">运行一次命令</a></li><li class="toc-level-2"><a href="#启动后台任务再继续等待">启动后台任务，再继续等待</a></li><li class="toc-level-2"><a href="#并行执行">并行执行</a></li><li class="toc-level-2"><a href="#rtk-的异步错误处理">RTK 的异步错误处理</a></li><li class="toc-level-2"><a href="#读取完整输出">读取完整输出</a></li><li class="toc-level-2"><a href="#重载与故障恢复">重载与故障恢复</a></li></ul>
         <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
       </div>
     </aside>

@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#读取与实施">读取与实施</a></li><li class="toc-level-2"><a href="#按功能定位源码">按功能定位源码</a></li><li class="toc-level-2"><a href="#测试与开发分开">测试与开发分开</a></li><li class="toc-level-2"><a href="#按范围选择检查">按范围选择检查</a></li><li class="toc-level-2"><a href="#适度与停止">适度与停止</a></li><li class="toc-level-2"><a href="#复用而不是重做">复用而不是重做</a></li><li class="toc-level-2"><a href="#贡献与交付">贡献与交付</a></li><li class="toc-level-2"><a href="#指导来源">指导来源</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="agent-工作指南">Agent 工作指南</h1>
-<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/README.md">文档目录</a> · <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/AGENTS.md">仓库入口</a> · <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.agents/skills/README.md">技能目录</a></p>
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/README.md">文档目录</a> · <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/AGENTS.md">仓库入口</a> · <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.agents/skills/README.md">技能目录</a></p>
 <p>先确定交付目标，再读取、修改、验证和交付。当前任务只跟踪在<a href="../../lmm-api-source/progress/">新架构进度</a>。</p>
 <h2 id="读取与实施">读取与实施<a class="heading-anchor" href="#读取与实施" aria-label="链接到 读取与实施">#</a></h2>
 <p>遵守<a href="../../lmm-api-source/development/#%E4%BB%93%E5%BA%93%E4%B8%8E%E4%B8%BB%E7%BA%BF">仓库与主线</a>：记录分支、基准提交和本地修改，保留
@@ -105,7 +105,7 @@
 排队、待审、失败、待复验、通过及未覆盖。返回数量不等于完成数量，未设置定时
 机制时不得声称开启自动推送，也不另建重复完成表。</p>
 <h2 id="按范围选择检查">按范围选择检查<a class="heading-anchor" href="#按范围选择检查" aria-label="链接到 按范围选择检查">#</a></h2>
-<p>命令来自 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/justfile">justfile</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/package.json">根脚本</a>和<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/apps/web/package.json">前端脚本</a>；
+<p>命令来自 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/justfile">justfile</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/package.json">根脚本</a>和<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/apps/web/package.json">前端脚本</a>；
 工具准备见<a href="../../lmm-api-source/development/#%E5%8F%AA%E5%87%86%E5%A4%87%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7">开发指南</a>。</p>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
 <thead>
@@ -199,14 +199,14 @@
 <p>复用结果必须绑定测试源码、命令、退出码、日志、配置与依赖；相关输入变化才重跑，
 旧结果标明原版本，不能记为新提交执行。聚合工具仍按自身计划运行，无自动缓存保证。</p>
 <p>打包先固定组件、架构、格式和来源；复用匹配产物及其原 SHA，不因读取失败重编译，
-不给旧二进制换上新源码标签。详见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/release-architecture.md">打包与分发</a>。测试机或
+不给旧二进制换上新源码标签。详见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/release-architecture.md">打包与分发</a>。测试机或
 服务机不承担无关冷构建；pgroll、Docker 仅为相关任务准备。</p>
 <h2 id="贡献与交付">贡献与交付<a class="heading-anchor" href="#贡献与交付" aria-label="链接到 贡献与交付">#</a></h2>
 <p>保留公共合同；移除文件前查消费者和动态入口。职责调整遵守<a href="../../lmm-api-source/core-migration/">架构</a>，
 不恢复已删除单体代码来通过构建。保留 LICENSE、NOTICE 和来源归属；普通测试只用
 隔离数据库、合成凭据，不使用生产账号或生产数据。漏洞报告遵循
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/SECURITY.md">SECURITY.md</a>，公共报告不含秘密；社区规则见
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/CODE_OF_CONDUCT.md">CODE_OF_CONDUCT.md</a>。</p>
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/SECURITY.md">SECURITY.md</a>，公共报告不含秘密；社区规则见
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/CODE_OF_CONDUCT.md">CODE_OF_CONDUCT.md</a>。</p>
 <p>区分源码、依赖、网络和权限失败，读取仅做有限且适用的重试。写入结果不确定时先查
 准确 ID，不能重复付款、发版或初始化。交付说明结果、范围、兼容影响、实际检查、
 未验证项及提交/PR，并读回远端结果。远端前进时保留他人修改，只重查受影响差异。</p>
@@ -220,7 +220,7 @@
 <a href="https://developers.openai.com/codex/learn/best-practices">Best practices</a>及
 <a href="https://openai.com/index/harness-engineering/">Harness engineering</a>。具体门槛由本项目规定。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/agent-workflows.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/agent-workflows.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/deployment-postgres-readme/"><span class="pagination-label">上一页</span><span class="pagination-title">Explicit offline core roles</span></a><a class="pagination-link next" href="../../lmm-api-source/archive/"><span class="pagination-label">下一页</span><span class="pagination-title">历史资料索引</span></a></nav>
       <footer class="page-footer">
         <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>

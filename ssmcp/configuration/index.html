@@ -85,7 +85,7 @@
 <p>控制者必须登录该服务器，才能查看和操作获准的设备。被控端的名字、工作目录和 caller 显示信息用于识别设备，不是登录凭据。<a href="../../ssmcp/client-accounts/">完整账号与授权说明</a></p>
 <p><a id="github-allow"></a></p>
 <h2 id="授权名单">授权名单<a class="heading-anchor" href="#授权名单" aria-label="链接到 授权名单">#</a></h2>
-<p><code>--allow USER@SERVER</code> 支持重复或逗号分隔，最多 32 个不同账号。服务器必须与本次连接的 origin 一致；用户名使用门户登记的小写形式，再解析到不可转让的稳定账号 ID。显式名单不会自动附加本机登录账号。裸用户名、<code>@github</code>、未知或被封禁账号、其他服务器的目标均被拒绝。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/server_endpoint.rs">解析与注册</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/broker/allow.rs">服务端 ACL</a></p>
+<p><code>--allow USER@SERVER</code> 支持重复或逗号分隔，最多 32 个不同账号。服务器必须与本次连接的 origin 一致；用户名使用门户登记的小写形式，再解析到不可转让的稳定账号 ID。显式名单不会自动附加本机登录账号。裸用户名、<code>@github</code>、未知或被封禁账号、其他服务器的目标均被拒绝。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/server_endpoint.rs">解析与注册</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/broker/allow.rs">服务端 ACL</a></p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>ssmcp --server https://relay.example \
   --allow alice@relay.example,bob@relay.example
 </code></pre></div>
@@ -101,7 +101,7 @@ ssmcp -i --server https://relay.example --client SESSION_ID
 <p><a id="silent-refresh"></a>
 <a id="session-lifetime"></a></p>
 <h2 id="凭据与连接生命周期">凭据与连接生命周期<a class="heading-anchor" href="#凭据与连接生命周期" aria-label="链接到 凭据与连接生命周期">#</a></h2>
-<p>账号凭据按服务器隔离保存，控制请求始终复核当前凭据和授权名单。设备连接本身与控制者登录分别管理：一个控制者注销、封禁或额度不足不会关闭其他获准账号正在使用的共享设备。被撤销账号的旧凭据不会因解封自动恢复。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/device.rs">凭据验证</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/broker.rs">请求路由</a></p>
+<p>账号凭据按服务器隔离保存，控制请求始终复核当前凭据和授权名单。设备连接本身与控制者登录分别管理：一个控制者注销、封禁或额度不足不会关闭其他获准账号正在使用的共享设备。被撤销账号的旧凭据不会因解封自动恢复。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/device.rs">凭据验证</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/broker.rs">请求路由</a></p>
 <p>看门狗默认开启，网络连接中断后按配置重试；<code>--no-watchdog</code> 关闭，<code>--reconnect-delay SECONDS</code> 修改间隔。鉴权失败不会自动降级到未受限制的连接。CLI 的 <code>invite</code> / <code>join</code> 与 MCP 的 <code>invite</code> 已移除；设备直接使用 <code>--allow 用户名@服务器</code>，会话内 agent 的 <code>collab.join</code> 保留。</p>
 <p>当前版本已退出旧 SSH 设备接入与登录码用法。旧的 <code>--ssh</code>、私钥参数和服务器 SSH 用户名不能代替 HTTPS 账号。已有脚本应改成上面的明确服务器和授权名单形式。</p>
 <h2 id="服务端月度赠送额度">服务端月度赠送额度<a class="heading-anchor" href="#服务端月度赠送额度" aria-label="链接到 服务端月度赠送额度">#</a></h2>
@@ -111,7 +111,7 @@ state_dir = &quot;/var/lib/ssmcpd/portal&quot;
 free_user_monthly_traffic_bytes = 1000000000
 paid_user_monthly_traffic_bytes = 10000000000
 </code></pre></div>
-<p>这里的“付费用户”沿用已有账户标记：该账户至少有一次经过服务端核验、成功结算的生产环境充值。测试订单、客户端标签、用户名和当前剩余额度都不能获得这一身份；目前没有订阅到期或按月续费的档位。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/portal/commerce.rs">可信标记的写入</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/portal/store.rs">账户记录与额度选择</a></p>
+<p>这里的“付费用户”沿用已有账户标记：该账户至少有一次经过服务端核验、成功结算的生产环境充值。测试订单、客户端标签、用户名和当前剩余额度都不能获得这一身份；目前没有订阅到期或按月续费的档位。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/portal/commerce.rs">可信标记的写入</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/portal/store.rs">账户记录与额度选择</a></p>
 <p>两个字段都省略时，两类账户仍各赠送每月 1,000,000,000 字节，兼容旧配置。0 表示没有赠送流量，不表示无限。自定义额度需要 <code>portal.state_dir</code>。修改的是服务器策略，需由服务器加载配置后生效；本次代码改动不会自动部署或重启服务器。</p>
 <p>额度按以下优先级计算：</p>
 <ol>
@@ -119,8 +119,8 @@ paid_user_monthly_traffic_bytes = 10000000000
 <li>管理员对单个账户、当月设置的剩余额度优先于档位默认值。即使设置与当时默认值相同，也会保存为显式调整；之后购买的流量包仍增加该上限。</li>
 <li>其他账户使用所属档位的月度赠送额，加上当月购买的流量包。</li>
 </ol>
-<p>调整档位额度或发生首次充值时，本月已累计的上传、下载和迁移前用量全部保留；上限低于已用量时剩余为 0。赠送额、购买额和管理员当月调整在下一个自然月重新计算，旧月份的使用记录保留。计费继续是 <code>历史迁移用量 + max(累计上传, 累计下载)</code>，按服务端 <code>commerce.utc_offset_minutes</code> 的固定偏移划分月份。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/user_policy.rs">额度策略</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/portal/traffic.rs">持久账本与覆盖优先级</a></p>
-<p><code>/api/client/whoami</code> 的 <code>traffic</code> 返回该真实登录账号的 <code>used_bytes</code>、<code>limit_bytes</code>、<code>remaining_bytes</code>，以及下一自然月开始时刻 <code>reset_at</code>（Unix 秒）。<code>free_bytes</code> 是该档位已选中的赠送额，<code>paid_bytes</code> 只表示当月另购的流量包。只有服务器明确授予的无限额度返回 <code>limit_bytes: null</code> 与 <code>remaining_bytes: null</code>；旧服务器没有 <code>reset_at</code> 时，客户端应显示时间未知。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/device.rs">实际 HTTP 回归</a></p>
+<p>调整档位额度或发生首次充值时，本月已累计的上传、下载和迁移前用量全部保留；上限低于已用量时剩余为 0。赠送额、购买额和管理员当月调整在下一个自然月重新计算，旧月份的使用记录保留。计费继续是 <code>历史迁移用量 + max(累计上传, 累计下载)</code>，按服务端 <code>commerce.utc_offset_minutes</code> 的固定偏移划分月份。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/user_policy.rs">额度策略</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/portal/traffic.rs">持久账本与覆盖优先级</a></p>
+<p><code>/api/client/whoami</code> 的 <code>traffic</code> 返回该真实登录账号的 <code>used_bytes</code>、<code>limit_bytes</code>、<code>remaining_bytes</code>，以及下一自然月开始时刻 <code>reset_at</code>（Unix 秒）。<code>free_bytes</code> 是该档位已选中的赠送额，<code>paid_bytes</code> 只表示当月另购的流量包。只有服务器明确授予的无限额度返回 <code>limit_bytes: null</code> 与 <code>remaining_bytes: null</code>；旧服务器没有 <code>reset_at</code> 时，客户端应显示时间未知。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/device.rs">实际 HTTP 回归</a></p>
 <h2 id="配置入口">配置入口<a class="heading-anchor" href="#配置入口" aria-label="链接到 配置入口">#</a></h2>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
 <thead>
@@ -140,15 +140,15 @@ paid_user_monthly_traffic_bytes = 10000000000
 </tr>
 <tr>
 <td>用户名注册与管理员设置</td>
-<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/named-accounts.md">具名账号</a></td>
+<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/named-accounts.md">具名账号</a></td>
 </tr>
 <tr>
 <td>Linux、macOS、Windows 安装</td>
-<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/releases.md">版本与安装</a></td>
+<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/releases.md">版本与安装</a></td>
 </tr>
 <tr>
 <td>服务端 OAuth、账号存储与代理路由</td>
-<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/deployment.md">部署</a></td>
+<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/deployment.md">部署</a></td>
 </tr>
 <tr>
 <td>命令执行与并行任务</td>
@@ -156,7 +156,7 @@ paid_user_monthly_traffic_bytes = 10000000000
 </tr>
 <tr>
 <td>本机后台会话</td>
-<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/session-service.md">会话</a></td>
+<td><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/session-service.md">会话</a></td>
 </tr>
 </tbody>
 </table></div>
@@ -174,7 +174,7 @@ fetch_interval_seconds = 300
 <p>客户端在<strong>建立新连接时</strong>读取此设置。已有连接继续使用启动时的值；重连或重新启动后采用新值，F5 的界面配置重载不会修改 fetch 间隔。<code>SSMCP_CLIENT_CONFIG</code> 可指定另一份配置文件。</p>
 <p>调度启动后先检查一次，再按所设间隔检查。每次读取当前分支的已配置 upstream，只获取该远端分支并更新其远端跟踪引用。分离 HEAD、未配置 upstream 或 upstream 指向本地分支时跳过。fetch 保留本地 HEAD、索引、工作区、标签及手动操作的 <code>FETCH_HEAD</code>。</p>
 <p>同一仓库及其 linked worktree 通过 Git 公共目录内的锁与时间记录协调，跳过同一目标尚未到期的重复请求。单次 fetch 最多 30 秒，失败后按次数增加等待时间；达到 <code>max(所设间隔, 1800 秒)</code> 后保持该等待上限。它使用已有的非交互式凭据，凭据失效或网络失败会结束本次尝试；交互界面的 Git 面板显示等待、获取中、已更新或失败状态。</p>
-<p>实现与本地回归：<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client.rs">连接生命周期</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/git_status/fetch.rs">fetch 调度与锁</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/scripts/e2e_periodic_git_fetch.py">无终端账户连接测试</a>。</p>
+<p>实现与本地回归：<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client.rs">连接生命周期</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client/git_status/fetch.rs">fetch 调度与锁</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/scripts/e2e_periodic_git_fetch.py">无终端账户连接测试</a>。</p>
 <p><a id="troubleshooting"></a></p>
 <h2 id="常见问题">常见问题<a class="heading-anchor" href="#常见问题" aria-label="链接到 常见问题">#</a></h2>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
@@ -217,8 +217,8 @@ fetch_interval_seconds = 300
 </table></div>
 <h2 id="本地显示与重载">本地显示与重载<a class="heading-anchor" href="#本地显示与重载" aria-label="链接到 本地显示与重载">#</a></h2>
 <p>真实交互终端默认启用 <code>[ui] dashboard = true</code> 和 <code>layout = &quot;chat&quot;</code>。主区域连续展示调用、输出与结果，底部输入框用于追加用户要求；要求进入可编辑队列，在后续工具响应中交付。<code>/audit</code> 打开源码审计，<code>/agents</code> 查看登记成员，<code>/queue</code> 查看要求队列，<code>/filter 文本</code> 筛选日志。F3 或 <code>/sidebar</code> 收起侧栏，窄窗口会自动调整可用区域。<a href="../../ssmcp/client-ui/">输入、队列与界面配置</a></p>
-<p>默认使用 <code>dark</code> 深色主题，也可选择 <code>codex-dark</code>、<code>nord</code>、<code>solarized</code>、<code>light</code> 或跟随终端颜色的 <code>minimal</code>，并逐项覆盖语义颜色。输入框的文字不会发给后台 PTY；直接交互使用另一个终端中的 <code>ssmcp -i</code> 或 <code>terminal.*</code>。<code>NO_COLOR</code> 只关闭颜色，<code>dashboard = false</code>、JSONL 或重定向 stderr 使用行式输出。任务进度来自原生数据，Git 状态来自授权启动目录的实际观察。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/logging.md#%E5%9B%BA%E5%AE%9A%E7%8A%B6%E6%80%81%E5%8C%BA%E4%B8%8E%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8">面板布局与配置</a></p>
-<p><code>--log-format pretty-verbose</code> 展开脱敏后的详细元数据，<code>--log-format jsonl</code> 输出脱敏事件 JSON；<code>--verbose</code> 是详细事件的别名，<code>--raw</code> 与 <code>--raw-events</code> 是 JSONL 的别名。重定向 stdout 时，连接信息始终是 JSON。<code>--no-color</code>、<code>NO_COLOR=1</code>、<code>TERM=dumb</code> 或重定向 stderr 会禁用 ANSI 颜色。stdout/stderr 按任务和流分别显示，结束记录包含实际退出状态与耗时；读取历史 <code>wait/read</code> 结果不重复打印正文。内联脚本默认以解释器和行数识别，正文可在详细日志中展开。<code>[ui] activity_interval_secs = 5</code> 控制行式日志的活动提示，设为 0 关闭该提示。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/logging.md">日志与输出保留</a></p>
+<p>默认使用 <code>dark</code> 深色主题，也可选择 <code>codex-dark</code>、<code>nord</code>、<code>solarized</code>、<code>light</code> 或跟随终端颜色的 <code>minimal</code>，并逐项覆盖语义颜色。输入框的文字不会发给后台 PTY；直接交互使用另一个终端中的 <code>ssmcp -i</code> 或 <code>terminal.*</code>。<code>NO_COLOR</code> 只关闭颜色，<code>dashboard = false</code>、JSONL 或重定向 stderr 使用行式输出。任务进度来自原生数据，Git 状态来自授权启动目录的实际观察。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/logging.md#%E5%9B%BA%E5%AE%9A%E7%8A%B6%E6%80%81%E5%8C%BA%E4%B8%8E%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8">面板布局与配置</a></p>
+<p><code>--log-format pretty-verbose</code> 展开脱敏后的详细元数据，<code>--log-format jsonl</code> 输出脱敏事件 JSON；<code>--verbose</code> 是详细事件的别名，<code>--raw</code> 与 <code>--raw-events</code> 是 JSONL 的别名。重定向 stdout 时，连接信息始终是 JSON。<code>--no-color</code>、<code>NO_COLOR=1</code>、<code>TERM=dumb</code> 或重定向 stderr 会禁用 ANSI 颜色。stdout/stderr 按任务和流分别显示，结束记录包含实际退出状态与耗时；读取历史 <code>wait/read</code> 结果不重复打印正文。内联脚本默认以解释器和行数识别，正文可在详细日志中展开。<code>[ui] activity_interval_secs = 5</code> 控制行式日志的活动提示，设为 0 关闭该提示。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/logging.md">日志与输出保留</a></p>
 <p>F5 或 <code>ssmcp.ui.action</code> 的 <code>reload</code> 只重载本地显示配置；输入框中的 <code>/reload</code> 请求重新启动客户端，两者的作用不同。主题、配色和布局可直接重载，<code>dashboard</code> 与 <code>log_format</code> 需要重新启动。</p>
 <p>用户要求队列与本地成员目标需要协议 v7，源码审计需要 v6 或更新版本。队列中的已交付表示附加到符合目标的 <code>code_mode</code> 响应，不表示模型已经阅读或执行。受控重启通过私有、单次读取的交接文件保留草稿与队列；交付不确定或接收目标已变化的记录需要用户复核，不会自动重发。<a href="../../ssmcp/client-ui/#%E8%BE%93%E5%85%A5%E8%A6%81%E6%B1%82%E4%B8%8E%E9%98%9F%E5%88%97">队列状态与恢复</a></p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>ssmcp --server https://ssmcp.lmm.best --title &quot;检查构建与测试&quot; --allow alice@ssmcp.lmm.best
@@ -226,17 +226,17 @@ ssmcp --server https://ssmcp.lmm.best --theme nord --timestamps --allow alice@ss
 ssmcp --server https://ssmcp.lmm.best --log-format jsonl --allow alice@ssmcp.lmm.best
 NO_COLOR=1 ssmcp --server https://ssmcp.lmm.best --allow alice@ssmcp.lmm.best
 </code></pre></div>
-<p>更新已安装的程序后，可以从 <code>code_mode</code> 调用 <code>await reload(clientId)</code>，让客户端从原安装入口重新启动，并保留启动参数、目录、环境和 <code>--allow</code>。先确认目录包含 <code>ssmcp.client.reload</code>；不支持该工具的旧客户端，初次升级须在本机普通重启。<code>accepted:true</code> 只是接收应答，应再调用 <code>list</code> 确认重连及新的 ID。重载会停止本连接拥有的命令任务和转发、关闭原生桥接；不会终止操作者已运行的外部 Pi/OpenCode 服务；在途调用会导致 busy 拒绝。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client/reload.rs">重载协议与回归测试</a></p>
-<p>有效的账号授权在新连接继续允许同一账号时可复用；控制请求会重新核对凭据和名单。调用方应重新发现在线设备及实际版本，不能把“程序已更新”或“重载已接收”报告为“新版本已经在线”。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/backends.md#9-%E6%9B%B4%E6%96%B0%E5%90%8E%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%87%8D%E8%BD%BD">重载完整说明</a></p>
-<p>成功文件读写和可查询 Diff 来自原生操作完成后的证据；敏感、二进制或无法取得的快照明确标为未知。技能发现、正文读取和实际调用分别记录，Harness 外部副作用不作完整审计承诺。完整事件范围见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/backends.md#%E6%96%87%E4%BB%B6%E4%B8%8E%E6%8A%80%E8%83%BD%E5%AE%A1%E8%AE%A1">文件与技能审计</a>。</p>
+<p>更新已安装的程序后，可以从 <code>code_mode</code> 调用 <code>await reload(clientId)</code>，让客户端从原安装入口重新启动，并保留启动参数、目录、环境和 <code>--allow</code>。先确认目录包含 <code>ssmcp.client.reload</code>；不支持该工具的旧客户端，初次升级须在本机普通重启。<code>accepted:true</code> 只是接收应答，应再调用 <code>list</code> 确认重连及新的 ID。重载会停止本连接拥有的命令任务和转发、关闭原生桥接；不会终止操作者已运行的外部 Pi/OpenCode 服务；在途调用会导致 busy 拒绝。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client/reload.rs">重载协议与回归测试</a></p>
+<p>有效的账号授权在新连接继续允许同一账号时可复用；控制请求会重新核对凭据和名单。调用方应重新发现在线设备及实际版本，不能把“程序已更新”或“重载已接收”报告为“新版本已经在线”。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/backends.md#9-%E6%9B%B4%E6%96%B0%E5%90%8E%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%87%8D%E8%BD%BD">重载完整说明</a></p>
+<p>成功文件读写和可查询 Diff 来自原生操作完成后的证据；敏感、二进制或无法取得的快照明确标为未知。技能发现、正文读取和实际调用分别记录，Harness 外部副作用不作完整审计承诺。完整事件范围见<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/backends.md#%E6%96%87%E4%BB%B6%E4%B8%8E%E6%8A%80%E8%83%BD%E5%AE%A1%E8%AE%A1">文件与技能审计</a>。</p>
 <h2 id="会话标题与输出保留">会话标题与输出保留<a class="heading-anchor" href="#会话标题与输出保留" aria-label="链接到 会话标题与输出保留">#</a></h2>
-<p><code>--title</code> 为这一条连接附加任务说明，<code>--name</code> 用于辨认机器或工作区；两者都不代替唯一客户端 ID。标题支持中文和空格，最多 512 个 UTF-8 字节。升级时保留原有服务器、<code>--allow</code> 与名称等启动选项；标题只是显示元数据，不改变账号和授权名单。首次使用标题前应确认服务端支持该字段。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client.rs">参数实现</a> · <a href="../../ssmcp/session-control/">会话说明</a></p>
+<p><code>--title</code> 为这一条连接附加任务说明，<code>--name</code> 用于辨认机器或工作区；两者都不代替唯一客户端 ID。标题支持中文和空格，最多 512 个 UTF-8 字节。升级时保留原有服务器、<code>--allow</code> 与名称等启动选项；标题只是显示元数据，不改变账号和授权名单。首次使用标题前应确认服务端支持该字段。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client.rs">参数实现</a> · <a href="../../ssmcp/session-control/">会话说明</a></p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>ssmcp --server https://ssmcp.lmm.best --name dev --title &quot;修复构建并准备发布&quot; --allow alice@ssmcp.lmm.best
 </code></pre></div>
 <p>重载只会重新启动原入口，不会下载更新或选择另一安装目录。Windows 手动按版本目录安装时，切换版本需停止旧进程并从新目录启动；使用安装器更新同一入口后，才可按上述重载流程接管。</p>
-<p>长输出超过 32 KiB 或 500 行时会按来源转储，调用方获得转储 ID、客户端路径、SHA-256、字节数和行数，再用 <code>outputs.read</code> 分块读取。Unix 的默认目录是 <code>/tmp/ssmcp-&lt;uid&gt;</code>，其中 <code>&lt;uid&gt;</code> 来自当前进程的有效系统用户 ID；目录权限为 0700，输出文件为 0600。每个用户直接拥有自己的目录，不依赖另一个用户创建的共享父目录。Windows 默认是 <code>%LOCALAPPDATA%\ssmcp\output</code>，无该变量时使用用户临时目录下的 <code>ssmcp/output</code>；该路径属于目标客户端；文件仍按连接归属校验，其他客户端不能读取。默认保留 24 小时，已结束文件总量上限 512 MiB，单文件上限 256 MiB，运行期间每 60 秒清理一次。活动文件被跳过；达到单文件上限或发生写入错误时，应检查 <code>complete</code> 与 <code>error</code>，不能假定已保存完整输出。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/output.rs">输出实现</a> · <a href="../../ssmcp/session-control/#%E6%8C%89%E9%9C%80%E8%AF%BB%E5%8F%96%E6%AD%A3%E6%96%87">读取与清理</a></p>
+<p>长输出超过 32 KiB 或 500 行时会按来源转储，调用方获得转储 ID、客户端路径、SHA-256、字节数和行数，再用 <code>outputs.read</code> 分块读取。Unix 的默认目录是 <code>/tmp/ssmcp-&lt;uid&gt;</code>，其中 <code>&lt;uid&gt;</code> 来自当前进程的有效系统用户 ID；目录权限为 0700，输出文件为 0600。每个用户直接拥有自己的目录，不依赖另一个用户创建的共享父目录。Windows 默认是 <code>%LOCALAPPDATA%\ssmcp\output</code>，无该变量时使用用户临时目录下的 <code>ssmcp/output</code>；该路径属于目标客户端；文件仍按连接归属校验，其他客户端不能读取。默认保留 24 小时，已结束文件总量上限 512 MiB，单文件上限 256 MiB，运行期间每 60 秒清理一次。活动文件被跳过；达到单文件上限或发生写入错误时，应检查 <code>complete</code> 与 <code>error</code>，不能假定已保存完整输出。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/output.rs">输出实现</a> · <a href="../../ssmcp/session-control/#%E6%8C%89%E9%9C%80%E8%AF%BB%E5%8F%96%E6%AD%A3%E6%96%87">读取与清理</a></p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/configuration.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/configuration.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ssmcp/windows-browser-setup/"><span class="pagination-label">上一页</span><span class="pagination-title">Windows 客户端与 Zuse CLI</span></a><a class="pagination-link next" href="../../ssmcp/client-accounts/"><span class="pagination-label">下一页</span><span class="pagination-title">客户端账号、授权与被控设备</span></a></nav>
       <footer class="page-footer">
         <span>ssmcp <span class="footer-separator">/</span> Project Z</span>

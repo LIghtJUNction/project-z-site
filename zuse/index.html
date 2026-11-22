@@ -81,7 +81,7 @@
       <article class="prose" id="content" tabindex="-1"><h1 id="zuse">zuse</h1><p class="project-intro">用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。</p>
 <p><strong>为 agent 设计的电脑操作语言、Rust 库、命令行程序与 MCP 服务。</strong></p>
 <p>zuse 把小段程序变成电脑观察与操作，支持桌面、浏览器、移动设备、串口和 USB。程序先计算坐标、展开有界控制流，再执行输入；常驻会话保留状态，供外部控制器逐步观察和决策。</p>
-<p><a href="../zuse/readme-en/">English</a> · <a href="../zuse/language/">语法</a> · <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/scalar-programs.md">数值程序</a> · <a href="../zuse/sessions/">常驻会话</a> · <a href="../zuse/session-protocol/">协议 v1</a> · <a href="../zuse/platforms/">平台能力</a></p>
+<p><a href="../zuse/readme-en/">English</a> · <a href="../zuse/language/">语法</a> · <a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/scalar-programs.md">数值程序</a> · <a href="../zuse/sessions/">常驻会话</a> · <a href="../zuse/session-protocol/">协议 v1</a> · <a href="../zuse/platforms/">平台能力</a></p>
 <h2 id="安装与使用">安装与使用<a class="heading-anchor" href="#安装与使用" aria-label="链接到 安装与使用">#</a></h2>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo install --git https://github.com/LIghtJUNction/zuse --locked
 zuse doctor
@@ -96,7 +96,7 @@ zuse shell
 zuse update --dry-run     # 返回具体更新命令，不安装
 zuse update              # 更新有 Cargo 所属记录的用户安装
 </code></pre></div>
-<p>更新器通过 <code>curl</code> 与 Cargo 核对安装来源，保留安装目录、features、profile 和 target，选择精确的稳定版本或官方 Git 标签；较新的开发版本保留。系统/AUR 安装使用包管理器，便携、自定义及固定 revision 的安装返回手动说明。stdout 返回 JSON，stderr 显示进度与错误；详见<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/update.md">更新行为</a>。</p>
+<p>更新器通过 <code>curl</code> 与 Cargo 核对安装来源，保留安装目录、features、profile 和 target，选择精确的稳定版本或官方 Git 标签；较新的开发版本保留。系统/AUR 安装使用包管理器，便携、自定义及固定 revision 的安装返回手动说明。stdout 返回 JSON，stderr 显示进度与错误；详见<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/update.md">更新行为</a>。</p>
 <p>下面的普通命令示例明确选择用户的系统鼠标：</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>mouse.use(kind=&quot;user&quot;, appearance=&quot;system&quot;)
 mouse.move(x=400, y=240, duration=350, curve=&quot;smooth&quot;, jitter=0.6, seed=42)
@@ -118,7 +118,7 @@ for i in 0..3 {
 }
 ZUSE
 </code></pre></div>
-<p>不可变 <code>let</code>、算术、比较、<code>if</code>/<code>else</code>、整数半开 <code>for</code>、纯数学函数和递归均在准备阶段求值。每个循环最多 4096 次，调用深度最多 32，展开工作最多 16384 次；非法计算在输入前失败。见<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/scalar-programs.md">数值语法</a>与<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/examples/fractal-sierpinski.zuse">递归分形示例</a>。</p>
+<p>不可变 <code>let</code>、算术、比较、<code>if</code>/<code>else</code>、整数半开 <code>for</code>、纯数学函数和递归均在准备阶段求值。每个循环最多 4096 次，调用深度最多 32，展开工作最多 16384 次；非法计算在输入前失败。见<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/scalar-programs.md">数值语法</a>与<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/examples/fractal-sierpinski.zuse">递归分形示例</a>。</p>
 <p><code>draw.triangle</code> 将三个数值顶点连成一笔闭合描边。执行前选好应用画笔，并按真实窗口绑定 <code>anchor.set</code>；<code>mouse.click_at</code>、<code>mouse.stroke</code> 和 <code>draw.*</code> 校验窗口身份、焦点、几何与缩放。同窗标签页共用 ID；看到用户切页时停止后续输入，重新观察内容。见<a href="../zuse/drawing/">绘图与锚点</a>。</p>
 <h2 id="常驻会话与外部决策">常驻会话与外部决策<a class="heading-anchor" href="#常驻会话与外部决策" aria-label="链接到 常驻会话与外部决策">#</a></h2>
 <p>Unix 上的命名会话可跨 CLI 调用保留函数、设备和锚点：</p>
@@ -129,8 +129,8 @@ ZUSE
 zuse session result board
 </code></pre></div>
 <p>取得观察结果后，由外部控制器决定下一步，把短程序交给 <code>zuse session script board -</code>，按返回的 <code>job_id</code> 查询结果，再观察。<code>accepted</code> 表示已接收，完成情况以结果回执为准。同一会话一次执行一个作业；<code>status</code>、<code>result</code>、<code>cancel</code>、<code>close</code> 可继续控制当前工作，取消后需查询清理结果。</p>
-<p>公开的 <a href="../zuse/session-protocol/">JSON-lines 协议 v1</a> 使用 <code>start</code> 返回的私有 Unix socket。稳定请求 ID 用于有界重试，<code>--expect-revision</code> 检查 Zuse 会话状态；应用内容仍需重新观察。该通道执行 flat Runtime 及展开后的数值程序；scoped mouse 仅支持 dry-run 预检。默认空闲 15 分钟释放会话，运行时间不计入空闲；单一 stdin 流仍可使用 <code>zuse shell</code>。详见<a href="../zuse/sessions/">会话说明</a>。</p>
-<p>随附的 <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/examples/session_client.py">Python 控制器示例</a> 从 stdin 提交一次源码，并在同一连接上等到作业终态。它只使用 Python 标准库，接收实际观察到的 socket 路径、执行预算及可选修订号。</p>
+<p>公开的 <a href="../zuse/session-protocol/">JSON-lines 协议 v1</a> 使用 <code>start</code> 返回的私有 Unix socket。稳定请求 ID 用于有界重试，<code>--expect-revision</code> 检查 Zuse 会话状态；应用内容仍需重新观察。该通道执行 flat Runtime 及展开后的数值程序；scoped mouse 仅支持 dry-run 预检。默认空闲 15 分钟释放会话，运行时间不计入空闲；单一 stdin 流仍可使用 <code>zuse shell</code>。支持原生信号处理的构建中，SIGINT 或 SIGTERM 会取消当前工作、清理 shell 持有的运行时与子进程，并丢弃排队命令；空闲等待和未输入完整一行时也会清理退出。详见<a href="../zuse/sessions/">会话说明</a>与<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/local-programs.md#timing-and-cancellation">shell 取消</a>。</p>
+<p>随附的 <a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/examples/session_client.py">Python 控制器示例</a> 从 stdin 提交一次源码，并在同一连接上等到作业终态。它只使用 Python 标准库，接收实际观察到的 socket 路径、执行预算及可选修订号。</p>
 <h2 id="可复用函数与本地事件">可复用函数与本地事件<a class="heading-anchor" href="#可复用函数与本地事件" aria-label="链接到 可复用函数与本地事件">#</a></h2>
 <p>在同一个 <code>zuse shell</code> 会话中导入一次，后续命令直接调用：</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>import(path=&quot;skills/zuse/assets/wechat.zuse&quot;, as=&quot;wechat&quot;)
@@ -139,8 +139,8 @@ local.delay(ms=10)
 </code></pre></div>
 <p>在函数前写连续的 <code>///</code> 描述，再用 <code>functions(namespace=&quot;wechat&quot;)</code> 查询限定名称、参数顺序、说明和源码位置。查询只读取已登记的元信息，不调用函数、不重新读取文件。MCP 提供同一个 <code>zuse.functions</code> 目录，Rust 提供类型化的 <code>function_metadata()</code>。可运行 <code>zuse run examples/function-catalog.zuse --read-only</code> 查看完整例子。</p>
 <p>微信示例只登记读取、准备文本和发送按钮三个函数；调用前必须从实际应用确认窗口、会话和节点，创建函数不会自动发送消息。也可用 <code>import(source=&quot;...&quot;, as=&quot;模块名&quot;)</code> 导入源码。显式 <code>eval</code> 可同时定义函数并执行动作。整段展开结果共用预检查、只读限制和累计预算；预检失败或 dry-run 不提交新定义。文件中的相对导入以该文件目录为基准。</p>
-<p>Git 包通过 <code>pkg init/add/install/update/remove/list/publish</code> 管理，<code>zuse.lock.json</code> 固定完整提交。<code>pkg:名称</code> 与 <code>pkg:名称/导出</code> 从已安装的本地源码导入声明。用 <code>pkg install --locked</code> 恢复依赖；见<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/packages.md">包管理</a>和<a href="../zuse-std/">标准库</a>。</p>
-<p><code>observe</code>、<code>watch</code>、<code>wait_until</code> 默认返回结构化文本，通过局部 DOM 或 AT-SPI 事件等待变化。明确调用 <code>watch_until_click</code> 才把出现事件连接到点击，限定原标签页、域名、容器、次数和超时。<code>timer.start/reset/stop/status</code> 提供每条命令及累计耗时。可选 <code>--features vision</code> 增加多尺度图标匹配与按需渲染的视觉时间切片。完整用法见<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/local-programs.md">本地程序说明</a>、<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/skills/zuse/SKILL.md">Zuse 技能</a>和<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/validation-20261121.md">实测记录</a>。</p>
+<p>Git 包通过 <code>pkg init/add/install/update/remove/list/publish</code> 管理，<code>zuse.lock.json</code> 固定完整提交。<code>pkg:名称</code> 与 <code>pkg:名称/导出</code> 从已安装的本地源码导入声明。用 <code>pkg install --locked</code> 恢复依赖；见<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/packages.md">包管理</a>和<a href="../zuse-std/">标准库</a>。</p>
+<p><code>observe</code>、<code>watch</code>、<code>wait_until</code> 默认返回结构化文本，通过局部 DOM 或 AT-SPI 事件等待变化。明确调用 <code>watch_until_click</code> 才把出现事件连接到点击，限定原标签页、域名、容器、次数和超时。<code>timer.start/reset/stop/status</code> 提供每条命令及累计耗时。可选 <code>--features vision</code> 增加多尺度图标匹配与按需渲染的视觉时间切片。完整用法见<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/local-programs.md">本地程序说明</a>、<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/skills/zuse/SKILL.md">Zuse 技能</a>和<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/validation-20261121.md">实测记录</a>。</p>
 <p><code>keyboard.state()</code> 将当前 Wayland 键盘与其它设备分开；文本输入保持锁状态。明确设置 NumLock 使用 <code>keyboard.num_lock(state=&quot;on&quot;)</code>、<code>off</code> 或 <code>toggle</code> 并读取实际回读。Wayland 的彩色标记跟随共享用户鼠标、点击穿透；独立多鼠标仍依赖 X11 MPX。原生 pinch 不可用时明确返回不支持。</p>
 <p><code>keyboard.hold(key=&quot;Up&quot;,duration=400)</code> 与 <code>browser.hold(key=&quot;ArrowRight&quot;,duration=300)</code> 提供有时限的方向键按住与释放，绑定已观察目标并响应取消，见<a href="../zuse/key-holds/">按键保持</a>。<a href="../zuse/chatgpt-desktop/">ChatGPT 桌面模块</a>提供本地观察、带进程和空编辑器检查的草稿准备，以及需要明确授权的发送函数；目标需暴露原生无障碍接口。</p>
 <h2 id="独立鼠标变量生命周期与并行轨迹">独立鼠标、变量生命周期与并行轨迹<a class="heading-anchor" href="#独立鼠标变量生命周期与并行轨迹" aria-label="链接到 独立鼠标、变量生命周期与并行轨迹">#</a></h2>
@@ -154,14 +154,14 @@ parallel {
 </code></pre></div>
 <p>用 <code>zuse script examples/scoped-mice.zuse --dry-run</code> 预检，在支持的 X11 会话里执行。块和函数拥有局部鼠标，别名与参数借用已有鼠标。<code>sequence</code> 串行执行，<code>parallel</code> 的直接子语句各为一个分支；连续操作放入同一分支块。同一鼠标的并行冲突在输入前拒绝。</p>
 <p>普通 <code>mouse.*</code> 动作现在也默认使用独立鼠标。要控制用户鼠标，普通命令先调用 <code>mouse.use(kind=&quot;user&quot;, appearance=&quot;system&quot;)</code>，作用域脚本使用 <code>user_mouse(appearance=&quot;system&quot;)</code>。这一显式系统模式适用于已有的 Wayland、Windows 和 macOS 后端；独立鼠标或自定义原生光标不受支持时直接报错。普通运行时的 <code>mouse.position()</code> 只观察已经选定的鼠标，需要先调用 <code>mouse.use()</code> 或执行一个鼠标动作。</p>
-<p>作用域退出、运行错误和协作取消都会触发清理，包括释放程序按住的鼠标键。支持的 Linux 构建中，<code>zuse script</code> 的 SIGINT/SIGTERM 通过取消标记走正常清理路径；SIGKILL、进程崩溃等无法运行析构函数的终止不保证清理。完整语法、Rust 接口、目标定位、外观格式和平台边界见<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/scoped-mice.md">作用域鼠标说明</a>。</p>
+<p>作用域退出、运行错误和协作取消都会触发清理，包括释放程序按住的鼠标键。支持的 Linux 构建中，<code>zuse script</code> 的 SIGINT/SIGTERM 通过取消标记走正常清理路径；SIGKILL、进程崩溃等无法运行析构函数的终止不保证清理。完整语法、Rust 接口、目标定位、外观格式和平台边界见<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/scoped-mice.md">作用域鼠标说明</a>。</p>
 <h2 id="移动到文本或按钮">移动到文本或按钮<a class="heading-anchor" href="#移动到文本或按钮" aria-label="链接到 移动到文本或按钮">#</a></h2>
 <p><code>mouse.move_to</code> 一次完成定位和移动：先读取目标的无障碍信息，再获取当前鼠标位置，沿指定轨迹移动到目标中心加偏移的位置。默认耗时 350 毫秒，只移动鼠标。</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>zuse eval &#x27;mouse.move_to(text=&quot;保存&quot;,role=&quot;button&quot;,duration=650,curve=&quot;bezier&quot;,jitter=1.2,speed_variation=0.25,seed=42,offset_x=4,offset_y=-3)&#x27; --dry-run
 zuse eval &#x27;mouse.move_to(text=&quot;继续&quot;,role=&quot;button&quot;,speed=600,via=&quot;320,180;480,220&quot;)&#x27; --dry-run
 cargo run --example target_motion
 </code></pre></div>
-<p><code>duration</code> 与 <code>speed</code> 二选一；<code>via</code> 指定绝对坐标，<code>jitter</code>、<code>speed_variation</code> 和 <code>seed</code> 控制可复现轨迹。定位依赖原生无障碍文本，同名目标用 <code>scope</code> 或 <code>index</code> 选择。<code>--dry-run</code> 只校验参数；Rust 示例需 <code>--execute</code> 才输入。路径规划与 <code>Runtime::move_to_with</code> 回调见<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/target-motion.md">轨迹说明</a>。</p>
+<p><code>duration</code> 与 <code>speed</code> 二选一；<code>via</code> 指定绝对坐标，<code>jitter</code>、<code>speed_variation</code> 和 <code>seed</code> 控制可复现轨迹。定位依赖原生无障碍文本，同名目标用 <code>scope</code> 或 <code>index</code> 选择。<code>--dry-run</code> 只校验参数；Rust 示例需 <code>--execute</code> 才输入。路径规划与 <code>Runtime::move_to_with</code> 回调见<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/target-motion.md">轨迹说明</a>。</p>
 <h2 id="project-z-结构">Project Z 结构<a class="heading-anchor" href="#project-z-结构" aria-label="链接到 Project Z 结构">#</a></h2>
 <p>基础命令解析器和鼠标轨迹核心支持 <code>no_std</code>，不分配堆内存、零依赖。桌面运行时及作用域脚本的编译器、调度器使用标准库，Rust 依赖树只有 Project Z 自有的 zmcpio、zcall、zconv、zclap、z64、zsys。系统动态库加载复用 zsys 0.1.1；CLI 和 MCP 共用执行器。</p>
 <p>鼠标路径包含线性、平滑、缓入缓出和贝塞尔轨迹，支持种子固定的抖动与随机等待。轨迹首尾坐标准确，使用绝对时间安排采样。</p>
@@ -192,7 +192,7 @@ android.status()
 <div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-12" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-12" tabindex="0"><code>android.connect(serial=&quot;YOUR_DEVICE_SERIAL&quot;, mode=&quot;background&quot;, display=4)
 android.tap(x=240, y=160)
 </code></pre></div>
-<p>原生 ADB 客户端要求已授权的 ADB server；省略 serial 时需恰有一台就绪设备。前台操作主显示，后台明确选择已有的非零显示，并绑定输入、启动与截图；映射不明确时拒绝。文本支持最多 4096 字节可打印 ASCII，排除 <code>%s</code>，其余输入在预检时拒绝。Android 16 前台、副显示隔离与像素验证见<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/native-testing.md">测试流程</a>和<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/evidence/android-physical-2026-11-20.json">设备证据</a>。</p>
+<p>原生 ADB 客户端要求已授权的 ADB server；省略 serial 时需恰有一台就绪设备。前台操作主显示，后台明确选择已有的非零显示，并绑定输入、启动与截图；映射不明确时拒绝。文本支持最多 4096 字节可打印 ASCII，排除 <code>%s</code>，其余输入在预检时拒绝。Android 16 前台、副显示隔离与像素验证见<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/native-testing.md">测试流程</a>和<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/evidence/android-physical-2026-11-20.json">设备证据</a>。</p>
 <h2 id="手机浏览器ios-与设备-io">手机浏览器、iOS 与设备 I/O<a class="heading-anchor" href="#手机浏览器ios-与设备-io" aria-label="链接到 手机浏览器、iOS 与设备 I/O">#</a></h2>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-13" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-13" tabindex="0"><code>android.browser.sockets(serial=&quot;YOUR_DEVICE_SERIAL&quot;)
 browser.connect_android(serial=&quot;YOUR_DEVICE_SERIAL&quot;)
@@ -201,7 +201,7 @@ browser.snapshot()
 browser.capture(path=&quot;phone-browser.png&quot;)
 browser.close()
 </code></pre></div>
-<p>手机 Chrome 通过原生 ADB 隧道连接可响应的调试 socket，在已有配置中创建并控制一个自有标签页，见<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/mobile-browser.md">手机浏览器</a>。iOS 使用明确配置的本地 WebDriverAgent，支持触摸、Unicode 输入、观察、截图和应用启动；当前验证为协议夹具，物理 iPhone 验证待完成。准备方式见<a href="../zuse/ios/">iOS 说明</a>。</p>
+<p>手机 Chrome 通过原生 ADB 隧道连接可响应的调试 socket，在已有配置中创建并控制一个自有标签页，见<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/mobile-browser.md">手机浏览器</a>。iOS 使用明确配置的本地 WebDriverAgent，支持触摸、Unicode 输入、观察、截图和应用启动；当前验证为协议夹具，物理 iPhone 验证待完成。准备方式见<a href="../zuse/ios/">iOS 说明</a>。</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">text</span><button class="copy-button" type="button" data-copy="code-14" aria-label="复制 text 代码" hidden>复制</button></div><pre id="code-14" tabindex="0"><code>serial.ports()
 usb.devices()
 </code></pre></div>
@@ -224,10 +224,10 @@ cargo check --no-default-features --lib
 cargo bench --bench core
 python3 scripts/bump.py patch --commit --tag --push
 </code></pre></div>
-<p>工作流支持版本 bump、原子提交/标签推送和五个平台的原生制品。Cargo 发布使用单独验证的源码暂存目录，内部依赖必须与 Git 锁定来源对应的 registry 精确版本及完整发布内容一致。详见 <a href="../zuse/development/">开发说明</a> 与 <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/validation-0.2.0.md">验证记录</a>。</p>
+<p>工作流支持版本 bump、原子提交/标签推送和五个平台的原生制品。Cargo 发布使用单独验证的源码暂存目录，内部依赖必须与 Git 锁定来源对应的 registry 精确版本及完整发布内容一致。详见 <a href="../zuse/development/">开发说明</a> 与 <a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/validation-0.2.0.md">验证记录</a>。</p>
 <p>MIT 开源。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/README.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/README.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../zuse/readme-en/"><span class="pagination-label">下一页</span><span class="pagination-title">zuse</span></a></nav>
       <footer class="page-footer">
         <span>zuse <span class="footer-separator">/</span> Project Z</span>

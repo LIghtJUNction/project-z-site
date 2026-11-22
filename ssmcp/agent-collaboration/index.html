@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#接口与职责">接口与职责</a></li><li class="toc-level-2"><a href="#加入并发现成员">加入并发现成员</a></li><li class="toc-level-2"><a href="#绑定本次编排并接收用户要求">绑定本次编排并接收用户要求</a></li><li class="toc-level-2"><a href="#发送私信与广播">发送私信与广播</a></li><li class="toc-level-2"><a href="#收取处理确认">收取、处理、确认</a></li><li class="toc-level-2"><a href="#在线状态与生命周期">在线状态与生命周期</a></li><li class="toc-level-2"><a href="#容量与背压">容量与背压</a></li><li class="toc-level-2"><a href="#调度边界与实现入口">调度边界与实现入口</a></li><li class="toc-level-2"><a href="#结束决定与原生消息">结束决定与原生消息</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="会话内-agent-协作">会话内 Agent 协作</h1>
-<p>同一条在线客户端连接可以容纳多个独立 agent。每个 agent 显式加入后，获得自己的身份和收件箱，可以发现其他成员、发送私信、广播进展、读取并确认消息。协作状态由服务器维护；agent 可以来自不同应用，也可以共用同一 GitHub 账号。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/broker.rs">会话实现</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/collab.rs">协作实现</a></p>
+<p>同一条在线客户端连接可以容纳多个独立 agent。每个 agent 显式加入后，获得自己的身份和收件箱，可以发现其他成员、发送私信、广播进展、读取并确认消息。协作状态由服务器维护；agent 可以来自不同应用，也可以共用同一 GitHub 账号。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/broker.rs">会话实现</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/collab.rs">协作实现</a></p>
 <p>这里的“会话”指 <code>list</code> 返回的一个在线 <code>client_id</code>。每条连接有独立的成员表和邮箱；即使两条连接的名字、目录相同，成员和消息也各自独立。</p>
 <h2 id="接口与职责">接口与职责<a class="heading-anchor" href="#接口与职责" aria-label="链接到 接口与职责">#</a></h2>
 <p>公开 MCP 工具 <code>collab</code> 接收 <code>action</code>、<code>client_id</code> 和该操作的参数。所有操作都检查当前 OAuth 授权与目标连接的访问权限；已加入成员还需提供自己的 <code>agent_id</code> 和 <code>token</code>。</p>
@@ -417,18 +417,18 @@ return await collab.send(clientId, {
 <p>这组原语负责成员、消息和确认。任务分配、领导者选择、代码所有权以及并行修改策略由调用方约定，可以直接放进 <code>role</code>、<code>status</code> 和 <code>payload</code>，无需为每一种协作方式添加新的服务端工作流。</p>
 <p>实现与验证入口：</p>
 <ul>
-<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/collab.rs">有界成员表、邮箱、租约和重试去重</a></li>
-<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/http.rs">公共 MCP 路由与工具 Schema</a></li>
-<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/bridge.rs">当前授权与会话访问检查</a></li>
-<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/code_mode.js">JavaScript helper</a></li>
-<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/tests/collaboration.rs">HTTP 协作测试</a></li>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/collab.rs">有界成员表、邮箱、租约和重试去重</a></li>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/http.rs">公共 MCP 路由与工具 Schema</a></li>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/bridge.rs">当前授权与会话访问检查</a></li>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/code_mode.js">JavaScript helper</a></li>
+<li><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/tests/collaboration.rs">HTTP 协作测试</a></li>
 </ul>
 <p>已连接的 MCP 应用可以读取 <code>ssmcp://collaboration</code> 获取本文，从 <code>ssmcp://limits</code> 获取当前构建的限额。</p>
 <h2 id="结束决定与原生消息">结束决定与原生消息<a class="heading-anchor" href="#结束决定与原生消息" aria-label="链接到 结束决定与原生消息">#</a></h2>
-<p>交互接口复用当前参与者绑定，不启动额外模型。真实用户通过 <code>ssmcp.ui.ask</code> 的本机问题队列回答；agent 代答与结束审批入口已退役，正常进度、最终消息和 <code>ui.reply</code> 线程结果仍保留来源。问题答案独立放在 <code>question_answers</code>，不会伪装成用户要求。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/finish-and-questions.md">当前交互协议</a></p>
-<p>跨客户端原生消息使用 <code>messages</code> 的 list/send/inbox/ack/status。必须选择列出的完整稳定收件人 ID；同名显示标签不能代替身份。设备账户收件箱表示该账户下一次合格调用收取，agent 收件箱则要求精确绑定。独立 <code>native_messages</code> 保留实际来源，送达与确认不等于已读。完整边界与当前尚未完成的运行验收见<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/finish-and-questions.md">结束申请、异步问题与原生消息</a>。</p>
+<p>交互接口复用当前参与者绑定，不启动额外模型。真实用户通过 <code>ssmcp.ui.ask</code> 的本机问题队列回答；agent 代答与结束审批入口已退役，正常进度、最终消息和 <code>ui.reply</code> 线程结果仍保留来源。问题答案独立放在 <code>question_answers</code>，不会伪装成用户要求。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/finish-and-questions.md">当前交互协议</a></p>
+<p>跨客户端原生消息使用 <code>messages</code> 的 list/send/inbox/ack/status。必须选择列出的完整稳定收件人 ID；同名显示标签不能代替身份。设备账户收件箱表示该账户下一次合格调用收取，agent 收件箱则要求精确绑定。独立 <code>native_messages</code> 保留实际来源，送达与确认不等于已读。完整边界与当前尚未完成的运行验收见<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/finish-and-questions.md">结束申请、异步问题与原生消息</a>。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/agent-collaboration.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/agent-collaboration.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ssmcp/session-control/"><span class="pagination-label">上一页</span><span class="pagination-title">客户端会话、重连与输出管理</span></a></nav>
       <footer class="page-footer">
         <span>ssmcp <span class="footer-separator">/</span> Project Z</span>

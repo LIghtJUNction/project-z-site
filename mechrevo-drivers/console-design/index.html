@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#信息与视觉层次">信息与视觉层次</a></li><li class="toc-level-2"><a href="#布局与响应式行为">布局与响应式行为</a></li><li class="toc-level-2"><a href="#数据与控制">数据与控制</a></li><li class="toc-level-2"><a href="#共享实现与-project-z">共享实现与 Project Z</a></li><li class="toc-level-2"><a href="#事务与偏好">事务与偏好</a></li><li class="toc-level-2"><a href="#验收依据">验收依据</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="界面设计">界面设计</h1>
-<p>机械革命控制中心使用 Rust / egui 原生界面，共用 Rust 核心处理设备状态与控制事务。布局在 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/crates/gui/src/desktop.rs">desktop.rs</a>，常用控制在 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/crates/gui/src/desktop/controls.rs">controls.rs</a>，颜色与字体在 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/crates/gui/src/appearance.rs">appearance.rs</a>。功能范围见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/PRODUCT.md">PRODUCT.md</a>。</p>
+<p>机械革命控制中心使用 Rust / egui 原生界面，共用 Rust 核心处理设备状态与控制事务。布局在 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/crates/gui/src/desktop.rs">desktop.rs</a>，常用控制在 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/crates/gui/src/desktop/controls.rs">controls.rs</a>，颜色与字体在 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/crates/gui/src/appearance.rs">appearance.rs</a>。功能范围见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/PRODUCT.md">PRODUCT.md</a>。</p>
 <h2 id="信息与视觉层次">信息与视觉层次<a class="heading-anchor" href="#信息与视觉层次" aria-label="链接到 信息与视觉层次">#</a></h2>
 <p>首页按使用顺序展示温度与风扇、性能档位、电池保养与屏幕亮度、常用设备控制、设备详情。实时读数和常用操作优先占用空间；数据来源、接口能力与回读说明按需展开。桌面布局的验收目标是在 1280×900 默认窗口中，同时看到五档性能选择、当前运行状态、预览入口、电池保养和屏幕亮度。</p>
 <p>界面用石墨黑、暖白和少量暖沙色建立层次。面板通过背景明度、对齐与间距分组；侧栏使用浅层背景标出当前页面。常规面板、导航和档位按钮均无装饰描边，侧栏与正文之间用留白分隔。键盘焦点仍有明确轮廓，错误、忙碌和操作结果保留对应文字。</p>
@@ -114,8 +114,8 @@
 </tr>
 </tbody>
 </table></div>
-<p>CPU 读数与曲线采用正文色，GPU 采用琥珀色，并各自保留名称和单位。选中项使用暖色背景与文字共同表达状态。两套主题分别定义正文、次要文字、强调、警告和错误颜色；<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/crates/gui/src/appearance.rs">颜色回归</a>将文字对比度 4.5:1 作为检查门槛。</p>
-<p><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/crates/gui/assets/fonts/README.md">Manrope</a> 用于拉丁文字和品牌，中文由系统字体补全，运行时不下载字体。温度与风扇读数使用 egui 等宽字体，让相同位数的数值和单位保持位置稳定。背景保持纯色，面板没有纹理或阴影。</p>
+<p>CPU 读数与曲线采用正文色，GPU 采用琥珀色，并各自保留名称和单位。选中项使用暖色背景与文字共同表达状态。两套主题分别定义正文、次要文字、强调、警告和错误颜色；<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/crates/gui/src/appearance.rs">颜色回归</a>将文字对比度 4.5:1 作为检查门槛。</p>
+<p><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/crates/gui/assets/fonts/README.md">Manrope</a> 用于拉丁文字和品牌，中文由系统字体补全，运行时不下载字体。温度与风扇读数使用 egui 等宽字体，让相同位数的数值和单位保持位置稳定。背景保持纯色，面板没有纹理或阴影。</p>
 <h2 id="布局与响应式行为">布局与响应式行为<a class="heading-anchor" href="#布局与响应式行为" aria-label="链接到 布局与响应式行为">#</a></h2>
 <p>布局按实际内容确定高度，保留读数和操作空间。常规面板圆角为 12，标准／紧凑模式内边距为 20／16；面板可用宽度不足 380 时分别降为 16／12。性能区使用开放布局，标题、当前运行档位和选择项直接排列，避免再嵌套一层面板。</p>
 <p>性能按钮的列数由区内可用宽度决定：至少 720 时显示五列，480–719 显示三列，300–479 显示两列，更窄时显示一列。按钮最低高度为标准 68、紧凑 60，较长文字可以继续撑高。当前回读档位与待选择目标分别呈现，选项名称和用途保留为辅助技术可读的标签。</p>
@@ -130,19 +130,19 @@
 <h2 id="数据与控制">数据与控制<a class="heading-anchor" href="#数据与控制" aria-label="链接到 数据与控制">#</a></h2>
 <p>CPU／GPU 显示同类当前最高的有效温度，曲线显示对应实际来源的历史。历史按机器身份和传感器来源隔离，每个来源最多 120 点；缺失读数形成断点，重新绘制界面不会新增采样。至少三次有效采样才绘制曲线，横轴使用采样时间。明确标注 CPU 或 GPU 的风扇归入对应组，通用风扇编号独立显示。</p>
 <p>自动采样默认开启。启动时只读刷新，此后距上次快照至少 3 秒且后台空闲时更新；待确认预览期间暂停。关闭后显示“手动更新”。界面重绘与硬件采样分别调度，动画设置只控制视觉过渡。</p>
-<p>控制入口来自运行时枚举的接口。性能档位、电池、键盘和屏幕亮度都经过选择、预览、显式应用与回读。选择只修改请求目标，当前状态继续显示设备回读值；不可用项显示具体原因。型号目录展示产品资料，实际可控范围由后端能力结果决定，见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/OEM-FEATURE-COVERAGE.md">OEM 功能覆盖</a>。</p>
+<p>控制入口来自运行时枚举的接口。性能档位、电池、键盘和屏幕亮度都经过选择、预览、显式应用与回读。选择只修改请求目标，当前状态继续显示设备回读值；不可用项显示具体原因。型号目录展示产品资料，实际可控范围由后端能力结果决定，见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/OEM-FEATURE-COVERAGE.md">OEM 功能覆盖</a>。</p>
 <h2 id="共享实现与-project-z">共享实现与 Project Z<a class="heading-anchor" href="#共享实现与-project-z" aria-label="链接到 共享实现与 Project Z">#</a></h2>
-<p>CLI 使用 Project Z 的 <code>zclap = 0.1.4</code> 解析命令。RGB 十六进制处理集中在核心的 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/crates/core/src/color.rs">color.rs</a>，复用 <code>zhex = 0.1.3</code>。GUI 的 RGB 文本调用 <code>mechrevo_console_core::color::format_rgb_hex</code>，与其他前端共用格式规则。</p>
+<p>CLI 使用 Project Z 的 <code>zclap = 0.1.4</code> 解析命令。RGB 十六进制处理集中在核心的 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/crates/core/src/color.rs">color.rs</a>，复用 <code>zhex = 0.1.3</code>。GUI 的 RGB 文本调用 <code>mechrevo_console_core::color::format_rgb_hex</code>，与其他前端共用格式规则。</p>
 <p>GUI 的窗口、布局、绘制和输入继续由 egui / eframe 提供，设备能力与事务继续走共用核心。依赖版本见各 crate 的 <code>Cargo.toml</code> 与工作区 <code>Cargo.lock</code>；共享能力的接入位置与界面框架分别记录。</p>
 <h2 id="事务与偏好">事务与偏好<a class="heading-anchor" href="#事务与偏好" aria-label="链接到 事务与偏好">#</a></h2>
 <p>启动和读取状态使用普通用户权限。需要授权的操作在显式应用后请求授权，后台重新核对接口、目标范围、绑定与原值。切换目标或手动刷新会作废旧计划，每份计划只使用一次。</p>
 <p>写入、回读或必要恢复尚未结束时，窗口保持打开并显示进度。失败时保留原始错误和回读／恢复结果；状态未知时继续阻止后续写入与关闭，不自动重放操作。界面通过单个后台任务执行设备调用，重复刷新不堆积任务。</p>
 <p>主题、80–160% 文字缩放、标准／紧凑显示、自动采样和动画偏好保存在 eframe 用户配置目录。操作计划与温度历史只保留在当前进程中。</p>
 <h2 id="验收依据">验收依据<a class="heading-anchor" href="#验收依据" aria-label="链接到 验收依据">#</a></h2>
-<p><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/crates/gui/tests/headless_layout.rs">布局回归</a>覆盖深浅主题、窄窗、大字体、DPI、长文本、键盘导航、底部可达性、未知读数及预览／应用隔离。完整桌面场景同时提供五档性能、充电、屏幕亮度、CPU／GPU 温度和双风扇数据，检查首屏入口与同排档位，并通过真实点击验证请求目标和当前值仍分别保存。</p>
-<p>软件渲染图用于检查 egui 内容，原生窗口截图用于核对实际窗口、字体与交互。截图流程见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/VISUAL-REVIEW.md">视觉验收</a>。模拟数据只用于独立预览和测试；硬件写入、实体灯光、噪声以及各平台兼容性分别记录实机结果。本设计文档说明实现约定与检查范围，具体执行结果以对应验收记录为准。</p>
+<p><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/crates/gui/tests/headless_layout.rs">布局回归</a>覆盖深浅主题、窄窗、大字体、DPI、长文本、键盘导航、底部可达性、未知读数及预览／应用隔离。完整桌面场景同时提供五档性能、充电、屏幕亮度、CPU／GPU 温度和双风扇数据，检查首屏入口与同排档位，并通过真实点击验证请求目标和当前值仍分别保存。</p>
+<p>软件渲染图用于检查 egui 内容，原生窗口截图用于核对实际窗口、字体与交互。截图流程见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/VISUAL-REVIEW.md">视觉验收</a>。模拟数据只用于独立预览和测试；硬件写入、实体灯光、噪声以及各平台兼容性分别记录实机结果。本设计文档说明实现约定与检查范围，具体执行结果以对应验收记录为准。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/console/DESIGN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/console/DESIGN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../mechrevo-drivers/packaging-arch-mechrevo-console-readme/"><span class="pagination-label">上一页</span><span class="pagination-title">Arch / AUR 控制台包</span></a></nav>
       <footer class="page-footer">
         <span>mechrevo-drivers <span class="footer-separator">/</span> Project Z</span>

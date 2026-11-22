@@ -120,7 +120,7 @@
 <p><a href="../../lmm-api-source/extore/">Extore 集成</a>另有部署边界：不得合并或推送会自动部署的 Extore <code>main</code>，
 不得据此部署。继续前核对其分支、已有修改与两端候选版本。</p>
 <h2 id="只准备所需工具">只准备所需工具<a class="heading-anchor" href="#只准备所需工具" aria-label="链接到 只准备所需工具">#</a></h2>
-<p>版本以 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/mise.toml">mise.toml</a> 为准；已有匹配工具和锁定依赖可复用。命令使用
+<p>版本以 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/mise.toml">mise.toml</a> 为准；已有匹配工具和锁定依赖可复用。命令使用
 <code>mise exec --</code>，just 的 recipe 已通过 mise 执行；也可直接调用已准备好的固定版本工具。</p>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
 <thead>
@@ -152,7 +152,7 @@
 </tr>
 <tr>
 <td>Docker 或原生打包</td>
-<td><a href="../../lmm-api-source/deployment-docker-readme/">Docker 指南</a>或<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/packaging/linux/README.md">原生包指南</a>列出的工具</td>
+<td><a href="../../lmm-api-source/deployment-docker-readme/">Docker 指南</a>或<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/packaging/linux/README.md">原生包指南</a>列出的工具</td>
 </tr>
 <tr>
 <td>pgroll</td>
@@ -169,7 +169,7 @@
 不写入 mise 配置，不传给实际扩展服务。</p>
 <h2 id="核心与数据库">核心与数据库<a class="heading-anchor" href="#核心与数据库" aria-label="链接到 核心与数据库">#</a></h2>
 <p>Core 独立于 Go，身份和账户功能依赖 PostgreSQL。安装与升级合同见
-<a href="../../lmm-api-source/core-migration/#%E5%AE%89%E8%A3%85%E6%9D%83%E9%99%90%E4%B8%8E%E7%BB%93%E6%9E%84%E5%8D%87%E7%BA%A7">架构说明</a>和 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/core/schema/README.md">schema</a>。
+<a href="../../lmm-api-source/core-migration/#%E5%AE%89%E8%A3%85%E6%9D%83%E9%99%90%E4%B8%8E%E7%BB%93%E6%9E%84%E5%8D%87%E7%BA%A7">架构说明</a>和 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/core/schema/README.md">schema</a>。
 普通启动只检查结构、catalog 指纹和运行权限，不创建角色、授权、执行 DDL 或升级库。</p>
 <p>当前源码的新装合同为 <strong>75 个组件</strong>，以 <code>lmm-core schema-manifest</code> 和
 <code>services/core/src/core_schema/upgrade/fresh70_target.json</code> 为准。
@@ -177,17 +177,17 @@
 66→67（付款折扣）、67→68（折扣管理）、68→69（Responses 连续性）和 69→70（托管应用，<code>core-managed-applications-v1</code>）；每一步仍须满足
 其独立的前置版本、冻结指纹、owner 授权和升级回执，不能用组件数代替验证。
 日签验证另有精确的 74→75 升级 <code>core-checkin-challenges-v1</code>，不替代先前版本的
-升级链；配置、权限和验证边界见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/checkin-anti-automation.md">签到防自动化</a>。
+升级链；配置、权限和验证边界见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/checkin-anti-automation.md">签到防自动化</a>。
 旧站升级、历史签到导入及其策略发布仍使用与旧站匹配的保留执行器；不得以当前组件
 前缀重建或更新冻结历史指纹。新装合同不等于旧站离线迁移已经验收，后者见
 <a href="../../lmm-api-source/progress/">当前迁移状态</a>。
 已有库不得通过清空、重复初始化或修改契约记录绕过检查。
-连续性映射的保留期限与恢复性能验收见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/responses-continuity.md">存储与恢复合同</a>。</p>
+连续性映射的保留期限与恢复性能验收见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/responses-continuity.md">存储与恢复合同</a>。</p>
 <p>初始化 owner 与受限 runtime 使用分开的凭据，按<a href="../../lmm-api-source/deployment-postgres-readme/">离线角色说明</a>
 准备授权；owner URL 不挂载给运行服务。配置采用 TOML 和受控的绝对路径文件，
 不扫描目录、不混入环境覆盖，私密文件须归属服务账户，权限 <code>0600</code> 或可读的 <code>0400</code>。
 <a href="../../lmm-api-source/filesystem-layout/">原生路径</a>为 <code>/etc/lmm.conf.d/core.toml</code>、
-<code>/var/lib/lmm/core</code> 和 <code>/run/lmm/core</code>；模板见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/core.example.toml">core.example.toml</a>。
+<code>/var/lib/lmm/core</code> 和 <code>/run/lmm/core</code>；模板见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/core.example.toml">core.example.toml</a>。
 <code>database.url_file</code> 读取 <code>/etc/lmm.conf.d/secrets/core/database-url</code> 中的 runtime URL；
 把 owner 凭据交给网络服务会在监听前拒绝。</p>
 <p>只对已明确选定的全新隔离空库执行一次安装；运行检查使用另一个受限配置：</p>
@@ -196,14 +196,14 @@ lmm-core --config /absolute/private/core.toml check-db
 </code></pre></div>
 <p><code>check-db</code> 输出 JSON，只读检查目标结构和配置所需权限，不启动 HTTP、RPC、worker
 或模型流量。退出 <code>0</code> 表示该次检查通过；备份、物理数据库身份和恢复就绪另行核验。
-历史余额导入使用<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/legacy-financial-opening.md">财务导入合同</a>，不属于新库安装。</p>
-<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/scripts/core-ops.py"><code>scripts/core-ops.py</code></a> 的 <code>plan</code>、<code>status</code>、<code>reconcile</code> 接受显式
+历史余额导入使用<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/legacy-financial-opening.md">财务导入合同</a>，不属于新库安装。</p>
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/scripts/core-ops.py"><code>scripts/core-ops.py</code></a> 的 <code>plan</code>、<code>status</code>、<code>reconcile</code> 接受显式
 安装记录、文件摘要和私有输入，可先运行 <code>python3 -B scripts/core-ops.py --help</code>。
 <code>plan</code> 在私有材料目录独占创建计划；其余两项只读，UNKNOWN 不重放。
 物理身份未验证返回 <code>PHYSICAL_IDENTITY_UNVERIFIED</code> 和退出码 <code>3</code>；工具不授予维护或恢复权限。</p>
 <p>本地 HTTP 显式设 <code>identity.web.local_http=true</code>；配置 <code>identity.web.origin</code> 和
 <code>identity.web.refresh_key_file</code>，并使 <code>user_agreement_enabled</code>、<code>privacy_policy_enabled</code>
-符合公开协议。注册用 <code>identity.registration_enabled</code>；<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/core-identity.md#%E5%8F%AF%E9%80%89-totp-%E4%BA%8C%E6%AC%A1%E9%AA%8C%E8%AF%81mfa">MFA keyring</a>
+符合公开协议。注册用 <code>identity.registration_enabled</code>；<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/core-identity.md#%E5%8F%AF%E9%80%89-totp-%E4%BA%8C%E6%AC%A1%E9%AA%8C%E8%AF%81mfa">MFA keyring</a>
 另行配置，未配置也不会绕过已有账号的 MFA。模型、支付默认关闭，健康检查范围见
 <a href="../../lmm-api-source/core-migration/#%E7%8B%AC%E7%AB%8B%E5%90%AF%E5%8A%A8%E4%B8%8E%E8%B5%84%E6%BA%90">独立启动</a>。</p>
 <h2 id="启动扩展与前端">启动扩展与前端<a class="heading-anchor" href="#启动扩展与前端" aria-label="链接到 启动扩展与前端">#</a></h2>
@@ -211,7 +211,7 @@ lmm-core --config /absolute/private/core.toml check-db
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>(cd services/extensions &amp;&amp; mise exec -- go run ./cmd/extensions --config /absolute/private/extensions.toml)
 mise exec -- bun run --filter @lmm/web dev --port 5173 --host 127.0.0.1 --strict-port
 </code></pre></div>
-<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/config/extensions.example.toml">Extensions 模板</a>的 <code>host.token_file</code> 是独立宿主
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/config/extensions.example.toml">Extensions 模板</a>的 <code>host.token_file</code> 是独立宿主
 凭据；<code>host.modules=[&quot;none&quot;]</code> 关闭受保护模块。identity 还需 RPC socket、独立口令
 和跨用户文件权限。Go 不加载 <code>.env</code>，拒绝 <code>SQL_DSN</code>、<code>DATABASE_URL</code>、
 <code>LMM_CORE_DATABASE_URL</code> 等旧单体/Core 库变量。Core 和 Extensions 均已移除 <code>--legacy-env</code>，只读取 TOML；Core 同时拒绝混入
@@ -222,7 +222,7 @@ mise exec -- bun run --filter @lmm/web dev --port 5173 --host 127.0.0.1 --strict
 <h2 id="验证与分发">验证与分发<a class="heading-anchor" href="#验证与分发" aria-label="链接到 验证与分发">#</a></h2>
 <p>使用<a href="../../lmm-api-source/agent-workflows/#%E6%8C%89%E8%8C%83%E5%9B%B4%E9%80%89%E6%8B%A9%E6%A3%80%E6%9F%A5">检查选择表</a>，遵守<a href="../../lmm-api-source/agent-workflows/#%E9%80%82%E5%BA%A6%E4%B8%8E%E5%81%9C%E6%AD%A2">适度与停止</a>。
 Core-only 工作直接调用核心工具链，不运行同时构建 Core、Go、Web 的 <code>just build</code>。
-归档与原生包见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/release-architecture.md">独立分发</a>；保留匹配的构建缓存和原始来源记录。</p>
+归档与原生包见<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/release-architecture.md">独立分发</a>；保留匹配的构建缓存和原始来源记录。</p>
 <h2 id="github-actions">GitHub Actions<a class="heading-anchor" href="#github-actions" aria-label="链接到 GitHub Actions">#</a></h2>
 <p>工作流位于源码仓库，自动检查按路径筛选，镜像发布与 S11 源码快照保留手动入口。
 实际触发器、输入、权限及 Actions 启用状态以当前仓库和文件为准；修改配置不自动
@@ -236,45 +236,45 @@ Core-only 工作直接调用核心工具链，不运行同时构建 Core、Go、
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/ci.yml">ci.yml</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/workflows/ci.yml">ci.yml</a></td>
 <td>手动服务端、前端与翻译诊断</td>
 </tr>
 <tr>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/core-protocol.yml">core-protocol.yml</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/workflows/core-protocol.yml">core-protocol.yml</a></td>
 <td>Rust/Go、协议及一次性数据库检查</td>
 </tr>
 <tr>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/microservice-distribution.yml">microservice-distribution.yml</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/workflows/microservice-distribution.yml">microservice-distribution.yml</a></td>
 <td>三个程序与静态 Web 的独立预览归档</td>
 </tr>
 <tr>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/microservice-images.yml">microservice-images.yml</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/workflows/microservice-images.yml">microservice-images.yml</a></td>
 <td>Core/Go 构建、冒烟与 GHCR 预览镜像</td>
 </tr>
 <tr>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/s11-source-snapshot.yml">s11-source-snapshot.yml</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/workflows/s11-source-snapshot.yml">s11-source-snapshot.yml</a></td>
 <td>固定源码及 CLI，保存可恢复的 Git bundle 和来源记录</td>
 </tr>
 <tr>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/linux-packages.yml">linux-packages.yml</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/workflows/linux-packages.yml">linux-packages.yml</a></td>
 <td>原生预览包及隔离安装、升级、运行、卸载</td>
 </tr>
 <tr>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/workflows/store-claim-refund-review.yml">store-claim-refund-review.yml</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/workflows/store-claim-refund-review.yml">store-claim-refund-review.yml</a></td>
 <td>商店提货/退款的服务端、前端和浏览器回归</td>
 </tr>
 </tbody>
 </table></div>
 <p>记录源码、输入、命令、退出码和日志，区分成功、失败、取消与未运行；复用
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/scripts/local-release-tests.py">本地证据工具</a>或<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/scripts/verify-release-commit-checks.sh">检查记录校验器</a>
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/scripts/local-release-tests.py">本地证据工具</a>或<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/scripts/verify-release-commit-checks.sh">检查记录校验器</a>
 时保留其来源约束。归档的所有组件绑定同一固定 SHA；S11 只冻结源码，宿主、资金
 及最终组合仍按<a href="../../lmm-api-source/progress/">进度表</a>独立验收。旧单体工作流见<a href="../../lmm-api-source/archive/">归档</a>。</p>
 <p>预览归档、镜像、正式 Release 和生产部署分别记录。路径检查不覆盖全仓，静态
 检查不替代实际运行，不能用空执行消除失败。镜像入口见<a href="../../lmm-api-source/deployment-docker-readme/#github-container-registry-%E9%A2%84%E8%A7%88%E9%95%9C%E5%83%8F">Docker 指南</a>。</p>
 <h2 id="按需pgroll-实验">按需：pgroll 实验<a class="heading-anchor" href="#按需pgroll-实验" aria-label="链接到 按需：pgroll 实验">#</a></h2>
 <p>pgroll 是 mise 固定的外部实验工具，不进入运行镜像、分发包、启动或 <code>init-db</code>，
-也不作为现有 Core 库升级方案；边界见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/core/schema/README.md#pgroll-evaluation-boundary">schema</a>。</p>
-<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/tests/pgroll/test_pgroll.py">实验测试</a>只连接 <code>/var/run/docker.sock</code>，不接收外部 DSN
+也不作为现有 Core 库升级方案；边界见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/core/schema/README.md#pgroll-evaluation-boundary">schema</a>。</p>
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/tests/pgroll/test_pgroll.py">实验测试</a>只连接 <code>/var/run/docker.sock</code>，不接收外部 DSN
 或读取已有库凭据。它核对新建随机空容器的所有权，只清理自有容器；指定摘要的
 镜像须预先准备，测试不下载镜像：</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>mise install aqua:xataio/pgroll@0.16.3
@@ -286,7 +286,7 @@ mise exec -- just test-pgroll
 需要真实数据库，<code>status</code> 也可能升级旧元数据；不得把它们当只读探针，不得对现有
 Core 库运行 init、baseline、convert 或迁移命令。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/development.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/development.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/core-migration/"><span class="pagination-label">上一页</span><span class="pagination-title">Core 与 Extensions 架构</span></a><a class="pagination-link next" href="../../lmm-api-source/extore/"><span class="pagination-label">下一页</span><span class="pagination-title">Extore 商品集成</span></a></nav>
       <footer class="page-footer">
         <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>

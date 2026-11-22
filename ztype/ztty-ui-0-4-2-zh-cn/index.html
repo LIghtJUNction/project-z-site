@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#界面变化">界面变化</a></li><li class="toc-level-2"><a href="#ztty-首字丢失的原因与修复">ztty 首字丢失的原因与修复</a></li><li class="toc-level-2"><a href="#验收范围">验收范围</a></li><li class="toc-level-2"><a href="#复现">复现</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="ztype-042候选界面与-ztty-输入验收">ztype 0.4.2：候选界面与 ztty 输入验收</h1>
-<p>本轮把原生候选界面接到当前 Git 依赖基线，并分别验证 X11/XIM 与原生 Wayland 的 ztty 输入。运行时代码固定于 <code>053eb39eb115decc0cb046e901598cf0bc4645fb</code>；后续测试与文档提交不改变该提交的 Rust 源码及 Cargo 文件。完整文件哈希、二进制哈希和分阶段结果见<a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/evidence/ztty-ui-0.4.2-20261121/summary.json">机器可读验收记录</a>。</p>
+<p>本轮把原生候选界面接到当前 Git 依赖基线，并分别验证 X11/XIM 与原生 Wayland 的 ztty 输入。运行时代码固定于 <code>053eb39eb115decc0cb046e901598cf0bc4645fb</code>；后续测试与文档提交不改变该提交的 Rust 源码及 Cargo 文件。完整文件哈希、二进制哈希和分阶段结果见<a href="https://github.com/LIghtJUNction/ztype/blob/5d245e5b0633b5ce0f9479fec9741fb23b7b5b80/docs/evidence/ztty-ui-0.4.2-20261121/summary.json">机器可读验收记录</a>。</p>
 <h2 id="界面变化">界面变化<a class="heading-anchor" href="#界面变化" aria-label="链接到 界面变化">#</a></h2>
 <p>候选正文为 16 px，页内序号为 12 px，预编辑标题为 14 px；面板左右留白为 20 px，候选行高为 40 px。窗口宽度仍限制在 248–640 px，长候选只在显示时省略，提交文本保持完整。选中项同时使用浅蓝背景和加粗正文，数字选词、分页及焦点处理沿用原有行为。</p>
 <p>浅色主题采用 Material 3 的语义颜色角色：表面 <code>#F8FAFD</code>、正文 <code>#1F1F1F</code>、次要文字 <code>#5F6368</code>、选中表面 <code>#D3E3FD</code>、选中文字 <code>#041E49</code>。四组实际文字配色的对比度分别为 15.764、5.786、12.568 和 4.919，均高于小字号文字的 4.5:1 目标。候选像素保持完全不透明，适配 X11 depth-24 与 Wayland surface。</p>
@@ -133,7 +133,7 @@
 </tbody>
 </table></div>
 <p>XIM 验收通过独立 Xvfb、XTEST 和真实 PTY，包含后启动输入服务、多窗口焦点、数字选择、候选窗显示/关闭、服务停止时普通按键及重启重连。ztty 的 XIM 客户端未提供字符 spot 时使用窗口边缘回退位置，本轮不宣称该路径跟随终端内的字符光标。</p>
-<p>Wayland 验收使用独立 Weston headless → Hyprland、私有 socket 和虚拟键盘。ztty 窗口通过 broker 的 Unix peer credential、可执行文件和进程身份绑定，再核对实际 Wayland 窗口、候选状态与 PTY 收据。输入仍为连续的 <code>nihaoshijie → Space → Return</code>，没有添加延时来改变通过条件。测试结束后核对本轮进程清理和二进制哈希。修复前后两份收据的第三个脚本条目覆盖不同；共同的 nested runner 与 ztty helper 哈希完全相同，命令仅改变输出目录和 ztty 二进制路径。具体差异见<a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/evidence/ztty-ui-0.4.2-20261121/receipt-script-coverage.json">收据补充说明</a>，原收据保持原样。</p>
+<p>Wayland 验收使用独立 Weston headless → Hyprland、私有 socket 和虚拟键盘。ztty 窗口通过 broker 的 Unix peer credential、可执行文件和进程身份绑定，再核对实际 Wayland 窗口、候选状态与 PTY 收据。输入仍为连续的 <code>nihaoshijie → Space → Return</code>，没有添加延时来改变通过条件。测试结束后核对本轮进程清理和二进制哈希。修复前后两份收据的第三个脚本条目覆盖不同；共同的 nested runner 与 ztty helper 哈希完全相同，命令仅改变输出目录和 ztty 二进制路径。具体差异见<a href="https://github.com/LIghtJUNction/ztype/blob/5d245e5b0633b5ce0f9479fec9741fb23b7b5b80/docs/evidence/ztty-ui-0.4.2-20261121/receipt-script-coverage.json">收据补充说明</a>，原收据保持原样。</p>
 <p>原生 Wayland ztty 的提交前截图中，终端自己的行内预编辑曾覆盖提示行开头；提交后提示行恢复，中文出现在下一行。测试接收器的就绪标记与终端绘制之间仍存在时序差异，本轮未确定这个视觉偏移的原因。真实 PTY 提交和候选窗检查通过，终端行内预编辑的视觉定位保留为待核对项。</p>
 <p>测试合成器复用了固定哈希的私有 Aquamarine 兼容库，仅用于子进程；系统库保持原样。当前桌面的 Fcitx5、输入法配置及已安装 ztype 不在本轮切换范围内。PNG 和 ELF 留作本地验收产物，Git 只保存源码、文字说明及哈希记录。</p>
 <h2 id="复现">复现<a class="heading-anchor" href="#复现" aria-label="链接到 复现">#</a></h2>
@@ -147,7 +147,7 @@
 </code></pre></div>
 <p>测试输出包括整体报告、真实终端收据、协议日志和候选截图。日常安装与输入法服务配置仍见<a href="../../ztype/service-installation/">安装与服务</a>。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztype/blob/1b08bedd4ffb1ef68effa5aea32c31775e51d268/docs/ztty-ui-0.4.2.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztype">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ztype/blob/5d245e5b0633b5ce0f9479fec9741fb23b7b5b80/docs/ztty-ui-0.4.2.zh-CN.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ztype">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ztype/interactive-trial-zh-cn/"><span class="pagination-label">上一页</span><span class="pagination-title">Ztype 0.2.1 安装与实测记录</span></a></nav>
       <footer class="page-footer">
         <span>ztype <span class="footer-separator">/</span> Project Z</span>

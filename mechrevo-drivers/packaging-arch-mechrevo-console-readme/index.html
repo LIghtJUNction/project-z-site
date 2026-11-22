@@ -132,7 +132,7 @@ sudo systemctl enable --now mechrevo-ec-hotkey.service
 </code></pre></div>
 <p>用户服务在 tccd 不可用时仍可处理触摸板热键。安装包不自动启用这两个常驻服务。
 EC-only 控制仍限于受支持的设备接口，模式参数和硬件验证范围见
-<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/PERFORMANCE-PROFILES.md">性能档位说明</a>。</p>
+<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/PERFORMANCE-PROFILES.md">性能档位说明</a>。</p>
 <p>安装时仅迁移未修改的 TUXEDO 默认 profile，保留用户参数。五档 GUI 控制需要可信、
 有效的 tccd 配置。OEM 应用由受限 helper 执行类型化计划；活动会话使用
 <code>auth_admin_keep</code>，非活动会话使用 <code>auth_admin</code>，<code>allow_any=no</code>。授权拒绝或 helper
@@ -145,7 +145,7 @@ app ID 均为 <code>best.lmm.mechrevo-console</code>。许可目录保留项目 
 <p>配方检查固定源码、文件类型、desktop 文件、策略的 action/路径/权限，并验证打包后
 helper 和策略的字节、权限。安装后运行 <code>pacman -Qkk mechrevo-console</code>，再检查普通
 用户 CLI、GUI 和实际硬件结果。以前的验证记录集中在
-<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/verification">verification</a>，其中每份记录只对应列出的提交和安装版本。</p>
+<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/verification">verification</a>，其中每份记录只对应列出的提交和安装版本。</p>
 <p>回滚可用保留的旧安装包执行 <code>sudo pacman -U /path/to/old-package.pkg.tar.zst</code>。
 卸载使用 <code>sudo pacman -R mechrevo-console</code>，包管理器保留用户 GUI 偏好。</p>
 <h2 id="公开二进制发布">公开二进制发布<a class="heading-anchor" href="#公开二进制发布" aria-label="链接到 公开二进制发布">#</a></h2>
@@ -155,7 +155,7 @@ helper 和策略的字节、权限。安装后运行 <code>pacman -Qkk mechrevo-
 <p>发布附件包含安装包、配方源包、<code>SHA256SUMS</code>、OpenPGP 分离签名和维护者公钥。
 从可信渠道核对指纹后验签并检查摘要。源码标签、构建来源和二进制摘要随发布记录保存。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/packaging/arch/mechrevo-console/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/packaging/arch/mechrevo-console/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../mechrevo-drivers/power-control/"><span class="pagination-label">上一页</span><span class="pagination-title">CPU 长期功耗上限</span></a><a class="pagination-link next" href="../../mechrevo-drivers/console-design/"><span class="pagination-label">下一页</span><span class="pagination-title">界面设计</span></a></nav>
       <footer class="page-footer">
         <span>mechrevo-drivers <span class="footer-separator">/</span> Project Z</span>

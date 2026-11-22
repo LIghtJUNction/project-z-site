@@ -180,7 +180,7 @@ ZUSE
 读取 <code>start</code> 返回的确切 socket 路径，并遵循<a href="../../zuse/session-protocol/">会话协议</a>。
 典型循环是观察、等待观察结果、决定下一段 Zuse 源码、提交、等待执行结果，再观察。
 模型调用和游戏策略由控制器负责；会话服务负责有界执行、状态与回执，不内置 JEV 或模型 RPC。</p>
-<p>仓库附带只依赖 Python 标准库的<a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/examples/session_client.py">客户端示例</a>。
+<p>仓库附带只依赖 Python 标准库的<a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/examples/session_client.py">客户端示例</a>。
 它从 stdin 读取一次源码，提交一次，并通过同一连接查询到作业终态：</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>zuse_socket=$(zuse session status board |
   python3 -c &#x27;import json,sys; print(json.load(sys.stdin)[&quot;socket&quot;])&#x27;)
@@ -203,9 +203,9 @@ socket 权限为 <code>0600</code>。最多同时连接 16 个客户端；连接
 请求去重缓存最多 64 条、总请求与响应数据最多 8 MiB。完整字段、错误码和重试规则见协议文档。
 结果正文超限会返回截断元数据并标记作业失败；这不代表之前的应用动作没有发生。
 输入回执仍需结合应用状态判断是否达成目标；<code>accepted</code> 只表示作业已接收。</p>
-<p>相关验证见 <a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/tests/sessions.rs">sessions.rs</a>，使用无桌面输入的 Runtime 作业、真实 Unix socket 和独立 CLI 进程。</p>
+<p>相关验证见 <a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/tests/sessions.rs">sessions.rs</a>，使用无桌面输入的 Runtime 作业、真实 Unix socket 和独立 CLI 进程。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/6e88dd885eb73545a1ab6a9cd50097ef63fba423/docs/sessions.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zuse/blob/f13412e3c148ecf01c347423caba509d45df9ccc/docs/sessions.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zuse">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zuse/session-protocol/"><span class="pagination-label">上一页</span><span class="pagination-title">Zuse 会话协议 v1</span></a><a class="pagination-link next" href="../../zuse/platforms/"><span class="pagination-label">下一页</span><span class="pagination-title">Platform support and verification</span></a></nav>
       <footer class="page-footer">
         <span>zuse <span class="footer-separator">/</span> Project Z</span>

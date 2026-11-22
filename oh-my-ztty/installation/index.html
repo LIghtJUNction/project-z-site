@@ -219,8 +219,8 @@ omztty config status
 <p>Disabling an existing installation removes only desktop links that still point to this suite. Replacement files and foreign links are preserved. Enabling the entry stops if an unrelated file or link already occupies its path.</p>
 <p>Personal shell configuration belongs outside the release directory. See <a href="../../oh-my-ztty/configuration/">configuration</a> before adding aliases, themes or plugins.</p>
 <h2 id="offline-installation">Offline installation<a class="heading-anchor" href="#offline-installation" aria-label="链接到 Offline installation">#</a></h2>
-<p>Download an archive and its matching <code>.sha256</code> file from the same published release. The x86_64 example below uses <a href="https://github.com/LIghtJUNction/oh-my-ztty/releases/tag/v0.2.8">this release</a>.</p>
-<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-16" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-16" tabindex="0"><code>sh install.sh --from ./oh-my-ztty-0.2.8-linux-x86_64.tar.gz
+<p>Download an archive and its matching <code>.sha256</code> file from the same published release. The x86_64 example below uses <a href="https://github.com/LIghtJUNction/oh-my-ztty/releases/tag/v0.2.13">this release</a>.</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-16" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-16" tabindex="0"><code>sh install.sh --from ./oh-my-ztty-0.2.13-linux-x86_64.tar.gz
 </code></pre></div>
 <p>Use the aarch64 archive on ARM64. If you have already obtained the digest from the release record, the installer's <code>--sha256</code> option can supply it instead of a sidecar file.</p>
 <h2 id="update-or-reinstall">Update or reinstall<a class="heading-anchor" href="#update-or-reinstall" aria-label="链接到 Update or reinstall">#</a></h2>
@@ -247,7 +247,7 @@ omztty update --desktop
 <p>Uninstallation restores the adopted <code>omztty config</code> home profile before removing the runtime. Failed restoration or inconsistent deployment records preserve the installation for recovery. After restoration, suite-owned installation files and links are removed; personal profiles, additions, completion files and history are retained.</p>
 <p>Independent repositories deployed through <code>omztty dot</code> have a separate lifecycle. Use <a href="../../oh-my-ztty/dotfiles/#remove-a-deployment">zdot remove</a> first if you also want to restore those deployments.</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/site/content/installation.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/oh-my-ztty">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/site/content/installation.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/oh-my-ztty">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../oh-my-ztty/readme-en/"><span class="pagination-label">上一页</span><span class="pagination-title">oh-my-ztty</span></a><a class="pagination-link next" href="../../oh-my-ztty/configuration/"><span class="pagination-label">下一页</span><span class="pagination-title">Configuration</span></a></nav>
       <footer class="page-footer">
         <span>oh-my-ztty <span class="footer-separator">/</span> Project Z</span>

@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#用户流程">用户流程</a></li><li class="toc-level-2"><a href="#配置与接口">配置与接口</a></li><li class="toc-level-2"><a href="#可选原生目录插件">可选原生目录插件</a></li><li class="toc-level-2"><a href="#发行文件">发行文件</a></li><li class="toc-level-2"><a href="#验收合同">验收合同</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="extore-商品集成">Extore 商品集成</h1>
-<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/README.md">文档目录</a> · <a href="../../lmm-api-source/progress/">新架构进度</a> · <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/extensions/internal/modules/store/README.md">商店模块</a></p>
+<p><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/README.md">文档目录</a> · <a href="../../lmm-api-source/progress/">新架构进度</a> · <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/extensions/internal/modules/store/README.md">商店模块</a></p>
 <p>本页定义 Extore 授权、目录传输与商品同步合同。两端真实验收及生产配置状态统一记录在 <code>progress.md</code> 的 CHECK-06。<strong>不得部署，也不得合并或推送会自动部署的 Extore <code>main</code>。</strong> 继续跨仓库工作前核对实际分支和固定提交，插件依赖只引用已审查的固定版本。</p>
 <h2 id="用户流程">用户流程<a class="heading-anchor" href="#用户流程" aria-label="链接到 用户流程">#</a></h2>
 <p>商城选择导入，跳转 Extore 登录并批准商品授权，返回后自动同步商品与全部规格。列表显示来源、同步按钮和上次同步时间；连接管理支持查看、按源同步与断开连接。</p>
@@ -128,7 +128,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>实现入口：<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/extensions/internal/modules/store/extore.go">授权与连接</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/extensions/internal/modules/store/extore_sync.go">目录与同步</a>。连接记录的 <code>shop_id</code> 来自上游 Extore 目录，不是 LMM 本地店铺 ID。读取目录时同时核对 issuer、grant、商品归属及已保存的上游店铺 ID；浏览器声明不能覆盖这些服务器状态。凭据以连接 ID 绑定的密文保存，不返回浏览器。刷新和撤销继续使用既有持久化 fence。</p>
+<p>实现入口：<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/extensions/internal/modules/store/extore.go">授权与连接</a>、<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/extensions/internal/modules/store/extore_sync.go">目录与同步</a>。连接记录的 <code>shop_id</code> 来自上游 Extore 目录，不是 LMM 本地店铺 ID。读取目录时同时核对 issuer、grant、商品归属及已保存的上游店铺 ID；浏览器声明不能覆盖这些服务器状态。凭据以连接 ID 绑定的密文保存，不返回浏览器。刷新和撤销继续使用既有持久化 fence。</p>
 <h2 id="可选原生目录插件">可选原生目录插件<a class="heading-anchor" href="#可选原生目录插件" aria-label="链接到 可选原生目录插件">#</a></h2>
 <p>未配置 <code>store.extore_plugin</code> 时，目录继续使用 Go HTTPS 客户端。配置后，Go 在一个专用操作系统线程上通过 purego 调用 Rust 宿主桥；宿主使用 zplugin 的实际加载器和 <code>extore.commerce</code> v1 类型接口。Rust 插件通过 HTTPS 读取真实 Extore 授权目录，Go 再执行相同的目录和 Store 权限校验。发现服务、OAuth、刷新和撤销仍使用现有 Go HTTPS 路径。</p>
 <p>在已经启用 Extore 授权的 <code>extensions.toml</code> 中增加：</p>
@@ -148,7 +148,7 @@ plugin_sha256 = &quot;&lt;该平台插件库的 64 位小写 SHA-256&gt;&quot;
 <p>该模式严格解析同一 TOML，只校验并加载两个原生库、创建和关闭一个实例，然后退出；不读取业务凭据、不初始化运行时、不连接数据库，也不请求上游。成功返回退出码 0 和明确的加载结果。它只证明当前进程环境能加载已配置插件，不代表 OAuth、数据库或用户授权已经可用。</p>
 <p>服务关闭会等待当前原生调用结束并退出专用线程。两个原生映像及其校验后的文件描述符保留到进程退出；更新库路径、内容摘要或包版本后必须重启进程，不能把 <code>Close</code> 描述为卸载共享库。原生目录传输不会新增产品程序或守护进程。</p>
 <h2 id="发行文件">发行文件<a class="heading-anchor" href="#发行文件" aria-label="链接到 发行文件">#</a></h2>
-<p>Extore 源码以 <code>packages/extore</code> 的固定 gitlink 引入，版本记录在 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/packaging/extore-plugin.json">extore-plugin.json</a>；构建前运行 <code>scripts/check-extore-plugin-pin.py</code> 核对。正式 Extensions 包包含两份独立共享库、Extore 许可证、锁定依赖的许可证原文与清单，以及 purego 和 Go 衍生代码的许可证。</p>
+<p>Extore 源码以 <code>packages/extore</code> 的固定 gitlink 引入，版本记录在 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/packaging/extore-plugin.json">extore-plugin.json</a>；构建前运行 <code>scripts/check-extore-plugin-pin.py</code> 核对。正式 Extensions 包包含两份独立共享库、Extore 许可证、锁定依赖的许可证原文与清单，以及 purego 和 Go 衍生代码的许可证。</p>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
 <thead>
 <tr>
@@ -170,13 +170,13 @@ plugin_sha256 = &quot;&lt;该平台插件库的 64 位小写 SHA-256&gt;&quot;
 </tr>
 </tbody>
 </table></div>
-<p>Go 两种产物均保持 <code>CGO_ENABLED=0</code>。purego 需要动态加载器，因此该设置不表示程序静态链接。APK 使用单独构建和标记的 musl 归档，完整安装矩阵及验证命令见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/packaging/linux/README.md">Linux 预览包</a>。</p>
+<p>Go 两种产物均保持 <code>CGO_ENABLED=0</code>。purego 需要动态加载器，因此该设置不表示程序静态链接。APK 使用单独构建和标记的 musl 归档，完整安装矩阵及验证命令见 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/packaging/linux/README.md">Linux 预览包</a>。</p>
 <h2 id="验收合同">验收合同<a class="heading-anchor" href="#验收合同" aria-label="链接到 验收合同">#</a></h2>
 <p>在同一冻结候选上验证授权、回调自动导入、多规格、重复同步、同 revision 更新、撤销、到期、刷新竞争和跨店铺隔离。核对实际数据库映射及 Web 请求；凭据不得返回浏览器或进入日志。</p>
 <p>原生开发消费者使用真实 Rust Extore、HTTPS、SQLite 和共享库，并检查默认 Go HTTPS 路径、错误摘要、路径与 ABI、授权范围、Store 连接归属和关闭顺序。该消费者的 Store 仓库为事务内存测试仓库，Core 权限为现有测试替身；不能代替真实 CoreSession、Store PostgreSQL 和浏览器的独立验收。Alpine 包检查还必须实际安装 APK、以服务账户启动未配置插件的已安装程序，并用已安装的两份共享库调用真实授权目录。</p>
 <p>模块测试、两端联调、安装验收、生产配置和部署分别留证。2026-11-07 的分支、执行命令与原始限制保存在<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/0eae39f10ce8a1d80744ad44e88807e01facfda5/docs/extore-shop-binding-followup.md">固定交接记录</a>。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/extore.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/extore.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/development/"><span class="pagination-label">上一页</span><span class="pagination-title">开发与测试</span></a><a class="pagination-link next" href="../../lmm-api-source/filesystem-layout/"><span class="pagination-label">下一页</span><span class="pagination-title">配置与文件路径</span></a></nav>
       <footer class="page-footer">
         <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>

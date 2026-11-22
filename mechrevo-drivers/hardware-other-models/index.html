@@ -142,7 +142,7 @@
 <td>无界 14SAH P4HPLNAV</td>
 <td>厂商 <code>MECHREVO</code>、产品 <code>WUJIE Series</code>、板号 <code>WUJIE Series-P4HPLNAV</code></td>
 <td>新增控制台精确识别；记录原生 AMD ACP6.3 / ES9356 声卡路径，不增加 EC、风扇或功耗写入</td>
-<td><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/hardware/WUJIE14SAH.md">机型身份与 Linux 音频边界</a>；本项目未在该机上实测</td>
+<td><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/hardware/WUJIE14SAH.md">机型身份与 Linux 音频边界</a>；本项目未在该机上实测</td>
 </tr>
 </tbody>
 </table></div>
@@ -165,7 +165,7 @@ cargo test --manifest-path console/Cargo.toml --workspace --locked
 <p>先记录上述非敏感 DMI、CPU/GPU、BIOS/EC 和内核版本，再逐项验证安装、实际加载模块身份、模式回读及物理表现。蛟龙功耗操作另需验证约束范围、散热、失败恢复和睡眠/接电恢复；不能在不同型号上套用 GM6PX0X 的 <code>mechrevo-power</code> 55 W 配置。</p>
 <p>已有 <code>uniwill-laptop</code>、<code>mech-forza-kmod</code> 或另一套直接控制 EC 的驱动时，应先确认接口归属，避免多套控制器同时写硬件；本分支不会替用户卸载它们。新增机型尚未验证安装、加载、风扇、充电、键盘、睡眠和长期稳定性，也未发布新的 AUR 配方或安装到本机。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/hardware/OTHER-MODELS.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/hardware/OTHER-MODELS.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../mechrevo-drivers/hardware-native-kernel-controls/"><span class="pagination-label">上一页</span><span class="pagination-title">复用 Linux 已加载的原生驱动</span></a><a class="pagination-link next" href="../../mechrevo-drivers/hardware-wujie-hpt-p916f/"><span class="pagination-label">下一页</span><span class="pagination-title">无界 15 Pro HPT 与星耀 P916F HPT-R</span></a></nav>
       <footer class="page-footer">
         <span>mechrevo-drivers <span class="footer-separator">/</span> Project Z</span>

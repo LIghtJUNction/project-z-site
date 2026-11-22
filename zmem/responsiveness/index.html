@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="观测 Linux 内存压力，管理 Swap 并约束后台任务的内存预算。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="zmem · Responsiveness, reclaim and background I/O · Project Z">
+  <meta property="og:description" content="观测 Linux 内存压力，管理 Swap 并约束后台任务的内存预算。">
+  <meta property="og:type" content="website">
+  <title>zmem · Responsiveness, reclaim and background I/O · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../docs.css">
+  <script src="../../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/zmem/responsiveness/">
+</head>
+<body data-root="../../" data-page-kind="project" data-project="zmem">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/zmem" aria-label="zmem 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">zmem</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>zmem</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/" aria-current="page">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="zmem 文档"><div class="nav-group"><p class="nav-label">zmem</p><ul><li><a class="nav-link" href="../../zmem/">概览</a></li><li><a class="nav-link" href="../../zmem/background-admission/">Background admission</a></li><li><a class="nav-link" href="../../zmem/responsiveness/" aria-current="page">Responsiveness, reclaim and background I/O</a></li><li><a class="nav-link" href="../../zmem/swap-lifecycle-and-dedup/">Swap lifecycle and explicit memory deduplication</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>zmem</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../../lmm/">lmm</a></li><li><a href="../../lmm-api-source/">lmm-api-source</a></li><li><a href="../../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../../OniMods/">OniMods</a></li><li><a href="../../ssmcp/">ssmcp</a></li><li><a href="../../z58/">z58</a></li><li><a href="../../z64/">z64</a></li><li><a href="../../zcall/">zcall</a></li><li><a href="../../zcall-gui/">zcall-gui</a></li><li><a href="../../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../../zcalld/">zcalld</a></li><li><a href="../../zcalld-compat/">zcalld-compat</a></li><li><a href="../../zchat/">zchat</a></li><li><a href="../../zclap/">zclap</a></li><li><a href="../../zclick/">zclick</a></li><li><a href="../../zconv/">zconv</a></li><li><a href="../../zdistro/">zdistro</a></li><li><a href="../../zdot/">zdot</a></li><li><a href="../../zdwire/">zdwire</a></li><li><a href="../../zfetch/">zfetch</a></li><li><a href="../../zgpui/">zgpui</a></li><li><a href="../../zgraphics/">zgraphics</a></li><li><a href="../../zguard/">zguard</a></li><li><a href="../../zharness/">zharness</a></li><li><a href="../../zhex/">zhex</a></li><li><a href="../../zi18n/">zi18n</a></li><li><a href="../../zinput/">zinput</a></li><li><a href="../../zldap/">zldap</a></li><li><a href="../../zmcl/">zmcl</a></li><li><a href="../../zmcpio/">zmcpio</a></li><li><a href="../../zmem/" aria-current="page">zmem</a></li><li><a href="../../zmime/">zmime</a></li><li><a href="../../zobs/">zobs</a></li><li><a href="../../zplugin/">zplugin</a></li><li><a href="../../zpty/">zpty</a></li><li><a href="../../zrc/">zrc</a></li><li><a href="../../zscan/">zscan</a></li><li><a href="../../zshard/">zshard</a></li><li><a href="../../zsyn/">zsyn</a></li><li><a href="../../zsys/">zsys</a></li><li><a href="../../zterm/">zterm</a></li><li><a href="../../ztty/">ztty</a></li><li><a href="../../ztuio/">ztuio</a></li><li><a href="../../ztype/">ztype</a></li><li><a href="../../zuse/">zuse</a></li><li><a href="../../zuse-skills/">zuse-skills</a></li><li><a href="../../zuse-std/">zuse-std</a></li><li><a href="../../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="zmem 文档"><div class="nav-group"><p class="nav-label">zmem</p><ul><li><a class="nav-link" href="../../zmem/">概览</a></li><li><a class="nav-link" href="../../zmem/background-admission/">Background admission</a></li><li><a class="nav-link" href="../../zmem/responsiveness/" aria-current="page">Responsiveness, reclaim and background I/O</a></li><li><a class="nav-link" href="../../zmem/swap-lifecycle-and-dedup/">Swap lifecycle and explicit memory deduplication</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../../zmem/">zmem 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../../">Project Z</a><span aria-hidden="true">/</span><a href="../../zmem/">zmem</a><span aria-hidden="true">/</span><span>Responsiveness, reclaim and background I/O</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#read-a-current-observation">Read a current observation</a></li><li class="toc-level-2"><a href="#avoid-an-unsupported-cache-preference">Avoid an unsupported cache preference</a></li><li class="toc-level-2"><a href="#wait-before-adding-another-working-set">Wait before adding another working set</a></li><li class="toc-level-2"><a href="#make-user-session-io-controls-available">Make user-session I/O controls available</a></li><li class="toc-level-2"><a href="#bound-heavy-maintenance-separately">Bound heavy maintenance separately</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="responsiveness-reclaim-and-background-io">Responsiveness, reclaim and background I/O</h1>
+<p>Available RAM and responsiveness describe different things. A machine can have spare memory while a task repeatedly faults pages back in, waits for storage, or enters direct reclaim. zmem uses measured paging and pressure alongside capacity; the pressure label alone is not a desktop-latency measurement.</p>
+<h2 id="read-a-current-observation">Read a current observation<a class="heading-anchor" href="#read-a-current-observation" aria-label="链接到 Read a current observation">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>zmem status --json
+zmem status --json --processes
+</code></pre></div>
+<p>Check <code>observation.source</code>, <code>daemon_active</code>, <code>instance_verification</code>, <code>stale</code> and the sample age first. The active daemon report contains measured rates and policy history. A one-shot preview starts without those rates.</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it establishes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>memory.available_bytes</code></td>
+<td>The kernel's estimate of available RAM, including reclaimable capacity.</td>
+</tr>
+<tr>
+<td><code>psi.memory_full_bp</code></td>
+<td>Observed memory stall time, in basis points; 100 bp is 1%.</td>
+</tr>
+<tr>
+<td><code>paging.direct_scan_bytes_per_sec</code></td>
+<td>The rate of direct page scanning; this is work performed, not bytes successfully freed.</td>
+</tr>
+<tr>
+<td><code>paging.anon_refault_bytes_per_sec</code></td>
+<td>Anonymous pages becoming active again after eviction, expressed as a byte rate.</td>
+</tr>
+<tr>
+<td><code>paging.file_refault_bytes_per_sec</code></td>
+<td>File pages returning after eviction; it does not identify a foreground application.</td>
+</tr>
+<tr>
+<td><code>controls.swappiness_actual</code> and <code>swappiness_requested</code></td>
+<td>Kernel readback and the controller's current request. A missing request is not a successful write.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pressure is also available for individual cgroups. A background service waiting on its own bandwidth limit can contribute I/O stalls while the desktop's I/O pressure remains low. Read the relevant groups before interpreting a global I/O number as a saturated physical drive. Linux documents <a href="https://docs.kernel.org/accounting/psi.html">PSI</a> and the <a href="https://docs.kernel.org/admin-guide/cgroup-v2.html">cgroup v2 pressure and I/O interfaces</a>.</p>
+<h2 id="avoid-an-unsupported-cache-preference">Avoid an unsupported cache preference<a class="heading-anchor" href="#avoid-an-unsupported-cache-preference" aria-label="链接到 Avoid an unsupported cache preference">#</a></h2>
+<p>File refaults establish that pages were evicted and accessed again. They do not establish that those pages belong to interactive work. A background filesystem scanner can generate refaults while causing anonymous memory to be recycled.</p>
+<p>Starting with 0.3.1, the <code>reclaim_latency_guard</code> prevents the file-cache and spare-zram paths from increasing swappiness when all three measured conditions hold:</p>
+<ul>
+<li>Memory full PSI is at least 1%.</li>
+<li>Direct scanning is at least 64 MiB/s.</li>
+<li>Anonymous refaults are at least 4 MiB/s.</li>
+</ul>
+<p>The resulting preference is a ceiling of 60. If the actual kernel value is already lower, the guard retains that lower value. It uses the normal 10-second evidence period, 30-second write interval and maximum change of 20 per ordinary write. Confirmed disk-swap churn retains its existing urgent path. These thresholds are a conservative starting point based on a host observation, not universal kernel recommendations or measurements of mouse latency.</p>
+<p>If current swappiness cannot be read, zmem skips the write and reports <code>readback_unavailable</code> with a null request. A previously cached value cannot substitute for current readback. The implementation is in <a href="https://github.com/LIghtJUNction/zmem/blob/24951ae66df31387f736f61b34d21a1963df9730/src/swappiness.rs">swappiness.rs</a>; the <a href="https://docs.kernel.org/admin-guide/sysctl/vm.html#swappiness">kernel's swappiness documentation</a> describes the underlying cost preference.</p>
+<h2 id="wait-before-adding-another-working-set">Wait before adding another working set<a class="heading-anchor" href="#wait-before-adding-another-working-set" aria-label="链接到 Wait before adding another working set">#</a></h2>
+<p>A new compiler or model loader can worsen paging even while disk Swap still has space. Starting with 0.4, <code>zmem run --class background</code> and <code>--class disposable</code> check available RAM and memory PSI before executing the target. The default wait is bounded at 60 seconds, with exit code 75 if conditions do not recover. Interactive commands bypass admission.</p>
+<p>Use <code>--wait-timeout 300</code> for a longer batch window or <code>--wait-timeout 0</code> for a single immediate attempt. The launcher emits JSON events on stderr while waiting, rechecks conditions before admission, and spaces same-user starts. The <a href="../../zmem/background-admission/">admission guide</a> explains the thresholds and recovery rule. This gate controls new explicitly submitted work; running-task budgets remain the daemon's responsibility.</p>
+<p>Keep a persistent Cargo target directory for repeated checks. A fresh temporary target directory discards that directory's compiled-artifact reuse, while excessive concurrent compiler working sets can turn CPU work into paging stalls. Admission and cache reuse address these separate costs. Neither requires a permanent one-core limit on ordinary builds.</p>
+<h2 id="make-user-session-io-controls-available">Make user-session I/O controls available<a class="heading-anchor" href="#make-user-session-io-controls-available" aria-label="链接到 Make user-session I/O controls available">#</a></h2>
+<p><code>zmem run --class background -- COMMAND</code> requests a lower CPU and I/O weight. For a user scope, its I/O controller must be available through the user manager and its ancestors. A requested <code>IOWeight</code> value alone does not prove that a kernel control exists or that the storage scheduler uses weights.</p>
+<p>The installer prepares a separately owned <code>user@.service</code> drop-in that adds I/O delegation and accounting. The addition preserves the existing delegated controller list. Its ownership record is separate from the original installation backup, so an upgrade does not change the old backup format. Existing foreign files and later external edits remain preserved during installation and rollback.</p>
+<p>An already running user manager may retain its earlier controller availability. Follow the install diagnostic; a user-manager refresh can retain running application processes:</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>systemctl --user daemon-reexec
+</code></pre></div>
+<p>Confirm the relevant scope's actual <code>cgroup.controllers</code>, <code>io.stat</code>, <code>io.weight</code>, and any configured <code>io.max</code> afterwards. The installer does not automatically refresh every user's manager. The <a href="https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html">systemd resource-control manual</a> explains delegation and hierarchical activation.</p>
+<h2 id="bound-heavy-maintenance-separately">Bound heavy maintenance separately<a class="heading-anchor" href="#bound-heavy-maintenance-separately" aria-label="链接到 Bound heavy maintenance separately">#</a></h2>
+<p>Filesystem deduplication has a storage workload and its own I/O budget. KSM has a memory-scanning workload and zmem's separate registration and pressure gates. Neither operation should be treated as free background work.</p>
+<p>Per-service <code>IOReadBandwidthMax</code> and <code>IOWriteBandwidthMax</code> can bound an observed storage scanner while retaining its process and progress. Select the physical backing device and read back its actual <code>io.max</code> entry. Unlike a relative weight, a bandwidth cap also limits an otherwise idle device; that is a throughput tradeoff, so zmem does not install one arbitrary cap on all applications.</p>
+<p>The <a href="https://github.com/LIghtJUNction/zmem/blob/24951ae66df31387f736f61b34d21a1963df9730/docs/acceptance-0.3.1.md">0.3.1 acceptance record</a> separates the local filesystem-scanner mitigation from the zmem policy regression tests. It records memory and I/O observations, not an input-latency benchmark or a guarantee that every source of desktop stutter has been removed.</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/zmem/blob/24951ae66df31387f736f61b34d21a1963df9730/docs/responsiveness.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/zmem">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../zmem/background-admission/"><span class="pagination-label">上一页</span><span class="pagination-title">Background admission</span></a><a class="pagination-link next" href="../../zmem/swap-lifecycle-and-dedup/"><span class="pagination-label">下一页</span><span class="pagination-title">Swap lifecycle and explicit memory deduplication</span></a></nav>
+      <footer class="page-footer">
+        <span>zmem <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-22</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#read-a-current-observation">Read a current observation</a></li><li class="toc-level-2"><a href="#avoid-an-unsupported-cache-preference">Avoid an unsupported cache preference</a></li><li class="toc-level-2"><a href="#wait-before-adding-another-working-set">Wait before adding another working set</a></li><li class="toc-level-2"><a href="#make-user-session-io-controls-available">Make user-session I/O controls available</a></li><li class="toc-level-2"><a href="#bound-heavy-maintenance-separately">Bound heavy maintenance separately</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>

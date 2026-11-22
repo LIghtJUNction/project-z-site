@@ -79,11 +79,11 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#三个程序">三个程序</a></li><li class="toc-level-2"><a href="#开发与安装">开发与安装</a></li><li class="toc-level-2"><a href="#文档入口">文档入口</a></li><li class="toc-level-2"><a href="#协作与来源">协作与来源</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><div>
-  <a class="source-image" href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/assets/lmm-logo.svg">LMM API · Language Model Mesh ↗</a>
+  <a class="source-image" href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/assets/lmm-logo.svg">LMM API · Language Model Mesh ↗</a>
 <h1 id="lmm-api">LMM API</h1><p class="project-intro">模型网关与业务扩展平台，管理身份、权限、账本和调用路由。</p>
   <p>LMM API · 连接模型与工具，让智能自由流动</p>
   <p></p>
-  <p><a href="../lmm-api-source/">简体中文</a> · <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/README_EN.md">English</a></p>
+  <p><a href="../lmm-api-source/">简体中文</a> · <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/README_EN.md">English</a></p>
 </div>
 <p><strong>LMM（Language Model Mesh）是模型网关与业务扩展平台。</strong> Core 统一管理账号、权限、余额和模型调用；商店、工具、助手与支付适配由扩展承载。</p>
 <blockquote>
@@ -101,24 +101,24 @@
 <tbody>
 <tr>
 <td><code>lmm-core</code></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/core">services/core</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/core">services/core</a></td>
 <td>身份、权限、计费、账本和模型路由；独立于 Go 运行</td>
 </tr>
 <tr>
 <td><code>lmm-extensions</code></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/services/extensions">services/extensions</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/services/extensions">services/extensions</a></td>
 <td>商店、工具、助手、运营与支付适配；仅访问自己的业务数据库</td>
 </tr>
 <tr>
 <td><code>lmm</code></td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/apps/cli">apps/cli</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/apps/cli">apps/cli</a></td>
 <td>独立维护的客户端，通过子模块固定版本</td>
 </tr>
 </tbody>
 </table></div>
 <p>Core 是资金和权限的唯一权威；扩展通过授权 RPC 请求核心操作。<code>apps/web</code> 构建为静态文件，由 Web 服务器托管。边界与数据库合同见<a href="../lmm-api-source/core-migration/">架构指南</a>。</p>
 <h2 id="开发与安装">开发与安装<a class="heading-anchor" href="#开发与安装" aria-label="链接到 开发与安装">#</a></h2>
-<p>工具版本由 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/mise.toml">mise.toml</a> 固定，按任务准备依赖并使用 <code>mise exec --</code>。详细命令见<a href="../lmm-api-source/development/">开发指南</a>，隔离环境见 <a href="../lmm-api-source/deployment-docker-readme/">Docker 开发栈</a>。</p>
+<p>工具版本由 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/mise.toml">mise.toml</a> 固定，按任务准备依赖并使用 <code>mise exec --</code>。详细命令见<a href="../lmm-api-source/development/">开发指南</a>，隔离环境见 <a href="../lmm-api-source/deployment-docker-readme/">Docker 开发栈</a>。</p>
 <p>全新核心数据库由独立的安装 owner 显式初始化，运行凭据不具备建表权限：</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>lmm-core --config /absolute/private/core-owner.toml init-db
 lmm-core --config /absolute/private/core.toml check-db
@@ -139,7 +139,7 @@ lmm-core --config /absolute/private/core.toml check-db
 </tr>
 <tr>
 <td>稳定设计、配置与业务指南</td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/README.md">文档目录</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/README.md">文档目录</a></td>
 </tr>
 <tr>
 <td>开发检查与独立验收</td>
@@ -147,7 +147,7 @@ lmm-core --config /absolute/private/core.toml check-db
 </tr>
 <tr>
 <td>打包、制品与升级边界</td>
-<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/docs/release-architecture.md">发布架构</a></td>
+<td><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/docs/release-architecture.md">发布架构</a></td>
 </tr>
 <tr>
 <td>用户、隐私和退款协议</td>
@@ -161,10 +161,10 @@ lmm-core --config /absolute/private/core.toml check-db
 </table></div>
 <h2 id="协作与来源">协作与来源<a class="heading-anchor" href="#协作与来源" aria-label="链接到 协作与来源">#</a></h2>
 <p>源码在本仓库 <code>main</code> 开发；<a href="https://github.com/TokenNotIncluded/lmm-api">配方仓库</a>通过 gitlink 固定源码。<a href="../lmm-api-source/development/#%E4%BB%93%E5%BA%93%E4%B8%8E%E4%B8%BB%E7%BA%BF">分支规则</a>说明当前主线与旧稳定发布的关系。<a href="../lmm-api-source/extore/">Extore 集成</a>的自动部署限制继续生效。</p>
-<p>参与前阅读<a href="../lmm-api-source/agent-workflows/#%E8%B4%A1%E7%8C%AE%E4%B8%8E%E4%BA%A4%E4%BB%98">贡献指南</a>。安全问题通过<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/.github/SECURITY.md">安全政策</a>报告，请勿公开密钥或用户数据。</p>
-<p>本项目源自 <a href="https://github.com/QuantumNous/new-api">QuantumNous/new-api</a>，按 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/LICENSE">AGPL-3.0</a> 发布。保留 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/NOTICE">NOTICE</a>、<a href="../lmm-api-source/core-migration/#%E6%9D%A5%E6%BA%90%E4%B8%8E%E8%AE%B8%E5%8F%AF">来源与归属</a>及<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/THIRD-PARTY-LICENSES.md">第三方许可证</a>。<a href="https://api.lmm.best">线上服务</a>的版本需独立核实。</p>
+<p>参与前阅读<a href="../lmm-api-source/agent-workflows/#%E8%B4%A1%E7%8C%AE%E4%B8%8E%E4%BA%A4%E4%BB%98">贡献指南</a>。安全问题通过<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/.github/SECURITY.md">安全政策</a>报告，请勿公开密钥或用户数据。</p>
+<p>本项目源自 <a href="https://github.com/QuantumNous/new-api">QuantumNous/new-api</a>，按 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/LICENSE">AGPL-3.0</a> 发布。保留 <a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/NOTICE">NOTICE</a>、<a href="../lmm-api-source/core-migration/#%E6%9D%A5%E6%BA%90%E4%B8%8E%E8%AE%B8%E5%8F%AF">来源与归属</a>及<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/THIRD-PARTY-LICENSES.md">第三方许可证</a>。<a href="https://api.lmm.best">线上服务</a>的版本需独立核实。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/README.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/README.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../lmm-api-source/deployment-docker-readme/"><span class="pagination-label">下一页</span><span class="pagination-title">全新微内核 Docker 开发栈（WIP）</span></a></nav>
       <footer class="page-footer">
         <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>

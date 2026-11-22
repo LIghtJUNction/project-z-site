@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-11-21T22:53:47.242904Z",
+  "generated_at": "2026-11-22T11:52:08.089779Z",
   "projects": [
     {
       "id": "lmm",
@@ -16,7 +16,7 @@
       "summary": "模型网关与业务扩展平台，管理身份、权限、账本和调用路由。",
       "category": "applications",
       "repository": "https://github.com/TokenNotIncluded/lmm-api-source",
-      "commit": "f19b97de14e908c0057667abdb9f38c7e84e8127",
+      "commit": "3385d567ef0e023a5b79e4499f27581be1309425",
       "url": "lmm-api-source/",
       "pages": 12
     },
@@ -25,7 +25,7 @@
       "summary": "机械革命笔记本的 Linux 平台驱动与设备控制台，按机型提供功能。",
       "category": "system",
       "repository": "https://github.com/LIghtJUNction/mechrevo-drivers",
-      "commit": "93a7614c79895fc7dcc5b1e7e1291800cc9de1d0",
+      "commit": "aaa7573dd2609e74936ba4c3724b169de1834f54",
       "url": "mechrevo-drivers/",
       "pages": 12
     },
@@ -34,7 +34,7 @@
       "summary": "组合终端、shell、应用配置与内存管理，提供 Linux 工作环境。",
       "category": "tools",
       "repository": "https://github.com/LIghtJUNction/oh-my-ztty",
-      "commit": "dbb909b78d152f21a0c270724a1b958b843d0388",
+      "commit": "2eb8340987a96fd8ecacc81a8e83742c86716525",
       "url": "oh-my-ztty/",
       "pages": 12
     },
@@ -52,7 +52,7 @@
       "summary": "通过授权 MCP 会话调用开发机的命令、文件和原生工具。",
       "category": "applications",
       "repository": "https://github.com/LIghtJUNction/ssmcp",
-      "commit": "add39e18ff92680ff3ac0c3e911407956e20b228",
+      "commit": "87c4a17faf0dd2c140cb707ec59b1f05725f06f0",
       "url": "ssmcp/",
       "pages": 12
     },
@@ -286,9 +286,9 @@
       "summary": "观测 Linux 内存压力，管理 Swap 并约束后台任务的内存预算。",
       "category": "system",
       "repository": "https://github.com/LIghtJUNction/zmem",
-      "commit": "df778e868b916dddb13a629c19f0f7d66f54825c",
+      "commit": "24951ae66df31387f736f61b34d21a1963df9730",
       "url": "zmem/",
-      "pages": 1
+      "pages": 4
     },
     {
       "id": "zmime",
@@ -403,7 +403,7 @@
       "summary": "Linux 原生输入法，在应用中组合拼音、显示候选并提交文字。",
       "category": "interface",
       "repository": "https://github.com/LIghtJUNction/ztype",
-      "commit": "1b08bedd4ffb1ef68effa5aea32c31775e51d268",
+      "commit": "5d245e5b0633b5ce0f9479fec9741fb23b7b5b80",
       "url": "ztype/",
       "pages": 5
     },
@@ -412,7 +412,7 @@
       "summary": "用有界脚本观察和操作桌面、浏览器与设备，并支持持久会话。",
       "category": "applications",
       "repository": "https://github.com/LIghtJUNction/zuse",
-      "commit": "6e88dd885eb73545a1ab6a9cd50097ef63fba423",
+      "commit": "f13412e3c148ecf01c347423caba509d45df9ccc",
       "url": "zuse/",
       "pages": 12
     },

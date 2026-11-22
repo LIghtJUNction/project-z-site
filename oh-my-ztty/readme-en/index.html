@@ -80,7 +80,7 @@
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="oh-my-ztty">oh-my-ztty</h1>
 <p>A lean Linux terminal setup built on Project Z: <strong>ztty + zsh + zshard + zrc + zdot + zfetch + ssmcp + zmem</strong>.</p>
-<p><a href="https://lightjunction.github.io/oh-my-ztty/">Website</a> · <a href="../../oh-my-ztty/">中文</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/installation.md">Install guide</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/performance.md">Performance</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/reports/workspace-0.2.1.md">0.2.1 workstation report</a></p>
+<p><a href="https://lightjunction.github.io/oh-my-ztty/">Website</a> · <a href="../../oh-my-ztty/">中文</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/installation.md">Install guide</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/performance.md">Performance</a> · <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/reports/workspace-0.2.1.md">0.2.1 workstation report</a></p>
 <h2 id="install">Install<a class="heading-anchor" href="#install" aria-label="链接到 Install">#</a></h2>
 <h3 id="per-user-release">Per-user release<a class="heading-anchor" href="#per-user-release" aria-label="链接到 Per-user release">#</a></h3>
 <p>Download and inspect the installer, then run it:</p>
@@ -94,7 +94,7 @@ sh install.sh
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>yay -S oh-my-ztty-bin
 omztty doctor
 </code></pre></div>
-<p>Use your AUR helper to upgrade the system package. Configuration adoption remains explicit through the commands below. Before removing the package, run <code>omztty config remove</code> to restore adopted configurations, then remove it with your package manager. <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/installation.md#arch-linux-aur">Installation guide</a> includes the <code>makepkg</code> route.</p>
+<p>Use your AUR helper to upgrade the system package. Configuration adoption remains explicit through the commands below. Before removing the package, run <code>omztty config remove</code> to restore adopted configurations, then remove it with your package manager. <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/installation.md#arch-linux-aur">Installation guide</a> includes the <code>makepkg</code> route.</p>
 <h2 id="the-suite">The suite<a class="heading-anchor" href="#the-suite" aria-label="链接到 The suite">#</a></h2>
 <div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
 <thead>
@@ -134,7 +134,7 @@ omztty doctor
 </tr>
 </tbody>
 </table></div>
-<p>Development follows each component's latest default branch. Git submodules and <code>dependencies.lock.json</code> record the exact sources selected for a build. The <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/reports/0.2.6/release.zh-CN.md">0.2.6 release record</a> describes the already published combination. Your Linux distribution supplies zsh. See the <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/completions.md">completion reference</a> for command and version coverage.</p>
+<p>Development follows each component's latest default branch. Git submodules and <code>dependencies.lock.json</code> record the exact sources selected for a build. The <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/reports/0.2.6/release.zh-CN.md">0.2.6 release record</a> describes the already published combination. Your Linux distribution supplies zsh. See the <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/completions.md">completion reference</a> for command and version coverage.</p>
 <h2 id="system-memory">System memory<a class="heading-anchor" href="#system-memory" aria-label="链接到 System memory">#</a></h2>
 <p>zmem is the default memory and Swap manager. The installer adopts existing Swap, enables its system service and keeps local policy in <code>/etc/zmem/zmem.conf</code>. Subsequent installs preserve that configuration.</p>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>omztty memory status --json --processes
@@ -144,8 +144,8 @@ omztty memory rollback
 </code></pre></div>
 <p>Use <code>omztty memory setup</code> to enable the bundled manager later. System setup copies zmem to root-owned <code>/usr/local/bin/zmem</code>; the service continues independently of the terminal suite. <a href="../../oh-my-ztty/memory/">Memory policy and recovery</a> explain defaults, workload classes and skipped setup.</p>
 <h2 id="ink-preset">Ink preset<a class="heading-anchor" href="#ink-preset" aria-label="链接到 Ink preset">#</a></h2>
-<p>A warm graphite, linen and copper palette, generous spacing and a two-line prompt with the path, cached Git branch and command status. The prompt uses zsh builtins; installed fonts fall back through Fontconfig. <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/installation.md#ink-appearance">Customize the preset</a>.</p>
-<p>The <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/reports/workspace-0.2.1.md">workstation report</a> records the deployed Ink configuration, desktop launch chain, broker reuse, recovery steps and acceptance scope.</p>
+<p>A warm graphite, linen and copper palette, generous spacing and a two-line prompt with the path, cached Git branch and command status. The prompt uses zsh builtins; installed fonts fall back through Fontconfig. <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/installation.md#ink-appearance">Customize the preset</a>.</p>
+<p>The <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/reports/workspace-0.2.1.md">workstation report</a> records the deployed Ink configuration, desktop launch chain, broker reuse, recovery steps and acceptance scope.</p>
 <h2 id="make-it-your-default-workspace">Make it your default workspace<a class="heading-anchor" href="#make-it-your-default-workspace" aria-label="链接到 Make it your default workspace">#</a></h2>
 <h3 id="shell-settings-and-private-sync">Shell settings and private sync<a class="heading-anchor" href="#shell-settings-and-private-sync" aria-label="链接到 Shell settings and private sync">#</a></h3>
 <p><code>omztty setup</code> guides local initialization, an optional zsh startup hook and a private dotfiles repository under your own GitHub account. Start locally with:</p>
@@ -174,7 +174,7 @@ omztty update --with-config
 omztty config plan --json
 omztty config apply --backup
 </code></pre></div>
-<p>One editable profile manages zsh, ztty, Neovim, Kitty, Foot, Ghostty, tmux, fzf, bat, ripgrep and Git display settings. Existing configurations are backed up by zdot. After upgrading, run <code>omztty config refresh</code> to update defaults you have not changed; your edits and deliberately removed files are preserved. <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/configuration.md">Configuration and recovery</a> explains the native editor, application coverage and file locations.</p>
+<p>One editable profile manages zsh, ztty, Neovim, Kitty, Foot, Ghostty, tmux, fzf, bat, ripgrep and Git display settings. Existing configurations are backed up by zdot. After upgrading, run <code>omztty config refresh</code> to update defaults you have not changed; your edits and deliberately removed files are preserved. <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/configuration.md">Configuration and recovery</a> explains the native editor, application coverage and file locations.</p>
 <h2 id="everyday-commands">Everyday commands<a class="heading-anchor" href="#everyday-commands" aria-label="链接到 Everyday commands">#</a></h2>
 <div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>omztty terminal        # Open ztty with the suite&#x27;s zsh configuration
 omztty shell           # Try the shell in your current terminal
@@ -201,10 +201,10 @@ python3 scripts/workspace.py check
 python3 scripts/build_bundle.py
 </code></pre></div>
 <p><code>sync</code> fetches all seven default branches and records their commits and observation times in the schema 2 source lock. After the first full synchronization, <code>sync zshard</code> updates one component. The bundle compiles all five native programs from those sources with Cargo's <code>--locked</code> option and respects the configured shared target directory.</p>
-<p><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/CONTRIBUTING.md">Development and release guide</a> covers local checks, source updates and explicit version publication. <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/architecture.md">Architecture</a> describes the runtime boundaries and extension interfaces.</p>
-<p>MIT license. Performance claims and their measurement conditions belong together; see <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/docs/performance.md">the benchmark record</a>.</p>
+<p><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/CONTRIBUTING.md">Development and release guide</a> covers local checks, source updates and explicit version publication. <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/architecture.md">Architecture</a> describes the runtime boundaries and extension interfaces.</p>
+<p>MIT license. Performance claims and their measurement conditions belong together; see <a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/docs/performance.md">the benchmark record</a>.</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/dbb909b78d152f21a0c270724a1b958b843d0388/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/oh-my-ztty">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/oh-my-ztty/blob/2eb8340987a96fd8ecacc81a8e83742c86716525/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/oh-my-ztty">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../oh-my-ztty/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../oh-my-ztty/installation/"><span class="pagination-label">下一页</span><span class="pagination-title">Installation</span></a></nav>
       <footer class="page-footer">
         <span>oh-my-ztty <span class="footer-separator">/</span> Project Z</span>

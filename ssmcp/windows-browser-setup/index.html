@@ -79,7 +79,7 @@
         <ul class="toc-list"><li class="toc-level-2"><a href="#安装范围">安装范围</a></li><li class="toc-level-2"><a href="#查询或管理-zuse">查询或管理 Zuse</a></li><li class="toc-level-2"><a href="#执行桌面与浏览器任务">执行桌面与浏览器任务</a></li></ul>
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="windows-客户端与-zuse-cli">Windows 客户端与 Zuse CLI</h1>
-<p>Windows 安装器现在只安装经过校验的 SSMCP 客户端。它不自动下载 Node.js、Playwright 或 Chromium，也不执行已撤去的 <code>ssmcp setup browser</code>。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/scripts/install.ps1">Release 安装器</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/src/client_downloads/install.ps1">网关安装器</a></p>
+<p>Windows 安装器现在只安装经过校验的 SSMCP 客户端。它不自动下载 Node.js、Playwright 或 Chromium，也不执行已撤去的 <code>ssmcp setup browser</code>。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/scripts/install.ps1">Release 安装器</a> · <a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/src/client_downloads/install.ps1">网关安装器</a></p>
 <h2 id="安装范围">安装范围<a class="heading-anchor" href="#安装范围" aria-label="链接到 安装范围">#</a></h2>
 <p>Release 安装器继续从官方 SHA256SUMS 核对公开归档，检查平台与实际客户端版本，再替换目标程序；下载或校验失败时保留既有安装。网关安装器继续核对来源、wire、长度与摘要，安装完成后连接指定服务器。浏览器登录授权仍保留。</p>
 <p>旧 <code>-SkipBrowserDependencies</code> 参数作为无操作兼容选项接受。无论是否传入，都不会启动浏览器组件安装。Release 安装器的 <code>-NoModifyPath</code> 仍控制 <strong>SSMCP 命令目录</strong>是否加入 PATH；这不授权修改 Zuse 或其他程序的路径。</p>
@@ -88,13 +88,13 @@
 ssmcp computer download --json
 ssmcp computer install DOWNLOAD_ID_FROM_REPLY --json
 </code></pre></div>
-<p>用真实回包中的 ID 替换占位符。Zuse 版本查询实际执行选定程序的 <code>--version</code>；下载只选择官方稳定版及其公布的大小、SHA-256；安装只写入该管理器的私有目录，并返回绝对路径。它不会覆盖已有 PATH/Cargo/系统安装，也不会自动修改 PATH。卸载只接受该管理器拥有且身份仍匹配的 <code>installation_id</code>。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/computer-use.md">完整参数与结果</a></p>
+<p>用真实回包中的 ID 替换占位符。Zuse 版本查询实际执行选定程序的 <code>--version</code>；下载只选择官方稳定版及其公布的大小、SHA-256；安装只写入该管理器的私有目录，并返回绝对路径。它不会覆盖已有 PATH/Cargo/系统安装，也不会自动修改 PATH。卸载只接受该管理器拥有且身份仍匹配的 <code>installation_id</code>。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/computer-use.md">完整参数与结果</a></p>
 <p>当前 Zuse 管理器配置 Windows x86_64 官方下载目标。SSMCP 的 Windows ARM64 客户端仍独立构建，但当前管理器没有对应 Zuse ARM64 资产映射，会明确拒绝下载；不能把 x86_64 资产当作原生 ARM64 产物。</p>
 <h2 id="执行桌面与浏览器任务">执行桌面与浏览器任务<a class="heading-anchor" href="#执行桌面与浏览器任务" aria-label="链接到 执行桌面与浏览器任务">#</a></h2>
-<p>使用实际返回的 Zuse 可执行路径，通过普通命令或 SSMCP exec 直接运行它的程序。浏览器、显示会话、系统权限和 CLI 自身依赖按所选 Zuse 版本准备；SSMCP 没有内置浏览器或桌面执行 fallback。<a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/browser-desktop.md">直接执行示例</a></p>
+<p>使用实际返回的 Zuse 可执行路径，通过普通命令或 SSMCP exec 直接运行它的程序。浏览器、显示会话、系统权限和 CLI 自身依赖按所选 Zuse 版本准备；SSMCP 没有内置浏览器或桌面执行 fallback。<a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/browser-desktop.md">直接执行示例</a></p>
 <p>旧浏览器 bootstrap/smoke 脚本随旧后端退役。正式发布继续验证 SSMCP 归档、安装、更新和下载失败恢复；Zuse CLI 的安装管理由新的生命周期合同覆盖。文档中的验证入口与历史报告不能代替当前候选的实际结果。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/add39e18ff92680ff3ac0c3e911407956e20b228/docs/windows-browser-setup.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/ssmcp/blob/87c4a17faf0dd2c140cb707ec59b1f05725f06f0/docs/windows-browser-setup.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/ssmcp">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../ssmcp/"><span class="pagination-label">上一页</span><span class="pagination-title">概览</span></a><a class="pagination-link next" href="../../ssmcp/configuration/"><span class="pagination-label">下一页</span><span class="pagination-title">客户端连接、账号与授权</span></a></nav>
       <footer class="page-footer">
         <span>ssmcp <span class="footer-separator">/</span> Project Z</span>

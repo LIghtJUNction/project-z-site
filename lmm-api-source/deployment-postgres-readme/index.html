@@ -105,7 +105,7 @@ do not use whole-cluster <code>REASSIGN OWNED</code>. Mount this URL only into <
 <p>Select an absolute version 1 init TOML whose <code>[database] url_file</code> references only
 the private owner URL file. Do not select the runtime TOML or use legacy environment
 configuration. The Docker <code>core-init</code> service already selects its separate
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/deployment/docker/config/core-init.toml">init template</a> and owner secret.</p>
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/deployment/docker/config/core-init.toml">init template</a> and owner secret.</p>
 <p>Run that explicit <code>--config</code> init command once, then execute <code>grant-core-runtime.sql</code> as
 administrator. Its non-secret, quoted psql identifier variable <code>runtime_role</code>
 defaults to <code>lmm_core_runtime</code>. Feature switches default to false:</p>
@@ -195,7 +195,7 @@ ACLs. Re-run <code>grant-tool-market-credit.sql</code> with the same explicit
 <code>-v runtime_role=lmm_core_runtime</code> after the reset when that separate
 installer-only complement is required.</p>
 <p>Check-in rewards on component 75 additionally use
-<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/deployment/postgres/grant-checkin-challenges-runtime.sql">grant-checkin-challenges-runtime.sql</a>, with
+<a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/deployment/postgres/grant-checkin-challenges-runtime.sql">grant-checkin-challenges-runtime.sql</a>, with
 an explicit <code>-v runtime_role=lmm_core_runtime</code>, after installing or upgrading the
 schema and applying native Web identity/account-security grants. The separate
 script grants only challenge reads/inserts/expired deletes, the three state
@@ -208,7 +208,7 @@ not change schema definitions. Actual container acceptance remains separate from
 static SQL/Compose checks; run the new fixture on final frozen sources before
 claiming the Docker flow works.</p>
 </article>
-      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/f19b97de14e908c0057667abdb9f38c7e84e8127/deployment/postgres/README.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/TokenNotIncluded/lmm-api-source/blob/3385d567ef0e023a5b79e4499f27581be1309425/deployment/postgres/README.md">查看原始文档 ↗</a><a href="https://github.com/TokenNotIncluded/lmm-api-source">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../lmm-api-source/deployment-docker-readme/"><span class="pagination-label">上一页</span><span class="pagination-title">全新微内核 Docker 开发栈（WIP）</span></a><a class="pagination-link next" href="../../lmm-api-source/agent-workflows/"><span class="pagination-label">下一页</span><span class="pagination-title">Agent 工作指南</span></a></nav>
       <footer class="page-footer">
         <span>lmm-api-source <span class="footer-separator">/</span> Project Z</span>

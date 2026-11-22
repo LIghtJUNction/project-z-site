@@ -80,7 +80,7 @@
       </details>
       <article class="prose" id="content" tabindex="-1"><h1 id="旷世-16-pro-gm6px0x-本机验证">旷世 16 Pro GM6PX0X 本机验证</h1>
 <p>日期：2026-10-14；2026-10-15／16／17／18 续验（Asia/Taipei）。这是单台机器的部分功能验证，不是完整兼容认证。</p>
-<p>当前状态与剩余验收见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/ADAPTATION-STATUS.md">适配进度</a>。以下各节为历史记录，包版本和运行结论以各节时间为准。</p>
+<p>当前状态与剩余验收见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/ADAPTATION-STATUS.md">适配进度</a>。以下各节为历史记录，包版本和运行结论以各节时间为准。</p>
 <h2 id="2026-10-23-低速风扇配置调整">2026-10-23 低速风扇配置调整<a class="heading-anchor" href="#2026-10-23-低速风扇配置调整" aria-label="链接到 2026-10-23 低速风扇配置调整">#</a></h2>
 <p>本机运行内核 <code>7.2.11-arch1-1</code>、驱动包 <code>4.24.0.r165.gfc48597-1</code> 和
 stock TCC <code>3.0.10-1</code>；<code>tuxedo_keyboard</code> 运行与磁盘 srcversion 均为
@@ -136,7 +136,7 @@ Rust 图形界面入口为应用菜单“机械革命控制台”，CLI 入口�
 新的恢复材料统一存于 <code>~/Backups/mechrevo-drivers/light/2026-10-18/deploy-a190455/</code>；
 旧 r106 恢复包及 56 个签名恢复模块仍保留原位置。
 本轮构建及安装的文件跟踪保留 partial 缺口，不能用后验载荷核对补称完整写入历史。
-公开版本、摘要和验收范围见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/verification/deployment-r158.json">部署收据</a>。</p>
+公开版本、摘要和验收范围见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/verification/deployment-r158.json">部署收据</a>。</p>
 <p>本次未发布 AUR、未执行 Windows 实机验收，也未解决风扇异响、温度尖峰或 NVIDIA 长期稳定性。
 硬件验收仍为 <strong>9/20</strong>；下一阶段是重启后核对实际加载身份，再逐项验收硬件功能。</p>
 <h2 id="2026-10-18-io-模块身份只读复核部署前">2026-10-18 IO 模块身份只读复核（部署前）<a class="heading-anchor" href="#2026-10-18-io-模块身份只读复核部署前" aria-label="链接到 2026-10-18 IO 模块身份只读复核（部署前）">#</a></h2>
@@ -193,7 +193,7 @@ PackageKit 保持 inactive/PID 0。使用已审私有 HookDir，不改系统 hoo
 <p>生产候选的准备与打包各保留一处跟踪缺口；生产构建及最终独立包审查完整。
 这些成功不代表实机风扇恢复、持续散热或完整 Windows 移植通过，验收仍为 9/20。
 原始收据、首次三语言提取拒绝及恢复材料均保留在本地，详见
-<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/packaging/arch/tuxedo-control-center-mechrevo/README.md#pkgrel6-production-candidate-2026-10-17-not-installed">生产候选说明</a>。</p>
+<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/packaging/arch/tuxedo-control-center-mechrevo/README.md#pkgrel6-production-candidate-2026-10-17-not-installed">生产候选说明</a>。</p>
 <h2 id="2026-10-17-自然负载下的温度功耗与风扇">2026-10-17 自然负载下的温度功耗与风扇<a class="heading-anchor" href="#2026-10-17-自然负载下的温度功耗与风扇" aria-label="链接到 2026-10-17 自然负载下的温度功耗与风扇">#</a></h2>
 <p>在同一 boot、内核 7.2.9 和已安装观察器 r16 下，另做一次只读自然负载观测。
 13 个样本的实际 CPU 温度首末读取中点相隔 12.000373 秒；单个顺序采样窗口最长约 124.38 ms。
@@ -594,7 +594,7 @@ legacy FULL/周期 worker 和 remove 的固件 AUTO 语义仍未修复；不泛�
 <code>power-semantics/setting-gates/efi-abi/prefix-receipt.json</code> 保存 root600 的有界 EFI 读取。
 恢复材料位于 <code>~/Backups/projects/mechrevo-drivers/light/fan-pm-20261016/</code>（原 r72 包/原传感器及 r76 核验），
 以及 <code>power-thermal-20261016/observer-r12-recovery/</code>（r11 包/配置和 r12 核验）；均逐文件回读校验。
-源码已推送，AUR 元数据未更新。完整目标及剩余项见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/OEM-FEATURE-COVERAGE.md">功能覆盖</a>。</p>
+源码已推送，AUR 元数据未更新。完整目标及剩余项见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/OEM-FEATURE-COVERAGE.md">功能覆盖</a>。</p>
 <h2 id="2026-10-16-r72-rpm-安装与原厂功耗默认值续验前轮">2026-10-16 r72 RPM 安装与原厂功耗默认值续验（前轮）<a class="heading-anchor" href="#2026-10-16-r72-rpm-安装与原厂功耗默认值续验前轮" aria-label="链接到 2026-10-16 r72 RPM 安装与原厂功耗默认值续验（前轮）">#</a></h2>
 <p>完整本地回归 689 项通过，其中实际 C 风扇运行/并发 53 项、温度/RPM 10 项。
 RPM 故意破坏 GPU 低地址、缩放、错误传播、跨字节刷新四个负例均被回归捕获。
@@ -656,7 +656,7 @@ universal/legacy 手动模式状态所有权与真实睡眠恢复仍待修复及
 </tr>
 </tbody>
 </table></div>
-<p>地址及真实 getter/caller 见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/OEM-MIGRATION-NEXT.md">原厂策略迁移</a>。这是固件保存的原始默认值，
+<p>地址及真实 getter/caller 见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/OEM-MIGRATION-NEXT.md">原厂策略迁移</a>。这是固件保存的原始默认值，
 不是当前 RAPL/MSR 限制、实测瓦特或已执行温度目标；未据此写入 EC 或改变 Linux 策略。
 十五字节探测前后全部既存模块、配置、服务 PID、键盘节点和 GPU 保持，未新增受监测故障。
 55W PL1 上限、90°C 软件目标、每秒检查、零 RAPL 防抖保持，PL2 140W 仍未持久托管。
@@ -677,8 +677,8 @@ universal/legacy 手动模式状态所有权与真实睡眠恢复仍待修复及
 <p>原始 5.17.51.34 服务的方法表已恢复 5,183 个 CIL 方法体，每条均通过独立 OEM 尾标记。
 328,357 条指令、20,342 个显式跳转目标的静态边界核验通过；没有执行 OEM 代码，
 没有完成 CLR 栈/类型验证、完整 VM 还原或全部 Windows 功能移植。
-布局、RPM、表写入及失败路径的事实见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/OEM-METHOD-BODIES.md">方法恢复</a>
-和 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/OEM-MIGRATION-NEXT.md">原厂策略迁移</a>。原厂指令/密钥/二进制不随 Git 发布。</p>
+布局、RPM、表写入及失败路径的事实见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/OEM-METHOD-BODIES.md">方法恢复</a>
+和 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/OEM-MIGRATION-NEXT.md">原厂策略迁移</a>。原厂指令/密钥/二进制不随 Git 发布。</p>
 <p>本机 <code>7.2.9-arch1-1</code> 上仅临时加载固定地址只读 ECRR 探针，完成十组样本后移除：</p>
 <ul>
 <li>十组均为 <code>0x078e=0xec</code>、<code>0x0740=0x10</code>；按真实支持判定、项目号及工厂选择分支，
@@ -765,7 +765,7 @@ I窗口中thermald日志也读到100°C，<strong>热尖峰仍未解决</strong>
 不同，不能据此认定曲线错误。该阶段手动风扇初始化仍缺本机布局证据，因此没有试写；后续布局只读复核见上节，硬件写入仍未验收。</p>
 <p>Windows静态分析已排除关键方法仅是反编译显示问题，原始51版确实共享异常桩；
 已取出两个保护模块、静态重建可分析的native PE，并独立复现三个完整性校验范围。
-该阶段尚未恢复布局判定/RPM方法；后续已经恢复，当前结果见上节及<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/OEM-METHOD-BODIES.md">原厂方法体恢复</a>。
+该阶段尚未恢复布局判定/RPM方法；后续已经恢复，当前结果见上节及<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/OEM-METHOD-BODIES.md">原厂方法体恢复</a>。
 本轮源码已推送，未更新AUR；内核模块未重载，其他硬件验收限制保持。
 原始数据、安装收据、动作序列与恢复验证在 <code>.local-tests/postboot-20261016/thermal-iterate/</code>，
 文件跟踪有权限及短暂文件事件缺口，安装和运行结果另行独立核验。</p>
@@ -867,7 +867,7 @@ PL2 140 W。以上窗口仍出现高温，不能据此归因于 PL2，也不计�
 新 PID 为 222684，TCC 97821、nvidia-powerd 1003 保持运行。</p>
 <p>恢复原先仅限制功耗的策略可执行 <code>sudo mechrevo-power set 55</code>，这会取消显式温度目标；
 PL2 没有被持久托管，仍为 140 W。用法及恢复边界见<a href="../../mechrevo-drivers/power-control/">功耗控制</a>
-和<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/PEAK-LIMIT-TRIAL.md">短时功耗试验</a>。本地证据在
+和<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/PEAK-LIMIT-TRIAL.md">短时功耗试验</a>。本地证据在
 <code>.local-tests/postboot-20261016/power-thermal/</code>，B、C 私有试验记录及升级前恢复材料在
 <code>~/Backups/projects/mechrevo-drivers/light/power-thermal-20261016/</code>。
 文件跟踪有未解析事件，安装结果已另行逐文件核验；原始私有 JSON 不上传。</p>
@@ -906,7 +906,7 @@ JSON 解析失败，说明此前样本仅保留在内存。现改为预检前与
 升级前后 TCC settings、托管 XML、drop-in、state 的 SHA-256 相同，
 tccd／thermald／nvidia-powerd 的 PID 及 active 状态保持。55 W 请求仍确认生效且无待完成事务。
 源码交付不是 GPU 恢复或散热改善；正常 GPU 下的完整采样仍待实机验收。</p>
-<p>用法与边界见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/THERMAL-OBSERVATION.md">只读采样说明</a>。本地证据在
+<p>用法与边界见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/THERMAL-OBSERVATION.md">只读采样说明</a>。本地证据在
 <code>.local-tests/thermal-guard-20261016/</code>，含测试、实际包、安装收据和失联拒绝结果；
 恢复包在 <code>~/Backups/projects/mechrevo-drivers/light/rapl-power-control/thermal-guard-20261016/</code>。
 系统安装的文件跟踪有一项文档路径删除事件未完全解析，最终安装文件另行独立核验。
@@ -992,7 +992,7 @@ tccd、thermald、nvidia-powerd 仍 active，但服务 active 不代表显卡功
 公开样本不证明固件可互刷，其他机型的范围表不作为本机安全白名单。</p>
 <p>NVIDIA 官方 main 仍无 GPU <code>0xC5</code> 分支，Q&amp;A #1447 仍未回复；#1181／#1299 是他机
 空闲 GPU 通知唤醒相关补丁，均未合并，不能作为本机 <code>0xC5</code> 的修复。
-详见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/reports/GM6PX0X%20%E5%8A%9F%E8%80%97%20%E5%9B%BA%E4%BB%B6%20%E9%80%82%E9%85%8D%E8%B0%83%E6%9F%A5.md">功耗、固件与适配调查</a>，其中区分了
+详见<a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/reports/GM6PX0X%20%E5%8A%9F%E8%80%97%20%E5%9B%BA%E4%BB%B6%20%E9%80%82%E9%85%8D%E8%B0%83%E6%9F%A5.md">功耗、固件与适配调查</a>，其中区分了
 原始源码、作者他机观察、现有本机证据及仍缺的材料。</p>
 <p>本机只读保持核对显示：内核仍为 <code>7.2.9-arch1-1</code>，五个运行模块 build ID 与前轮基线一致；
 已安装 DKMS 包仍为 <code>4.24.0.r37.gbd8f514-1</code>，功耗工具仍为 <code>0.1.0-2</code>，四个相关服务 active。
@@ -1269,7 +1269,7 @@ profile 基线提取真实旧函数，使用正确的 powersave 位映射。
 <li>cTGP 在重载前、重载后 TCC 启动前及 TCC 启动后均为 25。
 <code>tccd</code>、<code>thermald</code>、<code>nvidia-powerd</code> 均恢复运行。</li>
 <li>本轮采集窗口没有出现 NVIDIA <code>osapi.c:2198</code> 日志，但没有修改 NVIDIA 处理器，
-不能据此认定 <code>0xC5</code> 兼容问题已解决。官方后续源码核对见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/NVIDIA-0xC5.md">NVIDIA 记录</a>。</li>
+不能据此认定 <code>0xC5</code> 兼容问题已解决。官方后续源码核对见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/NVIDIA-0xC5.md">NVIDIA 记录</a>。</li>
 </ul>
 <p>真实重启、睡眠/唤醒、手动风扇、实体热键、外接显示器、充电行为及长期负载仍未验收。
 TDP 仍没有本机安全边界依据，保持不支持。</p>
@@ -1305,7 +1305,7 @@ TDP 仍没有本机安全边界依据，保持不支持。</p>
 <li>cTGP 在重载前、重载后 TCC 启动前及 TCC 启动后均为 25；原配置恢复，
 <code>tccd</code>、<code>thermald</code>、<code>nvidia-powerd</code> 均运行。</li>
 <li>NVIDIA <code>osapi.c:2198</code> 仍出现两次。已捕获 NPCF 通知和动态参数读取成功的独立链路，
-但不能据此认为 GPU <code>0xC5</code> 可忽略，见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/NVIDIA-0xC5.md">NVIDIA 诊断记录</a>。</li>
+但不能据此认为 GPU <code>0xC5</code> 可忽略，见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/NVIDIA-0xC5.md">NVIDIA 诊断记录</a>。</li>
 </ul>
 <p><strong>真实睡眠/唤醒、实机 EC 故障、手动风扇控制和长期负载仍未验证。</strong>
 本轮修复不构成完整睡眠兼容或散热认证，也未解决既有整体风扇并发串行化问题。</p>
@@ -1461,7 +1461,7 @@ AgentGC 已跟踪选定源码、测试和制品目录；安装跟踪为 partial�
 已核验的 r7 回滚包位于
 <code>~/Backups/projects/mechrevo-drivers/light/rapl-power-control/thermal-signal-fix-20261016/</code>。
 安装跟踪为 partial，14 项短暂文件事件未完全解析；最终安装内容、回滚包和配置另行核对。
-实验命令及风险边界见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/GPU-RUNTIME-PM-TRIAL.md">GPU 运行时省电隔离测试</a>。</p>
+实验命令及风险边界见 <a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/GPU-RUNTIME-PM-TRIAL.md">GPU 运行时省电隔离测试</a>。</p>
 <h2 id="2026-10-17实际温度诊断与写入观察资格">2026-10-17：实际温度诊断与写入观察资格<a class="heading-anchor" href="#2026-10-17实际温度诊断与写入观察资格" aria-label="链接到 2026-10-17：实际温度诊断与写入观察资格">#</a></h2>
 <p>新增的 <code>status.package_temperature</code> 将实际传感器温度与配置目标、TCC 激活参考分开。
 141 项功耗事务和温度诊断回归通过；独立实机只调用新读取函数成功，
@@ -1484,7 +1484,7 @@ AgentGC 已跟踪选定源码、测试和制品目录；安装跟踪为 partial�
 <p>实机采集跟踪为 partial（0 gap、20 条未解析事件）；独立回读不补全缺失的事件历史。
 测试和包恢复材料继续保留。硬件功能验收仍为 9/20，完整 Windows 迁移未完成。</p>
 </article>
-      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/93a7614c79895fc7dcc5b1e7e1291800cc9de1d0/docs/hardware/GM6PX0X.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/mechrevo-drivers/blob/aaa7573dd2609e74936ba4c3724b169de1834f54/docs/hardware/GM6PX0X.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/mechrevo-drivers">项目仓库与许可证 ↗</a></div>
       <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link prev" href="../../mechrevo-drivers/hardware-gm6bg0q/"><span class="pagination-label">上一页</span><span class="pagination-title">蛟龙 16K GM6BG0Q 本机记录</span></a><a class="pagination-link next" href="../../mechrevo-drivers/hardware-native-kernel-controls/"><span class="pagination-label">下一页</span><span class="pagination-title">复用 Linux 已加载的原生驱动</span></a></nav>
       <footer class="page-footer">
         <span>mechrevo-drivers <span class="footer-separator">/</span> Project Z</span>
