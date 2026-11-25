@@ -300,15 +300,6 @@
       "pages": 4
     },
     {
-      "id": "zobs",
-      "summary": "原生录制工作台，配置场景并通过 FFmpeg 录制、推流和查询进度。",
-      "category": "applications",
-      "repository": "https://github.com/LIghtJUNction/zobs",
-      "commit": "6bddc40f46cc8eb97d9f5219ef3654adb06486bb",
-      "url": "zobs/",
-      "pages": 3
-    },
-    {
       "id": "zplugin",
       "summary": "原生插件 ABI、动态库加载与可选 Wasm 沙箱。",
       "category": "system",
