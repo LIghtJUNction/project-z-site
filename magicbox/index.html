@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="为 Linux 和 Android 提供 SOCKS5 与 HTTP CONNECT 连接服务，附带可单独使用的 DNS 报文编解码库。">
+  <meta name="theme-color" content="#141210">
+  <meta property="og:title" content="magicbox · 概览 · Project Z">
+  <meta property="og:description" content="为 Linux 和 Android 提供 SOCKS5 与 HTTP CONNECT 连接服务，附带可单独使用的 DNS 报文编解码库。">
+  <meta property="og:type" content="website">
+  <title>magicbox · 概览 · Project Z</title>
+  <script>try{var theme=localStorage.getItem('project-z-docs-theme');if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme;}catch(error){}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../docs.css">
+  <script src="../docs.js" defer></script>
+<link rel="canonical" href="https://lightjunction.github.io/project-z-site/magicbox/">
+</head>
+<body data-root="../" data-page-kind="project" data-project="magicbox">
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="Project Z 文档首页">
+        <span class="brand-mark" aria-hidden="true">z<span>_</span></span>
+        <span class="brand-name">Project Z</span>
+        <span class="docs-label">文档</span>
+      </a>
+      <div class="header-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="搜索全部文档" aria-haspopup="dialog" aria-controls="search-dialog" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="search-label">搜索文档</span>
+          <kbd class="search-shortcut">Ctrl K</kbd>
+        </button>
+        <button class="icon-button theme-toggle" type="button" aria-label="切换浅色主题" title="切换浅色主题" hidden>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+        <a class="repo-link" href="https://github.com/LIghtJUNction/magicbox" aria-label="magicbox 源码仓库">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v3a4 4 0 0 1-4 4H6"/></svg>
+          <span>GitHub</span>
+          <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  <details class="mobile-navigation">
+    <summary>
+      <span class="menu-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>目录</span>
+      <span class="mobile-page-title">magicbox</span>
+      <svg class="disclosure-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </summary>
+    <div class="mobile-navigation-content">
+      <details class="project-switcher">
+        <summary><span>magicbox</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+        <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../magicbox/" aria-current="page">magicbox</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+      </details>
+      <nav class="sidebar-nav" aria-label="magicbox 文档"><div class="nav-group"><p class="nav-label">magicbox</p><ul><li><a class="nav-link" href="../magicbox/" aria-current="page">概览</a></li><li><a class="nav-link" href="../magicbox/dns-guard/">Scoped DNS guard</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+      <a class="all-projects-link" href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+  <div class="docs-layout">
+    <aside class="sidebar" aria-label="文档导航">
+      <div class="sidebar-inner">
+        <details class="project-switcher">
+          <summary><span>magicbox</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9 4-4 4 4m-8 6 4 4 4-4"/></svg></summary>
+          <nav class="project-menu" aria-label="切换项目"><ul><li><a href="../lmm/">lmm</a></li><li><a href="../lmm-api-source/">lmm-api-source</a></li><li><a href="../magicbox/" aria-current="page">magicbox</a></li><li><a href="../mechrevo-drivers/">mechrevo-drivers</a></li><li><a href="../oh-my-ztty/">oh-my-ztty</a></li><li><a href="../OniMods/">OniMods</a></li><li><a href="../ssmcp/">ssmcp</a></li><li><a href="../z58/">z58</a></li><li><a href="../z64/">z64</a></li><li><a href="../zcall/">zcall</a></li><li><a href="../zcall-gui/">zcall-gui</a></li><li><a href="../zcall-omarchy/">zcall-omarchy</a></li><li><a href="../zcalld/">zcalld</a></li><li><a href="../zcalld-compat/">zcalld-compat</a></li><li><a href="../zchat/">zchat</a></li><li><a href="../zclap/">zclap</a></li><li><a href="../zclick/">zclick</a></li><li><a href="../zconv/">zconv</a></li><li><a href="../zdistro/">zdistro</a></li><li><a href="../zdot/">zdot</a></li><li><a href="../zdwire/">zdwire</a></li><li><a href="../zfetch/">zfetch</a></li><li><a href="../zgpui/">zgpui</a></li><li><a href="../zgraphics/">zgraphics</a></li><li><a href="../zguard/">zguard</a></li><li><a href="../zharness/">zharness</a></li><li><a href="../zhex/">zhex</a></li><li><a href="../zi18n/">zi18n</a></li><li><a href="../zinput/">zinput</a></li><li><a href="../zldap/">zldap</a></li><li><a href="../zmcl/">zmcl</a></li><li><a href="../zmcpio/">zmcpio</a></li><li><a href="../zmem/">zmem</a></li><li><a href="../zmime/">zmime</a></li><li><a href="../zplugin/">zplugin</a></li><li><a href="../zpty/">zpty</a></li><li><a href="../zrc/">zrc</a></li><li><a href="../zscan/">zscan</a></li><li><a href="../zshard/">zshard</a></li><li><a href="../zsyn/">zsyn</a></li><li><a href="../zsys/">zsys</a></li><li><a href="../zterm/">zterm</a></li><li><a href="../ztty/">ztty</a></li><li><a href="../ztuio/">ztuio</a></li><li><a href="../ztype/">ztype</a></li><li><a href="../zuse/">zuse</a></li><li><a href="../zuse-skills/">zuse-skills</a></li><li><a href="../zuse-std/">zuse-std</a></li><li><a href="../zvte/">zvte</a></li></ul></nav>
+        </details>
+        <nav class="sidebar-nav" aria-label="magicbox 文档"><div class="nav-group"><p class="nav-label">magicbox</p><ul><li><a class="nav-link" href="../magicbox/" aria-current="page">概览</a></li><li><a class="nav-link" href="../magicbox/dns-guard/">Scoped DNS guard</a></li></ul></div><div class="nav-group"><p class="nav-label">Project Z</p><ul><li><a class="nav-link" href="../#projects">全部项目</a></li></ul></div></nav>
+        <div class="sidebar-footer">
+          <a href="../#projects">全部项目 <span aria-hidden="true">↗</span></a>
+          <a href="../magicbox/">magicbox 概览</a>
+          <span class="sidebar-note">独立项目，共同构建。</span>
+        </div>
+      </div>
+    </aside>
+    <main class="doc-main" id="main">
+      <div class="page-context"><a href="../">Project Z</a><span aria-hidden="true">/</span><a href="../magicbox/">magicbox</a><span aria-hidden="true">/</span><span>概览</span></div>
+      <details class="mobile-toc">
+        <summary>本页内容<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#客户端">客户端</a></li><li class="toc-level-2"><a href="#运行-https-connect-服务端">运行 HTTPS CONNECT 服务端</a></li><li class="toc-level-2"><a href="#linux-与-android-的透明-tcp-入口">Linux 与 Android 的透明 TCP 入口</a></li><li class="toc-level-2"><a href="#订阅与规则">订阅与规则</a></li><li class="toc-level-2"><a href="#作用范围">作用范围</a></li><li class="toc-level-2"><a href="#验证和测量">验证和测量</a></li><li class="toc-level-2"><a href="#一次可重复的对照测量">一次可重复的对照测量</a></li><li class="toc-level-2"><a href="#独立-dns-报文库">独立 DNS 报文库</a></li></ul>
+      </details>
+      <article class="prose" id="content" tabindex="-1"><h1 id="magicbox">MagicBox</h1><p class="project-intro">为 Linux 和 Android 提供 SOCKS5 与 HTTP CONNECT 连接服务，附带可单独使用的 DNS 报文编解码库。</p>
+<p>MagicBox 用一个 Rust 程序提供客户端和服务端。客户端在同一个回环端口接收 SOCKS5 CONNECT 和 HTTP CONNECT 请求，经选定的上游建立连接。服务端接受 HTTPS CONNECT 请求，验证用户凭据，并通过 DNS-over-TLS 解析目标域名。</p>
+<h2 id="客户端">客户端<a class="heading-anchor" href="#客户端" aria-label="链接到 客户端">#</a></h2>
+<p>安装 Rust 1.99.1 或更新版本，在仓库里执行以下命令。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-1" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-1" tabindex="0"><code>cargo build --locked --release --bin magicbox
+export PATH=&quot;$PWD/target/release:$PATH&quot;
+</code></pre></div>
+<p>在私有文件 <code>client.toml</code> 中填入上游地址、证书域名和凭据。下面使用文档保留地址。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-2" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-2" tabindex="0"><code>upstream = &quot;https://alice:REPLACE_WITH_PASSWORD@192.0.2.10:8443?server_name=relay.example&quot;
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-3" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-3" tabindex="0"><code>chmod 600 client.toml
+magicbox check client.toml
+magicbox run client.toml
+</code></pre></div>
+<p>客户端就绪后在标准错误输出 ready 和实际监听地址。默认监听 127.0.0.1:1080。可通过 listen 字符串选择其他回环 IP 和端口。使用支持远端解析的应用连接这个端口，例如以下 curl 命令。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-4" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-4" tabindex="0"><code>curl -x socks5h://127.0.0.1:1080 https://example.org/
+</code></pre></div>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>上游方案</th>
+<th>身份与传输</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>https</td>
+<td>TLS 验证公开 CA 和服务端名称。域名节点默认验证原始节点域名，数字 IP 节点默认验证证书的 IP SAN。可选 HTTP Basic 凭据位于 TLS 内</td>
+</tr>
+<tr>
+<td>socks5</td>
+<td>支持无认证和 RFC 1929 用户名密码。远程链路上的凭据与数据使用明文</td>
+</tr>
+<tr>
+<td>http</td>
+<td>支持 HTTP CONNECT 和可选 Basic。远程链路上的凭据与数据使用明文</td>
+</tr>
+<tr>
+<td>ss</td>
+<td>Shadowsocks AEAD TCP 客户端，支持 aes-128-gcm、aes-256-gcm、chacha20-ietf-poly1305；与 Debian shadowsocks-libev 实测互通</td>
+</tr>
+</tbody>
+</table></div>
+<p>上游可填写数字 IP 或完整域名。导入订阅和检查配置均在离线状态完成。启动域名节点时，核心向数字地址指定的 DNS-over-TLS 服务发送 A 和 AAAA 查询，两个查询共用一次发送和 5 秒限时。默认解析器为 1.1.1.1，验证 cloudflare-dns.com，可通过 MAGICBOX_RESOLVER 指定其他可信的 tls://IP:PORT?server_name=NAME。解析器能看到被选节点的域名。核心只接受可路由的公网结果，排除本机接口地址，固定结果直到重启。每次连接在原握手限时内尝试其他可用 IP。解析或证书验证失败会终止对应操作。内网和 Tailscale 服务可显式填写数字 IP。</p>
+<p>用户名与密码中的 URI 特殊字符可以百分号编码。私有 CA 通过 MAGICBOX_CA_BUNDLE 指定 PEM 文件。配置不含 upstream 时，监听器可以启动，所有转发请求都会被拒绝。上游连接失败时，客户端向本地应用返回失败。</p>
+<h2 id="运行-https-connect-服务端">运行 HTTPS CONNECT 服务端<a class="heading-anchor" href="#运行-https-connect-服务端" aria-label="链接到 运行 HTTPS CONNECT 服务端">#</a></h2>
+<p>准备可验证的证书链、对应私钥和一个只允许服务账户读取的凭据文件。下例创建随机密码，凭据保存在单独文件中。客户端配置使用相同的用户名与密码。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-5" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-5" tabindex="0"><code>umask 077
+printf &#x27;alice:%s\n&#x27; &quot;$(openssl rand -hex 24)&quot; &gt; credential
+</code></pre></div>
+<p>把路径改成服务器上真实的文件位置。显式设置公开监听地址后，能访问该 TCP 端口的客户端都可以发起 TLS 握手。连接目标需要通过用户名与密码验证。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">toml</span><button class="copy-button" type="button" data-copy="code-6" aria-label="复制 toml 代码" hidden>复制</button></div><pre id="code-6" tabindex="0"><code>listen = &quot;0.0.0.0:8443&quot;
+certificate = &quot;/etc/magicbox/fullchain.pem&quot;
+private_key = &quot;/etc/magicbox/privkey.pem&quot;
+credential_file = &quot;/etc/magicbox/credential&quot;
+</code></pre></div>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-7" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-7" tabindex="0"><code>magicbox check-server server.toml
+magicbox serve server.toml
+</code></pre></div>
+<p>服务端默认通过 1.1.1.1:853 使用 TLS 向 Cloudflare 查询 A 和 AAAA，验证 cloudflare-dns.com。上游 DNS 服务能看到所查询的域名。使用其他解析器时，设置 resolver 为 tls://IP:PORT?server_name=NAME。DNS 响应需要匹配原请求的事务、名称、类型和类别。服务端只使用目标名称及其 CNAME 链的地址，逐个检查并连接数字 IP。请求解析失败会终止这次转发。</p>
+<p>服务端限制外连目的地址，拒绝回环、私网、链路本地、运营商共享地址、组播和常用保留网段。认证在 DNS 查询和目标连接之前完成。客户端与服务端各允许 128 个并发会话。握手结束前共用 10 秒截止时间，空闲转发连接的超时时间为 5 分钟。</p>
+<h2 id="linux-与-android-的透明-tcp-入口">Linux 与 Android 的透明 TCP 入口<a class="heading-anchor" href="#linux-与-android-的透明-tcp-入口" aria-label="链接到 Linux 与 Android 的透明 TCP 入口">#</a></h2>
+<p>通过以下命令复用已有客户端配置。管理员在 netfilter 中选择应用 UID 或热点接口后，将该范围的 IPv4、IPv6 公网 TCP 连接 REDIRECT 到指定端口。入口从内核连接跟踪记录读取原始 IP 和端口，转发前检查目标策略。普通连接直接访问监听端口时会被关闭。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-8" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-8" tabindex="0"><code>magicbox redirect client.toml 19870
+</code></pre></div>
+<p>监听成功会输出 ready [::]:19870。端口同时服务 IPv4 和 IPv6。此入口只处理由宿主规则实际送达的 TCP，不安装系统规则。原始 IP 没有域名信息，按域名匹配的规则仅能用于显式提供域名的连接。端口 53、私网、回环和常见保留地址不会从此入口出站。系统解析器代查、独立的 UDP 流和其他应用流量需要各自的宿主策略。独立应用配置 DoH 时，HTTPS 连接可以跟随选定的 TCP 路径。应用与目标服务之间的 TLS 会话保持端到端加密。</p>
+<h2 id="订阅与规则">订阅与规则<a class="heading-anchor" href="#订阅与规则" aria-label="链接到 订阅与规则">#</a></h2>
+<p>首次配置时，可以用 <code>fetch</code> 直接下载 HTTPS 订阅。URL 可以通过标准输入传给进程，避免令牌出现在命令行参数中。下载在证书验证、完整读取和大小检查通过后才产生标准输出。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-9" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-9" tabindex="0"><code>umask 077
+printf &#x27;%s\n&#x27; &quot;$SUBSCRIPTION_URL&quot; | magicbox fetch - &gt; feed.txt
+</code></pre></div>
+<p>首次下载使用与服务端相同的加密 DNS 默认值，并限制到公网目的地址。可用 MAGICBOX_USER_AGENT 设置自定义 UA，或用 MAGICBOX_RESOLVER 指定自己的 TLS 解析器。下载上限为 2 MiB，总时限为 20 秒。最多跟随三个 HTTPS 重定向，逐跳验证证书和目标地址。自定义 UA 仅发往起始站点。支持定长、分块和以连接关闭划定边界的响应。下载请求指定 identity 内容编码。</p>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-10" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-10" tabindex="0"><code>magicbox import --list feed.txt
+umask 077
+magicbox import --select 1 feed.txt &gt; client.toml
+magicbox check client.toml
+</code></pre></div>
+<p>导入器读取本地文件或标准输入，支持 URI 列表、一次 Base64 或 Base64URL 包装，以及受支持的 Clash/Mihomo、sing-box 格式的 JSON 或 YAML 节点。列表显示编号、协议、可用状态和经过清洗的节点名称。选择节点会输出包含真实凭据的 TOML。无法保留协议或证书语义的节点显示为 unavailable。</p>
+<p>MAGICBOX_BLOCKLIST 指向经过排序的精确域名规则文件，首行为 magicbox-exact-v1，随后每行一个小写域名。进程在启动时验证并载入整份规则。内置策略拒绝 localhost、local、home.arpa 及其子域。外部规则按完整域名匹配。</p>
+<h2 id="作用范围">作用范围<a class="heading-anchor" href="#作用范围" aria-label="链接到 作用范围">#</a></h2>
+<p>应用通过 SOCKS5 或 CONNECT 提交域名时，上游可以读取目标名称。应用自行解析并只提交 IP 时，MagicBox 只能取得目标地址。应用直接发起的其他连接沿用宿主网络策略。核心本身无需修改设备路由、系统 DNS 或防火墙。使用 HTTPS 上游时，TLS 保护客户端到上游的链路，上游仍能看到转发目的地。</p>
+<p>可选的 Linux cgroup eBPF DNS 守卫按指定 cgroup 生效。操作方式和覆盖边界见 <a href="../magicbox/dns-guard/">DNS guard</a>。</p>
+<p>SOCKS5 上游还支持 RFC 1928 UDP ASSOCIATE。应用须保留控制连接并使用协商的本地 UDP 中继。核心检查数据报端点、目的地址及域名规则，关闭控制连接时撤销关联。当前没有通用 TUN、透明 UDP 路由或 Shadowsocks UDP。Shadowsocks 插件、AEAD-2022、VMess、VLESS、WireGuard、Hysteria2 和 TUIC 等仍待实现。受支持的主要部署目标为 Linux 和 Android。Android 模块、规则下载与增量更新由 <a href="https://github.com/LIghtJUNction/magicnet-astra-pro">MagicNet Astra Pro</a> 提供。</p>
+<h2 id="验证和测量">验证和测量<a class="heading-anchor" href="#验证和测量" aria-label="链接到 验证和测量">#</a></h2>
+<div class="code-block"><div class="code-toolbar"><span class="code-language">sh</span><button class="copy-button" type="button" data-copy="code-11" aria-label="复制 sh 代码" hidden>复制</button></div><pre id="code-11" tabindex="0"><code>cargo fmt --all -- --check
+cargo clippy --locked --all-targets -- -D warnings
+cargo test --locked
+cargo build --release --locked --bin magicbox
+python3 tests/tunnels.py target/release/magicbox
+python3 tests/dns_path.py target/release/magicbox
+python3 tests/udp.py target/release/magicbox
+sudo sh tests/netns.sh target/release/magicbox
+sudo python3 tests/redirect_kernel.py target/release/magicbox
+python3 tests/bench.py target/release/magicbox
+python3 tests/compare.py target/release/magicbox /path/to/reference/sing-box
+</code></pre></div>
+<p>集成测试需要 Python 3、OpenSSL 和 C 编译器。测试会生成一次性 CA，验证错误证书、认证失败、上游断开、双向数据、半关闭以及使用加密 DNS 的完整客户端与服务端链路。测试将一个指定的公开 IP 映射到本地回显服务，便于普通 Linux 用户运行。</p>
+<p>DNS 路径测试优先使用 strace 观察 socket 和 connect 系统调用。在禁用 ptrace 的环境中使用 libc 插桩，并在输出标明观察层次。性能脚本使用本地持续 TCP 连接，记录吞吐量、请求往返延迟及 Linux 进程峰值 RSS；compare.py 在相同的回显负载下轮换运行 MagicBox 和给定的 sing-box 二进制。实际网络、规则规模、并发数和上游协议均会影响测量结果。</p>
+<h2 id="一次可重复的对照测量">一次可重复的对照测量<a class="heading-anchor" href="#一次可重复的对照测量" aria-label="链接到 一次可重复的对照测量">#</a></h2>
+<p>在同一台离线 Debian 虚拟机中，包含透明 TCP 入口、命名上游与独立 DNS 报文库的 MagicBox 构建和参考版本各启动七个独立进程，交替测试。每轮建立一条 SOCKS5 到 SOCKS5 的回环 TCP 隧道，完成 100 次单字节往返与 32 MiB 单向上传。虚拟机采用 QEMU TCG 软件模拟、两个虚拟 CPU 和 360 MiB 内存，未加载外部规则集。表中每项都是七轮中位数。</p>
+<div class="table-wrap" role="region" aria-label="文档表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>检测项</th>
+<th style="text-align:right">MagicBox 0.1.0</th>
+<th style="text-align:right">sing-box 1.14.4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上传吞吐量 (MiB/s)</td>
+<td style="text-align:right">97.11</td>
+<td style="text-align:right">118.09</td>
+</tr>
+<tr>
+<td>单字节往返 p50 (µs)</td>
+<td style="text-align:right">421.48</td>
+<td style="text-align:right">955.45</td>
+</tr>
+<tr>
+<td>单字节往返 p95 (µs)</td>
+<td style="text-align:right">590.83</td>
+<td style="text-align:right">1355.29</td>
+</tr>
+<tr>
+<td>单进程峰值 RSS (KiB)</td>
+<td style="text-align:right">2964</td>
+<td style="text-align:right">55932</td>
+</tr>
+</tbody>
+</table></div>
+<p>这组测量中，MagicBox 的单连接内存与往返延迟较低，sing-box 的批量上传吞吐量较高。软件模拟会改变系统调用和 CPU 的相对成本。实机多连接、加密传输、热点转发与加载规则后的性能需要独立测量。逐轮读数、内核、参考发行版和二进制摘要保存在 <a href="https://github.com/LIghtJUNction/magicbox/blob/8f7365c604a11e99c0b0b3731be4381d0f3c3331/docs/bench-qemu.json">原始数据</a>。</p>
+<h2 id="独立-dns-报文库">独立 DNS 报文库<a class="heading-anchor" href="#独立-dns-报文库" aria-label="链接到 独立 DNS 报文库">#</a></h2>
+<p><a href="https://github.com/LIghtJUNction/magicbox/blob/8f7365c604a11e99c0b0b3731be4381d0f3c3331/crates/dns-wire">magicbox-dns-wire</a> 提供 A、AAAA 查询编码和响应校验，可单独作路径依赖。该组件只使用 Rust 的 core 和 alloc，在空 Cargo 缓存中也能离线测试。传输层的 TLS 身份校验与超时由调用方负责。</p>
+</article>
+      <div class="page-source"><a href="https://github.com/LIghtJUNction/magicbox/blob/8f7365c604a11e99c0b0b3731be4381d0f3c3331/README.md">查看原始文档 ↗</a><a href="https://github.com/LIghtJUNction/magicbox">项目仓库与许可证 ↗</a></div>
+      <nav class="pagination" aria-label="上一页与下一页"><a class="pagination-link next" href="../magicbox/dns-guard/"><span class="pagination-label">下一页</span><span class="pagination-title">Scoped DNS guard</span></a></nav>
+      <footer class="page-footer">
+        <span>magicbox <span class="footer-separator">/</span> Project Z</span>
+        <span>文档更新于 2026-11-26</span>
+      </footer>
+    </main>
+    <aside class="page-outline" aria-label="本页内容">
+      <div class="outline-inner">
+        <p class="outline-label">本页内容</p>
+        <ul class="toc-list"><li class="toc-level-2"><a href="#客户端">客户端</a></li><li class="toc-level-2"><a href="#运行-https-connect-服务端">运行 HTTPS CONNECT 服务端</a></li><li class="toc-level-2"><a href="#linux-与-android-的透明-tcp-入口">Linux 与 Android 的透明 TCP 入口</a></li><li class="toc-level-2"><a href="#订阅与规则">订阅与规则</a></li><li class="toc-level-2"><a href="#作用范围">作用范围</a></li><li class="toc-level-2"><a href="#验证和测量">验证和测量</a></li><li class="toc-level-2"><a href="#一次可重复的对照测量">一次可重复的对照测量</a></li><li class="toc-level-2"><a href="#独立-dns-报文库">独立 DNS 报文库</a></li></ul>
+        <a class="outline-top" href="#content">回到顶部 <span aria-hidden="true">↑</span></a>
+      </div>
+    </aside>
+  </div>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-heading">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m16 16 4.5 4.5"/></svg>
+      <label class="visually-hidden" id="search-title" for="search-input">搜索全部文档</label>
+      <input id="search-input" type="search" placeholder="搜索项目、命令与文档…" autocomplete="off" spellcheck="false" aria-describedby="search-status">
+      <button class="search-close" type="button" data-search-close aria-label="关闭搜索">Esc</button>
+    </div>
+    <div class="search-content">
+      <p class="search-status" id="search-status" role="status" aria-live="polite">输入项目名、命令或关键词。</p>
+      <ul class="search-results" id="search-results" aria-label="搜索结果"></ul>
+    </div>
+    <div class="search-footer"><span><kbd>↑</kbd><kbd>↓</kbd> 选择 <kbd>↵</kbd> 打开</span><span>在浏览器内搜索</span></div>
+  </dialog>
+  <p class="visually-hidden" id="action-status" role="status" aria-live="polite"></p>
+</body>
+</html>
